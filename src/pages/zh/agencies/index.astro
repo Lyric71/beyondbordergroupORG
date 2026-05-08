@@ -5,16 +5,16 @@ import { pathFor } from '../../../i18n/ui';
 
 const locale = 'zh' as const;
 const title = '七家公司';
-const description = 'BeyondBorderGroup 由七家专业公司组成。需要哪一家就选哪一家。每家独立运营。大多数客户先从一家开始。';
+const description = 'BeyondBorderGroup 由七家专业公司组成。需要哪一家，就启用哪一家。每一家都自成一格。绝大多数客户从一家开始，再随着项目展开把别的拉进来。';
 
 const agencies = [
-  { n: '01', slug: 'beyondbordergroup', route: 'agencies/beyondbordergroup' as const, name: 'BeyondBorderGroup', badge: '西方进入中国 · 全案', body: '中国全案公司。二十年实地。品牌、媒介、社交、KOL、内容、PR、网站、活动、电商、分销。', fit: '需要一支负责到底的团队进入或扩大中国市场的品牌。', based: '上海。香港。巴黎。' },
-  { n: '02', slug: 'theredscroll', route: 'agencies/theredscroll' as const, name: 'TheRedScroll', badge: '西方进入中国 · 渠道专家', body: '从一线运营的中国社交媒体。微信、抖音、小红书、微博，再加 14 个平台。固定范围、固定价格。', fit: '需要把中国社交真正做好的品牌。', based: '上海。香港。' },
-  { n: '03', slug: 'chinawebfoundry', route: 'agencies/chinawebfoundry' as const, name: 'ChinaWebFoundry', badge: '西方进入中国 · 网站基建', body: '为中国互联网建的网站。ICP、百度、AI 引擎、微信浏览器实测。WordPress、Astro、微信。', fit: '网站必须在中国真正能跑的品牌。', based: '上海。杭州。' },
-  { n: '04', slug: 'beyondcompass', route: 'agencies/beyondcompass' as const, name: 'BeyondCompass', badge: '西方进入中国 · 合作伙伴对接', body: '我们亲自见过、验证过、并大多合作过的中国分销商、Tmall TP、抖音 Partner 私库。直接跳过三个月的找人时间。', fit: '第一次选中国合作伙伴，或正在重组分销结构的品牌。', based: '上海。15 年实地验证。' },
-  { n: '05', slug: 'beyondbridge', route: 'agencies/beyondbridge' as const, name: 'BeyondBridge', badge: '中国走向西方 · 整条业务链', body: '中国品牌出海的整套业务链。品牌、LinkedIn、网站、SEO/GEO、广告、本地具名销售。', fit: '需要在海外有真正业务管道，而不只是展会式存在的中国品牌。', based: '中国。美国、英国、德国、法国本地代表。' },
-  { n: '06', slug: 'hubstudio', route: 'agencies/hubstudio' as const, name: 'HubStudio', badge: '横向 · 内容生产', body: 'AIGC 图像、视频与内容。代理级品质，AI 速度。', fit: '需要规模化内容的品牌、零售商、代理公司、制造商。', based: '全球。总部上海。' },
-  { n: '07', slug: 'nuvora-studio', route: 'agencies/nuvora-studio' as const, name: 'Nuvora Studio', badge: '横向 · 仅做 LinkedIn 的 B2B', body: '只做 LinkedIn。策略、内容、广告、员工传播、高管个人品牌。', fit: '全球任何地方的 B2B 公司。', based: '全球。' },
+  { n: '01', slug: 'beyondbordergroup', route: 'agencies/beyondbordergroup' as const, name: 'BeyondBorderGroup', badge: '西方进入中国 · 全案', body: '中国全案公司，二十年实地经验。品牌、媒介、社交、KOL、内容、PR、网站、活动、电商、分销，全部由一支团队负责到底。', fit: '需要一支负责到底的团队来进入或在中国扩规模的品牌。', based: '上海 · 香港 · 巴黎。' },
+  { n: '02', slug: 'theredscroll', route: 'agencies/theredscroll' as const, name: 'TheRedScroll', badge: '西方进入中国 · 渠道专家', body: '从一线运营的中国社交媒体：微信、抖音、小红书、微博，加上另外十四个平台。范围固定，价格固定。', fit: '想把中国社交媒体真正跑好的品牌。', based: '上海 · 香港。' },
+  { n: '03', slug: 'chinawebfoundry', route: 'agencies/chinawebfoundry' as const, name: 'ChinaWebFoundry', badge: '西方进入中国 · 网站基础设施', body: '为中国互联网而生的网站。ICP、百度、AI 引擎，全部在微信浏览器里跑过。WordPress、Astro、微信。', fit: '网站必须在中国真的跑得动的品牌。', based: '上海 · 杭州。' },
+  { n: '04', slug: 'beyondcompass', route: 'agencies/beyondcompass' as const, name: 'BeyondCompass', badge: '西方进入中国 · 合作伙伴对接', body: '我们亲自见过、用过的中国分销商、Tmall TP、抖音 Partner 与进口商私库。三个月的找人时间，直接省掉。', fit: '第一次选中国合作伙伴，或者正在重整分销结构的品牌。', based: '上海。十五年实地验证打底。' },
+  { n: '05', slug: 'beyondbridge', route: 'agencies/beyondbridge' as const, name: 'BeyondBridge', badge: '中国走向西方 · 整条链路', body: '中国品牌出海的整条链路：品牌、LinkedIn、网站、SEO/GEO、Ads、当地具名销售代表。', fit: '想在海外真正建起业务管道，而不只是展会式存在的中国品牌。', based: '中国。美国、英国、德国、法国均设具名代表。' },
+  { n: '06', slug: 'hubstudio', route: 'agencies/hubstudio' as const, name: 'HubStudio', badge: '横向 · 内容生产', body: 'AIGC 图像、视频与内容。代理级品质，AI 级速度。', fit: '需要规模化内容产出的品牌、零售商、代理公司和制造商。', based: '全球。总部上海。' },
+  { n: '07', slug: 'nuvora-studio', route: 'agencies/nuvora-studio' as const, name: 'Nuvora Studio', badge: '横向 · 只做 LinkedIn 的 B2B', body: '只做 LinkedIn。策略、内容、投放、员工传播和高管个人品牌。', fit: '全球任何地方的 B2B 公司。', based: '全球。' },
 ];
 ---
 
@@ -22,9 +22,9 @@ const agencies = [
   <section class="hero-editorial">
     <div class="container">
       <span class="eyebrow eyebrow--rule">公司</span>
-      <h1 class="hero-editorial__title balance">七家专业公司。一个生态。</h1>
+      <h1 class="hero-editorial__title balance">七家专业公司，同一个生态。</h1>
       <p class="hero-editorial__lead">
-        每家公司独立运营。各有自己的品牌、定价、交付物。选最对你的那一家。大多数客户先从一家开始，随项目展开再加入其他。
+        每家都自成一格：自己的品牌、自己的报价、自己的交付物。哪一家最对得上你今天的题，就选哪一家。绝大多数客户从一家开始，再随项目展开把别的拉进来。
       </p>
     </div>
   </section>

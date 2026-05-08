@@ -5,17 +5,17 @@ import AgencyLogo from '../../components/AgencyLogo.astro';
 import { pathFor } from '../../i18n/ui';
 
 const locale = 'zh' as const;
-const title = '中国与西方，双向打通';
-const description = '七家专业公司，连接中国与西方，双向运营。品牌、渠道、网站、合作伙伴对接、内容、销售。一个生态，一根共同的脊柱。';
+const title = '连接中国与西方，双向打通';
+const description = '七家专业公司，把中国与西方双向连起来。品牌、渠道、网站、伙伴对接、内容、销售，全部由同一个生态、同一根脊柱支撑。';
 
 const agencies = [
-  { n: '01', name: 'BeyondBorderGroup', tagline: '中国市场全案。从品牌到电商。', route: 'agencies/beyondbordergroup' as const },
-  { n: '02', name: 'TheRedScroll', tagline: '中国社交媒体。微信、抖音、小红书、微博。', route: 'agencies/theredscroll' as const },
-  { n: '03', name: 'ChinaWebFoundry', tagline: '为中国互联网而做的网站。百度、ICP、AI 引擎。', route: 'agencies/chinawebfoundry' as const },
-  { n: '04', name: 'BeyondCompass', tagline: '我们亲自验证过的中国分销商、Tmall TP、抖音 Partner 私库。', route: 'agencies/beyondcompass' as const },
-  { n: '05', name: 'BeyondBridge', tagline: '中国品牌出海的整条业务链。', route: 'agencies/beyondbridge' as const },
-  { n: '06', name: 'HubStudio', tagline: 'AIGC 图像、视频与内容。规模化生产。', route: 'agencies/hubstudio' as const },
-  { n: '07', name: 'Nuvora Studio', tagline: '只做 LinkedIn 的 B2B 公司。策略、内容、广告。', route: 'agencies/nuvora-studio' as const },
+  { n: '01', name: 'BeyondBorderGroup', tagline: '中国市场全案。从品牌到电商，端到端。', route: 'agencies/beyondbordergroup' as const },
+  { n: '02', name: 'TheRedScroll', tagline: '从一线运营的中国社交。微信、抖音、小红书、微博。', route: 'agencies/theredscroll' as const },
+  { n: '03', name: 'ChinaWebFoundry', tagline: '为中国互联网而生的网站。百度、ICP、AI 引擎。', route: 'agencies/chinawebfoundry' as const },
+  { n: '04', name: 'BeyondCompass', tagline: '我们亲自见过、用过的中国分销商、Tmall TP、抖音 Partner 私库。', route: 'agencies/beyondcompass' as const },
+  { n: '05', name: 'BeyondBridge', tagline: '中国品牌出海的整条链路。', route: 'agencies/beyondbridge' as const },
+  { n: '06', name: 'HubStudio', tagline: 'AIGC 图像、视频与内容。规模化产出。', route: 'agencies/hubstudio' as const },
+  { n: '07', name: 'Nuvora Studio', tagline: '只做 LinkedIn 的 B2B 公司。策略、内容、投放。', route: 'agencies/nuvora-studio' as const },
 ];
 ---
 
@@ -25,15 +25,15 @@ const agencies = [
       <div class="hero-statement__grid">
         <div>
           <span class="eyebrow">生态</span>
-          <h1 class="hero-statement__title balance">我们在中国与西方之间打造品牌。双向。</h1>
+          <h1 class="hero-statement__title balance">在中国与西方之间打造品牌。两个方向，同时跑。</h1>
           <p class="hero-statement__lead">
-            七家专业公司，一条共同的逻辑。中国与西方之间的鸿沟不是翻译问题。它是品牌问题、渠道问题、基建问题、销售问题。两个方向同时存在。
+            七家专业公司，同一套方法论。中国与西方之间的距离，不是翻译能解决的事。它是品牌的事、渠道的事、基础设施的事、销售的事。而且，它在两个方向上同时发生。
           </p>
           <div class="btn-row">
             <a class="btn btn--primary" href={pathFor('agencies', locale)}>找到合适的公司</a>
-            <a class="btn btn--ghost" href={pathFor('contact', locale)}>与我们对话</a>
+            <a class="btn btn--ghost" href={pathFor('contact', locale)}>聊一聊</a>
           </div>
-          <p class="hero-statement__cite">上海。香港。巴黎。在美国、英国、德国、法国设有商务代表。</p>
+          <p class="hero-statement__cite">上海 · 香港 · 巴黎。在美国、英国、德国、法国设有商务代表。</p>
         </div>
         <div class="hero-statement__visual">
           <ImagePlaceholder ratio="3x4" label="编辑风人物像。跨境运营者在工作中。" />
@@ -46,15 +46,15 @@ const agencies = [
     <div class="container">
       <header class="section-header">
         <span class="eyebrow">两个方向</span>
-        <h2 class="balance">一座桥。两条流向。</h2>
-        <p class="lead">无论你走哪一边，两边的活我们都已经做过。</p>
+        <h2 class="balance">一座桥，两条车流。</h2>
+        <p class="lead">不论你从哪一岸出发，对岸的活儿，我们已经做过。</p>
       </header>
       <div class="flows">
         <article class="flow">
           <span class="flow__direction">西方进入中国 · 入境</span>
-          <h3>把西方品牌带到中国</h3>
+          <h3>把西方品牌带进中国</h3>
           <p>
-            品牌、渠道、网站基建、电商、社交、KOL、分销。从一个跨境电商小测试，到完整的微信、Tmall 与抖音矩阵。
+            品牌、渠道、网站基础设施、电商、社交、KOL、分销。从一次跨境电商小试，到完整跑起来的微信、Tmall、抖音矩阵。
           </p>
           <a class="btn btn--ghost" href={pathFor('entering-china', locale)}>查看入境业务</a>
           <p class="flow__by">由 BeyondBorderGroup、TheRedScroll、ChinaWebFoundry 共同运营。</p>
@@ -63,7 +63,7 @@ const agencies = [
           <span class="flow__direction">中国走向西方 · 出境</span>
           <h3>把中国品牌和企业带出去</h3>
           <p>
-            一个让西方买家看得懂的品牌，真正的 LinkedIn 形象，按西方眼光建的网站，SEO，GEO，Google Ads，加上在合适时区的具名销售。
+            一个让西方买家立刻读懂的品牌、一份真正在维护的 LinkedIn、一套按西方眼光做的网站，加上 SEO、GEO、Google Ads，以及在合适时区接电话的具名销售。
           </p>
           <a class="btn btn--ghost" href={pathFor('going-overseas', locale)} style="color: var(--bbg-blue-light);">查看出境业务</a>
           <p class="flow__by">由 BeyondBridge 运营。</p>
@@ -75,10 +75,10 @@ const agencies = [
   <section class="section">
     <div class="container">
       <header class="section-header">
-        <span class="eyebrow">体系</span>
-        <h2 class="balance">七家专业公司。一个生态。</h2>
+        <span class="eyebrow">阵容</span>
+        <h2 class="balance">七位专家，同一个生态。</h2>
         <p class="lead">
-          每家公司独立运营。需要哪一家就选哪一家。大多数客户先从一家开始，随着项目推进再加入其他。
+          每一家都自成一格。需要哪一家，就启用哪一家。绝大多数客户从一家开始，再随项目展开把别的拉进来。
         </p>
       </header>
       <div class="grid-3">
@@ -99,9 +99,9 @@ const agencies = [
     <div class="container">
       <header class="section-header">
         <span class="eyebrow">逻辑</span>
-        <h2 class="balance">一个 2x2，加一层底座。</h2>
+        <h2 class="balance">一张 2×2 矩阵，加一层底座。</h2>
         <p class="lead">
-          按方向分两列。两层横向能力同时服务两边。每家公司落在一个格子里，需要时再延伸到其他格子。
+          按方向分两列，再叠两层横向能力，两边一起服务。每家公司各占一格，需要时再伸进相邻的格子。
         </p>
       </header>
       <div style="overflow-x: auto;">
@@ -125,24 +125,24 @@ const agencies = [
               <td>Nuvora Studio</td>
             </tr>
             <tr>
-              <th>网站基建</th>
+              <th>网站基础设施</th>
               <td>ChinaWebFoundry</td>
               <td>BeyondBridge 网站模块</td>
             </tr>
             <tr>
-              <th>合作伙伴对接</th>
+              <th>伙伴对接</th>
               <td>BeyondCompass</td>
               <td class="muted">—</td>
             </tr>
             <tr>
               <th>生产层</th>
-              <td colspan="2" style="text-align:center; background: var(--bbg-blue-light); color: var(--bbg-ink); font-weight: 600;">HubStudio 横跨两边</td>
+              <td colspan="2" style="text-align:center; background: var(--bbg-blue-light); color: var(--bbg-ink); font-weight: 600;">HubStudio 横跨两侧</td>
             </tr>
           </tbody>
         </table>
       </div>
       <div style="margin-top: var(--space-6);">
-        <a class="btn btn--ghost" href={pathFor('how-we-work-together', locale)}>我们如何协作</a>
+        <a class="btn btn--ghost" href={pathFor('how-we-work-together', locale)}>看我们如何配合</a>
       </div>
     </div>
   </section>
@@ -151,25 +151,25 @@ const agencies = [
     <div class="container">
       <header class="section-header">
         <span class="eyebrow">为什么是一个集团</span>
-        <h2 class="balance">专家。不是部门孤岛。</h2>
+        <h2 class="balance">是专家，不是大锅烩。</h2>
       </header>
       <div class="grid-3">
         <div class="prose">
-          <h3>同一套逻辑，左右镜像。</h3>
+          <h3>同一套思路，左右镜像。</h3>
           <p>
-            无论你是进入中国的法国奢侈品牌，还是进入德国的中国工业集团，工作的形状一样。为目的市场重建品牌。搭建合适的渠道。搭建合适的基建。生产合适的内容。让一个团队在合适的时区接电话。
+            无论是进入中国的法国奢侈品牌，还是进入德国的中国工业集团，工作的形状都一样。把品牌按目的市场重做一遍。把对的渠道搭起来。把对的基础设施铺好。把对的内容做出来。再把一支团队放在对的时区里接电话。
           </p>
         </div>
         <div class="prose">
-          <h3>专家组合，不是大套餐。</h3>
+          <h3>专家，不是大套餐。</h3>
           <p>
-            每家公司有自己的品牌、定价、交付、团队。只需要一个中文网站的客户，不会为媒介团队买单。只需要 LinkedIn 的客户，不会为中国 KOL 资源买单。
+            每家公司都有自己的品牌、价格、交付物、团队。只需要一个中文网站的客户，不会替媒体团队埋单；只需要 LinkedIn 的客户，不会替中国 KOL 资源埋单。
           </p>
         </div>
         <div class="prose">
-          <h3>共享生产引擎。</h3>
+          <h3>共享同一台生产引擎。</h3>
           <p>
-            集团里所有公司都接入 HubStudio 的 AIGC 层。这就是为什么单条内容成本能在七家公司之间持平，也是为什么中国品牌在海外发内容能跟西方品牌进中国一样快。
+            集团里所有公司，都接到 HubStudio 的 AIGC 这一层。这就是为什么七家公司之间单条内容的成本可以拉平，也是为什么中国品牌走出去发内容，能跟西方品牌进来一样的节奏。
           </p>
         </div>
       </div>
@@ -180,18 +180,18 @@ const agencies = [
     <div class="container">
       <div class="split split--text-first">
         <div>
-          <span class="eyebrow eyebrow--on-dark">背后是谁</span>
-          <h2 class="balance">一个操盘手。两个方向，二十余年。</h2>
+          <span class="eyebrow eyebrow--on-dark">幕后是谁</span>
+          <h2 class="balance">一个真正的操盘手，两个方向，跑了二十多年。</h2>
           <p class="lead">
-            集团由 Cyril Drouin 创立并领导。二十五年的数字、电商和品牌经验，覆盖欧洲与北亚。前阳狮北亚首席数字与电商官。HubStudio 与 Nuvora Studio 的创始人。
+            集团由 Cyril Drouin 创立并领导。二十五年数字、电商和品牌经验，跨越欧洲与北亚。曾任阳狮北亚首席数字与电商官，HubStudio 与 Nuvora Studio 的创始人。
           </p>
           <p>
-            合作过的品牌：Apple、GSK、欧莱雅、雅诗兰黛、Nike、喜力、雀巢、开云、联想、西门子。任教于巴黎 HEC、ESSEC 与上海交通大学。这套逻辑不是空想，他在两边都跑过。
+            合作过的品牌包括 Apple、GSK、欧莱雅、雅诗兰黛、Nike、喜力、雀巢、开云、联想、西门子。任教于巴黎 HEC、ESSEC 和上海交通大学。这套方法论，他在两边都亲自跑过。
           </p>
           <a class="btn btn--ghost-light" href={pathFor('founder', locale)}>查看完整简介</a>
         </div>
         <div>
-          <ImagePlaceholder ratio="4x5" label="创始人肖像。编辑风格，氛围感。" dark />
+          <ImagePlaceholder ratio="4x5" label="创始人肖像。编辑风格，氛围光。" dark />
         </div>
       </div>
     </div>
@@ -199,9 +199,9 @@ const agencies = [
 
   <section class="section section--tight">
     <div class="container container--narrow center">
-      <h2 class="balance">告诉我们你在走哪一边。</h2>
+      <h2 class="balance">告诉我们，你正在往哪边走。</h2>
       <p class="lead" style="margin-inline: auto;">
-        三十分钟一通电话。我们会告诉你应该从集团里的哪一家开始，或者你需要同时启动多家。
+        三十分钟一通电话。我们告诉你：从集团里的哪一家入手，或者要不要几家同时开跑。
       </p>
       <div class="btn-row" style="justify-content: center; margin-top: var(--space-5);">
         <a class="btn btn--primary" href={pathFor('contact', locale)}>预约通话</a>

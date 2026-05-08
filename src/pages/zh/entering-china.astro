@@ -6,20 +6,20 @@ import { pathFor } from '../../i18n/ui';
 
 const locale = 'zh' as const;
 const title = '进入中国';
-const description = '由三家专业公司从中国境内运营品牌、渠道、网站、搜索与商业。进入或扩大中国市场所需的整套能力。';
+const description = '由三家专业公司从中国境内同时跑品牌、渠道、网站、搜索和销售。进入中国市场或在中国扩规模，所需的整套能力。';
 
 const requirements = [
-  { h: '一个让中国受众读到品质的品牌', body: '把信任信号放在最前。认证。合作伙伴 logo。第三方背书。这种密集、多凭证的首页，西方眼里看着杂乱，中国眼里读到的就是认真。西方式极简到这边会被读作"内容空"。' },
-  { h: '中国消费者真正使用的渠道', body: '微信用于建立信任。小红书做候选清单。抖音做发现和直播带货。微博做大众触达。每一个都需要自己的格式、自己的节奏、自己的团队。' },
-  { h: '能在防火墙后跑的网站基建', body: '在阿里云、腾讯或华为云上做 ICP 备案的托管。一个百度真正能索引的站。在微信内置浏览器里测过的 UX——你的大部分流量在那里读你的内容。实际上：只看手机。超过 95% 的中国用户从手机上网。' },
-  { h: '中国买家用的搜索引擎里的可见度', body: '据 Statcounter，百度依然占中国搜索市场过半。Google 不到 3%。35 岁以下的买家越来越跳过传统搜索，直接用 AI：DeepSeek、豆包、Kimi、元宝。' },
-  { h: '在交易真正发生的地方做生意', body: 'Tmall、京东、抖音小店、小红书，加上微信里的社交电商。在中国，电商和社交是同一张面，不是两条独立的漏斗。' },
+  { h: '一个对中国受众"有质感"的品牌', body: '把信任凭据放在最前面：认证、合作伙伴 logo、第三方背书。这种密集、带凭证的首页，西方眼里嫌挤，中国眼里读到的就是认真。西方那一套极简，到中国会被读成"内容不够"。' },
+  { h: '中国消费者真在用的渠道', body: '微信打信任，小红书做候选清单，抖音做发现和直播带货，微博做大盘触达。每一个都得有自己的格式、自己的节奏、自己的运营团队——混着做，对话就丢了。' },
+  { h: '在防火墙后跑得动的网站基础设施', body: '在阿里云、腾讯或华为云上做 ICP 备案的托管。一个百度真能索引的站。在微信内置浏览器里跑过 UX——你大部分流量在那儿读你的内容。实际等同于纯移动端：超过 95% 的中国用户从手机上网。' },
+  { h: '中国买家用的搜索引擎里的能见度', body: '根据 Statcounter，百度仍占中国搜索市场过半。Google 不到 3%。35 岁以下买家越来越绕开传统搜索，直接进 AI：DeepSeek、豆包、Kimi、元宝。' },
+  { h: '在交易真正发生的地方做生意', body: 'Tmall、京东、抖音小店、小红书，再加微信里的社交电商。在中国，电商和社交不是两条独立漏斗，是同一张面，一根手指就能滑完。' },
 ];
 
 const agencies = [
-  { name: 'BeyondBorderGroup', role: '全案运营方', body: '二十年中国实地经验。品牌、媒介、社交、KOL、内容工作室、PR、网站、活动、电商、社交电商、分销，再加咨询。一个负责到底的团队。可以拿全套，也可以拿模块。', route: 'agencies/beyondbordergroup' as const },
-  { name: 'TheRedScroll', role: '社交媒体专家', body: '从上海和香港运营的中国社交。微信、抖音、小红书、微博，再加 14 个平台。策略、内容、KOL、广告、CRM、培训。固定范围。固定价格。两周完成 onboarding。', route: 'agencies/theredscroll' as const },
-  { name: 'ChinaWebFoundry', role: '网站基建专家', body: '为中国互联网建网站。策略与审计、迁移到中国、中文原生内容、移动端优先 UX、ICP 备案托管、百度 SEO、为中国 AI 引擎做的 GEO、持续维护。WordPress、Astro、微信。一个上海团队。', route: 'agencies/chinawebfoundry' as const },
+  { name: 'BeyondBorderGroup', role: '全案运营方', body: '二十年中国实地经验。品牌、媒介、社交、KOL、内容工作室、PR、网站、活动、电商、社交电商、分销、咨询。一支负责到底的团队。整套拿，或者只拿一个模块。', route: 'agencies/beyondbordergroup' as const },
+  { name: 'TheRedScroll', role: '渠道专家', body: '从上海和香港运营的中国社交。微信、抖音、小红书、微博，再加十四个平台。策略、内容、KOL、广告、CRM、培训。范围固定，价格固定，两周完成 onboarding。', route: 'agencies/theredscroll' as const },
+  { name: 'ChinaWebFoundry', role: '网站基础设施专家', body: '为中国互联网而生的网站。策略与审计、迁移到中国、原生中文内容、移动端优先 UX、ICP 备案托管、百度 SEO、为中国 AI 引擎做的 GEO，再加日常维护。WordPress、Astro、微信，全部由一个上海团队完成。', route: 'agencies/chinawebfoundry' as const },
 ];
 ---
 
@@ -28,10 +28,10 @@ const agencies = [
     <div class="container">
       <span class="eyebrow eyebrow--rule">流向 1 · 入境 · 西方进入中国</span>
       <h1 class="hero-editorial__title balance">
-        你有品牌。中国有 11 亿网民。把这条鸿沟填起来不是翻译活儿。
+        你有品牌。中国有 11 亿网民。把这道沟填上，不是翻译能解决的事。
       </h1>
       <p class="hero-editorial__lead">
-        中国互联网跑在自己的体系上。平台不同、搜索引擎不同、基建不同、内容密度不同、买家信号不同。我们已经在里面做了二十年。
+        中国互联网跑在自己的一套系统上：平台不一样、搜索引擎不一样、基础设施不一样、内容密度不一样、买家信号也不一样。这套系统里头，我们已经做了二十年。
       </p>
     </div>
   </section>
@@ -39,8 +39,8 @@ const agencies = [
   <section class="section section--alt">
     <div class="container">
       <header class="section-header">
-        <span class="eyebrow">真正需要什么</span>
-        <h2 class="balance">在中国落地需要什么。</h2>
+        <span class="eyebrow">真正需要的东西</span>
+        <h2 class="balance">在中国落地，靠的是这些。</h2>
       </header>
       <div class="grid-2">
         {requirements.map((r) => (
@@ -56,8 +56,8 @@ const agencies = [
   <section class="section">
     <div class="container">
       <header class="section-header">
-        <span class="eyebrow">三家公司。一条流向。</span>
-        <h2 class="balance">拿全套，或者拿单块。</h2>
+        <span class="eyebrow">三家公司，一条流向</span>
+        <h2 class="balance">整套拿，或者就拿那一块。</h2>
       </header>
       <div class="grid-3">
         {agencies.map((a) => (
@@ -77,24 +77,24 @@ const agencies = [
     <div class="container">
       <header class="section-header">
         <span class="eyebrow">客户通常怎么开始</span>
-        <h2 class="balance">四种典型起点。</h2>
+        <h2 class="balance">四种最常见的入口。</h2>
       </header>
       <div class="grid-2">
         <article class="card">
-          <blockquote>"我只要一个真的能跑得起来的中文网站。"</blockquote>
-          <p><strong>ChinaWebFoundry。</strong>六周完成迁移。ICP 已备案。百度可索引。</p>
+          <blockquote>"我只要一个真的能跑得动的中文网站。"</blockquote>
+          <p><strong>ChinaWebFoundry。</strong>六周完成迁移，ICP 已备案，百度可索引。</p>
         </article>
         <article class="card">
-          <blockquote>"我需要 90 天内上线小红书和抖音。"</blockquote>
-          <p><strong>TheRedScroll。</strong>两周 onboarding。两周内首批内容上线。</p>
+          <blockquote>"九十天内，我得在小红书和抖音上线。"</blockquote>
+          <p><strong>TheRedScroll。</strong>两周 onboarding，半个月内首批内容上线。</p>
         </article>
         <article class="card">
-          <blockquote>"我什么都要：品牌、渠道、电商、KOL。"</blockquote>
-          <p><strong>BeyondBorderGroup。</strong>全案进入。二十年的 playbook。</p>
+          <blockquote>"我要的是全套：品牌、渠道、电商、KOL。"</blockquote>
+          <p><strong>BeyondBorderGroup。</strong>全案进入，背后是积累了二十年的 playbook。</p>
         </article>
         <article class="card">
-          <blockquote>"我不知道从哪里开始。"</blockquote>
-          <p>三十分钟一通电话，我们告诉你。<a href={pathFor('contact', locale)}>预约通话</a>。</p>
+          <blockquote>"我也不知道从哪儿开始。"</blockquote>
+          <p>三十分钟一通电话，我们替你想清楚。<a href={pathFor('contact', locale)}>预约通话</a>。</p>
         </article>
       </div>
     </div>
@@ -104,14 +104,14 @@ const agencies = [
     <div class="container">
       <div class="split split--text-first">
         <div class="prose">
-          <span class="eyebrow">你顺带得到的</span>
-          <h2 class="balance">所有公司共享的一台生产引擎。</h2>
+          <span class="eyebrow">顺带就送给你的</span>
+          <h2 class="balance">所有公司共用的一台生产引擎。</h2>
           <p>
-            每一份入境合作都接入 HubStudio 的 AIGC 生产层。这就是为什么内容成本能扛得住中国渠道要求的产量：每周三到五条小红书、每天一条抖音、每周一封微信推文、每月一次 Tmall 活动改版。背后没有 AI 原生的内容引擎，账算不过来。
+            每一份入境业务都接到 HubStudio 的 AIGC 生产层。这就是为什么中国渠道要的产量——每周三到五条小红书、每天一条抖音、每周一封微信推文、每月一波 Tmall 大改版——成本能压得住。背后没有 AI 原生的内容引擎，账算不过来。
           </p>
           <a class="btn btn--ghost" href={pathFor('agencies/hubstudio', locale)}>访问 HubStudio</a>
         </div>
-        <ImagePlaceholder ratio="4x5" label="工作室静物。生产配置。AIGC 与真实素材。" />
+        <ImagePlaceholder ratio="4x5" label="工作室静物。生产现场，AIGC 与真实素材并置。" />
       </div>
     </div>
   </section>
