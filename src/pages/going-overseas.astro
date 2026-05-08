@@ -1,0 +1,173 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { pathFor } from '../i18n/ui';
+
+const locale = 'en' as const;
+const title = 'Going overseas';
+const description = 'The full overseas pipeline for Chinese brands. Brand, LinkedIn, website, SEO, Google Ads, in-market sales reps in the US, UK, Germany, and France.';
+
+const requirements = [
+  {
+    h: 'A brand Western buyers recognise',
+    body: 'Not translated from China. Names that work, taglines that do not read off, a visual identity that lands in Frankfurt and Chicago without an asterisk.',
+  },
+  {
+    h: 'Presence on LinkedIn',
+    body: "Western B2B buyers check LinkedIn before they take the call. If the page is empty, the call does not happen. Eighty-two percent of buyers say they trust companies more when executives post on LinkedIn, per LinkedIn's own research. Empty profile, lost deal.",
+  },
+  {
+    h: 'A website built for Western eyes',
+    body: 'Clean. Spacious. One clear action per page. Hosted outside China. Fast. Three seconds of load time costs you over half your visitors.',
+  },
+  {
+    h: 'Search visibility in Western engines',
+    body: 'Google rankings, plus citations in ChatGPT, Perplexity and Gemini. Most Chinese companies start overseas with zero authority. No backlinks. No English content. No AI citations. Your competitors already own the rankings and the answers.',
+  },
+  {
+    h: 'Page-one search ads',
+    body: 'Google Ads while SEO compounds. Western landing pages, not translated ones. Most Chinese companies burn ad budget on broad keywords, wrong geographies, and landing pages built for China.',
+  },
+  {
+    h: 'Sales reps in the right time zone',
+    body: 'A buyer in Germany inquires at 10am Berlin. Shenzhen is asleep. By morning, the buyer has messaged three competitors. Western buyers pick whoever responds first.',
+  },
+];
+
+const services = [
+  { n: '01', h: 'Brand strategy', body: 'Built for Western buyers, not translated.' },
+  { n: '02', h: 'LinkedIn', body: 'The channel Western B2B checks first. Run with Nuvora Studio, the group’s LinkedIn specialist.' },
+  { n: '03', h: 'Website', body: 'Western eyes. Hosted outside China.' },
+  { n: '04', h: 'SEO and GEO', body: 'Rank on Google. Get cited by Western AI.' },
+  { n: '05', h: 'Google Ads', body: 'Page one on day one.' },
+  { n: '06', h: 'External sales force', body: 'Named native reps in the US, UK, Germany, France.' },
+];
+---
+
+<Layout locale={locale} route="going-overseas" title={title} description={description}>
+  <section class="hero-editorial hero-editorial--dark">
+    <div class="container">
+      <span class="eyebrow eyebrow--on-dark">Flow 2 · Outbound · China to the West</span>
+      <h1 class="hero-editorial__title balance">
+        Great product. Great price. Great factory. No pipeline overseas.
+      </h1>
+      <p class="hero-editorial__lead">
+        Every Chinese company going overseas hits the same wall. The brand was built for Chinese buyers. The
+        website reads as cluttered to Western eyes. The LinkedIn page is empty. And nobody is answering the
+        inquiry from Berlin at 10am local time. We have been building the other side of that bridge for twenty
+        years.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <header class="section-header">
+        <span class="eyebrow">What it actually takes</span>
+        <h2 class="balance">What it takes to land overseas.</h2>
+      </header>
+      <div class="grid-2">
+        {requirements.map((r) => (
+          <article class="card">
+            <h3 class="card__title">{r.h}</h3>
+            <p>{r.body}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <header class="section-header">
+        <span class="eyebrow">One agency. Six services.</span>
+        <h2 class="balance">BeyondBridge. The full pipeline.</h2>
+        <p class="lead">
+          Built specifically for Chinese brands going overseas. Six services that stack into three packages.
+        </p>
+      </header>
+      <ol class="numbered">
+        {services.map((s) => (
+          <li>
+            <div>
+              <p class="numbered__title">{s.h}</p>
+              <p>{s.body}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <header class="section-header">
+        <span class="eyebrow">Three packages</span>
+        <h2 class="balance">Pick the package. Add later if you need to.</h2>
+      </header>
+      <div class="grid-3">
+        <article class="card">
+          <span class="card__index">Starter · Presence</span>
+          <h3 class="card__title">Brand + LinkedIn + website</h3>
+          <p>The minimum to look credible to a Western buyer. For companies going overseas for the first time.</p>
+        </article>
+        <article class="card">
+          <span class="card__index">Growth · Visibility</span>
+          <h3 class="card__title">Starter + SEO/GEO + Google Ads</h3>
+          <p>Presence and traffic. Buyers find you on Google, on ChatGPT, and through paid search.</p>
+        </article>
+        <article class="card">
+          <span class="card__index">Full Pipeline · Revenue</span>
+          <h3 class="card__title">Growth + the external sales force</h3>
+          <p>Every inbound lead qualified, called, and handed to your team ready to close.</p>
+        </article>
+      </div>
+      <div style="margin-top: var(--space-6);">
+        <a class="btn btn--primary" href={pathFor('agencies/beyondbridge', locale)}>Visit BeyondBridge</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <header class="section-header">
+        <span class="eyebrow">How clients usually start</span>
+        <h2 class="balance">Four typical openings.</h2>
+      </header>
+      <div class="grid-2">
+        <article class="card">
+          <blockquote>"We have a trade show in Germany in three months and nothing online that looks credible."</blockquote>
+          <p><strong>Starter package.</strong> Ninety days to brand, LinkedIn, and a Western-facing website.</p>
+        </article>
+        <article class="card">
+          <blockquote>"We have presence but no inbound."</blockquote>
+          <p><strong>Growth package.</strong> SEO, GEO, and Ads layered on the Starter foundation.</p>
+        </article>
+        <article class="card">
+          <blockquote>"We have inbound. Nobody in Europe to handle it."</blockquote>
+          <p><strong>Full Pipeline.</strong> Add the in-market sales force.</p>
+        </article>
+        <article class="card">
+          <blockquote>"We are not sure where to start."</blockquote>
+          <p>Thirty minutes on a call. We will tell you which package, and what 90 days look like. <a href={pathFor('contact', locale)}>Book a call</a>.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--dark">
+    <div class="container container--narrow">
+      <span class="eyebrow eyebrow--on-dark">The cost of waiting</span>
+      <h2 class="balance">Rankings compound. Relationships compound. Authority compounds.</h2>
+      <p class="lead">
+        Every month without Western presence is deals lost to competitors who got there first. Every quarter
+        without pipeline is budget burned on trade shows, translators, and cold outreach going nowhere. Every
+        year you wait, the cost of catching up doubles. The Chinese companies winning overseas right now started
+        two years ago.
+      </p>
+      <div class="btn-row" style="margin-top: var(--space-5);">
+        <a class="btn btn--primary" href={pathFor('contact', locale)}>Book a call</a>
+        <a class="btn btn--ghost-light" href={pathFor('agencies/beyondbridge', locale)}>Visit BeyondBridge</a>
+      </div>
+    </div>
+  </section>
+</Layout>

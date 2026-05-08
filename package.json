@@ -12,7 +12,8 @@
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "typecheck": "astro check"
+    "typecheck": "astro check",
+    "prepare": "husky"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
@@ -21,5 +22,8 @@
     "astro": "^5.0.0",
     "tailwindcss": "~4.1.0",
     "typescript": "^5.6.0"
+  },
+  "devDependencies": {
+    "husky": "^9.1.7"
   }
 }

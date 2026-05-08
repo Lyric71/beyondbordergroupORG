@@ -1,0 +1,82 @@
+---
+import { type Locale, pathFor, t, localeNames } from '../i18n/ui';
+
+interface Props {
+  locale: Locale;
+  current?: string;
+}
+
+const { locale, current } = Astro.props;
+const ui = t(locale);
+
+const ecosystem = [
+  { route: 'bridge' as const, label: ui.nav.bridge },
+  { route: 'entering-china' as const, label: ui.nav.enteringChina },
+  { route: 'going-overseas' as const, label: ui.nav.goingOverseas },
+  { route: 'how-we-work-together' as const, label: ui.nav.howWeWork },
+];
+
+const agencies = [
+  { route: 'agencies/beyondbordergroup' as const, label: 'BeyondBorderGroup' },
+  { route: 'agencies/theredscroll' as const, label: 'TheRedScroll' },
+  { route: 'agencies/chinawebfoundry' as const, label: 'ChinaWebFoundry' },
+  { route: 'agencies/beyondbridge' as const, label: 'BeyondBridge' },
+  { route: 'agencies/hubstudio' as const, label: 'HubStudio' },
+  { route: 'agencies/nuvora-studio' as const, label: 'Nuvora Studio' },
+];
+
+const discover = [
+  { route: 'founder' as const, label: ui.nav.founder },
+  { route: 'contact' as const, label: ui.nav.contact },
+];
+---
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__top">
+      <div>
+        <p class="site-footer__brand-line">BeyondBorderGroup</p>
+        <p>{ui.footer.tagline}</p>
+      </div>
+      <div>
+        <h4>{ui.footer.ecosystem}</h4>
+        <ul class="site-footer__links">
+          {ecosystem.map((e) => (
+            <li><a href={pathFor(e.route, locale)}>{e.label}</a></li>
+          ))}
+        </ul>
+      </div>
+      <div>
+        <h4>{ui.footer.sixAgencies}</h4>
+        <ul class="site-footer__links">
+          {agencies.map((a) => (
+            <li><a href={pathFor(a.route, locale)}>{a.label}</a></li>
+          ))}
+        </ul>
+      </div>
+      <div>
+        <h4>{ui.footer.discover}</h4>
+        <ul class="site-footer__links">
+          {discover.map((d) => (
+            <li><a href={pathFor(d.route, locale)}>{d.label}</a></li>
+          ))}
+        </ul>
+        <h4 style="margin-top: var(--space-5);">{ui.footer.languages}</h4>
+        <ul class="site-footer__links">
+          <li><a href={pathFor((current as any) ?? 'home', 'en')}>{localeNames.en}</a></li>
+          <li><a href={pathFor((current as any) ?? 'home', 'fr')}>{localeNames.fr}</a></li>
+          <li><a href={pathFor((current as any) ?? 'home', 'zh')}>{localeNames.zh}</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-footer__bottom">
+      <span>{ui.footer.offices}</span>
+      <span>
+        <a href={`${pathFor('home', locale)}#privacy`}>{ui.footer.privacy}</a>
+        <a href={`${pathFor('home', locale)}#terms`}>{ui.footer.terms}</a>
+        <a href={`${pathFor('home', locale)}#cookies`}>{ui.footer.cookies}</a>
+        {ui.footer.rights}
+      </span>
+    </div>
+  </div>
+</footer>

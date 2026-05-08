@@ -1,0 +1,16 @@
+---
+interface Props {
+  ratio?: '16x9' | '4x5' | '1x1' | '3x4' | '21x9';
+  label?: string;
+  dark?: boolean;
+  class?: string;
+}
+
+const { ratio = '16x9', label = 'Image', dark = false, class: className = '' } = Astro.props;
+const ratioClass = `img-ph--${ratio}`;
+const darkClass = dark ? 'img-ph--dark' : '';
+---
+
+<div class={`img-ph ${ratioClass} ${darkClass} ${className}`} role="img" aria-label={label}>
+  <span class="img-ph__label">{label}</span>
+</div>

@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+# Verify the build still passes before pushing.
+echo "Running build to verify sitemap and pages still generate cleanly..."
+npm run build

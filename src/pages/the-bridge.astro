@@ -1,0 +1,147 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ImagePlaceholder from '../components/ImagePlaceholder.astro';
+import { pathFor } from '../i18n/ui';
+
+const locale = 'en' as const;
+const title = 'The bridge';
+const description = "The gap between China and the West is not language. It is brand, channel, infrastructure, search, and sales. A specialist group built around that.";
+
+const gaps = [
+  {
+    title: 'Brand',
+    body: "What signals quality in one market signals clutter in the other. Chinese sites lead with trust signals, certifications, partner logos, awards. Western sites lead with one clear action and a lot of white space. Each side reads the other as wrong.",
+  },
+  {
+    title: 'Channel',
+    body: 'Western B2B buyers check LinkedIn first. Chinese consumers check RedNote and WeChat first. The channel order matters as much as the message.',
+  },
+  {
+    title: 'Infrastructure',
+    body: "Google indexes Western sites. Baidu indexes Chinese sites. Different rules, different machines, different filings. Hosting outside China gets you a slow load and broken plugins behind the Firewall. Hosting inside the West means an ICP license you do not have.",
+  },
+  {
+    title: 'Search',
+    body: 'ChatGPT, Perplexity, Gemini cite Western sources. DeepSeek, Doubao, Kimi cite Chinese ones. The new layer of buyer behaviour, AI as the first stop, is already split in two.',
+  },
+  {
+    title: 'Sales',
+    body: 'A Berlin buyer at 10am needs someone in Berlin. A Shanghai buyer at 9pm needs someone on WeChat. By the time your team in Shenzhen is up, the German buyer has already messaged three competitors.',
+  },
+];
+---
+
+<Layout locale={locale} route="bridge" title={title} description={description}>
+  <section class="hero-editorial">
+    <div class="container">
+      <span class="eyebrow eyebrow--rule">The bridge</span>
+      <h1 class="hero-editorial__title balance">
+        The bridge between China and the West, built by people who have worked both sides.
+      </h1>
+      <p class="hero-editorial__lead">
+        Twenty years inside China. Twenty years selling to Western buyers. We have sat in the rooms where the
+        Western CEO asks why the China launch is not growing, and the rooms where the Chinese factory owner asks
+        why the leads are not coming from Berlin. Same question. Mirrored sides.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <header class="section-header">
+        <span class="eyebrow">The gap</span>
+        <h2 class="balance">The gap is not language. It is five things underneath it.</h2>
+        <p class="lead">
+          A name that works in Shanghai can fall flat in Frankfurt. A logo that signals quality in China can
+          signal the wrong category in Chicago. A translated tagline reads off, in either direction.
+        </p>
+      </header>
+      <div class="grid-2">
+        {gaps.map((g) => (
+          <article class="card">
+            <h3 class="card__title">{g.title}</h3>
+            <p>{g.body}</p>
+          </article>
+        ))}
+      </div>
+      <p class="lead" style="margin-top: var(--space-7);">
+        Each side has its own infrastructure. Each side needs its own specialist team. The group is built around
+        that fact.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="split split--media-first">
+        <ImagePlaceholder ratio="4x5" label="Editorial diptych. East and West, mirrored." />
+        <div class="prose">
+          <span class="eyebrow">Why a group, and not a generalist</span>
+          <h2 class="balance">Most agencies solve one piece. We run the full chain, in pieces.</h2>
+          <p>
+            A generalist agency that does both usually does both badly. China specialists who add a Western
+            office do not have native sales reps in Munich. Western specialists who add a Shanghai office do not
+            have a working WeChat ad account. The org chart says yes. The execution says no.
+          </p>
+          <p>
+            A client does not always need the whole stack. Sometimes you just need a Chinese website. Sometimes
+            you just need a LinkedIn engine. Buying that as a one-off from a specialist costs less, and ships
+            faster, than buying it inside a generalist retainer.
+          </p>
+          <p>
+            The pieces are stronger together than apart. The same AIGC production engine feeds Chinese RedNote
+            posts and German Google Ads landing pages. The same content logic, start with the buyer and end with
+            the action, runs in both directions. Specialists who share a spine beat specialists who do not.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <header class="section-header">
+        <span class="eyebrow">The shape of the work</span>
+        <h2 class="balance">Same shape, mirrored.</h2>
+        <p class="lead">
+          Whether the brief is enter China or go overseas, the work breaks down the same way.
+        </p>
+      </header>
+      <ol class="numbered">
+        <li>
+          <div>
+            <p class="numbered__title">Strategy and brand for the destination audience.</p>
+            <p>Not translated. Rebuilt.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <p class="numbered__title">Channel presence in the format buyers actually use.</p>
+            <p>WeChat, Douyin and RED on one side. LinkedIn on the other. Native, not adapted.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <p class="numbered__title">Web and search infrastructure the destination's algorithms can find.</p>
+            <p>Baidu, ICP, Chinese AI engines on one side. Google, Western AI on the other.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <p class="numbered__title">Content production at the volume modern channels demand.</p>
+            <p>Powered by HubStudio's AIGC layer, shared across both flows.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <p class="numbered__title">A team that picks up the phone in the right language and the right time zone.</p>
+            <p>Operators in Shanghai, Hong Kong, Paris, plus named in-market reps in the US, UK, Germany, France.</p>
+          </div>
+        </li>
+      </ol>
+      <div style="margin-top: var(--space-7);">
+        <a class="btn btn--primary" href={pathFor('how-we-work-together', locale)}>See the two flows</a>
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,118 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ImagePlaceholder from '../../components/ImagePlaceholder.astro';
+import { pathFor } from '../../i18n/ui';
+
+const locale = 'en' as const;
+const title = 'Six agencies';
+const description = 'BeyondBorderGroup is six specialist agencies. Pick the one you need. Each one stands alone. Most clients start with one and add others as projects grow.';
+
+const agencies = [
+  {
+    n: '01',
+    slug: 'beyondbordergroup',
+    route: 'agencies/beyondbordergroup' as const,
+    name: 'BeyondBorderGroup',
+    badge: 'West to China · Full-service',
+    body: "Full-service China agency. Twenty years on the ground. Branding, media, social, KOLs, content, PR, websites, events, eCommerce, distribution.",
+    fit: 'Brands who need one accountable team to enter or scale in China.',
+    based: 'Shanghai. Hong Kong. Paris.',
+  },
+  {
+    n: '02',
+    slug: 'theredscroll',
+    route: 'agencies/theredscroll' as const,
+    name: 'TheRedScroll',
+    badge: 'West to China · Channel specialist',
+    body: 'Chinese social media run from the ground. WeChat, Douyin, RedNote, Weibo, plus 14 more. Fixed scope, fixed price.',
+    fit: 'Brands who need Chinese social media run properly.',
+    based: 'Shanghai. Hong Kong.',
+  },
+  {
+    n: '03',
+    slug: 'chinawebfoundry',
+    route: 'agencies/chinawebfoundry' as const,
+    name: 'ChinaWebFoundry',
+    badge: 'West to China · Web infrastructure',
+    body: 'Websites built for the Chinese web. ICP, Baidu, AI engines, WeChat-browser-tested. WordPress, Astro, WeChat.',
+    fit: 'Brands whose website needs to actually work in China.',
+    based: 'Shanghai. Hangzhou.',
+  },
+  {
+    n: '04',
+    slug: 'beyondbridge',
+    route: 'agencies/beyondbridge' as const,
+    name: 'BeyondBridge',
+    badge: 'China to West · Full pipeline',
+    body: 'The full overseas pipeline for Chinese brands. Brand, LinkedIn, website, SEO/GEO, Ads, in-market reps.',
+    fit: 'Chinese brands who need real overseas pipeline, not just trade-show presence.',
+    based: 'China. Reps in the US, UK, Germany, France.',
+  },
+  {
+    n: '05',
+    slug: 'hubstudio',
+    route: 'agencies/hubstudio' as const,
+    name: 'HubStudio',
+    badge: 'Horizontal · Content production',
+    body: 'AIGC image, video, and content. Production at agency quality, AI speed.',
+    fit: 'Brands, retailers, agencies and manufacturers who need content at scale.',
+    based: 'Global. Shanghai HQ.',
+  },
+  {
+    n: '06',
+    slug: 'nuvora-studio',
+    route: 'agencies/nuvora-studio' as const,
+    name: 'Nuvora Studio',
+    badge: 'Horizontal · LinkedIn-only B2B',
+    body: 'LinkedIn only. Strategy, content, ads, employee advocacy, executive personal branding.',
+    fit: 'B2B companies anywhere in the world.',
+    based: 'Global.',
+  },
+];
+---
+
+<Layout locale={locale} route="agencies" title={title} description={description}>
+  <section class="hero-editorial">
+    <div class="container">
+      <span class="eyebrow eyebrow--rule">Agencies</span>
+      <h1 class="hero-editorial__title balance">Six specialist agencies. One ecosystem.</h1>
+      <p class="hero-editorial__lead">
+        Each agency stands alone. Its own brand, its own pricing, its own deliverables. Pick the one that
+        matches what you need. Most clients start with one, and pull in others as the project expands.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="grid-2">
+        {agencies.map((a) => (
+          <article class="card" style="gap: var(--space-4);">
+            <div style="display: flex; gap: var(--space-4); align-items: flex-start;">
+              <ImagePlaceholder ratio="1x1" label={a.name} class="img-ph" />
+            </div>
+            <div class="card__meta">
+              <span class="card__tag card__tag--brand">{a.n}</span>
+              <span class="card__tag">{a.badge}</span>
+            </div>
+            <h2 class="card__title" style="font-size: var(--fs-h3);">{a.name}</h2>
+            <p>{a.body}</p>
+            <p class="muted"><strong>For:</strong> {a.fit}</p>
+            <p class="muted"><strong>Based:</strong> {a.based}</p>
+            <div class="btn-row" style="margin-top: var(--space-3);">
+              <a class="btn btn--primary btn--sm" href={pathFor(a.route, locale)}>Open agency page</a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .card .img-ph {
+    width: 80px;
+    height: 80px;
+    aspect-ratio: 1 / 1;
+  }
+</style>

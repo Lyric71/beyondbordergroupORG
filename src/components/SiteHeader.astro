@@ -1,0 +1,105 @@
+---
+import { type Locale, pathFor, t, localeShort } from '../i18n/ui';
+
+interface Props {
+  locale: Locale;
+  current?: string;
+}
+
+const { locale, current } = Astro.props;
+const ui = t(locale);
+
+const flows = [
+  { route: 'entering-china' as const, label: ui.nav.enteringChina, desc: 'West to China. Brand, channels, web, eCommerce.' },
+  { route: 'going-overseas' as const, label: ui.nav.goingOverseas, desc: 'China to the West. Brand, LinkedIn, sales pipeline.' },
+];
+
+const agencies = [
+  { route: 'agencies/beyondbordergroup' as const, title: 'BeyondBorderGroup', desc: 'Full-service China entry.' },
+  { route: 'agencies/theredscroll' as const, title: 'TheRedScroll', desc: 'Chinese social media specialist.' },
+  { route: 'agencies/chinawebfoundry' as const, title: 'ChinaWebFoundry', desc: 'Websites built for China.' },
+  { route: 'agencies/beyondbridge' as const, title: 'BeyondBridge', desc: 'Chinese brands, Western pipeline.' },
+  { route: 'agencies/hubstudio' as const, title: 'HubStudio', desc: 'AIGC content production.' },
+  { route: 'agencies/nuvora-studio' as const, title: 'Nuvora Studio', desc: 'LinkedIn-only B2B.' },
+];
+
+const flowsDesc = ui.nav.flowsDesc;
+const agenciesDesc = ui.nav.agenciesDesc;
+---
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a href={pathFor('home', locale)} class="brand" aria-label="BeyondBorderGroup">
+      <span class="brand__mark">B</span>
+      <span>BeyondBorderGroup</span>
+    </a>
+
+    <nav class="nav-primary" aria-label="Primary">
+      <ul class="nav-primary__list">
+        <li class="nav-item">
+          <a class="nav-primary__link" href={pathFor('bridge', locale)}>{ui.nav.bridge}</a>
+        </li>
+
+        <li class="nav-item nav-item--mega">
+          <a class="nav-primary__link" href={pathFor('entering-china', locale)} aria-haspopup="true">
+            {ui.nav.flowsLabel}
+          </a>
+          <div class="mega" role="menu" aria-label={ui.nav.flowsLabel}>
+            <div class="container mega__grid">
+              <div class="mega__lead">
+                <h3>{ui.nav.flowsLabel}</h3>
+                <p>{flowsDesc}</p>
+              </div>
+              <div class="mega__items">
+                {flows.map((f) => (
+                  <a class="mega-item" href={pathFor(f.route, locale)}>
+                    <span class="mega-item__title">{f.label}</span>
+                    <span class="mega-item__desc">{f.desc}</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item nav-item--mega">
+          <a class="nav-primary__link" href={pathFor('agencies', locale)} aria-haspopup="true">
+            {ui.nav.agencies}
+          </a>
+          <div class="mega" role="menu" aria-label={ui.nav.agencies}>
+            <div class="container mega__grid">
+              <div class="mega__lead">
+                <h3>{ui.nav.agencies}</h3>
+                <p>{agenciesDesc}</p>
+              </div>
+              <div class="mega__items">
+                {agencies.map((a) => (
+                  <a class="mega-item" href={pathFor(a.route, locale)}>
+                    <span class="mega-item__title">{a.title}</span>
+                    <span class="mega-item__desc">{a.desc}</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-primary__link" href={pathFor('how-we-work-together', locale)}>{ui.nav.howWeWork}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-primary__link" href={pathFor('founder', locale)}>{ui.nav.founder}</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="nav-right">
+      <span class="lang-switch" aria-label="Language">
+        <a href={pathFor((current as any) ?? 'home', 'en')} aria-current={locale === 'en'}>{localeShort.en}</a>
+        <a href={pathFor((current as any) ?? 'home', 'fr')} aria-current={locale === 'fr'}>{localeShort.fr}</a>
+        <a href={pathFor((current as any) ?? 'home', 'zh')} aria-current={locale === 'zh'}>{localeShort.zh}</a>
+      </span>
+      <a href={pathFor('contact', locale)} class="btn btn--primary btn--sm">{ui.nav.contact}</a>
+    </div>
+  </div>
+</header>

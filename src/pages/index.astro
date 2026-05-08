@@ -1,29 +1,72 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import ImagePlaceholder from '../components/ImagePlaceholder.astro';
+import { pathFor } from '../i18n/ui';
+
+const locale = 'en' as const;
+const title = 'China and the West, both ways';
+const description = 'Six specialist agencies bridging China and the West in both directions. Brand, channels, web, content, sales. One ecosystem, one shared spine.';
+
+const agencies = [
+  {
+    n: '01',
+    name: 'BeyondBorderGroup',
+    tagline: 'Full-service China entry. Branding through to eCommerce.',
+    route: 'agencies/beyondbordergroup' as const,
+  },
+  {
+    n: '02',
+    name: 'TheRedScroll',
+    tagline: 'Chinese social media. WeChat, Douyin, RedNote, Weibo.',
+    route: 'agencies/theredscroll' as const,
+  },
+  {
+    n: '03',
+    name: 'ChinaWebFoundry',
+    tagline: 'Websites built for the Chinese web. Baidu, ICP, AI engines.',
+    route: 'agencies/chinawebfoundry' as const,
+  },
+  {
+    n: '04',
+    name: 'BeyondBridge',
+    tagline: 'The full pipeline for Chinese brands going overseas.',
+    route: 'agencies/beyondbridge' as const,
+  },
+  {
+    n: '05',
+    name: 'HubStudio',
+    tagline: 'AIGC image, video, and content. Production at scale.',
+    route: 'agencies/hubstudio' as const,
+  },
+  {
+    n: '06',
+    name: 'Nuvora Studio',
+    tagline: 'LinkedIn-only B2B. Strategy, content, ads.',
+    route: 'agencies/nuvora-studio' as const,
+  },
+];
 ---
 
-<Layout
-  title="Beyond Border Group | China Market Entry, eCommerce & Distribution"
-  description="We help global brands enter China, grow on Tmall, JD, Douyin, WeChat and RED, and find the right distributor."
->
-  <section class="hero-fullbleed">
-    <div class="hero-fullbleed__overlay" aria-hidden="true"></div>
-
-    <div class="container hero-fullbleed__inner">
-      <div class="hero-fullbleed__copy">
-        <span class="eyebrow eyebrow--on-dark">
-          China market entry, eCommerce &amp; distribution
-        </span>
-        <h1 class="hero-fullbleed__title">
-          Sell in China. Grow in China. Understand China.
-        </h1>
-        <p class="hero-fullbleed__lead">
-          Cross-border eCommerce, social commerce, distribution and market entry
-          consulting. One team, three offices.
-        </p>
-        <div class="hero-fullbleed__actions">
-          <a class="btn btn--primary" href="/contact">Talk to us</a>
-          <a class="btn btn--ghost-light" href="/work">See our work</a>
+<Layout locale={locale} route="home" title={title} description={description}>
+  <section class="hero-statement">
+    <div class="container">
+      <div class="hero-statement__grid">
+        <div>
+          <span class="eyebrow">Ecosystem</span>
+          <h1 class="hero-statement__title balance">We build brands across the China and West border. Both ways.</h1>
+          <p class="hero-statement__lead">
+            Six specialist agencies. One thesis. The gap between China and the West is not a translation problem.
+            It is a brand problem, a channel problem, an infrastructure problem, and a sales problem. And it runs
+            in both directions.
+          </p>
+          <div class="btn-row">
+            <a class="btn btn--primary" href={pathFor('agencies', locale)}>Find the right agency</a>
+            <a class="btn btn--ghost" href={pathFor('contact', locale)}>Talk to us</a>
+          </div>
+          <p class="hero-statement__cite">Shanghai. Hong Kong. Paris. In-market reps in the US, UK, Germany, France.</p>
+        </div>
+        <div class="hero-statement__visual">
+          <ImagePlaceholder ratio="3x4" label="Editorial portrait. Cross-border operator at work." />
         </div>
       </div>
     </div>
@@ -32,50 +75,176 @@ import Layout from '../layouts/Layout.astro';
   <section class="section section--alt">
     <div class="container">
       <header class="section-header">
-        <span class="eyebrow">Where to start</span>
-        <h2>China is not one problem to solve</h2>
-        <p class="lead">
-          Three stages, three different problems. Pick the one that matches where
-          you are.
-        </p>
+        <span class="eyebrow">Two directions</span>
+        <h2 class="balance">One bridge. Two flows.</h2>
+        <p class="lead">Whichever way you are going, we have already done the work on both sides.</p>
       </header>
-
-      <div class="grid">
-        <article class="card">
-          <h3>Enter China</h3>
+      <div class="flows">
+        <article class="flow">
+          <span class="flow__direction">West to China · Inbound</span>
+          <h3>Bringing Western brands into China</h3>
           <p>
-            You have a product that could work in China, but no team there, no
-            entity, no store on any platform.
+            Brand work, channels, web infrastructure, eCommerce, social, KOLs, distribution. From a cross-border
+            eCommerce test to a full WeChat, Tmall, and Douyin presence.
           </p>
-          <a href="/enter-china" class="btn btn--ghost">Enter China</a>
+          <a class="btn btn--ghost" href={pathFor('entering-china', locale)}>See the inbound flow</a>
+          <p class="flow__by">Run by BeyondBorderGroup, TheRedScroll, ChinaWebFoundry.</p>
         </article>
-
-        <article class="card">
-          <h3>Grow in China</h3>
+        <article class="flow flow--dark">
+          <span class="flow__direction">China to the West · Outbound</span>
+          <h3>Taking Chinese brands and businesses overseas</h3>
           <p>
-            You are in the market, you are selling. Now make eCommerce, social
-            commerce, media and brand work compound under one roof.
+            A brand for Western buyers, a real LinkedIn presence, websites built for Western eyes, SEO, GEO,
+            Google Ads, and named sales reps in the right time zone.
           </p>
-          <a href="/grow-in-china" class="btn btn--ghost">Grow in China</a>
-        </article>
-
-        <article class="card">
-          <h3>Learn China</h3>
-          <p>
-            Platform rules keep changing. Get on-the-ground learning expeditions
-            and operator-led masterclasses with current market data.
-          </p>
-          <a href="/learn-china" class="btn btn--ghost">Learn China</a>
+          <a class="btn btn--ghost" href={pathFor('going-overseas', locale)} style="color: var(--bbg-blue-light);">See the outbound flow</a>
+          <p class="flow__by">Run by BeyondBridge.</p>
         </article>
       </div>
     </div>
   </section>
-</Layout>
 
-<style>
-  .grid {
-    display: grid;
-    gap: var(--space-5);
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  }
-</style>
+  <section class="section">
+    <div class="container">
+      <header class="section-header">
+        <span class="eyebrow">The stack</span>
+        <h2 class="balance">Six specialists. One ecosystem.</h2>
+        <p class="lead">
+          Each agency stands alone. Pick the one you need. Most clients start with one, then pull in others
+          as the project grows.
+        </p>
+      </header>
+      <div class="grid-3">
+        {agencies.map((a) => (
+          <a class="card" href={pathFor(a.route, locale)}>
+            <span class="card__index">{a.n}</span>
+            <h3 class="card__title">{a.name}</h3>
+            <p>{a.tagline}</p>
+            <span class="btn btn--ghost" style="margin-top: auto;">Open</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <header class="section-header">
+        <span class="eyebrow">The logic</span>
+        <h2 class="balance">A 2x2, with a foundation underneath.</h2>
+        <p class="lead">
+          Two columns by direction. Two horizontal layers serving both. Every agency in the group sits in one cell,
+          and reaches across the others when the project needs it.
+        </p>
+      </header>
+      <div style="overflow-x: auto;">
+        <table class="matrix">
+          <thead>
+            <tr>
+              <th></th>
+              <th>West to China</th>
+              <th>China to the West</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>Full-service</th>
+              <td><strong>BeyondBorderGroup</strong></td>
+              <td><strong>BeyondBridge</strong></td>
+            </tr>
+            <tr>
+              <th>Channel specialist</th>
+              <td>TheRedScroll</td>
+              <td>Nuvora Studio</td>
+            </tr>
+            <tr>
+              <th>Web infrastructure</th>
+              <td>ChinaWebFoundry</td>
+              <td>BeyondBridge web module</td>
+            </tr>
+            <tr>
+              <th>Production layer</th>
+              <td colspan="2" style="text-align:center; background: var(--bbg-blue-light); color: var(--bbg-ink); font-weight: 600;">HubStudio cuts across both</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="margin-top: var(--space-6);">
+        <a class="btn btn--ghost" href={pathFor('how-we-work-together', locale)}>How we work together</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <header class="section-header">
+        <span class="eyebrow">Why one group</span>
+        <h2 class="balance">Specialists. Not silos.</h2>
+      </header>
+      <div class="grid-3">
+        <div class="prose">
+          <h3>One thesis, applied symmetrically.</h3>
+          <p>
+            Whether you are a French luxury brand entering China or a Chinese industrial group entering Germany,
+            the work has the same shape. Rebuild the brand for the destination. Build the right channels. Build
+            the right infrastructure. Produce the right content. Put a team on the phone in the right time zone.
+          </p>
+        </div>
+        <div class="prose">
+          <h3>Specialists, not a megapackage.</h3>
+          <p>
+            Each agency has its own brand, its own pricing, its own deliverables, its own team. A client who only
+            needs a Chinese website does not pay for a media team. A client who only needs LinkedIn does not pay
+            for a Chinese KOL roster.
+          </p>
+        </div>
+        <div class="prose">
+          <h3>Shared production engine.</h3>
+          <p>
+            Every agency in the group draws on HubStudio's AIGC layer. That is what makes the per-output cost
+            competitive across all six, and why a Chinese brand can launch overseas content at the same speed
+            a Western brand can launch in China.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--dark">
+    <div class="container">
+      <div class="split split--text-first">
+        <div>
+          <span class="eyebrow eyebrow--on-dark">Who is behind this</span>
+          <h2 class="balance">One operator. Two decades on both sides.</h2>
+          <p class="lead">
+            The group is founded and led by Cyril Drouin. Twenty-five years in digital, eCommerce, and brand work
+            across Europe and North Asia. Former Chief Digital and eCommerce Officer for Publicis North Asia.
+            Founder of HubStudio and Nuvora Studio.
+          </p>
+          <p>
+            He has worked with Apple, GSK, L’Oréal, Estée Lauder, Nike, Heineken, Nestlé, Kering, Lenovo, Siemens.
+            Teaches at HEC, ESSEC, and Shanghai Jiaotong University. The thesis is not theoretical. He has run it
+            on both sides.
+          </p>
+          <a class="btn btn--ghost-light" href={pathFor('founder', locale)}>Read the full bio</a>
+        </div>
+        <div>
+          <ImagePlaceholder ratio="4x5" label="Founder portrait. Editorial, atmospheric." dark />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="container container--narrow center">
+      <h2 class="balance">Tell us which way you are going.</h2>
+      <p class="lead" style="margin-inline: auto;">
+        Thirty minutes on a call. We will tell you which agency in the group is the right place to start, or whether
+        you should start with more than one.
+      </p>
+      <div class="btn-row" style="justify-content: center; margin-top: var(--space-5);">
+        <a class="btn btn--primary" href={pathFor('contact', locale)}>Book a call</a>
+      </div>
+    </div>
+  </section>
+</Layout>

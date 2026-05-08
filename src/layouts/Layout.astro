@@ -1,31 +1,42 @@
 ---
 import '../styles/global.css';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import { type Locale, type Route, t, htmlLang, pathFor } from '../i18n/ui';
 
 interface Props {
-  title?: string;
+  locale: Locale;
+  route: Route;
+  title: string;
   description?: string;
 }
 
-const {
-  title = 'Beyond Border Group',
-  description = 'China market entry, eCommerce and distribution.',
-} = Astro.props;
+const { locale, route, title, description } = Astro.props;
+const ui = t(locale);
+const fullTitle = `${title} | ${ui.meta.siteName}`;
+const canonical = new URL(pathFor(route, locale), Astro.site ?? 'https://beyondbordergroup.com').toString();
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={htmlLang(locale)}>
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
-    <meta name="description" content={description} />
-    <title>{title}</title>
+    {description && <meta name="description" content={description} />}
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="en" href={pathFor(route, 'en')} />
+    <link rel="alternate" hreflang="fr" href={pathFor(route, 'fr')} />
+    <link rel="alternate" hreflang="zh" href={pathFor(route, 'zh')} />
+    <title>{fullTitle}</title>
   </head>
   <body>
-    <a href="#main" class="skip-link">Skip to content</a>
+    <a href="#main" class="skip-link">{ui.meta.skipToContent}</a>
+    <SiteHeader locale={locale} current={route} />
     <main id="main">
       <slot />
     </main>
+    <SiteFooter locale={locale} current={route} />
   </body>
 </html>
