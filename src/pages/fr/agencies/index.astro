@@ -5,16 +5,16 @@ import { pathFor } from '../../../i18n/ui';
 
 const locale = 'fr' as const;
 const title = 'Sept agences';
-const description = "BeyondBorderGroup, c’est sept agences spécialisées. Choisissez celle qu’il vous faut. Chacune se tient seule. La plupart des clients commencent par une.";
+const description = "BeyondBorderGroup, ce sont sept agences spécialistes. Vous prenez celle qu’il vous faut. Chacune se tient debout seule. La majorité de nos clients démarrent par une seule, et étoffent ensuite.";
 
 const agencies = [
-  { n: '01', slug: 'beyondbordergroup', route: 'agencies/beyondbordergroup' as const, name: 'BeyondBorderGroup', badge: 'Occident vers Chine · Service complet', body: "Agence Chine full-service. Vingt ans sur le terrain. Branding, média, social, KOL, contenu, RP, sites, événements, eCommerce, distribution.", fit: "Marques qui ont besoin d’une seule équipe responsable pour entrer ou se développer en Chine.", based: 'Shanghai. Hong Kong. Paris.' },
-  { n: '02', slug: 'theredscroll', route: 'agencies/theredscroll' as const, name: 'TheRedScroll', badge: 'Occident vers Chine · Spécialiste de canal', body: "Réseaux sociaux chinois opérés depuis le terrain. WeChat, Douyin, RedNote, Weibo, plus 14 autres. Périmètre fixe, prix fixe.", fit: "Marques qui ont besoin que leurs réseaux sociaux chinois soient bien gérés.", based: 'Shanghai. Hong Kong.' },
-  { n: '03', slug: 'chinawebfoundry', route: 'agencies/chinawebfoundry' as const, name: 'ChinaWebFoundry', badge: 'Occident vers Chine · Infrastructure web', body: "Sites pensés pour le web chinois. ICP, Baidu, IA chinoises, testés dans le navigateur WeChat. WordPress, Astro, WeChat.", fit: "Marques dont le site doit vraiment fonctionner en Chine.", based: 'Shanghai. Hangzhou.' },
-  { n: '04', slug: 'beyondcompass', route: 'agencies/beyondcompass' as const, name: 'BeyondCompass', badge: 'Occident vers Chine · Sourcing de partenaires', body: "Une base privée de distributeurs, TP Tmall, Douyin Partners et importateurs que nous avons rencontrés et qualifiés. Sautez trois mois de sourcing.", fit: "Marques qui choisissent un partenaire chinois pour la première fois, ou qui reconstruisent leur pile de distribution.", based: 'Shanghai. Quinze ans de qualification terrain.' },
-  { n: '05', slug: 'beyondbridge', route: 'agencies/beyondbridge' as const, name: 'BeyondBridge', badge: 'Chine vers Occident · Filière complète', body: "La filière complète à l’international pour les marques chinoises. Marque, LinkedIn, site, SEO/GEO, Ads, représentants nommés sur le terrain.", fit: "Marques chinoises qui veulent une vraie filière à l’international, pas juste une présence en salon.", based: 'Chine. Représentants aux États-Unis, au Royaume-Uni, en Allemagne et en France.' },
-  { n: '06', slug: 'hubstudio', route: 'agencies/hubstudio' as const, name: 'HubStudio', badge: 'Horizontal · Production de contenu', body: "Image, vidéo et contenu AIGC. Production qualité agence, vitesse IA.", fit: "Marques, retailers, agences et industriels qui ont besoin de contenu à l’échelle.", based: 'Global. HQ à Shanghai.' },
-  { n: '07', slug: 'nuvora-studio', route: 'agencies/nuvora-studio' as const, name: 'Nuvora Studio', badge: 'Horizontal · B2B uniquement LinkedIn', body: "LinkedIn uniquement. Stratégie, contenu, publicité, employee advocacy, personal branding dirigeants.", fit: "Entreprises B2B partout dans le monde.", based: 'Global.' },
+  { n: '01', slug: 'beyondbordergroup', route: 'agencies/beyondbordergroup' as const, name: 'BeyondBorderGroup', badge: 'Occident → Chine · Couverture intégrale', body: "Agence Chine intégrée. Vingt ans de terrain. Branding, média, social, KOL, contenu, RP, sites, événementiel, eCommerce, distribution.", fit: "Marques en quête d’une équipe unique pour entrer ou changer d’échelle en Chine.", based: 'Shanghai · Hong Kong · Paris.' },
+  { n: '02', slug: 'theredscroll', route: 'agencies/theredscroll' as const, name: 'TheRedScroll', badge: 'Occident → Chine · Spécialiste de canal', body: "Réseaux sociaux chinois opérés depuis le terrain. WeChat, Douyin, RED, Weibo, plus quatorze autres plateformes. Périmètre fixe, prix fixe.", fit: "Marques qui exigent que leurs réseaux sociaux chinois soient enfin tenus correctement.", based: 'Shanghai · Hong Kong.' },
+  { n: '03', slug: 'chinawebfoundry', route: 'agencies/chinawebfoundry' as const, name: 'ChinaWebFoundry', badge: 'Occident → Chine · Infrastructure web', body: "Sites taillés pour le web chinois. ICP, Baidu, IA chinoises, parcours testés dans le navigateur de WeChat. WordPress, Astro, WeChat.", fit: "Marques dont le site doit véritablement fonctionner en Chine.", based: 'Shanghai · Hangzhou.' },
+  { n: '04', slug: 'beyondcompass', route: 'agencies/beyondcompass' as const, name: 'BeyondCompass', badge: 'Occident → Chine · Sourcing partenaires', body: "Une base privée de distributeurs, TP Tmall, Douyin Partners et importateurs que nous avons rencontrés et qualifiés sur le terrain. Trois mois de prospection en moins.", fit: "Marques qui choisissent un partenaire chinois pour la première fois, ou qui reconstruisent leur dispositif de distribution.", based: 'Shanghai. Quinze ans de qualification terrain.' },
+  { n: '05', slug: 'beyondbridge', route: 'agencies/beyondbridge' as const, name: 'BeyondBridge', badge: 'Chine → Occident · Filière complète', body: "L’export clé en main pour les marques chinoises. Marque, LinkedIn, site, SEO/GEO, Ads, représentants nominatifs sur place.", fit: "Marques chinoises qui veulent un vrai pipeline à l’étranger, et pas seulement une présence en salon.", based: 'Chine. Représentants aux États-Unis, au Royaume-Uni, en Allemagne et en France.' },
+  { n: '06', slug: 'hubstudio', route: 'agencies/hubstudio' as const, name: 'HubStudio', badge: 'Transversal · Production de contenu', body: "Image, vidéo et contenu IA. Qualité agence, vitesse IA.", fit: "Marques, retailers, agences et industriels qui produisent du contenu à grande échelle.", based: 'Mondial. Siège à Shanghai.' },
+  { n: '07', slug: 'nuvora-studio', route: 'agencies/nuvora-studio' as const, name: 'Nuvora Studio', badge: 'Transversal · LinkedIn B2B', body: "Exclusivement LinkedIn. Stratégie, contenu, achats média, employee advocacy, personal branding dirigeants.", fit: "Entreprises B2B partout dans le monde.", based: 'Mondial.' },
 ];
 ---
 
@@ -22,11 +22,11 @@ const agencies = [
   <section class="hero-editorial">
     <div class="container">
       <span class="eyebrow eyebrow--rule">Agences</span>
-      <h1 class="hero-editorial__title balance">Six agences spécialisées. Un écosystème.</h1>
+      <h1 class="hero-editorial__title balance">Sept agences spécialistes. Un seul écosystème.</h1>
       <p class="hero-editorial__lead">
-        Chaque agence se tient seule. Sa propre marque, ses propres tarifs, ses propres livrables. Choisissez
-        celle qui correspond à votre besoin. La plupart des clients commencent avec une, et en intègrent
-        d’autres au fil du projet.
+        Chacune est autonome : sa marque, ses tarifs, ses livrables. Vous prenez celle qui correspond au sujet
+        du jour. La majorité de nos clients démarrent par une, puis ouvrent le périmètre quand le projet
+        l’exige.
       </p>
     </div>
   </section>
@@ -45,10 +45,10 @@ const agencies = [
             </div>
             <h2 class="card__title" style="font-size: var(--fs-h3);">{a.name}</h2>
             <p>{a.body}</p>
-            <p class="muted"><strong>Pour :</strong> {a.fit}</p>
-            <p class="muted"><strong>Basée :</strong> {a.based}</p>
+            <p class="muted"><strong>Pour qui :</strong> {a.fit}</p>
+            <p class="muted"><strong>Implantation :</strong> {a.based}</p>
             <div class="btn-row" style="margin-top: var(--space-3);">
-              <a class="btn btn--primary btn--sm" href={pathFor(a.route, locale)}>Ouvrir la page de l’agence</a>
+              <a class="btn btn--primary btn--sm" href={pathFor(a.route, locale)}>Ouvrir la fiche de l’agence</a>
             </div>
           </article>
         ))}

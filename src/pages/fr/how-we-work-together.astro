@@ -3,19 +3,19 @@ import Layout from '../../layouts/Layout.astro';
 import { pathFor } from '../../i18n/ui';
 
 const locale = 'fr' as const;
-const title = 'Notre fonctionnement';
-const description = "Agences indépendantes, direction partagée, moteur de production partagé. Comment les agences de l’écosystème BeyondBorderGroup se coordonnent sans s’effondrer en un généraliste.";
+const title = 'Comment nous nous coordonnons';
+const description = "Des agences indépendantes, une direction commune, un même atelier de production. La structure qui permet aux agences de l’écosystème BeyondBorderGroup d’avancer ensemble sans se replier en généraliste.";
 ---
 
 <Layout locale={locale} route="how-we-work-together" title={title} description={description}>
   <section class="hero-editorial">
     <div class="container">
-      <span class="eyebrow eyebrow--rule">Comment ça tient ensemble</span>
-      <h1 class="hero-editorial__title balance">Six agences. Une colonne vertébrale.</h1>
+      <span class="eyebrow eyebrow--rule">Comment l’ensemble tient debout</span>
+      <h1 class="hero-editorial__title balance">Sept agences. Une seule colonne vertébrale.</h1>
       <p class="hero-editorial__lead">
-        Les agences sont indépendantes. Leur marque, leurs tarifs, leurs équipes. Mais elles partagent une
-        direction, un moteur de production et une façon de travailler. Voici la structure qui les coordonne sans
-        les fondre en un généraliste.
+        Les agences sont indépendantes : leur marque, leurs tarifs, leurs équipes. Mais elles partagent la
+        même direction, le même atelier de production et la même méthode de travail. Voici la structure qui
+        les coordonne sans jamais les fondre en un grand généraliste.
       </p>
     </div>
   </section>
@@ -24,40 +24,40 @@ const description = "Agences indépendantes, direction partagée, moteur de prod
     <div class="container">
       <header class="section-header">
         <span class="eyebrow">La matrice</span>
-        <h2 class="balance">Deux colonnes par direction. Deux couches horizontales.</h2>
+        <h2 class="balance">Deux colonnes par direction. Deux strates horizontales.</h2>
       </header>
       <div style="overflow-x: auto;">
         <table class="matrix">
           <thead>
             <tr>
               <th></th>
-              <th>Occident vers Chine</th>
-              <th>Chine vers Occident</th>
+              <th>De l’Occident vers la Chine</th>
+              <th>De la Chine vers l’Occident</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <th>Opérateur full-service</th>
+              <th>Opérateur intégré</th>
               <td><strong>BeyondBorderGroup</strong></td>
               <td><strong>BeyondBridge</strong></td>
             </tr>
             <tr>
               <th>Spécialiste de canal</th>
-              <td>TheRedScroll. WeChat, Douyin, RedNote, Weibo.</td>
-              <td>Nuvora Studio. LinkedIn.</td>
+              <td>TheRedScroll · WeChat, Douyin, RED, Weibo.</td>
+              <td>Nuvora Studio · LinkedIn.</td>
             </tr>
             <tr>
               <th>Infrastructure web</th>
-              <td>ChinaWebFoundry. Baidu, ICP, IA.</td>
-              <td>Module web BeyondBridge. Google, IA occidentales.</td>
+              <td>ChinaWebFoundry · Baidu, ICP, IA chinoises.</td>
+              <td>Module web BeyondBridge · Google, IA occidentales.</td>
             </tr>
             <tr>
               <th>Sourcing partenaires</th>
-              <td>BeyondCompass. Distributeurs, TP Tmall, Douyin Partners qualifiés.</td>
+              <td>BeyondCompass · Distributeurs, TP Tmall, Douyin Partners qualifiés.</td>
               <td class="muted">—</td>
             </tr>
             <tr>
-              <th>Couche de production</th>
+              <th>Production</th>
               <td colspan="2" style="text-align:center; background: var(--bbg-blue-light); color: var(--bbg-ink); font-weight: 600;">HubStudio</td>
             </tr>
           </tbody>
@@ -69,32 +69,32 @@ const description = "Agences indépendantes, direction partagée, moteur de prod
   <section class="section">
     <div class="container">
       <header class="section-header">
-        <span class="eyebrow">Ce que chaque agence partage</span>
+        <span class="eyebrow">Ce qui circule entre les agences</span>
         <h2 class="balance">Trois choses partagées par tout le groupe.</h2>
       </header>
       <div class="grid-3">
         <article class="card">
-          <h3 class="card__title">Direction</h3>
+          <h3 class="card__title">La direction</h3>
           <p>
-            Le fondateur Cyril Drouin pilote la stratégie des six agences. Vingt-cinq ans en Europe et en Asie
-            du Nord. Ancien Chief Digital and eCommerce Officer pour Publicis North Asia. Les agences avancent
-            sous une seule direction stratégique.
+            Le fondateur Cyril Drouin pilote la stratégie des sept agences. Vingt-cinq ans d’expérience entre
+            l’Europe et l’Asie du Nord, dont un passage en tant que Chief Digital and eCommerce Officer de
+            Publicis North Asia. Toutes les agences avancent sous une même direction stratégique.
           </p>
         </article>
         <article class="card">
-          <h3 class="card__title">Couche AIGC HubStudio</h3>
+          <h3 class="card__title">La couche AIGC HubStudio</h3>
           <p>
-            Toutes les agences du groupe ont accès au même moteur de production IA-natif. C’est ce qui rend
-            possible de produire trois posts RedNote par semaine pour une marque cosmétique chinoise et cinq
-            carrousels LinkedIn par semaine pour un industriel chinois entrant en Allemagne, au même coût
+            Toutes les agences puisent dans le même atelier de production IA-natif. C’est ce qui rend possible
+            d’aligner trois publications RED hebdomadaires pour une marque cosmétique chinoise et cinq
+            carrousels LinkedIn hebdomadaires pour un industriel chinois entrant en Allemagne — au même coût
             unitaire.
           </p>
         </article>
         <article class="card">
-          <h3 class="card__title">Pilotage de compte coordonné</h3>
+          <h3 class="card__title">Un compte, une seule conduite</h3>
           <p>
-            Quand un client utilise deux agences ou plus, un directeur de compte coordonne. Un brief en entrée.
-            Une réunion de suivi. Un reporting mensuel. Aucun contexte perdu entre les prestataires.
+            Quand un client utilise deux agences ou plus, un seul directeur de compte coordonne. Un brief en
+            entrée. Un point hebdomadaire. Un reporting mensuel. Aucun contexte perdu entre les prestataires.
           </p>
         </article>
       </div>
@@ -105,36 +105,36 @@ const description = "Agences indépendantes, direction partagée, moteur de prod
     <div class="container">
       <header class="section-header">
         <span class="eyebrow">En pratique</span>
-        <h2 class="balance">Comment les combinaisons fonctionnent.</h2>
+        <h2 class="balance">À quoi ressemblent les combinaisons.</h2>
       </header>
       <div class="grid-2">
         <article class="card">
-          <h3 class="card__title">La pile entrante complète</h3>
+          <h3 class="card__title">La pile entrante intégrale</h3>
           <p>
-            BeyondBorderGroup en chef de file, avec TheRedScroll qui opère le social, ChinaWebFoundry qui opère
-            le web, HubStudio qui produit le contenu. Un client. Un pipeline. Un chiffre à mesurer.
+            BeyondBorderGroup en chef d’orchestre, TheRedScroll au social, ChinaWebFoundry au web, HubStudio
+            en production de contenu. Un client. Un pipeline. Un seul chiffre à mesurer.
           </p>
         </article>
         <article class="card">
-          <h3 class="card__title">La pile sortante complète</h3>
+          <h3 class="card__title">La pile sortante intégrale</h3>
           <p>
-            BeyondBridge en chef de file, avec Nuvora qui opère LinkedIn, HubStudio qui produit le contenu. Les
-            commerciaux sur place gèrent l’appel de closing.
+            BeyondBridge en chef d’orchestre, Nuvora Studio sur LinkedIn, HubStudio en production. Les
+            commerciaux sur place décrochent au moment du closing.
           </p>
         </article>
         <article class="card">
-          <h3 class="card__title">Le client horizontal seulement</h3>
+          <h3 class="card__title">Le client transversal seul</h3>
           <p>
-            Une SaaS B2B américaine qui veut juste que LinkedIn soit bien géré recrute Nuvora en direct. Elle ne
-            touche jamais au côté Chine. Un retailer français qui a besoin de 5 000 visuels produits par
-            trimestre recrute HubStudio en direct. Il ne touche jamais au côté social.
+            Une SaaS B2B américaine qui veut juste tenir LinkedIn correctement engage Nuvora en direct, sans
+            jamais toucher au volet Chine. Un distributeur français qui réclame 5 000 visuels produit par
+            trimestre engage HubStudio en direct, sans jamais toucher au volet social.
           </p>
         </article>
         <article class="card">
           <h3 class="card__title">Le client mono-module</h3>
           <p>
-            Une marque horlogère suisse qui veut juste que son site WordPress charge en deux secondes à Shanghai
-            recrute ChinaWebFoundry. Rien que ça. Rien d’autre.
+            Une maison horlogère suisse qui veut simplement que son site WordPress se charge en deux secondes
+            à Shanghai engage ChinaWebFoundry. Rien de plus.
           </p>
         </article>
       </div>
@@ -145,23 +145,23 @@ const description = "Agences indépendantes, direction partagée, moteur de prod
     <div class="container">
       <div class="split">
         <div class="prose">
-          <span class="eyebrow">Tarifs</span>
-          <h3>Chaque agence publie les siens.</h3>
+          <span class="eyebrow">La grille tarifaire</span>
+          <h3>Chaque agence affiche la sienne.</h3>
           <p>
-            Chaque agence publie ses tarifs sur son site. Le groupe ne bundle pas. S’il vous faut trois agences,
-            vous payez trois périmètres séparés. Le pilotage de compte est mutualisé. La couche de production
-            est la même.
+            Chaque agence publie ses tarifs sur son propre site. Le groupe ne propose pas de bundle. Trois
+            agences mobilisées, ce sont trois périmètres facturés. La conduite de compte est mutualisée. La
+            couche de production est la même.
           </p>
         </div>
         <div class="prose">
-          <span class="eyebrow">Langues et localisations</span>
-          <h3>Où le travail se fait.</h3>
-          <p>Stratégie et pilotage de compte en anglais, mandarin, français.</p>
+          <span class="eyebrow">Langues et implantations</span>
+          <h3>Là où le travail se fait.</h3>
+          <p>Stratégie et conduite de compte en anglais, mandarin et français.</p>
           <ul>
-            <li>Shanghai — HQ pour BeyondBorderGroup, TheRedScroll, ChinaWebFoundry, HubStudio.</li>
+            <li>Shanghai — siège de BeyondBorderGroup, TheRedScroll, ChinaWebFoundry et HubStudio.</li>
             <li>Hong Kong — TheRedScroll et BeyondBorderGroup.</li>
             <li>Paris — BeyondBorderGroup et direction du groupe.</li>
-            <li>Hangzhou — bureau secondaire de ChinaWebFoundry.</li>
+            <li>Hangzhou — antenne de ChinaWebFoundry.</li>
             <li>Représentants commerciaux pour BeyondBridge aux États-Unis, au Royaume-Uni, en Allemagne et en France.</li>
           </ul>
         </div>

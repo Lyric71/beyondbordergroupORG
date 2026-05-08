@@ -1,5 +1,4 @@
 import { Resend } from 'resend';
-export { renderers } from '../../renderers.mjs';
 
 const prerender = false;
 const RECIPIENT = "cyril.drouin@outlook.com";

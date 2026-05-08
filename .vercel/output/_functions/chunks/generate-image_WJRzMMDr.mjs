@@ -1,5 +1,3 @@
-export { renderers } from '../../renderers.mjs';
-
 const prerender = false;
 const WAVESPEED_API_URL = "https://api.wavespeed.ai/api/v3";
 const MODEL = "google/nano-banana-2/text-to-image";
