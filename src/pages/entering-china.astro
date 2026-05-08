@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import ImagePlaceholder from '../components/ImagePlaceholder.astro';
+import AgencyLogo from '../components/AgencyLogo.astro';
 import { pathFor } from '../i18n/ui';
 
 const locale = 'en' as const;
@@ -93,6 +94,7 @@ const agencies = [
       <div class="grid-3">
         {agencies.map((a) => (
           <a class="card" href={pathFor(a.route, locale)}>
+            <AgencyLogo route={a.route} name={a.name} class="agency-card-logo" />
             <span class="card__index">{a.role}</span>
             <h3 class="card__title">{a.name}</h3>
             <p>{a.body}</p>

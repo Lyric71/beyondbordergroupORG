@@ -3,17 +3,17 @@ import Layout from '../../layouts/Layout.astro';
 
 const locale = 'es' as const;
 const title = 'Contacto';
-const description = "Treinta minutos al teléfono. Te decimos por qué agencia empezar, o si te conviene escoger más de una. Respuestas directas, sin pitch deck.";
+const description = "Treinta minutos al teléfono. Le decimos por qué agencia conviene empezar, o si lo sensato es activar varias en paralelo. Respuestas directas, sin pitch deck.";
 ---
 
 <Layout locale={locale} route="contact" title={title} description={description}>
   <section class="hero-editorial">
     <div class="container">
       <span class="eyebrow eyebrow--rule">Contacto</span>
-      <h1 class="hero-editorial__title balance">Dinos en qué dirección vas.</h1>
+      <h1 class="hero-editorial__title balance">Cuéntenos en qué dirección camina.</h1>
       <p class="hero-editorial__lead">
-        Treinta minutos al teléfono. Te diremos por qué agencia del grupo conviene empezar, o si tienes que
-        empezar con más de una. Sin deck. Sin pitch. Respuestas directas.
+        Treinta minutos al teléfono. Le decimos por qué agencia del grupo conviene empezar, o si lo sensato
+        es activar varias en paralelo. Sin deck. Sin pitch. Respuestas directas.
       </p>
     </div>
   </section>
@@ -26,37 +26,37 @@ const description = "Treinta minutos al teléfono. Te decimos por qué agencia e
 
           <div class="form-step">
             <span class="form-step__heading">Paso 1</span>
-            <h2 class="form-step__title">¿Qué dirección?</h2>
+            <h2 class="form-step__title">¿En qué dirección va?</h2>
             <div class="choice-list">
-              <label class="choice"><input type="radio" name="direction" value="inbound" /> <span>Quiero entrar o crecer en China. <span class="muted">(Occidente a China.)</span></span></label>
-              <label class="choice"><input type="radio" name="direction" value="outbound" /> <span>Quiero crecer mi marca china en el exterior. <span class="muted">(China a Occidente.)</span></span></label>
-              <label class="choice"><input type="radio" name="direction" value="content" /> <span>Solo necesito producción de contenido. <span class="muted">(HubStudio.)</span></span></label>
-              <label class="choice"><input type="radio" name="direction" value="linkedin" /> <span>Solo necesito LinkedIn bien gestionado. <span class="muted">(Nuvora Studio.)</span></span></label>
-              <label class="choice"><input type="radio" name="direction" value="unsure" /> <span>Aún no estoy seguro.</span></label>
+              <label class="choice"><input type="radio" name="direction" value="inbound" /> <span>Quiero entrar o crecer en China. <span class="muted">(De Occidente hacia China.)</span></span></label>
+              <label class="choice"><input type="radio" name="direction" value="outbound" /> <span>Quiero hacer crecer mi marca china en el exterior. <span class="muted">(De China hacia Occidente.)</span></span></label>
+              <label class="choice"><input type="radio" name="direction" value="content" /> <span>Solo busco producción de contenido. <span class="muted">(HubStudio.)</span></span></label>
+              <label class="choice"><input type="radio" name="direction" value="linkedin" /> <span>Solo quiero LinkedIn bien gestionado. <span class="muted">(Nuvora Studio.)</span></span></label>
+              <label class="choice"><input type="radio" name="direction" value="unsure" /> <span>Aún no lo tengo decidido.</span></label>
             </div>
           </div>
 
           <div class="form-step">
             <span class="form-step__heading">Paso 2</span>
-            <h2 class="form-step__title">¿En qué punto del recorrido estás?</h2>
+            <h2 class="form-step__title">¿En qué punto del recorrido se encuentra?</h2>
             <div class="choice-list">
               <label class="choice"><input type="radio" name="stage" value="exploring" /> <span>Explorando. Fase temprana.</span></label>
-              <label class="choice"><input type="radio" name="stage" value="planning" /> <span>Planificando. Listo para empezar en uno a tres meses.</span></label>
-              <label class="choice"><input type="radio" name="stage" value="launching" /> <span>Lanzando. Necesito ayuda en los próximos 30 días.</span></label>
-              <label class="choice"><input type="radio" name="stage" value="operating" /> <span>Ya operando. Necesito arreglar o escalar.</span></label>
+              <label class="choice"><input type="radio" name="stage" value="planning" /> <span>Planificando. Listo para arrancar en uno a tres meses.</span></label>
+              <label class="choice"><input type="radio" name="stage" value="launching" /> <span>Lanzando. Necesito ayuda en los próximos treinta días.</span></label>
+              <label class="choice"><input type="radio" name="stage" value="operating" /> <span>Ya operando. Necesito corregir o cambiar de escala.</span></label>
             </div>
           </div>
 
           <div class="form-step">
             <span class="form-step__heading">Paso 3</span>
-            <h2 class="form-step__title">Sobre tu negocio.</h2>
+            <h2 class="form-step__title">Algunos datos sobre su empresa.</h2>
             <div class="form-row">
               <div class="form-field">
                 <label for="company">Empresa</label>
                 <input id="company" name="company" type="text" />
               </div>
               <div class="form-field">
-                <label for="role">Tu cargo</label>
+                <label for="role">Su cargo</label>
                 <input id="role" name="role" type="text" />
               </div>
             </div>
@@ -71,7 +71,7 @@ const description = "Treinta minutos al teléfono. Te decimos por qué agencia e
               </div>
             </div>
             <div class="form-field">
-              <label for="website">Sitio web</label>
+              <label for="website">Web</label>
               <input id="website" name="website" type="url" placeholder="https://" />
             </div>
           </div>
@@ -80,21 +80,21 @@ const description = "Treinta minutos al teléfono. Te decimos por qué agencia e
             <span class="form-step__heading">Paso 4</span>
             <h2 class="form-step__title">El brief.</h2>
             <div class="form-field">
-              <label for="brief">Un párrafo corto basta.</label>
+              <label for="brief">Bastan unas líneas.</label>
               <textarea id="brief" name="brief" rows="5"></textarea>
             </div>
           </div>
 
           <div class="form-step">
             <span class="form-step__heading">Paso 5</span>
-            <h2 class="form-step__title">Cómo localizarte.</h2>
+            <h2 class="form-step__title">Cómo localizarle.</h2>
             <div class="form-row">
               <div class="form-field">
                 <label for="name">Nombre</label>
                 <input id="name" name="name" type="text" required />
               </div>
               <div class="form-field">
-                <label for="email">Email</label>
+                <label for="email">E-mail</label>
                 <input id="email" name="email" type="email" required />
               </div>
             </div>
@@ -104,7 +104,7 @@ const description = "Treinta minutos al teléfono. Te decimos por qué agencia e
                 <input id="phone" name="phone" type="tel" />
               </div>
               <div class="form-field">
-                <label for="tz">Zona horaria preferida</label>
+                <label for="tz">Franja horaria preferida</label>
                 <input id="tz" name="tz" type="text" placeholder="p. ej. CET, CST, PT" />
               </div>
             </div>
@@ -128,8 +128,8 @@ const description = "Treinta minutos al teléfono. Te decimos por qué agencia e
         </form>
 
         <aside class="prose">
-          <span class="eyebrow">O contacta directamente con una agencia</span>
-          <h3>Si ya sabes cuál necesitas.</h3>
+          <span class="eyebrow">O contactar directamente con una agencia</span>
+          <h3>Si ya sabe cuál busca.</h3>
           <ul>
             <li>BeyondBorderGroup. <a href="https://beyondbordergroup.com/contact" target="_blank" rel="noreferrer">beyondbordergroup.com/contact</a></li>
             <li>TheRedScroll. <a href="https://theredscroll.com/contact" target="_blank" rel="noreferrer">theredscroll.com/contact</a></li>
@@ -140,12 +140,12 @@ const description = "Treinta minutos al teléfono. Te decimos por qué agencia e
           </ul>
 
           <h3 style="margin-top: var(--space-6);">Oficinas</h3>
-          <p>Shanghái (HQ del grupo). Hong Kong. París. Hangzhou.</p>
+          <p>Shanghái (sede del grupo). Hong Kong. París. Hangzhou.</p>
           <p>
-            Representantes en mercado para BeyondBridge: Jenny en EE. UU., Scott en Reino Unido, Eike en
-            Alemania, Stéphane en Francia.
+            Representantes sobre el terreno para BeyondBridge: Jenny en Estados Unidos, Scott en Reino Unido,
+            Eike en Alemania, Stéphane en Francia.
           </p>
-          <p class="muted">Respondemos en menos de 24 horas, en tu zona horaria.</p>
+          <p class="muted">Respondemos en menos de 24 horas, en su franja horaria.</p>
         </aside>
       </div>
     </div>
