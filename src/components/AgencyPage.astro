@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import ImagePlaceholder from './ImagePlaceholder.astro';
+import AgencyLogo from './AgencyLogo.astro';
 import { type Locale, type Route, pathFor } from '../i18n/ui';
 
 interface Props {
@@ -51,6 +52,7 @@ const {
     <div class="container">
       <div class="split split--text-first">
         <div>
+          <AgencyLogo route={route} name={name} class="agency-logo--hero" />
           <span class="eyebrow eyebrow--rule">{badge}</span>
           <h1 class="hero-editorial__title balance">{name}</h1>
           <p class="hero-editorial__lead">{hero}</p>
@@ -115,3 +117,11 @@ const {
     </div>
   </section>
 </Layout>
+
+<style>
+  :global(.agency-logo--hero) {
+    width: auto;
+    height: 64px;
+    margin-bottom: var(--space-4);
+  }
+</style>

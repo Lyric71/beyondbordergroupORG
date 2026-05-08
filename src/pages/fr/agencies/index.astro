@@ -1,6 +1,6 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
-import ImagePlaceholder from '../../../components/ImagePlaceholder.astro';
+import AgencyLogo from '../../../components/AgencyLogo.astro';
 import { pathFor } from '../../../i18n/ui';
 
 const locale = 'fr' as const;
@@ -37,7 +37,7 @@ const agencies = [
         {agencies.map((a) => (
           <article class="card" style="gap: var(--space-4);">
             <div style="display: flex; gap: var(--space-4); align-items: flex-start;">
-              <ImagePlaceholder ratio="1x1" label={a.name} class="img-ph" />
+              <AgencyLogo slug={a.slug} name={a.name} class="card__logo" />
             </div>
             <div class="card__meta">
               <span class="card__tag card__tag--brand">{a.n}</span>

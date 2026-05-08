@@ -1,0 +1,43 @@
+---
+interface Props {
+  slug?: string;
+  route?: string;
+  name: string;
+  class?: string;
+}
+
+const { slug, route, name, class: className = '' } = Astro.props;
+
+const resolvedSlug = slug ?? (route ? route.split('/').pop() ?? '' : '');
+
+const logos: Record<string, string> = {
+  beyondbordergroup: '/AgencyLogos/BBG%20PNG.png',
+  beyondbridge: '/AgencyLogos/BeyondBridge-%20Logo-EN-4K-Transparent.png',
+  beyondcompass: '/AgencyLogos/BeyondCompass%20-%20Transparent%20-%204K.png',
+  hubstudio: '/AgencyLogos/hubStudio%20(2).png',
+  chinawebfoundry: '/AgencyLogos/Logo-ChinaWebFoundry-transparent.png',
+  'nuvora-studio': '/AgencyLogos/Nuvora%20PNG.png',
+  theredscroll: '/AgencyLogos/TheredScroll%20PNG.png',
+};
+
+const src = logos[resolvedSlug];
+---
+
+{src && (
+  <img
+    src={src}
+    alt={`${name} logo`}
+    class={`agency-logo ${className}`}
+    loading="lazy"
+    decoding="async"
+  />
+)}
+
+<style>
+  .agency-logo {
+    display: block;
+    object-fit: contain;
+    max-width: 100%;
+    height: auto;
+  }
+</style>
