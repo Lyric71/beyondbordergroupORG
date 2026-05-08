@@ -6,16 +6,16 @@ import { pathFor } from '../../i18n/ui';
 
 const locale = 'de' as const;
 const title = 'China und der Westen, in beide Richtungen';
-const description = 'Sieben spezialisierte Agenturen, die China und den Westen in beiden Richtungen verbinden. Marke, Kanäle, Web, Partner-Sourcing, Content, Vertrieb. Ein Ökosystem, ein gemeinsames Rückgrat.';
+const description = 'Sieben spezialisierte Agenturen, die China und den Westen in beide Richtungen verbinden. Marke, Kanäle, Web, Partnerwahl, Content, Vertrieb. Ein Ökosystem mit gemeinsamem Rückgrat.';
 
 const agencies = [
-  { n: '01', name: 'BeyondBorderGroup', tagline: 'Vollumfänglicher Markteintritt in China. Von der Marke bis zum eCommerce.', route: 'agencies/beyondbordergroup' as const },
-  { n: '02', name: 'TheRedScroll', tagline: 'Chinesische Social Media. WeChat, Douyin, RedNote, Weibo.', route: 'agencies/theredscroll' as const },
-  { n: '03', name: 'ChinaWebFoundry', tagline: 'Websites für das chinesische Web. Baidu, ICP, KI-Engines.', route: 'agencies/chinawebfoundry' as const },
-  { n: '04', name: 'BeyondCompass', tagline: 'Eine private Datenbank geprüfter China-Distributoren, Tmall-TPs und Douyin Partner.', route: 'agencies/beyondcompass' as const },
-  { n: '05', name: 'BeyondBridge', tagline: 'Die komplette Pipeline für chinesische Marken im Ausland.', route: 'agencies/beyondbridge' as const },
-  { n: '06', name: 'HubStudio', tagline: 'AIGC-Bild, -Video und -Content. Produktion in Skala.', route: 'agencies/hubstudio' as const },
-  { n: '07', name: 'Nuvora Studio', tagline: 'Reines LinkedIn-B2B. Strategie, Content, Werbung.', route: 'agencies/nuvora-studio' as const },
+  { n: '01', name: 'BeyondBorderGroup', tagline: 'China-Markteintritt von Anfang bis Ende. Von der Marke bis zum eCommerce.', route: 'agencies/beyondbordergroup' as const },
+  { n: '02', name: 'TheRedScroll', tagline: 'Chinesische Social Media. WeChat, Douyin, RED, Weibo.', route: 'agencies/theredscroll' as const },
+  { n: '03', name: 'ChinaWebFoundry', tagline: 'Websites, gebaut für das chinesische Web. Baidu, ICP, lokale KI-Engines.', route: 'agencies/chinawebfoundry' as const },
+  { n: '04', name: 'BeyondCompass', tagline: 'Eine private Datenbank geprüfter Distributoren, Tmall TPs und Douyin Partner.', route: 'agencies/beyondcompass' as const },
+  { n: '05', name: 'BeyondBridge', tagline: 'Auslandsexpansion aus einer Hand für chinesische Marken.', route: 'agencies/beyondbridge' as const },
+  { n: '06', name: 'HubStudio', tagline: 'Bild, Video und Content per AIGC. Produktion in Skala.', route: 'agencies/hubstudio' as const },
+  { n: '07', name: 'Nuvora Studio', tagline: 'B2B, ausschließlich auf LinkedIn. Strategie, Content, Media.', route: 'agencies/nuvora-studio' as const },
 ];
 ---
 
@@ -25,20 +25,20 @@ const agencies = [
       <div class="hero-statement__grid">
         <div>
           <span class="eyebrow">Ökosystem</span>
-          <h1 class="hero-statement__title balance">Wir bauen Marken über die Grenze zwischen China und dem Westen. In beide Richtungen.</h1>
+          <h1 class="hero-statement__title balance">Marken bauen zwischen China und dem Westen. In beide Richtungen.</h1>
           <p class="hero-statement__lead">
-            Sechs spezialisierte Agenturen. Eine These. Die Lücke zwischen China und dem Westen ist kein
-            Übersetzungsproblem. Sie ist ein Markenproblem, ein Kanalproblem, ein Infrastrukturproblem und ein
-            Vertriebsproblem. Und sie wirkt in beide Richtungen.
+            Sieben spezialisierte Agenturen, eine Überzeugung. Was zwischen China und dem Westen liegt, ist
+            kein Übersetzungsproblem. Es ist ein Markenproblem, ein Kanalproblem, ein Infrastrukturproblem
+            und ein Vertriebsproblem. Und es wirkt in beide Richtungen.
           </p>
           <div class="btn-row">
             <a class="btn btn--primary" href={pathFor('agencies', locale)}>Die passende Agentur finden</a>
             <a class="btn btn--ghost" href={pathFor('contact', locale)}>Mit uns sprechen</a>
           </div>
-          <p class="hero-statement__cite">Shanghai. Hongkong. Paris. Repräsentanten in den USA, Großbritannien, Deutschland, Frankreich.</p>
+          <p class="hero-statement__cite">Shanghai · Hongkong · Paris. Vertriebsrepräsentanten in den USA, Großbritannien, Deutschland und Frankreich.</p>
         </div>
         <div class="hero-statement__visual">
-          <ImagePlaceholder ratio="3x4" label="Editorial-Porträt. Grenzüberschreitender Operator bei der Arbeit." />
+          <ImagePlaceholder ratio="3x4" label="Editorial-Porträt. Operator, der grenzüberschreitend arbeitet." />
         </div>
       </div>
     </div>
@@ -48,26 +48,27 @@ const agencies = [
     <div class="container">
       <header class="section-header">
         <span class="eyebrow">Zwei Richtungen</span>
-        <h2 class="balance">Eine Brücke. Zwei Flows.</h2>
-        <p class="lead">In welche Richtung Sie auch gehen — wir haben die Arbeit auf beiden Seiten schon gemacht.</p>
+        <h2 class="balance">Eine Brücke. Zwei Verkehrsrichtungen.</h2>
+        <p class="lead">Welche Seite auch immer Ihr Ausgangspunkt ist – wir haben den Weg auf der anderen Seite längst zurückgelegt.</p>
       </header>
       <div class="flows">
         <article class="flow">
-          <span class="flow__direction">Westen nach China · Inbound</span>
+          <span class="flow__direction">Vom Westen nach China · Inbound</span>
           <h3>Westliche Marken nach China bringen</h3>
           <p>
-            Marke, Kanäle, Web-Infrastruktur, eCommerce, Social, KOLs, Distribution. Vom Cross-Border-eCommerce-
-            Test bis zur kompletten Präsenz auf WeChat, Tmall und Douyin.
+            Marke, Kanäle, Web-Infrastruktur, eCommerce, Social, KOLs, Distribution. Vom kleinen Cross-Border-
+            Versuch bis zur vollständigen Präsenz auf WeChat, Tmall und Douyin.
           </p>
           <a class="btn btn--ghost" href={pathFor('entering-china', locale)}>Inbound-Flow ansehen</a>
-          <p class="flow__by">Betrieben von BeyondBorderGroup, TheRedScroll, ChinaWebFoundry.</p>
+          <p class="flow__by">Betrieben von BeyondBorderGroup, TheRedScroll und ChinaWebFoundry.</p>
         </article>
         <article class="flow flow--dark">
-          <span class="flow__direction">China nach Westen · Outbound</span>
-          <h3>Chinesische Marken und Unternehmen nach außen tragen</h3>
+          <span class="flow__direction">Von China in den Westen · Outbound</span>
+          <h3>Chinesische Marken und Industriebetriebe ins Ausland tragen</h3>
           <p>
-            Eine Marke für westliche Käufer, eine echte LinkedIn-Präsenz, Websites für westliche Augen, SEO,
-            GEO, Google Ads und benannte Vertriebsleute in der richtigen Zeitzone.
+            Eine Marke, die westliche Käufer sofort erfassen. Ein wirklich gepflegter LinkedIn-Auftritt. Eine
+            Website, die für westliche Augen geschrieben ist. SEO, GEO, Google Ads – und Vertriebsleute, die
+            in der richtigen Zeitzone abnehmen.
           </p>
           <a class="btn btn--ghost" href={pathFor('going-overseas', locale)} style="color: var(--bbg-blue-light);">Outbound-Flow ansehen</a>
           <p class="flow__by">Betrieben von BeyondBridge.</p>
@@ -79,11 +80,11 @@ const agencies = [
   <section class="section">
     <div class="container">
       <header class="section-header">
-        <span class="eyebrow">Der Stack</span>
-        <h2 class="balance">Sieben Spezialisten. Ein Ökosystem.</h2>
+        <span class="eyebrow">Die Aufstellung</span>
+        <h2 class="balance">Sieben Spezialisten, ein Ökosystem.</h2>
         <p class="lead">
-          Jede Agentur steht für sich. Wählen Sie die, die Sie brauchen. Die meisten Kunden starten mit einer
-          und holen weitere dazu, wenn das Projekt wächst.
+          Jede Agentur steht eigenständig. Sie nehmen die, die Sie brauchen. Die meisten Kunden starten mit
+          einer und ziehen weitere hinzu, sobald das Projekt sich öffnet.
         </p>
       </header>
       <div class="grid-3">
@@ -104,10 +105,10 @@ const agencies = [
     <div class="container">
       <header class="section-header">
         <span class="eyebrow">Die Logik</span>
-        <h2 class="balance">Eine 2×2-Matrix mit Fundament.</h2>
+        <h2 class="balance">Eine 2×2-Matrix, getragen von einem gemeinsamen Sockel.</h2>
         <p class="lead">
-          Zwei Spalten nach Richtung. Zwei horizontale Schichten, die beide bedienen. Jede Agentur sitzt in
-          einer Zelle und greift in die anderen, wenn das Projekt es verlangt.
+          Zwei Spalten nach Richtung. Zwei waagerechte Schichten, die beide Seiten bedienen. Jede Agentur
+          besetzt ein Feld – und greift in die übrigen Felder, sobald das Projekt es verlangt.
         </p>
       </header>
       <div style="overflow-x: auto;">
@@ -115,13 +116,13 @@ const agencies = [
           <thead>
             <tr>
               <th></th>
-              <th>Westen nach China</th>
-              <th>China nach Westen</th>
+              <th>Vom Westen nach China</th>
+              <th>Von China in den Westen</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <th>Full-Service</th>
+              <th>Vollumfänglich</th>
               <td><strong>BeyondBorderGroup</strong></td>
               <td><strong>BeyondBridge</strong></td>
             </tr>
@@ -136,19 +137,19 @@ const agencies = [
               <td>BeyondBridge Web-Modul</td>
             </tr>
             <tr>
-              <th>Partner-Sourcing</th>
+              <th>Partnerwahl</th>
               <td>BeyondCompass</td>
               <td class="muted">—</td>
             </tr>
             <tr>
-              <th>Produktionsschicht</th>
-              <td colspan="2" style="text-align:center; background: var(--bbg-blue-light); color: var(--bbg-ink); font-weight: 600;">HubStudio läuft durch beide Seiten</td>
+              <th>Produktion</th>
+              <td colspan="2" style="text-align:center; background: var(--bbg-blue-light); color: var(--bbg-ink); font-weight: 600;">HubStudio durchquert beide Seiten</td>
             </tr>
           </tbody>
         </table>
       </div>
       <div style="margin-top: var(--space-6);">
-        <a class="btn btn--ghost" href={pathFor('how-we-work-together', locale)}>Wie wir zusammenarbeiten</a>
+        <a class="btn btn--ghost" href={pathFor('how-we-work-together', locale)}>Wie wir uns abstimmen</a>
       </div>
     </div>
   </section>
@@ -161,28 +162,28 @@ const agencies = [
       </header>
       <div class="grid-3">
         <div class="prose">
-          <h3>Eine These, symmetrisch angewandt.</h3>
+          <h3>Eine These, gespiegelt umgesetzt.</h3>
           <p>
-            Ob Sie eine französische Luxusmarke sind, die nach China geht, oder eine chinesische
-            Industriegruppe, die nach Deutschland kommt — die Arbeit hat dieselbe Form. Marke neu für das
-            Zielmarktpublikum bauen. Die richtigen Kanäle bauen. Die richtige Infrastruktur bauen. Den richtigen
-            Content produzieren. Ein Team in der richtigen Zeitzone ans Telefon setzen.
+            Ob Sie als französisches Luxushaus nach China gehen oder als chinesischer Industriekonzern in
+            Deutschland landen: die Arbeit hat dieselbe Form. Die Marke für die Zielgruppe neu denken. Die
+            richtigen Kanäle aufbauen. Die richtige Infrastruktur stellen. Den passenden Content produzieren.
+            Ein Team in der richtigen Zeitzone ans Telefon setzen.
           </p>
         </div>
         <div class="prose">
           <h3>Spezialisten, kein Megapaket.</h3>
           <p>
-            Jede Agentur hat ihre eigene Marke, ihre Preise, ihre Liefergegenstände, ihr Team. Ein Kunde, der
-            nur eine chinesische Website braucht, zahlt nicht für ein Media-Team. Ein Kunde, der nur LinkedIn
-            braucht, zahlt nicht für ein chinesisches KOL-Roster.
+            Jede Agentur hat ihre Marke, ihre Preise, ihre Liefergegenstände, ihr Team. Wer nur eine
+            chinesische Website braucht, zahlt kein Media-Team mit. Wer nur LinkedIn betrieben haben will,
+            zahlt kein chinesisches KOL-Roster mit.
           </p>
         </div>
         <div class="prose">
-          <h3>Geteilte Produktions-Engine.</h3>
+          <h3>Eine geteilte Produktions-Engine.</h3>
           <p>
-            Alle Agenturen der Gruppe greifen auf die AIGC-Schicht von HubStudio zu. Genau das hält die Kosten
-            pro Asset wettbewerbsfähig — und genau deshalb kann eine chinesische Marke im Ausland mit derselben
-            Geschwindigkeit Content ausliefern wie eine westliche Marke in China.
+            Sämtliche Agenturen der Gruppe greifen auf die AIGC-Schicht von HubStudio zu. Daraus folgt der
+            stabile Stückpreis – und genau deshalb kann eine chinesische Marke im Ausland im selben Takt
+            veröffentlichen wie eine westliche Marke in China.
           </p>
         </div>
       </div>
@@ -196,19 +197,19 @@ const agencies = [
           <span class="eyebrow eyebrow--on-dark">Wer dahintersteht</span>
           <h2 class="balance">Ein Operator. Zwei Jahrzehnte auf beiden Seiten.</h2>
           <p class="lead">
-            Die Gruppe wird von Cyril Drouin gegründet und geführt. Fünfundzwanzig Jahre in Digital, eCommerce
-            und Markenarbeit zwischen Europa und Nordasien. Ehemaliger Chief Digital and eCommerce Officer für
-            Publicis North Asia. Gründer von HubStudio und Nuvora Studio.
+            Die Gruppe wird von Cyril Drouin gegründet und geführt. Fünfundzwanzig Jahre Digital, eCommerce
+            und Markenarbeit zwischen Europa und Nordasien. Ehemaliger Chief Digital and eCommerce Officer
+            für Publicis North Asia. Gründer von HubStudio und Nuvora Studio.
           </p>
           <p>
-            Er hat mit Apple, GSK, L’Oréal, Estée Lauder, Nike, Heineken, Nestlé, Kering, Lenovo, Siemens
-            gearbeitet. Er lehrt an HEC, ESSEC und Shanghai Jiaotong University. Die These ist nicht
-            theoretisch. Er hat sie auf beiden Seiten betrieben.
+            Er hat mit Apple, GSK, L’Oréal, Estée Lauder, Nike, Heineken, Nestlé, Kering, Lenovo und Siemens
+            zusammengearbeitet. Er lehrt an der HEC, der ESSEC und der Shanghai Jiaotong University. Die These
+            ist nicht akademisch: er hat sie auf beiden Seiten in der Praxis getragen.
           </p>
           <a class="btn btn--ghost-light" href={pathFor('founder', locale)}>Vollständige Biografie lesen</a>
         </div>
         <div>
-          <ImagePlaceholder ratio="4x5" label="Gründerporträt. Editorial, atmosphärisch." dark />
+          <ImagePlaceholder ratio="4x5" label="Gründerporträt. Atmosphärisches, editoriales Licht." dark />
         </div>
       </div>
     </div>
@@ -218,8 +219,8 @@ const agencies = [
     <div class="container container--narrow center">
       <h2 class="balance">Sagen Sie uns, in welche Richtung Sie gehen.</h2>
       <p class="lead" style="margin-inline: auto;">
-        Dreißig Minuten am Telefon. Wir sagen Ihnen, mit welcher Agentur der Gruppe Sie starten — oder ob es
-        gleich mehr als eine sein sollte.
+        Dreißig Minuten am Telefon. Wir sagen Ihnen, mit welcher Agentur Sie starten sollten – oder ob es
+        klüger ist, mehrere parallel zu aktivieren.
       </p>
       <div class="btn-row" style="justify-content: center; margin-top: var(--space-5);">
         <a class="btn btn--primary" href={pathFor('contact', locale)}>Termin buchen</a>
