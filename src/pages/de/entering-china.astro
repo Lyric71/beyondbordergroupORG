@@ -1,0 +1,120 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ImagePlaceholder from '../../components/ImagePlaceholder.astro';
+import { pathFor } from '../../i18n/ui';
+
+const locale = 'de' as const;
+const title = 'Eintritt nach China';
+const description = "Marke, Kanäle, Websites, Suche und Commerce — von drei spezialisierten Agenturen aus China heraus betrieben. Der komplette Stack, um in den chinesischen Markt einzutreten oder zu wachsen.";
+
+const requirements = [
+  { h: 'Eine Marke, die für chinesische Augen Qualität signalisiert', body: "Vertrauenssignale gleich oben. Zertifikate. Partnerlogos. Drittvalidierung. Diese dichte, beglaubigte Startseite, die für ein westliches Auge überladen wirkt und für ein chinesisches seriös. Westlicher Minimalismus liest sich hier als Leere." },
+  { h: 'Kanäle, die chinesische Konsumenten wirklich nutzen', body: "WeChat für Vertrauen. RedNote für die Shortlist. Douyin für Discovery und Live-Commerce. Weibo für Massenreichweite. Jeder Kanal mit eigenem Format, eigenem Tempo, eigenem Team." },
+  { h: 'Web-Infrastruktur, die hinter der Firewall lebt', body: "Hosting mit ICP-Lizenz auf Aliyun, Tencent oder Huawei. Eine Site, die Baidu wirklich indexieren kann. UX getestet im integrierten WeChat-Browser, wo der Großteil Ihres Traffics liest. Praktisch nur mobil. Über 95 Prozent der chinesischen Nutzer surfen vom Smartphone." },
+  { h: 'Sichtbarkeit in den Suchmaschinen, die chinesische Käufer nutzen', body: "Baidu hält laut Statcounter weiterhin mehr als die Hälfte des Suchmarktes in China. Google liegt unter 3 Prozent. Und Käufer unter 35 überspringen klassische Suche immer öfter und nutzen direkt KIs: DeepSeek, Doubao, Kimi, Yuanbao." },
+  { h: 'Commerce dort, wo der Kauf wirklich passiert', body: "Tmall, JD, Douyin Shop, RED — plus Social Commerce auf WeChat. eCommerce und Social sind in China dieselbe Oberfläche. Keine zwei getrennten Funnels." },
+];
+
+const agencies = [
+  { name: 'BeyondBorderGroup', role: 'Der Full-Service-Operator', body: "Zwanzig Jahre vor Ort. Branding, Mediaeinkauf, Social, KOLs, Content-Studio, PR, Websites, Events, eCommerce, Social Commerce, Distribution sowie Beratung. Ein verantwortliches Team. Sie nehmen den ganzen Stack oder ein Modul.", route: 'agencies/beyondbordergroup' as const },
+  { name: 'TheRedScroll', role: 'Der Spezialist für Social Media', body: "Chinesische Social Media von Shanghai und Hongkong aus betrieben. WeChat, Douyin, RedNote, Weibo plus 14 weitere. Strategie, Content, KOLs, Werbung, CRM, Training. Fester Scope. Fester Preis. Onboarding in zwei Wochen.", route: 'agencies/theredscroll' as const },
+  { name: 'ChinaWebFoundry', role: 'Der Spezialist für Web-Infrastruktur', body: "Websites für das chinesische Web. Strategie und Audit, Migration nach China, native chinesische Inhalte, Mobile-First-UX, Hosting mit ICP-Lizenz, Baidu-SEO, GEO für chinesische KI-Engines, laufende Wartung. WordPress, Astro, WeChat. Alles aus einem Shanghai-Team.", route: 'agencies/chinawebfoundry' as const },
+];
+---
+
+<Layout locale={locale} route="entering-china" title={title} description={description}>
+  <section class="hero-editorial">
+    <div class="container">
+      <span class="eyebrow eyebrow--rule">Flow 1 · Inbound · Westen nach China</span>
+      <h1 class="hero-editorial__title balance">
+        Sie haben eine Marke. China hat 1,1 Milliarden Internetnutzer. Diese Lücke zu schließen ist keine Übersetzungsarbeit.
+      </h1>
+      <p class="hero-editorial__lead">
+        Das chinesische Internet läuft auf seinem eigenen Stack. Andere Plattformen, andere Suchmaschinen,
+        andere Infrastruktur, andere Content-Dichte, andere Kaufsignale. Wir arbeiten seit zwanzig Jahren darin.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <header class="section-header">
+        <span class="eyebrow">Was es wirklich braucht</span>
+        <h2 class="balance">Was es braucht, um in China zu landen.</h2>
+      </header>
+      <div class="grid-2">
+        {requirements.map((r) => (
+          <article class="card">
+            <h3 class="card__title">{r.h}</h3>
+            <p>{r.body}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <header class="section-header">
+        <span class="eyebrow">Drei Agenturen. Ein Flow.</span>
+        <h2 class="balance">Den ganzen Stack nehmen oder das Stück.</h2>
+      </header>
+      <div class="grid-3">
+        {agencies.map((a) => (
+          <a class="card" href={pathFor(a.route, locale)}>
+            <span class="card__index">{a.role}</span>
+            <h3 class="card__title">{a.name}</h3>
+            <p>{a.body}</p>
+            <span class="btn btn--ghost" style="margin-top: auto;">Besuchen</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <header class="section-header">
+        <span class="eyebrow">Wie Kunden meist starten</span>
+        <h2 class="balance">Vier typische Einstiege.</h2>
+      </header>
+      <div class="grid-2">
+        <article class="card">
+          <blockquote>„Ich brauche nur eine chinesische Website, die wirklich funktioniert.“</blockquote>
+          <p><strong>ChinaWebFoundry.</strong> Migration in sechs Wochen. ICP eingereicht. Indexierbar bei Baidu.</p>
+        </article>
+        <article class="card">
+          <blockquote>„Ich muss in 90 Tagen auf RedNote und Douyin sein.“</blockquote>
+          <p><strong>TheRedScroll.</strong> Onboarding in zwei Wochen. Erster Content live in 14 Tagen.</p>
+        </article>
+        <article class="card">
+          <blockquote>„Ich brauche alles: Marke, Kanäle, eCommerce, KOLs.“</blockquote>
+          <p><strong>BeyondBorderGroup.</strong> Full-Service-Eintritt. Zwanzig Jahre Playbook.</p>
+        </article>
+        <article class="card">
+          <blockquote>„Ich weiß nicht, wo ich starten soll.“</blockquote>
+          <p>Dreißig Minuten am Telefon. Wir sagen es Ihnen. <a href={pathFor('contact', locale)}>Termin buchen</a>.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="split split--text-first">
+        <div class="prose">
+          <span class="eyebrow">Was Sie zusätzlich bekommen</span>
+          <h2 class="balance">Eine Produktions-Engine, die alle Agenturen teilen.</h2>
+          <p>
+            Jeder Inbound-Auftrag dockt an die AIGC-Produktionsschicht von HubStudio an. Genau das hält die
+            Content-Kosten konkurrenzfähig auf dem Volumen, das chinesische Kanäle verlangen: drei bis fünf
+            RedNote-Posts pro Woche, tägliches Douyin-Video, wöchentlicher WeChat-Newsletter, monatlicher
+            Tmall-Kampagnen-Refresh. Ohne KI-native Engine dahinter geht die Rechnung nicht auf.
+          </p>
+          <a class="btn btn--ghost" href={pathFor('agencies/hubstudio', locale)}>HubStudio besuchen</a>
+        </div>
+        <ImagePlaceholder ratio="4x5" label="Studio-Stillleben. Produktions-Setup. AIGC und reale Assets." />
+      </div>
+    </div>
+  </section>
+</Layout>

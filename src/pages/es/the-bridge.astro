@@ -1,0 +1,136 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ImagePlaceholder from '../../components/ImagePlaceholder.astro';
+import { pathFor } from '../../i18n/ui';
+
+const locale = 'es' as const;
+const title = 'El puente';
+const description = "La distancia entre China y Occidente no es el idioma. Es marca, canal, infraestructura, búsqueda y ventas. Un grupo especialista construido alrededor de eso.";
+
+const gaps = [
+  { title: 'Marca', body: "Lo que dice calidad en un mercado dice ruido en el otro. Los sitios chinos abren con señales de confianza, certificaciones, logos de partners, premios. Los sitios occidentales abren con una sola acción clara y mucho espacio en blanco. Cada lado lee al otro como equivocado." },
+  { title: 'Canal', body: "Los compradores B2B occidentales miran LinkedIn primero. Los consumidores chinos abren RedNote y WeChat primero. El orden de los canales pesa tanto como el mensaje." },
+  { title: 'Infraestructura', body: "Google indexa los sitios occidentales. Baidu indexa los sitios chinos. Reglas distintas, máquinas distintas, trámites distintos. Hospedar fuera de China: carga lenta y plugins rotos detrás del Firewall. Hospedar en Occidente: te falta la licencia ICP." },
+  { title: 'Búsqueda', body: "ChatGPT, Perplexity y Gemini citan fuentes occidentales. DeepSeek, Doubao y Kimi citan fuentes chinas. La nueva capa, IA como primera parada, ya está partida en dos." },
+  { title: 'Ventas', body: "Un comprador en Berlín a las 10 a. m. necesita a alguien en Berlín. Un comprador en Shanghái a las 9 p. m. necesita a alguien en WeChat. Para cuando tu equipo en Shenzhen se levanta, el comprador alemán ya escribió a tres competidores." },
+];
+---
+
+<Layout locale={locale} route="bridge" title={title} description={description}>
+  <section class="hero-editorial">
+    <div class="container">
+      <span class="eyebrow eyebrow--rule">El puente</span>
+      <h1 class="hero-editorial__title balance">
+        El puente entre China y Occidente, construido por gente que ha trabajado en los dos lados.
+      </h1>
+      <p class="hero-editorial__lead">
+        Veinte años dentro de China. Veinte años vendiendo a compradores occidentales. Hemos estado en las
+        salas donde el CEO occidental pregunta por qué el lanzamiento en China no crece, y en las salas donde
+        el dueño de la fábrica china pregunta por qué los leads no llegan desde Berlín. La misma pregunta. Caras
+        en espejo.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <header class="section-header">
+        <span class="eyebrow">La distancia</span>
+        <h2 class="balance">La distancia no es el idioma. Son cinco cosas debajo.</h2>
+        <p class="lead">
+          Un nombre que funciona en Shanghái puede caer en plano en Frankfurt. Un logo que dice calidad en
+          China puede decir la categoría equivocada en Chicago. Una bajada traducida suena rara, en cualquiera
+          de las dos direcciones.
+        </p>
+      </header>
+      <div class="grid-2">
+        {gaps.map((g) => (
+          <article class="card">
+            <h3 class="card__title">{g.title}</h3>
+            <p>{g.body}</p>
+          </article>
+        ))}
+      </div>
+      <p class="lead" style="margin-top: var(--space-7);">
+        Cada lado tiene su propia infraestructura. Cada lado necesita su propio equipo especialista. El grupo
+        está construido alrededor de ese hecho.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="split split--media-first">
+        <ImagePlaceholder ratio="4x5" label="Díptico editorial. Este y Oeste, en espejo." />
+        <div class="prose">
+          <span class="eyebrow">Por qué un grupo y no un generalista</span>
+          <h2 class="balance">La mayoría de las agencias resuelven una pieza. Nosotros operamos toda la cadena, en piezas.</h2>
+          <p>
+            Una agencia generalista que dice hacer las dos cosas suele hacer las dos mal. Los especialistas
+            China que abren oficina en Occidente no tienen comerciales nativos en Múnich. Los especialistas
+            occidentales que abren oficina en Shanghái no tienen una cuenta de publicidad WeChat operativa. El
+            organigrama dice sí. La ejecución dice no.
+          </p>
+          <p>
+            No siempre haces falta toda la pila. A veces solo necesitas un sitio chino. A veces solo necesitas
+            un motor LinkedIn. Comprarlo como pieza suelta a un especialista cuesta menos y arranca antes que
+            comprarlo dentro de un retainer generalista.
+          </p>
+          <p>
+            Las piezas son más fuertes juntas que sueltas. El mismo motor de producción AIGC alimenta posts de
+            RedNote chinos y landing pages de Google Ads alemanas. La misma lógica de contenido, partir del
+            comprador y acabar en la acción, va en las dos direcciones. Especialistas con una columna común
+            ganan a especialistas que no la comparten.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <header class="section-header">
+        <span class="eyebrow">La forma del trabajo</span>
+        <h2 class="balance">Misma forma, en espejo.</h2>
+        <p class="lead">
+          Sea el brief entrar en China o salir al exterior, el trabajo se rompe igual.
+        </p>
+      </header>
+      <ol class="numbered">
+        <li>
+          <div>
+            <p class="numbered__title">Estrategia y marca para el público de destino.</p>
+            <p>No traducida. Reconstruida.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <p class="numbered__title">Presencia en los canales que los compradores realmente usan.</p>
+            <p>WeChat, Douyin y RED en un lado. LinkedIn en el otro. Nativos, no adaptados.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <p class="numbered__title">Infraestructura web y de búsqueda que los algoritmos del destino sepan encontrar.</p>
+            <p>Baidu, ICP, IA chinas en un lado. Google e IA occidentales en el otro.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <p class="numbered__title">Producción de contenido al volumen que exigen los canales modernos.</p>
+            <p>Alimentada por la capa AIGC de HubStudio, compartida en los dos flujos.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <p class="numbered__title">Un equipo que coge el teléfono en el idioma y la zona horaria correctos.</p>
+            <p>Operadores en Shanghái, Hong Kong y París, más representantes nombrados en EE. UU., Reino Unido, Alemania y Francia.</p>
+          </div>
+        </li>
+      </ol>
+      <div style="margin-top: var(--space-7);">
+        <a class="btn btn--primary" href={pathFor('how-we-work-together', locale)}>Ver los dos flujos</a>
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,66 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import ImagePlaceholder from '../../../components/ImagePlaceholder.astro';
+import { pathFor } from '../../../i18n/ui';
+
+const locale = 'fr' as const;
+const title = 'Sept agences';
+const description = "BeyondBorderGroup, c’est sept agences spécialisées. Choisissez celle qu’il vous faut. Chacune se tient seule. La plupart des clients commencent par une.";
+
+const agencies = [
+  { n: '01', slug: 'beyondbordergroup', route: 'agencies/beyondbordergroup' as const, name: 'BeyondBorderGroup', badge: 'Occident vers Chine · Service complet', body: "Agence Chine full-service. Vingt ans sur le terrain. Branding, média, social, KOL, contenu, RP, sites, événements, eCommerce, distribution.", fit: "Marques qui ont besoin d’une seule équipe responsable pour entrer ou se développer en Chine.", based: 'Shanghai. Hong Kong. Paris.' },
+  { n: '02', slug: 'theredscroll', route: 'agencies/theredscroll' as const, name: 'TheRedScroll', badge: 'Occident vers Chine · Spécialiste de canal', body: "Réseaux sociaux chinois opérés depuis le terrain. WeChat, Douyin, RedNote, Weibo, plus 14 autres. Périmètre fixe, prix fixe.", fit: "Marques qui ont besoin que leurs réseaux sociaux chinois soient bien gérés.", based: 'Shanghai. Hong Kong.' },
+  { n: '03', slug: 'chinawebfoundry', route: 'agencies/chinawebfoundry' as const, name: 'ChinaWebFoundry', badge: 'Occident vers Chine · Infrastructure web', body: "Sites pensés pour le web chinois. ICP, Baidu, IA chinoises, testés dans le navigateur WeChat. WordPress, Astro, WeChat.", fit: "Marques dont le site doit vraiment fonctionner en Chine.", based: 'Shanghai. Hangzhou.' },
+  { n: '04', slug: 'beyondcompass', route: 'agencies/beyondcompass' as const, name: 'BeyondCompass', badge: 'Occident vers Chine · Sourcing de partenaires', body: "Une base privée de distributeurs, TP Tmall, Douyin Partners et importateurs que nous avons rencontrés et qualifiés. Sautez trois mois de sourcing.", fit: "Marques qui choisissent un partenaire chinois pour la première fois, ou qui reconstruisent leur pile de distribution.", based: 'Shanghai. Quinze ans de qualification terrain.' },
+  { n: '05', slug: 'beyondbridge', route: 'agencies/beyondbridge' as const, name: 'BeyondBridge', badge: 'Chine vers Occident · Filière complète', body: "La filière complète à l’international pour les marques chinoises. Marque, LinkedIn, site, SEO/GEO, Ads, représentants nommés sur le terrain.", fit: "Marques chinoises qui veulent une vraie filière à l’international, pas juste une présence en salon.", based: 'Chine. Représentants aux États-Unis, au Royaume-Uni, en Allemagne et en France.' },
+  { n: '06', slug: 'hubstudio', route: 'agencies/hubstudio' as const, name: 'HubStudio', badge: 'Horizontal · Production de contenu', body: "Image, vidéo et contenu AIGC. Production qualité agence, vitesse IA.", fit: "Marques, retailers, agences et industriels qui ont besoin de contenu à l’échelle.", based: 'Global. HQ à Shanghai.' },
+  { n: '07', slug: 'nuvora-studio', route: 'agencies/nuvora-studio' as const, name: 'Nuvora Studio', badge: 'Horizontal · B2B uniquement LinkedIn', body: "LinkedIn uniquement. Stratégie, contenu, publicité, employee advocacy, personal branding dirigeants.", fit: "Entreprises B2B partout dans le monde.", based: 'Global.' },
+];
+---
+
+<Layout locale={locale} route="agencies" title={title} description={description}>
+  <section class="hero-editorial">
+    <div class="container">
+      <span class="eyebrow eyebrow--rule">Agences</span>
+      <h1 class="hero-editorial__title balance">Six agences spécialisées. Un écosystème.</h1>
+      <p class="hero-editorial__lead">
+        Chaque agence se tient seule. Sa propre marque, ses propres tarifs, ses propres livrables. Choisissez
+        celle qui correspond à votre besoin. La plupart des clients commencent avec une, et en intègrent
+        d’autres au fil du projet.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="grid-2">
+        {agencies.map((a) => (
+          <article class="card" style="gap: var(--space-4);">
+            <div style="display: flex; gap: var(--space-4); align-items: flex-start;">
+              <ImagePlaceholder ratio="1x1" label={a.name} class="img-ph" />
+            </div>
+            <div class="card__meta">
+              <span class="card__tag card__tag--brand">{a.n}</span>
+              <span class="card__tag">{a.badge}</span>
+            </div>
+            <h2 class="card__title" style="font-size: var(--fs-h3);">{a.name}</h2>
+            <p>{a.body}</p>
+            <p class="muted"><strong>Pour :</strong> {a.fit}</p>
+            <p class="muted"><strong>Basée :</strong> {a.based}</p>
+            <div class="btn-row" style="margin-top: var(--space-3);">
+              <a class="btn btn--primary btn--sm" href={pathFor(a.route, locale)}>Ouvrir la page de l’agence</a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .card .img-ph {
+    width: 80px;
+    height: 80px;
+    aspect-ratio: 1 / 1;
+  }
+</style>

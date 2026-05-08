@@ -1,0 +1,122 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ImagePlaceholder from '../../components/ImagePlaceholder.astro';
+import { pathFor } from '../../i18n/ui';
+
+const locale = 'zh' as const;
+const title = '这座桥';
+const description = '中国与西方之间的鸿沟不是语言。是品牌、渠道、基建、搜索与销售。一支围绕这一现实搭建的专家集团。';
+
+const gaps = [
+  { title: '品牌', body: '一个市场里代表品质的信号，到另一个市场就成了杂乱。中国网站把信任信号、认证、合作伙伴 logo、奖项放在最前面。西方网站只放一个清晰动作和大量留白。两边都看对方"做错了"。' },
+  { title: '渠道', body: '西方 B2B 买家先看 LinkedIn。中国消费者先打开小红书和微信。渠道顺序的分量和信息内容一样重。' },
+  { title: '基建', body: 'Google 索引西方网站。百度索引中国网站。规则不同，机器不同，备案不同。在中国境外托管：墙后加载慢、插件失效。在西方托管：你没有 ICP。' },
+  { title: '搜索', body: 'ChatGPT、Perplexity、Gemini 引用西方来源。DeepSeek、豆包、Kimi 引用中国来源。买家行为的新一层——把 AI 当作第一站——已经被切成两半。' },
+  { title: '销售', body: '柏林买家上午十点需要一个柏林本地的人。上海买家晚上九点需要一个在微信上的人。等深圳团队上班时，德国买家已经发消息给三个竞品了。' },
+];
+---
+
+<Layout locale={locale} route="bridge" title={title} description={description}>
+  <section class="hero-editorial">
+    <div class="container">
+      <span class="eyebrow eyebrow--rule">这座桥</span>
+      <h1 class="hero-editorial__title balance">
+        中国与西方之间的桥，由两边都做过事的人来搭。
+      </h1>
+      <p class="hero-editorial__lead">
+        在中国二十年。向西方买家卖东西二十年。我们坐过那种屋子：西方 CEO 问，为什么中国 launch 起不来；也坐过另一种屋子：中国工厂老板问，为什么柏林那边的 lead 不来。同一道题，两个镜面。
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <header class="section-header">
+        <span class="eyebrow">鸿沟</span>
+        <h2 class="balance">鸿沟不是语言。下面藏着五件事。</h2>
+        <p class="lead">
+          上海能用的名字到法兰克福可能落地无声。在中国代表品质的 logo 到芝加哥可能传达错了品类。一句翻译过的 tagline 在两个方向都会读起来怪。
+        </p>
+      </header>
+      <div class="grid-2">
+        {gaps.map((g) => (
+          <article class="card">
+            <h3 class="card__title">{g.title}</h3>
+            <p>{g.body}</p>
+          </article>
+        ))}
+      </div>
+      <p class="lead" style="margin-top: var(--space-7);">
+        每一边都有自己的基建。每一边都需要自己的专家团队。集团就是围绕这件事建出来的。
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="split split--media-first">
+        <ImagePlaceholder ratio="4x5" label="编辑风对页。东与西，互为镜像。" />
+        <div class="prose">
+          <span class="eyebrow">为什么是一个集团，不是一家通才</span>
+          <h2 class="balance">大多数公司只解决一块。我们运营整条链，分成块来交付。</h2>
+          <p>
+            一个号称"两边都做"的通才公司，通常两边都做不好。在西方开了办公室的中国专家，在慕尼黑没有本地销售。在上海开了办公室的西方专家，没有真正能跑的微信广告户。组织架构上写着"有"，执行上写着"没有"。
+          </p>
+          <p>
+            客户不一定每次都需要全套。有时候只要一个中文网站。有时候只要一台 LinkedIn 引擎。把这些当单件向专家买，比塞进通才公司的 retainer 里要便宜，也启动得更快。
+          </p>
+          <p>
+            而拼起来的专家比独立的专家更强。同一台 AIGC 生产引擎可以同时产出中国小红书帖子和德国 Google Ads 落地页。同一套内容逻辑——从买家出发，落在动作上——两个方向都用得上。共享一根脊柱的专家，胜过各自为政的专家。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <header class="section-header">
+        <span class="eyebrow">工作的形状</span>
+        <h2 class="balance">同一种形状，互为镜像。</h2>
+        <p class="lead">
+          无论 brief 是"进入中国"还是"走向海外"，工作的拆解方式一样。
+        </p>
+      </header>
+      <ol class="numbered">
+        <li>
+          <div>
+            <p class="numbered__title">为目标受众做策略和品牌。</p>
+            <p>不是翻译。是重建。</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <p class="numbered__title">在买家真正使用的渠道上以原生格式出现。</p>
+            <p>这边是微信、抖音和小红书。那边是 LinkedIn。原生，而不是适配。</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <p class="numbered__title">让目的地的算法找得到的网站和搜索基建。</p>
+            <p>这边是百度、ICP、中国 AI；那边是 Google 与西方 AI。</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <p class="numbered__title">满足现代渠道所要求的内容产量。</p>
+            <p>由 HubStudio 的 AIGC 层提供，两个方向共享。</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <p class="numbered__title">一个会接电话、用对的语言、在对的时区里的团队。</p>
+            <p>上海、香港、巴黎的运营团队，加上美国、英国、德国、法国具名的现场代表。</p>
+          </div>
+        </li>
+      </ol>
+      <div style="margin-top: var(--space-7);">
+        <a class="btn btn--primary" href={pathFor('how-we-work-together', locale)}>查看两条流向</a>
+      </div>
+    </div>
+  </section>
+</Layout>

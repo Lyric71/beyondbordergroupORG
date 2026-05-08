@@ -18,6 +18,7 @@ const agencies = [
   { route: 'agencies/beyondbordergroup' as const, title: 'BeyondBorderGroup', desc: 'Full-service China entry.' },
   { route: 'agencies/theredscroll' as const, title: 'TheRedScroll', desc: 'Chinese social media specialist.' },
   { route: 'agencies/chinawebfoundry' as const, title: 'ChinaWebFoundry', desc: 'Websites built for China.' },
+  { route: 'agencies/beyondcompass' as const, title: 'BeyondCompass', desc: 'Vetted China distributors and TPs.' },
   { route: 'agencies/beyondbridge' as const, title: 'BeyondBridge', desc: 'Chinese brands, Western pipeline.' },
   { route: 'agencies/hubstudio' as const, title: 'HubStudio', desc: 'AIGC content production.' },
   { route: 'agencies/nuvora-studio' as const, title: 'Nuvora Studio', desc: 'LinkedIn-only B2B.' },
@@ -97,6 +98,8 @@ const agenciesDesc = ui.nav.agenciesDesc;
       <span class="lang-switch" aria-label="Language">
         <a href={pathFor((current as any) ?? 'home', 'en')} aria-current={locale === 'en'}>{localeShort.en}</a>
         <a href={pathFor((current as any) ?? 'home', 'fr')} aria-current={locale === 'fr'}>{localeShort.fr}</a>
+        <a href={pathFor((current as any) ?? 'home', 'es')} aria-current={locale === 'es'}>{localeShort.es}</a>
+        <a href={pathFor((current as any) ?? 'home', 'de')} aria-current={locale === 'de'}>{localeShort.de}</a>
         <a href={pathFor((current as any) ?? 'home', 'zh')} aria-current={locale === 'zh'}>{localeShort.zh}</a>
       </span>
       <a href={pathFor('contact', locale)} class="btn btn--primary btn--sm">{ui.nav.contact}</a>

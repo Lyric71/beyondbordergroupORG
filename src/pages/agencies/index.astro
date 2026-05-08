@@ -4,8 +4,8 @@ import ImagePlaceholder from '../../components/ImagePlaceholder.astro';
 import { pathFor } from '../../i18n/ui';
 
 const locale = 'en' as const;
-const title = 'Six agencies';
-const description = 'BeyondBorderGroup is six specialist agencies. Pick the one you need. Each one stands alone. Most clients start with one and add others as projects grow.';
+const title = 'Seven agencies';
+const description = 'BeyondBorderGroup is seven specialist agencies. Pick the one you need. Each one stands alone. Most clients start with one and add others as projects grow.';
 
 const agencies = [
   {
@@ -40,6 +40,16 @@ const agencies = [
   },
   {
     n: '04',
+    slug: 'beyondcompass',
+    route: 'agencies/beyondcompass' as const,
+    name: 'BeyondCompass',
+    badge: 'West to China · Partner sourcing',
+    body: 'A private database of distributors, Tmall TPs, Douyin Partners and importers we have actually met, vetted, and worked with. Skip three months of sourcing.',
+    fit: 'Brands choosing a China partner for the first time, or rebuilding their distribution stack.',
+    based: 'Shanghai. Built on 15 years of on-ground vetting.',
+  },
+  {
+    n: '05',
     slug: 'beyondbridge',
     route: 'agencies/beyondbridge' as const,
     name: 'BeyondBridge',
@@ -49,7 +59,7 @@ const agencies = [
     based: 'China. Reps in the US, UK, Germany, France.',
   },
   {
-    n: '05',
+    n: '06',
     slug: 'hubstudio',
     route: 'agencies/hubstudio' as const,
     name: 'HubStudio',
@@ -59,7 +69,7 @@ const agencies = [
     based: 'Global. Shanghai HQ.',
   },
   {
-    n: '06',
+    n: '07',
     slug: 'nuvora-studio',
     route: 'agencies/nuvora-studio' as const,
     name: 'Nuvora Studio',

@@ -1,0 +1,153 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const locale = 'de' as const;
+const title = 'Kontakt';
+const description = "Dreißig Minuten am Telefon. Wir sagen Ihnen, mit welcher Agentur Sie starten — oder ob es gleich mehr als eine sein sollte. Klare Antworten, kein Pitch Deck.";
+---
+
+<Layout locale={locale} route="contact" title={title} description={description}>
+  <section class="hero-editorial">
+    <div class="container">
+      <span class="eyebrow eyebrow--rule">Kontakt</span>
+      <h1 class="hero-editorial__title balance">Sagen Sie uns, in welche Richtung Sie gehen.</h1>
+      <p class="hero-editorial__lead">
+        Dreißig Minuten am Telefon. Wir sagen Ihnen, mit welcher Agentur der Gruppe Sie starten — oder ob es
+        gleich mehr als eine sein sollte. Kein Deck. Kein Pitch. Klare Antworten.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="split">
+        <form id="contact-form" class="form" method="post" action="/api/contact" novalidate>
+          <input type="hidden" name="locale" value="de" />
+
+          <div class="form-step">
+            <span class="form-step__heading">Schritt 1</span>
+            <h2 class="form-step__title">In welche Richtung?</h2>
+            <div class="choice-list">
+              <label class="choice"><input type="radio" name="direction" value="inbound" /> <span>Ich will in China eintreten oder dort wachsen. <span class="muted">(Westen nach China.)</span></span></label>
+              <label class="choice"><input type="radio" name="direction" value="outbound" /> <span>Ich will meine chinesische Marke im Ausland skalieren. <span class="muted">(China nach Westen.)</span></span></label>
+              <label class="choice"><input type="radio" name="direction" value="content" /> <span>Ich brauche nur Content-Produktion. <span class="muted">(HubStudio.)</span></span></label>
+              <label class="choice"><input type="radio" name="direction" value="linkedin" /> <span>Ich brauche nur LinkedIn ordentlich betrieben. <span class="muted">(Nuvora Studio.)</span></span></label>
+              <label class="choice"><input type="radio" name="direction" value="unsure" /> <span>Noch nicht sicher.</span></label>
+            </div>
+          </div>
+
+          <div class="form-step">
+            <span class="form-step__heading">Schritt 2</span>
+            <h2 class="form-step__title">Wo stehen Sie im Prozess?</h2>
+            <div class="choice-list">
+              <label class="choice"><input type="radio" name="stage" value="exploring" /> <span>Sondieren. Frühe Phase.</span></label>
+              <label class="choice"><input type="radio" name="stage" value="planning" /> <span>Planen. Bereit, in einem bis drei Monaten zu starten.</span></label>
+              <label class="choice"><input type="radio" name="stage" value="launching" /> <span>Launch. Brauche Hilfe in den nächsten 30 Tagen.</span></label>
+              <label class="choice"><input type="radio" name="stage" value="operating" /> <span>Schon im Betrieb. Muss reparieren oder skalieren.</span></label>
+            </div>
+          </div>
+
+          <div class="form-step">
+            <span class="form-step__heading">Schritt 3</span>
+            <h2 class="form-step__title">Über Ihr Unternehmen.</h2>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="company">Unternehmen</label>
+                <input id="company" name="company" type="text" />
+              </div>
+              <div class="form-field">
+                <label for="role">Ihre Rolle</label>
+                <input id="role" name="role" type="text" />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="industry">Branche</label>
+                <input id="industry" name="industry" type="text" />
+              </div>
+              <div class="form-field">
+                <label for="hq">Land des Hauptsitzes</label>
+                <input id="hq" name="hq" type="text" />
+              </div>
+            </div>
+            <div class="form-field">
+              <label for="website">Website</label>
+              <input id="website" name="website" type="url" placeholder="https://" />
+            </div>
+          </div>
+
+          <div class="form-step">
+            <span class="form-step__heading">Schritt 4</span>
+            <h2 class="form-step__title">Das Briefing.</h2>
+            <div class="form-field">
+              <label for="brief">Ein kurzer Absatz reicht.</label>
+              <textarea id="brief" name="brief" rows="5"></textarea>
+            </div>
+          </div>
+
+          <div class="form-step">
+            <span class="form-step__heading">Schritt 5</span>
+            <h2 class="form-step__title">Wie wir Sie erreichen.</h2>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text" required />
+              </div>
+              <div class="form-field">
+                <label for="email">E-Mail</label>
+                <input id="email" name="email" type="email" required />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="phone">Telefon (optional)</label>
+                <input id="phone" name="phone" type="tel" />
+              </div>
+              <div class="form-field">
+                <label for="tz">Bevorzugte Zeitzone</label>
+                <input id="tz" name="tz" type="text" placeholder="z. B. CET, CST, PT" />
+              </div>
+            </div>
+            <div class="form-field">
+              <label for="lang">Sprache des Gesprächs</label>
+              <select id="lang" name="lang">
+                <option value="de">Deutsch</option>
+                <option value="en">English</option>
+                <option value="fr">Français</option>
+                <option value="zh">中文</option>
+                <option value="es">Español</option>
+              </select>
+            </div>
+          </div>
+
+          <p id="contact-status" class="form-status" role="status" aria-live="polite" hidden></p>
+
+          <div class="btn-row" style="justify-content: flex-end;">
+            <button id="contact-submit" class="btn btn--primary" type="submit">Senden</button>
+          </div>
+        </form>
+
+        <aside class="prose">
+          <span class="eyebrow">Oder direkt eine Agentur kontaktieren</span>
+          <h3>Wenn Sie schon wissen, welche Sie brauchen.</h3>
+          <ul>
+            <li>BeyondBorderGroup. <a href="https://beyondbordergroup.com/contact" target="_blank" rel="noreferrer">beyondbordergroup.com/contact</a></li>
+            <li>TheRedScroll. <a href="https://theredscroll.com/contact" target="_blank" rel="noreferrer">theredscroll.com/contact</a></li>
+            <li>ChinaWebFoundry. <a href="https://chinawebfoundry.com/contact" target="_blank" rel="noreferrer">chinawebfoundry.com/contact</a></li>
+            <li>BeyondBridge. <a href="https://beyondbridge.com/contact" target="_blank" rel="noreferrer">beyondbridge.com/contact</a></li>
+            <li>HubStudio. <a href="https://hubstudio.ai/contact" target="_blank" rel="noreferrer">hubstudio.ai/contact</a></li>
+            <li>Nuvora Studio. <a href="https://nuvora.studio/contact" target="_blank" rel="noreferrer">nuvora.studio/contact</a></li>
+          </ul>
+
+          <h3 style="margin-top: var(--space-6);">Büros</h3>
+          <p>Shanghai (HQ der Gruppe). Hongkong. Paris. Hangzhou.</p>
+          <p>
+            Vertriebsleute vor Ort für BeyondBridge: Jenny in den USA, Scott in Großbritannien, Eike in
+            Deutschland, Stéphane in Frankreich.
+          </p>
+          <p class="muted">Wir antworten innerhalb von 24 Stunden — in Ihrer Zeitzone.</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+</Layout>

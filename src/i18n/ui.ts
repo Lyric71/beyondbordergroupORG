@@ -1,4 +1,4 @@
-export const locales = ['en', 'fr', 'zh'] as const;
+export const locales = ['en', 'fr', 'zh', 'es', 'de'] as const;
 export type Locale = (typeof locales)[number];
 export const defaultLocale: Locale = 'en';
 
@@ -6,12 +6,16 @@ export const localeNames: Record<Locale, string> = {
   en: 'English',
   fr: 'Français',
   zh: '中文',
+  es: 'Español',
+  de: 'Deutsch',
 };
 
 export const localeShort: Record<Locale, string> = {
   en: 'EN',
   fr: 'FR',
   zh: '中',
+  es: 'ES',
+  de: 'DE',
 };
 
 export type Route =
@@ -24,59 +28,35 @@ export type Route =
   | 'agencies/theredscroll'
   | 'agencies/chinawebfoundry'
   | 'agencies/beyondbridge'
+  | 'agencies/beyondcompass'
   | 'agencies/hubstudio'
   | 'agencies/nuvora-studio'
   | 'how-we-work-together'
   | 'founder'
   | 'contact';
 
-const slugByLocale: Record<Route, Record<Locale, string>> = {
-  home: { en: '/', fr: '/fr/', zh: '/zh/' },
-  bridge: { en: '/the-bridge/', fr: '/fr/the-bridge/', zh: '/zh/the-bridge/' },
-  'entering-china': { en: '/entering-china/', fr: '/fr/entering-china/', zh: '/zh/entering-china/' },
-  'going-overseas': { en: '/going-overseas/', fr: '/fr/going-overseas/', zh: '/zh/going-overseas/' },
-  agencies: { en: '/agencies/', fr: '/fr/agencies/', zh: '/zh/agencies/' },
-  'agencies/beyondbordergroup': {
-    en: '/agencies/beyondbordergroup/',
-    fr: '/fr/agencies/beyondbordergroup/',
-    zh: '/zh/agencies/beyondbordergroup/',
-  },
-  'agencies/theredscroll': {
-    en: '/agencies/theredscroll/',
-    fr: '/fr/agencies/theredscroll/',
-    zh: '/zh/agencies/theredscroll/',
-  },
-  'agencies/chinawebfoundry': {
-    en: '/agencies/chinawebfoundry/',
-    fr: '/fr/agencies/chinawebfoundry/',
-    zh: '/zh/agencies/chinawebfoundry/',
-  },
-  'agencies/beyondbridge': {
-    en: '/agencies/beyondbridge/',
-    fr: '/fr/agencies/beyondbridge/',
-    zh: '/zh/agencies/beyondbridge/',
-  },
-  'agencies/hubstudio': {
-    en: '/agencies/hubstudio/',
-    fr: '/fr/agencies/hubstudio/',
-    zh: '/zh/agencies/hubstudio/',
-  },
-  'agencies/nuvora-studio': {
-    en: '/agencies/nuvora-studio/',
-    fr: '/fr/agencies/nuvora-studio/',
-    zh: '/zh/agencies/nuvora-studio/',
-  },
-  'how-we-work-together': {
-    en: '/how-we-work-together/',
-    fr: '/fr/how-we-work-together/',
-    zh: '/zh/how-we-work-together/',
-  },
-  founder: { en: '/founder/', fr: '/fr/founder/', zh: '/zh/founder/' },
-  contact: { en: '/contact/', fr: '/fr/contact/', zh: '/zh/contact/' },
+const routePaths: Record<Route, string> = {
+  home: '',
+  bridge: 'the-bridge/',
+  'entering-china': 'entering-china/',
+  'going-overseas': 'going-overseas/',
+  agencies: 'agencies/',
+  'agencies/beyondbordergroup': 'agencies/beyondbordergroup/',
+  'agencies/theredscroll': 'agencies/theredscroll/',
+  'agencies/chinawebfoundry': 'agencies/chinawebfoundry/',
+  'agencies/beyondbridge': 'agencies/beyondbridge/',
+  'agencies/beyondcompass': 'agencies/beyondcompass/',
+  'agencies/hubstudio': 'agencies/hubstudio/',
+  'agencies/nuvora-studio': 'agencies/nuvora-studio/',
+  'how-we-work-together': 'how-we-work-together/',
+  founder: 'founder/',
+  contact: 'contact/',
 };
 
 export function pathFor(route: Route, locale: Locale): string {
-  return slugByLocale[route][locale];
+  const tail = routePaths[route];
+  if (locale === 'en') return `/${tail}`;
+  return `/${locale}/${tail}`;
 }
 
 export interface UI {
@@ -134,7 +114,7 @@ export const ui: Record<Locale, UI> = {
       founder: 'Founder',
       contact: 'Contact',
       flowsDesc: 'One bridge, two directions. Pick the side of the bridge you are coming from.',
-      agenciesDesc: 'Six specialist studios. Each one stands alone. Most clients start with one.',
+      agenciesDesc: 'Specialist studios. Each one stands alone. Most clients start with one.',
     },
     cta: {
       talkToUs: 'Talk to us',
@@ -151,7 +131,7 @@ export const ui: Record<Locale, UI> = {
     footer: {
       tagline: 'We build brands across the China and West border. Both ways.',
       ecosystem: 'The ecosystem',
-      sixAgencies: 'Six agencies',
+      sixAgencies: 'The agencies',
       discover: 'Discover',
       languages: 'Languages',
       offices: 'Shanghai. Hong Kong. Paris. Hangzhou. Reps in the US, UK, Germany, France.',
@@ -176,7 +156,7 @@ export const ui: Record<Locale, UI> = {
       founder: 'Fondateur',
       contact: 'Contact',
       flowsDesc: 'Un pont, deux directions. Choisissez le côté d’où vous venez.',
-      agenciesDesc: 'Six studios spécialisés. Chacun se tient seul. La plupart des clients commencent par un.',
+      agenciesDesc: 'Studios spécialisés. Chacun se tient seul. La plupart des clients commencent par un.',
     },
     cta: {
       talkToUs: 'Parler avec nous',
@@ -193,7 +173,7 @@ export const ui: Record<Locale, UI> = {
     footer: {
       tagline: 'Nous construisons des marques de part et d’autre de la frontière Chine et Occident. Dans les deux sens.',
       ecosystem: 'L’écosystème',
-      sixAgencies: 'Six agences',
+      sixAgencies: 'Les agences',
       discover: 'Découvrir',
       languages: 'Langues',
       offices: 'Shanghai. Hong Kong. Paris. Hangzhou. Représentants aux États-Unis, au Royaume-Uni, en Allemagne et en France.',
@@ -213,12 +193,12 @@ export const ui: Record<Locale, UI> = {
       flowsLabel: '两条流向',
       enteringChina: '进入中国',
       goingOverseas: '走向海外',
-      agencies: '六家公司',
+      agencies: '我们的公司',
       howWeWork: '协作方式',
       founder: '创始人',
       contact: '联系',
       flowsDesc: '一座桥，两个方向。从你的那一侧开始。',
-      agenciesDesc: '六家独立的专业公司。每一家都可以单独合作。大多数客户从其中一家开始。',
+      agenciesDesc: '独立的专业公司。每一家都可以单独合作。大多数客户从其中一家开始。',
     },
     cta: {
       talkToUs: '与我们对话',
@@ -235,7 +215,7 @@ export const ui: Record<Locale, UI> = {
     footer: {
       tagline: '我们为中国与西方市场之间的品牌服务。双向。',
       ecosystem: '生态系统',
-      sixAgencies: '六家公司',
+      sixAgencies: '所有公司',
       discover: '了解我们',
       languages: '语言',
       offices: '上海。香港。巴黎。杭州。在美国、英国、德国、法国设有商务代表。',
@@ -249,6 +229,90 @@ export const ui: Record<Locale, UI> = {
       skipToContent: '跳到主内容',
     },
   },
+  es: {
+    nav: {
+      bridge: 'El puente',
+      flowsLabel: 'Dos flujos',
+      enteringChina: 'Entrar en China',
+      goingOverseas: 'Salir al exterior',
+      agencies: 'Agencias',
+      howWeWork: 'Cómo trabajamos',
+      founder: 'Fundador',
+      contact: 'Contacto',
+      flowsDesc: 'Un puente, dos direcciones. Elige el lado del puente desde el que vienes.',
+      agenciesDesc: 'Estudios especializados. Cada uno funciona por su cuenta. La mayoría de los clientes empieza con uno.',
+    },
+    cta: {
+      talkToUs: 'Hablar con nosotros',
+      bookACall: 'Reservar una llamada',
+      findAgency: 'Encontrar la agencia adecuada',
+      seeInbound: 'Ver el flujo entrante',
+      seeOutbound: 'Ver el flujo saliente',
+      visitSite: 'Visitar el sitio',
+      learnMore: 'Saber más',
+      openAgency: 'Abrir página de la agencia',
+      readBio: 'Leer la biografía completa',
+      send: 'Enviar',
+    },
+    footer: {
+      tagline: 'Construimos marcas a ambos lados de la frontera entre China y Occidente. En las dos direcciones.',
+      ecosystem: 'El ecosistema',
+      sixAgencies: 'Las agencias',
+      discover: 'Descubrir',
+      languages: 'Idiomas',
+      offices: 'Shanghái. Hong Kong. París. Hangzhou. Representantes en EE. UU., Reino Unido, Alemania y Francia.',
+      rights: '© 2026 BeyondBorderGroup Ltd. Hong Kong.',
+      privacy: 'Privacidad',
+      terms: 'Términos',
+      cookies: 'Cookies',
+    },
+    meta: {
+      siteName: 'BeyondBorderGroup',
+      skipToContent: 'Saltar al contenido',
+    },
+  },
+  de: {
+    nav: {
+      bridge: 'Die Brücke',
+      flowsLabel: 'Zwei Richtungen',
+      enteringChina: 'Eintritt nach China',
+      goingOverseas: 'Ins Ausland',
+      agencies: 'Agenturen',
+      howWeWork: 'Wie wir arbeiten',
+      founder: 'Gründer',
+      contact: 'Kontakt',
+      flowsDesc: 'Eine Brücke, zwei Richtungen. Wählen Sie die Seite, von der Sie kommen.',
+      agenciesDesc: 'Spezialisierte Studios. Jedes steht für sich. Die meisten Kunden starten mit einem.',
+    },
+    cta: {
+      talkToUs: 'Mit uns sprechen',
+      bookACall: 'Termin buchen',
+      findAgency: 'Die passende Agentur finden',
+      seeInbound: 'Eingehenden Flow ansehen',
+      seeOutbound: 'Ausgehenden Flow ansehen',
+      visitSite: 'Website besuchen',
+      learnMore: 'Mehr erfahren',
+      openAgency: 'Agenturseite öffnen',
+      readBio: 'Vollständige Biografie lesen',
+      send: 'Senden',
+    },
+    footer: {
+      tagline: 'Wir bauen Marken über die Grenze zwischen China und dem Westen. In beide Richtungen.',
+      ecosystem: 'Das Ökosystem',
+      sixAgencies: 'Die Agenturen',
+      discover: 'Entdecken',
+      languages: 'Sprachen',
+      offices: 'Shanghai. Hongkong. Paris. Hangzhou. Repräsentanten in den USA, im Vereinigten Königreich, in Deutschland und Frankreich.',
+      rights: '© 2026 BeyondBorderGroup Ltd. Hongkong.',
+      privacy: 'Datenschutz',
+      terms: 'AGB',
+      cookies: 'Cookies',
+    },
+    meta: {
+      siteName: 'BeyondBorderGroup',
+      skipToContent: 'Zum Inhalt springen',
+    },
+  },
 };
 
 export function t(locale: Locale): UI {
@@ -257,11 +321,11 @@ export function t(locale: Locale): UI {
 
 export function detectLocale(url: URL): Locale {
   const seg = url.pathname.split('/').filter(Boolean)[0];
-  if (seg === 'fr') return 'fr';
-  if (seg === 'zh') return 'zh';
+  if (seg === 'fr' || seg === 'zh' || seg === 'es' || seg === 'de') return seg;
   return 'en';
 }
 
 export function htmlLang(locale: Locale): string {
-  return locale === 'zh' ? 'zh-CN' : locale;
+  if (locale === 'zh') return 'zh-CN';
+  return locale;
 }

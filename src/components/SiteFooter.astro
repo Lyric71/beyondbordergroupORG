@@ -20,6 +20,7 @@ const agencies = [
   { route: 'agencies/beyondbordergroup' as const, label: 'BeyondBorderGroup' },
   { route: 'agencies/theredscroll' as const, label: 'TheRedScroll' },
   { route: 'agencies/chinawebfoundry' as const, label: 'ChinaWebFoundry' },
+  { route: 'agencies/beyondcompass' as const, label: 'BeyondCompass' },
   { route: 'agencies/beyondbridge' as const, label: 'BeyondBridge' },
   { route: 'agencies/hubstudio' as const, label: 'HubStudio' },
   { route: 'agencies/nuvora-studio' as const, label: 'Nuvora Studio' },
@@ -65,6 +66,8 @@ const discover = [
         <ul class="site-footer__links">
           <li><a href={pathFor((current as any) ?? 'home', 'en')}>{localeNames.en}</a></li>
           <li><a href={pathFor((current as any) ?? 'home', 'fr')}>{localeNames.fr}</a></li>
+          <li><a href={pathFor((current as any) ?? 'home', 'es')}>{localeNames.es}</a></li>
+          <li><a href={pathFor((current as any) ?? 'home', 'de')}>{localeNames.de}</a></li>
           <li><a href={pathFor((current as any) ?? 'home', 'zh')}>{localeNames.zh}</a></li>
         </ul>
       </div>

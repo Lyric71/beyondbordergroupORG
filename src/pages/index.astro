@@ -5,7 +5,7 @@ import { pathFor } from '../i18n/ui';
 
 const locale = 'en' as const;
 const title = 'China and the West, both ways';
-const description = 'Six specialist agencies bridging China and the West in both directions. Brand, channels, web, content, sales. One ecosystem, one shared spine.';
+const description = 'Seven specialist agencies bridging China and the West in both directions. Brand, channels, web, partner sourcing, content, sales. One ecosystem, one shared spine.';
 
 const agencies = [
   {
@@ -28,18 +28,24 @@ const agencies = [
   },
   {
     n: '04',
+    name: 'BeyondCompass',
+    tagline: 'A private database of vetted China distributors, Tmall TPs, Douyin Partners.',
+    route: 'agencies/beyondcompass' as const,
+  },
+  {
+    n: '05',
     name: 'BeyondBridge',
     tagline: 'The full pipeline for Chinese brands going overseas.',
     route: 'agencies/beyondbridge' as const,
   },
   {
-    n: '05',
+    n: '06',
     name: 'HubStudio',
     tagline: 'AIGC image, video, and content. Production at scale.',
     route: 'agencies/hubstudio' as const,
   },
   {
-    n: '06',
+    n: '07',
     name: 'Nuvora Studio',
     tagline: 'LinkedIn-only B2B. Strategy, content, ads.',
     route: 'agencies/nuvora-studio' as const,
@@ -108,7 +114,7 @@ const agencies = [
     <div class="container">
       <header class="section-header">
         <span class="eyebrow">The stack</span>
-        <h2 class="balance">Six specialists. One ecosystem.</h2>
+        <h2 class="balance">Seven specialists. One ecosystem.</h2>
         <p class="lead">
           Each agency stands alone. Pick the one you need. Most clients start with one, then pull in others
           as the project grows.
@@ -161,6 +167,11 @@ const agencies = [
               <th>Web infrastructure</th>
               <td>ChinaWebFoundry</td>
               <td>BeyondBridge web module</td>
+            </tr>
+            <tr>
+              <th>Partner sourcing</th>
+              <td>BeyondCompass</td>
+              <td class="muted">—</td>
             </tr>
             <tr>
               <th>Production layer</th>

@@ -1,0 +1,66 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import ImagePlaceholder from '../../../components/ImagePlaceholder.astro';
+import { pathFor } from '../../../i18n/ui';
+
+const locale = 'de' as const;
+const title = 'Sieben Agenturen';
+const description = "BeyondBorderGroup sind sieben spezialisierte Agenturen. Wählen Sie die, die Sie brauchen. Jede steht für sich. Die meisten Kunden starten mit einer.";
+
+const agencies = [
+  { n: '01', slug: 'beyondbordergroup', route: 'agencies/beyondbordergroup' as const, name: 'BeyondBorderGroup', badge: 'Westen nach China · Full-Service', body: "Full-Service-China-Agentur. Zwanzig Jahre vor Ort. Branding, Mediaeinkauf, Social, KOLs, Content, PR, Websites, Events, eCommerce, Distribution.", fit: "Marken, die ein verantwortliches Team brauchen, um in China einzutreten oder zu wachsen.", based: 'Shanghai. Hongkong. Paris.' },
+  { n: '02', slug: 'theredscroll', route: 'agencies/theredscroll' as const, name: 'TheRedScroll', badge: 'Westen nach China · Kanal-Spezialist', body: "Chinesische Social Media vom Boden aus betrieben. WeChat, Douyin, RedNote, Weibo plus 14 weitere. Fester Scope, fester Preis.", fit: "Marken, die ihre chinesische Social-Präsenz richtig betrieben brauchen.", based: 'Shanghai. Hongkong.' },
+  { n: '03', slug: 'chinawebfoundry', route: 'agencies/chinawebfoundry' as const, name: 'ChinaWebFoundry', badge: 'Westen nach China · Web-Infrastruktur', body: "Websites für das chinesische Web. ICP, Baidu, KI-Engines, im WeChat-Browser getestet. WordPress, Astro, WeChat.", fit: "Marken, deren Website in China wirklich funktionieren muss.", based: 'Shanghai. Hangzhou.' },
+  { n: '04', slug: 'beyondcompass', route: 'agencies/beyondcompass' as const, name: 'BeyondCompass', badge: 'Westen nach China · Partner-Sourcing', body: "Eine private Datenbank aus Distributoren, Tmall-TPs und Douyin Partnern, mit denen wir wirklich gearbeitet haben. Drei Monate Sourcing überspringen.", fit: "Marken, die zum ersten Mal einen China-Partner wählen oder ihren Distributions-Stack neu aufbauen.", based: 'Shanghai. Aufgebaut auf 15 Jahren Vor-Ort-Prüfung.' },
+  { n: '05', slug: 'beyondbridge', route: 'agencies/beyondbridge' as const, name: 'BeyondBridge', badge: 'China nach Westen · Komplette Pipeline', body: "Die komplette Auslands-Pipeline für chinesische Marken. Marke, LinkedIn, Website, SEO/GEO, Ads, Vertriebsleute vor Ort.", fit: "Chinesische Marken, die echte Auslands-Pipeline brauchen, nicht nur Messepräsenz.", based: 'China. Repräsentanten in den USA, Großbritannien, Deutschland, Frankreich.' },
+  { n: '06', slug: 'hubstudio', route: 'agencies/hubstudio' as const, name: 'HubStudio', badge: 'Horizontal · Content-Produktion', body: "AIGC-Bild, -Video und -Content. Produktion in Agentur-Qualität, KI-Geschwindigkeit.", fit: "Marken, Händler, Agenturen und Hersteller, die Content in Skala brauchen.", based: 'Global. HQ in Shanghai.' },
+  { n: '07', slug: 'nuvora-studio', route: 'agencies/nuvora-studio' as const, name: 'Nuvora Studio', badge: 'Horizontal · Reines LinkedIn-B2B', body: "Nur LinkedIn. Strategie, Content, Werbung, Employee Advocacy, persönliche Markenbildung von Führungskräften.", fit: "B2B-Unternehmen weltweit.", based: 'Global.' },
+];
+---
+
+<Layout locale={locale} route="agencies" title={title} description={description}>
+  <section class="hero-editorial">
+    <div class="container">
+      <span class="eyebrow eyebrow--rule">Agenturen</span>
+      <h1 class="hero-editorial__title balance">Sechs spezialisierte Agenturen. Ein Ökosystem.</h1>
+      <p class="hero-editorial__lead">
+        Jede Agentur steht für sich. Eigene Marke, eigene Preise, eigene Liefergegenstände. Wählen Sie, was zu
+        Ihrem Bedarf passt. Die meisten Kunden starten mit einer und nehmen weitere dazu, wenn das Projekt
+        wächst.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="grid-2">
+        {agencies.map((a) => (
+          <article class="card" style="gap: var(--space-4);">
+            <div style="display: flex; gap: var(--space-4); align-items: flex-start;">
+              <ImagePlaceholder ratio="1x1" label={a.name} class="img-ph" />
+            </div>
+            <div class="card__meta">
+              <span class="card__tag card__tag--brand">{a.n}</span>
+              <span class="card__tag">{a.badge}</span>
+            </div>
+            <h2 class="card__title" style="font-size: var(--fs-h3);">{a.name}</h2>
+            <p>{a.body}</p>
+            <p class="muted"><strong>Für:</strong> {a.fit}</p>
+            <p class="muted"><strong>Sitz:</strong> {a.based}</p>
+            <div class="btn-row" style="margin-top: var(--space-3);">
+              <a class="btn btn--primary btn--sm" href={pathFor(a.route, locale)}>Agenturseite öffnen</a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .card .img-ph {
+    width: 80px;
+    height: 80px;
+    aspect-ratio: 1 / 1;
+  }
+</style>

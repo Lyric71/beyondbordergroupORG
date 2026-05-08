@@ -1,0 +1,117 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ImagePlaceholder from './ImagePlaceholder.astro';
+import { type Locale, type Route, pathFor } from '../i18n/ui';
+
+interface Props {
+  locale: Locale;
+  route: Route;
+  name: string;
+  badge: string;
+  hero: string;
+  thesis: string;
+  doSections: { h: string; items: string[] }[];
+  fit: string[];
+  connects: string;
+  visitUrl: string;
+  visitLabel: string;
+  title: string;
+  description: string;
+  imageLabel: string;
+  whoForLabel: string;
+  thesisLabel: string;
+  whatLabel: string;
+  connectsLabel: string;
+}
+
+const {
+  locale,
+  route,
+  name,
+  badge,
+  hero,
+  thesis,
+  doSections,
+  fit,
+  connects,
+  visitUrl,
+  visitLabel,
+  title,
+  description,
+  imageLabel,
+  whoForLabel,
+  thesisLabel,
+  whatLabel,
+  connectsLabel,
+} = Astro.props;
+---
+
+<Layout locale={locale} route={route} title={title} description={description}>
+  <section class="hero-editorial">
+    <div class="container">
+      <div class="split split--text-first">
+        <div>
+          <span class="eyebrow eyebrow--rule">{badge}</span>
+          <h1 class="hero-editorial__title balance">{name}</h1>
+          <p class="hero-editorial__lead">{hero}</p>
+          <div class="btn-row" style="margin-top: var(--space-5);">
+            <a class="btn btn--primary" href={visitUrl} target="_blank" rel="noreferrer">{visitLabel}</a>
+            <a class="btn btn--ghost" href={pathFor('contact', locale)}>{thesisLabel === 'Thesis' ? 'Talk to us' : thesisLabel}</a>
+          </div>
+        </div>
+        <ImagePlaceholder ratio="4x5" label={imageLabel} />
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container container--narrow">
+      <span class="eyebrow">{thesisLabel}</span>
+      <p class="lead">{thesis}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <header class="section-header">
+        <span class="eyebrow">{whatLabel}</span>
+      </header>
+      <div class="grid-2">
+        {doSections.map((sec) => (
+          <article class="card">
+            <h3 class="card__title">{sec.h}</h3>
+            <ul class="prose">
+              {sec.items.map((it) => <li>{it}</li>)}
+            </ul>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="split split--media-first">
+        <ImagePlaceholder ratio="4x5" label={`${name} — context shot`} />
+        <div class="prose">
+          <span class="eyebrow">{whoForLabel}</span>
+          <ul>
+            {fit.map((f) => <li>{f}</li>)}
+          </ul>
+          <h3 style="margin-top: var(--space-5);">{connectsLabel}</h3>
+          <p>{connects}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--dark">
+    <div class="container container--narrow center">
+      <h2 class="balance">{name}</h2>
+      <div class="btn-row" style="justify-content: center;">
+        <a class="btn btn--primary" href={visitUrl} target="_blank" rel="noreferrer">{visitLabel}</a>
+        <a class="btn btn--ghost-light" href={pathFor('contact', locale)}>Talk to us</a>
+      </div>
+    </div>
+  </section>
+</Layout>

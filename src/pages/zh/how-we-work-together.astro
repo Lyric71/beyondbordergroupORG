@@ -1,0 +1,163 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { pathFor } from '../../i18n/ui';
+
+const locale = 'zh' as const;
+const title = '协作方式';
+const description = '独立的公司，共享的领导层，共享的生产引擎。BeyondBorderGroup 生态里的公司如何在不被压成"通才"的前提下完成协作。';
+---
+
+<Layout locale={locale} route="how-we-work-together" title={title} description={description}>
+  <section class="hero-editorial">
+    <div class="container">
+      <span class="eyebrow eyebrow--rule">如何拼起来</span>
+      <h1 class="hero-editorial__title balance">七家公司。一根脊柱。</h1>
+      <p class="hero-editorial__lead">
+        这些公司彼此独立。各有品牌、定价、团队。但他们共享同一支领导团队、同一台生产引擎和同一套工作方式。下面是把它们撑在一起、又不至于压成一个通才的结构。
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <header class="section-header">
+        <span class="eyebrow">矩阵</span>
+        <h2 class="balance">按方向两列。两层横向能力。</h2>
+      </header>
+      <div style="overflow-x: auto;">
+        <table class="matrix">
+          <thead>
+            <tr>
+              <th></th>
+              <th>西方进入中国</th>
+              <th>中国走向西方</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>全案运营方</th>
+              <td><strong>BeyondBorderGroup</strong></td>
+              <td><strong>BeyondBridge</strong></td>
+            </tr>
+            <tr>
+              <th>渠道专家</th>
+              <td>TheRedScroll。微信、抖音、小红书、微博。</td>
+              <td>Nuvora Studio。LinkedIn。</td>
+            </tr>
+            <tr>
+              <th>网站基建</th>
+              <td>ChinaWebFoundry。百度、ICP、AI 引擎。</td>
+              <td>BeyondBridge 网站模块。Google、西方 AI。</td>
+            </tr>
+            <tr>
+              <th>合作伙伴对接</th>
+              <td>BeyondCompass。验证过的分销商、Tmall TP、抖音 Partner。</td>
+              <td class="muted">—</td>
+            </tr>
+            <tr>
+              <th>生产层</th>
+              <td colspan="2" style="text-align:center; background: var(--bbg-blue-light); color: var(--bbg-ink); font-weight: 600;">HubStudio</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <header class="section-header">
+        <span class="eyebrow">每家公司从哪里取力</span>
+        <h2 class="balance">三件事在整个集团之间共享。</h2>
+      </header>
+      <div class="grid-3">
+        <article class="card">
+          <h3 class="card__title">领导层</h3>
+          <p>
+            创始人 Cyril Drouin 统一定调七家公司的策略。二十五年欧洲与北亚经验。前阳狮北亚首席数字与电商官。所有公司在同一条战略线下运作。
+          </p>
+        </article>
+        <article class="card">
+          <h3 class="card__title">HubStudio AIGC 层</h3>
+          <p>
+            集团里所有公司都连到同一台 AI 原生生产引擎。这就是为什么我们能在同样的单条成本下，每周给一个中国美妆品牌做三条小红书，给一个进入德国的中国工业品牌做五条 LinkedIn 轮播。
+          </p>
+        </article>
+        <article class="card">
+          <h3 class="card__title">协调一致的客户管理</h3>
+          <p>
+            当客户用上两家或更多公司时，由一名总监统一对接。一份 brief 进去。一次例会。一份月度报告。供应商之间不会丢上下文。
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <header class="section-header">
+        <span class="eyebrow">实际操作中</span>
+        <h2 class="balance">组合长什么样。</h2>
+      </header>
+      <div class="grid-2">
+        <article class="card">
+          <h3 class="card__title">完整入境组合</h3>
+          <p>
+            BeyondBorderGroup 主导，TheRedScroll 跑社交，ChinaWebFoundry 跑网站，HubStudio 出内容。一个客户。一条管道。一个能拿来对照的指标。
+          </p>
+        </article>
+        <article class="card">
+          <h3 class="card__title">完整出境组合</h3>
+          <p>
+            BeyondBridge 主导，Nuvora 跑 LinkedIn，HubStudio 出内容。本地销售在前线接 closing 电话。
+          </p>
+        </article>
+        <article class="card">
+          <h3 class="card__title">只用横向能力的客户</h3>
+          <p>
+            一家美国 B2B SaaS 只想把 LinkedIn 跑好，直接找 Nuvora，从来不碰中国端。一家法国零售商每季度需要 5000 张产品图，直接找 HubStudio，从来不碰社交端。
+          </p>
+        </article>
+        <article class="card">
+          <h3 class="card__title">单模块客户</h3>
+          <p>
+            一家瑞士手表品牌只想让 WordPress 站在上海打开两秒内完成，找 ChinaWebFoundry。就这一项。其他都不做。
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="split">
+        <div class="prose">
+          <span class="eyebrow">报价</span>
+          <h3>每家公司在自己的网站上公开报价。</h3>
+          <p>
+            每家公司在自己的网站上公开报价。集团不打包。如果你需要三家，就付三份独立的范围。客户管理由集团统一支撑。生产层是同一台。
+          </p>
+        </div>
+        <div class="prose">
+          <span class="eyebrow">语言与所在地</span>
+          <h3>工作发生在哪里。</h3>
+          <p>策略与客户管理使用英语、普通话、法语。</p>
+          <ul>
+            <li>上海——BeyondBorderGroup、TheRedScroll、ChinaWebFoundry、HubStudio 的总部。</li>
+            <li>香港——TheRedScroll 与 BeyondBorderGroup。</li>
+            <li>巴黎——BeyondBorderGroup 与集团领导层。</li>
+            <li>杭州——ChinaWebFoundry 的二级办公室。</li>
+            <li>BeyondBridge 在美国、英国、德国、法国的本地销售代表。</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--dark">
+    <div class="container container--narrow center">
+      <h2 class="balance">想知道应该从哪一家开始？</h2>
+      <a class="btn btn--primary" href={pathFor('contact', locale)}>预约通话</a>
+    </div>
+  </section>
+</Layout>

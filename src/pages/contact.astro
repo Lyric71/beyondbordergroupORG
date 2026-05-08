@@ -1,0 +1,233 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const locale = 'en' as const;
+const title = 'Contact';
+const description = "Thirty minutes on a call. We will tell you which agency to start with, or if you should pick more than one. Straight answers, no pitch deck.";
+---
+
+<Layout locale={locale} route="contact" title={title} description={description}>
+  <section class="hero-editorial">
+    <div class="container">
+      <span class="eyebrow eyebrow--rule">Contact</span>
+      <h1 class="hero-editorial__title balance">Tell us which way you are going.</h1>
+      <p class="hero-editorial__lead">
+        Thirty minutes on a call. We will tell you which agency in the group is the right place to start, or
+        whether you should pick more than one. No deck. No pitch. Straight answers.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="split">
+        <form id="contact-form" class="form" method="post" action="/api/contact" novalidate>
+          <div class="form-step">
+            <span class="form-step__heading">Step 1</span>
+            <h2 class="form-step__title">Which direction?</h2>
+            <div class="choice-list">
+              <label class="choice"><input type="radio" name="direction" value="inbound" /> <span>I want to enter or grow in China. <span class="muted">(West to China.)</span></span></label>
+              <label class="choice"><input type="radio" name="direction" value="outbound" /> <span>I want to grow my Chinese brand overseas. <span class="muted">(China to the West.)</span></span></label>
+              <label class="choice"><input type="radio" name="direction" value="content" /> <span>I just need content production. <span class="muted">(HubStudio.)</span></span></label>
+              <label class="choice"><input type="radio" name="direction" value="linkedin" /> <span>I just need LinkedIn run properly. <span class="muted">(Nuvora Studio.)</span></span></label>
+              <label class="choice"><input type="radio" name="direction" value="unsure" /> <span>Not sure yet.</span></label>
+            </div>
+          </div>
+
+          <div class="form-step">
+            <span class="form-step__heading">Step 2</span>
+            <h2 class="form-step__title">Where are you in the journey?</h2>
+            <div class="choice-list">
+              <label class="choice"><input type="radio" name="stage" value="exploring" /> <span>Exploring. Early stage.</span></label>
+              <label class="choice"><input type="radio" name="stage" value="planning" /> <span>Planning. Ready to start in one to three months.</span></label>
+              <label class="choice"><input type="radio" name="stage" value="launching" /> <span>Launching. Need help in the next 30 days.</span></label>
+              <label class="choice"><input type="radio" name="stage" value="operating" /> <span>Already operating. Need to fix or scale.</span></label>
+            </div>
+          </div>
+
+          <div class="form-step">
+            <span class="form-step__heading">Step 3</span>
+            <h2 class="form-step__title">About your business.</h2>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="company">Company</label>
+                <input id="company" name="company" type="text" />
+              </div>
+              <div class="form-field">
+                <label for="role">Your role</label>
+                <input id="role" name="role" type="text" />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="industry">Industry</label>
+                <input id="industry" name="industry" type="text" />
+              </div>
+              <div class="form-field">
+                <label for="hq">Country of HQ</label>
+                <input id="hq" name="hq" type="text" />
+              </div>
+            </div>
+            <div class="form-field">
+              <label for="website">Website</label>
+              <input id="website" name="website" type="url" placeholder="https://" />
+            </div>
+          </div>
+
+          <div class="form-step">
+            <span class="form-step__heading">Step 4</span>
+            <h2 class="form-step__title">The brief.</h2>
+            <div class="form-field">
+              <label for="brief">A short paragraph is welcome.</label>
+              <textarea id="brief" name="brief" rows="5"></textarea>
+            </div>
+          </div>
+
+          <div class="form-step">
+            <span class="form-step__heading">Step 5</span>
+            <h2 class="form-step__title">How to reach you.</h2>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text" required />
+              </div>
+              <div class="form-field">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" required />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="phone">Phone (optional)</label>
+                <input id="phone" name="phone" type="tel" />
+              </div>
+              <div class="form-field">
+                <label for="tz">Preferred time zone</label>
+                <input id="tz" name="tz" type="text" placeholder="e.g. CET, CST, PT" />
+              </div>
+            </div>
+            <div class="form-field">
+              <label for="lang">Language for the call</label>
+              <select id="lang" name="lang">
+                <option value="en">English</option>
+                <option value="fr">Français</option>
+                <option value="zh">中文</option>
+                <option value="es">Español</option>
+                <option value="de">Deutsch</option>
+              </select>
+            </div>
+          </div>
+
+          <p id="contact-status" class="form-status" role="status" aria-live="polite" hidden></p>
+
+          <div class="btn-row" style="justify-content: flex-end;">
+            <button id="contact-submit" class="btn btn--primary" type="submit">Send</button>
+          </div>
+        </form>
+
+        <aside class="prose">
+          <span class="eyebrow">Or contact an agency directly</span>
+          <h3>If you already know which one you need.</h3>
+          <ul>
+            <li>BeyondBorderGroup. <a href="https://beyondbordergroup.com/contact" target="_blank" rel="noreferrer">beyondbordergroup.com/contact</a></li>
+            <li>TheRedScroll. <a href="https://theredscroll.com/contact" target="_blank" rel="noreferrer">theredscroll.com/contact</a></li>
+            <li>ChinaWebFoundry. <a href="https://chinawebfoundry.com/contact" target="_blank" rel="noreferrer">chinawebfoundry.com/contact</a></li>
+            <li>BeyondBridge. <a href="https://beyondbridge.com/contact" target="_blank" rel="noreferrer">beyondbridge.com/contact</a></li>
+            <li>HubStudio. <a href="https://hubstudio.ai/contact" target="_blank" rel="noreferrer">hubstudio.ai/contact</a></li>
+            <li>Nuvora Studio. <a href="https://nuvora.studio/contact" target="_blank" rel="noreferrer">nuvora.studio/contact</a></li>
+          </ul>
+
+          <h3 style="margin-top: var(--space-6);">Offices</h3>
+          <p>Shanghai (group HQ). Hong Kong. Paris. Hangzhou.</p>
+          <p>
+            In-market reps for BeyondBridge: Jenny in the US, Scott in the UK, Eike in Germany, Stéphane in
+            France.
+          </p>
+          <p class="muted">We answer within 24 hours, in your time zone.</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement | null;
+  const status = document.getElementById('contact-status') as HTMLParagraphElement | null;
+  const submit = document.getElementById('contact-submit') as HTMLButtonElement | null;
+
+  if (form && status && submit) {
+    const setStatus = (message: string, tone: 'info' | 'success' | 'error') => {
+      status.hidden = false;
+      status.textContent = message;
+      status.dataset.tone = tone;
+    };
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      const data = new FormData(form);
+      const payload: Record<string, string> = {};
+      for (const [key, value] of data.entries()) {
+        if (typeof value === 'string') payload[key] = value;
+      }
+
+      if (!payload.name || !payload.email) {
+        setStatus('Please add your name and email so we can reach you.', 'error');
+        return;
+      }
+
+      submit.disabled = true;
+      const originalLabel = submit.textContent;
+      submit.textContent = 'Sending…';
+      setStatus('Sending your message…', 'info');
+
+      try {
+        const response = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+
+        const result = (await response.json().catch(() => ({}))) as { error?: string };
+
+        if (!response.ok) {
+          setStatus(result.error || 'Something went wrong. Please try again.', 'error');
+          return;
+        }
+
+        form.reset();
+        setStatus('Thanks. We will reply within 24 hours, in your time zone.', 'success');
+      } catch {
+        setStatus('Network error. Please check your connection and try again.', 'error');
+      } finally {
+        submit.disabled = false;
+        submit.textContent = originalLabel;
+      }
+    });
+  }
+</script>
+
+<style>
+  .form-status {
+    margin: var(--space-4) 0 0;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .form-status[data-tone='info'] {
+    background: #F1F5F9;
+    color: #334155;
+    border: 1px solid #E2E8F0;
+  }
+  .form-status[data-tone='success'] {
+    background: #ECFDF5;
+    color: #065F46;
+    border: 1px solid #A7F3D0;
+  }
+  .form-status[data-tone='error'] {
+    background: #FEF2F2;
+    color: #991B1B;
+    border: 1px solid #FECACA;
+  }
+</style>

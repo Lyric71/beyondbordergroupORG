@@ -1,0 +1,155 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { pathFor } from '../../i18n/ui';
+
+const locale = 'fr' as const;
+const title = 'Aller à l’international';
+const description = "La filière complète à l’international pour les marques chinoises. Marque, LinkedIn, site, SEO, Google Ads, commerciaux nommés aux États-Unis, au Royaume-Uni, en Allemagne et en France.";
+
+const requirements = [
+  { h: 'Une marque que les acheteurs occidentaux reconnaissent', body: "Pas traduite depuis la Chine. Des noms qui marchent, des accroches qui ne sonnent pas faux, une identité visuelle qui atterrit à Francfort et à Chicago sans astérisque." },
+  { h: 'Une présence sur LinkedIn', body: "Les acheteurs B2B occidentaux regardent LinkedIn avant de prendre l’appel. Page vide, pas d’appel. 82% des acheteurs disent faire davantage confiance aux entreprises dont les dirigeants postent sur LinkedIn, selon LinkedIn lui-même. Profil vide, deal perdu." },
+  { h: 'Un site fait pour des yeux occidentaux', body: "Net. Espacé. Une seule action claire par page. Hébergé hors de Chine. Rapide. Trois secondes de chargement vous coûtent plus de la moitié de vos visiteurs." },
+  { h: 'Une visibilité dans les moteurs occidentaux', body: "Classement Google, plus citations dans ChatGPT, Perplexity et Gemini. La plupart des entreprises chinoises débarquent à l’international sans aucune autorité. Pas de backlinks. Pas de contenu en anglais. Pas de citations IA. Vos concurrents possèdent déjà les classements et les réponses." },
+  { h: 'Des annonces en page une', body: "Google Ads pendant que le SEO se construit. Des landing pages occidentales, pas traduites. La plupart des entreprises chinoises brûlent leur budget pub sur des mots-clés trop larges, des géographies fausses, et des landing pages faites pour la Chine." },
+  { h: 'Des commerciaux dans le bon fuseau horaire', body: "Un acheteur en Allemagne demande un devis à 10h Berlin. Shenzhen dort. Au matin, l’acheteur a écrit à trois concurrents. Les acheteurs occidentaux choisissent celui qui répond en premier." },
+];
+
+const services = [
+  { n: '01', h: 'Stratégie de marque', body: "Construite pour les acheteurs occidentaux, pas traduite." },
+  { n: '02', h: 'LinkedIn', body: "Le canal que le B2B occidental regarde en premier. Opéré avec Nuvora Studio, le spécialiste LinkedIn du groupe." },
+  { n: '03', h: 'Site web', body: "Pour des yeux occidentaux. Hébergé hors de Chine." },
+  { n: '04', h: 'SEO et GEO', body: "Se classer sur Google. Être cité par les IA occidentales." },
+  { n: '05', h: 'Google Ads', body: "Page une dès le jour 1." },
+  { n: '06', h: 'Force de vente externe', body: "Représentants natifs nommés aux États-Unis, au Royaume-Uni, en Allemagne et en France." },
+];
+---
+
+<Layout locale={locale} route="going-overseas" title={title} description={description}>
+  <section class="hero-editorial hero-editorial--dark">
+    <div class="container">
+      <span class="eyebrow eyebrow--on-dark">Flux 2 · Sortant · Chine vers Occident</span>
+      <h1 class="hero-editorial__title balance">
+        Bon produit. Bon prix. Bonne usine. Pas de filière à l’international.
+      </h1>
+      <p class="hero-editorial__lead">
+        Toutes les entreprises chinoises qui partent à l’international heurtent le même mur. La marque a été
+        bâtie pour les acheteurs chinois. Le site paraît surchargé aux yeux occidentaux. La page LinkedIn est
+        vide. Et personne ne répond à la demande de Berlin à 10h heure locale. Nous bâtissons l’autre côté de
+        ce pont depuis vingt ans.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <header class="section-header">
+        <span class="eyebrow">Ce qu’il faut vraiment</span>
+        <h2 class="balance">Ce qu’il faut pour se poser à l’international.</h2>
+      </header>
+      <div class="grid-2">
+        {requirements.map((r) => (
+          <article class="card">
+            <h3 class="card__title">{r.h}</h3>
+            <p>{r.body}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <header class="section-header">
+        <span class="eyebrow">Une agence. Six services.</span>
+        <h2 class="balance">BeyondBridge. La filière complète.</h2>
+        <p class="lead">
+          Pensé pour les marques chinoises qui partent à l’international. Six services qui s’empilent en trois packages.
+        </p>
+      </header>
+      <ol class="numbered">
+        {services.map((s) => (
+          <li>
+            <div>
+              <p class="numbered__title">{s.h}</p>
+              <p>{s.body}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <header class="section-header">
+        <span class="eyebrow">Trois packages</span>
+        <h2 class="balance">Choisissez. Ajoutez plus tard si besoin.</h2>
+      </header>
+      <div class="grid-3">
+        <article class="card">
+          <span class="card__index">Starter · Présence</span>
+          <h3 class="card__title">Marque + LinkedIn + site</h3>
+          <p>Le minimum pour avoir l’air crédible auprès d’un acheteur occidental. Pour les entreprises qui partent à l’international pour la première fois.</p>
+        </article>
+        <article class="card">
+          <span class="card__index">Growth · Visibilité</span>
+          <h3 class="card__title">Starter + SEO/GEO + Google Ads</h3>
+          <p>Présence et trafic. Les acheteurs vous trouvent sur Google, sur ChatGPT et via la recherche payante.</p>
+        </article>
+        <article class="card">
+          <span class="card__index">Full Pipeline · Revenu</span>
+          <h3 class="card__title">Growth + force de vente externe</h3>
+          <p>Chaque lead qualifié, appelé, et passé à votre équipe prêt à signer.</p>
+        </article>
+      </div>
+      <div style="margin-top: var(--space-6);">
+        <a class="btn btn--primary" href={pathFor('agencies/beyondbridge', locale)}>Visiter BeyondBridge</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <header class="section-header">
+        <span class="eyebrow">Comment les clients commencent</span>
+        <h2 class="balance">Quatre points de départ classiques.</h2>
+      </header>
+      <div class="grid-2">
+        <article class="card">
+          <blockquote>« On a un salon en Allemagne dans trois mois et rien en ligne qui fait crédible. »</blockquote>
+          <p><strong>Package Starter.</strong> 90 jours pour la marque, LinkedIn et un site tourné Occident.</p>
+        </article>
+        <article class="card">
+          <blockquote>« On a une présence mais pas de demandes entrantes. »</blockquote>
+          <p><strong>Package Growth.</strong> SEO, GEO et Ads ajoutés sur la base Starter.</p>
+        </article>
+        <article class="card">
+          <blockquote>« On a des leads. Personne en Europe pour les traiter. »</blockquote>
+          <p><strong>Full Pipeline.</strong> On ajoute la force de vente sur le terrain.</p>
+        </article>
+        <article class="card">
+          <blockquote>« On ne sait pas par où commencer. »</blockquote>
+          <p>Trente minutes au téléphone. Nous vous dirons quel package, et à quoi ressemblent 90 jours. <a href={pathFor('contact', locale)}>Réserver un appel</a>.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--dark">
+    <div class="container container--narrow">
+      <span class="eyebrow eyebrow--on-dark">Le coût d’attendre</span>
+      <h2 class="balance">Les classements composent. Les relations composent. L’autorité compose.</h2>
+      <p class="lead">
+        Chaque mois sans présence à l’international, ce sont des deals perdus au profit de concurrents qui sont
+        arrivés avant. Chaque trimestre sans pipeline, c’est du budget brûlé en salons, en traducteurs et en
+        prospection à froid sans suite. Chaque année d’attente, le coût de rattrapage double. Les entreprises
+        chinoises qui gagnent à l’international aujourd’hui ont commencé il y a deux ans.
+      </p>
+      <div class="btn-row" style="margin-top: var(--space-5);">
+        <a class="btn btn--primary" href={pathFor('contact', locale)}>Réserver un appel</a>
+        <a class="btn btn--ghost-light" href={pathFor('agencies/beyondbridge', locale)}>Visiter BeyondBridge</a>
+      </div>
+    </div>
+  </section>
+</Layout>

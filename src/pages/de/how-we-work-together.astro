@@ -1,0 +1,178 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { pathFor } from '../../i18n/ui';
+
+const locale = 'de' as const;
+const title = 'Wie wir zusammenarbeiten';
+const description = "Unabhängige Agenturen, gemeinsames Leadership, gemeinsame Produktions-Engine. Wie sich die Agenturen im BeyondBorderGroup-Ökosystem koordinieren, ohne zu einem Generalisten zu kollabieren.";
+---
+
+<Layout locale={locale} route="how-we-work-together" title={title} description={description}>
+  <section class="hero-editorial">
+    <div class="container">
+      <span class="eyebrow eyebrow--rule">Wie es zusammenpasst</span>
+      <h1 class="hero-editorial__title balance">Sechs Agenturen. Ein Rückgrat.</h1>
+      <p class="hero-editorial__lead">
+        Die Agenturen sind unabhängig. Eigene Marken, eigene Preise, eigene Teams. Aber sie teilen Leadership,
+        Produktions-Engine und Arbeitsweise. Hier ist die Struktur, die sie koordiniert hält, ohne sie zu einem
+        Generalisten zu verschmelzen.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <header class="section-header">
+        <span class="eyebrow">Die Matrix</span>
+        <h2 class="balance">Zwei Spalten nach Richtung. Zwei horizontale Schichten.</h2>
+      </header>
+      <div style="overflow-x: auto;">
+        <table class="matrix">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Westen nach China</th>
+              <th>China nach Westen</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>Full-Service-Operator</th>
+              <td><strong>BeyondBorderGroup</strong></td>
+              <td><strong>BeyondBridge</strong></td>
+            </tr>
+            <tr>
+              <th>Kanal-Spezialist</th>
+              <td>TheRedScroll. WeChat, Douyin, RedNote, Weibo.</td>
+              <td>Nuvora Studio. LinkedIn.</td>
+            </tr>
+            <tr>
+              <th>Web-Infrastruktur</th>
+              <td>ChinaWebFoundry. Baidu, ICP, KI-Engines.</td>
+              <td>BeyondBridge Web-Modul. Google, westliche KI.</td>
+            </tr>
+            <tr>
+              <th>Partner-Sourcing</th>
+              <td>BeyondCompass. Geprüfte Distributoren, Tmall-TPs und Douyin Partner.</td>
+              <td class="muted">—</td>
+            </tr>
+            <tr>
+              <th>Produktionsschicht</th>
+              <td colspan="2" style="text-align:center; background: var(--bbg-blue-light); color: var(--bbg-ink); font-weight: 600;">HubStudio</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <header class="section-header">
+        <span class="eyebrow">Wovon jede Agentur zehrt</span>
+        <h2 class="balance">Drei Dinge, die die Gruppe teilt.</h2>
+      </header>
+      <div class="grid-3">
+        <article class="card">
+          <h3 class="card__title">Leadership</h3>
+          <p>
+            Gründer Cyril Drouin setzt die Strategie über alle sechs Agenturen. Fünfundzwanzig Jahre zwischen
+            Europa und Nordasien. Ehemaliger Chief Digital and eCommerce Officer für Publicis North Asia. Die
+            Agenturen arbeiten unter einer strategischen Linie.
+          </p>
+        </article>
+        <article class="card">
+          <h3 class="card__title">HubStudio AIGC-Schicht</h3>
+          <p>
+            Jede Agentur der Gruppe hat Zugang zur gleichen KI-nativen Produktions-Engine. Genau das macht es
+            möglich, drei RedNote-Posts pro Woche für eine chinesische Beauty-Marke und fünf LinkedIn-Carousels
+            pro Woche für eine chinesische Industriemarke beim Eintritt nach Deutschland zu produzieren — bei
+            gleichen Stückkosten.
+          </p>
+        </article>
+        <article class="card">
+          <h3 class="card__title">Koordiniertes Account Management</h3>
+          <p>
+            Wenn ein Kunde zwei oder mehr Agenturen nutzt, koordiniert eine Account-Direktion. Ein Briefing
+            rein. Ein Status-Termin. Ein monatliches Reporting. Kein Kontextverlust zwischen Anbietern.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <header class="section-header">
+        <span class="eyebrow">In der Praxis</span>
+        <h2 class="balance">Wie Kombinationen aussehen.</h2>
+      </header>
+      <div class="grid-2">
+        <article class="card">
+          <h3 class="card__title">Der komplette Inbound-Stack</h3>
+          <p>
+            BeyondBorderGroup als Lead, dazu TheRedScroll für Social, ChinaWebFoundry für Web und HubStudio für
+            Content. Ein Kunde. Eine Pipeline. Eine Zahl, die zählt.
+          </p>
+        </article>
+        <article class="card">
+          <h3 class="card__title">Der komplette Outbound-Stack</h3>
+          <p>
+            BeyondBridge als Lead, Nuvora für LinkedIn und HubStudio für Content. Vertriebsleute vor Ort
+            übernehmen das Closing-Gespräch.
+          </p>
+        </article>
+        <article class="card">
+          <h3 class="card__title">Der rein horizontale Kunde</h3>
+          <p>
+            Eine US-amerikanische B2B-SaaS, die LinkedIn ordentlich betrieben haben will, beauftragt direkt
+            Nuvora. Sie berührt die China-Seite nie. Ein französischer Händler, der pro Quartal 5.000
+            Produktbilder braucht, beauftragt direkt HubStudio. Er berührt die Social-Seite nie.
+          </p>
+        </article>
+        <article class="card">
+          <h3 class="card__title">Der Einzelmodul-Kunde</h3>
+          <p>
+            Eine Schweizer Uhrenmarke, die nur möchte, dass ihre WordPress-Site in Shanghai in zwei Sekunden
+            lädt, beauftragt ChinaWebFoundry. Genau das. Sonst nichts.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="split">
+        <div class="prose">
+          <span class="eyebrow">Preise</span>
+          <h3>Jede Agentur veröffentlicht ihre eigenen.</h3>
+          <p>
+            Jede Agentur veröffentlicht ihre Preise auf ihrer eigenen Site. Die Gruppe bündelt nicht. Wenn Sie
+            drei Agenturen brauchen, zahlen Sie drei separate Scopes. Der Account-Management-Aufwand wird
+            geteilt. Die Produktionsschicht ist dieselbe.
+          </p>
+        </div>
+        <div class="prose">
+          <span class="eyebrow">Sprachen und Standorte</span>
+          <h3>Wo die Arbeit passiert.</h3>
+          <p>Strategie und Account Management auf Englisch, Mandarin, Französisch.</p>
+          <ul>
+            <li>Shanghai — HQ für BeyondBorderGroup, TheRedScroll, ChinaWebFoundry und HubStudio.</li>
+            <li>Hongkong — TheRedScroll und BeyondBorderGroup.</li>
+            <li>Paris — BeyondBorderGroup und Gruppen-Leadership.</li>
+            <li>Hangzhou — Zweitstandort von ChinaWebFoundry.</li>
+            <li>Vertriebsleute vor Ort für BeyondBridge in den USA, Großbritannien, Deutschland und Frankreich.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--dark">
+    <div class="container container--narrow center">
+      <h2 class="balance">Wollen Sie wissen, mit welcher Agentur Sie starten sollen?</h2>
+      <a class="btn btn--primary" href={pathFor('contact', locale)}>Termin buchen</a>
+    </div>
+  </section>
+</Layout>
