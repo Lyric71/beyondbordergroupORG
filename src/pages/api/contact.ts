@@ -6,29 +6,6 @@ export const prerender = false;
 const RECIPIENT = 'cyril.drouin@outlook.com';
 const SENDER = 'BeyondBorderGroup <onboarding@resend.dev>';
 
-const DIRECTION_LABELS: Record<string, string> = {
-  inbound: 'Enter or grow in China (West to China)',
-  outbound: 'Grow my Chinese brand overseas (China to the West)',
-  content: 'Content production (HubStudio)',
-  linkedin: 'LinkedIn run properly (Nuvora Studio)',
-  unsure: 'Not sure yet',
-};
-
-const STAGE_LABELS: Record<string, string> = {
-  exploring: 'Exploring. Early stage.',
-  planning: 'Planning. Ready to start in 1–3 months.',
-  launching: 'Launching. Need help in the next 30 days.',
-  operating: 'Already operating. Need to fix or scale.',
-};
-
-const LANG_LABELS: Record<string, string> = {
-  en: 'English',
-  fr: 'Français',
-  zh: '中文',
-  es: 'Español',
-  de: 'Deutsch',
-};
-
 const escapeHtml = (value: string) =>
   value
     .replace(/&/g, '&amp;')
@@ -40,19 +17,15 @@ const escapeHtml = (value: string) =>
 const isValidEmail = (email: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
 type Payload = {
-  direction?: string;
-  stage?: string;
-  company?: string;
-  role?: string;
-  industry?: string;
-  hq?: string;
-  website?: string;
-  brief?: string;
   name?: string;
   email?: string;
   phone?: string;
-  tz?: string;
-  lang?: string;
+  website?: string;
+  company?: string;
+  brief?: string;
+  hp_field?: string;
+  captcha_question?: string;
+  captcha_answer?: string;
 };
 
 const json = (status: number, body: unknown) =>
@@ -68,6 +41,16 @@ const row = (label: string, value: string) => `
   </tr>
 `;
 
+// Verify a server-issued math captcha. Question format: "<int> + <int>".
+const verifyCaptcha = (question: string, answer: string): boolean => {
+  const match = /^\s*(-?\d+)\s*\+\s*(-?\d+)\s*$/.exec(question);
+  if (!match) return false;
+  const expected = Number(match[1]) + Number(match[2]);
+  const given = Number.parseInt(answer.trim(), 10);
+  if (Number.isNaN(given)) return false;
+  return given === expected;
+};
+
 export const POST: APIRoute = async ({ request }) => {
   const apiKey = import.meta.env.RESEND_API_KEY;
   if (!apiKey || apiKey.startsWith('re_xxxx')) {
@@ -81,19 +64,25 @@ export const POST: APIRoute = async ({ request }) => {
     return json(400, { error: 'Invalid request body.' });
   }
 
+  // Honeypot — bots fill hidden fields, humans don't see them.
+  if ((body.hp_field ?? '').trim() !== '') {
+    // Pretend success to avoid signaling bots.
+    return json(200, { success: true });
+  }
+
+  // Captcha
+  const captchaQuestion = body.captcha_question?.trim() ?? '';
+  const captchaAnswer = body.captcha_answer?.trim() ?? '';
+  if (!verifyCaptcha(captchaQuestion, captchaAnswer)) {
+    return json(400, { error: "Captcha answer doesn't match. Please try again." });
+  }
+
   const name = body.name?.trim() ?? '';
   const email = body.email?.trim() ?? '';
-  const company = body.company?.trim() ?? '';
-  const role = body.role?.trim() ?? '';
-  const industry = body.industry?.trim() ?? '';
-  const hq = body.hq?.trim() ?? '';
-  const website = body.website?.trim() ?? '';
-  const brief = body.brief?.trim() ?? '';
   const phone = body.phone?.trim() ?? '';
-  const tz = body.tz?.trim() ?? '';
-  const lang = body.lang?.trim() ?? '';
-  const direction = body.direction?.trim() ?? '';
-  const stage = body.stage?.trim() ?? '';
+  const website = body.website?.trim() ?? '';
+  const company = body.company?.trim() ?? '';
+  const brief = body.brief?.trim() ?? '';
 
   if (!name || !email) {
     return json(400, { error: 'Name and email are required.' });
@@ -101,10 +90,6 @@ export const POST: APIRoute = async ({ request }) => {
   if (!isValidEmail(email)) {
     return json(400, { error: 'Invalid email address.' });
   }
-
-  const directionLabel = DIRECTION_LABELS[direction] ?? '—';
-  const stageLabel = STAGE_LABELS[stage] ?? '—';
-  const langLabel = LANG_LABELS[lang] ?? '—';
 
   const websiteCell = website
     ? `<a href="${escapeHtml(website)}" style="color:#0A66C2;">${escapeHtml(website)}</a>`
@@ -126,26 +111,15 @@ export const POST: APIRoute = async ({ request }) => {
           ${row('Name', escapeHtml(name))}
           ${row('Email', `<a href="mailto:${escapeHtml(email)}" style="color:#0A66C2;">${escapeHtml(email)}</a>`)}
           ${row('Phone', phone ? escapeHtml(phone) : '—')}
-          ${row('Time zone', tz ? escapeHtml(tz) : '—')}
-          ${row('Call language', langLabel)}
-        </table>
-
-        <h2 style="color:#1A1F2E;font-size:14px;letter-spacing:0.06em;text-transform:uppercase;margin:0 0 8px;">Direction & stage</h2>
-        <table style="width:100%;border-collapse:collapse;margin-bottom:20px;">
-          ${row('Direction', escapeHtml(directionLabel))}
-          ${row('Stage', escapeHtml(stageLabel))}
         </table>
 
         <h2 style="color:#1A1F2E;font-size:14px;letter-spacing:0.06em;text-transform:uppercase;margin:0 0 8px;">Company</h2>
         <table style="width:100%;border-collapse:collapse;margin-bottom:20px;">
           ${row('Company', company ? escapeHtml(company) : '—')}
-          ${row('Role', role ? escapeHtml(role) : '—')}
-          ${row('Industry', industry ? escapeHtml(industry) : '—')}
-          ${row('HQ country', hq ? escapeHtml(hq) : '—')}
           ${row('Website', websiteCell)}
         </table>
 
-        <h2 style="color:#1A1F2E;font-size:14px;letter-spacing:0.06em;text-transform:uppercase;margin:0 0 8px;">Brief</h2>
+        <h2 style="color:#1A1F2E;font-size:14px;letter-spacing:0.06em;text-transform:uppercase;margin:0 0 8px;">Project description</h2>
         <div style="background:#F8FAFC;border:1px solid #E8ECF2;border-radius:8px;padding:16px;color:#1A1F2E;font-size:14px;line-height:1.6;">
           ${briefCell}
         </div>
@@ -160,19 +134,11 @@ export const POST: APIRoute = async ({ request }) => {
     `Name: ${name}`,
     `Email: ${email}`,
     `Phone: ${phone || '-'}`,
-    `Time zone: ${tz || '-'}`,
-    `Call language: ${langLabel}`,
-    ``,
-    `Direction: ${directionLabel}`,
-    `Stage: ${stageLabel}`,
     ``,
     `Company: ${company || '-'}`,
-    `Role: ${role || '-'}`,
-    `Industry: ${industry || '-'}`,
-    `HQ: ${hq || '-'}`,
     `Website: ${website || '-'}`,
     ``,
-    `Brief:`,
+    `Project description:`,
     brief || '(no brief)',
   ].join('\n');
 

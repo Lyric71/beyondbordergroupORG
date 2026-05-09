@@ -1,0 +1,118 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { pathFor } from '../i18n/ui';
+
+const locale = 'en' as const;
+const title = 'Message sent';
+const description = 'Thanks for reaching out. We will reply within 24 hours, in your time zone.';
+---
+
+<Layout locale={locale} route="contact" title={title} description={description}>
+  <section class="thanks">
+    <div class="thanks__bg" aria-hidden="true"></div>
+    <div class="container thanks__container">
+      <span class="thanks__badge" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12.5l4.5 4.5L19 7" />
+        </svg>
+      </span>
+      <h1 class="thanks__title balance">Message sent.</h1>
+      <p class="thanks__lead">Your message just landed in Shanghai.</p>
+      <p class="thanks__sub">We will get back to you within one business day, in your time zone.</p>
+      <div class="thanks__actions">
+        <a class="btn btn--primary" href={pathFor('home', locale)}>Back to home</a>
+        <a class="btn btn--ghost-light" href={pathFor('agencies', locale)}>Browse agencies</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .thanks {
+    position: relative;
+    isolation: isolate;
+    min-height: clamp(60vh, 70vh, 760px);
+    display: grid;
+    place-items: center;
+    text-align: center;
+    color: var(--bbg-white);
+    padding: clamp(4rem, 10vh, 7rem) 0;
+    overflow: hidden;
+    background: #0a1320;
+  }
+  .thanks__bg {
+    position: absolute; inset: 0; z-index: -1;
+    background:
+      radial-gradient(ellipse at 30% 20%, rgba(38, 154, 218, 0.30), transparent 55%),
+      radial-gradient(ellipse at 70% 80%, rgba(200, 16, 46, 0.18), transparent 55%),
+      linear-gradient(180deg, #0a1320 0%, #0d1828 100%);
+  }
+  .thanks__bg::after {
+    content: '';
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(ellipse at center, black 35%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 35%, transparent 75%);
+  }
+  .thanks__container {
+    max-width: 640px;
+  }
+  .thanks__badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--bbg-blue), #1e7db0);
+    color: var(--bbg-white);
+    margin-bottom: var(--space-5);
+    box-shadow: 0 0 0 6px rgba(38, 154, 218, 0.18), 0 14px 36px -10px rgba(38, 154, 218, 0.5);
+    animation: thanks-pop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  }
+  .thanks__badge svg { width: 36px; height: 36px; }
+  @keyframes thanks-pop {
+    from { transform: scale(0.4); opacity: 0; }
+    60%  { transform: scale(1.1); opacity: 1; }
+    to   { transform: scale(1); opacity: 1; }
+  }
+  .thanks__title {
+    font-size: clamp(2.5rem, 6vw + 0.5rem, 4.5rem);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: var(--bbg-white);
+    margin: 0 0 var(--space-3);
+    animation: thanks-fade 0.7s var(--ease) 0.15s both;
+  }
+  .thanks__lead {
+    font-size: clamp(1.125rem, 1.6vw + 0.5rem, 1.4rem);
+    color: rgba(255, 255, 255, 0.92);
+    margin: 0 0 var(--space-2);
+    animation: thanks-fade 0.7s var(--ease) 0.3s both;
+  }
+  .thanks__sub {
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 1rem;
+    margin: 0 0 var(--space-6);
+    animation: thanks-fade 0.7s var(--ease) 0.45s both;
+  }
+  .thanks__actions {
+    display: flex;
+    gap: var(--space-3);
+    justify-content: center;
+    flex-wrap: wrap;
+    animation: thanks-fade 0.7s var(--ease) 0.6s both;
+  }
+  @keyframes thanks-fade {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .thanks__badge, .thanks__title, .thanks__lead, .thanks__sub, .thanks__actions {
+      animation: none;
+    }
+  }
+</style>

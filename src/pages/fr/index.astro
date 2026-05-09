@@ -5,6 +5,7 @@ import AgencyLogo from '../../components/AgencyLogo.astro';
 import { pathFor } from '../../i18n/ui';
 
 const locale = 'fr' as const;
+const linkedinUrl = 'https://www.linkedin.com/in/cyril-d-68835729/';
 const title = 'Chine et Occident, dans les deux sens';
 const description = 'Sept agences spécialisées qui relient la Chine et l’Occident, à l’aller comme au retour. Marque, canaux, web, sourcing, contenu, ventes. Un seul écosystème, une même colonne vertébrale.';
 
@@ -201,15 +202,19 @@ const agencies = [
             la marque, partagées entre l’Europe et l’Asie du Nord. Ancien Chief Digital and eCommerce Officer
             de Publicis North Asia. Fondateur de HubStudio et de Nuvora Studio.
           </p>
-          <p>
-            Il a accompagné Apple, GSK, L’Oréal, Estée Lauder, Nike, Heineken, Nestlé, Kering, Lenovo, Siemens.
-            Il enseigne à HEC, à l’ESSEC et à Shanghai Jiaotong University. La thèse n’a rien de spéculatif :
-            il l’a éprouvée des deux côtés.
-          </p>
-          <a class="btn btn--ghost-light" href={pathFor('founder', locale)}>Lire le portrait complet</a>
+          <a class="btn btn--ghost-light" href={linkedinUrl} target="_blank" rel="noreferrer">Voir sur LinkedIn</a>
         </div>
         <div>
-          <ImagePlaceholder ratio="4x5" label="Portrait du fondateur. Atmosphère, lumière éditoriale." dark />
+          <a class="founder-portrait" href={linkedinUrl} target="_blank" rel="noreferrer" aria-label="Cyril Drouin sur LinkedIn">
+            <img
+              src="/Team/CyrilDrouin.jpg"
+              alt="Cyril Drouin, fondateur de BeyondBorderGroup."
+              width="1905"
+              height="2560"
+              loading="lazy"
+              decoding="async"
+            />
+          </a>
         </div>
       </div>
     </div>

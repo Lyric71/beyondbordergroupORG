@@ -93,9 +93,6 @@ const agenciesDesc = ui.nav.agenciesDesc;
         <li class="nav-item">
           <a class="nav-primary__link" href={pathFor('how-we-work-together', locale)}>{ui.nav.howWeWork}</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-primary__link" href={pathFor('founder', locale)}>{ui.nav.founder}</a>
-        </li>
       </ul>
     </nav>
 
@@ -107,7 +104,101 @@ const agenciesDesc = ui.nav.agenciesDesc;
         <a href={pathFor((current as any) ?? 'home', 'de')} aria-current={locale === 'de'}>{localeShort.de}</a>
         <a href={pathFor((current as any) ?? 'home', 'zh')} aria-current={locale === 'zh'}>{localeShort.zh}</a>
       </span>
-      <a href={pathFor('contact', locale)} class="btn btn--primary btn--sm">{ui.nav.contact}</a>
+      <a href={pathFor('contact', locale)} class="btn btn--primary btn--sm nav-right__cta">{ui.nav.contact}</a>
+      <button
+        type="button"
+        class="nav-toggle"
+        aria-label="Menu"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+      </button>
     </div>
   </div>
+
+  <nav id="mobile-menu" class="nav-mobile" aria-label="Mobile" hidden>
+    <div class="container nav-mobile__inner">
+      <ul class="nav-mobile__list">
+        <li>
+          <a class="nav-mobile__link" href={pathFor('bridge', locale)}>{ui.nav.bridge}</a>
+        </li>
+
+        <li class="nav-mobile__section">
+          <span class="nav-mobile__group">{ui.nav.flowsLabel}</span>
+          <ul class="nav-mobile__sublist">
+            {flows.map((f) => (
+              <li><a class="nav-mobile__link" href={pathFor(f.route, locale)}>{f.label}</a></li>
+            ))}
+          </ul>
+        </li>
+
+        <li class="nav-mobile__section">
+          <span class="nav-mobile__group">{ui.nav.agencies}</span>
+          <ul class="nav-mobile__sublist">
+            <li><a class="nav-mobile__link" href={pathFor('agencies', locale)}>{ui.nav.agencies}</a></li>
+            {agencies.map((a) => (
+              <li><a class="nav-mobile__link" href={pathFor(a.route, locale)}>{a.title}</a></li>
+            ))}
+          </ul>
+        </li>
+
+        <li>
+          <a class="nav-mobile__link" href={pathFor('how-we-work-together', locale)}>{ui.nav.howWeWork}</a>
+        </li>
+        <li>
+          <a class="nav-mobile__link nav-mobile__link--cta btn btn--primary" href={pathFor('contact', locale)}>{ui.nav.contact}</a>
+        </li>
+      </ul>
+
+      <span class="lang-switch nav-mobile__lang" aria-label="Language">
+        <a href={pathFor((current as any) ?? 'home', 'en')} aria-current={locale === 'en'}>{localeShort.en}</a>
+        <a href={pathFor((current as any) ?? 'home', 'fr')} aria-current={locale === 'fr'}>{localeShort.fr}</a>
+        <a href={pathFor((current as any) ?? 'home', 'es')} aria-current={locale === 'es'}>{localeShort.es}</a>
+        <a href={pathFor((current as any) ?? 'home', 'de')} aria-current={locale === 'de'}>{localeShort.de}</a>
+        <a href={pathFor((current as any) ?? 'home', 'zh')} aria-current={locale === 'zh'}>{localeShort.zh}</a>
+      </span>
+    </div>
+  </nav>
 </header>
+
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>('.nav-toggle');
+  const menu = document.getElementById('mobile-menu');
+
+  if (toggle && menu) {
+    const setOpen = (open: boolean) => {
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.classList.toggle('is-open', open);
+      menu.toggleAttribute('hidden', !open);
+      document.body.classList.toggle('nav-open', open);
+    };
+
+    toggle.addEventListener('click', () => {
+      const open = toggle.getAttribute('aria-expanded') === 'true';
+      setOpen(!open);
+    });
+
+    // Close on link tap inside the drawer
+    menu.addEventListener('click', (event) => {
+      const target = event.target as HTMLElement | null;
+      if (target?.closest('a')) setOpen(false);
+    });
+
+    // Close on Escape
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+        setOpen(false);
+        toggle.focus();
+      }
+    });
+
+    // Close if window resizes back to desktop
+    const mq = window.matchMedia('(min-width: 1025px)');
+    mq.addEventListener('change', (event) => {
+      if (event.matches) setOpen(false);
+    });
+  }
+</script>

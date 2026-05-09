@@ -5,6 +5,7 @@ import AgencyLogo from '../../components/AgencyLogo.astro';
 import { pathFor } from '../../i18n/ui';
 
 const locale = 'zh' as const;
+const linkedinUrl = 'https://www.linkedin.com/in/cyril-d-68835729/';
 const title = '连接中国与西方，双向打通';
 const description = '七家专业公司，把中国与西方双向连起来。品牌、渠道、网站、伙伴对接、内容、销售，全部由同一个生态、同一根脊柱支撑。';
 
@@ -185,13 +186,19 @@ const agencies = [
           <p class="lead">
             集团由 Cyril Drouin 创立并领导。二十五年数字、电商和品牌经验，跨越欧洲与北亚。曾任阳狮北亚首席数字与电商官，HubStudio 与 Nuvora Studio 的创始人。
           </p>
-          <p>
-            合作过的品牌包括 Apple、GSK、欧莱雅、雅诗兰黛、Nike、喜力、雀巢、开云、联想、西门子。任教于巴黎 HEC、ESSEC 和上海交通大学。这套方法论，他在两边都亲自跑过。
-          </p>
-          <a class="btn btn--ghost-light" href={pathFor('founder', locale)}>查看完整简介</a>
+          <a class="btn btn--ghost-light" href={linkedinUrl} target="_blank" rel="noreferrer">在 LinkedIn 上联系</a>
         </div>
         <div>
-          <ImagePlaceholder ratio="4x5" label="创始人肖像。编辑风格，氛围光。" dark />
+          <a class="founder-portrait" href={linkedinUrl} target="_blank" rel="noreferrer" aria-label="Cyril Drouin on LinkedIn">
+            <img
+              src="/Team/CyrilDrouin.jpg"
+              alt="Cyril Drouin, founder of BeyondBorderGroup."
+              width="1905"
+              height="2560"
+              loading="lazy"
+              decoding="async"
+            />
+          </a>
         </div>
       </div>
     </div>

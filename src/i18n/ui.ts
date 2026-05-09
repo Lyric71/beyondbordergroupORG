@@ -32,7 +32,6 @@ export type Route =
   | 'agencies/hubstudio'
   | 'agencies/nuvora-studio'
   | 'how-we-work-together'
-  | 'founder'
   | 'contact';
 
 const routePaths: Record<Route, string> = {
@@ -49,7 +48,6 @@ const routePaths: Record<Route, string> = {
   'agencies/hubstudio': 'agencies/hubstudio/',
   'agencies/nuvora-studio': 'agencies/nuvora-studio/',
   'how-we-work-together': 'how-we-work-together/',
-  founder: 'founder/',
   contact: 'contact/',
 };
 

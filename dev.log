@@ -1,0 +1,307 @@
+
+> beyondbordergrouporg@0.0.1 dev
+> astro dev
+
+[vite] connected.
+[2m10:21:21[22m [34m[types][39m Generated [2m1ms[22m
+[vite] connected.
+[2m10:21:21[22m [34m[content][39m Syncing content
+[2m10:21:21[22m [34m[content][39m Synced content
+[42m[1m astro [22m[49m [32mv6.3.1[39m [2mready in[22m 1841 [2mms[22m
+[2m┃[22m Local    [36mhttp://127.0.0.1:4321/[39m
+[2m10:21:21[22m [32mwatching for file changes...[39m
+[2m10:21:22[22m [34m[200][39m / [2m50ms[22m
+[2m10:21:33[22m [34m[200][39m / [2m9ms[22m
+[2m10:21:48[22m [34m[watch][39m .vercel/output/static/contact/index.html
+[2m10:21:48[22m [34m[watch][39m .vercel/output/static/agencies/index.html
+[2m10:21:48[22m [34m[watch][39m .vercel/output/static/entering-china/index.html
+[2m10:21:48[22m [34m[watch][39m .vercel/output/static/going-overseas/index.html
+[2m10:21:48[22m [34m[watch][39m .vercel/output/static/es/index.html
+[2m10:21:48[22m [34m[watch][39m .vercel/output/static/founder/index.html
+[2m10:21:48[22m [34m[watch][39m .vercel/output/static/de/index.html
+[2m10:21:48[22m [34m[watch][39m .vercel/output/static/how-we-work-together/index.html
+[2m10:21:48[22m [34m[watch][39m .vercel/output/static/the-bridge/index.html
+[2m10:21:48[22m [34m[watch][39m .vercel/output/static/fr/index.html
+[2m10:21:48[22m [34m[watch][39m .vercel/output/static/zh/index.html
+[2m10:21:48[22m [34m[watch][39m .vercel/output/static/index.html
+[2m10:21:48[22m [34m[watch][39m .vercel/output/static/es/going-overseas/index.html
+[2m10:21:48[22m [34m[watch][39m .vercel/output/static/es/contact/index.html
+[2m10:21:48[22m [34m[watch][39m .vercel/output/static/es/entering-china/index.html
+[2m10:21:48[22m [34m[watch][39m .vercel/output/static/es/founder/index.html
+[2m10:21:48[22m [34m[watch][39m .vercel/output/static/es/how-we-work-together/index.html
+[2m10:21:48[22m [34m[watch][39m .vercel/output/static/es/the-bridge/index.html
+[2m10:21:48[22m [34m[watch][39m .vercel/output/static/de/entering-china/index.html
+[2m10:21:48[22m [34m[watch][39m .vercel/output/static/de/founder/index.html
+[2m10:21:48[22m [34m[watch][39m .vercel/output/static/de/how-we-work-together/index.html
+[2m10:21:48[22m [34m[watch][39m .vercel/output/static/de/contact/index.html
+[2m10:21:48[22m [34m[watch][39m .vercel/output/static/de/going-overseas/index.html
+[2m10:21:48[22m [34m[watch][39m .vercel/output/static/de/the-bridge/index.html
+[2m10:21:48[22m [34m[watch][39m .vercel/output/static/fr/entering-china/index.html
+[2m10:21:48[22m [34m[watch][39m .vercel/output/static/fr/how-we-work-together/index.html
+[2m10:21:48[22m [34m[watch][39m .vercel/output/static/fr/contact/index.html
+[2m10:21:48[22m [34m[watch][39m .vercel/output/static/fr/founder/index.html
+[2m10:21:48[22m [34m[watch][39m .vercel/output/static/fr/going-overseas/index.html
+[2m10:21:48[22m [34m[watch][39m .vercel/output/static/fr/the-bridge/index.html
+[2m10:21:48[22m [34m[watch][39m .vercel/output/static/zh/contact/index.html
+[2m10:21:48[22m [34m[watch][39m .vercel/output/static/zh/entering-china/index.html
+[2m10:21:48[22m [34m[watch][39m .vercel/output/static/zh/going-overseas/index.html
+[2m10:21:48[22m [34m[watch][39m .vercel/output/static/zh/how-we-work-together/index.html
+[2m10:21:48[22m [34m[watch][39m .vercel/output/static/zh/founder/index.html
+[2m10:21:48[22m [34m[watch][39m .vercel/output/static/zh/the-bridge/index.html
+[2m10:21:48[22m [34m[watch][39m .vercel/output/static/agencies/beyondbordergroup/index.html
+[2m10:21:48[22m [34m[watch][39m .vercel/output/static/agencies/beyondbridge/index.html
+[2m10:21:48[22m [34m[watch][39m .vercel/output/static/agencies/chinawebfoundry/index.html
+[2m10:21:48[22m [34m[watch][39m .vercel/output/static/agencies/beyondcompass/index.html
+[2m10:21:48[22m [34m[watch][39m .vercel/output/static/agencies/nuvora-studio/index.html
+[2m10:21:48[22m [34m[watch][39m .vercel/output/static/agencies/hubstudio/index.html
+[2m10:21:48[22m [34m[watch][39m .vercel/output/static/agencies/theredscroll/index.html
+[2m10:21:48[22m [34m[watch][39m .vercel/output/static/es/agencies/index.html
+[2m10:21:48[22m [34m[watch][39m .vercel/output/static/es/agencies/chinawebfoundry/index.html
+[2m10:21:48[22m [34m[watch][39m .vercel/output/static/es/agencies/beyondbordergroup/index.html
+[2m10:21:48[22m [34m[watch][39m .vercel/output/static/es/agencies/beyondbridge/index.html
+[2m10:21:48[22m [34m[watch][39m .vercel/output/static/es/agencies/nuvora-studio/index.html
+[2m10:21:48[22m [34m[watch][39m .vercel/output/static/es/agencies/theredscroll/index.html
+[2m10:21:48[22m [34m[watch][39m .vercel/output/static/es/agencies/beyondcompass/index.html
+[2m10:21:48[22m [34m[watch][39m .vercel/output/static/es/agencies/hubstudio/index.html
+[2m10:21:48[22m [34m[watch][39m .vercel/output/static/de/agencies/index.html
+[2m10:21:48[22m [34m[watch][39m .vercel/output/static/de/agencies/beyondbordergroup/index.html
+[2m10:21:48[22m [34m[watch][39m .vercel/output/static/de/agencies/beyondcompass/index.html
+[2m10:21:48[22m [34m[watch][39m .vercel/output/static/de/agencies/hubstudio/index.html
+[2m10:21:48[22m [34m[watch][39m .vercel/output/static/de/agencies/beyondbridge/index.html
+[2m10:21:48[22m [34m[watch][39m .vercel/output/static/de/agencies/theredscroll/index.html
+[2m10:21:48[22m [34m[watch][39m .vercel/output/static/de/agencies/chinawebfoundry/index.html
+[2m10:21:48[22m [34m[watch][39m .vercel/output/static/de/agencies/nuvora-studio/index.html
+[2m10:21:48[22m [34m[watch][39m .vercel/output/static/zh/agencies/index.html
+[2m10:21:48[22m [34m[watch][39m .vercel/output/static/zh/agencies/beyondbordergroup/index.html
+[2m10:21:48[22m [34m[watch][39m .vercel/output/static/zh/agencies/beyondcompass/index.html
+[2m10:21:48[22m [34m[watch][39m .vercel/output/static/zh/agencies/hubstudio/index.html
+[2m10:21:48[22m [34m[watch][39m .vercel/output/static/zh/agencies/chinawebfoundry/index.html
+[2m10:21:48[22m [34m[watch][39m .vercel/output/static/zh/agencies/beyondbridge/index.html
+[2m10:21:48[22m [34m[watch][39m .vercel/output/static/zh/agencies/nuvora-studio/index.html
+[2m10:21:48[22m [34m[watch][39m .vercel/output/static/zh/agencies/theredscroll/index.html
+[2m10:21:48[22m [34m[watch][39m .vercel/output/static/fr/agencies/index.html
+[2m10:21:48[22m [34m[watch][39m .vercel/output/static/fr/agencies/beyondbordergroup/index.html
+[2m10:21:48[22m [34m[watch][39m .vercel/output/static/fr/agencies/chinawebfoundry/index.html
+[2m10:21:48[22m [34m[watch][39m .vercel/output/static/fr/agencies/beyondcompass/index.html
+[2m10:21:48[22m [34m[watch][39m .vercel/output/static/fr/agencies/theredscroll/index.html
+[2m10:21:48[22m [34m[watch][39m .vercel/output/static/fr/agencies/beyondbridge/index.html
+[2m10:21:48[22m [34m[watch][39m .vercel/output/static/fr/agencies/hubstudio/index.html
+[2m10:21:48[22m [34m[watch][39m .vercel/output/static/fr/agencies/nuvora-studio/index.html
+[2m10:21:56[22m [34m[watch][39m .vercel/output/static/agencies/index.html
+[2m10:21:56[22m [34m[watch][39m .vercel/output/static/agencies/beyondbordergroup/index.html
+[2m10:21:56[22m [34m[watch][39m .vercel/output/static/agencies/chinawebfoundry/index.html
+[2m10:21:56[22m [34m[watch][39m .vercel/output/static/agencies/hubstudio/index.html
+[2m10:21:56[22m [34m[watch][39m .vercel/output/static/agencies/theredscroll/index.html
+[2m10:21:56[22m [34m[watch][39m .vercel/output/static/agencies/beyondcompass/index.html
+[2m10:21:56[22m [34m[watch][39m .vercel/output/static/agencies/beyondbridge/index.html
+[2m10:21:56[22m [34m[watch][39m .vercel/output/static/agencies/nuvora-studio/index.html
+[2m10:21:56[22m [34m[watch][39m .vercel/output/static/de/index.html
+[2m10:21:56[22m [34m[watch][39m .vercel/output/static/contact/index.html
+[2m10:21:56[22m [34m[watch][39m .vercel/output/static/index.html
+[2m10:21:56[22m [34m[watch][39m .vercel/output/static/entering-china/index.html
+[2m10:21:56[22m [34m[watch][39m .vercel/output/static/es/index.html
+[2m10:21:56[22m [34m[watch][39m .vercel/output/static/founder/index.html
+[2m10:21:56[22m [34m[watch][39m .vercel/output/static/fr/index.html
+[2m10:21:56[22m [34m[watch][39m .vercel/output/static/how-we-work-together/index.html
+[2m10:21:56[22m [34m[watch][39m .vercel/output/static/the-bridge/index.html
+[2m10:21:56[22m [34m[watch][39m .vercel/output/static/going-overseas/index.html
+[2m10:21:56[22m [34m[watch][39m .vercel/output/static/de/contact/index.html
+[2m10:21:56[22m [34m[watch][39m .vercel/output/static/de/agencies/index.html
+[2m10:21:56[22m [34m[watch][39m .vercel/output/static/de/entering-china/index.html
+[2m10:21:56[22m [34m[watch][39m .vercel/output/static/de/going-overseas/index.html
+[2m10:21:56[22m [34m[watch][39m .vercel/output/static/de/founder/index.html
+[2m10:21:56[22m [34m[watch][39m .vercel/output/static/de/how-we-work-together/index.html
+[2m10:21:56[22m [34m[watch][39m .vercel/output/static/de/the-bridge/index.html
+[2m10:21:56[22m [34m[watch][39m .vercel/output/static/zh/index.html
+[2m10:21:56[22m [34m[watch][39m .vercel/output/static/es/agencies/index.html
+[2m10:21:56[22m [34m[watch][39m .vercel/output/static/es/founder/index.html
+[2m10:21:56[22m [34m[watch][39m .vercel/output/static/es/contact/index.html
+[2m10:21:56[22m [34m[watch][39m .vercel/output/static/es/entering-china/index.html
+[2m10:21:56[22m [34m[watch][39m .vercel/output/static/es/going-overseas/index.html
+[2m10:21:56[22m [34m[watch][39m .vercel/output/static/es/how-we-work-together/index.html
+[2m10:21:56[22m [34m[watch][39m .vercel/output/static/es/the-bridge/index.html
+[2m10:21:56[22m [34m[watch][39m .vercel/output/static/fr/entering-china/index.html
+[2m10:21:56[22m [34m[watch][39m .vercel/output/static/fr/founder/index.html
+[2m10:21:56[22m [34m[watch][39m .vercel/output/static/fr/contact/index.html
+[2m10:21:56[22m [34m[watch][39m .vercel/output/static/fr/how-we-work-together/index.html
+[2m10:21:56[22m [34m[watch][39m .vercel/output/static/fr/agencies/index.html
+[2m10:21:56[22m [34m[watch][39m .vercel/output/static/fr/going-overseas/index.html
+[2m10:21:56[22m [34m[watch][39m .vercel/output/static/fr/the-bridge/index.html
+[2m10:21:56[22m [34m[watch][39m .vercel/output/static/de/agencies/beyondbordergroup/index.html
+[2m10:21:56[22m [34m[watch][39m .vercel/output/static/de/agencies/beyondbridge/index.html
+[2m10:21:56[22m [34m[watch][39m .vercel/output/static/de/agencies/beyondcompass/index.html
+[2m10:21:56[22m [34m[watch][39m .vercel/output/static/de/agencies/hubstudio/index.html
+[2m10:21:56[22m [34m[watch][39m .vercel/output/static/de/agencies/chinawebfoundry/index.html
+[2m10:21:56[22m [34m[watch][39m .vercel/output/static/de/agencies/nuvora-studio/index.html
+[2m10:21:56[22m [34m[watch][39m .vercel/output/static/de/agencies/theredscroll/index.html
+[2m10:21:56[22m [34m[watch][39m .vercel/output/static/zh/agencies/index.html
+[2m10:21:56[22m [34m[watch][39m .vercel/output/static/zh/contact/index.html
+[2m10:21:56[22m [34m[watch][39m .vercel/output/static/zh/entering-china/index.html
+[2m10:21:56[22m [34m[watch][39m .vercel/output/static/zh/founder/index.html
+[2m10:21:56[22m [34m[watch][39m .vercel/output/static/zh/going-overseas/index.html
+[2m10:21:56[22m [34m[watch][39m .vercel/output/static/zh/the-bridge/index.html
+[2m10:21:56[22m [34m[watch][39m .vercel/output/static/zh/how-we-work-together/index.html
+[2m10:21:56[22m [34m[watch][39m .vercel/output/static/es/agencies/beyondbridge/index.html
+[2m10:21:56[22m [34m[watch][39m .vercel/output/static/es/agencies/chinawebfoundry/index.html
+[2m10:21:56[22m [34m[watch][39m .vercel/output/static/es/agencies/beyondbordergroup/index.html
+[2m10:21:56[22m [34m[watch][39m .vercel/output/static/es/agencies/hubstudio/index.html
+[2m10:21:56[22m [34m[watch][39m .vercel/output/static/es/agencies/nuvora-studio/index.html
+[2m10:21:56[22m [34m[watch][39m .vercel/output/static/es/agencies/beyondcompass/index.html
+[2m10:21:56[22m [34m[watch][39m .vercel/output/static/es/agencies/theredscroll/index.html
+[2m10:21:56[22m [34m[watch][39m .vercel/output/static/fr/agencies/beyondbordergroup/index.html
+[2m10:21:56[22m [34m[watch][39m .vercel/output/static/fr/agencies/chinawebfoundry/index.html
+[2m10:21:56[22m [34m[watch][39m .vercel/output/static/fr/agencies/beyondbridge/index.html
+[2m10:21:56[22m [34m[watch][39m .vercel/output/static/fr/agencies/beyondcompass/index.html
+[2m10:21:56[22m [34m[watch][39m .vercel/output/static/fr/agencies/theredscroll/index.html
+[2m10:21:56[22m [34m[watch][39m .vercel/output/static/fr/agencies/hubstudio/index.html
+[2m10:21:56[22m [34m[watch][39m .vercel/output/static/fr/agencies/nuvora-studio/index.html
+[2m10:21:56[22m [34m[watch][39m .vercel/output/static/zh/agencies/beyondbordergroup/index.html
+[2m10:21:56[22m [34m[watch][39m .vercel/output/static/zh/agencies/beyondbridge/index.html
+[2m10:21:56[22m [34m[watch][39m .vercel/output/static/zh/agencies/beyondcompass/index.html
+[2m10:21:56[22m [34m[watch][39m .vercel/output/static/zh/agencies/chinawebfoundry/index.html
+[2m10:21:56[22m [34m[watch][39m .vercel/output/static/zh/agencies/nuvora-studio/index.html
+[2m10:21:56[22m [34m[watch][39m .vercel/output/static/zh/agencies/hubstudio/index.html
+[2m10:21:56[22m [34m[watch][39m .vercel/output/static/zh/agencies/theredscroll/index.html
+[2m10:29:33[22m [34m[watch][39m /src/pages/index.astro?astro&type=style&index=0&lang.css, /src/styles/global.css
+[2m10:29:33[22m [34m[200][39m / [2m44ms[22m
+[2m10:35:54[22m [34m[200][39m / [2m13ms[22m
+[2m10:38:42[22m [34m[watch][39m /src/pages/index.astro?astro&type=style&index=0&lang.css, /src/styles/global.css
+[2m10:38:42[22m [34m[200][39m / [2m36ms[22m
+[2m10:38:52[22m [34m[watch][39m /src/pages/index.astro?astro&type=style&index=0&lang.css, /src/styles/global.css
+[2m10:38:52[22m [34m[200][39m / [2m17ms[22m
+[2m10:39:11[22m [34m[200][39m / [2m6ms[22m
+[2m10:40:42[22m [34m[watch][39m /src/pages/index.astro?astro&type=style&index=0&lang.css, /src/styles/global.css
+[2m10:40:42[22m [34m[200][39m / [2m28ms[22m
+[2m10:40:53[22m [34m[watch][39m /src/pages/index.astro?astro&type=style&index=0&lang.css, /src/styles/global.css
+[2m10:40:54[22m [34m[200][39m / [2m26ms[22m
+[2m10:41:00[22m [34m[watch][39m /src/styles/global.css
+[2m10:42:56[22m [34m[watch][39m /src/pages/index.astro?astro&type=style&index=0&lang.css, /src/styles/global.css
+[2m10:42:57[22m [34m[200][39m / [2m39ms[22m
+[2m10:43:13[22m [34m[watch][39m /src/pages/index.astro?astro&type=style&index=0&lang.css, /src/styles/global.css
+[2m10:43:13[22m [34m[200][39m / [2m26ms[22m
+[2m10:44:00[22m [34m[watch][39m /src/pages/index.astro?astro&type=style&index=0&lang.css, /src/styles/global.css
+[2m10:44:00[22m [34m[200][39m / [2m28ms[22m
+[2m10:44:12[22m [34m[watch][39m /src/styles/global.css
+[2m10:44:44[22m [34m[watch][39m /src/styles/global.css
+[2m10:45:02[22m [34m[watch][39m /src/pages/index.astro?astro&type=style&index=0&lang.css, /src/styles/global.css
+[2m10:45:03[22m [34m[200][39m / [2m35ms[22m
+[2m10:46:46[22m [34m[watch][39m /src/pages/index.astro?astro&type=style&index=0&lang.css, /src/styles/global.css
+[2m10:46:46[22m [34m[200][39m / [2m22ms[22m
+[2m10:46:59[22m [34m[watch][39m /src/styles/global.css
+[2m10:49:20[22m [34m[200][39m / [2m19ms[22m
+[2m10:49:40[22m [34m[watch][39m /src/pages/index.astro?astro&type=style&index=0&lang.css, /src/styles/global.css
+[2m10:49:40[22m [34m[200][39m / [2m21ms[22m
+[2m10:49:59[22m [34m[watch][39m /src/styles/global.css
+[2m10:49:59[22m [34m[watch][39m /src/styles/global.css
+[2m10:50:04[22m [34m[watch][39m /src/styles/global.css
+[2m10:50:04[22m [34m[watch][39m /src/styles/global.css
+[2m10:50:09[22m [34m[watch][39m /src/styles/global.css
+[2m10:50:09[22m [34m[watch][39m /src/styles/global.css
+[2m10:50:16[22m [34m[watch][39m /src/styles/global.css
+[2m10:50:54[22m [34m[watch][39m /src/pages/index.astro?astro&type=style&index=0&lang.css, /src/styles/global.css
+[2m10:50:56[22m [34m[200][39m / [2m33ms[22m
+[2m10:51:39[22m [34m[watch][39m /src/styles/global.css
+[2m10:51:39[22m [34m[watch][39m /src/styles/global.css
+[2m10:51:46[22m [34m[200][39m / [2m14ms[22m
+[2m10:52:06[22m [34m[200][39m / [2m5ms[22m
+[2m10:52:57[22m [34m[watch][39m src/pages/index.astro
+[2m10:52:57[22m [34m[200][39m / [2m36ms[22m
+[2m10:53:04[22m [34m[watch][39m src/pages/index.astro
+[2m10:53:04[22m [34m[200][39m / [2m28ms[22m
+[2m10:53:49[22m [34m[watch][39m src/pages/index.astro
+[2m10:53:50[22m [34m[200][39m / [2m23ms[22m
+[2m10:54:00[22m [34m[watch][39m src/pages/index.astro
+[2m10:54:00[22m [34m[200][39m / [2m28ms[22m
+[2m10:54:01[22m [34m[watch][39m src/pages/index.astro
+[2m10:54:01[22m [34m[200][39m / [2m28ms[22m
+[2m10:54:02[22m [34m[watch][39m src/pages/index.astro
+[2m10:54:03[22m [34m[200][39m /founder/ [2m35ms[22m
+[2m10:54:03[22m [34m[200][39m / [2m23ms[22m
+[2m10:54:04[22m [34m[watch][39m src/pages/index.astro
+[2m10:54:04[22m [34m[200][39m /founder/ [2m29ms[22m
+[2m10:54:16[22m [34m[watch][39m src/pages/index.astro
+[2m10:54:17[22m [34m[200][39m /founder/ [2m12ms[22m
+[2m10:54:17[22m [34m[watch][39m src/pages/index.astro
+[2m10:54:18[22m [34m[200][39m /founder/ [2m19ms[22m
+[2m10:54:18[22m [34m[watch][39m src/pages/index.astro
+[2m10:54:19[22m [34m[200][39m /founder/ [2m15ms[22m
+[2m10:55:27[22m [34m[200][39m / [2m19ms[22m
+[2m10:56:30[22m [34m[watch][39m src/pages/index.astro
+[2m10:56:31[22m [34m[200][39m / [2m18ms[22m
+[2m10:56:54[22m [34m[watch][39m /src/styles/global.css
+[2m10:56:54[22m [34m[watch][39m /src/styles/global.css
+[2m10:56:58[22m [34m[watch][39m /src/styles/global.css
+[2m10:56:58[22m [34m[watch][39m /src/styles/global.css
+[2m10:57:01[22m [34m[watch][39m /src/styles/global.css
+[2m10:57:01[22m [34m[watch][39m /src/styles/global.css
+[2m10:57:04[22m [34m[watch][39m /src/styles/global.css
+[2m10:57:04[22m [34m[watch][39m /src/styles/global.css
+[2m10:57:07[22m [34m[watch][39m /src/styles/global.css
+[2m10:57:07[22m [34m[watch][39m /src/styles/global.css
+[2m10:57:15[22m [34m[200][39m /agencies/beyondbordergroup/ [2m32ms[22m
+[2m10:57:22[22m [34m[watch][39m /src/styles/global.css
+[2m10:57:22[22m [34m[watch][39m /src/styles/global.css
+[2m10:57:24[22m [34m[watch][39m /src/styles/global.css
+[2m10:57:24[22m [34m[watch][39m /src/styles/global.css
+[2m10:57:25[22m [34m[watch][39m /src/styles/global.css
+[2m10:57:25[22m [34m[watch][39m /src/styles/global.css
+[2m10:57:30[22m [34m[watch][39m /src/styles/global.css
+[2m10:57:30[22m [34m[200][39m / [2m26ms[22m
+[2m10:57:31[22m [34m[watch][39m /src/styles/global.css
+[2m10:57:31[22m [34m[200][39m / [2m33ms[22m
+[2m10:57:34[22m [34m[watch][39m src/components/SiteHeader.astro
+[2m10:57:34[22m [34m[200][39m / [2m28ms[22m
+[2m10:57:37[22m [34m[watch][39m src/components/SiteHeader.astro
+[2m10:57:37[22m [34m[200][39m / [2m26ms[22m
+[2m10:57:39[22m [34m[watch][39m /src/styles/global.css
+[2m10:57:39[22m [34m[200][39m / [2m19ms[22m
+[2m10:57:42[22m [34m[watch][39m /src/styles/global.css
+[2m10:57:57[22m [34m[watch][39m /src/styles/global.css
+[2m10:57:57[22m [34m[watch][39m /src/styles/global.css
+[2m10:57:57[22m [34m[watch][39m /src/styles/global.css
+[2m10:57:57[22m [34m[watch][39m /src/styles/global.css
+[2m10:57:57[22m [34m[watch][39m /src/styles/global.css
+[2m10:57:57[22m [34m[watch][39m /src/styles/global.css
+[2m10:57:57[22m [34m[watch][39m /src/styles/global.css
+[2m10:57:57[22m [34m[watch][39m /src/styles/global.css
+[2m10:57:57[22m [34m[watch][39m /src/styles/global.css
+[2m10:57:57[22m [34m[200][39m / [2m14ms[22m
+[2m10:58:19[22m [34m[watch][39m src/pages/index.astro
+[2m10:58:19[22m [34m[200][39m / [2m32ms[22m
+[2m10:58:19[22m [34m[watch][39m /src/styles/global.css
+[2m10:58:19[22m [34m[watch][39m /src/styles/global.css
+[2m10:58:21[22m [34m[watch][39m /src/styles/global.css
+[2m10:58:21[22m [34m[watch][39m /src/styles/global.css
+[2m10:58:23[22m [34m[watch][39m /src/styles/global.css
+[2m10:58:23[22m [34m[watch][39m /src/styles/global.css
+[2m10:58:26[22m [34m[watch][39m /src/styles/global.css
+[2m10:58:26[22m [34m[watch][39m /src/styles/global.css
+[2m10:58:28[22m [34m[watch][39m /src/styles/global.css
+[2m10:58:28[22m [34m[watch][39m /src/styles/global.css
+[2m10:58:37[22m [34m[watch][39m src/pages/index.astro
+[2m10:58:37[22m [34m[200][39m / [2m29ms[22m
+[2m10:59:15[22m [34m[watch][39m /src/styles/global.css
+[2m10:59:15[22m [34m[watch][39m /src/styles/global.css
+[2m10:59:49[22m [34m[200][39m /contact/ [2m22ms[22m
+[2m10:59:51[22m [34m[watch][39m /src/styles/global.css
+[2m10:59:51[22m [34m[watch][39m /src/styles/global.css
+[2m11:01:45[22m [34m[watch][39m /src/styles/global.css
+[2m11:01:45[22m [34m[watch][39m /src/styles/global.css
+[2m11:02:12[22m [34m[watch][39m /src/styles/global.css
+[2m11:02:12[22m [34m[watch][39m /src/styles/global.css
+[2m11:03:37[22m [34m[watch][39m /src/styles/global.css
+[2m11:03:37[22m [34m[watch][39m /src/styles/global.css
+[2m11:03:45[22m [34m[watch][39m /src/styles/global.css
+[2m11:03:45[22m [34m[watch][39m /src/styles/global.css
+[2m11:04:22[22m [34m[watch][39m /src/styles/global.css
+[2m11:04:22[22m [34m[watch][39m /src/styles/global.css
+[2m11:06:29[22m [34m[watch][39m /src/styles/global.css
+[2m11:06:29[22m [34m[200][39m /contact/ [2m17ms[22m
+[2m11:07:24[22m [34m[watch][39m /src/styles/global.css
+[2m11:07:36[22m [34m[200][39m / [2m31ms[22m
+[2m11:08:16[22m [34m[watch][39m /src/styles/global.css
+[2m11:08:16[22m [34m[watch][39m /src/styles/global.css
+[2m11:09:06[22m [34m[watch][39m src/pages/contact.astro
+[2m11:09:06[22m [34m[200][39m / [2m9ms[22m
+[2m11:10:12[22m [34m[watch][39m /src/styles/global.css
+[2m11:10:12[22m [34m[watch][39m /src/styles/global.css
