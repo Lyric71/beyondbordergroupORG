@@ -46,29 +46,60 @@ const agencies = [
   <section class="section section--alt">
     <div class="container">
       <header class="section-header">
-        <span class="eyebrow">两个方向</span>
-        <h2 class="balance">一座桥，两条车流。</h2>
-        <p class="lead">不论你从哪一岸出发，对岸的活儿，我们已经做过。</p>
+        <span class="eyebrow">两条流向，同一页</span>
+        <h2 class="balance">两个方向，现在落在同一页上。</h2>
+        <p class="lead">
+          同一支专家阵容，跑两条方向。每一侧各有六个典型切入点。从你的那一岸开始，或者把整座桥从头到尾走一遍。
+        </p>
       </header>
-      <div class="flows">
-        <article class="flow">
-          <span class="flow__direction">西方进入中国 · 入境</span>
-          <h3>把西方品牌带进中国</h3>
-          <p>
-            品牌、渠道、网站基础设施、电商、社交、KOL、分销。从一次跨境电商小试，到完整跑起来的微信、Tmall、抖音矩阵。
+
+      <div class="bridge-panel">
+        <span class="bridge-panel__spine" aria-hidden="true">
+          <span class="bridge-panel__spine-line"></span>
+          <span class="bridge-panel__spine-mark">
+            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 16h22" />
+              <path d="M22 11l5 5-5 5" />
+              <path d="M10 21l-5-5 5-5" />
+            </svg>
+          </span>
+        </span>
+
+        <a class="bridge-panel__side bridge-panel__side--inbound" href={`${pathFor('two-flows', locale)}#inbound`}>
+          <span class="bridge-panel__direction">
+            <span class="bridge-panel__arrow" aria-hidden="true">→</span>
+            西方进入中国 · 入境
+          </span>
+          <h3 class="bridge-panel__title">把西方品牌带进中国。</h3>
+          <p class="bridge-panel__body">
+            品牌、微信、小红书、抖音、Tmall、京东、百度、KOL、分销。从一个落地页起步，到整套阵列跑起来。
           </p>
-          <a class="btn btn--ghost" href={pathFor('entering-china', locale)}>查看入境业务</a>
-          <p class="flow__by">由 BeyondBorderGroup、TheRedScroll、ChinaWebFoundry 共同运营。</p>
-        </article>
-        <article class="flow flow--dark">
-          <span class="flow__direction">中国走向西方 · 出境</span>
-          <h3>把中国品牌和企业带出去</h3>
-          <p>
-            一个让西方买家立刻读懂的品牌、一份真正在维护的 LinkedIn、一套按西方眼光做的网站，加上 SEO、GEO、Google Ads，以及在合适时区接电话的具名销售。
+          <span class="bridge-panel__by">BeyondBorderGroup · TheRedScroll · ChinaWebFoundry · BeyondCompass · HubStudio</span>
+          <span class="bridge-panel__cta">
+            前往入境业务
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
+          </span>
+        </a>
+
+        <a class="bridge-panel__side bridge-panel__side--outbound" href={`${pathFor('two-flows', locale)}#outbound`}>
+          <span class="bridge-panel__direction">
+            <span class="bridge-panel__arrow" aria-hidden="true">←</span>
+            中国走向西方 · 出境
+          </span>
+          <h3 class="bridge-panel__title">把中国品牌带出去。</h3>
+          <p class="bridge-panel__body">
+            为西方买家做的品牌、一份真正在维护的 LinkedIn、按西方眼光做的网站，加上 SEO、GEO、Google Ads，以及在合适时区接电话的具名销售。
           </p>
-          <a class="btn btn--ghost" href={pathFor('going-overseas', locale)} style="color: var(--bbg-blue-light);">查看出境业务</a>
-          <p class="flow__by">由 BeyondBridge 运营。</p>
-        </article>
+          <span class="bridge-panel__by">BeyondBridge · Nuvora Studio</span>
+          <span class="bridge-panel__cta">
+            前往出境业务
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
+          </span>
+        </a>
+      </div>
+
+      <div class="btn-row" style="margin-top: var(--space-6); justify-content: center;">
+        <a class="btn btn--primary" href={pathFor('two-flows', locale)}>打开「两条流向」整页</a>
       </div>
     </div>
   </section>
@@ -133,7 +164,7 @@ const agencies = [
             <tr>
               <th>伙伴对接</th>
               <td>BeyondCompass</td>
-              <td class="muted">—</td>
+              <td class="muted">-</td>
             </tr>
             <tr>
               <th>生产层</th>

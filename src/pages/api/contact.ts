@@ -64,7 +64,7 @@ export const POST: APIRoute = async ({ request }) => {
     return json(400, { error: 'Invalid request body.' });
   }
 
-  // Honeypot — bots fill hidden fields, humans don't see them.
+  // Honeypot: bots fill hidden fields, humans don't see them.
   if ((body.hp_field ?? '').trim() !== '') {
     // Pretend success to avoid signaling bots.
     return json(200, { success: true });
@@ -93,7 +93,7 @@ export const POST: APIRoute = async ({ request }) => {
 
   const websiteCell = website
     ? `<a href="${escapeHtml(website)}" style="color:#0A66C2;">${escapeHtml(website)}</a>`
-    : '—';
+    : '-';
 
   const briefCell = brief
     ? escapeHtml(brief).replace(/\n/g, '<br/>')
@@ -110,12 +110,12 @@ export const POST: APIRoute = async ({ request }) => {
         <table style="width:100%;border-collapse:collapse;margin-bottom:20px;">
           ${row('Name', escapeHtml(name))}
           ${row('Email', `<a href="mailto:${escapeHtml(email)}" style="color:#0A66C2;">${escapeHtml(email)}</a>`)}
-          ${row('Phone', phone ? escapeHtml(phone) : '—')}
+          ${row('Phone', phone ? escapeHtml(phone) : '-')}
         </table>
 
         <h2 style="color:#1A1F2E;font-size:14px;letter-spacing:0.06em;text-transform:uppercase;margin:0 0 8px;">Company</h2>
         <table style="width:100%;border-collapse:collapse;margin-bottom:20px;">
-          ${row('Company', company ? escapeHtml(company) : '—')}
+          ${row('Company', company ? escapeHtml(company) : '-')}
           ${row('Website', websiteCell)}
         </table>
 
@@ -143,21 +143,39 @@ export const POST: APIRoute = async ({ request }) => {
   ].join('\n');
 
   const resend = new Resend(apiKey);
-  const subjectCompany = company ? ` — ${company}` : '';
+  const subjectCompany = company ? ` - ${company}` : '';
 
-  const { error } = await resend.emails.send({
-    from: SENDER,
-    to: RECIPIENT,
-    replyTo: email,
-    subject: `New enquiry from ${name}${subjectCompany}`,
-    html,
-    text,
-  });
+  const t0 = Date.now();
+  try {
+    const { error } = await resend.emails.send({
+      from: SENDER,
+      to: RECIPIENT,
+      replyTo: email,
+      subject: `New enquiry from ${name}${subjectCompany}`,
+      html,
+      text,
+    });
 
-  if (error) {
-    console.error('Resend error:', error);
+    if (error) {
+      const cause = (error as { cause?: { code?: string; message?: string } }).cause;
+      console.error('Resend returned error:', {
+        elapsedMs: Date.now() - t0,
+        ...error,
+        causeCode: cause?.code,
+        causeMessage: cause?.message,
+      });
+      return json(500, { error: 'Failed to send email.' });
+    }
+
+    return json(200, { success: true });
+  } catch (err) {
+    const e = err as Error & { cause?: { code?: string; message?: string } };
+    console.error('Resend threw:', {
+      elapsedMs: Date.now() - t0,
+      message: e.message,
+      causeCode: e.cause?.code,
+      causeMessage: e.cause?.message,
+    });
     return json(500, { error: 'Failed to send email.' });
   }
-
-  return json(200, { success: true });
 };

@@ -44,156 +44,135 @@ interface Props {
 
 const { locale, copy } = Astro.props;
 
-// Server-rendered math captcha so reloads always get a fresh challenge.
 const a = Math.floor(Math.random() * 8) + 2;
 const b = Math.floor(Math.random() * 8) + 2;
 const captchaQuestion = `${a} + ${b}`;
 ---
 
 <Layout locale={locale} route="contact" title={copy.title} description={copy.description}>
-  <section class="contact-hero">
-    <div class="contact-hero__bg" aria-hidden="true"></div>
-    <div class="contact-hero__scrim" aria-hidden="true"></div>
-    <div class="container contact-hero__container">
-      <span class="eyebrow eyebrow--on-dark">{copy.eyebrow}</span>
-      <h1 class="contact-hero__title balance">{copy.heroTitle}</h1>
-      <p class="contact-hero__lead">{copy.heroLead}</p>
-    </div>
-  </section>
+  <section class="contact-split">
+    <div class="contact-split__bg" aria-hidden="true"></div>
+    <div class="contact-split__scrim" aria-hidden="true"></div>
 
-  <section class="section section--tight">
-    <div class="container">
-      <div class="contact-info">
-        <article class="contact-info__card">
-          <span class="contact-info__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="5" width="18" height="14" rx="2" />
-              <path d="m3 7 9 6 9-6" />
-            </svg>
-          </span>
-          <h2 class="contact-info__title">{copy.emailTitle}</h2>
-          <p><a href="mailto:hello@beyondbordergroup.com">hello@beyondbordergroup.com</a></p>
-          <p class="contact-info__note">{copy.emailNote}</p>
-        </article>
+    <div class="container contact-split__container">
+      <div class="contact-split__grid">
+        <aside class="contact-split__intro">
+          <span class="eyebrow eyebrow--on-dark">{copy.eyebrow}</span>
+          <h1 class="contact-split__title balance">{copy.heroTitle}</h1>
+          <p class="contact-split__lead">{copy.heroLead}</p>
 
-        <article class="contact-info__card">
-          <span class="contact-info__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 21s-7-7.5-7-12a7 7 0 1 1 14 0c0 4.5-7 12-7 12Z" />
-              <circle cx="12" cy="9" r="2.5" />
-            </svg>
-          </span>
-          <h2 class="contact-info__title">{copy.officesTitle}</h2>
-          <p set:html={copy.officeHQ}></p>
-          <p set:html={copy.officeHK}></p>
-          <p set:html={copy.officeParis}></p>
-          <p class="contact-info__note">{copy.officesNote}</p>
-        </article>
-
-        <article class="contact-info__card">
-          <span class="contact-info__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 15a4 4 0 0 1-4 4H8l-5 3 1-5V8a4 4 0 0 1 4-4h9a4 4 0 0 1 4 4Z" />
-              <circle cx="9" cy="11" r="0.8" fill="currentColor" />
-              <circle cx="15" cy="11" r="0.8" fill="currentColor" />
-            </svg>
-          </span>
-          <h2 class="contact-info__title">{copy.directTitle}</h2>
-          <ul class="contact-info__links">
-            <li><a href="https://beyondbordergroup.com/contact" target="_blank" rel="noreferrer">BeyondBorderGroup</a></li>
-            <li><a href="https://theredscroll.com/contact" target="_blank" rel="noreferrer">TheRedScroll</a></li>
-            <li><a href="https://chinawebfoundry.com/contact" target="_blank" rel="noreferrer">ChinaWebFoundry</a></li>
-            <li><a href="https://beyondbridge.com/contact" target="_blank" rel="noreferrer">BeyondBridge</a></li>
-            <li><a href="https://hubstudio.ai/contact" target="_blank" rel="noreferrer">HubStudio</a></li>
-            <li><a href="https://nuvora.studio/contact" target="_blank" rel="noreferrer">Nuvora Studio</a></li>
-          </ul>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <div class="contact-form-wrap">
-        <header class="section-header" style="margin-bottom: var(--space-6);">
-          <span class="eyebrow">{copy.formEyebrow}</span>
-          <h2 class="balance">{copy.formHeading}</h2>
-        </header>
-
-        <form
-          id="contact-form"
-          class="form contact-form"
-          method="post"
-          action="/api/contact"
-          novalidate
-          data-locale={locale}
-          data-err-missing={copy.errMissing}
-          data-status-sending={copy.statusSending}
-          data-err-network={copy.errNetwork}
-          data-err-generic={copy.errGeneric}
-          data-sending-label={copy.sending}
-        >
-          <input type="hidden" name="locale" value={locale} />
-
-          <div class="form-row">
-            <div class="form-field">
-              <label for="name">{copy.labelName} <span class="req">*</span></label>
-              <input id="name" name="name" type="text" autocomplete="name" required />
+          <div class="contact-split__info">
+            <div class="contact-split__info-block">
+              <h2 class="contact-split__info-title">{copy.emailTitle}</h2>
+              <p><a href="mailto:hello@beyondbordergroup.com">hello@beyondbordergroup.com</a></p>
+              <p class="contact-split__info-note">{copy.emailNote}</p>
             </div>
-            <div class="form-field">
-              <label for="email">{copy.labelEmail} <span class="req">*</span></label>
-              <input id="email" name="email" type="email" autocomplete="email" required />
+
+            <div class="contact-split__info-block">
+              <h2 class="contact-split__info-title">{copy.officesTitle}</h2>
+              <p set:html={copy.officeHQ}></p>
+              <p set:html={copy.officeHK}></p>
+              <p set:html={copy.officeParis}></p>
+              <p class="contact-split__info-note">{copy.officesNote}</p>
+            </div>
+
+            <div class="contact-split__info-block">
+              <h2 class="contact-split__info-title">{copy.directTitle}</h2>
+              <ul class="contact-split__links">
+                <li><a href="https://beyondbordergroup.com/contact" target="_blank" rel="noreferrer">BeyondBorderGroup</a></li>
+                <li><a href="https://theredscroll.com/contact" target="_blank" rel="noreferrer">TheRedScroll</a></li>
+                <li><a href="https://chinawebfoundry.com/contact" target="_blank" rel="noreferrer">ChinaWebFoundry</a></li>
+                <li><a href="https://beyondbridge.com/contact" target="_blank" rel="noreferrer">BeyondBridge</a></li>
+                <li><a href="https://hubstudio.ai/contact" target="_blank" rel="noreferrer">HubStudio</a></li>
+                <li><a href="https://nuvora.studio/contact" target="_blank" rel="noreferrer">Nuvora Studio</a></li>
+              </ul>
             </div>
           </div>
-          <div class="form-row">
-            <div class="form-field">
-              <label for="phone">{copy.labelPhone}</label>
-              <input id="phone" name="phone" type="tel" autocomplete="tel" />
-            </div>
-            <div class="form-field">
-              <label for="website">{copy.labelWebsite} <span class="req">*</span></label>
-              <input id="website" name="website" type="url" placeholder="https://" required />
-            </div>
-          </div>
-          <div class="form-field">
-            <label for="company">{copy.labelCompany} <span class="req">*</span></label>
-            <input id="company" name="company" type="text" autocomplete="organization" required />
-          </div>
-          <div class="form-field">
-            <label for="brief">{copy.labelBrief} <span class="req">*</span></label>
-            <textarea id="brief" name="brief" rows="6" placeholder={copy.briefPlaceholder} required></textarea>
-          </div>
+        </aside>
 
-          <div class="hp-field" aria-hidden="true">
-            <label for="hp-website-2">Leave this field empty</label>
-            <input id="hp-website-2" name="hp_field" type="text" tabindex="-1" autocomplete="off" />
-          </div>
+        <div class="contact-split__form-col">
+          <div class="contact-form-wrap">
+            <header class="contact-form-header">
+              <span class="eyebrow">{copy.formEyebrow}</span>
+              <h2 class="balance">{copy.formHeading}</h2>
+            </header>
 
-          <div class="captcha">
-            <span class="captcha__label">{copy.captchaLabel}</span>
-            <div class="captcha__row">
-              <span class="captcha__question" set:html={copy.captchaPrompt.replace('{q}', `<strong>${captchaQuestion}</strong>`)}></span>
-              <input
-                id="captcha-answer"
-                name="captcha_answer"
-                type="text"
-                inputmode="numeric"
-                pattern="-?[0-9]+"
-                autocomplete="off"
-                required
-                aria-label="Captcha"
-              />
-              <input type="hidden" name="captcha_question" value={captchaQuestion} />
-            </div>
-          </div>
+            <form
+              id="contact-form"
+              class="form contact-form"
+              method="post"
+              action="/api/contact"
+              novalidate
+              data-locale={locale}
+              data-err-missing={copy.errMissing}
+              data-status-sending={copy.statusSending}
+              data-err-network={copy.errNetwork}
+              data-err-generic={copy.errGeneric}
+              data-sending-label={copy.sending}
+            >
+              <input type="hidden" name="locale" value={locale} />
 
-          <p id="contact-status" class="form-status" role="status" aria-live="polite" hidden></p>
+              <div class="form-row">
+                <div class="form-field">
+                  <label for="name">{copy.labelName} <span class="req">*</span></label>
+                  <input id="name" name="name" type="text" autocomplete="name" required />
+                </div>
+                <div class="form-field">
+                  <label for="email">{copy.labelEmail} <span class="req">*</span></label>
+                  <input id="email" name="email" type="email" autocomplete="email" required />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-field">
+                  <label for="phone">{copy.labelPhone}</label>
+                  <input id="phone" name="phone" type="tel" autocomplete="tel" />
+                </div>
+                <div class="form-field">
+                  <label for="website">{copy.labelWebsite} <span class="req">*</span></label>
+                  <input id="website" name="website" type="url" placeholder="https://" required />
+                </div>
+              </div>
+              <div class="form-field">
+                <label for="company">{copy.labelCompany} <span class="req">*</span></label>
+                <input id="company" name="company" type="text" autocomplete="organization" required />
+              </div>
+              <div class="form-field">
+                <label for="brief">{copy.labelBrief} <span class="req">*</span></label>
+                <textarea id="brief" name="brief" rows="5" placeholder={copy.briefPlaceholder} required></textarea>
+              </div>
 
-          <div class="btn-row contact-form__actions">
-            <button id="contact-submit" class="btn btn--primary btn--lg" type="submit">{copy.submit}</button>
-            <p class="muted contact-form__hint">{copy.formHint}</p>
+              <div class="hp-field" aria-hidden="true">
+                <label for="hp-website-2">Leave this field empty</label>
+                <input id="hp-website-2" name="hp_field" type="text" tabindex="-1" autocomplete="off" />
+              </div>
+
+              <div class="captcha">
+                <span class="captcha__label">{copy.captchaLabel}</span>
+                <div class="captcha__row">
+                  <span class="captcha__question" set:html={copy.captchaPrompt.replace('{q}', `<strong>${captchaQuestion}</strong>`)}></span>
+                  <input
+                    id="captcha-answer"
+                    name="captcha_answer"
+                    type="text"
+                    inputmode="numeric"
+                    pattern="-?[0-9]+"
+                    autocomplete="off"
+                    required
+                    aria-label="Captcha"
+                  />
+                  <input type="hidden" name="captcha_question" value={captchaQuestion} />
+                </div>
+              </div>
+
+              <p id="contact-status" class="form-status" role="status" aria-live="polite" hidden></p>
+
+              <div class="btn-row contact-form__actions">
+                <button id="contact-submit" class="btn btn--primary btn--lg" type="submit">{copy.submit}</button>
+                <p class="muted contact-form__hint">{copy.formHint}</p>
+              </div>
+            </form>
           </div>
-        </form>
+        </div>
       </div>
     </div>
   </section>
@@ -265,14 +244,17 @@ const captchaQuestion = `${a} + ${b}`;
 </script>
 
 <style>
-  .contact-hero {
+  .contact-split {
     position: relative;
     isolation: isolate;
     color: var(--bbg-white);
-    padding: clamp(5rem, 12vh, 8rem) 0 clamp(4rem, 9vh, 6rem);
+    padding: clamp(5rem, 11vh, 7.5rem) 0 clamp(4rem, 9vh, 6rem);
+    min-height: 100vh;
     overflow: hidden;
+    display: flex;
+    align-items: center;
   }
-  .contact-hero__bg {
+  .contact-split__bg {
     position: absolute;
     inset: 0;
     background-image: url('/images/hero-contact.webp');
@@ -281,114 +263,121 @@ const captchaQuestion = `${a} + ${b}`;
     background-color: #0a1320;
     z-index: -2;
     transform: scale(1.05);
-    animation: contact-hero-drift 28s ease-in-out infinite alternate;
+    animation: contact-split-drift 32s ease-in-out infinite alternate;
   }
-  @keyframes contact-hero-drift {
+  @keyframes contact-split-drift {
     from { transform: scale(1.05) translate3d(0, 0, 0); }
     to   { transform: scale(1.10) translate3d(-1.5%, -1%, 0); }
   }
-  .contact-hero__scrim {
+  .contact-split__scrim {
     position: absolute;
     inset: 0;
     background:
-      linear-gradient(180deg, rgba(10, 19, 32, 0.7) 0%, rgba(10, 19, 32, 0.4) 40%, rgba(10, 19, 32, 0.85) 100%),
-      radial-gradient(ellipse at 30% 30%, rgba(38, 154, 218, 0.18), transparent 60%);
+      linear-gradient(110deg, rgba(10, 19, 32, 0.82) 0%, rgba(10, 19, 32, 0.58) 45%, rgba(10, 19, 32, 0.30) 100%),
+      radial-gradient(ellipse at 25% 30%, rgba(38, 154, 218, 0.20), transparent 60%);
     z-index: -1;
   }
-  .contact-hero__container { max-width: 740px; }
-  .contact-hero__title {
-    font-size: clamp(2.5rem, 5vw + 0.5rem, 4.25rem);
+
+  .contact-split__container { width: 100%; }
+  .contact-split__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(var(--space-5), 4vw, var(--space-7));
+    align-items: start;
+  }
+  @media (max-width: 960px) {
+    .contact-split { min-height: 0; align-items: flex-start; }
+    .contact-split__grid { grid-template-columns: 1fr; }
+    .contact-split__form-col { order: 1; }
+    .contact-split__intro { order: 2; max-width: none; }
+    .contact-split__intro > .eyebrow,
+    .contact-split__title,
+    .contact-split__lead { display: none; }
+    .contact-split__info { border-top: 0; padding-top: 0; }
+  }
+
+  .contact-split__intro { max-width: 560px; }
+  .contact-split__title {
+    font-size: clamp(2.25rem, 4.2vw + 0.5rem, 3.75rem);
     line-height: 1.05;
     letter-spacing: -0.025em;
     color: var(--bbg-white);
     margin: var(--space-3) 0 var(--space-4);
-    text-shadow: 0 2px 24px rgba(0, 0, 0, 0.35);
+    text-shadow: 0 2px 24px rgba(0, 0, 0, 0.4);
   }
-  .contact-hero__lead {
+  .contact-split__lead {
     font-size: var(--fs-lead);
-    color: rgba(255, 255, 255, 0.85);
+    color: rgba(255, 255, 255, 0.88);
     max-width: 50ch;
+    margin: 0 0 var(--space-6);
   }
 
-  .contact-info {
+  .contact-split__info {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
     gap: var(--space-5);
-    margin-top: calc(-1 * var(--space-7));
-    position: relative;
-    z-index: 2;
+    padding-top: var(--space-4);
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
   }
-  @media (max-width: 920px) {
-    .contact-info { grid-template-columns: 1fr; margin-top: var(--space-5); }
+  .contact-split__info-block { color: rgba(255, 255, 255, 0.92); }
+  .contact-split__info-title {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.62);
+    margin: 0 0 var(--space-2);
   }
-  .contact-info__card {
-    background: var(--bbg-white);
-    border: 1px solid var(--bbg-border);
-    border-radius: 16px;
-    padding: var(--space-5);
-    box-shadow:
-      0 1px 2px rgba(15, 23, 42, 0.04),
-      0 18px 38px -22px rgba(15, 23, 42, 0.18);
-    transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease), border-color 0.25s var(--ease);
+  .contact-split__info-block p { margin: 0 0 4px; font-size: 0.9375rem; }
+  .contact-split__info-block strong { color: var(--bbg-white); font-weight: 600; }
+  .contact-split__info-block a {
+    color: var(--bbg-white);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+    transition: border-color 0.2s var(--ease);
   }
-  .contact-info__card:hover {
-    transform: translateY(-3px);
-    border-color: rgba(38, 154, 218, 0.3);
-    box-shadow:
-      0 1px 2px rgba(15, 23, 42, 0.04),
-      0 28px 48px -22px rgba(15, 23, 42, 0.22);
-  }
-  .contact-info__icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 44px;
-    height: 44px;
-    border-radius: 12px;
-    background: linear-gradient(135deg, rgba(38, 154, 218, 0.12), rgba(200, 16, 46, 0.08));
-    color: var(--bbg-blue);
-    margin-bottom: var(--space-3);
-  }
-  .contact-info__icon svg { width: 22px; height: 22px; }
-  .contact-info__title {
-    font-size: 1.0625rem;
-    font-weight: 600;
-    margin: 0 0 var(--space-3);
-    color: var(--bbg-ink);
-  }
-  .contact-info__card p { margin: 0 0 4px; font-size: 0.9375rem; }
-  .contact-info__note {
-    margin-top: var(--space-3) !important;
-    color: var(--bbg-text-muted);
+  .contact-split__info-block a:hover { border-bottom-color: var(--bbg-white); }
+  .contact-split__info-note {
+    margin-top: var(--space-2) !important;
+    color: rgba(255, 255, 255, 0.62);
     font-size: var(--fs-small);
   }
-  .contact-info__links {
+  .contact-split__links {
     list-style: none;
     padding: 0;
     margin: 0;
     display: grid;
-    gap: 4px;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px 18px;
     font-size: 0.9375rem;
   }
+  @media (max-width: 480px) {
+    .contact-split__links { grid-template-columns: 1fr; }
+  }
+
+  .contact-split__form-col { position: relative; }
 
   .contact-form-wrap {
-    max-width: 760px;
-    margin: 0 auto;
-  }
-  .contact-form {
     background: var(--bbg-white);
     border: 1px solid var(--bbg-border);
     border-radius: 18px;
-    padding: clamp(var(--space-5), 4vw, var(--space-7));
+    padding: clamp(var(--space-5), 3.5vw, var(--space-6));
     box-shadow:
-      0 1px 2px rgba(15, 23, 42, 0.03),
-      0 24px 48px -24px rgba(15, 23, 42, 0.10);
+      0 1px 2px rgba(15, 23, 42, 0.06),
+      0 30px 60px -24px rgba(15, 23, 42, 0.35);
+    color: var(--bbg-ink);
   }
+  .contact-form-header { margin-bottom: var(--space-5); }
+  .contact-form-header h2 {
+    margin: var(--space-2) 0 0;
+    font-size: clamp(1.4rem, 1.6vw + 0.6rem, 1.75rem);
+  }
+  .contact-form { background: transparent; border: 0; padding: 0; box-shadow: none; }
+
   .contact-form .form-field input,
   .contact-form .form-field select,
   .contact-form .form-field textarea {
     border-radius: 10px;
-    padding: 0.85rem 1rem;
+    padding: 0.8rem 1rem;
     background: #fafbfd;
     border-color: #e2e6ec;
   }
@@ -415,14 +404,14 @@ const captchaQuestion = `${a} + ${b}`;
     display: flex;
     flex-direction: column;
     gap: var(--space-2);
-    padding: var(--space-4);
+    padding: var(--space-3) var(--space-4);
     background: linear-gradient(180deg, rgba(38, 154, 218, 0.04), rgba(38, 154, 218, 0.08));
     border: 1px solid rgba(38, 154, 218, 0.20);
     border-radius: 12px;
     margin-top: var(--space-2);
   }
   .captcha__label {
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     font-weight: 700;
     letter-spacing: 0.10em;
     text-transform: uppercase;
@@ -434,13 +423,10 @@ const captchaQuestion = `${a} + ${b}`;
     gap: var(--space-3);
     flex-wrap: wrap;
   }
-  .captcha__question {
-    font-size: 1rem;
-    color: var(--bbg-ink);
-  }
+  .captcha__question { font-size: 0.95rem; color: var(--bbg-ink); }
   .captcha__question strong {
     font-family: var(--font-display);
-    font-size: 1.25rem;
+    font-size: 1.15rem;
     color: var(--bbg-ink);
     padding: 4px 12px;
     background: var(--bbg-white);
@@ -449,9 +435,9 @@ const captchaQuestion = `${a} + ${b}`;
   }
   .captcha input[type="text"] {
     flex: 1;
-    min-width: 100px;
-    max-width: 160px;
-    padding: 0.7rem 0.9rem;
+    min-width: 90px;
+    max-width: 140px;
+    padding: 0.6rem 0.85rem;
     font: inherit;
     font-weight: 600;
     border: 1px solid #e2e6ec;
@@ -467,11 +453,12 @@ const captchaQuestion = `${a} + ${b}`;
   .contact-form__actions {
     margin-top: var(--space-5);
     align-items: center;
-    justify-content: flex-end;
-    gap: var(--space-4);
+    justify-content: space-between;
+    gap: var(--space-3);
+    flex-wrap: wrap;
   }
   .contact-form__hint { margin: 0; font-size: 0.8125rem; }
-  .btn--lg { padding: 0.95rem 1.6rem; font-size: 1rem; }
+  .btn--lg { padding: 0.9rem 1.5rem; font-size: 1rem; }
 
   .form-status {
     margin: var(--space-4) 0 0;

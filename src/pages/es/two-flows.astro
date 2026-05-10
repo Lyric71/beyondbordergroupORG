@@ -1,0 +1,313 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ImagePlaceholder from '../../components/ImagePlaceholder.astro';
+import AgencyLogo from '../../components/AgencyLogo.astro';
+import { pathFor } from '../../i18n/ui';
+
+const locale = 'es' as const;
+const title = 'Dos flujos';
+const description = "Un puente, dos direcciones. La pila completa para entrar o crecer en China, y la cadena de internacionalización llave en mano para marcas chinas que salen al exterior.";
+
+const inboundReq = [
+  { h: 'Una marca que transmita calidad a ojos chinos', body: "Las pruebas de confianza, lo primero. Certificaciones, logos de partners, validaciones de terceros. Esa portada densa y acreditada que un ojo occidental ve abarrotada es justo la que un ojo chino lee como seria. El minimalismo a la occidental, aquí, se interpreta como vacío." },
+  { h: 'Canales que los consumidores chinos usan de verdad', body: "WeChat para confianza. RED para la lista corta. Douyin para descubrimiento y live commerce. Weibo para alcance masivo. Cada uno con su formato, su cadencia y su equipo dedicado: confundirlos es perder la conversación." },
+  { h: 'Una infraestructura web pensada para vivir detrás del cortafuegos', body: "Hospedaje con licencia ICP en Aliyun, Tencent o Huawei. Una web que Baidu pueda indexar de verdad. UX probada dentro del navegador integrado de WeChat, donde le va a leer la mayor parte del tráfico. En la práctica, mobile-first: más del 95 % de los usuarios chinos navegan desde el móvil." },
+  { h: 'Visibilidad en los buscadores que usan los compradores chinos', body: "Baidu sigue por encima del 50 % del mercado de búsqueda en China, según Statcounter. Google se queda por debajo del 3 %. Y los menores de 35 esquivan cada vez más la búsqueda clásica para entrar directos en las IA: DeepSeek, Doubao, Kimi, Yuanbao." },
+  { h: 'Comercio donde la compra ocurre de verdad', body: "Tmall, JD, Douyin Shop, RED, además del social commerce sobre WeChat. En China, eCommerce y social no son dos embudos separados: son la misma superficie, leída con un solo gesto del pulgar." },
+];
+
+const inboundAgencies = [
+  { name: 'BeyondBorderGroup', role: 'El operador integrado', body: "Veinte años sobre el terreno. Branding, medios, social, KOL, estudio de contenido, RR. PP., webs, eventos, eCommerce, social commerce, distribución y consultoría. Un equipo responsable del extremo al extremo. Se contrata el conjunto, o un módulo.", route: 'agencies/beyondbordergroup' as const },
+  { name: 'TheRedScroll', role: 'El especialista de canal', body: "Redes sociales chinas operadas desde Shanghái y Hong Kong. WeChat, Douyin, RED, Weibo y catorce plataformas más. Estrategia, contenido, KOL, medios, CRM, formación. Alcance fijo, precio fijo, onboarding en dos semanas.", route: 'agencies/theredscroll' as const },
+  { name: 'ChinaWebFoundry', role: 'El constructor de webs', body: "Webs construidas para la red china. Estrategia y auditoría, migración a China, contenido nativo en chino, UX mobile-first, hospedaje con licencia ICP, SEO Baidu, GEO para motores de IA chinos, mantenimiento. WordPress, Astro y WeChat. Un único equipo en Shanghái.", route: 'agencies/chinawebfoundry' as const },
+];
+
+const outboundReq = [
+  { h: 'Una marca que el comprador occidental reconozca', body: "No una traslación desde el chino. Nombres que encajan, claims que no chirrían, una identidad visual que aterriza en Frankfurt y Chicago sin necesidad de pie de página." },
+  { h: 'Presencia en LinkedIn', body: "El comprador B2B occidental abre LinkedIn antes de coger la llamada. Página muda, conversación cancelada. El 82 % de los compradores afirma confiar más en empresas cuyos directivos publican en LinkedIn, según el propio estudio interno de la red. Perfil vacío, deal perdido." },
+  { h: 'Una web hecha para ojos occidentales', body: "Limpia, espaciada, con una única acción clara por página. Hospedada fuera de China. Rápida. Tres segundos de carga le cuestan a usted más de la mitad de los visitantes." },
+  { h: 'Visibilidad en buscadores occidentales', body: "Posiciones en Google y citas en ChatGPT, Perplexity y Gemini. La mayoría de las empresas chinas llegan al exterior con autoridad cero: sin backlinks, sin contenido en inglés, sin citas de IA. Sus competidores ya tienen el ranking y tienen la respuesta." },
+  { h: 'Anuncios en la primera página', body: "Google Ads mientras el SEO compone. Landing pages occidentales, no traducciones. Muchas empresas chinas queman presupuesto en keywords demasiado amplias, geografías equivocadas y páginas pensadas para China." },
+  { h: 'Comerciales en la franja horaria correcta', body: "Un comprador en Alemania escribe a las diez de la mañana, hora de Berlín. Shenzhen está dormido. Al amanecer, ese comprador ya ha escrito a tres competidores. En los mercados occidentales, gana quien responde primero." },
+];
+
+const outboundServices = [
+  { h: 'Estrategia de marca', body: "Construida para compradores occidentales, no traducida desde el chino." },
+  { h: 'LinkedIn', body: "El canal que el B2B occidental abre primero. Operado con Nuvora Studio, el especialista del grupo." },
+  { h: 'Web', body: "Para ojos occidentales. Hospedada fuera de China." },
+  { h: 'SEO y GEO', body: "Posicionar en Google. Ser citados por las IA occidentales." },
+  { h: 'Google Ads', body: "Primera página desde el día 1." },
+  { h: 'Fuerza de ventas externa', body: "Representantes nativos nominativos en Estados Unidos, Reino Unido, Alemania y Francia." },
+];
+---
+
+<Layout locale={locale} route="two-flows" title={title} description={description}>
+  <section class="hero-twoflows">
+    <div class="container hero-twoflows__inner">
+      <span class="eyebrow eyebrow--rule">Dos direcciones</span>
+      <h1 class="hero-twoflows__title balance">
+        Un puente. <span class="hero-twoflows__accent">Dos flujos.</span>
+      </h1>
+      <p class="hero-twoflows__lead">
+        Sea cual sea su dirección, ya hemos hecho el trabajo en los dos lados. Elija el lado del puente desde el que viene.
+      </p>
+
+      <div class="hero-twoflows__bridge" aria-hidden="true">
+        <span class="hero-twoflows__bank">Occidente</span>
+        <svg class="hero-twoflows__arc" viewBox="0 0 600 100" preserveAspectRatio="none">
+          <path d="M0 86 Q300 4 600 86" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+          <line x1="60" y1="76" x2="60" y2="92" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+          <line x1="180" y1="50" x2="180" y2="92" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+          <line x1="300" y1="40" x2="300" y2="92" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+          <line x1="420" y1="50" x2="420" y2="92" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+          <line x1="540" y1="76" x2="540" y2="92" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+        </svg>
+        <span class="hero-twoflows__bank">China</span>
+      </div>
+
+      <div class="hero-twoflows__jumps">
+        <a class="hero-twoflows__jump" href="#inbound">
+          Flujo de entrada
+          <span class="hero-twoflows__jump-meta">Occidente hacia China</span>
+        </a>
+        <a class="hero-twoflows__jump" href="#outbound">
+          Flujo de salida
+          <span class="hero-twoflows__jump-meta">China hacia Occidente</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="inbound" class="hero-editorial">
+    <div class="container">
+      <span class="eyebrow eyebrow--rule">Flujo 1 · Entrada · De Occidente hacia China</span>
+      <h2 class="hero-editorial__title balance">
+        Tiene una marca. China cuenta con 1.100 millones de internautas. Cerrar esa distancia no es un trabajo de traducción.
+      </h2>
+      <p class="hero-editorial__lead">
+        La internet china corre sobre su propia pila. Plataformas, buscadores, infraestructura, densidad de
+        contenido y señales de compra: todo es distinto. Llevamos veinte años trabajando dentro.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <header class="section-header">
+        <span class="eyebrow">Lo que hace falta de verdad</span>
+        <h2 class="balance">Lo que hace falta para aterrizar en China.</h2>
+      </header>
+      <div class="grid-2">
+        {inboundReq.map((r) => (
+          <article class="card">
+            <h3 class="card__title">{r.h}</h3>
+            <p>{r.body}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <header class="section-header">
+        <span class="eyebrow">Tres agencias, un mismo flujo</span>
+        <h2 class="balance">Tomar la pila entera, o tomar la pieza concreta.</h2>
+      </header>
+      <div class="grid-3">
+        {inboundAgencies.map((a) => (
+          <a class="card" href={pathFor(a.route, locale)}>
+            <AgencyLogo route={a.route} name={a.name} class="agency-card-logo" />
+            <span class="card__index">{a.role}</span>
+            <h3 class="card__title">{a.name}</h3>
+            <p>{a.body}</p>
+            <span class="btn btn--ghost" style="margin-top: auto;">Visitar</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <header class="section-header">
+        <span class="eyebrow">Por dónde suelen empezar</span>
+        <h2 class="balance">Cuatro puntos de entrada que se repiten.</h2>
+      </header>
+      <div class="grid-2">
+        <article class="card">
+          <blockquote>«Solo necesito una web china que funcione de verdad.»</blockquote>
+          <p><strong>ChinaWebFoundry.</strong> Migración en seis semanas, ICP presentada, indexable por Baidu.</p>
+        </article>
+        <article class="card">
+          <blockquote>«Tengo que estar en RED y Douyin en 90 días.»</blockquote>
+          <p><strong>TheRedScroll.</strong> Onboarding en dos semanas, primer contenido en línea en quince días.</p>
+        </article>
+        <article class="card">
+          <blockquote>«Necesito todo: marca, canales, eCommerce, KOL.»</blockquote>
+          <p><strong>BeyondBorderGroup.</strong> Implantación integral, con veinte años de playbook detrás.</p>
+        </article>
+        <article class="card">
+          <blockquote>«No sé por dónde empezar.»</blockquote>
+          <p>Treinta minutos al teléfono y se lo decimos. <a href={pathFor('contact', locale)}>Reservar una llamada</a>.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="split split--text-first">
+        <div class="prose">
+          <span class="eyebrow">Lo que se llevan, sin verlo en la factura</span>
+          <h2 class="balance">Un motor de producción que todas las agencias comparten.</h2>
+          <p>
+            Cada proyecto entrante se enchufa a la capa de producción AIGC de HubStudio. Es lo que mantiene
+            el coste por activo razonable al volumen que exigen los canales chinos: tres a cinco
+            publicaciones de RED por semana, vídeo Douyin diario, newsletter WeChat semanal, cita Tmall
+            mensual. Sin un motor de contenido AI-nativo detrás, las cuentas no salen.
+          </p>
+          <a class="btn btn--ghost" href={pathFor('agencies/hubstudio', locale)}>Visitar HubStudio</a>
+        </div>
+        <ImagePlaceholder ratio="4x5" label="Bodegón de estudio. Set de producción mezclando activos de IA y rodaje real." />
+      </div>
+    </div>
+  </section>
+
+  <section id="outbound" class="hero-editorial hero-editorial--dark">
+    <div class="container">
+      <span class="eyebrow eyebrow--on-dark">Flujo 2 · Salida · De China hacia Occidente</span>
+      <h2 class="hero-editorial__title balance">
+        Buen producto. Buen precio. Buena fábrica. Y nadie que le atienda fuera.
+      </h2>
+      <p class="hero-editorial__lead">
+        Toda empresa china que sale al exterior choca con el mismo muro. La marca está construida para
+        compradores chinos. La web parece sobrecargada a ojos occidentales. La página de LinkedIn está vacía.
+        Y nadie contesta la consulta que llegó desde Berlín a las diez de la mañana, hora local. Esa
+        segunda orilla del puente lleva veinte años siendo nuestro oficio.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <header class="section-header">
+        <span class="eyebrow">Lo que hace falta de verdad</span>
+        <h2 class="balance">Lo que hace falta para aterrizar fuera.</h2>
+      </header>
+      <div class="grid-2">
+        {outboundReq.map((r) => (
+          <article class="card">
+            <h3 class="card__title">{r.h}</h3>
+            <p>{r.body}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <header class="section-header">
+        <span class="eyebrow">Una agencia, seis servicios</span>
+        <h2 class="balance">BeyondBridge. La cadena completa.</h2>
+        <p class="lead">
+          Diseñada específicamente para marcas chinas que salen al exterior. Seis servicios que se apilan en
+          tres fórmulas.
+        </p>
+      </header>
+      <ol class="numbered">
+        {outboundServices.map((s) => (
+          <li>
+            <div>
+              <p class="numbered__title">{s.h}</p>
+              <p>{s.body}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <header class="section-header">
+        <span class="eyebrow">Tres fórmulas</span>
+        <h2 class="balance">Elija la fórmula. Sume la siguiente cuando el proyecto la pida.</h2>
+      </header>
+      <div class="grid-3">
+        <article class="card">
+          <span class="card__index">Starter · Presencia</span>
+          <h3 class="card__title">Marca + LinkedIn + web</h3>
+          <p>El mínimo para parecer creíble ante un comprador occidental. Para las primeras salidas al exterior.</p>
+        </article>
+        <article class="card">
+          <span class="card__index">Growth · Visibilidad</span>
+          <h3 class="card__title">Starter + SEO/GEO + Google Ads</h3>
+          <p>Presencia y tráfico. Sus prospectos le encuentran en Google, en ChatGPT y por búsqueda de pago.</p>
+        </article>
+        <article class="card">
+          <span class="card__index">Full Pipeline · Ingresos</span>
+          <h3 class="card__title">Growth + fuerza de ventas externa</h3>
+          <p>Cada lead entrante cualificado, llamado y entregado a su equipo en estado de cierre.</p>
+        </article>
+      </div>
+      <div style="margin-top: var(--space-6);">
+        <a class="btn btn--primary" href={pathFor('agencies/beyondbridge', locale)}>Visitar BeyondBridge</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <header class="section-header">
+        <span class="eyebrow">Por dónde suelen empezar</span>
+        <h2 class="balance">Cuatro puntos de entrada que se repiten.</h2>
+      </header>
+      <div class="grid-2">
+        <article class="card">
+          <blockquote>«Tenemos una feria en Alemania dentro de tres meses y nada creíble en internet.»</blockquote>
+          <p><strong>Fórmula Starter.</strong> Noventa días para marca, LinkedIn y una web orientada al exterior.</p>
+        </article>
+        <article class="card">
+          <blockquote>«Tenemos presencia, pero ninguna entrada.»</blockquote>
+          <p><strong>Fórmula Growth.</strong> SEO, GEO y Ads se suman sobre la base Starter.</p>
+        </article>
+        <article class="card">
+          <blockquote>«Tenemos leads. No hay nadie en Europa para gestionarlos.»</blockquote>
+          <p><strong>Full Pipeline.</strong> Conectamos la fuerza de ventas sobre el terreno.</p>
+        </article>
+        <article class="card">
+          <blockquote>«No sabemos por dónde empezar.»</blockquote>
+          <p>Treinta minutos al teléfono y le decimos qué fórmula y cómo se ven los noventa días. <a href={pathFor('contact', locale)}>Reservar una llamada</a>.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--dark">
+    <div class="container container--narrow">
+      <span class="eyebrow eyebrow--on-dark">El coste de esperar</span>
+      <h2 class="balance">El posicionamiento compone. Las relaciones componen. La autoridad compone.</h2>
+      <p class="lead">
+        Cada mes sin presencia en Occidente son operaciones que se lleva el competidor que llegó antes. Cada
+        trimestre sin pipeline es presupuesto quemado en ferias, traductores y prospección en frío sin
+        retorno. Cada año adicional que pasa, el coste de alcanzar al líder se duplica. Las empresas chinas
+        que están ganando ahora mismo en el exterior empezaron hace dos años.
+      </p>
+      <div class="btn-row" style="margin-top: var(--space-5);">
+        <a class="btn btn--primary" href={pathFor('contact', locale)}>Reservar una llamada</a>
+        <a class="btn btn--ghost-light" href={pathFor('agencies/beyondbridge', locale)}>Visitar BeyondBridge</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .card :global(.agency-card-logo) {
+    height: 48px;
+    width: auto;
+    max-width: 180px;
+    margin-bottom: var(--space-3);
+  }
+</style>

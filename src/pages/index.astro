@@ -62,46 +62,110 @@ const agencies = [
       <source src="/Video/greatWall%20AI%20video.mp4" type="video/mp4" />
     </video>
     <div class="hero-statement__scrim" aria-hidden="true"></div>
-    <div class="hero-statement__network" aria-hidden="true">
-      <svg
-        class="hero-statement__lines"
-        viewBox="0 0 100 100"
-        preserveAspectRatio="none"
-      >
-        <line x1="72" y1="50" x2="93" y2="50" />
-        <line x1="72" y1="50" x2="83" y2="18" />
-        <line x1="72" y1="50" x2="61" y2="18" />
-        <line x1="72" y1="50" x2="50" y2="50" />
-        <line x1="72" y1="50" x2="61" y2="82" />
-        <line x1="72" y1="50" x2="83" y2="82" />
-        <line x1="93" y1="50" x2="83" y2="18" />
-        <line x1="83" y1="18" x2="61" y2="18" />
-        <line x1="61" y1="18" x2="50" y2="50" />
-        <line x1="50" y1="50" x2="61" y2="82" />
-        <line x1="61" y1="82" x2="83" y2="82" />
-        <line x1="83" y1="82" x2="93" y2="50" />
-      </svg>
-      <a class="hero-node" style="left: 72%; top: 50%;" href={pathFor('agencies/beyondbordergroup', locale)} aria-label="BeyondBorderGroup">
-        <img src="/AgencyLogos/BBG%20PNG.png" alt="" />
-      </a>
-      <a class="hero-node" style="left: 93%; top: 50%;" href={pathFor('agencies/hubstudio', locale)} aria-label="HubStudio">
-        <img src="/AgencyLogos/hubStudio%20(2).png" alt="" />
-      </a>
-      <a class="hero-node" style="left: 83%; top: 18%;" href={pathFor('agencies/beyondcompass', locale)} aria-label="BeyondCompass">
-        <img src="/AgencyLogos/BeyondCompass%20-%20Transparent%20-%204K.png" alt="" />
-      </a>
-      <a class="hero-node" style="left: 61%; top: 18%;" href={pathFor('agencies/theredscroll', locale)} aria-label="TheRedScroll">
-        <img src="/AgencyLogos/TheredScroll%20PNG.png" alt="" />
-      </a>
-      <a class="hero-node" style="left: 50%; top: 50%;" href={pathFor('agencies/chinawebfoundry', locale)} aria-label="ChinaWebFoundry">
-        <img src="/AgencyLogos/Logo-ChinaWebFoundry-transparent.png" alt="" />
-      </a>
-      <a class="hero-node" style="left: 61%; top: 82%;" href={pathFor('agencies/nuvora-studio', locale)} aria-label="Nuvora Studio">
-        <img src="/AgencyLogos/Nuvora%20PNG.png" alt="" />
-      </a>
-      <a class="hero-node" style="left: 83%; top: 82%;" href={pathFor('agencies/beyondbridge', locale)} aria-label="BeyondBridge">
-        <img src="/AgencyLogos/BeyondBridge-%20Logo-EN-4K-Transparent.png" alt="" />
-      </a>
+    <div class="hero-statement__rail">
+      <aside class="rail" aria-label="Seven agencies in the group">
+        <header class="rail__head">
+          <span class="rail__head-tag">Ecosystem</span>
+          <span class="rail__head-count">Seven specialists</span>
+        </header>
+
+        <div class="rail__chapter">
+          <div class="rail__chapter-head">
+            <span class="rail__chapter-label">Lead agencies</span>
+            <span class="rail__chapter-rule" aria-hidden="true"></span>
+          </div>
+          <ol class="rail__list">
+            <li class="rail__row" style="--row-i: 0;">
+              <a class="rail__link" href={pathFor('agencies/beyondbordergroup', locale)}>
+                <span class="rail__logo"><img src="/AgencyLogos/BBG%20PNG.png" alt="" /></span>
+                <span class="rail__body">
+                  <span class="rail__name">BeyondBorderGroup</span>
+                  <span class="rail__tagline">Full-service West to China</span>
+                </span>
+                <span class="rail__stripe rail__stripe--w" aria-hidden="true"></span>
+              </a>
+            </li>
+            <li class="rail__row" style="--row-i: 1;">
+              <a class="rail__link" href={pathFor('agencies/beyondbridge', locale)}>
+                <span class="rail__logo"><img src="/AgencyLogos/BeyondBridge-%20Logo-EN-4K-Transparent.png" alt="" /></span>
+                <span class="rail__body">
+                  <span class="rail__name">BeyondBridge</span>
+                  <span class="rail__tagline">Full-service China to West</span>
+                </span>
+                <span class="rail__stripe rail__stripe--e" aria-hidden="true"></span>
+              </a>
+            </li>
+          </ol>
+        </div>
+
+        <div class="rail__chapter">
+          <div class="rail__chapter-head">
+            <span class="rail__chapter-label">Specialists, both ways</span>
+            <span class="rail__chapter-rule" aria-hidden="true"></span>
+          </div>
+          <ol class="rail__list">
+            <li class="rail__row" style="--row-i: 2;">
+              <a class="rail__link" href={pathFor('agencies/theredscroll', locale)}>
+                <span class="rail__logo"><img src="/AgencyLogos/TheredScroll%20PNG.png" alt="" /></span>
+                <span class="rail__body">
+                  <span class="rail__name">TheRedScroll</span>
+                  <span class="rail__tagline">Chinese social media</span>
+                </span>
+                <span class="rail__stripe rail__stripe--both" aria-hidden="true"></span>
+              </a>
+            </li>
+            <li class="rail__row" style="--row-i: 3;">
+              <a class="rail__link" href={pathFor('agencies/chinawebfoundry', locale)}>
+                <span class="rail__logo"><img src="/AgencyLogos/Logo-ChinaWebFoundry-transparent.png" alt="" /></span>
+                <span class="rail__body">
+                  <span class="rail__name">ChinaWebFoundry</span>
+                  <span class="rail__tagline">Built for Chinese web</span>
+                </span>
+                <span class="rail__stripe rail__stripe--both" aria-hidden="true"></span>
+              </a>
+            </li>
+            <li class="rail__row" style="--row-i: 4;">
+              <a class="rail__link" href={pathFor('agencies/beyondcompass', locale)}>
+                <span class="rail__logo"><img src="/AgencyLogos/BeyondCompass%20-%20Transparent%20-%204K.png" alt="" /></span>
+                <span class="rail__body">
+                  <span class="rail__name">BeyondCompass</span>
+                  <span class="rail__tagline">Vetted China partners</span>
+                </span>
+                <span class="rail__stripe rail__stripe--both" aria-hidden="true"></span>
+              </a>
+            </li>
+            <li class="rail__row" style="--row-i: 5;">
+              <a class="rail__link" href={pathFor('agencies/nuvora-studio', locale)}>
+                <span class="rail__logo"><img src="/AgencyLogos/Nuvora%20PNG.png" alt="" /></span>
+                <span class="rail__body">
+                  <span class="rail__name">Nuvora Studio</span>
+                  <span class="rail__tagline">LinkedIn B2B specialists</span>
+                </span>
+                <span class="rail__stripe rail__stripe--both" aria-hidden="true"></span>
+              </a>
+            </li>
+          </ol>
+        </div>
+
+        <div class="rail__chapter">
+          <div class="rail__chapter-head">
+            <span class="rail__chapter-label">Production</span>
+            <span class="rail__chapter-rule" aria-hidden="true"></span>
+          </div>
+          <ol class="rail__list">
+            <li class="rail__row" style="--row-i: 6;">
+              <a class="rail__link" href={pathFor('agencies/hubstudio', locale)}>
+                <span class="rail__logo"><img src="/AgencyLogos/hubStudio%20(2).png" alt="" /></span>
+                <span class="rail__body">
+                  <span class="rail__name">HubStudio</span>
+                  <span class="rail__tagline">Cuts across both</span>
+                </span>
+                <span class="rail__stripe rail__stripe--c" aria-hidden="true"></span>
+              </a>
+            </li>
+          </ol>
+        </div>
+      </aside>
     </div>
     <div class="container hero-statement__container">
       <div class="hero-statement__content">
@@ -124,31 +188,63 @@ const agencies = [
   <section class="section section--alt">
     <div class="container">
       <header class="section-header">
-        <span class="eyebrow">Two directions</span>
-        <h2 class="balance">One bridge. Two flows.</h2>
-        <p class="lead">Whichever way you are going, we have already done the work on both sides.</p>
+        <span class="eyebrow">Two flows. One page.</span>
+        <h2 class="balance">Both directions now live on a single page.</h2>
+        <p class="lead">
+          Same spine of agencies behind both. Six typical openings on each side. Pick the side you are coming
+          from, or read the whole bridge end to end.
+        </p>
       </header>
-      <div class="flows">
-        <article class="flow">
-          <span class="flow__direction">West to China · Inbound</span>
-          <h3>Bringing Western brands into China</h3>
-          <p>
-            Brand work, channels, web infrastructure, eCommerce, social, KOLs, distribution. From a cross-border
-            eCommerce test to a full WeChat, Tmall, and Douyin presence.
+
+      <div class="bridge-panel">
+        <span class="bridge-panel__spine" aria-hidden="true">
+          <span class="bridge-panel__spine-line"></span>
+          <span class="bridge-panel__spine-mark">
+            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 16h22" />
+              <path d="M22 11l5 5-5 5" />
+              <path d="M10 21l-5-5 5-5" />
+            </svg>
+          </span>
+        </span>
+
+        <a class="bridge-panel__side bridge-panel__side--inbound" href={`${pathFor('two-flows', locale)}#inbound`}>
+          <span class="bridge-panel__direction">
+            <span class="bridge-panel__arrow" aria-hidden="true">→</span>
+            West to China · Inbound
+          </span>
+          <h3 class="bridge-panel__title">Bringing Western brands into China.</h3>
+          <p class="bridge-panel__body">
+            Brand, WeChat, RedNote, Douyin, Tmall, JD, Baidu, KOLs, distribution. From a single landing page
+            to the full stack.
           </p>
-          <a class="btn btn--ghost" href={pathFor('entering-china', locale)}>See the inbound flow</a>
-          <p class="flow__by">Run by BeyondBorderGroup, TheRedScroll, ChinaWebFoundry.</p>
-        </article>
-        <article class="flow flow--dark">
-          <span class="flow__direction">China to the West · Outbound</span>
-          <h3>Taking Chinese brands and businesses overseas</h3>
-          <p>
-            A brand for Western buyers, a real LinkedIn presence, websites built for Western eyes, SEO, GEO,
+          <span class="bridge-panel__by">BeyondBorderGroup · TheRedScroll · ChinaWebFoundry · BeyondCompass · HubStudio</span>
+          <span class="bridge-panel__cta">
+            Jump to inbound
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
+          </span>
+        </a>
+
+        <a class="bridge-panel__side bridge-panel__side--outbound" href={`${pathFor('two-flows', locale)}#outbound`}>
+          <span class="bridge-panel__direction">
+            <span class="bridge-panel__arrow" aria-hidden="true">←</span>
+            China to the West · Outbound
+          </span>
+          <h3 class="bridge-panel__title">Taking Chinese brands overseas.</h3>
+          <p class="bridge-panel__body">
+            A brand for Western buyers, a real LinkedIn presence, a website built for Western eyes, SEO, GEO,
             Google Ads, and named sales reps in the right time zone.
           </p>
-          <a class="btn btn--ghost" href={pathFor('going-overseas', locale)} style="color: var(--bbg-blue-light);">See the outbound flow</a>
-          <p class="flow__by">Run by BeyondBridge, Nuvora.studio.</p>
-        </article>
+          <span class="bridge-panel__by">BeyondBridge · Nuvora Studio</span>
+          <span class="bridge-panel__cta">
+            Jump to outbound
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
+          </span>
+        </a>
+      </div>
+
+      <div class="btn-row" style="margin-top: var(--space-6); justify-content: center;">
+        <a class="btn btn--primary" href={pathFor('two-flows', locale)}>Open the full Two-flows page</a>
       </div>
     </div>
   </section>
@@ -180,10 +276,10 @@ const agencies = [
     <div class="container">
       <header class="section-header">
         <span class="eyebrow">The logic</span>
-        <h2 class="balance">A 2x2, with a foundation underneath.</h2>
+        <h2 class="balance">Two leads. Five specialists. One engine.</h2>
         <p class="lead">
-          Two columns by direction. Two horizontal layers serving both. Every agency in the group sits in one cell,
-          and reaches across the others when the project needs it.
+          Two lead agencies, one per direction. Five specialists that plug into either direction.
+          One production engine running across both.
         </p>
       </header>
       <div class="matrix-grid" role="table" aria-label="Agencies by direction and layer">
@@ -213,45 +309,53 @@ const agencies = [
           </div>
         </div>
 
-        <div class="matrix-grid__row" role="row">
+        <div class="matrix-grid__row matrix-grid__row--both" role="row">
           <div class="matrix-grid__layer" role="rowheader">
-            <span class="matrix-grid__layer-name">Channel specialist</span>
+            <span class="matrix-grid__layer-name">Social media</span>
           </div>
-          <div class="matrix-cell" role="cell">
+          <div class="matrix-cell matrix-cell--both" role="cell">
+            <span class="matrix-cell__tag">Both ways</span>
             <span class="matrix-cell__name">TheRedScroll</span>
-          </div>
-          <div class="matrix-cell" role="cell">
-            <span class="matrix-cell__name">Nuvora Studio</span>
+            <span class="matrix-cell__note">WeChat, Douyin, RedNote, Weibo. For Western or Chinese clients.</span>
           </div>
         </div>
 
-        <div class="matrix-grid__row" role="row">
+        <div class="matrix-grid__row matrix-grid__row--both" role="row">
+          <div class="matrix-grid__layer" role="rowheader">
+            <span class="matrix-grid__layer-name">LinkedIn B2B</span>
+          </div>
+          <div class="matrix-cell matrix-cell--both" role="cell">
+            <span class="matrix-cell__tag">Both ways</span>
+            <span class="matrix-cell__name">Nuvora Studio</span>
+            <span class="matrix-cell__note">LinkedIn-only. For Western or Chinese clients.</span>
+          </div>
+        </div>
+
+        <div class="matrix-grid__row matrix-grid__row--both" role="row">
           <div class="matrix-grid__layer" role="rowheader">
             <span class="matrix-grid__layer-name">Web infrastructure</span>
           </div>
-          <div class="matrix-cell" role="cell">
+          <div class="matrix-cell matrix-cell--both" role="cell">
+            <span class="matrix-cell__tag">Both ways</span>
             <span class="matrix-cell__name">ChinaWebFoundry</span>
-          </div>
-          <div class="matrix-cell" role="cell">
-            <span class="matrix-cell__name">BeyondBridge web module</span>
+            <span class="matrix-cell__note">Baidu-ready, ICP, Chinese AI engines. For Western or Chinese clients.</span>
           </div>
         </div>
 
-        <div class="matrix-grid__row" role="row">
+        <div class="matrix-grid__row matrix-grid__row--both" role="row">
           <div class="matrix-grid__layer" role="rowheader">
             <span class="matrix-grid__layer-name">Partner sourcing</span>
           </div>
-          <div class="matrix-cell" role="cell">
+          <div class="matrix-cell matrix-cell--both" role="cell">
+            <span class="matrix-cell__tag">Both ways</span>
             <span class="matrix-cell__name">BeyondCompass</span>
-          </div>
-          <div class="matrix-cell matrix-cell--empty" role="cell" aria-label="not applicable">
-            <span class="matrix-cell__dash" aria-hidden="true">—</span>
+            <span class="matrix-cell__note">Vetted China distributors, Tmall TPs, Douyin Partners.</span>
           </div>
         </div>
 
         <div class="matrix-grid__row matrix-grid__row--span" role="row">
           <div class="matrix-grid__layer" role="rowheader">
-            <span class="matrix-grid__layer-name">Production layer</span>
+            <span class="matrix-grid__layer-name">Production</span>
           </div>
           <div class="matrix-cell matrix-cell--span" role="cell">
             <span class="matrix-cell__bridge" aria-hidden="true">
@@ -260,7 +364,7 @@ const agencies = [
               <span class="matrix-cell__bridge-dot"></span>
             </span>
             <span class="matrix-cell__name">HubStudio</span>
-            <span class="matrix-cell__note">cuts across both directions</span>
+            <span class="matrix-cell__note">AIGC content engine. Runs across both directions.</span>
           </div>
         </div>
       </div>
@@ -309,7 +413,7 @@ const agencies = [
           <div class="pillar__body">
             <span class="pillar__tag">One thesis</span>
             <h3 class="pillar__title">Same shape, both ways.</h3>
-            <p class="pillar__copy">West-to-China or China-to-West, the work is the same: brand, channels, infrastructure, content, sales — in the right time zone.</p>
+            <p class="pillar__copy">West-to-China or China-to-West, the work is the same: brand, channels, infrastructure, content, sales, in the right time zone.</p>
           </div>
         </article>
 
@@ -361,7 +465,7 @@ const agencies = [
           <div class="pillar__body">
             <span class="pillar__tag">Shared engine</span>
             <h3 class="pillar__title">One core, six agencies.</h3>
-            <p class="pillar__copy">Every agency draws on HubStudio's AIGC layer. Per-output cost stays competitive — content ships fast in either direction.</p>
+            <p class="pillar__copy">Every agency draws on HubStudio's AIGC layer. Per-output cost stays competitive, and content ships fast in either direction.</p>
           </div>
         </article>
       </div>
@@ -517,6 +621,33 @@ const agencies = [
     width: 3px;
     background: linear-gradient(180deg, var(--bbg-blue), #c8102e);
     border-radius: 0 3px 3px 0;
+  }
+  .matrix-grid__row--both .matrix-cell--both {
+    grid-column: 2 / -1;
+    background: linear-gradient(90deg, rgba(38, 154, 218, 0.06) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(200, 16, 46, 0.06) 100%);
+    border-color: rgba(15, 23, 42, 0.10);
+    padding: var(--space-3) var(--space-5);
+  }
+  .matrix-grid__row--both .matrix-cell--both::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 14px;
+    bottom: 14px;
+    width: 3px;
+    background: linear-gradient(180deg, var(--bbg-blue) 0%, #c8102e 100%);
+    border-radius: 0 3px 3px 0;
+  }
+  .matrix-grid__row--both .matrix-cell--both .matrix-cell__tag {
+    color: transparent;
+    background: linear-gradient(90deg, var(--bbg-blue), #c8102e);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .matrix-grid__row--both .matrix-cell--both .matrix-cell__note {
+    color: var(--bbg-text-muted);
+    font-size: var(--fs-small);
   }
   .matrix-cell__tag {
     font-size: 0.6875rem;

@@ -48,32 +48,63 @@ const agencies = [
   <section class="section section--alt">
     <div class="container">
       <header class="section-header">
-        <span class="eyebrow">Deux directions</span>
-        <h2 class="balance">Un pont. Deux sens de circulation.</h2>
-        <p class="lead">Quel que soit votre point de départ, nous avons déjà fait le chemin de l’autre côté.</p>
+        <span class="eyebrow">Deux flux. Une page.</span>
+        <h2 class="balance">Les deux directions tiennent désormais sur une seule page.</h2>
+        <p class="lead">
+          La même colonne vertébrale d’agences derrière les deux sens. Six points d’entrée typiques de chaque
+          côté. Choisissez votre rive, ou parcourez le pont d’un bout à l’autre.
+        </p>
       </header>
-      <div class="flows">
-        <article class="flow">
-          <span class="flow__direction">De l’Occident vers la Chine · Entrant</span>
-          <h3>Faire entrer une marque occidentale en Chine</h3>
-          <p>
-            Marque, canaux, infrastructure web, eCommerce, social, KOL, distribution. D’un simple test en
-            cross-border jusqu’à une présence complète sur WeChat, Tmall et Douyin.
+
+      <div class="bridge-panel">
+        <span class="bridge-panel__spine" aria-hidden="true">
+          <span class="bridge-panel__spine-line"></span>
+          <span class="bridge-panel__spine-mark">
+            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 16h22" />
+              <path d="M22 11l5 5-5 5" />
+              <path d="M10 21l-5-5 5-5" />
+            </svg>
+          </span>
+        </span>
+
+        <a class="bridge-panel__side bridge-panel__side--inbound" href={`${pathFor('two-flows', locale)}#inbound`}>
+          <span class="bridge-panel__direction">
+            <span class="bridge-panel__arrow" aria-hidden="true">→</span>
+            De l’Occident vers la Chine · Entrant
+          </span>
+          <h3 class="bridge-panel__title">Faire entrer une marque occidentale en Chine.</h3>
+          <p class="bridge-panel__body">
+            Marque, WeChat, RedNote, Douyin, Tmall, JD, Baidu, KOL, distribution. D’une seule landing page à
+            l’arsenal complet.
           </p>
-          <a class="btn btn--ghost" href={pathFor('entering-china', locale)}>Voir le flux entrant</a>
-          <p class="flow__by">Opéré par BeyondBorderGroup, TheRedScroll et ChinaWebFoundry.</p>
-        </article>
-        <article class="flow flow--dark">
-          <span class="flow__direction">De la Chine vers l’Occident · Sortant</span>
-          <h3>Emmener les marques et les industriels chinois à l’international</h3>
-          <p>
-            Une marque pensée pour des acheteurs occidentaux, une vraie vitrine LinkedIn, un site lisible par
-            des yeux occidentaux, du SEO, du GEO, du Google Ads, et des commerciaux qui décrochent dans le bon
-            fuseau horaire.
+          <span class="bridge-panel__by">BeyondBorderGroup · TheRedScroll · ChinaWebFoundry · BeyondCompass · HubStudio</span>
+          <span class="bridge-panel__cta">
+            Aller au flux entrant
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
+          </span>
+        </a>
+
+        <a class="bridge-panel__side bridge-panel__side--outbound" href={`${pathFor('two-flows', locale)}#outbound`}>
+          <span class="bridge-panel__direction">
+            <span class="bridge-panel__arrow" aria-hidden="true">←</span>
+            De la Chine vers l’Occident · Sortant
+          </span>
+          <h3 class="bridge-panel__title">Emmener une marque chinoise à l’international.</h3>
+          <p class="bridge-panel__body">
+            Une marque pour acheteurs occidentaux, un vrai LinkedIn, un site lisible par des yeux occidentaux,
+            du SEO, du GEO, du Google Ads, et des commerciaux nommés sur place.
           </p>
-          <a class="btn btn--ghost" href={pathFor('going-overseas', locale)} style="color: var(--bbg-blue-light);">Voir le flux sortant</a>
-          <p class="flow__by">Opéré par BeyondBridge.</p>
-        </article>
+          <span class="bridge-panel__by">BeyondBridge · Nuvora Studio</span>
+          <span class="bridge-panel__cta">
+            Aller au flux sortant
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
+          </span>
+        </a>
+      </div>
+
+      <div class="btn-row" style="margin-top: var(--space-6); justify-content: center;">
+        <a class="btn btn--primary" href={pathFor('two-flows', locale)}>Ouvrir la page Deux flux</a>
       </div>
     </div>
   </section>
@@ -140,7 +171,7 @@ const agencies = [
             <tr>
               <th>Sourcing partenaires</th>
               <td>BeyondCompass</td>
-              <td class="muted">—</td>
+              <td class="muted">-</td>
             </tr>
             <tr>
               <th>Production</th>

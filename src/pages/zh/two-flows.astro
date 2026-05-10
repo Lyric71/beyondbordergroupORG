@@ -1,0 +1,302 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ImagePlaceholder from '../../components/ImagePlaceholder.astro';
+import AgencyLogo from '../../components/AgencyLogo.astro';
+import { pathFor } from '../../i18n/ui';
+
+const locale = 'zh' as const;
+const title = '两条流向';
+const description = '一座桥，两个方向。进入中国市场或在中国扩规模所需的整套能力，以及中国品牌出海的整条链路。';
+
+const inboundReq = [
+  { h: '一个对中国受众"有质感"的品牌', body: '把信任凭据放在最前面：认证、合作伙伴 logo、第三方背书。这种密集、带凭证的首页，西方眼里嫌挤，中国眼里读到的就是认真。西方那一套极简，到中国会被读成"内容不够"。' },
+  { h: '中国消费者真在用的渠道', body: '微信打信任，小红书做候选清单，抖音做发现和直播带货，微博做大盘触达。每一个都得有自己的格式、自己的节奏、自己的运营团队。混着做，对话就丢了。' },
+  { h: '在防火墙后跑得动的网站基础设施', body: '在阿里云、腾讯或华为云上做 ICP 备案的托管。一个百度真能索引的站。在微信内置浏览器里跑过 UX：你大部分流量在那儿读你的内容。实际等同于纯移动端：超过 95% 的中国用户从手机上网。' },
+  { h: '中国买家用的搜索引擎里的能见度', body: '根据 Statcounter，百度仍占中国搜索市场过半。Google 不到 3%。35 岁以下买家越来越绕开传统搜索，直接进 AI：DeepSeek、豆包、Kimi、元宝。' },
+  { h: '在交易真正发生的地方做生意', body: 'Tmall、京东、抖音小店、小红书，再加微信里的社交电商。在中国，电商和社交不是两条独立漏斗，是同一张面，一根手指就能滑完。' },
+];
+
+const inboundAgencies = [
+  { name: 'BeyondBorderGroup', role: '全案运营方', body: '二十年中国实地经验。品牌、媒介、社交、KOL、内容工作室、PR、网站、活动、电商、社交电商、分销、咨询。一支负责到底的团队。整套拿，或者只拿一个模块。', route: 'agencies/beyondbordergroup' as const },
+  { name: 'TheRedScroll', role: '渠道专家', body: '从上海和香港运营的中国社交。微信、抖音、小红书、微博，再加十四个平台。策略、内容、KOL、广告、CRM、培训。范围固定，价格固定，两周完成 onboarding。', route: 'agencies/theredscroll' as const },
+  { name: 'ChinaWebFoundry', role: '网站基础设施专家', body: '为中国互联网而生的网站。策略与审计、迁移到中国、原生中文内容、移动端优先 UX、ICP 备案托管、百度 SEO、为中国 AI 引擎做的 GEO，再加日常维护。WordPress、Astro、微信，全部由一个上海团队完成。', route: 'agencies/chinawebfoundry' as const },
+];
+
+const outboundReq = [
+  { h: '一个西方买家一眼就认得出来的品牌', body: '不是从中文翻过去的版本。名字立得住、tagline 不别扭、视觉系统在法兰克福和芝加哥都不需要解释。' },
+  { h: 'LinkedIn 上真的有内容', body: '西方 B2B 买家在打电话之前先翻 LinkedIn。页面是空的，电话就不会响。LinkedIn 自家研究：82% 的买家说，看到高管在 LinkedIn 上发内容，会更信任这家公司。空账号，等于丢单。' },
+  { h: '一份按西方眼光做的网站', body: '干净、留白、每页只有一个明确动作。在中国境外托管。打开要快：三秒钟，超过一半访客就走了。' },
+  { h: '在西方搜索引擎里被看到', body: 'Google 排名，加上在 ChatGPT、Perplexity、Gemini 里被引用。大多数中国公司出海时几乎没有"权威值"：没有外链、没有英文内容、没有 AI 引用。竞争对手早就把排名和答案拿走了。' },
+  { h: '搜索结果第一页', body: 'Google Ads 在前面跑，让 SEO 在后面慢慢累积。Landing page 用西方版本，不要做翻译稿。很多中国公司把广告预算烧在过宽的关键词、错的地区，以及为中国市场写的着陆页上。' },
+  { h: '在对的时区接电话的销售', body: '德国买家上午十点发询盘，深圳还在睡觉。等天一亮，那位买家已经发给三个竞品了。在西方市场，谁先回复，谁就接得到下一步。' },
+];
+
+const outboundServices = [
+  { h: '品牌策略', body: '为西方买家而建，不是翻译。' },
+  { h: 'LinkedIn', body: '西方 B2B 第一站。由集团里的 LinkedIn 专家 Nuvora Studio 操盘。' },
+  { h: '网站', body: '按西方眼光来。在中国境外托管。' },
+  { h: 'SEO 与 GEO', body: '冲 Google 排名，被西方 AI 引用。' },
+  { h: 'Google Ads', body: '上线第一天，就上第一页。' },
+  { h: '外置销售队伍', body: '美国、英国、德国、法国的具名母语销售代表。' },
+];
+---
+
+<Layout locale={locale} route="two-flows" title={title} description={description}>
+  <section class="hero-twoflows">
+    <div class="container hero-twoflows__inner">
+      <span class="eyebrow eyebrow--rule">两个方向</span>
+      <h1 class="hero-twoflows__title balance">
+        一座桥。<span class="hero-twoflows__accent">两条流向。</span>
+      </h1>
+      <p class="hero-twoflows__lead">
+        无论你往哪个方向走，两岸的功课，我们都做过了。从你的那一侧开始。
+      </p>
+
+      <div class="hero-twoflows__bridge" aria-hidden="true">
+        <span class="hero-twoflows__bank">西方</span>
+        <svg class="hero-twoflows__arc" viewBox="0 0 600 100" preserveAspectRatio="none">
+          <path d="M0 86 Q300 4 600 86" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+          <line x1="60" y1="76" x2="60" y2="92" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+          <line x1="180" y1="50" x2="180" y2="92" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+          <line x1="300" y1="40" x2="300" y2="92" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+          <line x1="420" y1="50" x2="420" y2="92" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+          <line x1="540" y1="76" x2="540" y2="92" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+        </svg>
+        <span class="hero-twoflows__bank">中国</span>
+      </div>
+
+      <div class="hero-twoflows__jumps">
+        <a class="hero-twoflows__jump" href="#inbound">
+          入境业务
+          <span class="hero-twoflows__jump-meta">西方进入中国</span>
+        </a>
+        <a class="hero-twoflows__jump" href="#outbound">
+          出境业务
+          <span class="hero-twoflows__jump-meta">中国走向西方</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="inbound" class="hero-editorial">
+    <div class="container">
+      <span class="eyebrow eyebrow--rule">流向 1 · 入境 · 西方进入中国</span>
+      <h2 class="hero-editorial__title balance">
+        你有品牌。中国有 11 亿网民。把这道沟填上，不是翻译能解决的事。
+      </h2>
+      <p class="hero-editorial__lead">
+        中国互联网跑在自己的一套系统上：平台不一样、搜索引擎不一样、基础设施不一样、内容密度不一样、买家信号也不一样。这套系统里头，我们已经做了二十年。
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <header class="section-header">
+        <span class="eyebrow">真正需要的东西</span>
+        <h2 class="balance">在中国落地，靠的是这些。</h2>
+      </header>
+      <div class="grid-2">
+        {inboundReq.map((r) => (
+          <article class="card">
+            <h3 class="card__title">{r.h}</h3>
+            <p>{r.body}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <header class="section-header">
+        <span class="eyebrow">三家公司，一条流向</span>
+        <h2 class="balance">整套拿，或者就拿那一块。</h2>
+      </header>
+      <div class="grid-3">
+        {inboundAgencies.map((a) => (
+          <a class="card" href={pathFor(a.route, locale)}>
+            <AgencyLogo route={a.route} name={a.name} class="agency-card-logo" />
+            <span class="card__index">{a.role}</span>
+            <h3 class="card__title">{a.name}</h3>
+            <p>{a.body}</p>
+            <span class="btn btn--ghost" style="margin-top: auto;">访问</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <header class="section-header">
+        <span class="eyebrow">客户通常怎么开始</span>
+        <h2 class="balance">四种最常见的入口。</h2>
+      </header>
+      <div class="grid-2">
+        <article class="card">
+          <blockquote>"我只要一个真的能跑得动的中文网站。"</blockquote>
+          <p><strong>ChinaWebFoundry。</strong>六周完成迁移，ICP 已备案，百度可索引。</p>
+        </article>
+        <article class="card">
+          <blockquote>"九十天内，我得在小红书和抖音上线。"</blockquote>
+          <p><strong>TheRedScroll。</strong>两周 onboarding，半个月内首批内容上线。</p>
+        </article>
+        <article class="card">
+          <blockquote>"我要的是全套：品牌、渠道、电商、KOL。"</blockquote>
+          <p><strong>BeyondBorderGroup。</strong>全案进入，背后是积累了二十年的 playbook。</p>
+        </article>
+        <article class="card">
+          <blockquote>"我也不知道从哪儿开始。"</blockquote>
+          <p>三十分钟一通电话，我们替你想清楚。<a href={pathFor('contact', locale)}>预约通话</a>。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="split split--text-first">
+        <div class="prose">
+          <span class="eyebrow">顺带就送给你的</span>
+          <h2 class="balance">所有公司共用的一台生产引擎。</h2>
+          <p>
+            每一份入境业务都接到 HubStudio 的 AIGC 生产层。这就是为什么中国渠道要的产量（每周三到五条小红书、每天一条抖音、每周一封微信推文、每月一波 Tmall 大改版）成本能压得住。背后没有 AI 原生的内容引擎，账算不过来。
+          </p>
+          <a class="btn btn--ghost" href={pathFor('agencies/hubstudio', locale)}>访问 HubStudio</a>
+        </div>
+        <ImagePlaceholder ratio="4x5" label="工作室静物。生产现场，AIGC 与真实素材并置。" />
+      </div>
+    </div>
+  </section>
+
+  <section id="outbound" class="hero-editorial hero-editorial--dark">
+    <div class="container">
+      <span class="eyebrow eyebrow--on-dark">流向 2 · 出境 · 中国走向西方</span>
+      <h2 class="hero-editorial__title balance">
+        产品好。价格好。工厂好。海外没人接住。
+      </h2>
+      <p class="hero-editorial__lead">
+        每一家出海的中国公司，都撞上同一面墙。品牌是给中国买家做的；网站在西方眼里嫌挤；LinkedIn 一片空；柏林上午十点发来的询盘，没人回。这条桥的另一岸，我们做了二十年。
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <header class="section-header">
+        <span class="eyebrow">真正需要的东西</span>
+        <h2 class="balance">在海外落地，靠的是这些。</h2>
+      </header>
+      <div class="grid-2">
+        {outboundReq.map((r) => (
+          <article class="card">
+            <h3 class="card__title">{r.h}</h3>
+            <p>{r.body}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <header class="section-header">
+        <span class="eyebrow">一家公司，六项服务</span>
+        <h2 class="balance">BeyondBridge：完整链路。</h2>
+        <p class="lead">
+          专门为出海的中国品牌而建。六项服务，叠成三个套餐。
+        </p>
+      </header>
+      <ol class="numbered">
+        {outboundServices.map((s) => (
+          <li>
+            <div>
+              <p class="numbered__title">{s.h}</p>
+              <p>{s.body}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <header class="section-header">
+        <span class="eyebrow">三个套餐</span>
+        <h2 class="balance">先选一个套餐，需要时再叠下一层。</h2>
+      </header>
+      <div class="grid-3">
+        <article class="card">
+          <span class="card__index">Starter · 存在感</span>
+          <h3 class="card__title">品牌 + LinkedIn + 网站</h3>
+          <p>在西方买家面前看着可信的最低线。给第一次出海的公司用。</p>
+        </article>
+        <article class="card">
+          <span class="card__index">Growth · 能见度</span>
+          <h3 class="card__title">Starter + SEO/GEO + Google Ads</h3>
+          <p>有存在感，也有流量。买家在 Google、ChatGPT 和付费搜索里都能找到你。</p>
+        </article>
+        <article class="card">
+          <span class="card__index">Full Pipeline · 收入</span>
+          <h3 class="card__title">Growth + 外置销售队伍</h3>
+          <p>每一条 inbound lead 都被筛选、跟进，并以"可签状态"交到你团队手里。</p>
+        </article>
+      </div>
+      <div style="margin-top: var(--space-6);">
+        <a class="btn btn--primary" href={pathFor('agencies/beyondbridge', locale)}>访问 BeyondBridge</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <header class="section-header">
+        <span class="eyebrow">客户通常怎么开始</span>
+        <h2 class="balance">四种最常见的入口。</h2>
+      </header>
+      <div class="grid-2">
+        <article class="card">
+          <blockquote>"三个月后我们要在德国参展，可线上没有任何看着可信的东西。"</blockquote>
+          <p><strong>Starter 套餐。</strong>九十天交付品牌、LinkedIn 和一个面向西方的网站。</p>
+        </article>
+        <article class="card">
+          <blockquote>"我们已经有存在感，但 inbound 是零。"</blockquote>
+          <p><strong>Growth 套餐。</strong>在 Starter 基础上叠 SEO、GEO 和 Ads。</p>
+        </article>
+        <article class="card">
+          <blockquote>"我们有 lead，但欧洲没人接。"</blockquote>
+          <p><strong>Full Pipeline。</strong>把现场销售队伍接上去。</p>
+        </article>
+        <article class="card">
+          <blockquote>"我们也不知道从哪里开始。"</blockquote>
+          <p>三十分钟一通电话，我们告诉你应该走哪个套餐，以及九十天具体长什么样。<a href={pathFor('contact', locale)}>预约通话</a>。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--dark">
+    <div class="container container--narrow">
+      <span class="eyebrow eyebrow--on-dark">等待的代价</span>
+      <h2 class="balance">排名会复利。关系会复利。权威值也会复利。</h2>
+      <p class="lead">
+        每多一个月没有西方端的存在感，就有一笔生意被先到的竞品拿走。每多一个季度没有 pipeline，就有预算烧在展会、翻译和打不到水花的 cold outreach 上。等得越久，追赶成本翻得越快。今天在海外赢的中国公司，两年前就开始动了。
+      </p>
+      <div class="btn-row" style="margin-top: var(--space-5);">
+        <a class="btn btn--primary" href={pathFor('contact', locale)}>预约通话</a>
+        <a class="btn btn--ghost-light" href={pathFor('agencies/beyondbridge', locale)}>访问 BeyondBridge</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .card :global(.agency-card-logo) {
+    height: 48px;
+    width: auto;
+    max-width: 180px;
+    margin-bottom: var(--space-3);
+  }
+</style>

@@ -8,12 +8,14 @@ const description = 'Independent agencies, shared leadership, shared production 
 ---
 
 <Layout locale={locale} route="how-we-work-together" title={title} description={description}>
-  <section class="hero-editorial">
-    <div class="container">
-      <span class="eyebrow eyebrow--rule">How it fits</span>
-      <h1 class="hero-editorial__title balance">Six agencies. One spine.</h1>
-      <p class="hero-editorial__lead">
-        The agencies are independent. Their own brands, their own pricing, their own teams. But they share a
+  <section class="hero-image">
+    <div class="hero-image__bg" aria-hidden="true"></div>
+    <div class="hero-image__scrim" aria-hidden="true"></div>
+    <div class="container hero-image__inner">
+      <span class="eyebrow eyebrow--rule eyebrow--on-dark">How it fits</span>
+      <h1 class="hero-image__title balance">Six agencies. One spine.</h1>
+      <p class="hero-image__lead">
+        The agencies are independent. Their own brands, their own pricing, their own teams. They share a
         leadership group, a production engine, and a way of working. Here is the structure that keeps them
         coordinated, without collapsing them into a generalist.
       </p>
@@ -23,45 +25,98 @@ const description = 'Independent agencies, shared leadership, shared production 
   <section class="section section--alt">
     <div class="container">
       <header class="section-header">
-        <span class="eyebrow">The matrix</span>
-        <h2 class="balance">Two columns by direction. Two horizontal layers.</h2>
+        <span class="eyebrow">The logic</span>
+        <h2 class="balance">Two leads. Five specialists. One engine.</h2>
+        <p class="lead">
+          Two lead agencies, one per direction. Five specialists that plug into either direction.
+          One production engine running across both.
+        </p>
       </header>
-      <div style="overflow-x: auto;">
-        <table class="matrix">
-          <thead>
-            <tr>
-              <th></th>
-              <th>West to China</th>
-              <th>China to the West</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th>Full-service operator</th>
-              <td><strong>BeyondBorderGroup</strong></td>
-              <td><strong>BeyondBridge</strong></td>
-            </tr>
-            <tr>
-              <th>Channel specialist</th>
-              <td>TheRedScroll. WeChat, Douyin, RedNote, Weibo.</td>
-              <td>Nuvora Studio. LinkedIn.</td>
-            </tr>
-            <tr>
-              <th>Web infrastructure</th>
-              <td>ChinaWebFoundry. Baidu, ICP, AI engines.</td>
-              <td>BeyondBridge web module. Google, Western AI.</td>
-            </tr>
-            <tr>
-              <th>Partner sourcing</th>
-              <td>BeyondCompass. Vetted distributors, Tmall TPs, Douyin Partners.</td>
-              <td class="muted">—</td>
-            </tr>
-            <tr>
-              <th>Production layer</th>
-              <td colspan="2" style="text-align:center; background: var(--bbg-blue-light); color: var(--bbg-ink); font-weight: 600;">HubStudio</td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="matrix-grid" role="table" aria-label="Agencies by direction and layer">
+        <div class="matrix-grid__head" role="row">
+          <div class="matrix-grid__corner" aria-hidden="true"></div>
+          <div class="matrix-grid__direction matrix-grid__direction--west" role="columnheader">
+            <span class="matrix-grid__arrow" aria-hidden="true">→</span>
+            <span class="matrix-grid__direction-label">West to China</span>
+          </div>
+          <div class="matrix-grid__direction matrix-grid__direction--east" role="columnheader">
+            <span class="matrix-grid__arrow" aria-hidden="true">←</span>
+            <span class="matrix-grid__direction-label">China to the West</span>
+          </div>
+        </div>
+
+        <div class="matrix-grid__row" role="row">
+          <div class="matrix-grid__layer" role="rowheader">
+            <span class="matrix-grid__layer-name">Full-service</span>
+          </div>
+          <div class="matrix-cell matrix-cell--lead" role="cell">
+            <span class="matrix-cell__tag">Lead agency</span>
+            <span class="matrix-cell__name">BeyondBorderGroup</span>
+          </div>
+          <div class="matrix-cell matrix-cell--lead" role="cell">
+            <span class="matrix-cell__tag">Lead agency</span>
+            <span class="matrix-cell__name">BeyondBridge</span>
+          </div>
+        </div>
+
+        <div class="matrix-grid__row matrix-grid__row--both" role="row">
+          <div class="matrix-grid__layer" role="rowheader">
+            <span class="matrix-grid__layer-name">Social media</span>
+          </div>
+          <div class="matrix-cell matrix-cell--both" role="cell">
+            <span class="matrix-cell__tag">Both ways</span>
+            <span class="matrix-cell__name">TheRedScroll</span>
+            <span class="matrix-cell__note">WeChat, Douyin, RedNote, Weibo. For Western or Chinese clients.</span>
+          </div>
+        </div>
+
+        <div class="matrix-grid__row matrix-grid__row--both" role="row">
+          <div class="matrix-grid__layer" role="rowheader">
+            <span class="matrix-grid__layer-name">LinkedIn B2B</span>
+          </div>
+          <div class="matrix-cell matrix-cell--both" role="cell">
+            <span class="matrix-cell__tag">Both ways</span>
+            <span class="matrix-cell__name">Nuvora Studio</span>
+            <span class="matrix-cell__note">LinkedIn-only. For Western or Chinese clients.</span>
+          </div>
+        </div>
+
+        <div class="matrix-grid__row matrix-grid__row--both" role="row">
+          <div class="matrix-grid__layer" role="rowheader">
+            <span class="matrix-grid__layer-name">Web infrastructure</span>
+          </div>
+          <div class="matrix-cell matrix-cell--both" role="cell">
+            <span class="matrix-cell__tag">Both ways</span>
+            <span class="matrix-cell__name">ChinaWebFoundry</span>
+            <span class="matrix-cell__note">Baidu-ready, ICP, Chinese AI engines. For Western or Chinese clients.</span>
+          </div>
+        </div>
+
+        <div class="matrix-grid__row matrix-grid__row--both" role="row">
+          <div class="matrix-grid__layer" role="rowheader">
+            <span class="matrix-grid__layer-name">Partner sourcing</span>
+          </div>
+          <div class="matrix-cell matrix-cell--both" role="cell">
+            <span class="matrix-cell__tag">Both ways</span>
+            <span class="matrix-cell__name">BeyondCompass</span>
+            <span class="matrix-cell__note">Vetted China distributors, Tmall TPs, Douyin Partners.</span>
+          </div>
+        </div>
+
+        <div class="matrix-grid__row matrix-grid__row--span" role="row">
+          <div class="matrix-grid__layer" role="rowheader">
+            <span class="matrix-grid__layer-name">Production</span>
+          </div>
+          <div class="matrix-cell matrix-cell--span" role="cell">
+            <span class="matrix-cell__bridge" aria-hidden="true">
+              <span class="matrix-cell__bridge-dot"></span>
+              <span class="matrix-cell__bridge-line"></span>
+              <span class="matrix-cell__bridge-dot"></span>
+            </span>
+            <span class="matrix-cell__name">HubStudio</span>
+            <span class="matrix-cell__note">AIGC content engine. Runs across both directions.</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -76,24 +131,21 @@ const description = 'Independent agencies, shared leadership, shared production 
         <article class="card">
           <h3 class="card__title">Leadership</h3>
           <p>
-            Founder Cyril Drouin sets the strategy across all six agencies. Twenty-five years across Europe and
-            North Asia. Former Chief Digital and eCommerce Officer for Publicis North Asia. The agencies operate
-            under one strategic direction.
+            Cyril Drouin sets strategy across the six agencies. Twenty-five years across Europe and North
+            Asia, former Chief Digital Officer for Publicis North Asia.
           </p>
         </article>
         <article class="card">
           <h3 class="card__title">HubStudio AIGC layer</h3>
           <p>
-            Every agency in the group has access to the same AI-native production engine. That is what makes it
-            possible to produce three RedNote posts a week for a Chinese cosmetic brand and five LinkedIn
-            carousels a week for a Chinese industrial brand entering Germany, at the same per-output cost.
+            Every agency draws on the same AI-native production engine. Three RedNote posts a week, five
+            LinkedIn carousels a week, same per-output cost.
           </p>
         </article>
         <article class="card">
           <h3 class="card__title">Coordinated account management</h3>
           <p>
-            When a client uses two or more agencies, one account director coordinates. One brief in. One status
-            meeting. One monthly report. No lost context between vendors.
+            Use two or more agencies and one director coordinates. One brief, one report, no lost context.
           </p>
         </article>
       </div>
@@ -157,10 +209,10 @@ const description = 'Independent agencies, shared leadership, shared production 
           <h3>Where the work happens.</h3>
           <p>Strategy and account management in English, Mandarin, French.</p>
           <ul>
-            <li>Shanghai — HQ for BeyondBorderGroup, TheRedScroll, ChinaWebFoundry, HubStudio.</li>
-            <li>Hong Kong — TheRedScroll and BeyondBorderGroup.</li>
-            <li>Paris — BeyondBorderGroup and group leadership.</li>
-            <li>Hangzhou — ChinaWebFoundry's secondary office.</li>
+            <li>Shanghai: HQ for BeyondBorderGroup, TheRedScroll, ChinaWebFoundry, HubStudio.</li>
+            <li>Hong Kong: TheRedScroll and BeyondBorderGroup.</li>
+            <li>Paris: BeyondBorderGroup and group leadership.</li>
+            <li>Hangzhou: ChinaWebFoundry's secondary office.</li>
             <li>In-market sales reps for BeyondBridge in the US, UK, Germany, France.</li>
           </ul>
         </div>
@@ -175,3 +227,244 @@ const description = 'Independent agencies, shared leadership, shared production 
     </div>
   </section>
 </Layout>
+
+<style>
+  /* ---------- Image hero ---------- */
+  .hero-image {
+    position: relative;
+    isolation: isolate;
+    color: var(--bbg-white);
+    padding: clamp(8rem, 18vh, 13rem) 0 clamp(5rem, 11vh, 7.5rem);
+    min-height: 72vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+  }
+  .hero-image__bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('https://www.theredscroll.com/images/team/team-photo.png');
+    background-size: cover;
+    background-position: center;
+    background-color: #0a1320;
+    z-index: -2;
+    transform: scale(1.05);
+    animation: hero-image-drift 32s ease-in-out infinite alternate;
+  }
+  @keyframes hero-image-drift {
+    from { transform: scale(1.05) translate3d(0, 0, 0); }
+    to   { transform: scale(1.10) translate3d(-1.5%, -1%, 0); }
+  }
+  .hero-image__scrim {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(110deg, rgba(10, 19, 32, 0.82) 0%, rgba(10, 19, 32, 0.55) 50%, rgba(10, 19, 32, 0.30) 100%),
+      radial-gradient(ellipse at 22% 32%, rgba(38, 154, 218, 0.20), transparent 60%);
+    z-index: -1;
+  }
+  .hero-image__inner { max-width: 760px; }
+  .hero-image__title {
+    font-size: clamp(2.5rem, 4.6vw + 0.5rem, 4.25rem);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    color: var(--bbg-white);
+    margin: var(--space-4) 0 var(--space-5);
+    text-shadow: 0 2px 24px rgba(0, 0, 0, 0.45);
+    font-weight: 600;
+  }
+  .hero-image__lead {
+    font-size: var(--fs-lead);
+    color: rgba(255, 255, 255, 0.88);
+    max-width: 60ch;
+  }
+
+  /* ---------- Modern matrix grid (mirrors home "The logic") ---------- */
+  .matrix-grid {
+    display: grid;
+    gap: var(--space-3);
+    margin-top: var(--space-5);
+  }
+  .matrix-grid__head,
+  .matrix-grid__row {
+    display: grid;
+    grid-template-columns: minmax(160px, 200px) 1fr 1fr;
+    gap: var(--space-4);
+    align-items: stretch;
+  }
+  .matrix-grid__direction {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-3) var(--space-4);
+    font-size: var(--fs-small);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--bbg-ink);
+    position: relative;
+  }
+  .matrix-grid__direction::after {
+    content: '';
+    position: absolute;
+    left: var(--space-4);
+    right: var(--space-4);
+    bottom: 0;
+    height: 2px;
+    border-radius: 2px;
+  }
+  .matrix-grid__direction--west::after { background: linear-gradient(90deg, var(--bbg-blue), transparent); }
+  .matrix-grid__direction--east::after { background: linear-gradient(90deg, transparent, #c8102e); }
+  .matrix-grid__direction--east { justify-content: flex-end; flex-direction: row-reverse; }
+  .matrix-grid__arrow {
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--bbg-blue);
+  }
+  .matrix-grid__direction--east .matrix-grid__arrow { color: #c8102e; }
+  .matrix-grid__layer {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    padding: var(--space-4) 0;
+    align-self: center;
+  }
+  .matrix-grid__layer-name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--bbg-ink);
+  }
+  .matrix-cell {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--space-1);
+    padding: var(--space-4) var(--space-5);
+    background: var(--bbg-white);
+    border: 1px solid var(--bbg-border);
+    border-radius: 12px;
+    transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease), border-color 0.25s var(--ease);
+  }
+  .matrix-cell:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px -16px rgba(15, 23, 42, 0.18);
+    border-color: var(--bbg-border-strong);
+  }
+  .matrix-cell--lead {
+    background: linear-gradient(180deg, #ffffff 0%, var(--bbg-surface) 100%);
+    border-color: rgba(38, 154, 218, 0.25);
+  }
+  .matrix-cell--lead::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 14px;
+    bottom: 14px;
+    width: 3px;
+    background: linear-gradient(180deg, var(--bbg-blue), #c8102e);
+    border-radius: 0 3px 3px 0;
+  }
+  .matrix-grid__row--both .matrix-cell--both {
+    grid-column: 2 / -1;
+    background: linear-gradient(90deg, rgba(38, 154, 218, 0.06) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(200, 16, 46, 0.06) 100%);
+    border-color: rgba(15, 23, 42, 0.10);
+    padding: var(--space-3) var(--space-5);
+  }
+  .matrix-grid__row--both .matrix-cell--both::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 14px;
+    bottom: 14px;
+    width: 3px;
+    background: linear-gradient(180deg, var(--bbg-blue) 0%, #c8102e 100%);
+    border-radius: 0 3px 3px 0;
+  }
+  .matrix-grid__row--both .matrix-cell--both .matrix-cell__tag {
+    color: transparent;
+    background: linear-gradient(90deg, var(--bbg-blue), #c8102e);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .matrix-grid__row--both .matrix-cell--both .matrix-cell__note {
+    color: var(--bbg-text-muted);
+    font-size: var(--fs-small);
+  }
+  .matrix-cell__tag {
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--bbg-blue);
+  }
+  .matrix-cell__name {
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: var(--bbg-ink);
+  }
+  .matrix-grid__row--span .matrix-cell--span {
+    grid-column: 2 / -1;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    border-color: transparent;
+    color: white;
+    align-items: center;
+    text-align: center;
+    padding: var(--space-5);
+    overflow: hidden;
+  }
+  .matrix-grid__row--span .matrix-cell--span::after {
+    content: '';
+    position: absolute;
+    inset: -50%;
+    background:
+      radial-gradient(circle at 30% 50%, rgba(38, 154, 218, 0.15), transparent 40%),
+      radial-gradient(circle at 70% 50%, rgba(200, 16, 46, 0.15), transparent 40%);
+    pointer-events: none;
+  }
+  .matrix-grid__row--span .matrix-cell--span > * { position: relative; z-index: 1; }
+  .matrix-grid__row--span .matrix-cell__name { color: white; font-size: 1.25rem; }
+  .matrix-grid__row--span .matrix-cell__note {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: var(--fs-small);
+    margin-top: 2px;
+  }
+  .matrix-cell__bridge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: var(--space-2);
+  }
+  .matrix-cell__bridge-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--bbg-blue);
+    box-shadow: 0 0 12px rgba(38, 154, 218, 0.7);
+    animation: bridge-pulse 2.5s ease-in-out infinite;
+  }
+  .matrix-cell__bridge-dot:last-child {
+    background: #c8102e;
+    box-shadow: 0 0 12px rgba(200, 16, 46, 0.7);
+    animation-delay: 1.25s;
+  }
+  .matrix-cell__bridge-line {
+    width: 64px; height: 2px;
+    background: linear-gradient(90deg, var(--bbg-blue), #c8102e);
+    border-radius: 2px;
+  }
+  @keyframes bridge-pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.4); opacity: 0.6; }
+  }
+  @media (max-width: 760px) {
+    .matrix-grid__head { display: none; }
+    .matrix-grid__row { grid-template-columns: 1fr; gap: var(--space-2); padding-bottom: var(--space-4); border-bottom: 1px solid var(--bbg-border); }
+    .matrix-grid__row:last-child { border-bottom: none; }
+    .matrix-grid__row--span .matrix-cell--span { grid-column: 1 / -1; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-image__bg { animation: none; transform: scale(1.05); }
+    .matrix-cell__bridge-dot { animation: none; }
+  }
+</style>

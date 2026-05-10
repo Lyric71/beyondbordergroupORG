@@ -21,6 +21,7 @@ export const localeShort: Record<Locale, string> = {
 export type Route =
   | 'home'
   | 'bridge'
+  | 'two-flows'
   | 'entering-china'
   | 'going-overseas'
   | 'agencies'
@@ -37,6 +38,7 @@ export type Route =
 const routePaths: Record<Route, string> = {
   home: '',
   bridge: 'the-bridge/',
+  'two-flows': 'two-flows/',
   'entering-china': 'entering-china/',
   'going-overseas': 'going-overseas/',
   agencies: 'agencies/',
@@ -61,14 +63,14 @@ export interface UI {
   nav: {
     bridge: string;
     flowsLabel: string;
-    enteringChina: string;
-    goingOverseas: string;
     agencies: string;
     howWeWork: string;
     founder: string;
     contact: string;
     flowsDesc: string;
     agenciesDesc: string;
+    ourWay: string;
+    ourWayDesc: string;
   };
   cta: {
     talkToUs: string;
@@ -105,14 +107,14 @@ export const ui: Record<Locale, UI> = {
     nav: {
       bridge: 'The bridge',
       flowsLabel: 'Two flows',
-      enteringChina: 'Entering China',
-      goingOverseas: 'Going Overseas',
       agencies: 'Agencies',
       howWeWork: 'How we work',
       founder: 'Founder',
       contact: 'Contact',
       flowsDesc: 'One bridge, two directions. Pick the side of the bridge you are coming from.',
       agenciesDesc: 'Specialist studios. Each one stands alone. Most clients start with one.',
+      ourWay: 'Our Way',
+      ourWayDesc: 'The bridge, the flows, the way we work.',
     },
     cta: {
       talkToUs: 'Talk to us',
@@ -147,14 +149,14 @@ export const ui: Record<Locale, UI> = {
     nav: {
       bridge: 'Le pont',
       flowsLabel: 'Deux flux',
-      enteringChina: 'Entrer en Chine',
-      goingOverseas: 'Aller à l’international',
       agencies: 'Agences',
       howWeWork: 'Notre fonctionnement',
       founder: 'Fondateur',
       contact: 'Contact',
       flowsDesc: 'Un pont, deux directions. Choisissez le côté d’où vous venez.',
       agenciesDesc: 'Studios spécialisés. Chacun se tient seul. La plupart des clients commencent par un.',
+      ourWay: 'Notre voie',
+      ourWayDesc: 'Le pont, les flux, notre fonctionnement.',
     },
     cta: {
       talkToUs: 'Parler avec nous',
@@ -189,14 +191,14 @@ export const ui: Record<Locale, UI> = {
     nav: {
       bridge: '这座桥',
       flowsLabel: '两条流向',
-      enteringChina: '进入中国',
-      goingOverseas: '走向海外',
       agencies: '我们的公司',
       howWeWork: '协作方式',
       founder: '创始人',
       contact: '联系',
       flowsDesc: '一座桥，两个方向。从你的那一侧开始。',
       agenciesDesc: '独立的专业公司。每一家都可以单独合作。大多数客户从其中一家开始。',
+      ourWay: '我们的方式',
+      ourWayDesc: '一座桥，两条流向，一种协作方式。',
     },
     cta: {
       talkToUs: '与我们对话',
@@ -231,14 +233,14 @@ export const ui: Record<Locale, UI> = {
     nav: {
       bridge: 'El puente',
       flowsLabel: 'Dos flujos',
-      enteringChina: 'Entrar en China',
-      goingOverseas: 'Salir al exterior',
       agencies: 'Agencias',
       howWeWork: 'Cómo trabajamos',
       founder: 'Fundador',
       contact: 'Contacto',
       flowsDesc: 'Un puente, dos direcciones. Elige el lado del puente desde el que vienes.',
       agenciesDesc: 'Estudios especializados. Cada uno funciona por su cuenta. La mayoría de los clientes empieza con uno.',
+      ourWay: 'Nuestro camino',
+      ourWayDesc: 'El puente, los flujos, cómo trabajamos.',
     },
     cta: {
       talkToUs: 'Hablar con nosotros',
@@ -273,14 +275,14 @@ export const ui: Record<Locale, UI> = {
     nav: {
       bridge: 'Die Brücke',
       flowsLabel: 'Zwei Richtungen',
-      enteringChina: 'Eintritt nach China',
-      goingOverseas: 'Ins Ausland',
       agencies: 'Agenturen',
       howWeWork: 'Wie wir arbeiten',
       founder: 'Gründer',
       contact: 'Kontakt',
       flowsDesc: 'Eine Brücke, zwei Richtungen. Wählen Sie die Seite, von der Sie kommen.',
       agenciesDesc: 'Spezialisierte Studios. Jedes steht für sich. Die meisten Kunden starten mit einem.',
+      ourWay: 'Unser Weg',
+      ourWayDesc: 'Die Brücke, die Richtungen, unsere Arbeitsweise.',
     },
     cta: {
       talkToUs: 'Mit uns sprechen',

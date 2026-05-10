@@ -48,32 +48,63 @@ const agencies = [
   <section class="section section--alt">
     <div class="container">
       <header class="section-header">
-        <span class="eyebrow">Zwei Richtungen</span>
-        <h2 class="balance">Eine Brücke. Zwei Verkehrsrichtungen.</h2>
-        <p class="lead">Welche Seite auch immer Ihr Ausgangspunkt ist – wir haben den Weg auf der anderen Seite längst zurückgelegt.</p>
+        <span class="eyebrow">Zwei Richtungen. Eine Seite.</span>
+        <h2 class="balance">Beide Richtungen liegen jetzt auf einer einzigen Seite.</h2>
+        <p class="lead">
+          Dasselbe Rückgrat aus Agenturen für beide Richtungen. Sechs typische Einstiege je Seite. Wählen Sie
+          Ihr Ufer, oder lesen Sie die ganze Brücke von einem Ende zum anderen.
+        </p>
       </header>
-      <div class="flows">
-        <article class="flow">
-          <span class="flow__direction">Vom Westen nach China · Inbound</span>
-          <h3>Westliche Marken nach China bringen</h3>
-          <p>
-            Marke, Kanäle, Web-Infrastruktur, eCommerce, Social, KOLs, Distribution. Vom kleinen Cross-Border-
-            Versuch bis zur vollständigen Präsenz auf WeChat, Tmall und Douyin.
+
+      <div class="bridge-panel">
+        <span class="bridge-panel__spine" aria-hidden="true">
+          <span class="bridge-panel__spine-line"></span>
+          <span class="bridge-panel__spine-mark">
+            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 16h22" />
+              <path d="M22 11l5 5-5 5" />
+              <path d="M10 21l-5-5 5-5" />
+            </svg>
+          </span>
+        </span>
+
+        <a class="bridge-panel__side bridge-panel__side--inbound" href={`${pathFor('two-flows', locale)}#inbound`}>
+          <span class="bridge-panel__direction">
+            <span class="bridge-panel__arrow" aria-hidden="true">→</span>
+            Vom Westen nach China · Inbound
+          </span>
+          <h3 class="bridge-panel__title">Westliche Marken nach China bringen.</h3>
+          <p class="bridge-panel__body">
+            Marke, WeChat, RedNote, Douyin, Tmall, JD, Baidu, KOLs, Distribution. Von einer einzigen
+            Landingpage bis zum kompletten Stack.
           </p>
-          <a class="btn btn--ghost" href={pathFor('entering-china', locale)}>Inbound-Flow ansehen</a>
-          <p class="flow__by">Betrieben von BeyondBorderGroup, TheRedScroll und ChinaWebFoundry.</p>
-        </article>
-        <article class="flow flow--dark">
-          <span class="flow__direction">Von China in den Westen · Outbound</span>
-          <h3>Chinesische Marken und Industriebetriebe ins Ausland tragen</h3>
-          <p>
-            Eine Marke, die westliche Käufer sofort erfassen. Ein wirklich gepflegter LinkedIn-Auftritt. Eine
-            Website, die für westliche Augen geschrieben ist. SEO, GEO, Google Ads – und Vertriebsleute, die
-            in der richtigen Zeitzone abnehmen.
+          <span class="bridge-panel__by">BeyondBorderGroup · TheRedScroll · ChinaWebFoundry · BeyondCompass · HubStudio</span>
+          <span class="bridge-panel__cta">
+            Zum Inbound-Flow
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
+          </span>
+        </a>
+
+        <a class="bridge-panel__side bridge-panel__side--outbound" href={`${pathFor('two-flows', locale)}#outbound`}>
+          <span class="bridge-panel__direction">
+            <span class="bridge-panel__arrow" aria-hidden="true">←</span>
+            Von China in den Westen · Outbound
+          </span>
+          <h3 class="bridge-panel__title">Chinesische Marken ins Ausland tragen.</h3>
+          <p class="bridge-panel__body">
+            Eine Marke für westliche Käufer, ein gepflegter LinkedIn-Auftritt, eine Website für westliche
+            Augen, SEO, GEO, Google Ads, und namentliche Vertriebsleute vor Ort.
           </p>
-          <a class="btn btn--ghost" href={pathFor('going-overseas', locale)} style="color: var(--bbg-blue-light);">Outbound-Flow ansehen</a>
-          <p class="flow__by">Betrieben von BeyondBridge.</p>
-        </article>
+          <span class="bridge-panel__by">BeyondBridge · Nuvora Studio</span>
+          <span class="bridge-panel__cta">
+            Zum Outbound-Flow
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
+          </span>
+        </a>
+      </div>
+
+      <div class="btn-row" style="margin-top: var(--space-6); justify-content: center;">
+        <a class="btn btn--primary" href={pathFor('two-flows', locale)}>Die Seite „Zwei Richtungen“ öffnen</a>
       </div>
     </div>
   </section>
@@ -140,7 +171,7 @@ const agencies = [
             <tr>
               <th>Partnerwahl</th>
               <td>BeyondCompass</td>
-              <td class="muted">—</td>
+              <td class="muted">-</td>
             </tr>
             <tr>
               <th>Produktion</th>
