@@ -9,73 +9,66 @@ const description = 'BeyondBorderGroup is seven specialist agencies. Pick the on
 
 const agencies = [
   {
-    n: '01',
     slug: 'beyondbordergroup',
     route: 'agencies/beyondbordergroup' as const,
     name: 'BeyondBorderGroup',
     badge: 'West to China · Full-service',
-    body: "Full-service China agency. Twenty years on the ground. Branding, media, social, KOLs, content, PR, websites, events, eCommerce, distribution.",
+    body: 'Enter China, grow in China, learn China. Fifteen years on the ground running market entry, eCommerce, social commerce, media, PR, and masterclasses. We consult, and we run what we recommend.',
     fit: 'Brands who need one accountable team to enter or scale in China.',
     based: 'Shanghai. Hong Kong. Paris.',
   },
   {
-    n: '02',
     slug: 'theredscroll',
     route: 'agencies/theredscroll' as const,
     name: 'TheRedScroll',
     badge: 'West to China · Channel specialist',
-    body: 'Chinese social media run from the ground. WeChat, Douyin, RedNote, Weibo, plus 14 more. Fixed scope, fixed price.',
-    fit: 'Brands who need Chinese social media run properly.',
+    body: "Chinese social media run by people who open these apps every morning. WeChat, Douyin, RedNote, Weibo, and fourteen others. Strategy, content, paid, and influencers in one written scope, one number per package.",
+    fit: 'International brands who need Chinese social run properly, with no scope creep.',
     based: 'Shanghai. Hong Kong.',
   },
   {
-    n: '03',
     slug: 'chinawebfoundry',
     route: 'agencies/chinawebfoundry' as const,
     name: 'ChinaWebFoundry',
     badge: 'West to China · Web infrastructure',
-    body: 'Websites built for the Chinese web. ICP, Baidu, AI engines, WeChat-browser-tested. WordPress, Astro, WeChat.',
-    fit: 'Brands whose website needs to actually work in China.',
+    body: "Websites built for the Chinese internet, not retrofitted to it. ICP filing, China hosting, Baidu and DeepSeek visibility, WeChat and Alipay checkout. Plan, build, find, run.",
+    fit: 'Brands whose site needs to actually load, rank, and convert inside the Firewall.',
     based: 'Shanghai. Hangzhou.',
   },
   {
-    n: '04',
     slug: 'beyondcompass',
     route: 'agencies/beyondcompass' as const,
     name: 'BeyondCompass',
     badge: 'West to China · Partner sourcing',
-    body: 'A private database of distributors, Tmall TPs, Douyin Partners and importers we have actually met, vetted, and worked with. Skip three months of sourcing.',
-    fit: 'Brands choosing a China partner for the first time, or rebuilding their distribution stack.',
-    based: 'Shanghai. Built on 15 years of on-ground vetting.',
+    body: 'A private file of distributors, Tmall TPs, Douyin Partners, and importers we have actually met, vetted, and worked with. Shortlist, market map, or replacement, with warm introductions and an honest verdict on every name.',
+    fit: 'Brands choosing a China partner for the first time, or unwinding the wrong one.',
+    based: 'Shanghai. Twenty years of on-ground vetting.',
   },
   {
-    n: '05',
     slug: 'beyondbridge',
     route: 'agencies/beyondbridge' as const,
     name: 'BeyondBridge',
     badge: 'China to West · Full pipeline',
-    body: 'The full overseas pipeline for Chinese brands. Brand, LinkedIn, website, SEO/GEO, Ads, in-market reps.',
-    fit: 'Chinese brands who need real overseas pipeline, not just trade-show presence.',
-    based: 'China. Reps in the US, UK, Germany, France.',
+    body: 'The full overseas pipeline for Chinese companies. Brand, website, LinkedIn, SEO and GEO, Google Ads, and native sales reps in seven countries. One stack, one pipeline, real people taking the call.',
+    fit: 'Chinese companies tired of trade-show booths that close nothing.',
+    based: 'China HQ. Reps in Paris, Munich, Milan, London, New York, Sydney, São Paulo.',
   },
   {
-    n: '06',
     slug: 'hubstudio',
     route: 'agencies/hubstudio' as const,
     name: 'HubStudio',
     badge: 'Horizontal · Content production',
-    body: 'Image, video, and content production. Agency quality, AI speed.',
-    fit: 'Brands, retailers, agencies and manufacturers who need content at scale.',
-    based: 'Global. Shanghai HQ.',
+    body: 'A production house built for what content has become. Image, video, 3D, plus a brand-trained platform on dedicated GPUs. Hundreds of on-brand assets a month. Real shoots when the brief calls for it.',
+    fit: 'Brands, retailers, and agencies that need content at scale without losing the brand.',
+    based: 'Shanghai studio. Global delivery.',
   },
   {
-    n: '07',
     slug: 'nuvora-studio',
     route: 'agencies/nuvora-studio' as const,
     name: 'Nuvora Studio',
     badge: 'Horizontal · LinkedIn-only B2B',
-    body: 'LinkedIn only. Strategy, content, ads, employee advocacy, executive personal branding.',
-    fit: 'B2B companies anywhere in the world.',
+    body: 'LinkedIn only, every day. Content, ads, executive personal branding, employee advocacy. Built to drive leads, not just likes.',
+    fit: 'B2B companies whose buyers, hires, and investors all check LinkedIn.',
     based: 'Global.',
   },
 ];
@@ -85,7 +78,7 @@ const agencies = [
   <section class="hero-editorial">
     <div class="container">
       <span class="eyebrow eyebrow--rule">Agencies</span>
-      <h1 class="hero-editorial__title balance">Six specialist agencies. One ecosystem.</h1>
+      <h1 class="hero-editorial__title balance">Seven specialist agencies. One ecosystem.</h1>
       <p class="hero-editorial__lead">
         Each agency stands alone. Its own brand, its own pricing, its own deliverables. Pick the one that
         matches what you need. Most clients start with one, and pull in others as the project expands.
@@ -102,7 +95,6 @@ const agencies = [
               <AgencyLogo slug={a.slug} name={a.name} class="card__logo" />
             </div>
             <div class="card__meta">
-              <span class="card__tag card__tag--brand">{a.n}</span>
               <span class="card__tag">{a.badge}</span>
             </div>
             <h2 class="card__title" style="font-size: var(--fs-h3);">{a.name}</h2>

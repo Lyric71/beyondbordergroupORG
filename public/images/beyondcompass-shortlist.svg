@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" preserveAspectRatio="xMidYMid slice" role="img" aria-label="BeyondCompass shortlist: from many, a few">
+  <defs>
+    <linearGradient id="bcsBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1a1410"/>
+      <stop offset="1" stop-color="#2a1f15"/>
+    </linearGradient>
+    <radialGradient id="bcsCore" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#f1c87a" stop-opacity="0.35"/>
+      <stop offset="0.6" stop-color="#d99a3a" stop-opacity="0.08"/>
+      <stop offset="1" stop-color="#d99a3a" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="bcsHi" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f1c87a"/>
+      <stop offset="1" stop-color="#d99a3a"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="1000" fill="url(#bcsBg)"/>
+
+  <!-- Top eyebrow -->
+  <g font-family="Helvetica Neue, Arial, sans-serif" fill="#d99a3a">
+    <text x="60" y="78" font-size="16" font-weight="700" letter-spacing="6">SHORTLIST</text>
+    <line x1="60" y1="100" x2="160" y2="100" stroke="#d99a3a" stroke-width="2"/>
+  </g>
+
+  <!-- Field of dim dots (the database) -->
+  <g fill="#fbf6ec" fill-opacity="0.18">
+    <circle cx="120" cy="220" r="3"/>
+    <circle cx="180" cy="180" r="3"/>
+    <circle cx="260" cy="240" r="3"/>
+    <circle cx="320" cy="160" r="3"/>
+    <circle cx="430" cy="200" r="3"/>
+    <circle cx="510" cy="170" r="3"/>
+    <circle cx="600" cy="220" r="3"/>
+    <circle cx="680" cy="190" r="3"/>
+    <circle cx="700" cy="270" r="3"/>
+    <circle cx="100" cy="320" r="3"/>
+    <circle cx="160" cy="380" r="3"/>
+    <circle cx="640" cy="340" r="3"/>
+    <circle cx="710" cy="400" r="3"/>
+    <circle cx="80"  cy="500" r="3"/>
+    <circle cx="120" cy="600" r="3"/>
+    <circle cx="160" cy="700" r="3"/>
+    <circle cx="640" cy="600" r="3"/>
+    <circle cx="700" cy="700" r="3"/>
+    <circle cx="100" cy="780" r="3"/>
+    <circle cx="200" cy="820" r="3"/>
+    <circle cx="600" cy="820" r="3"/>
+    <circle cx="700" cy="780" r="3"/>
+  </g>
+
+  <!-- Central glow / lens -->
+  <circle cx="400" cy="540" r="280" fill="url(#bcsCore)"/>
+  <circle cx="400" cy="540" r="220" fill="none" stroke="#d99a3a" stroke-opacity="0.30" stroke-width="1" stroke-dasharray="4 6"/>
+  <circle cx="400" cy="540" r="160" fill="none" stroke="#d99a3a" stroke-opacity="0.45" stroke-width="1.2"/>
+
+  <!-- Constellation: 4 highlighted partners connected -->
+  <g stroke="url(#bcsHi)" stroke-width="1.5" fill="none" opacity="0.85">
+    <line x1="320" y1="470" x2="430" y2="500"/>
+    <line x1="430" y1="500" x2="470" y2="600"/>
+    <line x1="470" y1="600" x2="350" y2="620"/>
+    <line x1="350" y1="620" x2="320" y2="470"/>
+  </g>
+  <g fill="url(#bcsHi)">
+    <circle cx="320" cy="470" r="10"/>
+    <circle cx="430" cy="500" r="10"/>
+    <circle cx="470" cy="600" r="10"/>
+    <circle cx="350" cy="620" r="10"/>
+  </g>
+  <g fill="none" stroke="url(#bcsHi)" stroke-opacity="0.35" stroke-dasharray="2 3">
+    <circle cx="320" cy="470" r="22"/>
+    <circle cx="430" cy="500" r="22"/>
+    <circle cx="470" cy="600" r="22"/>
+    <circle cx="350" cy="620" r="22"/>
+  </g>
+
+  <!-- Compass crosshairs -->
+  <g stroke="#d99a3a" stroke-opacity="0.30" stroke-width="1">
+    <line x1="400" y1="220" x2="400" y2="320"/>
+    <line x1="400" y1="760" x2="400" y2="860"/>
+    <line x1="60"  y1="540" x2="160" y2="540"/>
+    <line x1="640" y1="540" x2="740" y2="540"/>
+  </g>
+
+  <!-- Caption (top-right) -->
+  <g font-family="Helvetica Neue, Arial, sans-serif" fill="#d99a3a">
+    <text x="740" y="78" font-size="14" font-weight="700" letter-spacing="3" text-anchor="end">FROM MANY</text>
+    <text x="740" y="100" font-size="14" font-weight="700" letter-spacing="3" text-anchor="end">A FEW</text>
+  </g>
+
+  <!-- Footer signature -->
+  <g font-family="Helvetica Neue, Arial, sans-serif" fill="#fbf6ec">
+    <line x1="60" y1="940" x2="640" y2="940" stroke="#fbf6ec" stroke-opacity="0.10"/>
+    <text x="700" y="966" font-size="12" font-weight="700" letter-spacing="3" opacity="0.5" text-anchor="end">VETTED · BRIEFED · INTRODUCED</text>
+  </g>
+</svg>

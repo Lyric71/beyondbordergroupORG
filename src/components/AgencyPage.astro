@@ -96,12 +96,8 @@ const {
       <div class="split split--media-first">
         <ImagePlaceholder ratio="4x5" label={`${name} context shot`} />
         <div class="prose">
-          <span class="eyebrow">{whoForLabel}</span>
-          <ul>
-            {fit.map((f) => <li>{f}</li>)}
-          </ul>
-          <h3 style="margin-top: var(--space-5);">{connectsLabel}</h3>
-          <p>{connects}</p>
+          <span class="eyebrow">{connectsLabel}</span>
+          <p class="lead">{connects}</p>
         </div>
       </div>
     </div>

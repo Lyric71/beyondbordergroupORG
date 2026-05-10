@@ -1,33 +1,2024 @@
 ---
-import AgencyPage from '../../components/AgencyPage.astro';
+import Layout from '../../layouts/Layout.astro';
+
+const locale = 'en' as const;
+const route = 'agencies/chinawebfoundry' as const;
+
+type PhaseKey = 'plan' | 'build' | 'find' | 'run';
+
+const phases: Array<{
+  key: PhaseKey;
+  title: string;
+  stamp: string;
+  image: string;
+  imageAlt: string;
+  intro: string;
+  items: { name: string; body: string; quote?: { text: string; source: string } }[];
+}> = [
+  {
+    key: 'plan',
+    title: 'Plan',
+    stamp: '策',
+    image: '/images/cwf-plan-audit.webp',
+    imageAlt: 'A China readiness audit dashboard, browsers in Beijing, Shanghai, Shenzhen.',
+    intro: 'Where your site stands today inside China, and what to do about it.',
+    items: [
+      {
+        name: 'Strategy & Audit',
+        body: 'We test your current site from real browsers in Beijing, Shanghai and Shenzhen. Every blocked resource, every compliance gap, every Baidu blind spot, documented. You walk away with a roadmap. Two to four weeks, fixed price.',
+      },
+      {
+        name: 'Migration',
+        body: "Moving an existing site into China without losing SEO equity or content. ICP Bei'an, DNS cutover, database transfer, parallel staging enviroment that lets you test from inside the Firewall before you flip the switch.",
+      },
+    ],
+  },
+  {
+    key: 'build',
+    title: 'Build',
+    stamp: '建',
+    image: '/images/cwf-build-workshop.webp',
+    imageAlt: 'A Shanghai workshop, dual screens with code, Mandarin notes on a whiteboard.',
+    intro: 'Design, code and plumbing made for the Chinese internet, not retrofitted to it.',
+    items: [
+      {
+        name: 'UX/UI Design',
+        body: 'Design that feels right to a Chinese visitor. Mobile-first. Dense layouts. Chinese typography that reads cleanly across UC Browser and QQ Browser. Payment flows that assume WeChat (微信) and Alipay (支付宝) before they assume Visa.',
+      },
+      {
+        name: 'Technical Integration',
+        body: 'The plumbing. WeChat login, Alipay and UnionPay (银联) checkout, WooCommerce localized for the mainland, map providers and analytics that arent Google. If its blocked, we have a replacement.',
+      },
+      {
+        name: 'Plugins & Extensions',
+        body: 'A large share of popular WordPress plugins call out to Google. Fonts, reCAPTCHA, Maps. We patch what can be saved. We rewrite the rest.',
+        quote: {
+          text: 'Roughly 40% of the top 100 WordPress plugins make outbound calls to Google services that are blocked from mainland China.',
+          source: 'ChinaWebFoundry plugin audit, 2024',
+        },
+      },
+    ],
+  },
+  {
+    key: 'find',
+    title: 'Find',
+    stamp: '见',
+    image: '/images/cwf-find-baidu.webp',
+    imageAlt: 'A phone showing a Chinese search results page, Baidu and DeepSeek tabs.',
+    intro: 'Get read on Baidu, get quoted by DeepSeek, get found by people who already live here.',
+    items: [
+      {
+        name: 'Chinese Content',
+        body: 'Written for the Chinese reader, not translated at them. Product copy, landing pages, blog articles, zhongcao (种草) campaigns. Written by people who live here.',
+      },
+      {
+        name: 'Baidu SEO',
+        body: 'Submission and verification on Baidu Search Resource Platform (百度搜索资源平台). Keyword research with Baidu Index (百度指数) and 5118. Measurement through Baidu Tongji (百度统计).',
+        quote: {
+          text: 'Baidu held a 60.1% share of the Chinese search engine market as of January 2025.',
+          source: 'StatCounter Global Stats, 2025',
+        },
+      },
+      {
+        name: 'GEO China',
+        body: 'Generative engine optimization for the Chinese AI stack. DeepSeek, Doubao (豆包), Kimi, Yuanbao (元宝), Baidu AI. We optimize for being quoted, not just ranked. New service, growing fast.',
+      },
+    ],
+  },
+  {
+    key: 'run',
+    title: 'Run',
+    stamp: '营',
+    image: '/images/cwf-run-monitor.webp',
+    imageAlt: 'A monitoring dashboard with latency charts measured from Chinese networks.',
+    intro: 'A site is not done at launch. It is done the day someone in Shanghai stops opening it.',
+    items: [
+      {
+        name: 'China Hosting',
+        body: "Wrong hosting kills everything else. We deploy on Alibaba Cloud (阿里云), Tencent Cloud (腾讯云) and Huawei Cloud (华为云). Hong Kong bridge hosting available while Bei'an paperwork is processing.",
+      },
+      {
+        name: 'Maintenance & Support',
+        body: 'A Google Font gets blocked on a random Tuesday and your homepage turns into a mess for everyone in Shanghai. Your team in London doesnt know untill someone complains. We monitor from Chinese networks so that conversation never has to happen.',
+      },
+    ],
+  },
+];
+
+const engageOptions: Array<{ key: 'project' | 'retainer' | 'audit'; label: string; lead: string; meta: string; tag: string }> = [
+  {
+    key: 'project',
+    label: 'Project',
+    lead: 'Defined scope, fixed timeline.',
+    meta: 'Six weeks to four months.',
+    tag: 'One build',
+  },
+  {
+    key: 'retainer',
+    label: 'Retainer',
+    lead: 'Ongoing content, SEO, GEO and maintenance.',
+    meta: 'Monthly, twelve months or longer. How most of our clients work with us.',
+    tag: 'Most common',
+  },
+  {
+    key: 'audit',
+    label: 'Audit',
+    lead: 'One-off deep look. Performance, compliance, Baidu and AI search visibility.',
+    meta: 'Two to four weeks, fixed price.',
+    tag: 'Start here',
+  },
+];
+
+const visitUrl = 'https://chinawebfoundry.com';
+const visitLabel = 'Visit chinawebfoundry.com';
 ---
 
-<AgencyPage
-  locale="en"
-  route="agencies/chinawebfoundry"
-  name="ChinaWebFoundry"
-  badge="Both ways · Chinese web infrastructure"
-  title="ChinaWebFoundry. Websites for the Chinese web."
-  description="WordPress, Astro, and WeChat sites built for China. ICP licensing, Baidu SEO, GEO for Chinese AI engines, hosting on Aliyun."
-  hero="Websites built for the way Chinese users actually browse, read, and buy."
-  thesisLabel="Thesis"
-  thesis="A website for China is not a translated website. Translated copy is not localised copy. Hosting outside China is a floor, not a ceiling. Most foreign brands launch in China by translating their global site. Six months later, the leads pipeline is empty. We have been fixing that for fifteen years."
-  whatLabel="What we do"
-  doSections={[
-    { h: 'Plan', items: ['Strategy and audit', 'China migration'] },
-    { h: 'Build', items: ['Native Chinese content', 'UX and UI design for Chinese readers', 'China hosting on WordPress, Astro, or WeChat'] },
-    { h: 'Grow', items: ['Baidu SEO', 'GEO China for DeepSeek, Doubao, Kimi, Yuanbao, and Baidu AI'] },
-    { h: 'Run', items: ['Maintenance and support'] },
-  ]}
-  whoForLabel="Who it is for"
-  fit={[
-    'A brand whose existing site loads in 14 seconds in Shanghai.',
-    'A brand without an ICP filing that cannot get indexed on Baidu.',
-    'A brand whose Chinese audience under 35 now searches Doubao and DeepSeek instead of Baidu.',
-  ]}
-  connectsLabel="How it connects"
-  connects="Sits inside BeyondBorderGroup as the web module. Pulls native copywriting from HubStudio. Powers landing pages for TheRedScroll's social campaigns."
-  visitUrl="https://chinawebfoundry.com"
-  visitLabel="Visit chinawebfoundry.com"
-  imageLabel="WeChat browser screen. Mobile-first product page."
-/>
+<Layout
+  locale={locale}
+  route={route}
+  title="Websites in China | WordPress, Astro, Hosted Inside"
+  description="Shanghai web agency. We design, build, host and run websites in China on WordPress or Astro. ICP licensed, Baidu ready, fast behind the Firewall."
+>
+  <!-- ====================================================================== -->
+  <!-- HERO                                                                   -->
+  <!-- ====================================================================== -->
+  <section class="cwf-hero" data-cwf-hero>
+    <div class="cwf-hero__bg" aria-hidden="true">
+      <img
+        src="/images/bbg-shanghai-twilight.webp"
+        alt=""
+        class="cwf-hero__bg-img"
+        data-cwf-parallax-bg
+      />
+      <div class="cwf-hero__bg-scrim"></div>
+      <div class="cwf-hero__bg-grain"></div>
+      <div class="cwf-hero__bg-grid"></div>
+    </div>
+
+    <div class="container cwf-hero__main">
+      <div class="cwf-hero__content">
+        <img
+          src="/AgencyLogos/Logo-ChinaWebFoundry-transparent.png"
+          alt="ChinaWebFoundry"
+          class="cwf-hero__logo"
+          width="220"
+          height="44"
+          loading="eager"
+          decoding="async"
+        />
+
+        <span class="cwf-hero__eyebrow">
+          <span class="cwf-hero__eyebrow-dot"></span>
+          Our Manifesto · 20 years on the ground · Shanghai
+        </span>
+
+        <h1 class="cwf-hero__title">
+          <span class="cwf-hero__line" data-anim="word">We build websites that</span>
+          <span class="cwf-hero__line" data-anim="word">
+            <em class="cwf-hero__phrase">work in China</em>.
+          </span>
+        </h1>
+
+        <p class="cwf-hero__lead" data-anim="fade">
+          Not from a slide deck in Paris. Not from a sales pitch in New York.
+          From an office in Shanghai, with a team that's been building for the
+          Chinese internet for over twenty years now.
+        </p>
+
+        <div class="cwf-hero__cta-row" data-anim="fade">
+          <a class="cwf-magnet" href={visitUrl} target="_blank" rel="noreferrer" data-cwf-magnet>
+            <span class="cwf-magnet__bg"></span>
+            <span class="cwf-magnet__label">{visitLabel}</span>
+            <span class="cwf-magnet__arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="cwf-hero__preview" data-cwf-tilt>
+        <div class="cwf-hero__preview-frame">
+          <a class="cwf-browser-link" href={visitUrl} target="_blank" rel="noreferrer" aria-label={visitLabel}>
+            <div class="cwf-browser">
+              <div class="cwf-browser__chrome">
+                <span class="cwf-browser__dots">
+                  <span class="cwf-browser__dot cwf-browser__dot--r"></span>
+                  <span class="cwf-browser__dot cwf-browser__dot--y"></span>
+                  <span class="cwf-browser__dot cwf-browser__dot--g"></span>
+                </span>
+                <span class="cwf-browser__url">chinawebfoundry.com</span>
+                <span class="cwf-browser__region" aria-hidden="true">CN · Shanghai</span>
+              </div>
+              <div class="cwf-browser__viewport">
+                <img
+                  class="cwf-browser__shot"
+                  src="/images/chinawebfoundry-home.png"
+                  alt="chinawebfoundry.com homepage"
+                  width="1422"
+                  height="14825"
+                  loading="eager"
+                  decoding="async"
+                />
+                <span class="cwf-browser__live">
+                  <span class="cwf-browser__live-dot"></span>
+                  Live · {new Date().toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}
+                </span>
+                <span class="cwf-browser__visit" aria-hidden="true">
+                  <span>Visit site</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l10-10M7 7h10v10"/></svg>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <div class="cwf-hero__chip cwf-hero__chip--compliance">
+            <span class="cwf-hero__chip-label">Compliance</span>
+            <span>ICP · Bei'an · MIIT</span>
+          </div>
+          <div class="cwf-hero__chip cwf-hero__chip--search">
+            <span class="cwf-hero__chip-label">Search & GEO</span>
+            <span>Baidu · DeepSeek · Doubao · Kimi · Yuanbao</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <a href="#manifesto" class="cwf-hero__scroll" aria-label="Scroll">
+      <span>Scroll</span>
+      <span class="cwf-hero__scroll-line"></span>
+    </a>
+  </section>
+
+  <!-- ====================================================================== -->
+  <!-- MANIFESTO                                                              -->
+  <!-- ====================================================================== -->
+  <section class="cwf-manifesto" id="manifesto">
+    <div class="container">
+      <div class="cwf-manifesto__grid">
+        <div class="cwf-manifesto__numeral" aria-hidden="true">
+          <span class="cwf-manifesto__num-row">
+            <span class="cwf-manifesto__num" data-cwf-count="80">0</span>
+            <span class="cwf-manifesto__num-plus">+</span>
+          </span>
+          <span class="cwf-manifesto__num-shadow">80+</span>
+          <span class="cwf-manifesto__num-caption">sites delivered for international and chinese brands</span>
+        </div>
+        <div class="cwf-manifesto__copy">
+          <span class="eyebrow">What We Believe</span>
+          <h2 class="cwf-manifesto__title balance">The gap between green dashboards in Frankfurt and a homepage that takes seventeen seconds to load in Shanghai. That gap is why we exist.</h2>
+        </div>
+      </div>
+
+      <figure class="cwf-manifesto__story">
+        <blockquote class="cwf-manifesto__story-body">
+          <div class="cwf-manifesto__story-col">
+            <p>
+              A French luxury group called us last spring. Their global homepage was taking seventeen seconds to load from Shanghai. Their marketing director in Paris had no idea, her dashboard showed green accross the board because it was measuring from Frankfurt.
+            </p>
+            <p>
+              That gap, between what looks fine from outside China and what actually happens inside it, is why we exist.
+            </p>
+          </div>
+          <div class="cwf-manifesto__story-col">
+            <p>
+              Most websites built for China arent really built for China. Designed somewhere else, translated, hosted in Singapore, plugins calling out to blocked services nobody flagged. Six months in, technically live and functionally invisible.
+            </p>
+            <p class="cwf-manifesto__story-emphasis">
+              China isnt a patch we apply on top of a global build. China <em>is</em> the build. Someone has to watch the site from inside the country. Thats us.
+            </p>
+          </div>
+        </blockquote>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ====================================================================== -->
+  <!-- SERVICES                                                               -->
+  <!-- ====================================================================== -->
+  <section class="cwf-services" id="services">
+    <div class="container">
+      <header class="cwf-services__header">
+        <span class="eyebrow">What We Do</span>
+        <h2 class="cwf-services__title">
+          Ten services. <em>Four phases.</em><br />
+          One team.
+        </h2>
+        <p class="cwf-services__lead">
+          Plan first. Then build. Then get found. Then run the thing for as long as its live. You can take one piece, you can take all ten, most clients start with two or three.
+        </p>
+      </header>
+
+      <div class="cwf-services__shell" data-cwf-tabs>
+        <div class="cwf-services__nav" role="tablist" aria-label="Phases of the lifecycle">
+          {phases.map((p, i) => (
+            <button
+              type="button"
+              role="tab"
+              aria-selected={i === 0 ? 'true' : 'false'}
+              class={`cwf-services__tab cwf-services__tab--${p.key} ${i === 0 ? 'is-active' : ''}`}
+              data-cwf-tab={p.key}
+              id={`cwf-tab-${p.key}`}
+              aria-controls={`cwf-panel-${p.key}`}
+              tabindex={i === 0 ? 0 : -1}
+            >
+              <span class="cwf-services__tab-pip" aria-hidden="true"></span>
+              <span class="cwf-services__tab-label">{p.title}</span>
+              <span class="cwf-services__tab-count">{p.items.length} services</span>
+            </button>
+          ))}
+          <span class="cwf-services__tab-indicator" aria-hidden="true"></span>
+        </div>
+
+        <div class="cwf-services__panels">
+          {phases.map((p, i) => (
+            <div
+              class={`cwf-services__panel cwf-services__panel--${p.key} ${i === 0 ? 'is-active' : ''}`}
+              role="tabpanel"
+              id={`cwf-panel-${p.key}`}
+              aria-labelledby={`cwf-tab-${p.key}`}
+              data-cwf-panel={p.key}
+              hidden={i !== 0}
+            >
+              <div class="cwf-services__panel-grid">
+                <div class="cwf-services__panel-image">
+                  <div class={`cwf-services__panel-frame cwf-services__panel-frame--${p.key}`}>
+                    <span class="cwf-services__panel-stamp" aria-hidden="true">{p.stamp}</span>
+                    <span class="cwf-services__panel-grid-lines" aria-hidden="true"></span>
+                    <div class="cwf-services__panel-tag">
+                      <span>{p.title}</span>
+                    </div>
+                    <div class="cwf-services__panel-meta">
+                      <span class="cwf-services__panel-meta-label">Phase</span>
+                      <span class="cwf-services__panel-meta-value">{i + 1} of {phases.length}</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="cwf-services__panel-content">
+                  <p class="cwf-services__panel-intro">{p.intro}</p>
+                  <ul class="cwf-services__list">
+                    {p.items.map((it) => (
+                      <li class="cwf-services__item">
+                        <span class={`cwf-services__item-pip cwf-services__item-pip--${p.key}`} aria-hidden="true"></span>
+                        <span class="cwf-services__item-text">
+                          <span class="cwf-services__item-name">{it.name}.</span>
+                          <span class="cwf-services__item-body">{it.body}</span>
+                          {it.quote && (
+                            <span class="cwf-services__item-quote">
+                              <span class="cwf-services__item-quote-mark" aria-hidden="true">“</span>
+                              <span class="cwf-services__item-quote-text">{it.quote.text}</span>
+                              <span class="cwf-services__item-quote-source">Source: {it.quote.source}</span>
+                            </span>
+                          )}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================== -->
+  <!-- TECHNOLOGY                                                             -->
+  <!-- ====================================================================== -->
+  <section class="cwf-tech">
+    <div class="container">
+      <header class="cwf-tech__header">
+        <span class="eyebrow">How We Build</span>
+        <h2 class="cwf-tech__title balance">
+          WordPress, Astro or WeChat. Heres how we decide.
+        </h2>
+      </header>
+
+      <div class="cwf-tech__grid">
+        <article class="cwf-tech__card cwf-tech__card--wp">
+          <figure class="cwf-tech__card-banner">
+            <img
+              src="https://www.chinawebfoundry.com/images/hero-wordpress-china-skyline.webp"
+              alt="WordPress in China"
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+          <header class="cwf-tech__card-head">
+            <h3 class="cwf-tech__card-title">Pick WordPress</h3>
+          </header>
+          <p class="cwf-tech__card-body">
+            If your marketing team needs to publish without a developer, or your editorial workflow involves more then three contributors. We harden it for the Firewall and strip out the parts that dont belong in China.
+          </p>
+          <ul class="cwf-tech__card-traits">
+            <li>Editorial workflow, multi-author.</li>
+            <li>Hardened core, China-safe plugins.</li>
+            <li>WooCommerce localized for the mainland.</li>
+          </ul>
+        </article>
+
+        <article class="cwf-tech__card cwf-tech__card--astro">
+          <figure class="cwf-tech__card-banner">
+            <img
+              src="https://www.chinawebfoundry.com/images/hero-astro-china-skyline.webp"
+              alt="Astro in China"
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+          <header class="cwf-tech__card-head">
+            <h3 class="cwf-tech__card-title">Pick Astro</h3>
+          </header>
+          <p class="cwf-tech__card-body">
+            If speed is the priority and your content doesnt change every day. Marketing sites, documentation, landing pages. Static output, near-instant load times, far less to maintain.
+          </p>
+          <ul class="cwf-tech__card-traits">
+            <li>Static output, near-instant TTFB.</li>
+            <li>Documentation, landing, marketing.</li>
+            <li>Hosted on Aliyun or Tencent Cloud.</li>
+          </ul>
+        </article>
+
+        <article class="cwf-tech__card cwf-tech__card--wechat">
+          <figure class="cwf-tech__card-banner">
+            <img
+              src="https://www.chinawebfoundry.com/images/hero-wechat-china-skyline.webp"
+              alt="WeChat in China"
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+          <header class="cwf-tech__card-head">
+            <h3 class="cwf-tech__card-title">Pick WeChat</h3>
+          </header>
+          <p class="cwf-tech__card-body">
+            If your audience already lives inside WeChat (微信) and a website on the open web is not where the conversation happens. Official accounts, mini-programs, H5 pages, content built where Chinese users already are.
+          </p>
+          <ul class="cwf-tech__card-traits">
+            <li>Official Account, content and CRM.</li>
+            <li>Mini-program for commerce or service.</li>
+            <li>H5 pages for campaigns and KOLs.</li>
+          </ul>
+        </article>
+      </div>
+
+      <p class="cwf-tech__footnote">If your not sure, thats what the audit is for.</p>
+    </div>
+  </section>
+
+  <!-- ====================================================================== -->
+  <!-- ENGAGE                                                                 -->
+  <!-- ====================================================================== -->
+  <section class="cwf-engage">
+    <div class="cwf-engage__bg" aria-hidden="true"></div>
+    <div class="container">
+      <header class="cwf-engage__header">
+        <span class="eyebrow eyebrow--on-dark">How We Engage</span>
+        <h2 class="cwf-engage__title">Three ways to start.</h2>
+        <p class="cwf-engage__lead">
+          You can take one piece, you can take all ten. Most clients start with two or three. Pick the entry point that fits your moment.
+        </p>
+      </header>
+
+      <div class="cwf-engage__grid">
+        {engageOptions.map((o) => (
+          <article class={`cwf-engage__card cwf-engage__card--${o.key}`}>
+            <span class="cwf-engage__card-tag">{o.tag}</span>
+            <h3 class="cwf-engage__card-title">{o.label}</h3>
+            <p class="cwf-engage__card-lead">{o.lead}</p>
+            <p class="cwf-engage__card-meta">{o.meta}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================== -->
+  <!-- FINAL CTA                                                              -->
+  <!-- ====================================================================== -->
+  <section class="cwf-cta">
+    <div class="cwf-cta__bg" aria-hidden="true">
+      <img src="/images/bbg-shanghai-twilight.webp" alt="" />
+      <div class="cwf-cta__bg-scrim"></div>
+    </div>
+    <div class="container cwf-cta__content">
+      <span class="eyebrow eyebrow--on-dark">Ready when you are</span>
+      <h2 class="cwf-cta__title balance">A site that loads in Shanghai.<br />Built by a team that lives there.</h2>
+      <div class="cwf-cta__actions">
+        <a class="btn btn--primary" href={visitUrl} target="_blank" rel="noreferrer">{visitLabel}</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* ===================================================================== */
+  /* HERO                                                                   */
+  /* ===================================================================== */
+  .cwf-hero {
+    position: relative;
+    min-height: 92vh;
+    padding: clamp(2.5rem, 5vh, 4rem) 0 clamp(3rem, 6vh, 5rem);
+    overflow: hidden;
+    isolation: isolate;
+    color: #fff;
+    background: #0c1220;
+  }
+
+  .cwf-hero__bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+  .cwf-hero__bg-img {
+    position: absolute;
+    inset: -8% -4% -4% -4%;
+    width: 108%;
+    height: 112%;
+    object-fit: cover;
+    object-position: center 40%;
+    will-change: transform;
+    transform: translate3d(0, var(--parallax-y, 0), 0) scale(1.04);
+    filter: saturate(0.85) contrast(1.05) brightness(0.72);
+  }
+  .cwf-hero__bg-scrim {
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(110deg, rgba(8,12,24,0.88) 0%, rgba(8,12,24,0.62) 38%, rgba(8,12,24,0.30) 65%, rgba(8,12,24,0.55) 100%),
+      linear-gradient(180deg, rgba(8,12,24,0.55) 0%, rgba(8,12,24,0.05) 30%, rgba(8,12,24,0.0) 60%, rgba(8,12,24,0.85) 100%);
+  }
+  .cwf-hero__bg-grain {
+    position: absolute; inset: 0;
+    background-image:
+      radial-gradient(1200px 600px at 20% 30%, rgba(38,154,218,0.18), transparent 65%),
+      radial-gradient(900px 500px at 90% 80%, rgba(200,16,46,0.14), transparent 70%);
+    mix-blend-mode: screen;
+  }
+  .cwf-hero__bg-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 88px 88px;
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 80%);
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 80%);
+    opacity: 0.7;
+  }
+
+  .cwf-hero__main {
+    position: relative;
+    z-index: 3;
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+    gap: clamp(2rem, 5vw, 5rem);
+    align-items: center;
+    padding-top: clamp(1rem, 3vh, 2rem);
+  }
+
+  .cwf-hero__content { min-width: 0; max-width: 38rem; }
+  .cwf-hero__logo {
+    display: block;
+    width: auto;
+    height: 56px;
+    filter: drop-shadow(0 6px 18px rgba(0,0,0,0.45));
+    margin-bottom: var(--space-5);
+    opacity: 0;
+    animation: cwfFadeIn 700ms cubic-bezier(0.2,0.8,0.2,1) 0.1s forwards;
+  }
+
+  .cwf-hero__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 14px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 999px;
+    font-family: var(--font-display);
+    font-size: 0.74rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    margin-bottom: var(--space-4);
+    opacity: 0;
+    animation: cwfFadeIn 700ms cubic-bezier(0.2,0.8,0.2,1) 0.2s forwards;
+  }
+  .cwf-hero__eyebrow-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: #22c55e;
+    box-shadow: 0 0 0 0 rgba(34,197,94,0.5);
+    animation: cwfPulse 2.4s ease-in-out infinite;
+  }
+
+  .cwf-hero__title {
+    font-size: clamp(2.5rem, 5vw + 0.5rem, 5.4rem);
+    line-height: 0.98;
+    letter-spacing: -0.035em;
+    font-weight: 600;
+    color: #fff;
+    margin: 0 0 var(--space-5);
+    max-width: 16ch;
+    text-wrap: balance;
+  }
+  .cwf-hero__line { display: block; overflow: hidden; }
+  .cwf-hero__line[data-anim="word"] {
+    transform: translateY(110%);
+    opacity: 0;
+    animation: cwfWordIn 880ms cubic-bezier(0.2, 0.9, 0.2, 1) forwards;
+  }
+  .cwf-hero__line[data-anim="word"]:nth-child(1) { animation-delay: 0.30s; }
+  .cwf-hero__line[data-anim="word"]:nth-child(2) { animation-delay: 0.42s; }
+  @keyframes cwfWordIn {
+    from { transform: translateY(110%); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+
+  .cwf-hero__phrase {
+    font-style: normal;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    background-image: linear-gradient(120deg, #ff7a8a 0%, #c8102e 55%, #ff7a8a 100%);
+  }
+
+  .cwf-hero__lead {
+    max-width: 50ch;
+    font-size: clamp(1.05rem, 0.6vw + 0.95rem, 1.2rem);
+    color: rgba(255,255,255,0.82);
+    margin: 0 0 var(--space-5);
+    opacity: 0;
+    animation: cwfFadeIn 700ms cubic-bezier(0.2,0.8,0.2,1) 0.85s forwards;
+  }
+
+  .cwf-hero__cta-row {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: cwfFadeIn 700ms cubic-bezier(0.2,0.8,0.2,1) 1s forwards;
+  }
+
+  .cwf-magnet {
+    --x: 0px; --y: 0px;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 26px 16px 28px;
+    border-radius: 999px;
+    color: #fff;
+    text-decoration: none;
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+    overflow: hidden;
+    isolation: isolate;
+    transition: transform 220ms cubic-bezier(0.2,0.8,0.2,1);
+    transform: translate(var(--x), var(--y));
+  }
+  .cwf-magnet__bg {
+    position: absolute; inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(120deg, #c8102e 0%, #8d0a20 100%);
+    box-shadow: 0 16px 36px -10px rgba(200,16,46,0.55), inset 0 1px 0 rgba(255,255,255,0.2);
+    z-index: -1;
+    transition: transform 320ms cubic-bezier(0.2,0.8,0.2,1);
+  }
+  .cwf-magnet:hover .cwf-magnet__bg { transform: scale(1.04); }
+  .cwf-magnet__arrow {
+    display: inline-block;
+    transform: translateX(0);
+    transition: transform 280ms cubic-bezier(0.2,0.8,0.2,1);
+  }
+  .cwf-magnet:hover .cwf-magnet__arrow { transform: translateX(4px); }
+
+  .cwf-hero__secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255,255,255,0.92);
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 220ms ease;
+  }
+  .cwf-hero__secondary svg { transition: transform 220ms ease; }
+  .cwf-hero__secondary:hover { color: #ff9aa6; }
+  .cwf-hero__secondary:hover svg { transform: translateX(3px); }
+
+  /* Browser preview with parallax tilt */
+  .cwf-hero__preview {
+    position: relative;
+    perspective: 1600px;
+    min-width: 0;
+    opacity: 0;
+    animation: cwfFadeIn 900ms cubic-bezier(0.2,0.8,0.2,1) 0.5s forwards;
+  }
+  .cwf-hero__preview-frame {
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotateY(var(--tilt-x, -3deg)) rotateX(var(--tilt-y, 2deg));
+    transition: transform 600ms cubic-bezier(0.2,0.8,0.2,1);
+  }
+  .cwf-browser-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    border-radius: 14px;
+    transition: transform 320ms cubic-bezier(0.2,0.8,0.2,1), box-shadow 320ms ease;
+  }
+  .cwf-browser-link:hover { transform: translateY(-2px); }
+  .cwf-browser-link:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 4px;
+  }
+  .cwf-browser-link:hover .cwf-browser__visit {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .cwf-browser {
+    position: relative;
+    background: #ffffff;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow:
+      0 1px 0 rgba(255,255,255,0.5) inset,
+      0 40px 80px -28px rgba(0,0,0,0.55),
+      0 12px 28px -8px rgba(0,0,0,0.35);
+    border: 1px solid rgba(255,255,255,0.10);
+    transform: translateZ(0);
+  }
+  .cwf-browser__visit {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 11px;
+    border-radius: 999px;
+    background: rgba(15,23,42,0.85);
+    color: #fff;
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    opacity: 0;
+    transform: translateY(-4px);
+    transition: opacity 240ms ease, transform 240ms cubic-bezier(0.2,0.8,0.2,1);
+    pointer-events: none;
+  }
+  .cwf-browser__chrome {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: 10px 14px;
+    background: linear-gradient(180deg, #f8fafc 0%, #eef2f6 100%);
+    border-bottom: 1px solid rgba(15,23,42,0.08);
+  }
+  .cwf-browser__dots { display: inline-flex; gap: 6px; }
+  .cwf-browser__dot { width: 11px; height: 11px; border-radius: 50%; display: inline-block; }
+  .cwf-browser__dot--r { background: #ff5f57; }
+  .cwf-browser__dot--y { background: #febc2e; }
+  .cwf-browser__dot--g { background: #28c840; }
+  .cwf-browser__url {
+    flex: 1;
+    text-align: center;
+    font-family: var(--font-display);
+    font-size: 0.78rem;
+    color: var(--bbg-text-muted);
+    background: rgba(15,23,42,0.04);
+    border-radius: 999px;
+    padding: 4px 10px;
+    letter-spacing: 0.01em;
+    max-width: 280px;
+    margin: 0 auto;
+  }
+  .cwf-browser__region {
+    font-family: var(--font-display);
+    font-size: 0.66rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #c8102e;
+    background: rgba(200,16,46,0.08);
+    border: 1px solid rgba(200,16,46,0.18);
+    padding: 3px 8px;
+    border-radius: 999px;
+  }
+  .cwf-browser__viewport {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    background: #f7f9fb;
+    overflow: hidden;
+  }
+  .cwf-browser__shot {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+  }
+
+  .cwf-mock {
+    position: absolute; inset: 0;
+    display: flex;
+    flex-direction: column;
+    color: var(--bbg-ink);
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .cwf-mock__bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+    filter: saturate(0.95) brightness(0.9);
+  }
+  .cwf-mock__bg-scrim {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.72) 35%, rgba(255,255,255,0.55) 70%, rgba(255,255,255,0.30) 100%);
+    z-index: -1;
+  }
+  .cwf-mock__header {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 18px;
+    background: rgba(255,255,255,0.72);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(15,23,42,0.06);
+  }
+  .cwf-mock__brand {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    font-size: 0.78rem;
+    color: var(--bbg-ink);
+  }
+  .cwf-mock__nav-center {
+    display: inline-flex;
+    justify-content: center;
+    gap: 14px;
+    color: var(--bbg-ink);
+    font-size: 0.66rem;
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: 0.01em;
+  }
+  .cwf-mock__nav-right {
+    display: inline-flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
+    color: var(--bbg-text);
+    font-size: 0.62rem;
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+  .cwf-mock__lang {
+    padding: 3px 7px;
+    border: 1px solid rgba(15,23,42,0.18);
+    border-radius: 6px;
+    color: var(--bbg-ink);
+    font-weight: 700;
+  }
+  .cwf-mock__hero {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 14px 28px;
+    gap: 8px;
+  }
+  .cwf-mock__live {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 11px;
+    border: 1px solid rgba(15,23,42,0.18);
+    border-radius: 999px;
+    background: rgba(255,255,255,0.72);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    color: var(--bbg-ink);
+    font-family: var(--font-display);
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    margin-bottom: 4px;
+  }
+  .cwf-mock__live-flag {
+    display: inline-grid;
+    place-items: center;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #c8102e;
+    color: #fff;
+    font-family: 'PingFang SC', 'Microsoft YaHei', serif;
+    font-size: 0.55rem;
+    font-weight: 700;
+    line-height: 1;
+  }
+  .cwf-mock__h {
+    font-family: var(--font-display);
+    font-size: clamp(1rem, 1.6vw + 0.4rem, 1.6rem);
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+    margin: 0;
+    color: var(--bbg-ink);
+    max-width: 22ch;
+    font-weight: 600;
+  }
+  .cwf-mock__p {
+    font-size: 0.74rem;
+    line-height: 1.45;
+    color: var(--bbg-text);
+    margin: 0;
+    max-width: 32ch;
+  }
+  .cwf-mock__btn-row {
+    display: inline-flex;
+    gap: 8px;
+    margin-top: 6px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .cwf-mock__btn {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.66rem;
+    letter-spacing: 0.02em;
+    padding: 7px 12px;
+    border-radius: 999px;
+    line-height: 1;
+  }
+  .cwf-mock__btn--primary {
+    background: var(--bbg-ink);
+    color: #fff;
+    box-shadow: 0 6px 14px -6px rgba(15,23,42,0.5);
+  }
+  .cwf-mock__btn--ghost {
+    background: rgba(255,255,255,0.85);
+    color: var(--bbg-ink);
+    border: 1px solid rgba(15,23,42,0.18);
+  }
+
+  .cwf-browser__live {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 6px 10px;
+    background: rgba(8, 12, 24, 0.78);
+    color: #fff;
+    border-radius: 999px;
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+  .cwf-browser__live-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: #22c55e;
+    box-shadow: 0 0 0 0 rgba(34,197,94,0.6);
+    animation: cwfPulse 2.4s ease-in-out infinite;
+  }
+
+  .cwf-hero__chip {
+    position: absolute;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 10px 14px;
+    background: rgba(255,255,255,0.92);
+    color: var(--bbg-ink);
+    border: 1px solid rgba(255,255,255,0.5);
+    border-radius: 14px;
+    font-family: var(--font-display);
+    font-size: 0.84rem;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+    box-shadow: 0 24px 50px -18px rgba(0,0,0,0.45);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transform: translateZ(40px);
+    max-width: 16rem;
+  }
+  .cwf-hero__chip-label {
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #c8102e;
+  }
+  .cwf-hero__chip--compliance {
+    top: -20px; left: -28px;
+    animation: cwfFloatA 9s ease-in-out infinite;
+  }
+  .cwf-hero__chip--search {
+    bottom: -24px; right: -20px;
+    animation: cwfFloatB 11s ease-in-out infinite;
+  }
+  @keyframes cwfFloatA { 0%,100% { transform: translateZ(40px) translateY(0); } 50% { transform: translateZ(40px) translateY(-7px); } }
+  @keyframes cwfFloatB { 0%,100% { transform: translateZ(40px) translateY(0); } 50% { transform: translateZ(40px) translateY(8px); } }
+
+  /* Trust strip */
+  .cwf-hero__strip {
+    position: relative;
+    z-index: 3;
+    margin-top: clamp(2.5rem, 6vh, 4rem);
+  }
+  .cwf-strip__list {
+    list-style: none;
+    margin: 0;
+    padding: 14px 24px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 10px clamp(1rem, 2.5vw, 2.25rem);
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.10);
+    border-radius: 999px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    font-family: var(--font-display);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.82);
+  }
+  .cwf-strip__item {
+    position: relative;
+  }
+  .cwf-strip__item + .cwf-strip__item::before {
+    content: "";
+    position: absolute;
+    left: calc(-1 * clamp(1rem, 2.5vw, 2.25rem) / 2 - 1.5px);
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: #c8102e;
+    box-shadow: 0 0 8px rgba(200,16,46,0.6);
+  }
+
+  /* Scroll hint */
+  .cwf-hero__scroll {
+    position: absolute;
+    bottom: clamp(0.5rem, 2vh, 1.25rem);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 4;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    transition: color 220ms ease;
+  }
+  .cwf-hero__scroll:hover { color: #fff; }
+  .cwf-hero__scroll-line {
+    width: 1px;
+    height: 36px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.7), rgba(255,255,255,0));
+    position: relative;
+    overflow: hidden;
+  }
+  .cwf-hero__scroll-line::after {
+    content: "";
+    position: absolute;
+    top: -36px;
+    left: 0; right: 0;
+    height: 36px;
+    background: linear-gradient(180deg, rgba(255,255,255,0), rgba(255,255,255,0.95));
+    animation: cwfScrollLine 1.8s ease-in-out infinite;
+  }
+  @keyframes cwfScrollLine { 0% { top: -36px; } 100% { top: 36px; } }
+
+  @keyframes cwfFadeIn { to { opacity: 1; } }
+  @keyframes cwfPulse {
+    0%,100% { box-shadow: 0 0 0 0 rgba(34,197,94,0.55); }
+    50% { box-shadow: 0 0 0 7px rgba(34,197,94,0); }
+  }
+
+  @media (max-width: 980px) {
+    .cwf-hero__main { grid-template-columns: 1fr; gap: var(--space-7); }
+    .cwf-hero__title { max-width: none; }
+    .cwf-hero__chip--compliance { top: -14px; left: 8px; }
+    .cwf-hero__chip--search { bottom: -14px; right: 8px; }
+  }
+  @media (max-width: 640px) {
+    .cwf-hero__chip { font-size: 0.72rem; padding: 8px 10px; }
+    .cwf-hero__chip--compliance { display: none; }
+    .cwf-hero__scroll { display: none; }
+    .cwf-strip__list { font-size: 0.7rem; padding: 12px 16px; }
+  }
+
+  /* ===================================================================== */
+  /* MANIFESTO                                                              */
+  /* ===================================================================== */
+  .cwf-manifesto {
+    padding: clamp(5rem, 10vh, 8rem) 0 clamp(4rem, 8vh, 6rem);
+    background: linear-gradient(180deg, #ffffff 0%, var(--bbg-paper) 100%);
+    position: relative;
+  }
+  .cwf-manifesto__grid {
+    display: grid;
+    grid-template-columns: minmax(0, auto) minmax(0, 1fr);
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: center;
+    padding-bottom: var(--space-8);
+  }
+  @media (max-width: 880px) { .cwf-manifesto__grid { grid-template-columns: 1fr; gap: var(--space-6); } }
+
+  .cwf-manifesto__numeral {
+    position: relative;
+    line-height: 0.85;
+    letter-spacing: -0.06em;
+    font-family: var(--font-display);
+    font-weight: 600;
+    color: var(--bbg-ink);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .cwf-manifesto__num-row {
+    display: inline-flex;
+    align-items: flex-start;
+    line-height: 0.85;
+  }
+  .cwf-manifesto__num {
+    position: relative;
+    z-index: 2;
+    display: inline-block;
+    font-size: clamp(7rem, 18vw, 16rem);
+    background: linear-gradient(180deg, var(--bbg-ink) 0%, #3a3f4f 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    font-variant-numeric: tabular-nums;
+  }
+  .cwf-manifesto__num-plus {
+    position: relative;
+    z-index: 2;
+    display: inline-block;
+    font-size: clamp(3rem, 8vw, 7rem);
+    line-height: 1;
+    margin-top: 0.3em;
+    margin-left: 0.05em;
+    background: linear-gradient(180deg, #c8102e 0%, #8d0a20 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    font-weight: 600;
+  }
+  .cwf-manifesto__num-shadow {
+    position: absolute;
+    top: 4px; left: 5px;
+    font-size: clamp(7rem, 18vw, 16rem);
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(200,16,46,0.18);
+    z-index: 1;
+    pointer-events: none;
+    user-select: none;
+  }
+  .cwf-manifesto__num-caption {
+    margin-top: var(--space-3);
+    font-family: var(--font-display);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--bbg-text-muted);
+  }
+  .cwf-manifesto__copy { max-width: 56ch; }
+  .cwf-manifesto__title {
+    font-size: clamp(1.6rem, 2.4vw + 0.6rem, 2.4rem);
+    line-height: 1.18;
+    margin: var(--space-3) 0 0;
+    color: var(--bbg-ink);
+  }
+
+  .cwf-manifesto__story {
+    margin: 0;
+    border-top: 1px solid var(--bbg-border);
+    padding-top: clamp(2rem, 4vh, 3rem);
+  }
+  .cwf-manifesto__story-body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(2rem, 4vw, 3.5rem);
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    color: var(--bbg-text);
+    font-family: var(--font-sans);
+    font-weight: 400;
+  }
+  @media (max-width: 760px) {
+    .cwf-manifesto__story-body { grid-template-columns: 1fr; gap: var(--space-5); }
+  }
+  .cwf-manifesto__story-col p:last-child { margin-bottom: 0; }
+  .cwf-manifesto__story-body p { margin: 0 0 var(--space-4); }
+  .cwf-manifesto__story-emphasis {
+    font-family: var(--font-display);
+    font-size: 1.125rem;
+    line-height: 1.55;
+    color: var(--bbg-ink);
+    font-weight: 500;
+    letter-spacing: -0.005em;
+  }
+  .cwf-manifesto__story-emphasis em {
+    font-style: normal;
+    background: linear-gradient(120deg, #c8102e, #ff7a8a);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* ===================================================================== */
+  /* SERVICES                                                               */
+  /* ===================================================================== */
+  .cwf-services {
+    padding: clamp(5rem, 10vh, 8rem) 0;
+    background: var(--bbg-white);
+    position: relative;
+  }
+  .cwf-services__header {
+    max-width: 60ch;
+    margin: 0 0 var(--space-7);
+  }
+  .cwf-services__title {
+    font-size: clamp(2rem, 3.6vw + 0.5rem, 3.6rem);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    margin: var(--space-3) 0 var(--space-4);
+  }
+  .cwf-services__title em {
+    font-style: normal;
+    background: linear-gradient(120deg, #269ada, #c8102e 50%, #d99a3a);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+  .cwf-services__lead {
+    color: var(--bbg-text);
+    font-size: var(--fs-lead);
+    max-width: 60ch;
+  }
+
+  .cwf-services__shell {
+    position: relative;
+    background: var(--bbg-paper);
+    border-radius: 28px;
+    padding: clamp(1.5rem, 3vw, 2.5rem);
+    border: 1px solid var(--bbg-border);
+    box-shadow: 0 60px 120px -60px rgba(15, 23, 42, 0.18);
+  }
+
+  .cwf-services__nav {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px;
+    padding: 6px;
+    background: var(--bbg-white);
+    border: 1px solid var(--bbg-border);
+    border-radius: 16px;
+    margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+  }
+  .cwf-services__tab-indicator {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    width: calc((100% - 12px) / 4);
+    height: calc(100% - 12px);
+    background: linear-gradient(135deg, var(--bbg-ink) 0%, #2a2f3f 100%);
+    border-radius: 12px;
+    transition: transform 380ms cubic-bezier(0.2, 0.85, 0.2, 1);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .cwf-services__tab {
+    position: relative;
+    z-index: 1;
+    background: transparent;
+    border: 0;
+    padding: 14px 16px;
+    border-radius: 12px;
+    cursor: pointer;
+    text-align: left;
+    font: inherit;
+    color: var(--bbg-text-muted);
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 10px;
+    transition: color 320ms ease;
+  }
+  .cwf-services__tab.is-active { color: #fff; }
+  .cwf-services__tab.is-active .cwf-services__tab-count { color: rgba(255,255,255,0.6); }
+  .cwf-services__tab-pip {
+    width: 9px; height: 9px;
+    border-radius: 50%;
+    background: currentColor;
+    flex-shrink: 0;
+    transition: background 320ms ease, transform 320ms ease;
+  }
+  .cwf-services__tab--plan.is-active  .cwf-services__tab-pip { background: #59c2ee; }
+  .cwf-services__tab--build.is-active .cwf-services__tab-pip { background: #ff7a8a; }
+  .cwf-services__tab--find.is-active  .cwf-services__tab-pip { background: #ffcf6f; }
+  .cwf-services__tab--run.is-active   .cwf-services__tab-pip { background: #6ee7b7; }
+  .cwf-services__tab-label {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.05rem;
+    letter-spacing: -0.005em;
+    color: var(--bbg-ink);
+    transition: color 320ms ease;
+  }
+  .cwf-services__tab.is-active .cwf-services__tab-label { color: #fff; }
+  .cwf-services__tab-count {
+    font-family: var(--font-display);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--bbg-text-muted);
+    transition: color 320ms ease;
+  }
+
+  @media (max-width: 720px) {
+    .cwf-services__nav { grid-template-columns: repeat(2, 1fr); }
+    .cwf-services__tab-indicator { display: none; }
+    .cwf-services__tab.is-active {
+      background: linear-gradient(135deg, var(--bbg-ink) 0%, #2a2f3f 100%);
+    }
+  }
+
+  .cwf-services__panels { position: relative; min-height: 520px; }
+  .cwf-services__panel {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 380ms ease, transform 480ms cubic-bezier(0.2, 0.85, 0.2, 1);
+    pointer-events: none;
+  }
+  .cwf-services__panel.is-active {
+    position: relative;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .cwf-services__panel-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1fr);
+    gap: clamp(2rem, 4vw, 3.5rem);
+    align-items: stretch;
+  }
+  @media (max-width: 980px) { .cwf-services__panel-grid { grid-template-columns: 1fr; } }
+
+  .cwf-services__panel-image { position: relative; min-height: 460px; }
+  .cwf-services__panel-frame {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 460px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 30px 60px -22px rgba(15,23,42,0.30);
+    isolation: isolate;
+  }
+  .cwf-services__panel-frame--plan {
+    background:
+      radial-gradient(800px 500px at 80% -10%, rgba(89,194,238,0.45), transparent 70%),
+      linear-gradient(135deg, #0c1220 0%, #1e3a5f 70%, #1e7db0 100%);
+  }
+  .cwf-services__panel-frame--build {
+    background:
+      radial-gradient(800px 500px at 20% -10%, rgba(255,122,138,0.45), transparent 70%),
+      linear-gradient(135deg, #1a0a10 0%, #5c0e23 70%, #c8102e 100%);
+  }
+  .cwf-services__panel-frame--find {
+    background:
+      radial-gradient(800px 500px at 80% 110%, rgba(255,207,111,0.45), transparent 70%),
+      linear-gradient(135deg, #1a1308 0%, #5c4216 70%, #d99a3a 100%);
+  }
+  .cwf-services__panel-frame--run {
+    background:
+      radial-gradient(800px 500px at 20% 110%, rgba(110,231,183,0.45), transparent 70%),
+      linear-gradient(135deg, #061a13 0%, #0e3d2c 70%, #10b981 100%);
+  }
+  .cwf-services__panel-stamp {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-6deg);
+    font-family: 'PingFang SC', 'Microsoft YaHei', 'Songti SC', serif;
+    font-size: clamp(8rem, 18vw, 16rem);
+    font-weight: 700;
+    color: rgba(255,255,255,0.95);
+    text-shadow: 0 30px 80px rgba(0,0,0,0.45);
+    pointer-events: none;
+    user-select: none;
+    line-height: 1;
+  }
+  .cwf-services__panel-grid-lines {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(to right, rgba(255,255,255,0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.06) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, #000 30%, transparent 80%);
+    -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, #000 30%, transparent 80%);
+    pointer-events: none;
+  }
+  .cwf-services__panel-tag {
+    position: absolute;
+    bottom: 18px; left: 18px;
+    padding: 7px 14px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.94);
+    color: var(--bbg-ink);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 12px 24px -10px rgba(15,23,42,0.3);
+  }
+  .cwf-services__panel-meta {
+    position: absolute;
+    top: 18px; right: 18px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1px;
+    color: rgba(255,255,255,0.94);
+    font-family: var(--font-display);
+  }
+  .cwf-services__panel-meta-label {
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    opacity: 0.7;
+  }
+  .cwf-services__panel-meta-value {
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+
+  .cwf-services__panel-content { display: flex; flex-direction: column; justify-content: center; min-width: 0; }
+  .cwf-services__panel-intro {
+    font-size: 1.1rem;
+    line-height: 1.45;
+    color: var(--bbg-ink);
+    margin: 0 0 var(--space-5);
+    font-family: var(--font-display);
+    font-weight: 500;
+    letter-spacing: -0.005em;
+    max-width: 42ch;
+  }
+  .cwf-services__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-4);
+  }
+  .cwf-services__item {
+    display: grid;
+    grid-template-columns: 14px 1fr;
+    gap: 14px;
+    align-items: start;
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  .cwf-services__panel.is-active .cwf-services__item {
+    animation: cwfItemIn 520ms cubic-bezier(0.2, 0.85, 0.2, 1) forwards;
+  }
+  .cwf-services__panel.is-active .cwf-services__item:nth-child(1) { animation-delay: 0.10s; }
+  .cwf-services__panel.is-active .cwf-services__item:nth-child(2) { animation-delay: 0.18s; }
+  .cwf-services__panel.is-active .cwf-services__item:nth-child(3) { animation-delay: 0.26s; }
+  @keyframes cwfItemIn { to { opacity: 1; transform: translateY(0); } }
+
+  .cwf-services__item-pip {
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    margin-top: 0.45em;
+    flex-shrink: 0;
+    background: currentColor;
+    box-shadow: 0 0 0 4px color-mix(in srgb, currentColor 12%, transparent);
+  }
+  .cwf-services__item-pip--plan  { color: #269ada; }
+  .cwf-services__item-pip--build { color: #c8102e; }
+  .cwf-services__item-pip--find  { color: #d99a3a; }
+  .cwf-services__item-pip--run   { color: #10b981; }
+
+  .cwf-services__item-text { display: block; line-height: 1.55; font-size: 0.98rem; }
+  .cwf-services__item-name { font-weight: 700; color: var(--bbg-ink); margin-right: 0.25rem; }
+  .cwf-services__item-body { color: var(--bbg-text); }
+
+  .cwf-services__item-quote {
+    display: block;
+    margin-top: var(--space-3);
+    padding: 14px 16px 14px 18px;
+    background: var(--bbg-white);
+    border-left: 3px solid currentColor;
+    border-radius: 0 12px 12px 0;
+    box-shadow: 0 8px 20px -12px rgba(15,23,42,0.15);
+  }
+  .cwf-services__panel--build .cwf-services__item-quote { color: #c8102e; }
+  .cwf-services__panel--find  .cwf-services__item-quote { color: #d99a3a; }
+  .cwf-services__panel--plan  .cwf-services__item-quote { color: #269ada; }
+  .cwf-services__panel--run   .cwf-services__item-quote { color: #10b981; }
+  .cwf-services__item-quote-mark {
+    display: block;
+    font-family: 'Georgia', serif;
+    font-size: 1.6rem;
+    line-height: 0.5;
+    margin-bottom: 6px;
+    color: currentColor;
+  }
+  .cwf-services__item-quote-text {
+    display: block;
+    color: var(--bbg-ink);
+    font-style: italic;
+    font-size: 0.96rem;
+    line-height: 1.5;
+  }
+  .cwf-services__item-quote-source {
+    display: block;
+    margin-top: 6px;
+    font-family: var(--font-display);
+    font-size: 0.74rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--bbg-text-muted);
+  }
+
+  /* ===================================================================== */
+  /* TECHNOLOGY                                                             */
+  /* ===================================================================== */
+  .cwf-tech {
+    padding: clamp(5rem, 10vh, 8rem) 0;
+    background: var(--bbg-paper);
+    border-top: 1px solid var(--bbg-border);
+  }
+  .cwf-tech__header {
+    max-width: 60ch;
+    margin: 0 0 var(--space-7);
+  }
+  .cwf-tech__title {
+    font-size: clamp(1.8rem, 3vw + 0.5rem, 3rem);
+    line-height: 1.08;
+    letter-spacing: -0.025em;
+    margin: var(--space-3) 0 0;
+  }
+  .cwf-tech__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(1.25rem, 2vw, 1.75rem);
+  }
+  @media (max-width: 1080px) { .cwf-tech__grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 700px) { .cwf-tech__grid { grid-template-columns: 1fr; } }
+
+  .cwf-tech__card {
+    position: relative;
+    background: var(--bbg-white);
+    border: 1px solid var(--bbg-border);
+    border-radius: 24px;
+    padding: clamp(1.75rem, 3vw, 2.5rem);
+    overflow: hidden;
+    isolation: isolate;
+    transition: transform 320ms cubic-bezier(0.2,0.8,0.2,1), box-shadow 320ms ease, border-color 320ms ease;
+  }
+  .cwf-tech__card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, transparent 60%, color-mix(in srgb, var(--accent, #269ada) 8%, transparent));
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 320ms ease;
+  }
+  .cwf-tech__card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 30px 60px -28px rgba(15,23,42,0.22);
+    border-color: color-mix(in srgb, var(--accent, #269ada) 40%, var(--bbg-border));
+  }
+  .cwf-tech__card:hover::before { opacity: 1; }
+  .cwf-tech__card--wp { --accent: #269ada; }
+  .cwf-tech__card--astro { --accent: #ff5d01; }
+  .cwf-tech__card--wechat { --accent: #07c160; }
+  .cwf-tech__card-banner {
+    position: relative;
+    margin: 0 0 var(--space-5);
+    overflow: hidden;
+    border-radius: 16px;
+    aspect-ratio: 16 / 9;
+    background: color-mix(in srgb, var(--accent) 10%, var(--bbg-paper));
+  }
+  .cwf-tech__card-banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 600ms cubic-bezier(0.2, 0.85, 0.2, 1);
+  }
+  .cwf-tech__card:hover .cwf-tech__card-banner img { transform: scale(1.04); }
+  .cwf-tech__card-head {
+    margin-bottom: var(--space-4);
+  }
+  .cwf-tech__card-title {
+    margin: 0;
+    font-size: clamp(1.4rem, 1.4vw + 0.6rem, 1.8rem);
+    letter-spacing: -0.02em;
+    color: var(--bbg-ink);
+  }
+  .cwf-tech__card-body {
+    margin: 0 0 var(--space-5);
+    color: var(--bbg-text);
+    font-size: 1.05rem;
+    line-height: 1.6;
+  }
+  .cwf-tech__card-traits {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 10px;
+  }
+  .cwf-tech__card-traits li {
+    position: relative;
+    padding-left: 22px;
+    color: var(--bbg-ink);
+    font-size: 0.96rem;
+    font-weight: 500;
+  }
+  .cwf-tech__card-traits li::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0.55em;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 14%, transparent);
+  }
+  .cwf-tech__footnote {
+    margin: var(--space-7) auto 0;
+    text-align: center;
+    color: var(--bbg-text-muted);
+    font-family: var(--font-display);
+    font-size: 1rem;
+    letter-spacing: -0.005em;
+    max-width: 36rem;
+  }
+
+  /* ===================================================================== */
+  /* ENGAGE                                                                 */
+  /* ===================================================================== */
+  .cwf-engage {
+    position: relative;
+    padding: clamp(6rem, 12vh, 9rem) 0;
+    background: var(--bbg-ink);
+    color: rgba(255,255,255,0.92);
+    isolation: isolate;
+    overflow: hidden;
+  }
+  .cwf-engage__bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(900px 500px at 0% 100%, rgba(38,154,218,0.18), transparent 60%),
+      radial-gradient(800px 500px at 100% 0%, rgba(200,16,46,0.16), transparent 60%);
+    pointer-events: none;
+    z-index: -1;
+  }
+  .cwf-engage__header { max-width: 60ch; margin-bottom: var(--space-7); }
+  .cwf-engage__title {
+    font-size: clamp(2.2rem, 4vw + 0.5rem, 4rem);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    margin: var(--space-3) 0 var(--space-4);
+    color: #fff;
+    font-weight: 600;
+  }
+  .cwf-engage__lead {
+    color: rgba(255,255,255,0.75);
+    font-size: var(--fs-lead);
+    max-width: 60ch;
+  }
+  .cwf-engage__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(1rem, 2vw, 1.75rem);
+  }
+  @media (max-width: 980px) { .cwf-engage__grid { grid-template-columns: 1fr; } }
+
+  .cwf-engage__card {
+    position: relative;
+    padding: clamp(1.75rem, 2.5vw, 2.25rem);
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.10);
+    border-radius: 22px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: transform 320ms cubic-bezier(0.2,0.8,0.2,1), border-color 320ms ease, background 320ms ease;
+  }
+  .cwf-engage__card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255,255,255,0.22);
+    background: rgba(255,255,255,0.06);
+  }
+  .cwf-engage__card-tag {
+    display: inline-block;
+    padding: 5px 11px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.16);
+    color: rgba(255,255,255,0.86);
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: var(--space-4);
+  }
+  .cwf-engage__card--retainer .cwf-engage__card-tag {
+    color: #ff9aa6;
+    border-color: rgba(255,154,166,0.4);
+    background: rgba(200,16,46,0.16);
+  }
+  .cwf-engage__card-title {
+    margin: 0 0 var(--space-3);
+    font-size: clamp(1.6rem, 1.6vw + 0.6rem, 2rem);
+    color: #fff;
+    letter-spacing: -0.02em;
+    font-weight: 600;
+  }
+  .cwf-engage__card-lead {
+    margin: 0 0 var(--space-4);
+    color: rgba(255,255,255,0.86);
+    font-size: 1.05rem;
+    line-height: 1.55;
+  }
+  .cwf-engage__card-meta {
+    margin: 0;
+    color: rgba(255,255,255,0.62);
+    font-size: 0.92rem;
+    line-height: 1.55;
+  }
+
+  /* ===================================================================== */
+  /* FINAL CTA                                                              */
+  /* ===================================================================== */
+  .cwf-cta {
+    position: relative;
+    padding: clamp(5rem, 10vh, 8rem) 0;
+    color: #fff;
+    isolation: isolate;
+    overflow: hidden;
+  }
+  .cwf-cta__bg { position: absolute; inset: 0; z-index: -1; }
+  .cwf-cta__bg img {
+    width: 100%; height: 100%; object-fit: cover;
+    filter: brightness(0.5) saturate(0.9);
+    transform: scale(1.04);
+  }
+  .cwf-cta__bg-scrim {
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(180deg, rgba(8,12,24,0.65) 0%, rgba(8,12,24,0.55) 50%, rgba(8,12,24,0.85) 100%);
+  }
+  .cwf-cta__content {
+    position: relative;
+    text-align: center;
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .cwf-cta__title {
+    font-size: clamp(2rem, 4vw + 0.5rem, 4rem);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    color: #fff;
+    margin: var(--space-4) 0 var(--space-6);
+    text-wrap: balance;
+  }
+  .cwf-cta__actions {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cwf-hero__bg-img,
+    .cwf-hero__line[data-anim="word"],
+    .cwf-hero__lead,
+    .cwf-hero__cta-row,
+    .cwf-hero__logo,
+    .cwf-hero__eyebrow,
+    .cwf-hero__chip,
+    .cwf-services__panel.is-active .cwf-services__item,
+    [data-anim] {
+      animation: none !important;
+      transition: none !important;
+      opacity: 1 !important;
+      transform: none !important;
+    }
+  }
+</style>
+
+<script>
+  const init = () => {
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    /* ----- Counter: 0 → 20 ----- */
+    const counter = document.querySelector<HTMLElement>('[data-cwf-count]');
+    if (counter) {
+      const target = Number(counter.dataset.cwfCount || '0');
+      if (reduced) {
+        counter.textContent = String(target);
+      } else {
+        const cio = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                const start = performance.now();
+                const dur = 1600;
+                const tick = (now: number) => {
+                  const t = Math.min(1, (now - start) / dur);
+                  const eased = 1 - Math.pow(1 - t, 3);
+                  counter.textContent = String(Math.round(eased * target));
+                  if (t < 1) requestAnimationFrame(tick);
+                };
+                requestAnimationFrame(tick);
+                cio.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.4 }
+        );
+        cio.observe(counter);
+      }
+    }
+
+    /* ----- Tabs ----- */
+    const tabsRoot = document.querySelector<HTMLElement>('[data-cwf-tabs]');
+    if (tabsRoot) {
+      const tabs = Array.from(tabsRoot.querySelectorAll<HTMLButtonElement>('.cwf-services__tab'));
+      const panels = Array.from(tabsRoot.querySelectorAll<HTMLElement>('.cwf-services__panel'));
+      const indicator = tabsRoot.querySelector<HTMLElement>('.cwf-services__tab-indicator');
+
+      const setIndicator = (idx: number) => {
+        if (!indicator) return;
+        indicator.style.transform = `translateX(${idx * 100}%)`;
+        indicator.style.width = `calc((100% - 12px) / ${tabs.length})`;
+      };
+
+      const activate = (idx: number) => {
+        tabs.forEach((t, i) => {
+          const active = i === idx;
+          t.classList.toggle('is-active', active);
+          t.setAttribute('aria-selected', active ? 'true' : 'false');
+          t.tabIndex = active ? 0 : -1;
+        });
+        panels.forEach((p, i) => {
+          const active = i === idx;
+          p.classList.toggle('is-active', active);
+          if (active) {
+            p.removeAttribute('hidden');
+          } else {
+            p.setAttribute('hidden', '');
+          }
+        });
+        setIndicator(idx);
+      };
+
+      setIndicator(Math.max(0, tabs.findIndex((t) => t.classList.contains('is-active'))));
+
+      tabs.forEach((tab, i) => {
+        tab.addEventListener('click', () => activate(i));
+        tab.addEventListener('keydown', (e: KeyboardEvent) => {
+          if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+            e.preventDefault();
+            const dir = e.key === 'ArrowRight' ? 1 : -1;
+            const next = (i + dir + tabs.length) % tabs.length;
+            tabs[next].focus();
+            activate(next);
+          }
+        });
+      });
+    }
+
+    /* ----- Hero parallax tilt + bg parallax ----- */
+    if (!reduced) {
+      const hero = document.querySelector<HTMLElement>('[data-cwf-hero]');
+      const tilt = document.querySelector<HTMLElement>('[data-cwf-tilt] .cwf-hero__preview-frame');
+      const bg = document.querySelector<HTMLElement>('[data-cwf-parallax-bg]');
+
+      if (hero && tilt) {
+        let raf = 0;
+        let mx = 0, my = 0;
+        let cx = 0, cy = 0;
+        const onMove = (e: MouseEvent) => {
+          const rect = hero.getBoundingClientRect();
+          mx = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
+          my = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
+          if (!raf) raf = requestAnimationFrame(loop);
+        };
+        const onLeave = () => { mx = 0; my = 0; if (!raf) raf = requestAnimationFrame(loop); };
+        const loop = () => {
+          cx += (mx - cx) * 0.08;
+          cy += (my - cy) * 0.08;
+          tilt.style.setProperty('--tilt-x', `${(-cx * 5).toFixed(2)}deg`);
+          tilt.style.setProperty('--tilt-y', `${(cy * 4).toFixed(2)}deg`);
+          if (Math.abs(mx - cx) > 0.001 || Math.abs(my - cy) > 0.001) {
+            raf = requestAnimationFrame(loop);
+          } else {
+            raf = 0;
+          }
+        };
+        hero.addEventListener('mousemove', onMove);
+        hero.addEventListener('mouseleave', onLeave);
+      }
+
+      if (bg) {
+        const onScroll = () => {
+          const rect = bg.getBoundingClientRect();
+          const offset = Math.max(-200, Math.min(200, rect.top * -0.18));
+          (bg as HTMLElement).style.setProperty('--parallax-y', `${offset}px`);
+        };
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+      }
+    }
+
+    /* ----- Magnetic CTA ----- */
+    if (!reduced) {
+      const magnets = document.querySelectorAll<HTMLElement>('[data-cwf-magnet]');
+      magnets.forEach((m) => {
+        m.addEventListener('mousemove', (e: MouseEvent) => {
+          const rect = m.getBoundingClientRect();
+          const x = e.clientX - rect.left - rect.width / 2;
+          const y = e.clientY - rect.top - rect.height / 2;
+          m.style.setProperty('--x', `${(x * 0.18).toFixed(1)}px`);
+          m.style.setProperty('--y', `${(y * 0.18).toFixed(1)}px`);
+        });
+        m.addEventListener('mouseleave', () => {
+          m.style.setProperty('--x', '0px');
+          m.style.setProperty('--y', '0px');
+        });
+      });
+    }
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+</script>

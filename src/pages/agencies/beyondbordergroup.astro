@@ -1,32 +1,1434 @@
 ---
-import AgencyPage from '../../components/AgencyPage.astro';
+import Layout from '../../layouts/Layout.astro';
+import { pathFor } from '../../i18n/ui';
+
+const locale = 'en' as const;
+const route = 'agencies/beyondbordergroup' as const;
+
+type ServiceKey = 'enter' | 'grow' | 'learn';
+const services: Array<{
+  key: ServiceKey;
+  title: string;
+  intro: string;
+  image: string;
+  items: { name: string; body: string }[];
+}> = [
+  {
+    key: 'enter',
+    title: 'Enter China',
+    intro: 'The roadmap, the build, and the doors that open the market.',
+    image: '/images/bbg-enter-doorway.webp',
+    items: [
+      { name: 'Market Entry Consulting', body: 'The roadmap to enter China, from positioning to platform choice to budget.' },
+      { name: 'Branding & Localisation', body: 'Chinese name, visual identity, packaging and tone of voice adapted for the local market.' },
+      { name: 'Cross-Border eCommerce Setup', body: 'Tmall Global, JD Worldwide and Douyin store opening, no Chinese entity required.' },
+      { name: 'Distribution', body: 'Sourcing, vetting and contracting the right distributors for offline and wholesale channels.' },
+    ],
+  },
+  {
+    key: 'grow',
+    title: 'Grow in China',
+    intro: 'Daily operations on every channel that moves the needle.',
+    image: '/images/bbg-grow-flatlay.webp',
+    items: [
+      { name: 'Cross-Border eCommerce Operations', body: 'Daily store management, customer service, promotions and campaigns on Tmall, JD and Douyin.' },
+      { name: 'Social Commerce', body: 'Xiaohongshu, Douyin and WeChat content, KOL and live-streaming to drive sales.' },
+      { name: 'Media', body: 'Paid media planning and buying across Chinese platforms, performance and brand.' },
+      { name: 'Website', body: 'Chinese website design, build and hosting inside the Great Firewall, with ICP filing.' },
+      { name: 'PR and Press Relations', body: 'Chinese media outreach, press releases and crisis communications.' },
+      { name: 'Offline Events and Exhibitions', body: 'Trade shows, pop-ups, brand activations and retail events on the ground.' },
+    ],
+  },
+  {
+    key: 'learn',
+    title: 'Learn China',
+    intro: 'Trainings, expeditions, and research that build real fluency.',
+    image: '/images/bbg-learn-desk.webp',
+    items: [
+      { name: 'Masterclass', body: 'Half-day and full-day training sessions on China platforms, consumers and trends, in your office or ours.' },
+      { name: 'Learning Expeditions', body: 'Multi-day immersive trips to Shanghai and Shenzhen for executive teams.' },
+      { name: 'Insights', body: 'Market reports, consumer research and trend briefings on demand.' },
+    ],
+  },
+];
+
+const visitUrl = 'https://beyondbordergroup.com';
+const visitLabel = 'Visit beyondbordergroup.com';
 ---
 
-<AgencyPage
-  locale="en"
-  route="agencies/beyondbordergroup"
-  name="BeyondBorderGroup"
-  badge="West to China · Full-service"
-  title="BeyondBorderGroup. Full-service China entry."
-  description="Twenty years running brand, media, social, eCommerce, and distribution in China. Shanghai, Hong Kong, Paris."
-  hero="Full-service China entry. Twenty years on the ground."
-  thesisLabel="Thesis"
-  thesis="China is not a market you enter with a translated website and a Tmall store. It is a separate digital civilisation. Different platforms. Different buyer signals. Different content density. Different commerce mechanics. BeyondBorderGroup runs the full chain so brands do not have to assemble it from twelve different vendors."
-  whatLabel="What we do"
-  doSections={[
-    { h: 'Marketing', items: ['Branding', 'Media buying', 'Social media', 'KOL and KOC', 'Content studio', 'PR', 'Website', 'Events'] },
-    { h: 'Sales', items: ['eCommerce on Tmall, JD, Douyin, RED', 'Social commerce on WeChat, Douyin, RED', 'Offline distribution'] },
-    { h: 'Consulting', items: ['Cross-border market entry', 'Masterclasses', 'China learning expeditions'] },
-  ]}
-  whoForLabel="Who it is for"
-  fit={[
-    'A European brand testing China for the first time through cross-border eCommerce.',
-    'An international brand already in China that wants better numbers.',
-    'A category leader scaling from one platform to the full ecosystem.',
-  ]}
-  connectsLabel="How it connects"
-  connects="Pulls TheRedScroll for deep social execution. Pulls ChinaWebFoundry for web infrastructure. Pulls HubStudio's content production engine at the volume Chinese channels demand."
-  visitUrl="https://beyondbordergroup.com"
-  visitLabel="Visit beyondbordergroup.com"
-  imageLabel="Editorial shot. Shanghai studio, team at work."
-/>
+<Layout
+  locale={locale}
+  route={route}
+  title="BeyondBorderGroup. Enter China, grow in China, learn China."
+  description="Fifteen years helping brands enter, grow, and learn China. Full-service: market entry, eCommerce, social commerce, media, PR, masterclasses."
+>
+  <!-- ====================================================================== -->
+  <!-- HERO: cinematic dark, full-bleed atmosphere, parallax browser preview  -->
+  <!-- ====================================================================== -->
+  <section class="bbg-hero" data-hero>
+    <div class="bbg-hero__bg" aria-hidden="true">
+      <img src="/images/bbg-shanghai-twilight.webp" alt="" class="bbg-hero__bg-img" data-parallax-bg />
+      <div class="bbg-hero__bg-scrim"></div>
+      <div class="bbg-hero__bg-grain"></div>
+      <div class="bbg-hero__bg-grid"></div>
+    </div>
+
+    <div class="container bbg-hero__main">
+      <div class="bbg-hero__content">
+        <img src="/AgencyLogos/BBG%20PNG.png" alt="BeyondBorderGroup" class="bbg-hero__logo" width="160" height="40" loading="eager" decoding="async" />
+
+        <span class="bbg-hero__eyebrow">
+          <span class="bbg-hero__eyebrow-dot"></span>
+          15 years on the ground · Shanghai · Hong Kong · Paris
+        </span>
+
+        <h1 class="bbg-hero__title">
+          <span class="bbg-hero__line" data-anim="word">We help brands</span>
+          <span class="bbg-hero__line" data-anim="word">
+            <em class="bbg-hero__phrase bbg-hero__phrase--enter">Enter China</em>,
+          </span>
+          <span class="bbg-hero__line" data-anim="word">
+            <em class="bbg-hero__phrase bbg-hero__phrase--grow">Grow in China</em>,
+          </span>
+          <span class="bbg-hero__line" data-anim="word">
+            and <em class="bbg-hero__phrase bbg-hero__phrase--learn">Learn China</em>.
+          </span>
+        </h1>
+
+        <p class="bbg-hero__lead" data-anim="fade">We consult, and we run what we recommend. No templates. No recycled decks. Just the work.</p>
+
+        <div class="bbg-hero__cta-row" data-anim="fade">
+          <a class="bbg-magnet" href={visitUrl} target="_blank" rel="noreferrer" data-magnet>
+            <span class="bbg-magnet__bg"></span>
+            <span class="bbg-magnet__label">{visitLabel}</span>
+            <span class="bbg-magnet__arrow" aria-hidden="true">→</span>
+          </a>
+          <a class="bbg-hero__secondary" href={pathFor('contact', locale)} data-anim="fade">
+            <span>Talk to us</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="bbg-hero__preview" data-tilt>
+        <div class="bbg-hero__preview-frame">
+          <a class="browser-link" href={visitUrl} target="_blank" rel="noreferrer" aria-label={visitLabel}>
+            <div class="browser">
+              <div class="browser__chrome">
+                <span class="browser__dots">
+                  <span class="browser__dot browser__dot--r"></span>
+                  <span class="browser__dot browser__dot--y"></span>
+                  <span class="browser__dot browser__dot--g"></span>
+                </span>
+                <span class="browser__url">beyondbordergroup.com</span>
+              </div>
+              <div class="browser__viewport">
+                <img src="/images/beyondbordergroup-home.png" alt="beyondbordergroup.com homepage" class="browser__shot" width="1600" height="1000" loading="eager" decoding="async" />
+                <span class="browser__live">
+                  <span class="browser__live-dot"></span>
+                  Live · {new Date().toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}
+                </span>
+                <span class="browser__visit" aria-hidden="true">
+                  <span>Visit site</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l10-10M7 7h10v10"/></svg>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <div class="bbg-hero__chip bbg-hero__chip--platforms">
+            <span class="bbg-hero__chip-label">Platforms</span>
+            <span>Tmall · JD · Douyin · RED · WeChat</span>
+          </div>
+          <div class="bbg-hero__chip bbg-hero__chip--cities">
+            <span class="bbg-hero__chip-label">On the ground</span>
+            <span>Shanghai · Shenzhen · Hong Kong · Paris</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <a href="#track" class="bbg-hero__scroll" aria-label="Scroll">
+      <span>Scroll</span>
+      <span class="bbg-hero__scroll-line"></span>
+    </a>
+  </section>
+
+  <!-- ====================================================================== -->
+  <!-- TRACK RECORD: editorial number + marquee of clients                    -->
+  <!-- ====================================================================== -->
+  <section class="bbg-track" id="track">
+    <div class="container">
+      <div class="bbg-track__grid">
+        <div class="bbg-track__numeral" aria-hidden="true">
+          <span class="bbg-track__num" data-count="15">0</span>
+          <span class="bbg-track__num-shadow">15</span>
+        </div>
+        <div class="bbg-track__copy">
+          <span class="eyebrow">Track record</span>
+          <h2 class="bbg-track__title balance">Fifteen years inside China's commerce ecosystem.</h2>
+          <p class="bbg-track__lead">
+            We know what works because we have done it. We know what fails because we have seen it. Through Tmall launches, Douyin storms, ICP rewrites, every algorithm shift in between.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ====================================================================== -->
+  <!-- SERVICES: tabbed editorial panels with image + service list            -->
+  <!-- ====================================================================== -->
+  <section class="bbg-services" id="services">
+    <div class="container">
+      <header class="bbg-services__header">
+        <span class="eyebrow">What we do</span>
+        <h2 class="bbg-services__title">
+          Three lanes. <em>One team.</em><br />
+          End to end.
+        </h2>
+        <p class="bbg-services__lead">From the first market study to the next live-stream campaign on Douyin. Pick the lane that fits your moment, or run all three.</p>
+      </header>
+
+      <div class="bbg-services__shell" data-tabs>
+        <div class="bbg-services__nav" role="tablist" aria-label="Service lanes">
+          {services.map((s, i) => (
+            <button
+              type="button"
+              role="tab"
+              aria-selected={i === 0 ? 'true' : 'false'}
+              class={`bbg-services__tab bbg-services__tab--${s.key} ${i === 0 ? 'is-active' : ''}`}
+              data-tab={s.key}
+              id={`bbg-tab-${s.key}`}
+              aria-controls={`bbg-panel-${s.key}`}
+              tabindex={i === 0 ? 0 : -1}
+            >
+              <span class="bbg-services__tab-pip" aria-hidden="true"></span>
+              <span class="bbg-services__tab-label">{s.title}</span>
+              <span class="bbg-services__tab-count">{s.items.length} services</span>
+            </button>
+          ))}
+          <span class="bbg-services__tab-indicator" aria-hidden="true"></span>
+        </div>
+
+        <div class="bbg-services__panels">
+          {services.map((s, i) => (
+            <div
+              class={`bbg-services__panel bbg-services__panel--${s.key} ${i === 0 ? 'is-active' : ''}`}
+              role="tabpanel"
+              id={`bbg-panel-${s.key}`}
+              aria-labelledby={`bbg-tab-${s.key}`}
+              data-panel={s.key}
+              hidden={i !== 0}
+            >
+              <div class="bbg-services__panel-grid">
+                <div class="bbg-services__panel-image">
+                  <div class="bbg-services__panel-frame">
+                    <img src={s.image} alt={`${s.title} editorial`} loading="lazy" decoding="async" />
+                    <div class={`bbg-services__panel-tag bbg-services__panel-tag--${s.key}`}>
+                      <span>{s.title}</span>
+                    </div>
+                  </div>
+                  <div class={`bbg-services__panel-stamp bbg-services__panel-stamp--${s.key}`} aria-hidden="true">
+                    {s.key === 'enter' && '入'}
+                    {s.key === 'grow' && '长'}
+                    {s.key === 'learn' && '学'}
+                  </div>
+                </div>
+
+                <div class="bbg-services__panel-content">
+                  <p class="bbg-services__panel-intro">{s.intro}</p>
+                  <ul class="bbg-services__list">
+                    {s.items.map((it) => (
+                      <li class="bbg-services__item">
+                        <span class={`bbg-services__item-pip bbg-services__item-pip--${s.key}`} aria-hidden="true"></span>
+                        <span class="bbg-services__item-text">
+                          <span class="bbg-services__item-name">{it.name}.</span>
+                          <span class="bbg-services__item-body">{it.body}</span>
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================== -->
+  <!-- HOW WE OPERATE: editorial dark statement with line reveal              -->
+  <!-- ====================================================================== -->
+  <section class="bbg-operate">
+    <div class="bbg-operate__bg" aria-hidden="true"></div>
+    <div class="container bbg-operate__container">
+      <span class="eyebrow eyebrow--on-dark">How we operate</span>
+      <h2 class="bbg-operate__title">
+        <span class="bbg-operate__line" data-line>China moves fast.</span>
+        <span class="bbg-operate__line" data-line>Platforms change every quarter.</span>
+        <span class="bbg-operate__line" data-line>Consumers change every week.</span>
+      </h2>
+      <div class="bbg-operate__statement" data-line>
+        <p>We consult, and we run what we recommend.</p>
+        <p class="bbg-operate__emphasis">No templates. No recycled decks. Just the work.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================== -->
+  <!-- FINAL CTA: cinematic full-bleed                                        -->
+  <!-- ====================================================================== -->
+  <section class="bbg-cta">
+    <div class="bbg-cta__bg" aria-hidden="true">
+      <img src="/images/bbg-shanghai-twilight.webp" alt="" />
+      <div class="bbg-cta__bg-scrim"></div>
+    </div>
+    <div class="container bbg-cta__content">
+      <span class="eyebrow eyebrow--on-dark">Ready when you are</span>
+      <h2 class="bbg-cta__title balance">Enter, grow, learn China.<br />With a team that has done it.</h2>
+      <div class="bbg-cta__actions">
+        <a class="btn btn--primary" href={visitUrl} target="_blank" rel="noreferrer">{visitLabel}</a>
+        <a class="btn btn--ghost-light" href={pathFor('contact', locale)}>Talk to us</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* ===================================================================== */
+  /* HERO                                                                   */
+  /* ===================================================================== */
+  .bbg-hero {
+    position: relative;
+    min-height: 88vh;
+    padding: clamp(2.5rem, 5vh, 4rem) 0 clamp(3rem, 6vh, 5rem);
+    overflow: hidden;
+    isolation: isolate;
+    color: #fff;
+    background: #0c1220;
+  }
+
+  .bbg-hero__bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+  .bbg-hero__bg-img {
+    position: absolute;
+    inset: -8% -4% -4% -4%;
+    width: 108%;
+    height: 112%;
+    object-fit: cover;
+    object-position: center 40%;
+    will-change: transform;
+    transform: translate3d(0, var(--parallax-y, 0), 0) scale(1.04);
+    filter: saturate(0.85) contrast(1.05) brightness(0.78);
+  }
+  .bbg-hero__bg-scrim {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(110deg, rgba(8, 12, 24, 0.86) 0%, rgba(8, 12, 24, 0.62) 38%, rgba(8, 12, 24, 0.30) 65%, rgba(8, 12, 24, 0.55) 100%),
+      linear-gradient(180deg, rgba(8, 12, 24, 0.55) 0%, rgba(8, 12, 24, 0.05) 30%, rgba(8, 12, 24, 0.0) 60%, rgba(8, 12, 24, 0.85) 100%);
+  }
+  .bbg-hero__bg-grain {
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(1200px 600px at 20% 30%, rgba(38,154,218,0.18), transparent 65%),
+      radial-gradient(900px 500px at 90% 80%, rgba(200,16,46,0.14), transparent 70%);
+    mix-blend-mode: screen;
+  }
+  .bbg-hero__bg-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 88px 88px;
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 80%);
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 80%);
+    opacity: 0.7;
+  }
+
+  /* Top platform ticker */
+  .bbg-hero__ticker {
+    position: absolute;
+    top: clamp(72px, 8vh, 96px);
+    left: 0; right: 0;
+    z-index: 2;
+    overflow: hidden;
+    padding: 6px 0;
+    border-top: 1px solid rgba(255,255,255,0.10);
+    border-bottom: 1px solid rgba(255,255,255,0.10);
+    background: rgba(8, 12, 24, 0.45);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+  .bbg-hero__ticker-track {
+    display: inline-flex;
+    align-items: center;
+    gap: 0;
+    white-space: nowrap;
+    animation: bbgTicker 38s linear infinite;
+    will-change: transform;
+  }
+  .bbg-hero__ticker-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 18px;
+    padding: 0 18px;
+    font-family: var(--font-display);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.78);
+  }
+  .bbg-hero__ticker-sep {
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: var(--bbg-blue);
+    display: inline-block;
+    box-shadow: 0 0 10px rgba(38,154,218,0.7);
+    color: transparent;
+  }
+  @keyframes bbgTicker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  .bbg-hero__main {
+    position: relative;
+    z-index: 3;
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+    gap: clamp(2rem, 5vw, 5rem);
+    align-items: center;
+  }
+
+  .bbg-hero__content { min-width: 0; max-width: 36rem; }
+  .bbg-hero__logo {
+    display: block;
+    width: auto;
+    height: 36px;
+    filter: brightness(0) invert(1) drop-shadow(0 2px 12px rgba(0,0,0,0.4));
+    margin-bottom: var(--space-5);
+    opacity: 0;
+    animation: bbgFadeIn 700ms cubic-bezier(0.2,0.8,0.2,1) 0.1s forwards;
+  }
+
+  .bbg-hero__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 14px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 999px;
+    font-family: var(--font-display);
+    font-size: 0.74rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    margin-bottom: var(--space-4);
+    opacity: 0;
+    animation: bbgFadeIn 700ms cubic-bezier(0.2,0.8,0.2,1) 0.2s forwards;
+  }
+  .bbg-hero__eyebrow-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: #22c55e;
+    box-shadow: 0 0 0 0 rgba(34,197,94,0.5);
+    animation: bbgPulse 2.4s ease-in-out infinite;
+  }
+
+  .bbg-hero__title {
+    font-size: clamp(2.5rem, 5vw + 0.5rem, 5.4rem);
+    line-height: 0.98;
+    letter-spacing: -0.035em;
+    font-weight: 600;
+    color: #fff;
+    margin: 0 0 var(--space-5);
+    max-width: 14ch;
+    text-wrap: balance;
+  }
+  .bbg-hero__line {
+    display: block;
+    overflow: hidden;
+  }
+  .bbg-hero__line[data-anim="word"] {
+    transform: translateY(110%);
+    opacity: 0;
+    animation: bbgWordIn 880ms cubic-bezier(0.2, 0.9, 0.2, 1) forwards;
+  }
+  .bbg-hero__line[data-anim="word"]:nth-child(1) { animation-delay: 0.30s; }
+  .bbg-hero__line[data-anim="word"]:nth-child(2) { animation-delay: 0.42s; }
+  .bbg-hero__line[data-anim="word"]:nth-child(3) { animation-delay: 0.54s; }
+  .bbg-hero__line[data-anim="word"]:nth-child(4) { animation-delay: 0.66s; }
+  @keyframes bbgWordIn {
+    from { transform: translateY(110%); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+
+  .bbg-hero__phrase {
+    font-style: normal;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+  }
+  .bbg-hero__phrase--enter { background-image: linear-gradient(120deg, #59c2ee 0%, #269ada 60%, #59c2ee 100%); }
+  .bbg-hero__phrase--grow  { background-image: linear-gradient(120deg, #ff7a8a 0%, #c8102e 60%, #ff7a8a 100%); }
+  .bbg-hero__phrase--learn { background-image: linear-gradient(120deg, #ffcf6f 0%, #d99a3a 60%, #ffcf6f 100%); }
+
+  .bbg-hero__lead {
+    max-width: 44ch;
+    font-size: clamp(1.05rem, 0.6vw + 0.95rem, 1.2rem);
+    color: rgba(255,255,255,0.82);
+    margin: 0 0 var(--space-5);
+    opacity: 0;
+    animation: bbgFadeIn 700ms cubic-bezier(0.2,0.8,0.2,1) 0.85s forwards;
+  }
+
+  .bbg-hero__cta-row {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: bbgFadeIn 700ms cubic-bezier(0.2,0.8,0.2,1) 1s forwards;
+  }
+
+  .bbg-magnet {
+    --x: 0px; --y: 0px;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 26px 16px 28px;
+    border-radius: 999px;
+    color: #fff;
+    text-decoration: none;
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+    overflow: hidden;
+    isolation: isolate;
+    transition: transform 220ms cubic-bezier(0.2,0.8,0.2,1);
+    transform: translate(var(--x), var(--y));
+  }
+  .bbg-magnet__bg {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(120deg, #269ada 0%, #1e7db0 100%);
+    box-shadow: 0 16px 36px -10px rgba(38,154,218,0.55), inset 0 1px 0 rgba(255,255,255,0.2);
+    z-index: -1;
+    transition: transform 320ms cubic-bezier(0.2,0.8,0.2,1);
+  }
+  .bbg-magnet:hover .bbg-magnet__bg { transform: scale(1.04); }
+  .bbg-magnet__arrow {
+    display: inline-block;
+    transform: translateX(0);
+    transition: transform 280ms cubic-bezier(0.2,0.8,0.2,1);
+  }
+  .bbg-magnet:hover .bbg-magnet__arrow { transform: translateX(4px); }
+
+  .bbg-hero__secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255,255,255,0.92);
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 220ms ease;
+  }
+  .bbg-hero__secondary svg { transition: transform 220ms ease; }
+  .bbg-hero__secondary:hover { color: #59c2ee; }
+  .bbg-hero__secondary:hover svg { transform: translateX(3px); }
+
+  /* Browser preview with parallax tilt */
+  .bbg-hero__preview {
+    position: relative;
+    perspective: 1600px;
+    min-width: 0;
+    opacity: 0;
+    animation: bbgFadeIn 900ms cubic-bezier(0.2,0.8,0.2,1) 0.5s forwards;
+  }
+  .bbg-hero__preview-frame {
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotateY(var(--tilt-x, -3deg)) rotateX(var(--tilt-y, 2deg));
+    transition: transform 600ms cubic-bezier(0.2,0.8,0.2,1);
+  }
+  .browser-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    border-radius: 14px;
+    transition: transform 320ms cubic-bezier(0.2,0.8,0.2,1);
+  }
+  .browser-link:hover { transform: translateY(-2px); }
+  .browser-link:focus-visible { outline: 2px solid #fff; outline-offset: 4px; }
+  .browser-link:hover .browser__visit { opacity: 1; transform: translateY(0); }
+  .browser {
+    position: relative;
+    background: #ffffff;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow:
+      0 1px 0 rgba(255,255,255,0.5) inset,
+      0 40px 80px -28px rgba(0,0,0,0.55),
+      0 12px 28px -8px rgba(0,0,0,0.35);
+    border: 1px solid rgba(255,255,255,0.10);
+    transform: translateZ(0);
+  }
+  .browser__visit {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 11px;
+    border-radius: 999px;
+    background: rgba(15,23,42,0.85);
+    color: #fff;
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    opacity: 0;
+    transform: translateY(-4px);
+    transition: opacity 240ms ease, transform 240ms cubic-bezier(0.2,0.8,0.2,1);
+    pointer-events: none;
+  }
+  .browser__chrome {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: 10px 14px;
+    background: linear-gradient(180deg, #f8fafc 0%, #eef2f6 100%);
+    border-bottom: 1px solid rgba(15,23,42,0.08);
+  }
+  .browser__dots { display: inline-flex; gap: 6px; }
+  .browser__dot { width: 11px; height: 11px; border-radius: 50%; display: inline-block; }
+  .browser__dot--r { background: #ff5f57; }
+  .browser__dot--y { background: #febc2e; }
+  .browser__dot--g { background: #28c840; }
+  .browser__url {
+    flex: 1;
+    text-align: center;
+    font-family: var(--font-display);
+    font-size: 0.78rem;
+    color: var(--bbg-text-muted);
+    background: rgba(15,23,42,0.04);
+    border-radius: 999px;
+    padding: 4px 10px;
+    letter-spacing: 0.01em;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+  .browser__viewport {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    background: #f7f9fb;
+    overflow: hidden;
+  }
+  .browser__shot {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+  }
+  .browser__live {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 6px 10px;
+    background: rgba(8, 12, 24, 0.74);
+    color: #fff;
+    border-radius: 999px;
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+  .browser__live-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: #22c55e;
+    box-shadow: 0 0 0 0 rgba(34,197,94,0.6);
+    animation: bbgPulse 2.4s ease-in-out infinite;
+  }
+
+  .bbg-hero__chip {
+    position: absolute;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 10px 14px;
+    background: rgba(255,255,255,0.92);
+    color: var(--bbg-ink);
+    border: 1px solid rgba(255,255,255,0.5);
+    border-radius: 14px;
+    font-family: var(--font-display);
+    font-size: 0.84rem;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+    box-shadow: 0 24px 50px -18px rgba(0,0,0,0.45);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transform: translateZ(40px);
+  }
+  .bbg-hero__chip-label {
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--bbg-blue);
+  }
+  .bbg-hero__chip--platforms {
+    top: -20px; left: -28px;
+    animation: bbgFloatA 9s ease-in-out infinite;
+  }
+  .bbg-hero__chip--cities {
+    bottom: -24px; right: -20px;
+    animation: bbgFloatB 11s ease-in-out infinite;
+  }
+  @keyframes bbgFloatA { 0%,100% { transform: translateZ(40px) translateY(0); } 50% { transform: translateZ(40px) translateY(-7px); } }
+  @keyframes bbgFloatB { 0%,100% { transform: translateZ(40px) translateY(0); } 50% { transform: translateZ(40px) translateY(8px); } }
+
+  /* Scroll hint */
+  .bbg-hero__scroll {
+    position: absolute;
+    bottom: clamp(1rem, 3vh, 2rem);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 4;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    transition: color 220ms ease;
+  }
+  .bbg-hero__scroll:hover { color: #fff; }
+  .bbg-hero__scroll-line {
+    width: 1px;
+    height: 36px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.7), rgba(255,255,255,0));
+    position: relative;
+    overflow: hidden;
+  }
+  .bbg-hero__scroll-line::after {
+    content: "";
+    position: absolute;
+    top: -36px;
+    left: 0; right: 0;
+    height: 36px;
+    background: linear-gradient(180deg, rgba(255,255,255,0), rgba(255,255,255,0.95));
+    animation: bbgScrollLine 1.8s ease-in-out infinite;
+  }
+  @keyframes bbgScrollLine { 0% { top: -36px; } 100% { top: 36px; } }
+
+  @keyframes bbgFadeIn { to { opacity: 1; } }
+  @keyframes bbgPulse {
+    0%,100% { box-shadow: 0 0 0 0 rgba(34,197,94,0.55); }
+    50% { box-shadow: 0 0 0 7px rgba(34,197,94,0); }
+  }
+
+  @media (max-width: 980px) {
+    .bbg-hero__main { grid-template-columns: 1fr; gap: var(--space-7); }
+    .bbg-hero__title { max-width: none; }
+    .bbg-hero__chip--platforms { top: -14px; left: 8px; }
+    .bbg-hero__chip--cities { bottom: -14px; right: 8px; }
+  }
+  @media (max-width: 640px) {
+    .bbg-hero__chip { font-size: 0.72rem; padding: 8px 10px; }
+    .bbg-hero__chip--platforms { display: none; }
+    .bbg-hero__scroll { display: none; }
+  }
+
+  /* ===================================================================== */
+  /* TRACK RECORD                                                           */
+  /* ===================================================================== */
+  .bbg-track {
+    padding: clamp(5rem, 10vh, 8rem) 0 clamp(4rem, 8vh, 6rem);
+    background: linear-gradient(180deg, #ffffff 0%, var(--bbg-paper) 100%);
+    position: relative;
+  }
+  .bbg-track__grid {
+    display: grid;
+    grid-template-columns: minmax(0, auto) minmax(0, 1fr);
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: center;
+    padding-bottom: var(--space-8);
+  }
+  @media (max-width: 880px) { .bbg-track__grid { grid-template-columns: 1fr; gap: var(--space-6); } }
+
+  .bbg-track__numeral {
+    position: relative;
+    line-height: 0.85;
+    letter-spacing: -0.06em;
+    font-family: var(--font-display);
+    font-weight: 600;
+    color: var(--bbg-ink);
+  }
+  .bbg-track__num {
+    position: relative;
+    z-index: 2;
+    display: inline-block;
+    font-size: clamp(7rem, 18vw, 16rem);
+    background: linear-gradient(180deg, var(--bbg-ink) 0%, #3a3f4f 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    font-variant-numeric: tabular-nums;
+  }
+  .bbg-track__num-shadow {
+    position: absolute;
+    top: 4px; left: 5px;
+    font-size: clamp(7rem, 18vw, 16rem);
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(38,154,218,0.18);
+    z-index: 1;
+    pointer-events: none;
+    user-select: none;
+  }
+  .bbg-track__copy { max-width: 56ch; }
+  .bbg-track__title { font-size: clamp(1.6rem, 2.4vw + 0.6rem, 2.4rem); line-height: 1.15; margin: 0 0 var(--space-4); }
+  .bbg-track__lead { font-size: var(--fs-lead); color: var(--bbg-text); }
+
+  /* Marquee */
+  .bbg-marquee {
+    overflow: hidden;
+    margin: 0 calc(var(--container-pad) * -1);
+    padding: var(--space-5) 0;
+    border-top: 1px solid var(--bbg-border);
+    border-bottom: 1px solid var(--bbg-border);
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+            mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  }
+  .bbg-marquee__track {
+    display: inline-flex;
+    align-items: center;
+    gap: clamp(1.5rem, 3vw, 3rem);
+    white-space: nowrap;
+    animation: bbgMarquee 40s linear infinite;
+    will-change: transform;
+  }
+  .bbg-marquee__item {
+    display: inline-flex;
+    align-items: center;
+    gap: clamp(1.5rem, 3vw, 3rem);
+    font-family: var(--font-display);
+    font-size: clamp(1.6rem, 3vw, 2.6rem);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--bbg-ink);
+    background-clip: text;
+    -webkit-background-clip: text;
+  }
+  .bbg-marquee__item--enter {
+    background-image: linear-gradient(120deg, #1e7db0, #59c2ee);
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+  .bbg-marquee__item--grow {
+    background-image: linear-gradient(120deg, #c8102e, #ff7a8a);
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+  .bbg-marquee__item--learn {
+    background-image: linear-gradient(120deg, #d99a3a, #ffcf6f);
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+  .bbg-marquee__sep { color: var(--bbg-blue); opacity: 0.6; flex-shrink: 0; }
+  @keyframes bbgMarquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  /* ===================================================================== */
+  /* SERVICES                                                               */
+  /* ===================================================================== */
+  .bbg-services {
+    padding: clamp(5rem, 10vh, 8rem) 0;
+    background: var(--bbg-white);
+    position: relative;
+  }
+
+  .bbg-services__header {
+    max-width: 60ch;
+    margin: 0 0 var(--space-7);
+  }
+  .bbg-services__title {
+    font-size: clamp(2rem, 3.6vw + 0.5rem, 3.6rem);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    margin: var(--space-3) 0 var(--space-4);
+  }
+  .bbg-services__title em {
+    font-style: normal;
+    background: linear-gradient(120deg, #269ada, #c8102e 50%, #d99a3a);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+  .bbg-services__lead { color: var(--bbg-text); font-size: var(--fs-lead); max-width: 60ch; }
+
+  .bbg-services__shell {
+    position: relative;
+    background: var(--bbg-paper);
+    border-radius: 28px;
+    padding: clamp(1.5rem, 3vw, 2.5rem);
+    border: 1px solid var(--bbg-border);
+    box-shadow: 0 60px 120px -60px rgba(15, 23, 42, 0.18);
+  }
+
+  .bbg-services__nav {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px;
+    padding: 6px;
+    background: var(--bbg-white);
+    border: 1px solid var(--bbg-border);
+    border-radius: 16px;
+    margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+  }
+  .bbg-services__tab-indicator {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    width: calc((100% - 12px) / 3);
+    height: calc(100% - 12px);
+    background: linear-gradient(135deg, var(--bbg-ink) 0%, #2a2f3f 100%);
+    border-radius: 12px;
+    transition: transform 380ms cubic-bezier(0.2, 0.85, 0.2, 1);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .bbg-services__tab {
+    position: relative;
+    z-index: 1;
+    background: transparent;
+    border: 0;
+    padding: 14px 16px;
+    border-radius: 12px;
+    cursor: pointer;
+    text-align: left;
+    font: inherit;
+    color: var(--bbg-text-muted);
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 10px;
+    transition: color 320ms ease;
+  }
+  .bbg-services__tab.is-active { color: #fff; }
+  .bbg-services__tab.is-active .bbg-services__tab-count { color: rgba(255,255,255,0.6); }
+  .bbg-services__tab-pip {
+    width: 9px; height: 9px;
+    border-radius: 50%;
+    background: currentColor;
+    flex-shrink: 0;
+    transition: background 320ms ease, transform 320ms ease;
+  }
+  .bbg-services__tab--enter.is-active .bbg-services__tab-pip { background: #59c2ee; }
+  .bbg-services__tab--grow.is-active .bbg-services__tab-pip  { background: #ff7a8a; }
+  .bbg-services__tab--learn.is-active .bbg-services__tab-pip { background: #ffcf6f; }
+  .bbg-services__tab-label {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.05rem;
+    letter-spacing: -0.005em;
+    color: var(--bbg-ink);
+    transition: color 320ms ease;
+  }
+  .bbg-services__tab.is-active .bbg-services__tab-label { color: #fff; }
+  .bbg-services__tab-count {
+    font-family: var(--font-display);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--bbg-text-muted);
+    transition: color 320ms ease;
+  }
+
+  .bbg-services__panels { position: relative; min-height: 480px; }
+  .bbg-services__panel {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 380ms ease, transform 480ms cubic-bezier(0.2, 0.85, 0.2, 1);
+    pointer-events: none;
+  }
+  .bbg-services__panel.is-active {
+    position: relative;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .bbg-services__panel-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1fr);
+    gap: clamp(2rem, 4vw, 3.5rem);
+    align-items: stretch;
+  }
+  @media (max-width: 980px) { .bbg-services__panel-grid { grid-template-columns: 1fr; } }
+
+  .bbg-services__panel-image {
+    position: relative;
+    min-height: 420px;
+  }
+  .bbg-services__panel-frame {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 420px;
+    border-radius: 20px;
+    overflow: hidden;
+    background: var(--bbg-ink);
+    box-shadow: 0 30px 60px -22px rgba(15,23,42,0.30);
+  }
+  .bbg-services__panel-frame img {
+    width: 100%;
+    height: 100%;
+    min-height: 420px;
+    object-fit: cover;
+    display: block;
+    transition: transform 1.2s cubic-bezier(0.2, 0.85, 0.2, 1);
+  }
+  .bbg-services__panel.is-active .bbg-services__panel-frame img { animation: bbgKenburns 12s ease-in-out infinite alternate; }
+  @keyframes bbgKenburns {
+    from { transform: scale(1.0); }
+    to { transform: scale(1.06); }
+  }
+  .bbg-services__panel-tag {
+    position: absolute;
+    bottom: 16px; left: 16px;
+    padding: 7px 14px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.92);
+    color: var(--bbg-ink);
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 12px 24px -10px rgba(15,23,42,0.3);
+  }
+  .bbg-services__panel-tag--enter { color: #1e7db0; }
+  .bbg-services__panel-tag--grow  { color: #c8102e; }
+  .bbg-services__panel-tag--learn { color: #b87a23; }
+
+  .bbg-services__panel-stamp {
+    position: absolute;
+    top: -36px;
+    right: -12px;
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-family: 'PingFang SC', 'Microsoft YaHei', serif;
+    font-size: 3.2rem;
+    font-weight: 700;
+    color: #fff;
+    box-shadow: 0 16px 36px -10px rgba(15,23,42,0.35);
+    transform: rotate(-8deg);
+    pointer-events: none;
+    user-select: none;
+  }
+  .bbg-services__panel-stamp--enter { background: linear-gradient(135deg, #59c2ee, #1e7db0); }
+  .bbg-services__panel-stamp--grow  { background: linear-gradient(135deg, #ff7a8a, #c8102e); }
+  .bbg-services__panel-stamp--learn { background: linear-gradient(135deg, #ffcf6f, #d99a3a); }
+
+  .bbg-services__panel-content { display: flex; flex-direction: column; justify-content: center; min-width: 0; }
+  .bbg-services__panel-intro {
+    font-size: 1.1rem;
+    line-height: 1.45;
+    color: var(--bbg-ink);
+    margin: 0 0 var(--space-5);
+    font-family: var(--font-display);
+    font-weight: 500;
+    letter-spacing: -0.005em;
+    max-width: 38ch;
+  }
+
+  .bbg-services__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-4);
+  }
+  .bbg-services__item {
+    display: grid;
+    grid-template-columns: 14px 1fr;
+    gap: 14px;
+    align-items: start;
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  .bbg-services__panel.is-active .bbg-services__item {
+    animation: bbgItemIn 520ms cubic-bezier(0.2, 0.85, 0.2, 1) forwards;
+  }
+  .bbg-services__panel.is-active .bbg-services__item:nth-child(1) { animation-delay: 0.10s; }
+  .bbg-services__panel.is-active .bbg-services__item:nth-child(2) { animation-delay: 0.16s; }
+  .bbg-services__panel.is-active .bbg-services__item:nth-child(3) { animation-delay: 0.22s; }
+  .bbg-services__panel.is-active .bbg-services__item:nth-child(4) { animation-delay: 0.28s; }
+  .bbg-services__panel.is-active .bbg-services__item:nth-child(5) { animation-delay: 0.34s; }
+  .bbg-services__panel.is-active .bbg-services__item:nth-child(6) { animation-delay: 0.40s; }
+  @keyframes bbgItemIn { to { opacity: 1; transform: translateY(0); } }
+
+  .bbg-services__item-pip {
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    margin-top: 0.45em;
+    flex-shrink: 0;
+    background: currentColor;
+    box-shadow: 0 0 0 4px color-mix(in srgb, currentColor 12%, transparent);
+  }
+  .bbg-services__item-pip--enter { color: #269ada; }
+  .bbg-services__item-pip--grow  { color: #c8102e; }
+  .bbg-services__item-pip--learn { color: #d99a3a; }
+  .bbg-services__item-text { display: block; line-height: 1.5; font-size: 0.98rem; }
+  .bbg-services__item-name { font-weight: 600; color: var(--bbg-ink); margin-right: 0.25rem; }
+  .bbg-services__item-body { color: var(--bbg-text); }
+
+  /* ===================================================================== */
+  /* OPERATE                                                                */
+  /* ===================================================================== */
+  .bbg-operate {
+    position: relative;
+    padding: clamp(6rem, 12vh, 9rem) 0;
+    background: var(--bbg-ink);
+    color: rgba(255,255,255,0.92);
+    isolation: isolate;
+    overflow: hidden;
+  }
+  .bbg-operate__bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(900px 500px at 0% 100%, rgba(38,154,218,0.18), transparent 60%),
+      radial-gradient(800px 500px at 100% 0%, rgba(200,16,46,0.14), transparent 60%);
+    pointer-events: none;
+    z-index: -1;
+  }
+  .bbg-operate__container { position: relative; }
+  .bbg-operate__title {
+    display: flex;
+    flex-direction: column;
+    gap: 0.05em;
+    font-size: clamp(2.2rem, 4.5vw + 0.5rem, 5rem);
+    line-height: 1.02;
+    letter-spacing: -0.03em;
+    margin: var(--space-4) 0 var(--space-6);
+    color: #fff;
+    max-width: 22ch;
+    font-weight: 600;
+  }
+  .bbg-operate__line {
+    display: block;
+    overflow: hidden;
+    position: relative;
+    transition: transform 880ms cubic-bezier(0.2, 0.9, 0.2, 1), opacity 600ms ease;
+  }
+  .bbg-operate__line > * { display: inline-block; }
+  .bbg-operate__line:nth-child(2) { transition-delay: 0.10s; }
+  .bbg-operate__line:nth-child(3) { transition-delay: 0.20s; }
+
+  .bbg-operate__statement {
+    max-width: 56ch;
+    font-size: clamp(1.05rem, 0.6vw + 0.95rem, 1.25rem);
+    color: rgba(255,255,255,0.8);
+    transition: transform 700ms cubic-bezier(0.2, 0.85, 0.2, 1), opacity 600ms ease;
+    transition-delay: 0.40s;
+  }
+  .bbg-operate__statement p { margin: 0 0 var(--space-3); }
+  .bbg-operate__emphasis {
+    font-family: var(--font-display);
+    font-weight: 600;
+    color: #fff;
+    font-size: 1.1em;
+    letter-spacing: -0.01em;
+  }
+
+  /* ===================================================================== */
+  /* FINAL CTA                                                              */
+  /* ===================================================================== */
+  .bbg-cta {
+    position: relative;
+    padding: clamp(5rem, 10vh, 8rem) 0;
+    color: #fff;
+    isolation: isolate;
+    overflow: hidden;
+  }
+  .bbg-cta__bg { position: absolute; inset: 0; z-index: -1; }
+  .bbg-cta__bg img {
+    width: 100%; height: 100%; object-fit: cover;
+    filter: brightness(0.55) saturate(0.9);
+    transform: scale(1.04);
+  }
+  .bbg-cta__bg-scrim {
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(180deg, rgba(8,12,24,0.65) 0%, rgba(8,12,24,0.55) 50%, rgba(8,12,24,0.85) 100%);
+  }
+  .bbg-cta__content {
+    position: relative;
+    text-align: center;
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .bbg-cta__title {
+    font-size: clamp(2rem, 4vw + 0.5rem, 4rem);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    color: #fff;
+    margin: var(--space-4) 0 var(--space-6);
+    text-wrap: balance;
+  }
+  .bbg-cta__actions {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  /* Reveal helpers — JS adds .is-revealed once an element scrolls into view */
+  [data-anim="fade"] { opacity: 0; }
+  .bbg-track__numeral,
+  .bbg-track__copy,
+  .bbg-services__header,
+  .bbg-services__shell {
+    transition: opacity 700ms cubic-bezier(0.2, 0.85, 0.2, 1), transform 800ms cubic-bezier(0.2, 0.85, 0.2, 1);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .bbg-hero__bg-img,
+    .bbg-hero__line[data-anim="word"],
+    .bbg-hero__lead,
+    .bbg-hero__cta-row,
+    .bbg-hero__logo,
+    .bbg-hero__eyebrow,
+    .bbg-hero__chip,
+    .bbg-hero__ticker-track,
+    .bbg-marquee__track,
+    .bbg-services__panel.is-active .bbg-services__panel-frame img,
+    .bbg-services__panel.is-active .bbg-services__item,
+    .bbg-operate__line,
+    .bbg-operate__statement,
+    .bbg-track__numeral, .bbg-track__copy, .bbg-services__header, .bbg-services__shell, .bbg-marquee,
+    [data-anim] {
+      animation: none !important;
+      transition: none !important;
+      opacity: 1 !important;
+      transform: none !important;
+    }
+  }
+</style>
+
+<script>
+  const init = () => {
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    /* ----- Reveal on scroll (IntersectionObserver) -----
+       Pre-hide elements via JS so non-JS visitors still see content. */
+    if (!reduced) {
+      const revealTargets = document.querySelectorAll<HTMLElement>(
+        '.bbg-track__numeral, .bbg-track__copy, .bbg-services__header, .bbg-services__shell'
+      );
+      revealTargets.forEach((el) => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(24px)';
+      });
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const el = entry.target as HTMLElement;
+              el.style.opacity = '';
+              el.style.transform = '';
+              el.classList.add('is-revealed');
+              io.unobserve(el);
+            }
+          });
+        },
+        { rootMargin: '0px 0px -5% 0px', threshold: 0.01 }
+      );
+      revealTargets.forEach((el) => io.observe(el));
+    }
+
+    /* ----- Counter: 0 → 25 ----- */
+    const counter = document.querySelector<HTMLElement>('[data-count]');
+    if (counter) {
+      const target = Number(counter.dataset.count || '0');
+      if (reduced) {
+        counter.textContent = String(target);
+      } else {
+        const cio = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                const start = performance.now();
+                const dur = 1600;
+                const tick = (now: number) => {
+                  const t = Math.min(1, (now - start) / dur);
+                  const eased = 1 - Math.pow(1 - t, 3);
+                  counter.textContent = String(Math.round(eased * target));
+                  if (t < 1) requestAnimationFrame(tick);
+                };
+                requestAnimationFrame(tick);
+                cio.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.4 }
+        );
+        cio.observe(counter);
+      }
+    }
+
+    /* ----- Tabs ----- */
+    const tabsRoot = document.querySelector<HTMLElement>('[data-tabs]');
+    if (tabsRoot) {
+      const tabs = Array.from(tabsRoot.querySelectorAll<HTMLButtonElement>('.bbg-services__tab'));
+      const panels = Array.from(tabsRoot.querySelectorAll<HTMLElement>('.bbg-services__panel'));
+      const indicator = tabsRoot.querySelector<HTMLElement>('.bbg-services__tab-indicator');
+
+      const setIndicator = (idx: number) => {
+        if (!indicator) return;
+        indicator.style.transform = `translateX(${idx * 100}%)`;
+        indicator.style.width = `calc((100% - 12px) / ${tabs.length})`;
+      };
+
+      const activate = (idx: number) => {
+        tabs.forEach((t, i) => {
+          const active = i === idx;
+          t.classList.toggle('is-active', active);
+          t.setAttribute('aria-selected', active ? 'true' : 'false');
+          t.tabIndex = active ? 0 : -1;
+        });
+        panels.forEach((p, i) => {
+          const active = i === idx;
+          p.classList.toggle('is-active', active);
+          if (active) {
+            p.removeAttribute('hidden');
+          } else {
+            p.setAttribute('hidden', '');
+          }
+        });
+        setIndicator(idx);
+      };
+
+      // Initial indicator position
+      setIndicator(tabs.findIndex((t) => t.classList.contains('is-active')) || 0);
+
+      tabs.forEach((tab, i) => {
+        tab.addEventListener('click', () => activate(i));
+        tab.addEventListener('keydown', (e: KeyboardEvent) => {
+          if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+            e.preventDefault();
+            const dir = e.key === 'ArrowRight' ? 1 : -1;
+            const next = (i + dir + tabs.length) % tabs.length;
+            tabs[next].focus();
+            activate(next);
+          }
+        });
+      });
+    }
+
+    /* ----- Hero parallax tilt + bg parallax ----- */
+    if (!reduced) {
+      const hero = document.querySelector<HTMLElement>('[data-hero]');
+      const tilt = document.querySelector<HTMLElement>('[data-tilt] .bbg-hero__preview-frame');
+      const bg = document.querySelector<HTMLElement>('[data-parallax-bg]');
+
+      if (hero && tilt) {
+        let raf = 0;
+        let mx = 0, my = 0;
+        let cx = 0, cy = 0;
+        const onMove = (e: MouseEvent) => {
+          const rect = hero.getBoundingClientRect();
+          mx = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
+          my = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
+          if (!raf) raf = requestAnimationFrame(loop);
+        };
+        const onLeave = () => { mx = 0; my = 0; if (!raf) raf = requestAnimationFrame(loop); };
+        const loop = () => {
+          cx += (mx - cx) * 0.08;
+          cy += (my - cy) * 0.08;
+          tilt.style.setProperty('--tilt-x', `${(-cx * 5).toFixed(2)}deg`);
+          tilt.style.setProperty('--tilt-y', `${(cy * 4).toFixed(2)}deg`);
+          if (Math.abs(mx - cx) > 0.001 || Math.abs(my - cy) > 0.001) {
+            raf = requestAnimationFrame(loop);
+          } else {
+            raf = 0;
+          }
+        };
+        hero.addEventListener('mousemove', onMove);
+        hero.addEventListener('mouseleave', onLeave);
+      }
+
+      if (bg) {
+        const onScroll = () => {
+          const rect = bg.getBoundingClientRect();
+          const offset = Math.max(-200, Math.min(200, rect.top * -0.18));
+          (bg as HTMLElement).style.setProperty('--parallax-y', `${offset}px`);
+        };
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+      }
+    }
+
+    /* ----- Magnetic CTA ----- */
+    if (!reduced) {
+      const magnets = document.querySelectorAll<HTMLElement>('[data-magnet]');
+      magnets.forEach((m) => {
+        m.addEventListener('mousemove', (e: MouseEvent) => {
+          const rect = m.getBoundingClientRect();
+          const x = e.clientX - rect.left - rect.width / 2;
+          const y = e.clientY - rect.top - rect.height / 2;
+          m.style.setProperty('--x', `${(x * 0.18).toFixed(1)}px`);
+          m.style.setProperty('--y', `${(y * 0.18).toFixed(1)}px`);
+        });
+        m.addEventListener('mouseleave', () => {
+          m.style.setProperty('--x', '0px');
+          m.style.setProperty('--y', '0px');
+        });
+      });
+    }
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+</script>

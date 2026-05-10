@@ -121,74 +121,185 @@ const description = 'Independent agencies, shared leadership, shared production 
     </div>
   </section>
 
-  <section class="section">
+  <section class="section draws-section">
     <div class="container">
       <header class="section-header">
         <span class="eyebrow">What every agency draws from</span>
-        <h2 class="balance">Three things shared across the group.</h2>
+        <h2 class="balance">Four things shared across the group.</h2>
+        <p class="lead">Independent agencies upstairs, shared spine downstairs. None of these is billed twice.</p>
       </header>
-      <div class="grid-3">
-        <article class="card">
-          <h3 class="card__title">Leadership</h3>
-          <p>
-            Cyril Drouin sets strategy across the six agencies. Twenty-five years across Europe and North
-            Asia, former Chief Digital Officer for Publicis North Asia.
+
+      <ol class="draws-grid" data-draws>
+        <li class="draws-card draws-card--engine" style="--i: 0;">
+          <span class="draws-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3l1.8 5.4L19 10l-5.2 1.6L12 17l-1.8-5.4L5 10l5.2-1.6L12 3z" />
+              <path d="M19 4l.4 1.2L20.6 5.6l-1.2.4L19 7.2l-.4-1.2L17.4 5.6l1.2-.4L19 4z" />
+              <path d="M5 17l.4 1.2L6.6 18.6l-1.2.4L5 20.2l-.4-1.2L3.4 18.6l1.2-.4L5 17z" />
+            </svg>
+          </span>
+          <span class="draws-card__tag">Engine</span>
+          <h3 class="draws-card__title">HubStudio. The content engine.</h3>
+          <p class="draws-card__body">
+            AIGC image, video, copy, design, motion. Every brief that needs production runs through this layer.
+            Cost stays competitive even at the volume Chinese channels demand.
           </p>
-        </article>
-        <article class="card">
-          <h3 class="card__title">HubStudio content production engine</h3>
-          <p>
-            Every agency draws on the same AI-native production engine. Three RedNote posts a week, five
-            LinkedIn carousels a week, same per-output cost.
+          <ul class="draws-card__chips" role="list">
+            <li>Image</li>
+            <li>Video</li>
+            <li>Copy</li>
+            <li>Design</li>
+            <li>Motion</li>
+          </ul>
+        </li>
+
+        <li class="draws-card draws-card--ops" style="--i: 1;">
+          <span class="draws-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="8" height="8" rx="1.6" />
+              <rect x="13" y="3" width="8" height="8" rx="1.6" />
+              <rect x="3" y="13" width="8" height="8" rx="1.6" />
+              <rect x="13" y="13" width="8" height="8" rx="1.6" />
+            </svg>
+          </span>
+          <span class="draws-card__tag">Back office</span>
+          <h3 class="draws-card__title">Admin, Finance, IT, HR.</h3>
+          <p class="draws-card__body">
+            The unsexy parts of running an agency, mutualised across the group. Run once for seven agencies,
+            not seven times. Every founder's headache, removed from every founder.
           </p>
-        </article>
-        <article class="card">
-          <h3 class="card__title">Coordinated account management</h3>
-          <p>
-            Use two or more agencies and one director coordinates. One brief, one report, no lost context.
+          <ul class="draws-card__chips" role="list">
+            <li>Admin</li>
+            <li>Finance</li>
+            <li>IT</li>
+            <li>HR</li>
+          </ul>
+        </li>
+
+        <li class="draws-card draws-card--voice" style="--i: 2;">
+          <span class="draws-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22a10 10 0 110-20c5.5 0 9 3.5 9 8 0 3-2 5-5 5h-2a2 2 0 100 4 2 2 0 01-2 2z" />
+              <circle cx="7.5" cy="11.5" r="1.2" fill="currentColor" stroke="none" />
+              <circle cx="9.5" cy="7.5" r="1.2" fill="currentColor" stroke="none" />
+              <circle cx="14.5" cy="6.5" r="1.2" fill="currentColor" stroke="none" />
+              <circle cx="17" cy="9.5" r="1.2" fill="currentColor" stroke="none" />
+            </svg>
+          </span>
+          <span class="draws-card__tag">Creative</span>
+          <h3 class="draws-card__title">One voice across agencies.</h3>
+          <p class="draws-card__body">
+            When a brief crosses two or more agencies (most do), group creative direction keeps the work in one
+            voice. Same brand on Tmall and on RedNote. Same tone on a Western LinkedIn page and a French Google
+            Ads landing.
           </p>
-        </article>
-      </div>
+          <ul class="draws-card__chips" role="list">
+            <li>Brand</li>
+            <li>Tone</li>
+            <li>Visual</li>
+            <li>Copy</li>
+          </ul>
+        </li>
+
+        <li class="draws-card draws-card--lead" style="--i: 3;">
+          <span class="draws-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="8" r="4" />
+              <path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8" />
+            </svg>
+          </span>
+          <span class="draws-card__tag">Leadership</span>
+          <h3 class="draws-card__title">Group leadership across the seven.</h3>
+          <p class="draws-card__body">
+            Each agency runs under its own senior lead. Group leadership coordinates strategy, hiring, and
+            direction across all seven, so a brief that crosses agencies still has one accountable owner and
+            one shared playbook.
+          </p>
+          <ul class="draws-card__chips" role="list">
+            <li>Strategy</li>
+            <li>Direction</li>
+            <li>Cross-agency oversight</li>
+          </ul>
+        </li>
+      </ol>
     </div>
   </section>
 
-  <section class="section section--alt">
+  <section class="section section--alt playbook-section">
     <div class="container">
       <header class="section-header">
         <span class="eyebrow">In practice</span>
-        <h2 class="balance">How combinations work.</h2>
+        <h2 class="balance">Four ways the agencies stack up.</h2>
+        <p class="lead">Same brief, different mix. Pick the pattern closest to yours.</p>
       </header>
-      <div class="grid-2">
-        <article class="card">
-          <h3 class="card__title">The inbound full stack</h3>
-          <p>
-            BeyondBorderGroup as lead, with TheRedScroll running social, ChinaWebFoundry running web, HubStudio
-            producing content. One client. One pipeline. One number to measure against.
+
+      <ol class="playbooks" data-playbooks>
+        <li class="playbook playbook--inbound" style="--i: 0;">
+          <span class="playbook__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="12 3 21 7.5 12 12 3 7.5 12 3" />
+              <polyline points="3 12 12 16.5 21 12" />
+              <polyline points="3 16.5 12 21 21 16.5" />
+            </svg>
+          </span>
+          <span class="playbook__tag">Lead · BeyondBorderGroup</span>
+          <h3 class="playbook__title">The inbound full stack.</h3>
+          <p class="playbook__copy">
+            BeyondBorderGroup runs the brief, with TheRedScroll on social, ChinaWebFoundry on web,
+            BeyondCompass for distribution, HubStudio producing the content. One client. One pipeline.
+            One number to measure against.
           </p>
-        </article>
-        <article class="card">
-          <h3 class="card__title">The outbound full stack</h3>
-          <p>
-            BeyondBridge as lead, with Nuvora Studio running LinkedIn, ChinaWebFoundry building the Western-facing
-            website, HubStudio producing content. Sales reps in-market handle the closing call.
+        </li>
+
+        <li class="playbook playbook--outbound" style="--i: 1;">
+          <span class="playbook__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="9" />
+              <path d="M3 12h18" />
+              <path d="M12 3a14 14 0 010 18" />
+              <path d="M12 3a14 14 0 000 18" />
+            </svg>
+          </span>
+          <span class="playbook__tag">Lead · BeyondBridge</span>
+          <h3 class="playbook__title">The outbound full stack.</h3>
+          <p class="playbook__copy">
+            BeyondBridge runs the brief, with Nuvora Studio on LinkedIn, ChinaWebFoundry building the
+            Western-facing website, HubStudio producing the content. Named in-market sales reps in the US,
+            UK, Germany, and France handle the closing call.
           </p>
-        </article>
-        <article class="card">
-          <h3 class="card__title">The horizontal-only client</h3>
-          <p>
-            A US B2B SaaS company that just wants LinkedIn run properly hires Nuvora directly. They never touch
-            the China side. A French retailer that needs 5,000 product images a quarter hires HubStudio directly.
-            They never touch the social side.
+        </li>
+
+        <li class="playbook playbook--horizontal" style="--i: 2;">
+          <span class="playbook__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="6" width="8" height="12" rx="1.6" />
+              <rect x="13" y="6" width="8" height="12" rx="1.6" />
+            </svg>
+          </span>
+          <span class="playbook__tag">Direct · No lead</span>
+          <h3 class="playbook__title">The horizontal-only client.</h3>
+          <p class="playbook__copy">
+            A US B2B SaaS company that just wants LinkedIn run properly hires Nuvora directly. They never
+            touch the China side. A French retailer that needs 5,000 product images a quarter hires HubStudio
+            directly. They never touch the social side.
           </p>
-        </article>
-        <article class="card">
-          <h3 class="card__title">The single-module client</h3>
-          <p>
+        </li>
+
+        <li class="playbook playbook--module" style="--i: 3;">
+          <span class="playbook__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="6" y="6" width="12" height="12" rx="2" />
+              <path d="M3 12h2M19 12h2M12 3v2M12 19v2" />
+            </svg>
+          </span>
+          <span class="playbook__tag">One agency only</span>
+          <h3 class="playbook__title">The single-module client.</h3>
+          <p class="playbook__copy">
             A Swiss watch brand that just wants its WordPress site to load in two seconds in Shanghai hires
             ChinaWebFoundry. Just that. Nothing else.
           </p>
-        </article>
-      </div>
+        </li>
+      </ol>
     </div>
   </section>
 
@@ -435,8 +546,366 @@ const description = 'Independent agencies, shared leadership, shared production 
     .matrix-grid__row--span .matrix-cell--span { grid-column: 1 / -1; }
   }
 
+  /* ---------- "What every agency draws from" cards ---------- */
+  .draws-section { position: relative; }
+  .draws-grid {
+    list-style: none;
+    margin: var(--space-6) 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-5);
+    perspective: 1400px;
+  }
+  @media (max-width: 880px) { .draws-grid { grid-template-columns: 1fr; } }
+
+  .draws-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    padding: var(--space-5);
+    background: linear-gradient(180deg, #ffffff 0%, #fafbfd 100%);
+    border: 1px solid rgba(15, 23, 42, 0.06);
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow:
+      0 1px 2px rgba(15, 23, 42, 0.04),
+      0 14px 34px -18px rgba(15, 23, 42, 0.14);
+    transform-style: preserve-3d;
+    will-change: transform;
+    opacity: 0;
+    transform: translateY(28px);
+    transition:
+      opacity 0.7s var(--ease),
+      transform 0.7s var(--ease),
+      box-shadow 0.4s var(--ease),
+      border-color 0.4s var(--ease);
+    transition-delay: calc(var(--i) * 0.10s);
+  }
+  .draws-grid.is-visible .draws-card { opacity: 1; transform: translateY(0); }
+  .draws-card:hover {
+    border-color: rgba(15, 23, 42, 0.12);
+    box-shadow:
+      0 2px 4px rgba(15, 23, 42, 0.05),
+      0 28px 56px -22px rgba(15, 23, 42, 0.20);
+  }
+  .draws-card::before {
+    content: '';
+    position: absolute; left: 0; right: 0; top: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--draws-from), var(--draws-to));
+    opacity: 0.9;
+  }
+
+  .draws-card--engine {
+    --draws-from: #5fb6e0; --draws-to: #1e7db0;
+    --draws-tag-color: #1e7db0; --draws-tag-bg: rgba(38, 154, 218, 0.10);
+    --draws-icon-glow: rgba(38, 154, 218, 0.35);
+    --draws-chip-bg: rgba(38, 154, 218, 0.10); --draws-chip-color: #1e7db0;
+  }
+  .draws-card--ops {
+    --draws-from: #6c7a90; --draws-to: #2d3a52;
+    --draws-tag-color: #2d3a52; --draws-tag-bg: rgba(60, 78, 110, 0.10);
+    --draws-icon-glow: rgba(60, 78, 110, 0.30);
+    --draws-chip-bg: rgba(60, 78, 110, 0.10); --draws-chip-color: #2d3a52;
+  }
+  .draws-card--voice {
+    --draws-from: #c8102e; --draws-to: #8a0a1d;
+    --draws-tag-color: #c8102e; --draws-tag-bg: rgba(200, 16, 46, 0.10);
+    --draws-icon-glow: rgba(200, 16, 46, 0.32);
+    --draws-chip-bg: rgba(200, 16, 46, 0.10); --draws-chip-color: #c8102e;
+  }
+  .draws-card--lead {
+    --draws-from: #1a1a1a; --draws-to: #404040;
+    --draws-tag-color: #1a1a1a; --draws-tag-bg: rgba(26, 26, 26, 0.08);
+    --draws-icon-glow: rgba(26, 26, 26, 0.30);
+    --draws-chip-bg: rgba(26, 26, 26, 0.06); --draws-chip-color: #1a1a1a;
+  }
+
+  .draws-card__icon {
+    display: inline-flex;
+    width: 60px; height: 60px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, var(--draws-from), var(--draws-to));
+    color: white;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 24px -10px var(--draws-icon-glow);
+    transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
+    margin-bottom: var(--space-1);
+  }
+  .draws-card__icon svg { width: 28px; height: 28px; }
+  .draws-card:hover .draws-card__icon {
+    transform: translateY(-2px) rotate(-3deg);
+    box-shadow: 0 16px 32px -12px var(--draws-icon-glow);
+  }
+
+  .draws-card__tag {
+    align-self: flex-start;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--draws-tag-color);
+    padding: 5px 12px;
+    border-radius: 999px;
+    background: var(--draws-tag-bg);
+  }
+  .draws-card__title {
+    font-size: 1.375rem;
+    font-weight: 600;
+    margin: 0;
+    color: var(--bbg-ink);
+    letter-spacing: -0.015em;
+    line-height: 1.25;
+  }
+  .draws-card__body {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--bbg-text);
+    margin: 0;
+    flex-grow: 1;
+  }
+  .draws-card__chips {
+    list-style: none; margin: var(--space-2) 0 0; padding: 0;
+    display: flex; flex-wrap: wrap; gap: 8px;
+  }
+  .draws-card__chips li {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    padding: 5px 11px;
+    border-radius: 999px;
+    background: var(--draws-chip-bg);
+    color: var(--draws-chip-color);
+  }
+
+  /* ---------- "In practice" playbook cards ---------- */
+  .playbook-section { position: relative; }
+
+  .playbooks {
+    list-style: none;
+    margin: var(--space-6) 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-5);
+    perspective: 1400px;
+  }
+  @media (max-width: 880px) { .playbooks { grid-template-columns: 1fr; } }
+
+  .playbook {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    padding: var(--space-5);
+    background: linear-gradient(180deg, #ffffff 0%, #fafbfd 100%);
+    border: 1px solid rgba(15, 23, 42, 0.06);
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow:
+      0 1px 2px rgba(15, 23, 42, 0.04),
+      0 14px 34px -18px rgba(15, 23, 42, 0.14);
+    transform-style: preserve-3d;
+    will-change: transform;
+    opacity: 0;
+    transform: translateY(28px);
+    transition:
+      opacity 0.7s var(--ease),
+      transform 0.7s var(--ease),
+      box-shadow 0.4s var(--ease),
+      border-color 0.4s var(--ease);
+    transition-delay: calc(var(--i) * 0.10s);
+  }
+  .playbooks.is-visible .playbook { opacity: 1; transform: translateY(0); }
+  .playbook:hover {
+    border-color: rgba(15, 23, 42, 0.12);
+    box-shadow:
+      0 2px 4px rgba(15, 23, 42, 0.05),
+      0 28px 56px -22px rgba(15, 23, 42, 0.20);
+  }
+  .playbook::before {
+    content: '';
+    position: absolute; left: 0; right: 0; top: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--pb-from, #5fb6e0), var(--pb-to, #1e7db0));
+    opacity: 0.9;
+  }
+
+  .playbook--inbound {
+    --pb-from: #5fb6e0; --pb-to: #1e7db0;
+    --pb-tag-color: #1e7db0; --pb-tag-bg: rgba(38, 154, 218, 0.10);
+    --pb-icon-glow: rgba(38, 154, 218, 0.35);
+  }
+  .playbook--outbound {
+    --pb-from: #ff7a8a; --pb-to: #c8102e;
+    --pb-tag-color: #c8102e; --pb-tag-bg: rgba(200, 16, 46, 0.10);
+    --pb-icon-glow: rgba(200, 16, 46, 0.32);
+  }
+  .playbook--horizontal {
+    --pb-from: #9a3a8a; --pb-to: #5fb6e0;
+    --pb-tag-color: #6b2c63; --pb-tag-bg: rgba(154, 58, 138, 0.10);
+    --pb-icon-glow: rgba(154, 58, 138, 0.30);
+  }
+  .playbook--module {
+    --pb-from: #2d3a52; --pb-to: #6c7a90;
+    --pb-tag-color: #2d3a52; --pb-tag-bg: rgba(60, 78, 110, 0.10);
+    --pb-icon-glow: rgba(60, 78, 110, 0.30);
+  }
+
+  .playbook__icon {
+    display: inline-flex;
+    width: 60px; height: 60px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, var(--pb-from), var(--pb-to));
+    color: white;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 24px -10px var(--pb-icon-glow);
+    transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
+    margin-bottom: var(--space-1);
+  }
+  .playbook__icon svg { width: 28px; height: 28px; }
+  .playbook:hover .playbook__icon {
+    transform: translateY(-2px) rotate(-3deg);
+    box-shadow: 0 16px 32px -12px var(--pb-icon-glow);
+  }
+
+  .playbook__tag {
+    align-self: flex-start;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--pb-tag-color);
+    padding: 5px 12px;
+    border-radius: 999px;
+    background: var(--pb-tag-bg);
+  }
+  .playbook__title {
+    font-size: 1.4375rem;
+    font-weight: 600;
+    margin: 0;
+    color: var(--bbg-ink);
+    letter-spacing: -0.015em;
+    line-height: 1.25;
+  }
+  .playbook__copy {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--bbg-text);
+    margin: 0;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .hero-image__bg { animation: none; transform: scale(1.05); }
     .matrix-cell__bridge-dot { animation: none; }
+    .playbook, .draws-card { opacity: 1; transform: none; transition: none; }
   }
 </style>
+
+<script>
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Shared scroll-reveal + 3D-tilt for any grid: pass the wrapper that has [data-*] attribute
+  // and the selector for cards inside it.
+  function wireGrid(grid: HTMLElement | null, cardSelector: string) {
+    if (!grid) return;
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver(
+        (entries) => {
+          for (const e of entries) {
+            if (e.isIntersecting) {
+              (e.target as HTMLElement).classList.add('is-visible');
+              io.unobserve(e.target);
+            }
+          }
+        },
+        { threshold: 0.15, rootMargin: '0px 0px -8% 0px' },
+      );
+      io.observe(grid);
+    } else {
+      grid.classList.add('is-visible');
+    }
+    if (!reduceMotion) {
+      grid.querySelectorAll<HTMLElement>(cardSelector).forEach((card) => {
+        let raf = 0;
+        const onMove = (ev: MouseEvent) => {
+          const r = card.getBoundingClientRect();
+          const x = (ev.clientX - r.left) / r.width;
+          const y = (ev.clientY - r.top) / r.height;
+          const rx = (0.5 - y) * 4;
+          const ry = (x - 0.5) * 4;
+          cancelAnimationFrame(raf);
+          raf = requestAnimationFrame(() => {
+            card.style.transform = `translateY(0) rotateX(${rx}deg) rotateY(${ry}deg)`;
+          });
+        };
+        const onLeave = () => {
+          cancelAnimationFrame(raf);
+          card.style.transform = '';
+        };
+        card.addEventListener('mousemove', onMove);
+        card.addEventListener('mouseleave', onLeave);
+      });
+    }
+  }
+
+  wireGrid(document.querySelector<HTMLElement>('[data-draws]'), '.draws-card');
+
+  // Reveal "In practice" playbooks on scroll (single observer, animates the whole grid in sequence).
+  const playbooks = document.querySelector<HTMLElement>('[data-playbooks]');
+  if (playbooks) {
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver(
+        (entries) => {
+          for (const e of entries) {
+            if (e.isIntersecting) {
+              (e.target as HTMLElement).classList.add('is-visible');
+              io.unobserve(e.target);
+            }
+          }
+        },
+        { threshold: 0.15, rootMargin: '0px 0px -8% 0px' },
+      );
+      io.observe(playbooks);
+    } else {
+      playbooks.classList.add('is-visible');
+    }
+
+    // 3D tilt + diagram parallax on hover
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reduceMotion) {
+      const cards = playbooks.querySelectorAll<HTMLElement>('.playbook');
+      cards.forEach((card) => {
+        const diagram = card.querySelector<HTMLElement>('.playbook__diagram');
+        let raf = 0;
+        const onMove = (ev: MouseEvent) => {
+          const r = card.getBoundingClientRect();
+          const x = (ev.clientX - r.left) / r.width;
+          const y = (ev.clientY - r.top) / r.height;
+          const rx = (0.5 - y) * 4;
+          const ry = (x - 0.5) * 4;
+          cancelAnimationFrame(raf);
+          raf = requestAnimationFrame(() => {
+            card.style.transform = `translateY(0) rotateX(${rx}deg) rotateY(${ry}deg)`;
+            if (diagram) {
+              const px = (x - 0.5) * 8;
+              const py = (y - 0.5) * 8;
+              diagram.style.setProperty('background-position', `calc(50% + ${px}px) calc(50% + ${py}px)`);
+            }
+          });
+        };
+        const onLeave = () => {
+          cancelAnimationFrame(raf);
+          card.style.transform = '';
+          if (diagram) diagram.style.removeProperty('background-position');
+        };
+        card.addEventListener('mousemove', onMove);
+        card.addEventListener('mouseleave', onLeave);
+      });
+    }
+  }
+</script>
