@@ -1,0 +1,158 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const locale = 'en' as const;
+const title = 'Privacy';
+const description = 'How BeyondBorderGroup handles the information you share with us.';
+---
+
+<Layout locale={locale} route="privacy" title={title} description={description}>
+  <section class="legal-hero">
+    <div class="container container--narrow">
+      <span class="eyebrow">Legal</span>
+      <h1 class="legal-hero__title balance">Privacy</h1>
+      <p class="lead">How BeyondBorderGroup handles the information you share with us.</p>
+      <p class="legal-meta">Last updated 10 May 2026</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container container--narrow legal-prose">
+      <h2>Who we are</h2>
+      <p>
+        BeyondBorderGroup Ltd is a company registered in Hong Kong. We are the holding entity for a group
+        of cross-border agencies, including BeyondBorderGroup, BeyondBridge, TheRedScroll, ChinaWebFoundry,
+        BeyondCompass, HubStudio, and Nuvora Studio. This policy covers beyondbordergroup.com and the data
+        we collect through it. Each agency may publish its own policy on its own site.
+      </p>
+
+      <h2>What we collect</h2>
+      <p>
+        Two kinds of data. The first is information you give us directly. When you fill in the contact
+        form, ask for a proposal, or work with us on a project, we keep what you share: name, email, phone,
+        company, the brief you describe, and anything you choose to add.
+      </p>
+      <p>
+        The second is information your browser leaves behind during a visit. Standard server logs (IP
+        address, user agent, time of visit, pages viewed), and a small set of cookies described in our
+        Cookie Policy.
+      </p>
+
+      <h2>How we use it</h2>
+      <p>We use what you give us to:</p>
+      <ul>
+        <li>answer your inquiry and follow up on it,</li>
+        <li>deliver the work you have hired us for,</li>
+        <li>operate and improve the site,</li>
+        <li>send marketing only when you have asked for it, and stop when you ask us to stop,</li>
+        <li>handle invoicing and contracts,</li>
+        <li>meet our legal and tax obligations.</li>
+      </ul>
+      <p>
+        Server logs and cookies are aggregated for performance and traffic patterns. They are not tied
+        to individual visitors and we do not try to combine them with the personal data above.
+      </p>
+
+      <h2>Sharing</h2>
+      <p>
+        We do not sell your personal data. We do not rent it. The people who see it are the BBG team, the
+        relevant agency team inside the group, and the small number of vendors we use to run the business
+        (email, hosting, accounting, payments, video calls). Those vendors are bound by confidentiality
+        agreements and by their own privacy terms. We will hand over data when a court or regulator with
+        proper jurisdiction asks us to, and not otherwise.
+      </p>
+
+      <h2>Security</h2>
+      <p>
+        We run reasonable technical and organizational measures: encrypted transit, access controls,
+        vendors with comparable standards. No system on the open internet is perfectly safe, and we will
+        not pretend ours is. If we suffer a breach that affects your data, we will notify you and the
+        regulator as required by law.
+      </p>
+
+      <h2>Your rights</h2>
+      <p>You can ask us to:</p>
+      <ul>
+        <li>show you what we hold on you,</li>
+        <li>correct it if it is wrong,</li>
+        <li>delete it, when no contract or law requires us to keep it,</li>
+        <li>stop using it for marketing,</li>
+        <li>withdraw a consent you previously gave.</li>
+      </ul>
+      <p>
+        Email <a href="mailto:hello@beyondbordergroup.com">hello@beyondbordergroup.com</a>. We aim to
+        reply within 30 days. If you are unhappy with our reply, the Hong Kong Privacy Commissioner is
+        the regulator who oversees us under the Personal Data (Privacy) Ordinance.
+      </p>
+
+      <h2>Children</h2>
+      <p>
+        This site is built for businesses. We do not knowingly collect personal data from anyone under
+        16. If you believe a child has sent us data, write to us and we will delete it.
+      </p>
+
+      <h2>Third-party sites</h2>
+      <p>
+        We link to other sites: agency sites in our group, partner pages, social platforms. Once you
+        click out, the rules of those sites apply, not ours.
+      </p>
+
+      <h2>Changes</h2>
+      <p>
+        We may revise this policy. The date at the top tells you when. Material changes will be flagged
+        on the site so you can read them before you decide what to do.
+      </p>
+
+      <h2>Contact</h2>
+      <p>
+        BeyondBorderGroup Ltd<br />
+        Hong Kong SAR<br />
+        <a href="mailto:hello@beyondbordergroup.com">hello@beyondbordergroup.com</a>
+      </p>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .legal-hero {
+    padding: clamp(5rem, 12vh, 8rem) 0 clamp(2rem, 5vh, 3.5rem);
+    background: var(--bbg-surface);
+    border-bottom: 1px solid var(--bbg-border);
+  }
+  .legal-hero__title {
+    font-size: clamp(2.25rem, 4vw + 0.5rem, 3.25rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin: var(--space-3) 0 var(--space-4);
+    color: var(--bbg-ink);
+    font-weight: 600;
+  }
+  .legal-meta {
+    margin-top: var(--space-4);
+    font-size: var(--fs-small);
+    color: var(--bbg-text-muted);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .legal-prose h2 {
+    font-size: 1.375rem;
+    font-weight: 600;
+    margin: var(--space-6) 0 var(--space-3);
+    color: var(--bbg-ink);
+  }
+  .legal-prose h2:first-child { margin-top: 0; }
+  .legal-prose p,
+  .legal-prose ul {
+    margin: 0 0 var(--space-3);
+    line-height: 1.65;
+    color: var(--bbg-text);
+  }
+  .legal-prose ul { padding-left: 1.25rem; }
+  .legal-prose li { margin-bottom: var(--space-1); }
+  .legal-prose a {
+    color: var(--bbg-blue);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .legal-prose a:hover { text-decoration-thickness: 2px; }
+</style>

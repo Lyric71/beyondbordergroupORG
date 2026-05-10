@@ -33,7 +33,10 @@ export type Route =
   | 'agencies/hubstudio'
   | 'agencies/nuvora-studio'
   | 'how-we-work-together'
-  | 'contact';
+  | 'contact'
+  | 'privacy'
+  | 'terms'
+  | 'cookies';
 
 const routePaths: Record<Route, string> = {
   home: '',
@@ -51,6 +54,9 @@ const routePaths: Record<Route, string> = {
   'agencies/nuvora-studio': 'agencies/nuvora-studio/',
   'how-we-work-together': 'how-we-work-together/',
   contact: 'contact/',
+  privacy: 'privacy/',
+  terms: 'terms/',
+  cookies: 'cookies/',
 };
 
 export function pathFor(route: Route, locale: Locale): string {

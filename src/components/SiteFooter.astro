@@ -73,9 +73,9 @@ const discover = [
     <div class="site-footer__bottom">
       <span>{ui.footer.offices}</span>
       <span>
-        <a href={`${pathFor('home', locale)}#privacy`}>{ui.footer.privacy}</a>
-        <a href={`${pathFor('home', locale)}#terms`}>{ui.footer.terms}</a>
-        <a href={`${pathFor('home', locale)}#cookies`}>{ui.footer.cookies}</a>
+        <a href={pathFor('privacy', 'en')}>{ui.footer.privacy}</a>
+        <a href={pathFor('terms', 'en')}>{ui.footer.terms}</a>
+        <a href={pathFor('cookies', 'en')}>{ui.footer.cookies}</a>
         {ui.footer.rights}
       </span>
     </div>

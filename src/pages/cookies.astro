@@ -1,0 +1,125 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const locale = 'en' as const;
+const title = 'Cookies';
+const description = 'What this site stores on your device, and what you can do about it.';
+---
+
+<Layout locale={locale} route="cookies" title={title} description={description}>
+  <section class="legal-hero">
+    <div class="container container--narrow">
+      <span class="eyebrow">Legal</span>
+      <h1 class="legal-hero__title balance">Cookies</h1>
+      <p class="lead">What this site stores on your device, and what you can do about it.</p>
+      <p class="legal-meta">Last updated 10 May 2026</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container container--narrow legal-prose">
+      <h2>What cookies are</h2>
+      <p>
+        Cookies are small text files a website asks your browser to keep. They help the site remember
+        things between pages, between visits, and between devices. Some are written by us. Some are
+        written by services we embed.
+      </p>
+
+      <h2>What we use</h2>
+      <p>
+        <strong>Strictly necessary.</strong> A small number of cookies that keep the site working:
+        session, security, the language you picked. You cannot turn these off and still use the site.
+      </p>
+      <p>
+        <strong>Functional.</strong> Cookies that remember your preferences across pages, such as the
+        locale you chose or accessibility settings.
+      </p>
+      <p>
+        <strong>Analytics.</strong> We measure traffic patterns and page performance with a
+        privacy-focused analytics tool. It does not build cross-site profiles. It does not sell your
+        data to advertisers. The numbers we look at are aggregated and tied to no individual.
+      </p>
+      <p>
+        <strong>Marketing.</strong> None at the moment. If we ever add retargeting or audience pixels,
+        we will update this page first and ask before we set them.
+      </p>
+
+      <h2>Third-party cookies</h2>
+      <p>
+        Some pages embed video, maps, or social media. When they do, those services may set their own
+        cookies under their own policies. We list the embeds in plain language on the pages where they
+        appear. Once they load, what they do is up to them.
+      </p>
+
+      <h2>Managing cookies</h2>
+      <p>
+        Every modern browser lets you view, block, or delete cookies. The path is in the browser's
+        settings, usually under Privacy. Blocking strictly necessary cookies will break the site; the
+        rest you can turn off without losing access to anything.
+      </p>
+
+      <h2>Legal basis</h2>
+      <p>
+        We rely on the Hong Kong Personal Data (Privacy) Ordinance, and where it applies, equivalent
+        rules in your country. For non-essential cookies in the EU and UK, we ask for consent before
+        we set them.
+      </p>
+
+      <h2>Changes</h2>
+      <p>
+        We will revise this page when what we collect changes. The date at the top tells you when.
+      </p>
+
+      <h2>Contact</h2>
+      <p>
+        BeyondBorderGroup Ltd<br />
+        Hong Kong SAR<br />
+        <a href="mailto:hello@beyondbordergroup.com">hello@beyondbordergroup.com</a>
+      </p>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .legal-hero {
+    padding: clamp(5rem, 12vh, 8rem) 0 clamp(2rem, 5vh, 3.5rem);
+    background: var(--bbg-surface);
+    border-bottom: 1px solid var(--bbg-border);
+  }
+  .legal-hero__title {
+    font-size: clamp(2.25rem, 4vw + 0.5rem, 3.25rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin: var(--space-3) 0 var(--space-4);
+    color: var(--bbg-ink);
+    font-weight: 600;
+  }
+  .legal-meta {
+    margin-top: var(--space-4);
+    font-size: var(--fs-small);
+    color: var(--bbg-text-muted);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .legal-prose h2 {
+    font-size: 1.375rem;
+    font-weight: 600;
+    margin: var(--space-6) 0 var(--space-3);
+    color: var(--bbg-ink);
+  }
+  .legal-prose h2:first-child { margin-top: 0; }
+  .legal-prose p,
+  .legal-prose ul {
+    margin: 0 0 var(--space-3);
+    line-height: 1.65;
+    color: var(--bbg-text);
+  }
+  .legal-prose ul { padding-left: 1.25rem; }
+  .legal-prose li { margin-bottom: var(--space-1); }
+  .legal-prose a {
+    color: var(--bbg-blue);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .legal-prose a:hover { text-decoration-thickness: 2px; }
+</style>
