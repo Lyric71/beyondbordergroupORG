@@ -1,6 +1,9 @@
 ---
-import { type Locale, pathFor, t, localeShort } from '../i18n/ui';
+import { type Locale, pathFor, t, localeNames } from '../i18n/ui';
 import AgencyLogo from './AgencyLogo.astro';
+import LocaleFlag from './LocaleFlag.astro';
+
+const langs: Locale[] = ['en', 'fr', 'es', 'de', 'zh'];
 
 interface Props {
   locale: Locale;
@@ -11,19 +14,19 @@ const { locale, current } = Astro.props;
 const ui = t(locale);
 
 const ourWay = [
-  { route: 'bridge' as const, label: ui.nav.bridge, desc: 'The cross-border thesis. Why this group exists.', mod: 'bridge' as const },
-  { route: 'two-flows' as const, label: ui.nav.flowsLabel, desc: 'One bridge, two directions. Inbound and outbound, both on one page.', mod: 'flows' as const },
-  { route: 'how-we-work-together' as const, label: ui.nav.howWeWork, desc: 'How a project actually runs.', mod: 'method' as const },
+  { route: 'bridge' as const, label: ui.nav.bridge, desc: ui.nav.bridgeItemDesc, mod: 'bridge' as const },
+  { route: 'two-flows' as const, label: ui.nav.flowsLabel, desc: ui.nav.flowsItemDesc, mod: 'flows' as const },
+  { route: 'how-we-work-together' as const, label: ui.nav.howWeWork, desc: ui.nav.howWeWorkItemDesc, mod: 'method' as const },
 ];
 
 const agencies = [
-  { route: 'agencies/beyondbordergroup' as const, title: 'BeyondBorderGroup', desc: 'Full-service China entry.' },
-  { route: 'agencies/theredscroll' as const, title: 'TheRedScroll', desc: 'Chinese social media specialist.' },
-  { route: 'agencies/chinawebfoundry' as const, title: 'ChinaWebFoundry', desc: 'Websites built for China.' },
-  { route: 'agencies/beyondcompass' as const, title: 'BeyondCompass', desc: 'Vetted China distributors and TPs.' },
-  { route: 'agencies/beyondbridge' as const, title: 'BeyondBridge', desc: 'Chinese brands, Western pipeline.' },
-  { route: 'agencies/hubstudio' as const, title: 'HubStudio', desc: 'Content production engine.' },
-  { route: 'agencies/nuvora-studio' as const, title: 'Nuvora Studio', desc: 'LinkedIn-only B2B.' },
+  { route: 'agencies/beyondbordergroup' as const, title: 'BeyondBorderGroup', desc: ui.nav.agencyDescs.beyondbordergroup },
+  { route: 'agencies/theredscroll' as const, title: 'TheRedScroll', desc: ui.nav.agencyDescs.theredscroll },
+  { route: 'agencies/chinawebfoundry' as const, title: 'ChinaWebFoundry', desc: ui.nav.agencyDescs.chinawebfoundry },
+  { route: 'agencies/beyondcompass' as const, title: 'BeyondCompass', desc: ui.nav.agencyDescs.beyondcompass },
+  { route: 'agencies/beyondbridge' as const, title: 'BeyondBridge', desc: ui.nav.agencyDescs.beyondbridge },
+  { route: 'agencies/hubstudio' as const, title: 'HubStudio', desc: ui.nav.agencyDescs.hubstudio },
+  { route: 'agencies/nuvora-studio' as const, title: 'Nuvora Studio', desc: ui.nav.agencyDescs.nuvoraStudio },
 ];
 
 const ourWayDesc = ui.nav.ourWayDesc;
@@ -62,7 +65,7 @@ const isAgenciesActive = !!current && (current === 'agencies' || current.startsW
                   <h3>{ui.nav.ourWay}</h3>
                   <p>{ourWayDesc}</p>
                 </div>
-                <span class="mega__lead-meta"><span class="dot" aria-hidden="true"></span>From thinking to shipping</span>
+                <span class="mega__lead-meta"><span class="dot" aria-hidden="true"></span>{ui.nav.ourWayMeta}</span>
               </div>
               <div class="mega__items">
                 {ourWay.map((f, i) => (
@@ -121,7 +124,7 @@ const isAgenciesActive = !!current && (current === 'agencies' || current.startsW
                   <h3>{ui.nav.agencies}</h3>
                   <p>{agenciesDesc}</p>
                 </div>
-                <span class="mega__lead-meta"><span class="dot" aria-hidden="true"></span>{agencies.length} specialist studios</span>
+                <span class="mega__lead-meta"><span class="dot" aria-hidden="true"></span>{ui.nav.specialistStudios(agencies.length)}</span>
               </div>
               <div class="mega__items mega__items--agencies">
                 {agencies.map((a, i) => (
@@ -138,9 +141,9 @@ const isAgenciesActive = !!current && (current === 'agencies' || current.startsW
                 ))}
               </div>
               <div class="mega__footer">
-                <span>Each agency stands alone. Most clients start with one.</span>
+                <span>{ui.nav.agenciesStandAlone}</span>
                 <a class="mega__footer-link" href={pathFor('agencies', locale)}>
-                  View all agencies
+                  {ui.nav.viewAllAgencies}
                   <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                     <path d="M3 8h10" />
                     <path d="M9 4l4 4-4 4" />
@@ -155,11 +158,16 @@ const isAgenciesActive = !!current && (current === 'agencies' || current.startsW
 
     <div class="nav-right">
       <span class="lang-switch" aria-label="Language">
-        <a href={pathFor((current as any) ?? 'home', 'en')} aria-current={locale === 'en'}>{localeShort.en}</a>
-        <a href={pathFor((current as any) ?? 'home', 'fr')} aria-current={locale === 'fr'}>{localeShort.fr}</a>
-        <a href={pathFor((current as any) ?? 'home', 'es')} aria-current={locale === 'es'}>{localeShort.es}</a>
-        <a href={pathFor((current as any) ?? 'home', 'de')} aria-current={locale === 'de'}>{localeShort.de}</a>
-        <a href={pathFor((current as any) ?? 'home', 'zh')} aria-current={locale === 'zh'}>{localeShort.zh}</a>
+        {langs.map((l) => (
+          <a
+            href={pathFor((current as any) ?? 'home', l)}
+            aria-current={locale === l}
+            aria-label={localeNames[l]}
+            title={localeNames[l]}
+          >
+            <LocaleFlag locale={l} />
+          </a>
+        ))}
       </span>
       <a href={pathFor('contact', locale)} class="btn btn--primary btn--sm nav-right__cta">{ui.nav.contact}</a>
       <button
@@ -212,11 +220,16 @@ const isAgenciesActive = !!current && (current === 'agencies' || current.startsW
       </ul>
 
       <span class="lang-switch nav-mobile__lang" aria-label="Language">
-        <a href={pathFor((current as any) ?? 'home', 'en')} aria-current={locale === 'en'}>{localeShort.en}</a>
-        <a href={pathFor((current as any) ?? 'home', 'fr')} aria-current={locale === 'fr'}>{localeShort.fr}</a>
-        <a href={pathFor((current as any) ?? 'home', 'es')} aria-current={locale === 'es'}>{localeShort.es}</a>
-        <a href={pathFor((current as any) ?? 'home', 'de')} aria-current={locale === 'de'}>{localeShort.de}</a>
-        <a href={pathFor((current as any) ?? 'home', 'zh')} aria-current={locale === 'zh'}>{localeShort.zh}</a>
+        {langs.map((l) => (
+          <a
+            href={pathFor((current as any) ?? 'home', l)}
+            aria-current={locale === l}
+            aria-label={localeNames[l]}
+            title={localeNames[l]}
+          >
+            <LocaleFlag locale={l} />
+          </a>
+        ))}
       </span>
     </div>
   </nav>

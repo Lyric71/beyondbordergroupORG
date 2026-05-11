@@ -1,59 +1,183 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import ImagePlaceholder from '../../components/ImagePlaceholder.astro';
 import { pathFor } from '../../i18n/ui';
 
 const locale = 'de' as const;
 const title = 'Die Brücke';
-const description = "Was zwischen China und dem Westen liegt, ist keine Sprachbarriere. Es sind Marke, Kanäle, Infrastruktur, Suche und Vertrieb. Eine spezialisierte Gruppe, die genau um diesen Befund herum gebaut ist.";
+const description = 'Die Distanz zwischen China und dem Westen ist keine Sprachfrage. Sie ist eine Frage von Marke, Kanal, Infrastruktur, Suche und Vertrieb. Eine Spezialistengruppe, die genau darauf aufgebaut ist.';
 
 const gaps = [
-  { title: 'Die Marke', body: "Was im einen Markt Qualität signalisiert, signalisiert im anderen Unruhe. Chinesische Sites führen mit Zertifikaten, Partnerlogos, Auszeichnungen und Vertrauensnachweisen. Westliche Sites führen mit einer einzigen klaren Handlung und viel Weißraum drumherum. Jede Seite liest die andere als Stilbruch." },
-  { title: 'Der Kanal', body: "Der westliche B2B-Käufer beginnt bei LinkedIn. Der chinesische Konsument beginnt bei RED und WeChat. Welche Reihenfolge der Kanäle Sie wählen, wiegt mindestens so schwer wie die Botschaft, die Sie auf ihnen platzieren." },
-  { title: 'Die Infrastruktur', body: "Google indexiert westliche Sites. Baidu indexiert chinesische Sites. Andere Regeln, andere Server, andere Behördengänge. Außerhalb Chinas gehostet: lange Ladezeiten hinter der Firewall und gebrochene Plug-ins. Im Westen gehostet: keine ICP-Lizenz." },
-  { title: 'Die Suche', body: "ChatGPT, Perplexity und Gemini zitieren westliche Quellen. DeepSeek, Doubao und Kimi zitieren chinesische. Die neue Schicht im Kaufpfad – die KI als erste Anlaufstelle – ist bereits in zwei Welten geteilt." },
-  { title: 'Der Vertrieb', body: "Ein Käufer in Berlin um zehn Uhr braucht jemanden in Berlin. Ein Käufer in Shanghai um neun Uhr abends braucht jemanden auf WeChat. Bis Ihr Team in Shenzhen den Tag begonnen hat, hat der deutsche Käufer bereits drei Wettbewerber angeschrieben." },
+  {
+    icon: 'brand',
+    title: 'Marke',
+    west: 'Im Westen liest sich Qualität als Zurückhaltung. Eine Aussage, viel Luft drumherum.',
+    china: 'In China liest sich Qualität als Beleg. Auszeichnungen, Partner, Signale gleich nach vorn.',
+    summary: 'Jede Seite liest die andere als falsch.',
+  },
+  {
+    icon: 'content',
+    title: 'Content',
+    west: 'Käufer lesen, bevor sie entscheiden. Langform verdient das Meeting.',
+    china: 'Käufer schauen, bevor sie entscheiden. Kurzvideo verdient den Klick.',
+    summary: 'Das Format ist die Botschaft.',
+  },
+  {
+    icon: 'channel',
+    title: 'Kanal',
+    west: 'B2B beginnt auf LinkedIn. B2C beginnt auf Instagram, TikTok, YouTube.',
+    china: 'B2B beginnt auf WeChat und Maimai. B2C beginnt auf RedNote und Douyin.',
+    summary: 'B2B und B2C laufen über getrennte Netze, auf beiden Seiten.',
+  },
+  {
+    icon: 'commerce',
+    title: 'Handel',
+    west: 'Offene Schienen. Eigene Site, dann Amazon, dann Distributoren.',
+    china: 'Plattform-Schienen. Tmall, JD, Douyin, WeChat, Distributoren. Jede mit eigener Ökonomie.',
+    summary: 'Andere Schaufenster, andere Regeln.',
+  },
+  {
+    icon: 'web',
+    title: 'Web',
+    west: 'Offenes Web. Hosting überall, indexiert von Google.',
+    china: 'Eingezäuntes Web. Hosting im Land, ICP-Lizenz, indexiert von Baidu.',
+    summary: 'Zwei Indexe, zwei Infrastrukturen.',
+  },
+  {
+    icon: 'search',
+    title: 'Suche',
+    west: 'Westliche Modelle, westliche Quellen. ChatGPT, Perplexity, Gemini.',
+    china: 'Chinesische Modelle, chinesische Quellen. DeepSeek, Doubao, Kimi.',
+    summary: 'KI ist die erste Anlaufstelle, und sie ist bereits geteilt.',
+  },
 ];
 ---
 
 <Layout locale={locale} route="bridge" title={title} description={description}>
-  <section class="hero-editorial">
-    <div class="container">
-      <span class="eyebrow eyebrow--rule">Die Brücke</span>
-      <h1 class="hero-editorial__title balance">
-        Eine Brücke zwischen China und dem Westen, gebaut von Leuten, die auf beiden Ufern gearbeitet haben.
+  <section class="bridge-hero">
+    <div class="bridge-hero__bg" aria-hidden="true">
+      <svg viewBox="0 0 1600 600" preserveAspectRatio="xMidYMid slice" role="img" aria-hidden="true">
+        <defs>
+          <linearGradient id="bridge-cable" x1="0" x2="1" y1="0" y2="0">
+            <stop offset="0%" stop-color="#269ada" stop-opacity="0.95" />
+            <stop offset="50%" stop-color="#f4f1e6" stop-opacity="0.9" />
+            <stop offset="100%" stop-color="#c8102e" stop-opacity="0.95" />
+          </linearGradient>
+          <radialGradient id="bridge-glow-w" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#269ada" stop-opacity="0.32" />
+            <stop offset="100%" stop-color="#269ada" stop-opacity="0" />
+          </radialGradient>
+          <radialGradient id="bridge-glow-e" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#c8102e" stop-opacity="0.32" />
+            <stop offset="100%" stop-color="#c8102e" stop-opacity="0" />
+          </radialGradient>
+        </defs>
+
+        <ellipse cx="280" cy="430" rx="520" ry="220" fill="url(#bridge-glow-w)" />
+        <ellipse cx="1320" cy="430" rx="520" ry="220" fill="url(#bridge-glow-e)" />
+
+        <line x1="0" y1="430" x2="1600" y2="430" stroke="rgba(255,255,255,0.06)" stroke-width="1" />
+        <line x1="0" y1="448" x2="1600" y2="448" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
+        <line x1="0" y1="468" x2="1600" y2="468" stroke="rgba(255,255,255,0.025)" stroke-width="1" />
+
+        <path d="M 200 430 Q 800 60 1400 430" fill="none" stroke="url(#bridge-cable)" stroke-width="2" stroke-linecap="round" />
+
+        <g stroke="rgba(255,255,255,0.18)" stroke-width="1">
+          <line x1="280" y1="430" x2="280" y2="334" />
+          <line x1="380" y1="430" x2="380" y2="270" />
+          <line x1="480" y1="430" x2="480" y2="222" />
+          <line x1="580" y1="430" x2="580" y2="190" />
+          <line x1="680" y1="430" x2="680" y2="168" />
+          <line x1="800" y1="430" x2="800" y2="158" />
+          <line x1="920" y1="430" x2="920" y2="168" />
+          <line x1="1020" y1="430" x2="1020" y2="190" />
+          <line x1="1120" y1="430" x2="1120" y2="222" />
+          <line x1="1220" y1="430" x2="1220" y2="270" />
+          <line x1="1320" y1="430" x2="1320" y2="334" />
+        </g>
+
+        <g>
+          <line x1="200" y1="200" x2="200" y2="430" stroke="rgba(38,154,218,0.55)" stroke-width="2" />
+          <line x1="1400" y1="200" x2="1400" y2="430" stroke="rgba(200,16,46,0.55)" stroke-width="2" />
+          <circle cx="200" cy="430" r="4" fill="#269ada" />
+          <circle cx="1400" cy="430" r="4" fill="#c8102e" />
+        </g>
+
+        <text x="200" y="475" text-anchor="middle" fill="rgba(38,154,218,0.85)" font-family="Inter, sans-serif" font-size="11" letter-spacing="3">WESTEN</text>
+        <text x="1400" y="475" text-anchor="middle" fill="rgba(200,16,46,0.85)" font-family="Inter, sans-serif" font-size="11" letter-spacing="3">CHINA</text>
+      </svg>
+    </div>
+    <div class="bridge-hero__scrim" aria-hidden="true"></div>
+    <div class="container bridge-hero__content">
+      <span class="eyebrow eyebrow--on-dark">Die Brücke</span>
+      <h1 class="bridge-hero__title balance">
+        Die Brücke zwischen China und dem Westen, gebaut von Leuten, die auf beiden Seiten gearbeitet haben.
       </h1>
-      <p class="hero-editorial__lead">
-        Zwanzig Jahre in China. Zwanzig Jahre Vertrieb an westliche Käufer. Wir saßen in den Räumen, in denen
-        der westliche Vorstand fragt, warum der China-Launch nicht in die Spur kommt – und in den Räumen, in
-        denen der chinesische Fabrikinhaber fragt, warum die Leads aus Berlin nicht eintreffen. Dieselbe Frage.
-        Zwei Spiegel.
-      </p>
     </div>
   </section>
 
-  <section class="section section--alt">
+  <section class="section section--alt gap-section">
+    <div class="gap-section__bg" aria-hidden="true">
+      <span class="gap-section__blob gap-section__blob--w"></span>
+      <span class="gap-section__blob gap-section__blob--e"></span>
+    </div>
     <div class="container">
       <header class="section-header">
-        <span class="eyebrow">Der Spalt</span>
-        <h2 class="balance">Der Spalt ist nicht die Sprache. Darunter liegen fünf Schichten, die ihn tragen.</h2>
+        <span class="eyebrow">Die Kluft</span>
+        <h2 class="balance">Keine Sprachkluft. Sechs darunter.</h2>
         <p class="lead">
-          Ein Name, der in Shanghai zündet, kann in Frankfurt verpuffen. Ein Logo, das in China für Qualität
-          steht, kann in Chicago die falsche Kategorie signalisieren. Ein übersetzter Claim klingt in beiden
-          Richtungen schief.
+          Ein Name, der in Shanghai trägt, kann in Frankfurt verpuffen. Ein übersetzter Claim klingt schief, in
+          beide Richtungen.
         </p>
       </header>
-      <div class="grid-2">
-        {gaps.map((g) => (
-          <article class="card">
-            <h3 class="card__title">{g.title}</h3>
-            <p>{g.body}</p>
+      <div class="gaps">
+        {gaps.map((g, i) => (
+          <article class="gap-card" data-icon={g.icon} style={`--i: ${i};`}>
+            <div class="gap-card__inner">
+              <header class="gap-card__head">
+                <span class="gap-card__icon" aria-hidden="true">
+                  {g.icon === 'brand' && (
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="5" /><path d="m8.21 13.89-1.74 5.85L12 17l5.53 2.74-1.74-5.85" /></svg>
+                  )}
+                  {g.icon === 'content' && (
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2" /><path d="M9 8h6M9 12h6M9 16h4" /></svg>
+                  )}
+                  {g.icon === 'channel' && (
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5z" /></svg>
+                  )}
+                  {g.icon === 'commerce' && (
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" /><line x1="3" y1="6" x2="21" y2="6" /><path d="M16 10a4 4 0 0 1-8 0" /></svg>
+                  )}
+                  {g.icon === 'web' && (
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" /><line x1="2" y1="12" x2="22" y2="12" /><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" /></svg>
+                  )}
+                  {g.icon === 'search' && (
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" /><path d="M8 8l1 1M14 8l-1 1" /></svg>
+                  )}
+                </span>
+                <h3 class="gap-card__title">{g.title}</h3>
+              </header>
+
+              <div class="gap-card__split">
+                <div class="gap-card__side gap-card__side--w">
+                  <span class="gap-card__chip">Westen</span>
+                  <p class="gap-card__line">{g.west}</p>
+                </div>
+                <div class="gap-card__divider" aria-hidden="true">
+                  <span class="gap-card__vs">vs</span>
+                </div>
+                <div class="gap-card__side gap-card__side--e">
+                  <span class="gap-card__chip">China</span>
+                  <p class="gap-card__line">{g.china}</p>
+                </div>
+              </div>
+
+              <p class="gap-card__summary">{g.summary}</p>
+            </div>
           </article>
         ))}
       </div>
       <p class="lead" style="margin-top: var(--space-7);">
-        Jede Seite hat ihre eigene Infrastruktur. Jede Seite braucht ihr eigenes Spezialteam. Genau um diesen
-        Befund herum ist die Gruppe gebaut.
+        Jede Seite braucht ihr eigenes Spezialistenteam. Die Gruppe ist auf genau dieser Tatsache gebaut.
       </p>
     </div>
   </section>
@@ -61,77 +185,373 @@ const gaps = [
   <section class="section">
     <div class="container">
       <div class="split split--media-first">
-        <ImagePlaceholder ratio="4x5" label="Editorial-Diptychon. Ost und West, gespiegelt." />
+        <img
+          class="bridge-team-img"
+          src="https://www.theredscroll.com/images/team/china-office.png"
+          alt="Das Team im China-Büro bei der Arbeit."
+          loading="lazy"
+          decoding="async"
+        />
         <div class="prose">
-          <span class="eyebrow">Warum eine Gruppe und kein Generalist</span>
-          <h2 class="balance">Die meisten Agenturen lösen ein Stück. Wir betreiben die ganze Kette – in Stücken.</h2>
+          <span class="eyebrow">Warum eine Gruppe, keine Generalistin</span>
+          <h2 class="balance">Die meisten Agenturen lösen ein Teilstück. Wir laufen die ganze Kette ab, Stück für Stück.</h2>
           <p>
-            Eine Generalistenagentur, die behauptet, beides zu können, kann am Ende beides nicht richtig.
-            China-Spezialisten, die ein westliches Büro eröffnen, haben keine muttersprachlichen
-            Vertriebsleute in München. Westliche Spezialisten, die ein Büro in Shanghai aufmachen, haben kein
-            funktionierendes WeChat-Ads-Konto. Das Organigramm sagt ja, die Ausführung sagt nein.
+            Eine Generalistin, die beides macht, macht meist beides schlecht. Das Organigramm sagt ja. Die
+            Umsetzung sagt nein.
           </p>
           <p>
-            Sie brauchen nicht immer den ganzen Stack. Manchmal genügt eine chinesische Website. Manchmal
-            genügt ein LinkedIn-Motor. Wer das einzeln bei einem Spezialisten kauft, zahlt weniger und ist
-            schneller live, als wenn dasselbe in einem Generalisten-Retainer versteckt wäre.
+            Auch die Kunden sind nicht dieselben. Ein Shanghai-Briefing ist kein Frankfurt-Briefing. Die
+            Referenzen verschieben sich, die Kanäle verschieben sich, die Arbeitszeiten verschieben sich. Jede
+            Seite braucht ihre eigene Sorte Spezialist.
           </p>
           <p>
-            Zusammen sind die Stücke stärker als die Summe der Teile. Dieselbe AIGC-Produktions-Engine
-            beliefert chinesische RED-Posts und deutsche Google-Ads-Landingpages. Dieselbe Content-Logik –
-            beim Käufer beginnen, mit der Handlung enden – funktioniert in beide Richtungen. Spezialisten mit
-            gemeinsamem Rückgrat schlagen Spezialisten ohne.
+            Sie brauchen nicht immer den ganzen Stack. Manchmal nur eine chinesische Website, oder einen
+            LinkedIn-Motor. Einzeln eingekauft ist schneller draußen als ein Generalisten-Retainer.
+          </p>
+          <p>
+            Die Teile sind zusammen stärker als einzeln. Derselbe Content-Motor füttert RedNote-Posts und
+            Google-Ads-Seiten. Spezialisten mit gemeinsamem Rückgrat schlagen Spezialisten ohne.
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section section--alt">
+  <section class="section section--dark two-flows-cta">
     <div class="container">
-      <header class="section-header">
-        <span class="eyebrow">Die Form der Arbeit</span>
-        <h2 class="balance">Dieselbe Form, gespiegelt gelesen.</h2>
-        <p class="lead">
-          Ob das Briefing „Eintritt nach China“ oder „Schritt ins Ausland“ heißt: die Arbeit zerlegt sich
-          gleich.
-        </p>
-      </header>
-      <ol class="numbered">
-        <li>
-          <div>
-            <p class="numbered__title">Strategie und Marke für das Zielpublikum.</p>
-            <p>Keine Übersetzung. Eine Neugründung.</p>
-          </div>
-        </li>
-        <li>
-          <div>
-            <p class="numbered__title">Präsenz in den Kanälen, die die Käufer wirklich nutzen.</p>
-            <p>WeChat, Douyin und RED auf der einen Seite. LinkedIn auf der anderen. Nativ, nicht angepasst.</p>
-          </div>
-        </li>
-        <li>
-          <div>
-            <p class="numbered__title">Web- und Such-Infrastruktur, die die jeweiligen Algorithmen finden.</p>
-            <p>Baidu, ICP und chinesische KIs auf einer Seite. Google und westliche KIs auf der anderen.</p>
-          </div>
-        </li>
-        <li>
-          <div>
-            <p class="numbered__title">Content-Produktion in dem Takt, den moderne Kanäle einfordern.</p>
-            <p>Gespeist von der AIGC-Schicht aus HubStudio, geteilt zwischen beiden Flows.</p>
-          </div>
-        </li>
-        <li>
-          <div>
-            <p class="numbered__title">Ein Team, das in der richtigen Sprache und Zeitzone abnimmt.</p>
-            <p>Operatoren in Shanghai, Hongkong und Paris; namentliche Vertriebsleute in den USA, in Großbritannien, Deutschland und Frankreich.</p>
-          </div>
-        </li>
-      </ol>
-      <div style="margin-top: var(--space-7);">
-        <a class="btn btn--primary" href={pathFor('how-we-work-together', locale)}>Beide Flows ansehen</a>
+      <div class="two-flows-cta__inner">
+        <div class="two-flows-cta__copy">
+          <span class="eyebrow eyebrow--on-dark">Was als Nächstes kommt</span>
+          <h2 class="balance">Zwei Flüsse, gleiches Rückgrat.</h2>
+          <p class="lead">
+            Nach China hinein oder nach draußen gehen. Die Arbeit hat in beide Richtungen dieselbe Form. Das
+            Team gegenüber ist ein anderes.
+          </p>
+        </div>
+        <a class="btn btn--primary" href={pathFor('how-we-work-together', locale)}>Die beiden Flüsse ansehen</a>
       </div>
     </div>
   </section>
+
 </Layout>
+
+<style>
+  .bridge-hero {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background: #0d1320;
+    color: var(--bbg-white);
+    padding: clamp(7rem, 16vh, 12rem) 0 clamp(5rem, 11vh, 8rem);
+    min-height: 72vh;
+    display: flex;
+    align-items: center;
+  }
+  .bridge-hero__bg {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+  }
+  .bridge-hero__bg svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+  .bridge-hero__bg path {
+    stroke-dasharray: 1800;
+    stroke-dashoffset: 1800;
+    animation: bridge-draw 2.4s cubic-bezier(0.22, 0.61, 0.36, 1) 0.3s forwards;
+  }
+  .bridge-hero__scrim {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+      radial-gradient(ellipse at 50% 30%, rgba(13, 19, 32, 0) 0%, rgba(13, 19, 32, 0.55) 70%, rgba(13, 19, 32, 0.85) 100%),
+      linear-gradient(180deg, rgba(13, 19, 32, 0.2) 0%, rgba(13, 19, 32, 0) 50%);
+  }
+  .bridge-hero__content {
+    width: 100%;
+    position: relative;
+  }
+  .bridge-hero__title {
+    font-size: clamp(2.25rem, 4vw + 0.5rem, 3.75rem);
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    color: var(--bbg-white);
+    max-width: 22ch;
+    margin: var(--space-4) 0 0;
+  }
+  @keyframes bridge-draw {
+    to { stroke-dashoffset: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .bridge-hero__bg path {
+      animation: none;
+      stroke-dashoffset: 0;
+    }
+  }
+
+  .two-flows-cta__inner {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: var(--space-6);
+  }
+  .two-flows-cta__copy h2 { margin-bottom: var(--space-3); }
+  .two-flows-cta__copy .lead { margin: 0; max-width: 56ch; }
+  @media (max-width: 767px) {
+    .two-flows-cta__inner {
+      grid-template-columns: 1fr;
+      gap: var(--space-5);
+    }
+  }
+
+  .bridge-team-img {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--bbg-border);
+    background: var(--bbg-surface);
+  }
+
+  /* ---------- The Gap: split-pane cards with 3D tilt + scroll reveal ---------- */
+  .gap-section { position: relative; isolation: isolate; overflow: hidden; }
+  .gap-section__bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+  .gap-section__blob {
+    position: absolute;
+    width: 540px; height: 540px;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.55;
+  }
+  .gap-section__blob--w { background: rgba(38, 154, 218, 0.20); top: -160px; left: -180px; }
+  .gap-section__blob--e { background: rgba(200, 16, 46, 0.16); bottom: -180px; right: -160px; }
+  .gap-section .container { position: relative; z-index: 1; }
+
+  .gaps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-5);
+    margin-top: var(--space-6);
+    perspective: 1400px;
+  }
+  @media (max-width: 1023px) { .gaps { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 639px) { .gaps { grid-template-columns: 1fr; } }
+
+  .gap-card {
+    position: relative;
+    border-radius: 18px;
+    background: linear-gradient(180deg, #ffffff 0%, #fafbfd 100%);
+    border: 1px solid rgba(15, 23, 42, 0.06);
+    box-shadow:
+      0 1px 2px rgba(15, 23, 42, 0.03),
+      0 18px 38px -22px rgba(15, 23, 42, 0.12);
+    transform-style: preserve-3d;
+    will-change: transform;
+    opacity: 0;
+    transform: translateY(28px);
+    transition:
+      opacity 0.6s var(--ease),
+      transform 0.6s var(--ease),
+      box-shadow 0.4s var(--ease),
+      border-color 0.4s var(--ease);
+  }
+  .gap-card.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: calc(var(--i, 0) * 70ms);
+  }
+  .gap-card:hover {
+    border-color: rgba(15, 23, 42, 0.12);
+    box-shadow:
+      0 1px 2px rgba(15, 23, 42, 0.04),
+      0 28px 56px -18px rgba(15, 23, 42, 0.18);
+  }
+  /* Gradient border on hover */
+  .gap-card::before {
+    content: '';
+    position: absolute; inset: 0;
+    border-radius: 18px;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(38, 154, 218, 0.7), rgba(200, 16, 46, 0.5));
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.35s var(--ease);
+    pointer-events: none;
+  }
+  .gap-card:hover::before { opacity: 1; }
+
+  .gap-card__inner {
+    padding: var(--space-5);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    height: 100%;
+  }
+
+  .gap-card__head {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+  }
+  .gap-card__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px; height: 40px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, rgba(38, 154, 218, 0.12), rgba(200, 16, 46, 0.08));
+    color: var(--bbg-blue);
+    transition: transform 0.4s var(--ease), color 0.3s var(--ease);
+  }
+  .gap-card__icon svg { width: 22px; height: 22px; }
+  .gap-card:hover .gap-card__icon { transform: rotate(-6deg) scale(1.06); color: #c8102e; }
+  .gap-card__title {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--bbg-ink);
+  }
+
+  .gap-card__split {
+    display: grid;
+    grid-template-columns: 1fr 24px 1fr;
+    align-items: stretch;
+    gap: 8px;
+    margin: 4px 0;
+  }
+  .gap-card__side {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    background: rgba(38, 154, 218, 0.05);
+    border: 1px solid rgba(38, 154, 218, 0.15);
+    transition: background 0.3s var(--ease), border-color 0.3s var(--ease);
+  }
+  .gap-card__side--e {
+    background: rgba(200, 16, 46, 0.05);
+    border-color: rgba(200, 16, 46, 0.15);
+  }
+  .gap-card:hover .gap-card__side--w { background: rgba(38, 154, 218, 0.10); border-color: rgba(38, 154, 218, 0.30); }
+  .gap-card:hover .gap-card__side--e { background: rgba(200, 16, 46, 0.10); border-color: rgba(200, 16, 46, 0.30); }
+  .gap-card__chip {
+    align-self: flex-start;
+    font-family: var(--font-display);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--bbg-blue);
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid rgba(38, 154, 218, 0.25);
+  }
+  .gap-card__side--e .gap-card__chip {
+    color: #c8102e;
+    border-color: rgba(200, 16, 46, 0.25);
+  }
+  .gap-card__line {
+    margin: 0;
+    font-size: 0.875rem;
+    line-height: 1.4;
+    color: var(--bbg-ink);
+    font-weight: 500;
+  }
+  .gap-card__divider {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .gap-card__divider::before {
+    content: '';
+    position: absolute;
+    left: 50%; top: 4px; bottom: 4px;
+    width: 1px;
+    background: linear-gradient(180deg, transparent, rgba(15, 23, 42, 0.12) 30%, rgba(15, 23, 42, 0.12) 70%, transparent);
+    transform: translateX(-50%);
+  }
+  .gap-card__vs {
+    position: relative;
+    z-index: 1;
+    font-family: var(--font-display);
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--bbg-text-muted);
+    background: var(--bbg-surface);
+    padding: 4px 6px;
+    border-radius: 999px;
+  }
+
+  .gap-card__summary {
+    margin: auto 0 0;
+    font-size: 0.85rem;
+    line-height: 1.45;
+    color: var(--bbg-text-muted);
+    font-style: italic;
+    padding-top: var(--space-2);
+    border-top: 1px dashed rgba(15, 23, 42, 0.08);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .gap-card { opacity: 1; transform: none; transition: none; }
+    .gap-card.is-visible { transition-delay: 0s; }
+    .gap-card:hover { transform: none; }
+  }
+</style>
+
+<script>
+  // Scroll reveal + 3D tilt for gap cards.
+  const cards = document.querySelectorAll<HTMLElement>('.gap-card');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if ('IntersectionObserver' in window && cards.length) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add('is-visible');
+            io.unobserve(e.target);
+          }
+        });
+      },
+      { threshold: 0.18, rootMargin: '0px 0px -8% 0px' },
+    );
+    cards.forEach((c) => io.observe(c));
+  } else {
+    cards.forEach((c) => c.classList.add('is-visible'));
+  }
+
+  if (!reduceMotion) {
+    cards.forEach((card) => {
+      let raf = 0;
+      const onMove = (ev: MouseEvent) => {
+        const r = card.getBoundingClientRect();
+        const x = (ev.clientX - r.left) / r.width;
+        const y = (ev.clientY - r.top) / r.height;
+        const rx = (0.5 - y) * 6;
+        const ry = (x - 0.5) * 6;
+        cancelAnimationFrame(raf);
+        raf = requestAnimationFrame(() => {
+          card.style.transform = `translateY(0) rotateX(${rx}deg) rotateY(${ry}deg)`;
+        });
+      };
+      const onLeave = () => {
+        cancelAnimationFrame(raf);
+        card.style.transform = '';
+      };
+      card.addEventListener('mousemove', onMove);
+      card.addEventListener('mouseleave', onLeave);
+    });
+  }
+</script>

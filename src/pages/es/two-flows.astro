@@ -1,227 +1,318 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import ImagePlaceholder from '../../components/ImagePlaceholder.astro';
 import AgencyLogo from '../../components/AgencyLogo.astro';
 import { pathFor } from '../../i18n/ui';
 
 const locale = 'es' as const;
 const title = 'Dos flujos';
-const description = "Un puente, dos direcciones. La pila completa para entrar o crecer en China, y la cadena de internacionalización llave en mano para marcas chinas que salen al exterior.";
+const description = 'Un puente, dos direcciones. El stack completo de entrada para aterrizar y crecer en China, y la cadena de salida llave en mano para que una marca china salga al exterior.';
 
 const inboundReq = [
-  { h: 'Una marca que transmita calidad a ojos chinos', body: "Las pruebas de confianza, lo primero. Certificaciones, logos de partners, validaciones de terceros. Esa portada densa y acreditada que un ojo occidental ve abarrotada es justo la que un ojo chino lee como seria. El minimalismo a la occidental, aquí, se interpreta como vacío." },
-  { h: 'Canales que los consumidores chinos usan de verdad', body: "WeChat para confianza. RED para la lista corta. Douyin para descubrimiento y live commerce. Weibo para alcance masivo. Cada uno con su formato, su cadencia y su equipo dedicado: confundirlos es perder la conversación." },
-  { h: 'Una infraestructura web pensada para vivir detrás del cortafuegos', body: "Hospedaje con licencia ICP en Aliyun, Tencent o Huawei. Una web que Baidu pueda indexar de verdad. UX probada dentro del navegador integrado de WeChat, donde le va a leer la mayor parte del tráfico. En la práctica, mobile-first: más del 95 % de los usuarios chinos navegan desde el móvil." },
-  { h: 'Visibilidad en los buscadores que usan los compradores chinos', body: "Baidu sigue por encima del 50 % del mercado de búsqueda en China, según Statcounter. Google se queda por debajo del 3 %. Y los menores de 35 esquivan cada vez más la búsqueda clásica para entrar directos en las IA: DeepSeek, Doubao, Kimi, Yuanbao." },
-  { h: 'Comercio donde la compra ocurre de verdad', body: "Tmall, JD, Douyin Shop, RED, además del social commerce sobre WeChat. En China, eCommerce y social no son dos embudos separados: son la misma superficie, leída con un solo gesto del pulgar." },
+  {
+    icon: 'badge',
+    h: 'Una marca que el público chino lea como sinónimo de calidad',
+    body: 'Las señales de confianza, por delante. Certificaciones, logos de partners, validación de terceros. Lo que en Occidente se ve recargado, en China se lee como serio.',
+    pill: 'La densidad acredita',
+  },
+  {
+    icon: 'channels',
+    h: 'Los canales que el consumidor chino sí usa',
+    body: 'WeChat para la confianza. RedNote para entrar en la lista corta. Douyin para el descubrimiento. Weibo para el alcance. Cada uno con su formato propio y su equipo propio.',
+    pill: 'Cuatro stacks, no uno',
+  },
+  {
+    icon: 'server',
+    h: 'Infraestructura web por dentro del Firewall',
+    body: 'Hospedaje con licencia ICP en Aliyun, Tencent o Huawei. Un sitio que Baidu pueda indexar. Mobile-first por obligación, no por moda.',
+    pill: 'Tráfico móvil > 95%',
+  },
+  {
+    icon: 'search',
+    h: 'Visibilidad en los buscadores que sí usa el comprador chino',
+    body: 'Baidu sigue concentrando más de la mitad del mercado de búsqueda. Google se queda por debajo del 3%. Los menores de 35 se saltan el buscador y van directos a la IA: DeepSeek, Doubao, Kimi, Yuanbao.',
+    pill: 'Baidu > 50% · Google < 3%',
+  },
+  {
+    icon: 'cart',
+    h: 'Comercio allí donde de verdad se compra',
+    body: 'Tmall, JD, Douyin Shop, RED, más el social commerce dentro de WeChat. eCommerce y social son la misma superficie, no embudos separados.',
+    pill: 'Social = comercio',
+  },
 ];
 
 const inboundAgencies = [
-  { name: 'BeyondBorderGroup', role: 'El operador integrado', body: "Veinte años sobre el terreno. Branding, medios, social, KOL, estudio de contenido, RR. PP., webs, eventos, eCommerce, social commerce, distribución y consultoría. Un equipo responsable del extremo al extremo. Se contrata el conjunto, o un módulo.", route: 'agencies/beyondbordergroup' as const },
-  { name: 'TheRedScroll', role: 'El especialista de canal', body: "Redes sociales chinas operadas desde Shanghái y Hong Kong. WeChat, Douyin, RED, Weibo y catorce plataformas más. Estrategia, contenido, KOL, medios, CRM, formación. Alcance fijo, precio fijo, onboarding en dos semanas.", route: 'agencies/theredscroll' as const },
-  { name: 'ChinaWebFoundry', role: 'El constructor de webs', body: "Webs construidas para la red china. Estrategia y auditoría, migración a China, contenido nativo en chino, UX mobile-first, hospedaje con licencia ICP, SEO Baidu, GEO para motores de IA chinos, mantenimiento. WordPress, Astro y WeChat. Un único equipo en Shanghái.", route: 'agencies/chinawebfoundry' as const },
+  {
+    name: 'BeyondBorderGroup',
+    role: 'Operador integral',
+    body: 'Veinte años sobre el terreno. Branding, eCommerce, distribución. Un único equipo que responde por todo.',
+    route: 'agencies/beyondbordergroup' as const,
+  },
+  {
+    name: 'TheRedScroll',
+    role: 'Especialista en redes sociales',
+    body: 'WeChat, Douyin, RedNote, Weibo y 14 plataformas más. Alcance cerrado, precio cerrado, onboarding de dos semanas.',
+    route: 'agencies/theredscroll' as const,
+  },
+  {
+    name: 'ChinaWebFoundry',
+    role: 'Especialista en infraestructura web',
+    body: 'Hospedaje con licencia ICP, SEO en Baidu, UX mobile-first, GEO para los motores de IA chinos.',
+    route: 'agencies/chinawebfoundry' as const,
+  },
+  {
+    name: 'BeyondCompass',
+    role: 'Base de distribuidores y TP',
+    body: 'Una base privada de distribuidores chinos, TP de Tmall y Douyin Partners, todos contrastados.',
+    route: 'agencies/beyondcompass' as const,
+  },
+  {
+    name: 'HubStudio',
+    role: 'Motor de producción de contenido para China',
+    body: 'Producción para audiencias chinas al volumen que exigen RedNote, Douyin y WeChat.',
+    route: 'agencies/hubstudio' as const,
+  },
 ];
 
 const outboundReq = [
-  { h: 'Una marca que el comprador occidental reconozca', body: "No una traslación desde el chino. Nombres que encajan, claims que no chirrían, una identidad visual que aterriza en Frankfurt y Chicago sin necesidad de pie de página." },
-  { h: 'Presencia en LinkedIn', body: "El comprador B2B occidental abre LinkedIn antes de coger la llamada. Página muda, conversación cancelada. El 82 % de los compradores afirma confiar más en empresas cuyos directivos publican en LinkedIn, según el propio estudio interno de la red. Perfil vacío, deal perdido." },
-  { h: 'Una web hecha para ojos occidentales', body: "Limpia, espaciada, con una única acción clara por página. Hospedada fuera de China. Rápida. Tres segundos de carga le cuestan a usted más de la mitad de los visitantes." },
-  { h: 'Visibilidad en buscadores occidentales', body: "Posiciones en Google y citas en ChatGPT, Perplexity y Gemini. La mayoría de las empresas chinas llegan al exterior con autoridad cero: sin backlinks, sin contenido en inglés, sin citas de IA. Sus competidores ya tienen el ranking y tienen la respuesta." },
-  { h: 'Anuncios en la primera página', body: "Google Ads mientras el SEO compone. Landing pages occidentales, no traducciones. Muchas empresas chinas queman presupuesto en keywords demasiado amplias, geografías equivocadas y páginas pensadas para China." },
-  { h: 'Comerciales en la franja horaria correcta', body: "Un comprador en Alemania escribe a las diez de la mañana, hora de Berlín. Shenzhen está dormido. Al amanecer, ese comprador ya ha escrito a tres competidores. En los mercados occidentales, gana quien responde primero." },
+  {
+    icon: 'badge',
+    h: 'Una marca que el comprador occidental reconozca',
+    body: 'No traducida del chino. Nombres que funcionan, claims que no chirrían, una identidad visual que se sostiene en Fráncfort y en Chicago sin asterisco.',
+    pill: 'Construida, no traducida',
+  },
+  {
+    icon: 'channels',
+    h: 'Presencia en LinkedIn',
+    body: 'El B2B occidental abre LinkedIn antes de la llamada. Página vacía, llamada que no llega. El comprador confía más en las empresas cuyos directivos publican.',
+    pill: '82% confía en los directivos que publican',
+  },
+  {
+    icon: 'monitor',
+    h: 'Una web pensada para ojos occidentales',
+    body: 'Limpia. Con aire. Una acción por página. Hospedada fuera de China. Rápida: tres segundos le cuestan más de la mitad de las visitas.',
+    pill: '3s de carga = -50% visitas',
+  },
+  {
+    icon: 'search',
+    h: 'Visibilidad en los buscadores occidentales',
+    body: 'Rankings en Google, más citas en ChatGPT, Perplexity y Gemini. Sus competidores ya se han quedado con las respuestas.',
+    pill: 'Google + ChatGPT + IA',
+  },
+  {
+    icon: 'megaphone',
+    h: 'Anuncios en la página uno',
+    body: 'Google Ads mientras el SEO va componiendo. Landings hechas para Occidente, no traducidas. Keywords correctas, geografía correcta.',
+    pill: 'Página uno, día uno',
+  },
+  {
+    icon: 'globe',
+    h: 'Comerciales en la zona horaria correcta',
+    body: 'Un comprador alemán escribe a las 10 de la mañana en Berlín. Shenzhen está dormido. Por la mañana, tres competidores ya han contestado.',
+    pill: 'Quien responde primero, gana',
+  },
 ];
 
-const outboundServices = [
-  { h: 'Estrategia de marca', body: "Construida para compradores occidentales, no traducida desde el chino." },
-  { h: 'LinkedIn', body: "El canal que el B2B occidental abre primero. Operado con Nuvora Studio, el especialista del grupo." },
-  { h: 'Web', body: "Para ojos occidentales. Hospedada fuera de China." },
-  { h: 'SEO y GEO', body: "Posicionar en Google. Ser citados por las IA occidentales." },
-  { h: 'Google Ads', body: "Primera página desde el día 1." },
-  { h: 'Fuerza de ventas externa', body: "Representantes nativos nominativos en Estados Unidos, Reino Unido, Alemania y Francia." },
-];
 ---
 
 <Layout locale={locale} route="two-flows" title={title} description={description}>
-  <section class="hero-twoflows">
-    <div class="container hero-twoflows__inner">
-      <span class="eyebrow eyebrow--rule">Dos direcciones</span>
-      <h1 class="hero-twoflows__title balance">
-        Un puente. <span class="hero-twoflows__accent">Dos flujos.</span>
+  <section class="page-hero">
+    <div class="page-hero__bg" aria-hidden="true">
+      <svg viewBox="0 0 1600 760" preserveAspectRatio="xMidYMid slice" role="img" aria-hidden="true">
+        <defs>
+          <linearGradient id="page-cable" x1="0" x2="1" y1="0" y2="0">
+            <stop offset="0%" stop-color="#269ada" stop-opacity="0.95" />
+            <stop offset="50%" stop-color="#f4f1e6" stop-opacity="0.9" />
+            <stop offset="100%" stop-color="#c8102e" stop-opacity="0.95" />
+          </linearGradient>
+          <radialGradient id="page-glow-w" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#269ada" stop-opacity="0.30" />
+            <stop offset="100%" stop-color="#269ada" stop-opacity="0" />
+          </radialGradient>
+          <radialGradient id="page-glow-e" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#c8102e" stop-opacity="0.28" />
+            <stop offset="100%" stop-color="#c8102e" stop-opacity="0" />
+          </radialGradient>
+        </defs>
+
+        <ellipse cx="280" cy="500" rx="560" ry="220" fill="url(#page-glow-w)" />
+        <ellipse cx="1320" cy="500" rx="560" ry="220" fill="url(#page-glow-e)" />
+
+        <line x1="0" y1="500" x2="1600" y2="500" stroke="rgba(255,255,255,0.06)" stroke-width="1" />
+        <line x1="0" y1="518" x2="1600" y2="518" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
+        <line x1="0" y1="538" x2="1600" y2="538" stroke="rgba(255,255,255,0.025)" stroke-width="1" />
+
+        <path class="page-hero__cable" d="M 220 500 Q 800 110 1380 500" fill="none" stroke="url(#page-cable)" stroke-width="2" stroke-linecap="round" />
+
+        <g stroke="rgba(255,255,255,0.18)" stroke-width="1">
+          <line x1="320" y1="500" x2="320" y2="396" />
+          <line x1="440" y1="500" x2="440" y2="320" />
+          <line x1="560" y1="500" x2="560" y2="262" />
+          <line x1="680" y1="500" x2="680" y2="222" />
+          <line x1="800" y1="500" x2="800" y2="208" />
+          <line x1="920" y1="500" x2="920" y2="222" />
+          <line x1="1040" y1="500" x2="1040" y2="262" />
+          <line x1="1160" y1="500" x2="1160" y2="320" />
+          <line x1="1280" y1="500" x2="1280" y2="396" />
+        </g>
+
+        <g>
+          <line x1="220" y1="240" x2="220" y2="500" stroke="rgba(38,154,218,0.55)" stroke-width="2" />
+          <line x1="1380" y1="240" x2="1380" y2="500" stroke="rgba(200,16,46,0.55)" stroke-width="2" />
+          <circle class="page-hero__dot page-hero__dot--w" cx="220" cy="500" r="5" fill="#269ada" />
+          <circle class="page-hero__dot page-hero__dot--e" cx="1380" cy="500" r="5" fill="#c8102e" />
+        </g>
+
+        <text x="220" y="555" text-anchor="middle" fill="rgba(38,154,218,0.85)" font-family="Inter, sans-serif" font-size="12" letter-spacing="3">OCCIDENTE</text>
+        <text x="1380" y="555" text-anchor="middle" fill="rgba(200,16,46,0.85)" font-family="Inter, sans-serif" font-size="12" letter-spacing="3">CHINA</text>
+      </svg>
+    </div>
+    <div class="page-hero__scrim" aria-hidden="true"></div>
+    <div class="container page-hero__content">
+      <span class="eyebrow eyebrow--on-dark eyebrow--rule">Dos direcciones</span>
+      <h1 class="page-hero__title balance">
+        Un puente. <span class="page-hero__accent">Dos flujos.</span>
       </h1>
-      <p class="hero-twoflows__lead">
-        Sea cual sea su dirección, ya hemos hecho el trabajo en los dos lados. Elija el lado del puente desde el que viene.
+      <p class="page-hero__lead">
+        Hacia donde vaya, ya hemos hecho el trabajo a los dos lados. Elija la orilla del puente de la que parte.
       </p>
-
-      <div class="hero-twoflows__bridge" aria-hidden="true">
-        <span class="hero-twoflows__bank">Occidente</span>
-        <svg class="hero-twoflows__arc" viewBox="0 0 600 100" preserveAspectRatio="none">
-          <path d="M0 86 Q300 4 600 86" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-          <line x1="60" y1="76" x2="60" y2="92" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-          <line x1="180" y1="50" x2="180" y2="92" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-          <line x1="300" y1="40" x2="300" y2="92" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-          <line x1="420" y1="50" x2="420" y2="92" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-          <line x1="540" y1="76" x2="540" y2="92" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-        </svg>
-        <span class="hero-twoflows__bank">China</span>
-      </div>
-
-      <div class="hero-twoflows__jumps">
-        <a class="hero-twoflows__jump" href="#inbound">
-          Flujo de entrada
-          <span class="hero-twoflows__jump-meta">Occidente hacia China</span>
+      <div class="page-hero__jumps">
+        <a class="page-hero__jump" href="#inbound">
+          <span class="page-hero__jump-name">Entrada</span>
+          <span class="page-hero__jump-meta">De Occidente hacia China</span>
         </a>
-        <a class="hero-twoflows__jump" href="#outbound">
-          Flujo de salida
-          <span class="hero-twoflows__jump-meta">China hacia Occidente</span>
+        <a class="page-hero__jump page-hero__jump--alt" href="#outbound">
+          <span class="page-hero__jump-name">Salida</span>
+          <span class="page-hero__jump-meta">De China hacia Occidente</span>
         </a>
       </div>
     </div>
   </section>
 
-  <section id="inbound" class="hero-editorial">
-    <div class="container">
-      <span class="eyebrow eyebrow--rule">Flujo 1 · Entrada · De Occidente hacia China</span>
-      <h2 class="hero-editorial__title balance">
-        Tiene una marca. China cuenta con 1.100 millones de internautas. Cerrar esa distancia no es un trabajo de traducción.
+  <section id="inbound" class="entry-hero entry-hero--inbound">
+    <div class="entry-hero__bg" aria-hidden="true">
+      <svg viewBox="0 0 1600 720" preserveAspectRatio="xMidYMid slice" role="img" aria-hidden="true">
+        <defs>
+          <radialGradient id="entry-glow-w" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#269ada" stop-opacity="0.34" />
+            <stop offset="100%" stop-color="#269ada" stop-opacity="0" />
+          </radialGradient>
+          <radialGradient id="entry-glow-e" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#c8102e" stop-opacity="0.32" />
+            <stop offset="100%" stop-color="#c8102e" stop-opacity="0" />
+          </radialGradient>
+          <pattern id="entry-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+            <circle cx="1.5" cy="1.5" r="1.5" fill="rgba(255,255,255,0.10)" />
+          </pattern>
+          <linearGradient id="entry-stream" x1="0" x2="1" y1="0" y2="0">
+            <stop offset="0%" stop-color="#269ada" stop-opacity="0" />
+            <stop offset="50%" stop-color="#269ada" stop-opacity="0.85" />
+            <stop offset="100%" stop-color="#c8102e" stop-opacity="0" />
+          </linearGradient>
+        </defs>
+
+        <ellipse cx="220" cy="380" rx="540" ry="240" fill="url(#entry-glow-w)" />
+        <ellipse cx="1380" cy="380" rx="540" ry="240" fill="url(#entry-glow-e)" />
+
+        <rect x="0" y="0" width="1600" height="720" fill="url(#entry-grid)" />
+
+        <g class="entry-hero__nodes" stroke="rgba(255,255,255,0.18)" fill="none" stroke-width="1">
+          <circle cx="900" cy="180" r="3" fill="rgba(38,154,218,0.9)" stroke="none" />
+          <circle cx="1080" cy="260" r="3" fill="rgba(255,255,255,0.6)" stroke="none" />
+          <circle cx="1240" cy="200" r="3" fill="rgba(200,16,46,0.9)" stroke="none" />
+          <circle cx="1140" cy="380" r="3" fill="rgba(255,255,255,0.6)" stroke="none" />
+          <circle cx="980" cy="340" r="3" fill="rgba(38,154,218,0.7)" stroke="none" />
+          <circle cx="1320" cy="320" r="3" fill="rgba(255,255,255,0.5)" stroke="none" />
+          <line x1="900" y1="180" x2="1080" y2="260" />
+          <line x1="1080" y1="260" x2="1240" y2="200" />
+          <line x1="1080" y1="260" x2="1140" y2="380" />
+          <line x1="980" y1="340" x2="1140" y2="380" />
+          <line x1="1140" y1="380" x2="1320" y2="320" />
+        </g>
+
+        <path class="entry-hero__stream" d="M 80 420 Q 800 280 1520 420" fill="none" stroke="url(#entry-stream)" stroke-width="2" stroke-linecap="round" />
+      </svg>
+    </div>
+    <div class="entry-hero__scrim" aria-hidden="true"></div>
+    <div class="container entry-hero__content">
+      <span class="eyebrow eyebrow--on-dark eyebrow--rule">Flujo 1 · Entrada · De Occidente hacia China</span>
+      <h2 class="entry-hero__title balance">
+        Usted tiene marca. China tiene 1.100 millones de internautas. Cerrar esa brecha no es un trabajo de traducción.
       </h2>
-      <p class="hero-editorial__lead">
-        La internet china corre sobre su propia pila. Plataformas, buscadores, infraestructura, densidad de
-        contenido y señales de compra: todo es distinto. Llevamos veinte años trabajando dentro.
+      <p class="entry-hero__lead">
+        Internet en China corre sobre su propio stack. Otras plataformas, otros buscadores, otra infraestructura,
+        otra densidad de contenido, otras señales de compra. Llevamos veinte años trabajando por dentro.
       </p>
-    </div>
-  </section>
-
-  <section class="section section--alt">
-    <div class="container">
-      <header class="section-header">
-        <span class="eyebrow">Lo que hace falta de verdad</span>
-        <h2 class="balance">Lo que hace falta para aterrizar en China.</h2>
-      </header>
-      <div class="grid-2">
-        {inboundReq.map((r) => (
-          <article class="card">
-            <h3 class="card__title">{r.h}</h3>
-            <p>{r.body}</p>
-          </article>
-        ))}
+      <div class="entry-hero__chips">
+        <span class="entry-hero__chip">WeChat</span>
+        <span class="entry-hero__chip">RedNote</span>
+        <span class="entry-hero__chip">Douyin</span>
+        <span class="entry-hero__chip">Weibo</span>
+        <span class="entry-hero__chip">Tmall</span>
+        <span class="entry-hero__chip">JD</span>
+        <span class="entry-hero__chip">Baidu</span>
+        <span class="entry-hero__chip">DeepSeek</span>
       </div>
     </div>
   </section>
 
-  <section class="section">
+  <section class="section req-section">
+    <div class="req-section__bg" aria-hidden="true">
+      <span class="req-section__blob req-section__blob--w"></span>
+      <span class="req-section__blob req-section__blob--e"></span>
+    </div>
     <div class="container">
       <header class="section-header">
-        <span class="eyebrow">Tres agencias, un mismo flujo</span>
-        <h2 class="balance">Tomar la pila entera, o tomar la pieza concreta.</h2>
+        <span class="eyebrow">Lo que pide de verdad</span>
+        <h2 class="balance">Cinco superficies. Una sola internet china.</h2>
+        <p class="lead">Aterrizar en China son cinco trabajos en paralelo. Cada superficie tiene su lógica, su tempo y su factura cuando se hace mal.</p>
       </header>
-      <div class="grid-3">
-        {inboundAgencies.map((a) => (
-          <a class="card" href={pathFor(a.route, locale)}>
-            <AgencyLogo route={a.route} name={a.name} class="agency-card-logo" />
-            <span class="card__index">{a.role}</span>
-            <h3 class="card__title">{a.name}</h3>
-            <p>{a.body}</p>
-            <span class="btn btn--ghost" style="margin-top: auto;">Visitar</span>
-          </a>
-        ))}
-      </div>
-    </div>
-  </section>
 
-  <section class="section section--alt">
-    <div class="container">
-      <header class="section-header">
-        <span class="eyebrow">Por dónde suelen empezar</span>
-        <h2 class="balance">Cuatro puntos de entrada que se repiten.</h2>
-      </header>
-      <div class="grid-2">
-        <article class="card">
-          <blockquote>«Solo necesito una web china que funcione de verdad.»</blockquote>
-          <p><strong>ChinaWebFoundry.</strong> Migración en seis semanas, ICP presentada, indexable por Baidu.</p>
-        </article>
-        <article class="card">
-          <blockquote>«Tengo que estar en RED y Douyin en 90 días.»</blockquote>
-          <p><strong>TheRedScroll.</strong> Onboarding en dos semanas, primer contenido en línea en quince días.</p>
-        </article>
-        <article class="card">
-          <blockquote>«Necesito todo: marca, canales, eCommerce, KOL.»</blockquote>
-          <p><strong>BeyondBorderGroup.</strong> Implantación integral, con veinte años de playbook detrás.</p>
-        </article>
-        <article class="card">
-          <blockquote>«No sé por dónde empezar.»</blockquote>
-          <p>Treinta minutos al teléfono y se lo decimos. <a href={pathFor('contact', locale)}>Reservar una llamada</a>.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <div class="split split--text-first">
-        <div class="prose">
-          <span class="eyebrow">Lo que se llevan, sin verlo en la factura</span>
-          <h2 class="balance">Un motor de producción que todas las agencias comparten.</h2>
-          <p>
-            Cada proyecto entrante se enchufa a la capa de producción AIGC de HubStudio. Es lo que mantiene
-            el coste por activo razonable al volumen que exigen los canales chinos: tres a cinco
-            publicaciones de RED por semana, vídeo Douyin diario, newsletter WeChat semanal, cita Tmall
-            mensual. Sin un motor de contenido AI-nativo detrás, las cuentas no salen.
-          </p>
-          <a class="btn btn--ghost" href={pathFor('agencies/hubstudio', locale)}>Visitar HubStudio</a>
-        </div>
-        <ImagePlaceholder ratio="4x5" label="Bodegón de estudio. Set de producción mezclando activos de IA y rodaje real." />
-      </div>
-    </div>
-  </section>
-
-  <section id="outbound" class="hero-editorial hero-editorial--dark">
-    <div class="container">
-      <span class="eyebrow eyebrow--on-dark">Flujo 2 · Salida · De China hacia Occidente</span>
-      <h2 class="hero-editorial__title balance">
-        Buen producto. Buen precio. Buena fábrica. Y nadie que le atienda fuera.
-      </h2>
-      <p class="hero-editorial__lead">
-        Toda empresa china que sale al exterior choca con el mismo muro. La marca está construida para
-        compradores chinos. La web parece sobrecargada a ojos occidentales. La página de LinkedIn está vacía.
-        Y nadie contesta la consulta que llegó desde Berlín a las diez de la mañana, hora local. Esa
-        segunda orilla del puente lleva veinte años siendo nuestro oficio.
-      </p>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <header class="section-header">
-        <span class="eyebrow">Lo que hace falta de verdad</span>
-        <h2 class="balance">Lo que hace falta para aterrizar fuera.</h2>
-      </header>
-      <div class="grid-2">
-        {outboundReq.map((r) => (
-          <article class="card">
-            <h3 class="card__title">{r.h}</h3>
-            <p>{r.body}</p>
-          </article>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <section class="section section--alt">
-    <div class="container">
-      <header class="section-header">
-        <span class="eyebrow">Una agencia, seis servicios</span>
-        <h2 class="balance">BeyondBridge. La cadena completa.</h2>
-        <p class="lead">
-          Diseñada específicamente para marcas chinas que salen al exterior. Seis servicios que se apilan en
-          tres fórmulas.
-        </p>
-      </header>
-      <ol class="numbered">
-        {outboundServices.map((s) => (
-          <li>
-            <div>
-              <p class="numbered__title">{s.h}</p>
-              <p>{s.body}</p>
+      <ol class="req-grid" role="list">
+        {inboundReq.map((r, i) => (
+          <li class="req-card" style={`--i: ${i};`}>
+            <div class="req-card__inner">
+              <span class="req-card__icon" aria-hidden="true">
+                {r.icon === 'badge' && (
+                  <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M16 4l3 5 6 1-4 4 1 6-6-3-6 3 1-6-4-4 6-1 3-5z" />
+                  </svg>
+                )}
+                {r.icon === 'channels' && (
+                  <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="4" y="6" width="10" height="10" rx="2" />
+                    <rect x="18" y="6" width="10" height="10" rx="2" />
+                    <rect x="4" y="18" width="10" height="10" rx="2" />
+                    <rect x="18" y="18" width="10" height="10" rx="2" />
+                  </svg>
+                )}
+                {r.icon === 'server' && (
+                  <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="5" y="6" width="22" height="8" rx="2" />
+                    <rect x="5" y="18" width="22" height="8" rx="2" />
+                    <circle cx="9" cy="10" r="0.8" fill="currentColor" />
+                    <circle cx="9" cy="22" r="0.8" fill="currentColor" />
+                    <line x1="13" y1="10" x2="22" y2="10" />
+                    <line x1="13" y1="22" x2="22" y2="22" />
+                  </svg>
+                )}
+                {r.icon === 'search' && (
+                  <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="14" cy="14" r="8" />
+                    <line x1="20" y1="20" x2="27" y2="27" />
+                    <path d="M10 14 L13 17 L18 12" />
+                  </svg>
+                )}
+                {r.icon === 'cart' && (
+                  <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 7h3l3 14h12l3-10H10" />
+                    <circle cx="13" cy="26" r="1.6" />
+                    <circle cx="23" cy="26" r="1.6" />
+                  </svg>
+                )}
+              </span>
+              <h3 class="req-card__title">{r.h}</h3>
+              <p class="req-card__body">{r.body}</p>
+              <span class="req-card__pill">{r.pill}</span>
             </div>
           </li>
         ))}
@@ -229,58 +320,353 @@ const outboundServices = [
     </div>
   </section>
 
+  <section class="section section--alt agency-section">
+    <div class="container">
+      <header class="section-header">
+        <span class="eyebrow">Cinco especialistas. Un flujo.</span>
+        <h2 class="balance">Coja el stack entero, o coja la pieza.</h2>
+        <p class="lead">Cinco equipos independientes cubren el stack de entrada de cabo a rabo. Contrate uno. Contrate dos. Contrátelos los cinco. Comparten columna vertebral.</p>
+      </header>
+      <div class="agency-rail" data-stagger>
+        {inboundAgencies.map((a, i) => (
+          <a class="agency-tile" href={pathFor(a.route, locale)} style={`--i: ${i};`}>
+            <span class="agency-tile__logo">
+              <AgencyLogo route={a.route} name={a.name} class="agency-card-logo" />
+            </span>
+            <span class="agency-tile__role">{a.role}</span>
+            <h3 class="agency-tile__name">{a.name}</h3>
+            <p class="agency-tile__body">{a.body}</p>
+            <span class="agency-tile__cta">Visitar
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section openings-section">
+    <div class="container">
+      <header class="section-header">
+        <span class="eyebrow">Por dónde suelen empezar los clientes</span>
+        <h2 class="balance">Seis puntos de entrada típicos.</h2>
+        <p class="lead">La mayoría de los proyectos arrancan con una frase. Coja la más parecida a la suya.</p>
+      </header>
+      <div class="openings" data-stagger>
+        <a class="opening" href={pathFor('agencies/chinawebfoundry', locale)} style="--i: 0;">
+          <span class="opening__quote-mark" aria-hidden="true">&#8220;</span>
+          <p class="opening__quote">Solo necesito una web china que funcione de verdad.</p>
+          <div class="opening__answer">
+            <span class="opening__by">ChinaWebFoundry</span>
+            <span class="opening__line">Migración en seis semanas. ICP presentado. Indexable por Baidu.</span>
+          </div>
+        </a>
+        <a class="opening" href={pathFor('agencies/theredscroll', locale)} style="--i: 1;">
+          <span class="opening__quote-mark" aria-hidden="true">&#8220;</span>
+          <p class="opening__quote">Tengo que estar en RedNote y Douyin en 90 días.</p>
+          <div class="opening__answer">
+            <span class="opening__by">TheRedScroll</span>
+            <span class="opening__line">Onboarding de dos semanas. Primer contenido online en quince días.</span>
+          </div>
+        </a>
+        <a class="opening" href={pathFor('agencies/beyondbordergroup', locale)} style="--i: 2;">
+          <span class="opening__quote-mark" aria-hidden="true">&#8220;</span>
+          <p class="opening__quote">Necesito todo: marca, canales, eCommerce, KOL.</p>
+          <div class="opening__answer">
+            <span class="opening__by">BeyondBorderGroup</span>
+            <span class="opening__line">Entrada integral. Playbook de veinte años.</span>
+          </div>
+        </a>
+        <a class="opening" href={pathFor('agencies/beyondcompass', locale)} style="--i: 3;">
+          <span class="opening__quote-mark" aria-hidden="true">&#8220;</span>
+          <p class="opening__quote">Necesitamos un distribuidor en China cuanto antes.</p>
+          <div class="opening__answer">
+            <span class="opening__by">BeyondCompass</span>
+            <span class="opening__line">Una lista corta contrastada de distribuidores y TP en días, no en meses.</span>
+          </div>
+        </a>
+        <a class="opening" href={pathFor('agencies/hubstudio', locale)} style="--i: 4;">
+          <span class="opening__quote-mark" aria-hidden="true">&#8220;</span>
+          <p class="opening__quote">Nuestro contenido no conecta con el público chino.</p>
+          <div class="opening__answer">
+            <span class="opening__by">HubStudio</span>
+            <span class="opening__line">Contenido reconstruido para el lector chino, al volumen que exigen los canales.</span>
+          </div>
+        </a>
+        <a class="opening opening--cta" href={pathFor('contact', locale)} style="--i: 5;">
+          <span class="opening__quote-mark" aria-hidden="true">&#8220;</span>
+          <p class="opening__quote">No sé por dónde empezar.</p>
+          <div class="opening__answer">
+            <span class="opening__by">Reservar una llamada</span>
+            <span class="opening__line">Treinta minutos. Le decimos por qué agencia y cómo se ven los próximos 90 días.</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="outbound" class="entry-hero entry-hero--outbound">
+    <div class="entry-hero__bg" aria-hidden="true">
+      <svg viewBox="0 0 1600 720" preserveAspectRatio="xMidYMid slice" role="img" aria-hidden="true">
+        <defs>
+          <radialGradient id="out-glow-e" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#c8102e" stop-opacity="0.34" />
+            <stop offset="100%" stop-color="#c8102e" stop-opacity="0" />
+          </radialGradient>
+          <radialGradient id="out-glow-w" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#269ada" stop-opacity="0.32" />
+            <stop offset="100%" stop-color="#269ada" stop-opacity="0" />
+          </radialGradient>
+          <linearGradient id="out-stream" x1="1" x2="0" y1="0" y2="0">
+            <stop offset="0%" stop-color="#c8102e" stop-opacity="0" />
+            <stop offset="50%" stop-color="#f4f1e6" stop-opacity="0.85" />
+            <stop offset="100%" stop-color="#269ada" stop-opacity="0" />
+          </linearGradient>
+        </defs>
+
+        <ellipse cx="1380" cy="380" rx="540" ry="240" fill="url(#out-glow-e)" />
+        <ellipse cx="220" cy="380" rx="540" ry="240" fill="url(#out-glow-w)" />
+
+        <g class="entry-hero__lines" stroke="rgba(255,255,255,0.06)" stroke-width="1">
+          <line x1="0" y1="180" x2="1600" y2="180" />
+          <line x1="0" y1="260" x2="1600" y2="260" />
+          <line x1="0" y1="340" x2="1600" y2="340" />
+          <line x1="0" y1="420" x2="1600" y2="420" />
+          <line x1="0" y1="500" x2="1600" y2="500" />
+        </g>
+
+        <g class="entry-hero__nodes" fill="none">
+          <circle cx="180" cy="220" r="3" fill="rgba(38,154,218,0.9)" />
+          <circle cx="320" cy="280" r="3" fill="rgba(255,255,255,0.65)" />
+          <circle cx="460" cy="220" r="3" fill="rgba(255,255,255,0.55)" />
+          <circle cx="600" cy="320" r="3" fill="rgba(38,154,218,0.7)" />
+        </g>
+
+        <path class="entry-hero__stream" d="M 1520 420 Q 800 280 80 420" fill="none" stroke="url(#out-stream)" stroke-width="2" stroke-linecap="round" />
+      </svg>
+    </div>
+    <div class="entry-hero__scrim" aria-hidden="true"></div>
+    <div class="container entry-hero__content">
+      <span class="eyebrow eyebrow--on-dark eyebrow--rule">Flujo 2 · Salida · De China hacia Occidente</span>
+      <h2 class="entry-hero__title balance">
+        Buen producto. Buen precio. Buena fábrica. Y ni una pipeline montada fuera.
+      </h2>
+      <p class="entry-hero__lead">
+        Cualquier empresa B2B o de servicios china que sale al exterior se choca con el mismo muro. La marca se
+        construyó para el comprador chino. La web se ve recargada a los ojos occidentales. La página de LinkedIn
+        está vacía. Y nadie contesta la consulta que llega de Berlín a las 10 de la mañana hora local. El B2B y
+        los servicios son nuestro foco, y llevamos veinte años levantando el otro lado de ese puente.
+      </p>
+      <div class="entry-hero__chips">
+        <span class="entry-hero__chip">LinkedIn</span>
+        <span class="entry-hero__chip">Google</span>
+        <span class="entry-hero__chip">ChatGPT</span>
+        <span class="entry-hero__chip">Perplexity</span>
+        <span class="entry-hero__chip">Gemini</span>
+        <span class="entry-hero__chip">EE.UU.</span>
+        <span class="entry-hero__chip">RU</span>
+        <span class="entry-hero__chip">DE</span>
+        <span class="entry-hero__chip">FR</span>
+      </div>
+    </div>
+  </section>
+
   <section class="section">
     <div class="container">
       <header class="section-header">
-        <span class="eyebrow">Tres fórmulas</span>
-        <h2 class="balance">Elija la fórmula. Sume la siguiente cuando el proyecto la pida.</h2>
+        <span class="eyebrow">Lo que pide de verdad</span>
+        <h2 class="balance">Seis frentes. Una pipeline en el exterior.</h2>
+        <p class="lead">Aterrizar fuera son seis trabajos en paralelo. Cada superficie tiene su lógica, su tempo y su factura cuando se hace mal.</p>
       </header>
-      <div class="grid-3">
-        <article class="card">
-          <span class="card__index">Starter · Presencia</span>
-          <h3 class="card__title">Marca + LinkedIn + web</h3>
-          <p>El mínimo para parecer creíble ante un comprador occidental. Para las primeras salidas al exterior.</p>
-        </article>
-        <article class="card">
-          <span class="card__index">Growth · Visibilidad</span>
-          <h3 class="card__title">Starter + SEO/GEO + Google Ads</h3>
-          <p>Presencia y tráfico. Sus prospectos le encuentran en Google, en ChatGPT y por búsqueda de pago.</p>
-        </article>
-        <article class="card">
-          <span class="card__index">Full Pipeline · Ingresos</span>
-          <h3 class="card__title">Growth + fuerza de ventas externa</h3>
-          <p>Cada lead entrante cualificado, llamado y entregado a su equipo en estado de cierre.</p>
-        </article>
+
+      <ol class="req-grid req-grid--bento3x2" role="list">
+        {outboundReq.map((r, i) => (
+          <li class="req-card" style={`--i: ${i};`}>
+            <div class="req-card__inner">
+              <span class="req-card__icon" aria-hidden="true">
+                {r.icon === 'badge' && (
+                  <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M16 4l3 5 6 1-4 4 1 6-6-3-6 3 1-6-4-4 6-1 3-5z" />
+                  </svg>
+                )}
+                {r.icon === 'channels' && (
+                  <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="6" y="4" width="20" height="14" rx="2" />
+                    <path d="M12 22v6" /><path d="M20 22v6" /><path d="M9 28h14" />
+                    <line x1="11" y1="9" x2="21" y2="9" /><line x1="11" y1="13" x2="17" y2="13" />
+                  </svg>
+                )}
+                {r.icon === 'monitor' && (
+                  <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="4" y="6" width="24" height="16" rx="2" />
+                    <path d="M16 22v6" /><path d="M11 28h10" />
+                    <line x1="9" y1="11" x2="23" y2="11" /><line x1="9" y1="15" x2="18" y2="15" />
+                  </svg>
+                )}
+                {r.icon === 'search' && (
+                  <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="14" cy="14" r="8" />
+                    <line x1="20" y1="20" x2="27" y2="27" />
+                    <path d="M10 14 L13 17 L18 12" />
+                  </svg>
+                )}
+                {r.icon === 'megaphone' && (
+                  <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12v8l16 6V6L5 12z" />
+                    <path d="M21 11a4 4 0 010 10" />
+                    <path d="M9 20v4a2 2 0 004 0" />
+                  </svg>
+                )}
+                {r.icon === 'globe' && (
+                  <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="16" cy="16" r="11" />
+                    <ellipse cx="16" cy="16" rx="5" ry="11" />
+                    <line x1="5" y1="16" x2="27" y2="16" />
+                  </svg>
+                )}
+              </span>
+              <h3 class="req-card__title">{r.h}</h3>
+              <p class="req-card__body">{r.body}</p>
+              <span class="req-card__pill">{r.pill}</span>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="section section--alt pkg-section">
+    <div class="container">
+      <header class="section-header">
+        <span class="eyebrow">Tres paquetes</span>
+        <h2 class="balance">Elija el nivel. Sume el siguiente cuando el proyecto lo pida.</h2>
+        <p class="lead">Pensado para empresas chinas B2B y de servicios que salen al exterior. Tres niveles que se apilan. Cada nivel incluye todo lo del anterior.</p>
+      </header>
+
+      <div class="pkg-grid" data-stagger>
+        <a class="pkg" href={pathFor('agencies/beyondbridge', locale)} style="--i: 0;">
+          <div class="pkg__head">
+            <span class="pkg__tier">Starter</span>
+            <span class="pkg__theme">Presencia</span>
+          </div>
+          <h3 class="pkg__title">Marca + LinkedIn + web</h3>
+          <p class="pkg__body">El mínimo para que un comprador B2B occidental le tome en serio. Para empresas de servicios que salen fuera por primera vez.</p>
+          <ul class="pkg__features">
+            <li><span class="pkg__check" aria-hidden="true">&#10003;</span>Estrategia de marca para el comprador occidental</li>
+            <li><span class="pkg__check" aria-hidden="true">&#10003;</span>Página de LinkedIn y publicaciones de directivos</li>
+            <li><span class="pkg__check" aria-hidden="true">&#10003;</span>Web orientada al exterior</li>
+          </ul>
+          <span class="pkg__cta">Empezar con Starter
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
+          </span>
+        </a>
+
+        <a class="pkg pkg--mid" href={pathFor('agencies/beyondbridge', locale)} style="--i: 1;">
+          <div class="pkg__head">
+            <span class="pkg__tier">Growth</span>
+            <span class="pkg__theme">Visibilidad</span>
+          </div>
+          <h3 class="pkg__title">Starter + SEO/GEO + Google Ads</h3>
+          <p class="pkg__body">Presencia y tráfico. El comprador B2B le encuentra en Google, en ChatGPT y en la búsqueda de pago.</p>
+          <ul class="pkg__features">
+            <li><span class="pkg__check" aria-hidden="true">&#10003;</span>Todo lo de Starter</li>
+            <li><span class="pkg__check" aria-hidden="true">&#10003;</span>SEO y GEO para los motores de IA occidentales</li>
+            <li><span class="pkg__check" aria-hidden="true">&#10003;</span>Google Ads desde el primer día</li>
+          </ul>
+          <span class="pkg__cta">Subir a Growth
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
+          </span>
+        </a>
+
+        <a class="pkg pkg--top" href={pathFor('agencies/beyondbridge', locale)} style="--i: 2;">
+          <span class="pkg__badge" aria-hidden="true">Pipeline completa</span>
+          <div class="pkg__head">
+            <span class="pkg__tier">Full Pipeline</span>
+            <span class="pkg__theme">Ingresos</span>
+          </div>
+          <h3 class="pkg__title">Growth + fuerza de ventas externa</h3>
+          <p class="pkg__body">Cada lead entrante se cualifica, se llama y se entrega a su equipo listo para cerrar.</p>
+          <ul class="pkg__features">
+            <li><span class="pkg__check" aria-hidden="true">&#10003;</span>Todo lo de Growth</li>
+            <li><span class="pkg__check" aria-hidden="true">&#10003;</span>Comerciales con nombre en plaza</li>
+            <li><span class="pkg__check" aria-hidden="true">&#10003;</span>Cobertura en EE. UU., Reino Unido, Alemania y Francia</li>
+          </ul>
+          <span class="pkg__cta">Abrir la pipeline completa
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
+          </span>
+        </a>
       </div>
-      <div style="margin-top: var(--space-6);">
+
+      <div class="btn-row" style="margin-top: var(--space-6); justify-content: center;">
         <a class="btn btn--primary" href={pathFor('agencies/beyondbridge', locale)}>Visitar BeyondBridge</a>
       </div>
     </div>
   </section>
 
-  <section class="section section--alt">
+  <section class="section openings-section">
     <div class="container">
       <header class="section-header">
-        <span class="eyebrow">Por dónde suelen empezar</span>
-        <h2 class="balance">Cuatro puntos de entrada que se repiten.</h2>
+        <span class="eyebrow">Por dónde suelen empezar los clientes</span>
+        <h2 class="balance">Siete puntos de entrada típicos.</h2>
+        <p class="lead">La mayoría de los proyectos de salida arrancan con una frase. Coja la más parecida a la suya.</p>
       </header>
-      <div class="grid-2">
-        <article class="card">
-          <blockquote>«Tenemos una feria en Alemania dentro de tres meses y nada creíble en internet.»</blockquote>
-          <p><strong>Fórmula Starter.</strong> Noventa días para marca, LinkedIn y una web orientada al exterior.</p>
-        </article>
-        <article class="card">
-          <blockquote>«Tenemos presencia, pero ninguna entrada.»</blockquote>
-          <p><strong>Fórmula Growth.</strong> SEO, GEO y Ads se suman sobre la base Starter.</p>
-        </article>
-        <article class="card">
-          <blockquote>«Tenemos leads. No hay nadie en Europa para gestionarlos.»</blockquote>
-          <p><strong>Full Pipeline.</strong> Conectamos la fuerza de ventas sobre el terreno.</p>
-        </article>
-        <article class="card">
-          <blockquote>«No sabemos por dónde empezar.»</blockquote>
-          <p>Treinta minutos al teléfono y le decimos qué fórmula y cómo se ven los noventa días. <a href={pathFor('contact', locale)}>Reservar una llamada</a>.</p>
-        </article>
+      <div class="openings" data-stagger>
+        <a class="opening" href={pathFor('agencies/beyondbridge', locale)} style="--i: 0;">
+          <span class="opening__quote-mark" aria-hidden="true">&#8220;</span>
+          <p class="opening__quote">Tenemos una feria en Alemania dentro de tres meses y nada online que parezca creíble.</p>
+          <div class="opening__answer">
+            <span class="opening__by">Paquete Starter</span>
+            <span class="opening__line">Noventa días para marca, LinkedIn y web orientada al exterior.</span>
+          </div>
+        </a>
+        <a class="opening" href={pathFor('agencies/beyondbridge', locale)} style="--i: 1;">
+          <span class="opening__quote-mark" aria-hidden="true">&#8220;</span>
+          <p class="opening__quote">Tenemos presencia, pero no entran leads.</p>
+          <div class="opening__answer">
+            <span class="opening__by">Paquete Growth</span>
+            <span class="opening__line">SEO, GEO y Google Ads montados sobre la base del Starter.</span>
+          </div>
+        </a>
+        <a class="opening" href={pathFor('agencies/beyondbridge', locale)} style="--i: 2;">
+          <span class="opening__quote-mark" aria-hidden="true">&#8220;</span>
+          <p class="opening__quote">Tenemos inbound. Y a nadie en Europa que lo coja.</p>
+          <div class="opening__answer">
+            <span class="opening__by">Full Pipeline</span>
+            <span class="opening__line">Se suma la fuerza de ventas en plaza. Comerciales con nombre en EE. UU., Reino Unido, Alemania y Francia.</span>
+          </div>
+        </a>
+        <a class="opening" href={pathFor('agencies/nuvora-studio', locale)} style="--i: 3;">
+          <span class="opening__quote-mark" aria-hidden="true">&#8220;</span>
+          <p class="opening__quote">Nuestro LinkedIn está vacío y los directivos no publican.</p>
+          <div class="opening__answer">
+            <span class="opening__by">Nuvora Studio</span>
+            <span class="opening__line">Especialista B2B solo en LinkedIn. Estrategia, contenido, anuncios y publicaciones de directivos.</span>
+          </div>
+        </a>
+        <a class="opening" href={pathFor('agencies/beyondbridge', locale)} style="--i: 4;">
+          <span class="opening__quote-mark" aria-hidden="true">&#8220;</span>
+          <p class="opening__quote">Nuestro pitch suena a traducción.</p>
+          <div class="opening__answer">
+            <span class="opening__by">Marca BeyondBridge</span>
+            <span class="opening__line">Una marca construida para el B2B occidental, no transpuesta del chino.</span>
+          </div>
+        </a>
+        <a class="opening" href={pathFor('agencies/beyondbridge', locale)} style="--i: 5;">
+          <span class="opening__quote-mark" aria-hidden="true">&#8220;</span>
+          <p class="opening__quote">El comprador occidental no nos encuentra ni en Google ni en ChatGPT.</p>
+          <div class="opening__answer">
+            <span class="opening__by">SEO y GEO</span>
+            <span class="opening__line">Posicionar en Google. Aparecer citado en ChatGPT, Perplexity y Gemini.</span>
+          </div>
+        </a>
+        <a class="opening opening--cta" href={pathFor('contact', locale)} style="--i: 6;">
+          <span class="opening__quote-mark" aria-hidden="true">&#8220;</span>
+          <p class="opening__quote">No sabemos por dónde empezar.</p>
+          <div class="opening__answer">
+            <span class="opening__by">Reservar una llamada</span>
+            <span class="opening__line">Treinta minutos. Le decimos qué nivel y cómo se ven los próximos 90 días.</span>
+          </div>
+        </a>
       </div>
     </div>
   </section>
@@ -288,16 +674,43 @@ const outboundServices = [
   <section class="section section--dark">
     <div class="container container--narrow">
       <span class="eyebrow eyebrow--on-dark">El coste de esperar</span>
-      <h2 class="balance">El posicionamiento compone. Las relaciones componen. La autoridad compone.</h2>
+      <h2 class="balance">Los rankings componen. Las relaciones componen. La autoridad compone.</h2>
       <p class="lead">
-        Cada mes sin presencia en Occidente son operaciones que se lleva el competidor que llegó antes. Cada
-        trimestre sin pipeline es presupuesto quemado en ferias, traductores y prospección en frío sin
-        retorno. Cada año adicional que pasa, el coste de alcanzar al líder se duplica. Las empresas chinas
-        que están ganando ahora mismo en el exterior empezaron hace dos años.
+        Cada mes sin presencia en Occidente son operaciones que se llevan los competidores que llegaron antes.
+        Cada trimestre sin pipeline es presupuesto quemado en ferias, traductores y emails en frío que no llegan
+        a nada. Cada año que espera, el coste de alcanzar al pelotón se duplica. Las empresas chinas que están
+        ganando fuera ahora mismo empezaron hace dos años.
       </p>
       <div class="btn-row" style="margin-top: var(--space-5);">
         <a class="btn btn--primary" href={pathFor('contact', locale)}>Reservar una llamada</a>
         <a class="btn btn--ghost-light" href={pathFor('agencies/beyondbridge', locale)}>Visitar BeyondBridge</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="split split--text-first">
+        <div class="prose">
+          <span class="eyebrow">Lo que viene incluido</span>
+          <h2 class="balance">Un motor de producción que comparten las agencias. Los dos flujos.</h2>
+          <p>
+            Cada proyecto de esta página, sea de entrada o de salida, se enchufa al motor de producción de
+            contenido de HubStudio. Es lo que mantiene a raya el coste del contenido al volumen que exigen los
+            dos lados: tres a cinco posts a la semana en RedNote y un vídeo diario en Douyin por el lado chino;
+            publicaciones semanales en LinkedIn, refrescos mensuales de campaña y librerías de assets por el
+            lado exterior. Sin un motor de contenido nativo de IA por detrás, las cuentas no salen, en
+            ninguno de los dos sentidos.
+          </p>
+          <a class="btn btn--ghost" href={pathFor('agencies/hubstudio', locale)}>Visitar HubStudio</a>
+        </div>
+        <img
+          class="aigc-visual"
+          src="/images/AIGC-For-Brands.png"
+          alt="Producción de contenido HubStudio para marcas de entrada y de salida"
+          loading="lazy"
+          decoding="async"
+        />
       </div>
     </div>
   </section>
@@ -310,4 +723,762 @@ const outboundServices = [
     max-width: 180px;
     margin-bottom: var(--space-3);
   }
+
+  .aigc-visual {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--bbg-border);
+    background: var(--bbg-surface);
+    box-shadow: 0 22px 48px -28px rgba(15, 23, 42, 0.22);
+    display: block;
+  }
+
+  .page-hero {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background: #0a1220;
+    color: var(--bbg-white);
+    padding: clamp(8rem, 18vh, 13rem) 0 clamp(6rem, 12vh, 9rem);
+    min-height: 88vh;
+    display: flex;
+    align-items: center;
+  }
+  .page-hero__bg { position: absolute; inset: 0; z-index: -2; }
+  .page-hero__bg svg { width: 100%; height: 100%; display: block; }
+  .page-hero__cable {
+    stroke-dasharray: 1800;
+    stroke-dashoffset: 1800;
+    animation: page-cable-draw 2.4s cubic-bezier(0.22, 0.61, 0.36, 1) 0.3s forwards;
+  }
+  @keyframes page-cable-draw { to { stroke-dashoffset: 0; } }
+  .page-hero__dot { animation: dot-pulse 2.6s ease-in-out infinite; transform-origin: center; transform-box: fill-box; }
+  .page-hero__dot--e { animation-delay: 1.3s; }
+  @keyframes dot-pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.4); opacity: 0.7; }
+  }
+  .page-hero__scrim {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+      radial-gradient(ellipse at 50% 25%, rgba(10, 18, 32, 0) 0%, rgba(10, 18, 32, 0.55) 70%, rgba(10, 18, 32, 0.92) 100%),
+      linear-gradient(180deg, rgba(10, 18, 32, 0.25) 0%, rgba(10, 18, 32, 0) 50%);
+  }
+  .page-hero__content {
+    width: 100%;
+    position: relative;
+    max-width: 920px;
+  }
+  .page-hero__title {
+    font-family: var(--font-display);
+    font-size: clamp(2.75rem, 5.5vw + 0.5rem, 4.75rem);
+    letter-spacing: -0.025em;
+    line-height: 1.02;
+    color: var(--bbg-white);
+    max-width: 18ch;
+    margin: var(--space-4) 0 var(--space-5);
+    font-weight: 600;
+  }
+  .page-hero__accent {
+    background: linear-gradient(90deg, #5fb8e8 0%, #f4f1e6 50%, #e8607a 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .page-hero__lead {
+    max-width: 60ch;
+    font-size: var(--fs-lead);
+    color: rgba(255,255,255,0.78);
+    margin-bottom: var(--space-6);
+  }
+  .page-hero__jumps {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+  }
+  .page-hero__jump {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    padding: var(--space-4) var(--space-5);
+    border-radius: 14px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.18);
+    color: var(--bbg-white);
+    text-decoration: none;
+    backdrop-filter: blur(6px);
+    transition: background 0.3s var(--ease), border-color 0.3s var(--ease), transform 0.3s var(--ease);
+  }
+  .page-hero__jump-name {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+  }
+  .page-hero__jump-meta {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.65);
+    letter-spacing: 0.04em;
+  }
+  .page-hero__jump:hover {
+    background: rgba(38,154,218,0.16);
+    border-color: rgba(38,154,218,0.55);
+    color: var(--bbg-white);
+    transform: translateY(-2px);
+  }
+  .page-hero__jump--alt:hover {
+    background: rgba(200,16,46,0.16);
+    border-color: rgba(200,16,46,0.55);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .page-hero__cable { animation: none; stroke-dashoffset: 0; }
+    .page-hero__dot { animation: none; }
+  }
+
+  .entry-hero {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background: #0b1422;
+    color: var(--bbg-white);
+    padding: clamp(7rem, 16vh, 12rem) 0 clamp(5rem, 11vh, 8rem);
+    min-height: 78vh;
+    display: flex;
+    align-items: center;
+  }
+  .entry-hero__bg { position: absolute; inset: 0; z-index: -2; }
+  .entry-hero__bg svg { width: 100%; height: 100%; display: block; }
+  .entry-hero__bg .entry-hero__stream {
+    stroke-dasharray: 2000;
+    stroke-dashoffset: 2000;
+    animation: stream-draw 2.6s cubic-bezier(0.22, 0.61, 0.36, 1) 0.4s forwards;
+  }
+  .entry-hero__nodes circle { animation: node-pulse 3.2s ease-in-out infinite; transform-origin: center; }
+  .entry-hero__nodes circle:nth-child(2) { animation-delay: 0.4s; }
+  .entry-hero__nodes circle:nth-child(3) { animation-delay: 0.8s; }
+  .entry-hero__nodes circle:nth-child(4) { animation-delay: 1.2s; }
+  .entry-hero__nodes circle:nth-child(5) { animation-delay: 1.6s; }
+  .entry-hero__nodes circle:nth-child(6) { animation-delay: 2.0s; }
+  @keyframes node-pulse { 0%, 100% { opacity: 0.6; } 50% { opacity: 1; } }
+  @keyframes stream-draw { to { stroke-dashoffset: 0; } }
+
+  .entry-hero__scrim {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+      radial-gradient(ellipse at 50% 20%, rgba(11, 20, 34, 0) 0%, rgba(11, 20, 34, 0.55) 70%, rgba(11, 20, 34, 0.92) 100%),
+      linear-gradient(180deg, rgba(11, 20, 34, 0.25) 0%, rgba(11, 20, 34, 0) 50%);
+  }
+  .entry-hero__content {
+    width: 100%;
+    position: relative;
+    max-width: 880px;
+  }
+  .entry-hero__title {
+    font-family: var(--font-display);
+    font-size: clamp(2.25rem, 4vw + 0.5rem, 3.75rem);
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    color: var(--bbg-white);
+    max-width: 22ch;
+    margin: var(--space-4) 0 var(--space-5);
+    font-weight: 600;
+  }
+  .entry-hero__lead {
+    max-width: 60ch;
+    font-size: var(--fs-lead);
+    color: rgba(255,255,255,0.78);
+  }
+  .entry-hero__chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-top: var(--space-6);
+  }
+  .entry-hero__chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 12px;
+    border: 1px solid rgba(255,255,255,0.16);
+    background: rgba(255,255,255,0.04);
+    color: rgba(255,255,255,0.85);
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    backdrop-filter: blur(4px);
+    transition: background 0.25s var(--ease), border-color 0.25s var(--ease), transform 0.25s var(--ease);
+  }
+  .entry-hero__chip:hover {
+    background: rgba(38,154,218,0.18);
+    border-color: rgba(38,154,218,0.55);
+    transform: translateY(-2px);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .entry-hero__bg .entry-hero__stream { animation: none; stroke-dashoffset: 0; }
+    .entry-hero__nodes circle { animation: none; }
+  }
+
+  .req-section { position: relative; isolation: isolate; overflow: hidden; }
+  .req-section__bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+  .req-section__blob {
+    position: absolute;
+    width: 480px; height: 480px;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.45;
+  }
+  .req-section__blob--w { background: rgba(38, 154, 218, 0.18); top: -160px; left: -180px; }
+  .req-section__blob--e { background: rgba(200, 16, 46, 0.14); bottom: -180px; right: -160px; }
+  .req-section .container { position: relative; z-index: 1; }
+
+  .req-grid {
+    list-style: none;
+    margin: var(--space-6) 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: var(--space-5);
+    perspective: 1400px;
+  }
+  .req-card { grid-column: span 2; }
+  .req-card:nth-child(4) { grid-column: span 3; }
+  .req-card:nth-child(5) { grid-column: span 3; }
+  .req-grid--bento3x2 .req-card,
+  .req-grid--bento3x2 .req-card:nth-child(4),
+  .req-grid--bento3x2 .req-card:nth-child(5) { grid-column: span 2; }
+  @media (max-width: 1023px) {
+    .req-grid { grid-template-columns: repeat(2, 1fr); }
+    .req-card, .req-card:nth-child(4), .req-card:nth-child(5) { grid-column: span 1; }
+    .req-grid--bento3x2 .req-card { grid-column: span 1; }
+  }
+  @media (max-width: 639px) {
+    .req-grid { grid-template-columns: 1fr; }
+    .req-card, .req-card:nth-child(4), .req-card:nth-child(5) { grid-column: span 1; }
+    .req-grid--bento3x2 .req-card { grid-column: span 1; }
+  }
+
+  .req-card {
+    position: relative;
+    border-radius: 18px;
+    background: linear-gradient(180deg, #ffffff 0%, #fafbfd 100%);
+    border: 1px solid rgba(15, 23, 42, 0.06);
+    box-shadow:
+      0 1px 2px rgba(15, 23, 42, 0.03),
+      0 18px 38px -22px rgba(15, 23, 42, 0.12);
+    transform-style: preserve-3d;
+    will-change: transform;
+    opacity: 0;
+    transform: translateY(28px);
+    transition:
+      opacity 0.6s var(--ease),
+      transform 0.6s var(--ease),
+      box-shadow 0.4s var(--ease),
+      border-color 0.4s var(--ease);
+  }
+  .req-card.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: calc(var(--i, 0) * 80ms);
+  }
+  .req-card:hover {
+    border-color: rgba(15, 23, 42, 0.12);
+    box-shadow:
+      0 1px 2px rgba(15, 23, 42, 0.04),
+      0 28px 56px -18px rgba(15, 23, 42, 0.18);
+  }
+  .req-card::before {
+    content: '';
+    position: absolute; inset: 0;
+    border-radius: 18px;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(38, 154, 218, 0.7), rgba(200, 16, 46, 0.45));
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.35s var(--ease);
+    pointer-events: none;
+  }
+  .req-card:hover::before { opacity: 1; }
+
+  .req-card__inner {
+    padding: var(--space-5);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    height: 100%;
+  }
+  .req-card__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px; height: 44px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(38, 154, 218, 0.12), rgba(200, 16, 46, 0.08));
+    color: var(--bbg-blue);
+    transition: transform 0.4s var(--ease), color 0.3s var(--ease);
+  }
+  .req-card__icon svg { width: 22px; height: 22px; }
+  .req-card:hover .req-card__icon { transform: rotate(-6deg) scale(1.06); color: #c8102e; }
+  .req-card__title {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--bbg-ink);
+    line-height: 1.3;
+  }
+  .req-card__body {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: var(--bbg-text);
+  }
+  .req-card__pill {
+    margin-top: auto;
+    align-self: flex-start;
+    font-family: var(--font-display);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: var(--bbg-blue-dark);
+    padding: 5px 10px;
+    border-radius: 999px;
+    background: rgba(38,154,218,0.08);
+    border: 1px solid rgba(38,154,218,0.22);
+    transition: background 0.3s var(--ease), color 0.3s var(--ease), border-color 0.3s var(--ease);
+  }
+  .req-card:hover .req-card__pill {
+    background: rgba(38,154,218,0.16);
+    border-color: rgba(38,154,218,0.45);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .req-card { opacity: 1; transform: none; transition: none; }
+    .req-card.is-visible { transition-delay: 0s; }
+    .req-card:hover { transform: none; }
+  }
+
+  .agency-section { position: relative; isolation: isolate; }
+  .agency-rail {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: var(--space-4);
+    margin-top: var(--space-6);
+  }
+  @media (max-width: 1279px) { .agency-rail { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 767px) { .agency-rail { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 639px) { .agency-rail { grid-template-columns: 1fr; } }
+
+  .agency-tile {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    padding: var(--space-5);
+    border-radius: 16px;
+    background: var(--bbg-white);
+    border: 1px solid var(--bbg-border);
+    text-decoration: none;
+    color: var(--bbg-ink);
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(20px);
+    transition:
+      opacity 0.55s var(--ease),
+      transform 0.55s var(--ease),
+      border-color 0.3s var(--ease),
+      box-shadow 0.3s var(--ease);
+  }
+  .agency-tile.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: calc(var(--i, 0) * 75ms);
+  }
+  .agency-tile::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0; top: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--bbg-blue) 0%, #c8102e 100%);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.45s var(--ease);
+  }
+  .agency-tile:hover {
+    border-color: rgba(38,154,218,0.45);
+    box-shadow: 0 22px 44px -22px rgba(15, 23, 42, 0.18);
+    color: var(--bbg-ink);
+  }
+  .agency-tile:hover::after { transform: scaleX(1); }
+  .agency-tile__logo {
+    display: flex;
+    align-items: center;
+    height: 44px;
+    margin-bottom: var(--space-3);
+  }
+  .agency-tile__logo :global(.agency-card-logo) {
+    height: 36px;
+    width: auto;
+    max-width: 150px;
+  }
+  .agency-tile__role {
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--bbg-text-muted);
+  }
+  .agency-tile__name {
+    margin: 0;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--bbg-ink);
+  }
+  .agency-tile__body {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.45;
+    color: var(--bbg-text);
+    flex-grow: 1;
+  }
+  .agency-tile__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: var(--space-3);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--bbg-blue);
+    transition: gap 0.25s var(--ease);
+  }
+  .agency-tile:hover .agency-tile__cta { gap: 10px; color: var(--bbg-blue-dark); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .agency-tile { opacity: 1; transform: none; }
+    .agency-tile.is-visible { transition-delay: 0s; }
+  }
+
+  .pkg-section { position: relative; isolation: isolate; }
+  .pkg-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-5);
+    margin-top: var(--space-6);
+    align-items: stretch;
+  }
+  @media (max-width: 1023px) { .pkg-grid { grid-template-columns: 1fr; } }
+
+  .pkg {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    padding: var(--space-6) var(--space-5) var(--space-5);
+    border-radius: 18px;
+    background: var(--bbg-white);
+    border: 1px solid var(--bbg-border);
+    text-decoration: none;
+    color: var(--bbg-ink);
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(20px);
+    transition:
+      opacity 0.55s var(--ease),
+      transform 0.55s var(--ease),
+      border-color 0.3s var(--ease),
+      box-shadow 0.3s var(--ease);
+  }
+  .pkg.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: calc(var(--i, 0) * 90ms);
+  }
+  .pkg:hover {
+    border-color: rgba(38, 154, 218, 0.5);
+    box-shadow: 0 28px 56px -22px rgba(15, 23, 42, 0.18);
+  }
+  .pkg__head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding-bottom: var(--space-3);
+    border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+  }
+  .pkg__tier {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    color: var(--bbg-ink);
+  }
+  .pkg__theme {
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--bbg-blue);
+  }
+  .pkg__title {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 600;
+    line-height: 1.35;
+    color: var(--bbg-ink);
+  }
+  .pkg__body {
+    margin: 0;
+    font-size: 0.92rem;
+    line-height: 1.5;
+    color: var(--bbg-text);
+  }
+  .pkg__features {
+    list-style: none;
+    margin: var(--space-3) 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .pkg__features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: var(--bbg-text);
+  }
+  .pkg__check {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: rgba(38, 154, 218, 0.12);
+    color: var(--bbg-blue-dark);
+    font-size: 11px;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .pkg__cta {
+    margin-top: auto;
+    padding-top: var(--space-3);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--bbg-blue);
+    transition: gap 0.25s var(--ease), color 0.25s var(--ease);
+  }
+  .pkg:hover .pkg__cta { gap: 10px; color: var(--bbg-blue-dark); }
+
+  .pkg--mid {
+    background: linear-gradient(180deg, var(--bbg-white) 0%, rgba(38, 154, 218, 0.05) 100%);
+  }
+
+  .pkg--top {
+    background: linear-gradient(160deg, var(--bbg-ink) 0%, #1a2333 100%);
+    color: var(--bbg-white);
+    border-color: transparent;
+  }
+  .pkg--top .pkg__head { border-bottom-color: rgba(255, 255, 255, 0.18); }
+  .pkg--top .pkg__tier { color: var(--bbg-white); }
+  .pkg--top .pkg__theme { color: var(--bbg-blue-light); }
+  .pkg--top .pkg__title { color: var(--bbg-white); }
+  .pkg--top .pkg__body { color: rgba(255,255,255,0.78); }
+  .pkg--top .pkg__features li { color: rgba(255,255,255,0.85); }
+  .pkg--top .pkg__check {
+    background: rgba(38, 154, 218, 0.25);
+    color: var(--bbg-blue-light);
+  }
+  .pkg--top .pkg__cta { color: var(--bbg-blue-light); }
+  .pkg--top:hover .pkg__cta { color: var(--bbg-white); }
+  .pkg--top:hover {
+    border-color: rgba(38, 154, 218, 0.5);
+    box-shadow: 0 28px 56px -22px rgba(38, 154, 218, 0.4);
+  }
+  .pkg__badge {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    font-family: var(--font-display);
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--bbg-ink);
+    background: var(--bbg-blue-light);
+    padding: 4px 9px;
+    border-radius: 999px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .pkg { opacity: 1; transform: none; }
+    .pkg.is-visible { transition-delay: 0s; }
+  }
+
+  .openings-section { position: relative; isolation: isolate; background: linear-gradient(180deg, var(--bbg-white) 0%, var(--bbg-surface) 100%); }
+  .openings {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-5);
+    margin-top: var(--space-6);
+  }
+  @media (max-width: 1023px) { .openings { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 639px) { .openings { grid-template-columns: 1fr; } }
+
+  .opening {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    padding: var(--space-5);
+    border-radius: 18px;
+    background: var(--bbg-white);
+    border: 1px solid var(--bbg-border);
+    text-decoration: none;
+    color: var(--bbg-ink);
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(20px);
+    transition:
+      opacity 0.55s var(--ease),
+      transform 0.55s var(--ease),
+      border-color 0.3s var(--ease),
+      box-shadow 0.3s var(--ease);
+  }
+  .opening.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: calc(var(--i, 0) * 70ms);
+  }
+  .opening:hover {
+    border-color: rgba(38,154,218,0.4);
+    box-shadow: 0 22px 44px -22px rgba(15, 23, 42, 0.18);
+  }
+  .opening__quote-mark {
+    position: absolute;
+    top: -10px;
+    right: 14px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 6rem;
+    line-height: 1;
+    color: rgba(38,154,218,0.10);
+    transition: color 0.3s var(--ease), transform 0.3s var(--ease);
+    pointer-events: none;
+  }
+  .opening:hover .opening__quote-mark {
+    color: rgba(38,154,218,0.20);
+    transform: translateY(2px);
+  }
+  .opening__quote {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 600;
+    line-height: 1.35;
+    letter-spacing: -0.005em;
+    color: var(--bbg-ink);
+    position: relative;
+    z-index: 1;
+  }
+  .opening__answer {
+    margin-top: auto;
+    padding-top: var(--space-3);
+    border-top: 1px dashed rgba(15, 23, 42, 0.12);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .opening__by {
+    font-family: var(--font-display);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: var(--bbg-blue);
+  }
+  .opening__line {
+    font-size: 0.88rem;
+    line-height: 1.45;
+    color: var(--bbg-text);
+  }
+  .opening--cta {
+    background: linear-gradient(135deg, var(--bbg-ink) 0%, #1a2333 100%);
+    color: var(--bbg-white);
+    border-color: transparent;
+  }
+  .opening--cta .opening__quote { color: var(--bbg-white); }
+  .opening--cta .opening__quote-mark { color: rgba(255,255,255,0.10); }
+  .opening--cta .opening__by { color: var(--bbg-blue-light); }
+  .opening--cta .opening__line { color: rgba(255,255,255,0.78); }
+  .opening--cta .opening__answer { border-top-color: rgba(255,255,255,0.18); }
+  .opening--cta:hover {
+    border-color: rgba(38,154,218,0.5);
+    box-shadow: 0 22px 44px -22px rgba(38, 154, 218, 0.4);
+  }
+  .opening--cta:hover .opening__quote-mark { color: rgba(255,255,255,0.18); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .opening { opacity: 1; transform: none; }
+    .opening.is-visible { transition-delay: 0s; }
+  }
 </style>
+
+<script>
+  const targets = document.querySelectorAll<HTMLElement>('.req-card, .agency-tile, .opening, .pkg');
+  if ('IntersectionObserver' in window && targets.length) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add('is-visible');
+            io.unobserve(e.target);
+          }
+        });
+      },
+      { threshold: 0.18, rootMargin: '0px 0px -8% 0px' },
+    );
+    targets.forEach((el) => io.observe(el));
+  } else {
+    targets.forEach((el) => el.classList.add('is-visible'));
+  }
+
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduceMotion) {
+    document.querySelectorAll<HTMLElement>('.req-card').forEach((card) => {
+      let raf = 0;
+      const onMove = (ev: MouseEvent) => {
+        const r = card.getBoundingClientRect();
+        const x = (ev.clientX - r.left) / r.width;
+        const y = (ev.clientY - r.top) / r.height;
+        const rx = (0.5 - y) * 5;
+        const ry = (x - 0.5) * 5;
+        cancelAnimationFrame(raf);
+        raf = requestAnimationFrame(() => {
+          card.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(0)`;
+        });
+      };
+      const onLeave = () => {
+        cancelAnimationFrame(raf);
+        card.style.transform = '';
+      };
+      card.addEventListener('mousemove', onMove);
+      card.addEventListener('mouseleave', onLeave);
+    });
+  }
+</script>

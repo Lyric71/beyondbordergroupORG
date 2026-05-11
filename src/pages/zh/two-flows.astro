@@ -1,219 +1,317 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import ImagePlaceholder from '../../components/ImagePlaceholder.astro';
 import AgencyLogo from '../../components/AgencyLogo.astro';
 import { pathFor } from '../../i18n/ui';
 
 const locale = 'zh' as const;
 const title = '两条流向';
-const description = '一座桥，两个方向。进入中国市场或在中国扩规模所需的整套能力，以及中国品牌出海的整条链路。';
+const description = '一座桥，两个方向。进入或扩张中国市场的整套入境阵列，加上中国品牌走出去的整条出境链路。';
 
 const inboundReq = [
-  { h: '一个对中国受众"有质感"的品牌', body: '把信任凭据放在最前面：认证、合作伙伴 logo、第三方背书。这种密集、带凭证的首页，西方眼里嫌挤，中国眼里读到的就是认真。西方那一套极简，到中国会被读成"内容不够"。' },
-  { h: '中国消费者真在用的渠道', body: '微信打信任，小红书做候选清单，抖音做发现和直播带货，微博做大盘触达。每一个都得有自己的格式、自己的节奏、自己的运营团队。混着做，对话就丢了。' },
-  { h: '在防火墙后跑得动的网站基础设施', body: '在阿里云、腾讯或华为云上做 ICP 备案的托管。一个百度真能索引的站。在微信内置浏览器里跑过 UX：你大部分流量在那儿读你的内容。实际等同于纯移动端：超过 95% 的中国用户从手机上网。' },
-  { h: '中国买家用的搜索引擎里的能见度', body: '根据 Statcounter，百度仍占中国搜索市场过半。Google 不到 3%。35 岁以下买家越来越绕开传统搜索，直接进 AI：DeepSeek、豆包、Kimi、元宝。' },
-  { h: '在交易真正发生的地方做生意', body: 'Tmall、京东、抖音小店、小红书，再加微信里的社交电商。在中国，电商和社交不是两条独立漏斗，是同一张面，一根手指就能滑完。' },
+  {
+    icon: 'badge',
+    h: '在中国受众眼里读得出「高级」的品牌',
+    body: '信任凭据放在最前面。认证、合作方 logo、第三方背书。在西方看起来太密的东西，在中国读起来才像认真做生意。',
+    pill: '信息密度即高级感',
+  },
+  {
+    icon: 'channels',
+    h: '中国消费者真正在用的渠道',
+    body: '微信建信任。小红书做候选清单。抖音做发现。微博做覆盖。每一个都有自己的格式，也都要自己一支团队。',
+    pill: '不是一套，是四套',
+  },
+  {
+    icon: 'server',
+    h: '建在墙内的网络基础设施',
+    body: '阿里云、腾讯云或华为云上的 ICP 备案托管。一个百度能索引的站。手机优先不是潮流，是硬规则。',
+    pill: '95%+ 来自手机',
+  },
+  {
+    icon: 'search',
+    h: '在中国买家用的搜索引擎里被找到',
+    body: '百度仍占了一半以上的搜索份额，Google 在百分之三以下。35 岁以下的人正在直接跳过搜索，转去用 AI：DeepSeek、豆包、Kimi、元宝。',
+    pill: '百度 > 50% · Google < 3%',
+  },
+  {
+    icon: 'cart',
+    h: '买家真正下单的地方',
+    body: 'Tmall、京东、抖音小店、小红书，再加上微信里的社交电商。电商和社交在中国是同一个界面，不是两个漏斗。',
+    pill: '社交即电商',
+  },
 ];
 
 const inboundAgencies = [
-  { name: 'BeyondBorderGroup', role: '全案运营方', body: '二十年中国实地经验。品牌、媒介、社交、KOL、内容工作室、PR、网站、活动、电商、社交电商、分销、咨询。一支负责到底的团队。整套拿，或者只拿一个模块。', route: 'agencies/beyondbordergroup' as const },
-  { name: 'TheRedScroll', role: '渠道专家', body: '从上海和香港运营的中国社交。微信、抖音、小红书、微博，再加十四个平台。策略、内容、KOL、广告、CRM、培训。范围固定，价格固定，两周完成 onboarding。', route: 'agencies/theredscroll' as const },
-  { name: 'ChinaWebFoundry', role: '网站基础设施专家', body: '为中国互联网而生的网站。策略与审计、迁移到中国、原生中文内容、移动端优先 UX、ICP 备案托管、百度 SEO、为中国 AI 引擎做的 GEO，再加日常维护。WordPress、Astro、微信，全部由一个上海团队完成。', route: 'agencies/chinawebfoundry' as const },
+  {
+    name: 'BeyondBorderGroup',
+    role: '全案操盘手',
+    body: '二十年扎根在地。品牌、电商、分销。一支负责到底的团队。',
+    route: 'agencies/beyondbordergroup' as const,
+  },
+  {
+    name: 'TheRedScroll',
+    role: '社交媒体专家',
+    body: '微信、抖音、小红书、微博，再加上另外 14 个平台。范围固定、价格固定，两周完成接入。',
+    route: 'agencies/theredscroll' as const,
+  },
+  {
+    name: 'ChinaWebFoundry',
+    role: '网站基础设施专家',
+    body: 'ICP 备案托管、百度 SEO、手机优先 UX，面向中国 AI 引擎的 GEO。',
+    route: 'agencies/chinawebfoundry' as const,
+  },
+  {
+    name: 'BeyondCompass',
+    role: '分销商与 TP 私库',
+    body: '一个亲自核过的中国分销商、Tmall TP、抖音 Partner 私库。',
+    route: 'agencies/beyondcompass' as const,
+  },
+  {
+    name: 'HubStudio',
+    role: '面向中国的内容生产引擎',
+    body: '按小红书、抖音、微信要的频次，把做给中国受众看的内容产出来。',
+    route: 'agencies/hubstudio' as const,
+  },
 ];
 
 const outboundReq = [
-  { h: '一个西方买家一眼就认得出来的品牌', body: '不是从中文翻过去的版本。名字立得住、tagline 不别扭、视觉系统在法兰克福和芝加哥都不需要解释。' },
-  { h: 'LinkedIn 上真的有内容', body: '西方 B2B 买家在打电话之前先翻 LinkedIn。页面是空的，电话就不会响。LinkedIn 自家研究：82% 的买家说，看到高管在 LinkedIn 上发内容，会更信任这家公司。空账号，等于丢单。' },
-  { h: '一份按西方眼光做的网站', body: '干净、留白、每页只有一个明确动作。在中国境外托管。打开要快：三秒钟，超过一半访客就走了。' },
-  { h: '在西方搜索引擎里被看到', body: 'Google 排名，加上在 ChatGPT、Perplexity、Gemini 里被引用。大多数中国公司出海时几乎没有"权威值"：没有外链、没有英文内容、没有 AI 引用。竞争对手早就把排名和答案拿走了。' },
-  { h: '搜索结果第一页', body: 'Google Ads 在前面跑，让 SEO 在后面慢慢累积。Landing page 用西方版本，不要做翻译稿。很多中国公司把广告预算烧在过宽的关键词、错的地区，以及为中国市场写的着陆页上。' },
-  { h: '在对的时区接电话的销售', body: '德国买家上午十点发询盘，深圳还在睡觉。等天一亮，那位买家已经发给三个竞品了。在西方市场，谁先回复，谁就接得到下一步。' },
+  {
+    icon: 'badge',
+    h: '西方买家认得出的品牌',
+    body: '不是从中文翻过来的。能站得住的名字，不别扭的承诺，能在法兰克福和芝加哥落地、不用加注解的视觉。',
+    pill: '重新打造，不是翻译',
+  },
+  {
+    icon: 'channels',
+    h: 'LinkedIn 上的存在感',
+    body: '西方 B2B 买家在打电话之前会先翻 LinkedIn。页面空，电话就没。高管自己发内容时，买家对公司的信任明显更高。',
+    pill: '82% 更信发声的高管',
+  },
+  {
+    icon: 'monitor',
+    h: '按西方眼光做出来的网站',
+    body: '干净。留白。一页一个动作。托管在境外。打开要快：超过三秒，一半以上的访客就走了。',
+    pill: '3 秒加载 = 流失一半',
+  },
+  {
+    icon: 'search',
+    h: '在西方搜索引擎里被找到',
+    body: 'Google 排名，外加 ChatGPT、Perplexity、Gemini 的引用。竞争对手早就把答案占了。',
+    pill: 'Google + ChatGPT + AI',
+  },
+  {
+    icon: 'megaphone',
+    h: '第一页的搜索广告',
+    body: 'SEO 在堆资产的同时，让 Google Ads 先把你顶到第一页。西方版的着陆页，不是翻译过来的。对的关键词，对的地区。',
+    pill: '上线第一天，就在第一页',
+  },
+  {
+    icon: 'globe',
+    h: '在对的时区接电话的销售',
+    body: '德国买家上午十点写信。这时候深圳还在睡。等深圳团队上班，三个竞争对手已经回过去了。',
+    pill: '先回的那个赢',
+  },
 ];
 
-const outboundServices = [
-  { h: '品牌策略', body: '为西方买家而建，不是翻译。' },
-  { h: 'LinkedIn', body: '西方 B2B 第一站。由集团里的 LinkedIn 专家 Nuvora Studio 操盘。' },
-  { h: '网站', body: '按西方眼光来。在中国境外托管。' },
-  { h: 'SEO 与 GEO', body: '冲 Google 排名，被西方 AI 引用。' },
-  { h: 'Google Ads', body: '上线第一天，就上第一页。' },
-  { h: '外置销售队伍', body: '美国、英国、德国、法国的具名母语销售代表。' },
-];
 ---
 
 <Layout locale={locale} route="two-flows" title={title} description={description}>
-  <section class="hero-twoflows">
-    <div class="container hero-twoflows__inner">
-      <span class="eyebrow eyebrow--rule">两个方向</span>
-      <h1 class="hero-twoflows__title balance">
-        一座桥。<span class="hero-twoflows__accent">两条流向。</span>
+  <section class="page-hero">
+    <div class="page-hero__bg" aria-hidden="true">
+      <svg viewBox="0 0 1600 760" preserveAspectRatio="xMidYMid slice" role="img" aria-hidden="true">
+        <defs>
+          <linearGradient id="page-cable" x1="0" x2="1" y1="0" y2="0">
+            <stop offset="0%" stop-color="#269ada" stop-opacity="0.95" />
+            <stop offset="50%" stop-color="#f4f1e6" stop-opacity="0.9" />
+            <stop offset="100%" stop-color="#c8102e" stop-opacity="0.95" />
+          </linearGradient>
+          <radialGradient id="page-glow-w" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#269ada" stop-opacity="0.30" />
+            <stop offset="100%" stop-color="#269ada" stop-opacity="0" />
+          </radialGradient>
+          <radialGradient id="page-glow-e" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#c8102e" stop-opacity="0.28" />
+            <stop offset="100%" stop-color="#c8102e" stop-opacity="0" />
+          </radialGradient>
+        </defs>
+
+        <ellipse cx="280" cy="500" rx="560" ry="220" fill="url(#page-glow-w)" />
+        <ellipse cx="1320" cy="500" rx="560" ry="220" fill="url(#page-glow-e)" />
+
+        <line x1="0" y1="500" x2="1600" y2="500" stroke="rgba(255,255,255,0.06)" stroke-width="1" />
+        <line x1="0" y1="518" x2="1600" y2="518" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
+        <line x1="0" y1="538" x2="1600" y2="538" stroke="rgba(255,255,255,0.025)" stroke-width="1" />
+
+        <path class="page-hero__cable" d="M 220 500 Q 800 110 1380 500" fill="none" stroke="url(#page-cable)" stroke-width="2" stroke-linecap="round" />
+
+        <g stroke="rgba(255,255,255,0.18)" stroke-width="1">
+          <line x1="320" y1="500" x2="320" y2="396" />
+          <line x1="440" y1="500" x2="440" y2="320" />
+          <line x1="560" y1="500" x2="560" y2="262" />
+          <line x1="680" y1="500" x2="680" y2="222" />
+          <line x1="800" y1="500" x2="800" y2="208" />
+          <line x1="920" y1="500" x2="920" y2="222" />
+          <line x1="1040" y1="500" x2="1040" y2="262" />
+          <line x1="1160" y1="500" x2="1160" y2="320" />
+          <line x1="1280" y1="500" x2="1280" y2="396" />
+        </g>
+
+        <g>
+          <line x1="220" y1="240" x2="220" y2="500" stroke="rgba(38,154,218,0.55)" stroke-width="2" />
+          <line x1="1380" y1="240" x2="1380" y2="500" stroke="rgba(200,16,46,0.55)" stroke-width="2" />
+          <circle class="page-hero__dot page-hero__dot--w" cx="220" cy="500" r="5" fill="#269ada" />
+          <circle class="page-hero__dot page-hero__dot--e" cx="1380" cy="500" r="5" fill="#c8102e" />
+        </g>
+
+        <text x="220" y="555" text-anchor="middle" fill="rgba(38,154,218,0.85)" font-family="Inter, sans-serif" font-size="12" letter-spacing="3">WEST</text>
+        <text x="1380" y="555" text-anchor="middle" fill="rgba(200,16,46,0.85)" font-family="Inter, sans-serif" font-size="12" letter-spacing="3">CHINA</text>
+      </svg>
+    </div>
+    <div class="page-hero__scrim" aria-hidden="true"></div>
+    <div class="container page-hero__content">
+      <span class="eyebrow eyebrow--on-dark eyebrow--rule">两个方向</span>
+      <h1 class="page-hero__title balance">
+        一座桥。<span class="page-hero__accent">两条流向。</span>
       </h1>
-      <p class="hero-twoflows__lead">
-        无论你往哪个方向走，两岸的功课，我们都做过了。从你的那一侧开始。
+      <p class="page-hero__lead">
+        无论你往哪边走，两岸的活我们都干过。从你那一岸开始。
       </p>
-
-      <div class="hero-twoflows__bridge" aria-hidden="true">
-        <span class="hero-twoflows__bank">西方</span>
-        <svg class="hero-twoflows__arc" viewBox="0 0 600 100" preserveAspectRatio="none">
-          <path d="M0 86 Q300 4 600 86" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-          <line x1="60" y1="76" x2="60" y2="92" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-          <line x1="180" y1="50" x2="180" y2="92" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-          <line x1="300" y1="40" x2="300" y2="92" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-          <line x1="420" y1="50" x2="420" y2="92" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-          <line x1="540" y1="76" x2="540" y2="92" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-        </svg>
-        <span class="hero-twoflows__bank">中国</span>
-      </div>
-
-      <div class="hero-twoflows__jumps">
-        <a class="hero-twoflows__jump" href="#inbound">
-          入境业务
-          <span class="hero-twoflows__jump-meta">西方进入中国</span>
+      <div class="page-hero__jumps">
+        <a class="page-hero__jump" href="#inbound">
+          <span class="page-hero__jump-name">入境</span>
+          <span class="page-hero__jump-meta">西方进入中国</span>
         </a>
-        <a class="hero-twoflows__jump" href="#outbound">
-          出境业务
-          <span class="hero-twoflows__jump-meta">中国走向西方</span>
+        <a class="page-hero__jump page-hero__jump--alt" href="#outbound">
+          <span class="page-hero__jump-name">出境</span>
+          <span class="page-hero__jump-meta">中国走向西方</span>
         </a>
       </div>
     </div>
   </section>
 
-  <section id="inbound" class="hero-editorial">
-    <div class="container">
-      <span class="eyebrow eyebrow--rule">流向 1 · 入境 · 西方进入中国</span>
-      <h2 class="hero-editorial__title balance">
-        你有品牌。中国有 11 亿网民。把这道沟填上，不是翻译能解决的事。
+  <section id="inbound" class="entry-hero entry-hero--inbound">
+    <div class="entry-hero__bg" aria-hidden="true">
+      <svg viewBox="0 0 1600 720" preserveAspectRatio="xMidYMid slice" role="img" aria-hidden="true">
+        <defs>
+          <radialGradient id="entry-glow-w" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#269ada" stop-opacity="0.34" />
+            <stop offset="100%" stop-color="#269ada" stop-opacity="0" />
+          </radialGradient>
+          <radialGradient id="entry-glow-e" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#c8102e" stop-opacity="0.32" />
+            <stop offset="100%" stop-color="#c8102e" stop-opacity="0" />
+          </radialGradient>
+          <pattern id="entry-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+            <circle cx="1.5" cy="1.5" r="1.5" fill="rgba(255,255,255,0.10)" />
+          </pattern>
+          <linearGradient id="entry-stream" x1="0" x2="1" y1="0" y2="0">
+            <stop offset="0%" stop-color="#269ada" stop-opacity="0" />
+            <stop offset="50%" stop-color="#269ada" stop-opacity="0.85" />
+            <stop offset="100%" stop-color="#c8102e" stop-opacity="0" />
+          </linearGradient>
+        </defs>
+
+        <ellipse cx="220" cy="380" rx="540" ry="240" fill="url(#entry-glow-w)" />
+        <ellipse cx="1380" cy="380" rx="540" ry="240" fill="url(#entry-glow-e)" />
+
+        <rect x="0" y="0" width="1600" height="720" fill="url(#entry-grid)" />
+
+        <g class="entry-hero__nodes" stroke="rgba(255,255,255,0.18)" fill="none" stroke-width="1">
+          <circle cx="900" cy="180" r="3" fill="rgba(38,154,218,0.9)" stroke="none" />
+          <circle cx="1080" cy="260" r="3" fill="rgba(255,255,255,0.6)" stroke="none" />
+          <circle cx="1240" cy="200" r="3" fill="rgba(200,16,46,0.9)" stroke="none" />
+          <circle cx="1140" cy="380" r="3" fill="rgba(255,255,255,0.6)" stroke="none" />
+          <circle cx="980" cy="340" r="3" fill="rgba(38,154,218,0.7)" stroke="none" />
+          <circle cx="1320" cy="320" r="3" fill="rgba(255,255,255,0.5)" stroke="none" />
+          <line x1="900" y1="180" x2="1080" y2="260" />
+          <line x1="1080" y1="260" x2="1240" y2="200" />
+          <line x1="1080" y1="260" x2="1140" y2="380" />
+          <line x1="980" y1="340" x2="1140" y2="380" />
+          <line x1="1140" y1="380" x2="1320" y2="320" />
+        </g>
+
+        <path class="entry-hero__stream" d="M 80 420 Q 800 280 1520 420" fill="none" stroke="url(#entry-stream)" stroke-width="2" stroke-linecap="round" />
+      </svg>
+    </div>
+    <div class="entry-hero__scrim" aria-hidden="true"></div>
+    <div class="container entry-hero__content">
+      <span class="eyebrow eyebrow--on-dark eyebrow--rule">流向一 · 入境 · 西方进入中国</span>
+      <h2 class="entry-hero__title balance">
+        你有一个品牌。中国有 11 亿网民。中间这段距离，翻译填不上。
       </h2>
-      <p class="hero-editorial__lead">
-        中国互联网跑在自己的一套系统上：平台不一样、搜索引擎不一样、基础设施不一样、内容密度不一样、买家信号也不一样。这套系统里头，我们已经做了二十年。
+      <p class="entry-hero__lead">
+        中国互联网跑在自己的一套底座上。平台不同，搜索引擎不同，基础设施不同，内容密度不同，买家读出来的信号也不同。我们在这套底座里做了二十年。
       </p>
-    </div>
-  </section>
-
-  <section class="section section--alt">
-    <div class="container">
-      <header class="section-header">
-        <span class="eyebrow">真正需要的东西</span>
-        <h2 class="balance">在中国落地，靠的是这些。</h2>
-      </header>
-      <div class="grid-2">
-        {inboundReq.map((r) => (
-          <article class="card">
-            <h3 class="card__title">{r.h}</h3>
-            <p>{r.body}</p>
-          </article>
-        ))}
+      <div class="entry-hero__chips">
+        <span class="entry-hero__chip">微信</span>
+        <span class="entry-hero__chip">小红书</span>
+        <span class="entry-hero__chip">抖音</span>
+        <span class="entry-hero__chip">微博</span>
+        <span class="entry-hero__chip">Tmall</span>
+        <span class="entry-hero__chip">京东</span>
+        <span class="entry-hero__chip">百度</span>
+        <span class="entry-hero__chip">DeepSeek</span>
       </div>
     </div>
   </section>
 
-  <section class="section">
+  <section class="section req-section">
+    <div class="req-section__bg" aria-hidden="true">
+      <span class="req-section__blob req-section__blob--w"></span>
+      <span class="req-section__blob req-section__blob--e"></span>
+    </div>
     <div class="container">
       <header class="section-header">
-        <span class="eyebrow">三家公司，一条流向</span>
-        <h2 class="balance">整套拿，或者就拿那一块。</h2>
+        <span class="eyebrow">真正要做的事</span>
+        <h2 class="balance">五个面，一个中国互联网。</h2>
+        <p class="lead">在中国落地，是五件事同时在跑。每一个面都有自己的逻辑，自己的节奏，以及自己那笔做错了要付的学费。</p>
       </header>
-      <div class="grid-3">
-        {inboundAgencies.map((a) => (
-          <a class="card" href={pathFor(a.route, locale)}>
-            <AgencyLogo route={a.route} name={a.name} class="agency-card-logo" />
-            <span class="card__index">{a.role}</span>
-            <h3 class="card__title">{a.name}</h3>
-            <p>{a.body}</p>
-            <span class="btn btn--ghost" style="margin-top: auto;">访问</span>
-          </a>
-        ))}
-      </div>
-    </div>
-  </section>
 
-  <section class="section section--alt">
-    <div class="container">
-      <header class="section-header">
-        <span class="eyebrow">客户通常怎么开始</span>
-        <h2 class="balance">四种最常见的入口。</h2>
-      </header>
-      <div class="grid-2">
-        <article class="card">
-          <blockquote>"我只要一个真的能跑得动的中文网站。"</blockquote>
-          <p><strong>ChinaWebFoundry。</strong>六周完成迁移，ICP 已备案，百度可索引。</p>
-        </article>
-        <article class="card">
-          <blockquote>"九十天内，我得在小红书和抖音上线。"</blockquote>
-          <p><strong>TheRedScroll。</strong>两周 onboarding，半个月内首批内容上线。</p>
-        </article>
-        <article class="card">
-          <blockquote>"我要的是全套：品牌、渠道、电商、KOL。"</blockquote>
-          <p><strong>BeyondBorderGroup。</strong>全案进入，背后是积累了二十年的 playbook。</p>
-        </article>
-        <article class="card">
-          <blockquote>"我也不知道从哪儿开始。"</blockquote>
-          <p>三十分钟一通电话，我们替你想清楚。<a href={pathFor('contact', locale)}>预约通话</a>。</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <div class="split split--text-first">
-        <div class="prose">
-          <span class="eyebrow">顺带就送给你的</span>
-          <h2 class="balance">所有公司共用的一台生产引擎。</h2>
-          <p>
-            每一份入境业务都接到 HubStudio 的 AIGC 生产层。这就是为什么中国渠道要的产量（每周三到五条小红书、每天一条抖音、每周一封微信推文、每月一波 Tmall 大改版）成本能压得住。背后没有 AI 原生的内容引擎，账算不过来。
-          </p>
-          <a class="btn btn--ghost" href={pathFor('agencies/hubstudio', locale)}>访问 HubStudio</a>
-        </div>
-        <ImagePlaceholder ratio="4x5" label="工作室静物。生产现场，AIGC 与真实素材并置。" />
-      </div>
-    </div>
-  </section>
-
-  <section id="outbound" class="hero-editorial hero-editorial--dark">
-    <div class="container">
-      <span class="eyebrow eyebrow--on-dark">流向 2 · 出境 · 中国走向西方</span>
-      <h2 class="hero-editorial__title balance">
-        产品好。价格好。工厂好。海外没人接住。
-      </h2>
-      <p class="hero-editorial__lead">
-        每一家出海的中国公司，都撞上同一面墙。品牌是给中国买家做的；网站在西方眼里嫌挤；LinkedIn 一片空；柏林上午十点发来的询盘，没人回。这条桥的另一岸，我们做了二十年。
-      </p>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <header class="section-header">
-        <span class="eyebrow">真正需要的东西</span>
-        <h2 class="balance">在海外落地，靠的是这些。</h2>
-      </header>
-      <div class="grid-2">
-        {outboundReq.map((r) => (
-          <article class="card">
-            <h3 class="card__title">{r.h}</h3>
-            <p>{r.body}</p>
-          </article>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <section class="section section--alt">
-    <div class="container">
-      <header class="section-header">
-        <span class="eyebrow">一家公司，六项服务</span>
-        <h2 class="balance">BeyondBridge：完整链路。</h2>
-        <p class="lead">
-          专门为出海的中国品牌而建。六项服务，叠成三个套餐。
-        </p>
-      </header>
-      <ol class="numbered">
-        {outboundServices.map((s) => (
-          <li>
-            <div>
-              <p class="numbered__title">{s.h}</p>
-              <p>{s.body}</p>
+      <ol class="req-grid" role="list">
+        {inboundReq.map((r, i) => (
+          <li class="req-card" style={`--i: ${i};`}>
+            <div class="req-card__inner">
+              <span class="req-card__icon" aria-hidden="true">
+                {r.icon === 'badge' && (
+                  <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M16 4l3 5 6 1-4 4 1 6-6-3-6 3 1-6-4-4 6-1 3-5z" />
+                  </svg>
+                )}
+                {r.icon === 'channels' && (
+                  <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="4" y="6" width="10" height="10" rx="2" />
+                    <rect x="18" y="6" width="10" height="10" rx="2" />
+                    <rect x="4" y="18" width="10" height="10" rx="2" />
+                    <rect x="18" y="18" width="10" height="10" rx="2" />
+                  </svg>
+                )}
+                {r.icon === 'server' && (
+                  <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="5" y="6" width="22" height="8" rx="2" />
+                    <rect x="5" y="18" width="22" height="8" rx="2" />
+                    <circle cx="9" cy="10" r="0.8" fill="currentColor" />
+                    <circle cx="9" cy="22" r="0.8" fill="currentColor" />
+                    <line x1="13" y1="10" x2="22" y2="10" />
+                    <line x1="13" y1="22" x2="22" y2="22" />
+                  </svg>
+                )}
+                {r.icon === 'search' && (
+                  <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="14" cy="14" r="8" />
+                    <line x1="20" y1="20" x2="27" y2="27" />
+                    <path d="M10 14 L13 17 L18 12" />
+                  </svg>
+                )}
+                {r.icon === 'cart' && (
+                  <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 7h3l3 14h12l3-10H10" />
+                    <circle cx="13" cy="26" r="1.6" />
+                    <circle cx="23" cy="26" r="1.6" />
+                  </svg>
+                )}
+              </span>
+              <h3 class="req-card__title">{r.h}</h3>
+              <p class="req-card__body">{r.body}</p>
+              <span class="req-card__pill">{r.pill}</span>
             </div>
           </li>
         ))}
@@ -221,58 +319,350 @@ const outboundServices = [
     </div>
   </section>
 
-  <section class="section">
+  <section class="section section--alt agency-section">
     <div class="container">
       <header class="section-header">
-        <span class="eyebrow">三个套餐</span>
-        <h2 class="balance">先选一个套餐，需要时再叠下一层。</h2>
+        <span class="eyebrow">五位专家，一条流向</span>
+        <h2 class="balance">整套来，或者只挑一块。</h2>
+        <p class="lead">五支独立团队，把入境这整条链跑下来。请一家。请两家。五家全请。它们共用同一根脊柱。</p>
       </header>
-      <div class="grid-3">
-        <article class="card">
-          <span class="card__index">Starter · 存在感</span>
-          <h3 class="card__title">品牌 + LinkedIn + 网站</h3>
-          <p>在西方买家面前看着可信的最低线。给第一次出海的公司用。</p>
-        </article>
-        <article class="card">
-          <span class="card__index">Growth · 能见度</span>
-          <h3 class="card__title">Starter + SEO/GEO + Google Ads</h3>
-          <p>有存在感，也有流量。买家在 Google、ChatGPT 和付费搜索里都能找到你。</p>
-        </article>
-        <article class="card">
-          <span class="card__index">Full Pipeline · 收入</span>
-          <h3 class="card__title">Growth + 外置销售队伍</h3>
-          <p>每一条 inbound lead 都被筛选、跟进，并以"可签状态"交到你团队手里。</p>
-        </article>
-      </div>
-      <div style="margin-top: var(--space-6);">
-        <a class="btn btn--primary" href={pathFor('agencies/beyondbridge', locale)}>访问 BeyondBridge</a>
+      <div class="agency-rail" data-stagger>
+        {inboundAgencies.map((a, i) => (
+          <a class="agency-tile" href={pathFor(a.route, locale)} style={`--i: ${i};`}>
+            <span class="agency-tile__logo">
+              <AgencyLogo route={a.route} name={a.name} class="agency-card-logo" />
+            </span>
+            <span class="agency-tile__role">{a.role}</span>
+            <h3 class="agency-tile__name">{a.name}</h3>
+            <p class="agency-tile__body">{a.body}</p>
+            <span class="agency-tile__cta">查看
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
+            </span>
+          </a>
+        ))}
       </div>
     </div>
   </section>
 
-  <section class="section section--alt">
+  <section class="section openings-section">
     <div class="container">
       <header class="section-header">
-        <span class="eyebrow">客户通常怎么开始</span>
-        <h2 class="balance">四种最常见的入口。</h2>
+        <span class="eyebrow">客户通常这样开始</span>
+        <h2 class="balance">六个典型的开场。</h2>
+        <p class="lead">多数项目，最初都是一句话。找一句最像你的。</p>
       </header>
-      <div class="grid-2">
-        <article class="card">
-          <blockquote>"三个月后我们要在德国参展，可线上没有任何看着可信的东西。"</blockquote>
-          <p><strong>Starter 套餐。</strong>九十天交付品牌、LinkedIn 和一个面向西方的网站。</p>
-        </article>
-        <article class="card">
-          <blockquote>"我们已经有存在感，但 inbound 是零。"</blockquote>
-          <p><strong>Growth 套餐。</strong>在 Starter 基础上叠 SEO、GEO 和 Ads。</p>
-        </article>
-        <article class="card">
-          <blockquote>"我们有 lead，但欧洲没人接。"</blockquote>
-          <p><strong>Full Pipeline。</strong>把现场销售队伍接上去。</p>
-        </article>
-        <article class="card">
-          <blockquote>"我们也不知道从哪里开始。"</blockquote>
-          <p>三十分钟一通电话，我们告诉你应该走哪个套餐，以及九十天具体长什么样。<a href={pathFor('contact', locale)}>预约通话</a>。</p>
-        </article>
+      <div class="openings" data-stagger>
+        <a class="opening" href={pathFor('agencies/chinawebfoundry', locale)} style="--i: 0;">
+          <span class="opening__quote-mark" aria-hidden="true">&#8220;</span>
+          <p class="opening__quote">我就想要一个真正跑得起来的中文网站。</p>
+          <div class="opening__answer">
+            <span class="opening__by">ChinaWebFoundry</span>
+            <span class="opening__line">六周完成迁移。ICP 备案下来。百度能索引。</span>
+          </div>
+        </a>
+        <a class="opening" href={pathFor('agencies/theredscroll', locale)} style="--i: 1;">
+          <span class="opening__quote-mark" aria-hidden="true">&#8220;</span>
+          <p class="opening__quote">我要在 90 天内上小红书和抖音。</p>
+          <div class="opening__answer">
+            <span class="opening__by">TheRedScroll</span>
+            <span class="opening__line">两周接入完成。半个月内第一条内容上线。</span>
+          </div>
+        </a>
+        <a class="opening" href={pathFor('agencies/beyondbordergroup', locale)} style="--i: 2;">
+          <span class="opening__quote-mark" aria-hidden="true">&#8220;</span>
+          <p class="opening__quote">我什么都要：品牌、渠道、电商、KOL。</p>
+          <div class="opening__answer">
+            <span class="opening__by">BeyondBorderGroup</span>
+            <span class="opening__line">全案进入中国。二十年打过的剧本。</span>
+          </div>
+        </a>
+        <a class="opening" href={pathFor('agencies/beyondcompass', locale)} style="--i: 3;">
+          <span class="opening__quote-mark" aria-hidden="true">&#8220;</span>
+          <p class="opening__quote">我们要尽快在中国找到一个分销商。</p>
+          <div class="opening__answer">
+            <span class="opening__by">BeyondCompass</span>
+            <span class="opening__line">几天就给到一份核过的分销商和 TP 短名单，不是几个月。</span>
+          </div>
+        </a>
+        <a class="opening" href={pathFor('agencies/hubstudio', locale)} style="--i: 4;">
+          <span class="opening__quote-mark" aria-hidden="true">&#8220;</span>
+          <p class="opening__quote">我们的内容打不动中国受众。</p>
+          <div class="opening__answer">
+            <span class="opening__by">HubStudio</span>
+            <span class="opening__line">为中国读者重做的内容，按渠道要的频次产出。</span>
+          </div>
+        </a>
+        <a class="opening opening--cta" href={pathFor('contact', locale)} style="--i: 5;">
+          <span class="opening__quote-mark" aria-hidden="true">&#8220;</span>
+          <p class="opening__quote">我不太确定从哪儿开始。</p>
+          <div class="opening__answer">
+            <span class="opening__by">预约通话</span>
+            <span class="opening__line">三十分钟。我们告诉你：选哪一家，前 90 天什么样。</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="outbound" class="entry-hero entry-hero--outbound">
+    <div class="entry-hero__bg" aria-hidden="true">
+      <svg viewBox="0 0 1600 720" preserveAspectRatio="xMidYMid slice" role="img" aria-hidden="true">
+        <defs>
+          <radialGradient id="out-glow-e" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#c8102e" stop-opacity="0.34" />
+            <stop offset="100%" stop-color="#c8102e" stop-opacity="0" />
+          </radialGradient>
+          <radialGradient id="out-glow-w" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#269ada" stop-opacity="0.32" />
+            <stop offset="100%" stop-color="#269ada" stop-opacity="0" />
+          </radialGradient>
+          <linearGradient id="out-stream" x1="1" x2="0" y1="0" y2="0">
+            <stop offset="0%" stop-color="#c8102e" stop-opacity="0" />
+            <stop offset="50%" stop-color="#f4f1e6" stop-opacity="0.85" />
+            <stop offset="100%" stop-color="#269ada" stop-opacity="0" />
+          </linearGradient>
+        </defs>
+
+        <ellipse cx="1380" cy="380" rx="540" ry="240" fill="url(#out-glow-e)" />
+        <ellipse cx="220" cy="380" rx="540" ry="240" fill="url(#out-glow-w)" />
+
+        <g class="entry-hero__lines" stroke="rgba(255,255,255,0.06)" stroke-width="1">
+          <line x1="0" y1="180" x2="1600" y2="180" />
+          <line x1="0" y1="260" x2="1600" y2="260" />
+          <line x1="0" y1="340" x2="1600" y2="340" />
+          <line x1="0" y1="420" x2="1600" y2="420" />
+          <line x1="0" y1="500" x2="1600" y2="500" />
+        </g>
+
+        <g class="entry-hero__nodes" fill="none">
+          <circle cx="180" cy="220" r="3" fill="rgba(38,154,218,0.9)" />
+          <circle cx="320" cy="280" r="3" fill="rgba(255,255,255,0.65)" />
+          <circle cx="460" cy="220" r="3" fill="rgba(255,255,255,0.55)" />
+          <circle cx="600" cy="320" r="3" fill="rgba(38,154,218,0.7)" />
+        </g>
+
+        <path class="entry-hero__stream" d="M 1520 420 Q 800 280 80 420" fill="none" stroke="url(#out-stream)" stroke-width="2" stroke-linecap="round" />
+      </svg>
+    </div>
+    <div class="entry-hero__scrim" aria-hidden="true"></div>
+    <div class="container entry-hero__content">
+      <span class="eyebrow eyebrow--on-dark eyebrow--rule">流向二 · 出境 · 中国走向西方</span>
+      <h2 class="entry-hero__title balance">
+        好产品。好价格。好工厂。海外没有一条线索通道。
+      </h2>
+      <p class="entry-hero__lead">
+        每一家出海的中国 B2B 和服务公司，撞的都是同一堵墙。品牌是按中国买家做的。网站在西方眼里读起来太密。LinkedIn 页面空着。柏林上午十点发来的询盘，没人回。我们专攻 B2B 和服务这两块，桥的另一头，我们也建了二十年。
+      </p>
+      <div class="entry-hero__chips">
+        <span class="entry-hero__chip">LinkedIn</span>
+        <span class="entry-hero__chip">Google</span>
+        <span class="entry-hero__chip">ChatGPT</span>
+        <span class="entry-hero__chip">Perplexity</span>
+        <span class="entry-hero__chip">Gemini</span>
+        <span class="entry-hero__chip">US</span>
+        <span class="entry-hero__chip">UK</span>
+        <span class="entry-hero__chip">DE</span>
+        <span class="entry-hero__chip">FR</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <header class="section-header">
+        <span class="eyebrow">真正要做的事</span>
+        <h2 class="balance">六条战线，一条出海链路。</h2>
+        <p class="lead">在海外落地，是六件事同时在跑。每一个面都有自己的逻辑，自己的节奏，以及自己那笔做错了要付的学费。</p>
+      </header>
+
+      <ol class="req-grid req-grid--bento3x2" role="list">
+        {outboundReq.map((r, i) => (
+          <li class="req-card" style={`--i: ${i};`}>
+            <div class="req-card__inner">
+              <span class="req-card__icon" aria-hidden="true">
+                {r.icon === 'badge' && (
+                  <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M16 4l3 5 6 1-4 4 1 6-6-3-6 3 1-6-4-4 6-1 3-5z" />
+                  </svg>
+                )}
+                {r.icon === 'channels' && (
+                  <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="6" y="4" width="20" height="14" rx="2" />
+                    <path d="M12 22v6" /><path d="M20 22v6" /><path d="M9 28h14" />
+                    <line x1="11" y1="9" x2="21" y2="9" /><line x1="11" y1="13" x2="17" y2="13" />
+                  </svg>
+                )}
+                {r.icon === 'monitor' && (
+                  <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="4" y="6" width="24" height="16" rx="2" />
+                    <path d="M16 22v6" /><path d="M11 28h10" />
+                    <line x1="9" y1="11" x2="23" y2="11" /><line x1="9" y1="15" x2="18" y2="15" />
+                  </svg>
+                )}
+                {r.icon === 'search' && (
+                  <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="14" cy="14" r="8" />
+                    <line x1="20" y1="20" x2="27" y2="27" />
+                    <path d="M10 14 L13 17 L18 12" />
+                  </svg>
+                )}
+                {r.icon === 'megaphone' && (
+                  <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12v8l16 6V6L5 12z" />
+                    <path d="M21 11a4 4 0 010 10" />
+                    <path d="M9 20v4a2 2 0 004 0" />
+                  </svg>
+                )}
+                {r.icon === 'globe' && (
+                  <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="16" cy="16" r="11" />
+                    <ellipse cx="16" cy="16" rx="5" ry="11" />
+                    <line x1="5" y1="16" x2="27" y2="16" />
+                  </svg>
+                )}
+              </span>
+              <h3 class="req-card__title">{r.h}</h3>
+              <p class="req-card__body">{r.body}</p>
+              <span class="req-card__pill">{r.pill}</span>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="section section--alt pkg-section">
+    <div class="container">
+      <header class="section-header">
+        <span class="eyebrow">三档套餐</span>
+        <h2 class="balance">先选一档。等项目要了，再往上加一档。</h2>
+        <p class="lead">为出海的中国 B2B 和服务公司而做。三档可以叠加。每一档都包含下一档的全部内容。</p>
+      </header>
+
+      <div class="pkg-grid" data-stagger>
+        <a class="pkg" href={pathFor('agencies/beyondbridge', locale)} style="--i: 0;">
+          <div class="pkg__head">
+            <span class="pkg__tier">起步档</span>
+            <span class="pkg__theme">存在感</span>
+          </div>
+          <h3 class="pkg__title">品牌 + LinkedIn + 网站</h3>
+          <p class="pkg__body">在西方 B2B 买家眼里看起来靠谱的最低门槛。给第一次出海的服务公司。</p>
+          <ul class="pkg__features">
+            <li><span class="pkg__check" aria-hidden="true">&#10003;</span>面向西方买家的品牌策略</li>
+            <li><span class="pkg__check" aria-hidden="true">&#10003;</span>LinkedIn 主页与高管发声</li>
+            <li><span class="pkg__check" aria-hidden="true">&#10003;</span>面向西方的网站</li>
+          </ul>
+          <span class="pkg__cta">从起步档开始
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
+          </span>
+        </a>
+
+        <a class="pkg pkg--mid" href={pathFor('agencies/beyondbridge', locale)} style="--i: 1;">
+          <div class="pkg__head">
+            <span class="pkg__tier">增长档</span>
+            <span class="pkg__theme">可见度</span>
+          </div>
+          <h3 class="pkg__title">起步档 + SEO/GEO + Google Ads</h3>
+          <p class="pkg__body">存在感加上流量。B2B 买家在 Google 上、在 ChatGPT 里、在付费搜索里都能找到你。</p>
+          <ul class="pkg__features">
+            <li><span class="pkg__check" aria-hidden="true">&#10003;</span>起步档的全部</li>
+            <li><span class="pkg__check" aria-hidden="true">&#10003;</span>面向西方 AI 引擎的 SEO 与 GEO</li>
+            <li><span class="pkg__check" aria-hidden="true">&#10003;</span>Google Ads 第一天就开跑</li>
+          </ul>
+          <span class="pkg__cta">升到增长档
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
+          </span>
+        </a>
+
+        <a class="pkg pkg--top" href={pathFor('agencies/beyondbridge', locale)} style="--i: 2;">
+          <span class="pkg__badge" aria-hidden="true">整条链路</span>
+          <div class="pkg__head">
+            <span class="pkg__tier">整条链路</span>
+            <span class="pkg__theme">收入</span>
+          </div>
+          <h3 class="pkg__title">增长档 + 外部销售团队</h3>
+          <p class="pkg__body">每一条进来的线索都做完资格筛选，打过电话，干净地交到你团队手里去成单。</p>
+          <ul class="pkg__features">
+            <li><span class="pkg__check" aria-hidden="true">&#10003;</span>增长档的全部</li>
+            <li><span class="pkg__check" aria-hidden="true">&#10003;</span>在当地的具名代表</li>
+            <li><span class="pkg__check" aria-hidden="true">&#10003;</span>覆盖美、英、德、法</li>
+          </ul>
+          <span class="pkg__cta">打开整条链路
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
+          </span>
+        </a>
+      </div>
+
+      <div class="btn-row" style="margin-top: var(--space-6); justify-content: center;">
+        <a class="btn btn--primary" href={pathFor('agencies/beyondbridge', locale)}>查看 BeyondBridge</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section openings-section">
+    <div class="container">
+      <header class="section-header">
+        <span class="eyebrow">客户通常这样开始</span>
+        <h2 class="balance">七个典型的开场。</h2>
+        <p class="lead">多数出海项目，最初都是一句话。找一句最像你的。</p>
+      </header>
+      <div class="openings" data-stagger>
+        <a class="opening" href={pathFor('agencies/beyondbridge', locale)} style="--i: 0;">
+          <span class="opening__quote-mark" aria-hidden="true">&#8220;</span>
+          <p class="opening__quote">我们三个月后要在德国参展，可线上几乎没有像样的东西。</p>
+          <div class="opening__answer">
+            <span class="opening__by">起步档</span>
+            <span class="opening__line">九十天搞定品牌、LinkedIn 与面向西方的网站。</span>
+          </div>
+        </a>
+        <a class="opening" href={pathFor('agencies/beyondbridge', locale)} style="--i: 1;">
+          <span class="opening__quote-mark" aria-hidden="true">&#8220;</span>
+          <p class="opening__quote">存在感有了，可线索没有进来。</p>
+          <div class="opening__answer">
+            <span class="opening__by">增长档</span>
+            <span class="opening__line">在起步档之上叠 SEO、GEO 和 Google Ads。</span>
+          </div>
+        </a>
+        <a class="opening" href={pathFor('agencies/beyondbridge', locale)} style="--i: 2;">
+          <span class="opening__quote-mark" aria-hidden="true">&#8220;</span>
+          <p class="opening__quote">线索有了。欧洲没人接。</p>
+          <div class="opening__answer">
+            <span class="opening__by">整条链路</span>
+            <span class="opening__line">把当地销售团队加上。美、英、德、法都有具名代表。</span>
+          </div>
+        </a>
+        <a class="opening" href={pathFor('agencies/nuvora-studio', locale)} style="--i: 3;">
+          <span class="opening__quote-mark" aria-hidden="true">&#8220;</span>
+          <p class="opening__quote">我们的 LinkedIn 是空的，高管也不发内容。</p>
+          <div class="opening__answer">
+            <span class="opening__by">Nuvora Studio</span>
+            <span class="opening__line">只做 LinkedIn 的 B2B 专家。策略、内容、投放、高管发声。</span>
+          </div>
+        </a>
+        <a class="opening" href={pathFor('agencies/beyondbridge', locale)} style="--i: 4;">
+          <span class="opening__quote-mark" aria-hidden="true">&#8220;</span>
+          <p class="opening__quote">我们的话术听起来像翻译。</p>
+          <div class="opening__answer">
+            <span class="opening__by">BeyondBridge 品牌模块</span>
+            <span class="opening__line">为西方 B2B 买家重做的品牌，不是从中文搬过去的。</span>
+          </div>
+        </a>
+        <a class="opening" href={pathFor('agencies/beyondbridge', locale)} style="--i: 5;">
+          <span class="opening__quote-mark" aria-hidden="true">&#8220;</span>
+          <p class="opening__quote">西方买家在 Google 和 ChatGPT 里都搜不到我们。</p>
+          <div class="opening__answer">
+            <span class="opening__by">SEO 与 GEO</span>
+            <span class="opening__line">在 Google 上排名。被 ChatGPT、Perplexity、Gemini 引用。</span>
+          </div>
+        </a>
+        <a class="opening opening--cta" href={pathFor('contact', locale)} style="--i: 6;">
+          <span class="opening__quote-mark" aria-hidden="true">&#8220;</span>
+          <p class="opening__quote">我们不太确定从哪儿开始。</p>
+          <div class="opening__answer">
+            <span class="opening__by">预约通话</span>
+            <span class="opening__line">三十分钟。我们告诉你：选哪一档，前 90 天什么样。</span>
+          </div>
+        </a>
       </div>
     </div>
   </section>
@@ -280,13 +670,35 @@ const outboundServices = [
   <section class="section section--dark">
     <div class="container container--narrow">
       <span class="eyebrow eyebrow--on-dark">等待的代价</span>
-      <h2 class="balance">排名会复利。关系会复利。权威值也会复利。</h2>
+      <h2 class="balance">排名是复利。关系是复利。权威也是复利。</h2>
       <p class="lead">
-        每多一个月没有西方端的存在感，就有一笔生意被先到的竞品拿走。每多一个季度没有 pipeline，就有预算烧在展会、翻译和打不到水花的 cold outreach 上。等得越久，追赶成本翻得越快。今天在海外赢的中国公司，两年前就开始动了。
+        每多一个月没有西方端的存在感，就有一批生意被先到的对手拿走。每多一个季度没有线索通道，就有一笔预算烧在展会、翻译和打不通的冷拓上。每多等一年，追回来的成本翻一倍。今天在海外赢的那批中国公司，都是两年前开始的。
       </p>
       <div class="btn-row" style="margin-top: var(--space-5);">
         <a class="btn btn--primary" href={pathFor('contact', locale)}>预约通话</a>
-        <a class="btn btn--ghost-light" href={pathFor('agencies/beyondbridge', locale)}>访问 BeyondBridge</a>
+        <a class="btn btn--ghost-light" href={pathFor('agencies/beyondbridge', locale)}>查看 BeyondBridge</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="split split--text-first">
+        <div class="prose">
+          <span class="eyebrow">你还会拿到的</span>
+          <h2 class="balance">一台旗下公司共享的生产引擎。两个方向都用得上。</h2>
+          <p>
+            这一页上每一次合作，无论入境还是出境，都接到 HubStudio 的内容生产引擎上。这就是为什么在两边都要的频次下，单条内容的成本还能压得住：中国这一边每周三到五条小红书、每天一条抖音视频；海外那一边每周一条 LinkedIn、每月一次活动刷新与素材库更新。背后没有一台 AI 原生的内容引擎，账两个方向都算不过来。
+          </p>
+          <a class="btn btn--ghost" href={pathFor('agencies/hubstudio', locale)}>查看 HubStudio</a>
+        </div>
+        <img
+          class="aigc-visual"
+          src="/images/AIGC-For-Brands.png"
+          alt="HubStudio 为入境与出境品牌提供的内容生产。"
+          loading="lazy"
+          decoding="async"
+        />
       </div>
     </div>
   </section>
@@ -299,4 +711,785 @@ const outboundServices = [
     max-width: 180px;
     margin-bottom: var(--space-3);
   }
+
+  /* HubStudio visual in the "What you also get" split */
+  .aigc-visual {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--bbg-border);
+    background: var(--bbg-surface);
+    box-shadow: 0 22px 48px -28px rgba(15, 23, 42, 0.22);
+    display: block;
+  }
+
+  /* ---------- Page hero (top of page, biggest) ---------- */
+  .page-hero {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background: #0a1220;
+    color: var(--bbg-white);
+    padding: clamp(8rem, 18vh, 13rem) 0 clamp(6rem, 12vh, 9rem);
+    min-height: 88vh;
+    display: flex;
+    align-items: center;
+  }
+  .page-hero__bg {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+  }
+  .page-hero__bg svg { width: 100%; height: 100%; display: block; }
+  .page-hero__cable {
+    stroke-dasharray: 1800;
+    stroke-dashoffset: 1800;
+    animation: page-cable-draw 2.4s cubic-bezier(0.22, 0.61, 0.36, 1) 0.3s forwards;
+  }
+  @keyframes page-cable-draw { to { stroke-dashoffset: 0; } }
+  .page-hero__dot { animation: dot-pulse 2.6s ease-in-out infinite; transform-origin: center; transform-box: fill-box; }
+  .page-hero__dot--e { animation-delay: 1.3s; }
+  @keyframes dot-pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.4); opacity: 0.7; }
+  }
+  .page-hero__scrim {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+      radial-gradient(ellipse at 50% 25%, rgba(10, 18, 32, 0) 0%, rgba(10, 18, 32, 0.55) 70%, rgba(10, 18, 32, 0.92) 100%),
+      linear-gradient(180deg, rgba(10, 18, 32, 0.25) 0%, rgba(10, 18, 32, 0) 50%);
+  }
+  .page-hero__content {
+    width: 100%;
+    position: relative;
+    max-width: 920px;
+  }
+  .page-hero__title {
+    font-family: var(--font-display);
+    font-size: clamp(2.75rem, 5.5vw + 0.5rem, 4.75rem);
+    letter-spacing: -0.025em;
+    line-height: 1.02;
+    color: var(--bbg-white);
+    max-width: 18ch;
+    margin: var(--space-4) 0 var(--space-5);
+    font-weight: 600;
+  }
+  .page-hero__accent {
+    background: linear-gradient(90deg, #5fb8e8 0%, #f4f1e6 50%, #e8607a 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .page-hero__lead {
+    max-width: 60ch;
+    font-size: var(--fs-lead);
+    color: rgba(255,255,255,0.78);
+    margin-bottom: var(--space-6);
+  }
+  .page-hero__jumps {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+  }
+  .page-hero__jump {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    padding: var(--space-4) var(--space-5);
+    border-radius: 14px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.18);
+    color: var(--bbg-white);
+    text-decoration: none;
+    backdrop-filter: blur(6px);
+    transition: background 0.3s var(--ease), border-color 0.3s var(--ease), transform 0.3s var(--ease);
+  }
+  .page-hero__jump-name {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+  }
+  .page-hero__jump-meta {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.65);
+    letter-spacing: 0.04em;
+  }
+  .page-hero__jump:hover {
+    background: rgba(38,154,218,0.16);
+    border-color: rgba(38,154,218,0.55);
+    color: var(--bbg-white);
+    transform: translateY(-2px);
+  }
+  .page-hero__jump--alt:hover {
+    background: rgba(200,16,46,0.16);
+    border-color: rgba(200,16,46,0.55);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .page-hero__cable { animation: none; stroke-dashoffset: 0; }
+    .page-hero__dot { animation: none; }
+  }
+
+  /* ---------- Entry hero (sub-hero per flow) ---------- */
+  .entry-hero {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background: #0b1422;
+    color: var(--bbg-white);
+    padding: clamp(7rem, 16vh, 12rem) 0 clamp(5rem, 11vh, 8rem);
+    min-height: 78vh;
+    display: flex;
+    align-items: center;
+  }
+  .entry-hero__bg {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+  }
+  .entry-hero__bg svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+  .entry-hero__bg .entry-hero__stream {
+    stroke-dasharray: 2000;
+    stroke-dashoffset: 2000;
+    animation: stream-draw 2.6s cubic-bezier(0.22, 0.61, 0.36, 1) 0.4s forwards;
+  }
+  .entry-hero__nodes circle { animation: node-pulse 3.2s ease-in-out infinite; transform-origin: center; }
+  .entry-hero__nodes circle:nth-child(2) { animation-delay: 0.4s; }
+  .entry-hero__nodes circle:nth-child(3) { animation-delay: 0.8s; }
+  .entry-hero__nodes circle:nth-child(4) { animation-delay: 1.2s; }
+  .entry-hero__nodes circle:nth-child(5) { animation-delay: 1.6s; }
+  .entry-hero__nodes circle:nth-child(6) { animation-delay: 2.0s; }
+  @keyframes node-pulse { 0%, 100% { opacity: 0.6; } 50% { opacity: 1; } }
+  @keyframes stream-draw { to { stroke-dashoffset: 0; } }
+
+  .entry-hero__scrim {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+      radial-gradient(ellipse at 50% 20%, rgba(11, 20, 34, 0) 0%, rgba(11, 20, 34, 0.55) 70%, rgba(11, 20, 34, 0.92) 100%),
+      linear-gradient(180deg, rgba(11, 20, 34, 0.25) 0%, rgba(11, 20, 34, 0) 50%);
+  }
+  .entry-hero__content {
+    width: 100%;
+    position: relative;
+    max-width: 880px;
+  }
+  .entry-hero__title {
+    font-family: var(--font-display);
+    font-size: clamp(2.25rem, 4vw + 0.5rem, 3.75rem);
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    color: var(--bbg-white);
+    max-width: 22ch;
+    margin: var(--space-4) 0 var(--space-5);
+    font-weight: 600;
+  }
+  .entry-hero__lead {
+    max-width: 60ch;
+    font-size: var(--fs-lead);
+    color: rgba(255,255,255,0.78);
+  }
+  .entry-hero__chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-top: var(--space-6);
+  }
+  .entry-hero__chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 12px;
+    border: 1px solid rgba(255,255,255,0.16);
+    background: rgba(255,255,255,0.04);
+    color: rgba(255,255,255,0.85);
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    backdrop-filter: blur(4px);
+    transition: background 0.25s var(--ease), border-color 0.25s var(--ease), transform 0.25s var(--ease);
+  }
+  .entry-hero__chip:hover {
+    background: rgba(38,154,218,0.18);
+    border-color: rgba(38,154,218,0.55);
+    transform: translateY(-2px);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .entry-hero__bg .entry-hero__stream { animation: none; stroke-dashoffset: 0; }
+    .entry-hero__nodes circle { animation: none; }
+  }
+
+  /* ---------- Requirements bento ---------- */
+  .req-section { position: relative; isolation: isolate; overflow: hidden; }
+  .req-section__bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+  .req-section__blob {
+    position: absolute;
+    width: 480px; height: 480px;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.45;
+  }
+  .req-section__blob--w { background: rgba(38, 154, 218, 0.18); top: -160px; left: -180px; }
+  .req-section__blob--e { background: rgba(200, 16, 46, 0.14); bottom: -180px; right: -160px; }
+  .req-section .container { position: relative; z-index: 1; }
+
+  .req-grid {
+    list-style: none;
+    margin: var(--space-6) 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: var(--space-5);
+    perspective: 1400px;
+  }
+  /* 5 items: row 1 = 3 cards (each spans 2), row 2 = 2 cards (each spans 3) for an asymmetric bento */
+  .req-card { grid-column: span 2; }
+  .req-card:nth-child(4) { grid-column: span 3; }
+  .req-card:nth-child(5) { grid-column: span 3; }
+  /* 6 items: clean 3x2 grid (overrides the asymmetric rules) */
+  .req-grid--bento3x2 .req-card,
+  .req-grid--bento3x2 .req-card:nth-child(4),
+  .req-grid--bento3x2 .req-card:nth-child(5) { grid-column: span 2; }
+  @media (max-width: 1023px) {
+    .req-grid { grid-template-columns: repeat(2, 1fr); }
+    .req-card, .req-card:nth-child(4), .req-card:nth-child(5) { grid-column: span 1; }
+    .req-grid--bento3x2 .req-card { grid-column: span 1; }
+  }
+  @media (max-width: 639px) {
+    .req-grid { grid-template-columns: 1fr; }
+    .req-card, .req-card:nth-child(4), .req-card:nth-child(5) { grid-column: span 1; }
+    .req-grid--bento3x2 .req-card { grid-column: span 1; }
+  }
+
+  .req-card {
+    position: relative;
+    border-radius: 18px;
+    background: linear-gradient(180deg, #ffffff 0%, #fafbfd 100%);
+    border: 1px solid rgba(15, 23, 42, 0.06);
+    box-shadow:
+      0 1px 2px rgba(15, 23, 42, 0.03),
+      0 18px 38px -22px rgba(15, 23, 42, 0.12);
+    transform-style: preserve-3d;
+    will-change: transform;
+    opacity: 0;
+    transform: translateY(28px);
+    transition:
+      opacity 0.6s var(--ease),
+      transform 0.6s var(--ease),
+      box-shadow 0.4s var(--ease),
+      border-color 0.4s var(--ease);
+  }
+  .req-card.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: calc(var(--i, 0) * 80ms);
+  }
+  .req-card:hover {
+    border-color: rgba(15, 23, 42, 0.12);
+    box-shadow:
+      0 1px 2px rgba(15, 23, 42, 0.04),
+      0 28px 56px -18px rgba(15, 23, 42, 0.18);
+  }
+  .req-card::before {
+    content: '';
+    position: absolute; inset: 0;
+    border-radius: 18px;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(38, 154, 218, 0.7), rgba(200, 16, 46, 0.45));
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.35s var(--ease);
+    pointer-events: none;
+  }
+  .req-card:hover::before { opacity: 1; }
+
+  .req-card__inner {
+    padding: var(--space-5);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    height: 100%;
+  }
+  .req-card__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px; height: 44px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(38, 154, 218, 0.12), rgba(200, 16, 46, 0.08));
+    color: var(--bbg-blue);
+    transition: transform 0.4s var(--ease), color 0.3s var(--ease);
+  }
+  .req-card__icon svg { width: 22px; height: 22px; }
+  .req-card:hover .req-card__icon { transform: rotate(-6deg) scale(1.06); color: #c8102e; }
+  .req-card__title {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--bbg-ink);
+    line-height: 1.3;
+  }
+  .req-card__body {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: var(--bbg-text);
+  }
+  .req-card__pill {
+    margin-top: auto;
+    align-self: flex-start;
+    font-family: var(--font-display);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: var(--bbg-blue-dark);
+    padding: 5px 10px;
+    border-radius: 999px;
+    background: rgba(38,154,218,0.08);
+    border: 1px solid rgba(38,154,218,0.22);
+    transition: background 0.3s var(--ease), color 0.3s var(--ease), border-color 0.3s var(--ease);
+  }
+  .req-card:hover .req-card__pill {
+    background: rgba(38,154,218,0.16);
+    border-color: rgba(38,154,218,0.45);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .req-card { opacity: 1; transform: none; transition: none; }
+    .req-card.is-visible { transition-delay: 0s; }
+    .req-card:hover { transform: none; }
+  }
+
+  /* ---------- Agency rail (5 specialists) ---------- */
+  .agency-section { position: relative; isolation: isolate; }
+  .agency-rail {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: var(--space-4);
+    margin-top: var(--space-6);
+  }
+  @media (max-width: 1279px) { .agency-rail { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 767px) { .agency-rail { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 639px) { .agency-rail { grid-template-columns: 1fr; } }
+
+  .agency-tile {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    padding: var(--space-5);
+    border-radius: 16px;
+    background: var(--bbg-white);
+    border: 1px solid var(--bbg-border);
+    text-decoration: none;
+    color: var(--bbg-ink);
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(20px);
+    transition:
+      opacity 0.55s var(--ease),
+      transform 0.55s var(--ease),
+      border-color 0.3s var(--ease),
+      box-shadow 0.3s var(--ease);
+  }
+  .agency-tile.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: calc(var(--i, 0) * 75ms);
+  }
+  .agency-tile::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0; top: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--bbg-blue) 0%, #c8102e 100%);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.45s var(--ease);
+  }
+  .agency-tile:hover {
+    border-color: rgba(38,154,218,0.45);
+    box-shadow: 0 22px 44px -22px rgba(15, 23, 42, 0.18);
+    color: var(--bbg-ink);
+  }
+  .agency-tile:hover::after { transform: scaleX(1); }
+  .agency-tile__logo {
+    display: flex;
+    align-items: center;
+    height: 44px;
+    margin-bottom: var(--space-3);
+  }
+  .agency-tile__logo :global(.agency-card-logo) {
+    height: 36px;
+    width: auto;
+    max-width: 150px;
+  }
+  .agency-tile__role {
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--bbg-text-muted);
+  }
+  .agency-tile__name {
+    margin: 0;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--bbg-ink);
+  }
+  .agency-tile__body {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.45;
+    color: var(--bbg-text);
+    flex-grow: 1;
+  }
+  .agency-tile__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: var(--space-3);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--bbg-blue);
+    transition: gap 0.25s var(--ease);
+  }
+  .agency-tile:hover .agency-tile__cta { gap: 10px; color: var(--bbg-blue-dark); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .agency-tile { opacity: 1; transform: none; }
+    .agency-tile.is-visible { transition-delay: 0s; }
+  }
+
+  /* ---------- Packages (3 tiers, stacked) ---------- */
+  .pkg-section { position: relative; isolation: isolate; }
+  .pkg-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-5);
+    margin-top: var(--space-6);
+    align-items: stretch;
+  }
+  @media (max-width: 1023px) { .pkg-grid { grid-template-columns: 1fr; } }
+
+  .pkg {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    padding: var(--space-6) var(--space-5) var(--space-5);
+    border-radius: 18px;
+    background: var(--bbg-white);
+    border: 1px solid var(--bbg-border);
+    text-decoration: none;
+    color: var(--bbg-ink);
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(20px);
+    transition:
+      opacity 0.55s var(--ease),
+      transform 0.55s var(--ease),
+      border-color 0.3s var(--ease),
+      box-shadow 0.3s var(--ease);
+  }
+  .pkg.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: calc(var(--i, 0) * 90ms);
+  }
+  .pkg:hover {
+    border-color: rgba(38, 154, 218, 0.5);
+    box-shadow: 0 28px 56px -22px rgba(15, 23, 42, 0.18);
+  }
+  .pkg__head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding-bottom: var(--space-3);
+    border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+  }
+  .pkg__tier {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    color: var(--bbg-ink);
+  }
+  .pkg__theme {
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--bbg-blue);
+  }
+  .pkg__title {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 600;
+    line-height: 1.35;
+    color: var(--bbg-ink);
+  }
+  .pkg__body {
+    margin: 0;
+    font-size: 0.92rem;
+    line-height: 1.5;
+    color: var(--bbg-text);
+  }
+  .pkg__features {
+    list-style: none;
+    margin: var(--space-3) 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .pkg__features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: var(--bbg-text);
+  }
+  .pkg__check {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: rgba(38, 154, 218, 0.12);
+    color: var(--bbg-blue-dark);
+    font-size: 11px;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .pkg__cta {
+    margin-top: auto;
+    padding-top: var(--space-3);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--bbg-blue);
+    transition: gap 0.25s var(--ease), color 0.25s var(--ease);
+  }
+  .pkg:hover .pkg__cta { gap: 10px; color: var(--bbg-blue-dark); }
+
+  .pkg--mid {
+    background: linear-gradient(180deg, var(--bbg-white) 0%, rgba(38, 154, 218, 0.05) 100%);
+  }
+
+  .pkg--top {
+    background: linear-gradient(160deg, var(--bbg-ink) 0%, #1a2333 100%);
+    color: var(--bbg-white);
+    border-color: transparent;
+  }
+  .pkg--top .pkg__head { border-bottom-color: rgba(255, 255, 255, 0.18); }
+  .pkg--top .pkg__tier { color: var(--bbg-white); }
+  .pkg--top .pkg__theme { color: var(--bbg-blue-light); }
+  .pkg--top .pkg__title { color: var(--bbg-white); }
+  .pkg--top .pkg__body { color: rgba(255,255,255,0.78); }
+  .pkg--top .pkg__features li { color: rgba(255,255,255,0.85); }
+  .pkg--top .pkg__check {
+    background: rgba(38, 154, 218, 0.25);
+    color: var(--bbg-blue-light);
+  }
+  .pkg--top .pkg__cta { color: var(--bbg-blue-light); }
+  .pkg--top:hover .pkg__cta { color: var(--bbg-white); }
+  .pkg--top:hover {
+    border-color: rgba(38, 154, 218, 0.5);
+    box-shadow: 0 28px 56px -22px rgba(38, 154, 218, 0.4);
+  }
+  .pkg__badge {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    font-family: var(--font-display);
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--bbg-ink);
+    background: var(--bbg-blue-light);
+    padding: 4px 9px;
+    border-radius: 999px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .pkg { opacity: 1; transform: none; }
+    .pkg.is-visible { transition-delay: 0s; }
+  }
+
+  /* ---------- Openings (six typical asks) ---------- */
+  .openings-section { position: relative; isolation: isolate; background: linear-gradient(180deg, var(--bbg-white) 0%, var(--bbg-surface) 100%); }
+  .openings {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-5);
+    margin-top: var(--space-6);
+  }
+  @media (max-width: 1023px) { .openings { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 639px) { .openings { grid-template-columns: 1fr; } }
+
+  .opening {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    padding: var(--space-5);
+    border-radius: 18px;
+    background: var(--bbg-white);
+    border: 1px solid var(--bbg-border);
+    text-decoration: none;
+    color: var(--bbg-ink);
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(20px);
+    transition:
+      opacity 0.55s var(--ease),
+      transform 0.55s var(--ease),
+      border-color 0.3s var(--ease),
+      box-shadow 0.3s var(--ease);
+  }
+  .opening.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: calc(var(--i, 0) * 70ms);
+  }
+  .opening:hover {
+    border-color: rgba(38,154,218,0.4);
+    box-shadow: 0 22px 44px -22px rgba(15, 23, 42, 0.18);
+  }
+  .opening__quote-mark {
+    position: absolute;
+    top: -10px;
+    right: 14px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 6rem;
+    line-height: 1;
+    color: rgba(38,154,218,0.10);
+    transition: color 0.3s var(--ease), transform 0.3s var(--ease);
+    pointer-events: none;
+  }
+  .opening:hover .opening__quote-mark {
+    color: rgba(38,154,218,0.20);
+    transform: translateY(2px);
+  }
+  .opening__quote {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 600;
+    line-height: 1.35;
+    letter-spacing: -0.005em;
+    color: var(--bbg-ink);
+    position: relative;
+    z-index: 1;
+  }
+  .opening__answer {
+    margin-top: auto;
+    padding-top: var(--space-3);
+    border-top: 1px dashed rgba(15, 23, 42, 0.12);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .opening__by {
+    font-family: var(--font-display);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: var(--bbg-blue);
+  }
+  .opening__line {
+    font-size: 0.88rem;
+    line-height: 1.45;
+    color: var(--bbg-text);
+  }
+  .opening--cta {
+    background: linear-gradient(135deg, var(--bbg-ink) 0%, #1a2333 100%);
+    color: var(--bbg-white);
+    border-color: transparent;
+  }
+  .opening--cta .opening__quote { color: var(--bbg-white); }
+  .opening--cta .opening__quote-mark { color: rgba(255,255,255,0.10); }
+  .opening--cta .opening__by { color: var(--bbg-blue-light); }
+  .opening--cta .opening__line { color: rgba(255,255,255,0.78); }
+  .opening--cta .opening__answer { border-top-color: rgba(255,255,255,0.18); }
+  .opening--cta:hover {
+    border-color: rgba(38,154,218,0.5);
+    box-shadow: 0 22px 44px -22px rgba(38, 154, 218, 0.4);
+  }
+  .opening--cta:hover .opening__quote-mark { color: rgba(255,255,255,0.18); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .opening { opacity: 1; transform: none; }
+    .opening.is-visible { transition-delay: 0s; }
+  }
 </style>
+
+<script>
+  // Scroll-reveal for req-card, agency-tile, opening cards on the inbound flow.
+  const targets = document.querySelectorAll<HTMLElement>('.req-card, .agency-tile, .opening, .pkg');
+  if ('IntersectionObserver' in window && targets.length) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add('is-visible');
+            io.unobserve(e.target);
+          }
+        });
+      },
+      { threshold: 0.18, rootMargin: '0px 0px -8% 0px' },
+    );
+    targets.forEach((el) => io.observe(el));
+  } else {
+    targets.forEach((el) => el.classList.add('is-visible'));
+  }
+
+  // Subtle 3D tilt on req-cards.
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduceMotion) {
+    document.querySelectorAll<HTMLElement>('.req-card').forEach((card) => {
+      let raf = 0;
+      const onMove = (ev: MouseEvent) => {
+        const r = card.getBoundingClientRect();
+        const x = (ev.clientX - r.left) / r.width;
+        const y = (ev.clientY - r.top) / r.height;
+        const rx = (0.5 - y) * 5;
+        const ry = (x - 0.5) * 5;
+        cancelAnimationFrame(raf);
+        raf = requestAnimationFrame(() => {
+          card.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(0)`;
+        });
+      };
+      const onLeave = () => {
+        cancelAnimationFrame(raf);
+        card.style.transform = '';
+      };
+      card.addEventListener('mousemove', onMove);
+      card.addEventListener('mouseleave', onLeave);
+    });
+  }
+</script>
