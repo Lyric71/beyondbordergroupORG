@@ -172,9 +172,9 @@ const agencies = [
         <span class="eyebrow">Écosystème</span>
         <h1 class="hero-statement__title balance">Nous construisons et faisons grandir des marques, produits et services entre la Chine et l'Occident. Dans les deux sens.</h1>
         <p class="hero-statement__lead">
-          Sept agences spécialistes. Une seule thèse. L'écart entre la Chine et l'Occident n'est pas un problème
-          de traduction. C'est un problème de marque, un problème de canal, un problème d'infrastructure et un
-          problème de vente. Et il joue dans les deux sens.
+          Sept agences spécialistes, une même conviction. L'écart entre la Chine et l'Occident n'a jamais été
+          un problème de traduction. C'est une affaire de marque, de canaux, d'infrastructure et de vente. Et
+          cela se joue dans les deux sens, chaque jour.
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href={pathFor('agencies', locale)}>Trouver l'agence qu'il vous faut</a>
@@ -188,8 +188,8 @@ const agencies = [
   <section class="section section--alt">
     <div class="container">
       <header class="section-header">
-        <span class="eyebrow">Deux flux. Une page.</span>
-        <h2 class="balance">Les deux directions, désormais sur une seule page.</h2>
+        <span class="eyebrow">Deux flux</span>
+        <h2 class="balance">Partez du côté où vous êtes.</h2>
       </header>
 
       <div class="bridge-panel">
@@ -259,7 +259,6 @@ const agencies = [
         {agencies.map((a) => (
           <a class="card" href={pathFor(a.route, locale)}>
             <AgencyLogo route={a.route} name={a.name} class="agency-card-logo" />
-            <h3 class="card__title">{a.name}</h3>
             <p>{a.tagline}</p>
             <span class="btn btn--ghost" style="margin-top: auto;">Ouvrir</span>
           </a>

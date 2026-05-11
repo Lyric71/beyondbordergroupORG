@@ -172,9 +172,9 @@ const agencies = [
         <span class="eyebrow">Ökosystem</span>
         <h1 class="hero-statement__title balance">Wir bauen und skalieren Marken, Produkte und Services zwischen China und dem Westen. In beide Richtungen.</h1>
         <p class="hero-statement__lead">
-          Sechs spezialisierte Agenturen. Eine These. Die Distanz zwischen China und dem Westen ist kein
-          Übersetzungsproblem. Sie ist ein Markenproblem, ein Kanalproblem, ein Infrastrukturproblem und ein
-          Vertriebsproblem. Und sie geht in beide Richtungen.
+          Sieben spezialisierte Agenturen, eine gemeinsame These. Die Distanz zwischen China und dem Westen
+          war nie eine Frage der Übersetzung. Es geht um Marke, Kanäle, Infrastruktur und Vertrieb. Und das
+          läuft in beide Richtungen, jeden Tag.
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href={pathFor('agencies', locale)}>Die passende Agentur finden</a>
@@ -188,8 +188,8 @@ const agencies = [
   <section class="section section--alt">
     <div class="container">
       <header class="section-header">
-        <span class="eyebrow">Zwei Flüsse. Eine Seite.</span>
-        <h2 class="balance">Beide Richtungen, jetzt auf einer Seite.</h2>
+        <span class="eyebrow">Zwei Flüsse</span>
+        <h2 class="balance">Starten Sie an Ihrem Ufer.</h2>
       </header>
 
       <div class="bridge-panel">
@@ -260,7 +260,6 @@ const agencies = [
         {agencies.map((a) => (
           <a class="card" href={pathFor(a.route, locale)}>
             <AgencyLogo route={a.route} name={a.name} class="agency-card-logo" />
-            <h3 class="card__title">{a.name}</h3>
             <p>{a.tagline}</p>
             <span class="btn btn--ghost" style="margin-top: auto;">Öffnen</span>
           </a>

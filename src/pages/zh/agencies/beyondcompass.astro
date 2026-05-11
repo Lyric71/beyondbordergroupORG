@@ -1,34 +1,1899 @@
 ---
-import AgencyPage from '../../../components/AgencyPage.astro';
+import Layout from '../../../layouts/Layout.astro';
+import { pathFor } from '../../../i18n/ui';
+
+const locale = 'zh' as const;
+const route = 'agencies/beyondcompass' as const;
+
+type ShapeKey = 'shortlist' | 'map' | 'replace';
+const shapes: Array<{
+  key: ShapeKey;
+  title: string;
+  meta: string;
+  intro: string;
+  image: string;
+  imageLabel: string;
+  items: { name: string; body: string }[];
+}> = [
+  {
+    key: 'shortlist',
+    title: '短名单',
+    meta: '2 到 3 周',
+    intro: '三到五个核过身份的名字，深度简报，准备好见面。给已经清楚自己分销路径长什么样的品牌。',
+    image: '/images/beyondcompass-shortlist.svg',
+    imageLabel: '编辑图。短名单档案，其中一个名字浮出。',
+    items: [
+      { name: '精挑过的名字', body: '三到五个伙伴，匹配你的品类、你的阶段、你的渠道组合。' },
+      { name: '深度简报', body: '覆盖范围、合作过的品牌、商务条款，加上我们对每一个名字的判断。' },
+      { name: '工作会', body: '资深人带你过每一个名字。为什么是这家，为什么不是那家，谈判时我们会从哪儿往下压。' },
+      { name: '暖介绍', body: '你带着一段关系走进会议室。对方派出的，通常是高层，不是 pitch 团队。' },
+    ],
+  },
+  {
+    key: 'map',
+    title: '市场地图',
+    meta: '3 到 6 周',
+    intro: '十五到二十个名字，按可对比的结构排好。给还在搞清楚自己分销长什么样的品牌。等你准备好，再从里面抽一份聚焦的短名单。',
+    image: '/images/beyondcompass-map.svg',
+    imageLabel: '编辑图。市场地图铺开在一张长桌上。',
+    items: [
+      { name: '长名单覆盖', body: '十五到二十个名字，按品类、渠道、覆盖范围画出来。' },
+      { name: '结构化对比', body: '每一行用同一组维度，你能在同一条轴上比较。' },
+      { name: '渠道逻辑', body: '跨境与境内，天猫 TP 与分销商，B2B 与 DTC。我们告诉你哪种合适。' },
+      { name: '顺序化短名单', body: '第一次进中国最常见的做法。先做地图，再从活下来的名字里抽一份聚焦的短名单。' },
+    ],
+  },
+  {
+    key: 'replace',
+    title: '更换',
+    meta: '按合同情况',
+    intro: '给已经签了错伙伴的品牌。短名单的活儿不变，只是约束更紧，而且通常还要拆一份合同。',
+    image: '/images/beyondcompass-replacement.svg',
+    imageLabel: '编辑图。更换工作，合同审阅，上海。',
+    items: [
+      { name: '更换短名单', body: '一样的背调，一样的暖介绍，只是绕着一个正在跑的盘做。' },
+      { name: '过渡规划', body: '怎样在不丢掉发售窗口的前提下，挪走库存、渠道与内容。' },
+      { name: '合同退出支持', body: '我们帮在资源这一端：找替代、做对比、跑过渡。' },
+      { name: '默认低调处理', body: '不在外面发声音。这类事做过够多次，我们清楚什么时候该闭嘴。' },
+    ],
+  },
+];
+
+type IconKey = 'doc' | 'session' | 'intro' | 'verdict';
+const included: Array<{ icon: IconKey; title: string; body: string }> = [
+  {
+    icon: 'doc',
+    title: '一份书面交付物',
+    body: '真实的品类、渠道、覆盖范围、商务条款、合作过的品牌，以及我们对每一个名字的判断。',
+  },
+  {
+    icon: 'session',
+    title: '一次工作会',
+    body: '资深人带你过每一个名字。为什么是这家，为什么不是那家，谈判时我们会从哪儿往下压。',
+  },
+  {
+    icon: 'intro',
+    title: '暖介绍',
+    body: 'BeyondCompass 里几乎每一个名字，都是我们团队亲自见过、briefed 过，或者在真实项目上合作过的。你带着一段关系走进去。',
+  },
+  {
+    icon: 'verdict',
+    title: '坦诚判断',
+    body: '我们会毫不犹豫推荐谁，会拦住你别去碰谁，以及谁只适合非常特定的一种品牌。',
+  },
+];
+
+const boundaries: Array<{ title: string; body: string }> = [
+  {
+    title: '我们不卖数据库访问权',
+    body: '没有登录，没有座席授权。价值在每一行背后的上下文，那东西导不出 CSV。',
+  },
+  {
+    title: '我们不在合作签了之后继续运营',
+    body: '那块活儿由 BeyondBorderGroup 单独承接，看你要不要。',
+  },
+  {
+    title: '我们不承诺两年之后的结果',
+    body: '我们能做的，是让你名单上的每一个名字都对得起那个位置。',
+  },
+];
+
+const visitUrl = 'https://beyondcompass.beyondbordergroup.com';
+const visitLabel = '访问 BeyondCompass';
 ---
 
-<AgencyPage
-  locale="zh"
-  route="agencies/beyondcompass"
-  name="BeyondCompass"
-  badge="西方进入中国 · 合作伙伴对接"
-  title="BeyondCompass：先把对的中国合作伙伴找好。"
-  description="一个我们亲自见过、亲自考核过、绝大多数还在真实品牌项目里合作过的中国分销商、Tmall TP、抖音 Partner 与进口商私库。"
-  hero="把找人的三个月省下来。先把对的中国合作伙伴找好。"
-  thesisLabel="我们的判断"
-  thesis={`一份联系人名单只能告诉你"谁存在"。我们告诉你"谁合得上"。BeyondCompass 是一个我们亲自见过、亲自考核过、绝大多数还在真实品牌项目里合作过的中国分销商、Tmall TP、抖音 Partner 与进口商私库。十五年实地积累，不是从网上爬下来的目录。`}
-  whatLabel="我们具体怎么做"
-  doSections={[
-    { h: 'Brief', items: ['一次三十到六十分钟的对话，把你的品类、阶段和在中国的目标摸清。'] },
-    { h: '短名单', items: ['三到五家经过考核的合作伙伴，附上针对你具体情况的优劣分析。', '跨境 vs. 本土，Tmall TP vs. 分销商，B2B vs. DTC：按案例来挑。'] },
-    { h: '热介绍', items: ['不靠冷邮件，而是借助既有关系把门打开。'] },
-    { h: '覆盖品类', items: ['美妆、食品饮料、时尚、生活方式、家居、健康、母婴、宠物。'] },
-    { h: '结果', items: ['把找人的周期从几个月压到几周。', '避开那种悄悄烧掉六位数和一个上市档期的错配。'] },
-  ]}
-  whoForLabel="适合谁"
-  fit={[
-    '中型到大型的消费品牌，第一次进入中国，正在跨境和本土、Tmall TP 和分销商之间纠结。',
-    '已经在中国运营、正在重新洗牌合作伙伴的品牌：换分销商或换 TP，又不想错过下一个上市档期。',
-    '三周内被十家公司轮番 pitch、需要一份基于真实项目记录的"第二意见"的品牌。',
-  ]}
-  connectsLabel="如何与其他公司联动"
-  connects={`处在执行的最上游。绝大多数客户先用 BeyondCompass 把合作伙伴选对，再请 BeyondBorderGroup 做全案，TheRedScroll 做社交，ChinaWebFoundry 做网站，HubStudio 做内容。介绍并不绑定你。我们靠"推荐合得上的人"挣钱，不靠"卖给你执行方"挣钱。`}
-  visitUrl="https://beyondcompass.beyondbordergroup.com"
-  visitLabel="访问 BeyondCompass"
-  imageLabel="编辑风：上海会议室里，两位运营在审一份合作伙伴短名单。"
-/>
+<Layout
+  locale={locale}
+  route={route}
+  title="BeyondCompass。先在中国找对伙伴。"
+  description="一份私库：分销商、天猫 TP、抖音 Partner、进口商，全部是我们亲自见过、亲自核过、亲自合作过的。短名单、市场地图、或者更换：从二十年的在地经验里取出来。"
+>
+  <!-- ====================================================================== -->
+  <!-- HERO: cinematic dark + curated shortlist preview                       -->
+  <!-- ====================================================================== -->
+  <section class="bc-hero" data-hero>
+    <div class="bc-hero__bg" aria-hidden="true">
+      <img src="/images/bbg-shanghai-twilight.webp" alt="" class="bc-hero__bg-img" data-parallax-bg onerror="this.style.display='none'" />
+      <div class="bc-hero__bg-scrim"></div>
+      <div class="bc-hero__bg-glow"></div>
+      <div class="bc-hero__bg-grid"></div>
+    </div>
+
+    <div class="container bc-hero__main">
+      <div class="bc-hero__content">
+        <img src="/AgencyLogos/BeyondCompass%20-%20Transparent%20-%204K.png" alt="BeyondCompass" class="bc-hero__logo" width="200" height="48" loading="eager" decoding="async" />
+
+        <span class="bc-hero__eyebrow">
+          <span class="bc-hero__eyebrow-dot"></span>
+          Twenty years on the ground · Distributors · Tmall TPs · Douyin Partners
+        </span>
+
+        <h1 class="bc-hero__title">
+          <span class="bc-hero__line" data-anim="word">A contact list</span>
+          <span class="bc-hero__line" data-anim="word">tells you who <em class="bc-hero__phrase bc-hero__phrase--exists">exists</em>.</span>
+          <span class="bc-hero__line" data-anim="word">We tell you</span>
+          <span class="bc-hero__line" data-anim="word">who <em class="bc-hero__phrase bc-hero__phrase--fits">fits</em>.</span>
+        </h1>
+
+        <p class="bc-hero__lead" data-anim="fade">
+          We did the sourcing already. You do not have to start where most brands do.
+        </p>
+
+        <div class="bc-hero__cta-row" data-anim="fade">
+          <a class="bc-magnet" href={visitUrl} target="_blank" rel="noreferrer" data-magnet>
+            <span class="bc-magnet__bg"></span>
+            <span class="bc-magnet__label">{visitLabel}</span>
+            <span class="bc-magnet__arrow" aria-hidden="true">→</span>
+          </a>
+          <a class="bc-hero__secondary" href={pathFor('contact', locale)} data-anim="fade">
+            <span>Talk to us</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="bc-hero__preview" data-tilt>
+        <div class="bc-hero__preview-frame">
+          <a class="bc-mock-link" href={visitUrl} target="_blank" rel="noreferrer" aria-label={visitLabel}>
+          <div class="bc-mock">
+            <div class="bc-mock__chrome">
+              <span class="bc-mock__dots">
+                <span class="bc-mock__dot bc-mock__dot--r"></span>
+                <span class="bc-mock__dot bc-mock__dot--y"></span>
+                <span class="bc-mock__dot bc-mock__dot--g"></span>
+              </span>
+              <span class="bc-mock__url">beyondcompass.beyondbordergroup.com</span>
+              <span class="bc-mock__visit" aria-hidden="true">
+                <span>Visit site</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l10-10M7 7h10v10"/></svg>
+              </span>
+            </div>
+
+            <div class="bc-mock__viewport">
+              <div class="bc-mock__head">
+                <span class="bc-mock__head-eyebrow">Shortlist · Beauty · Cross-border</span>
+                <span class="bc-mock__head-meta">3 of 4 names shown</span>
+              </div>
+
+              <ul class="bc-mock__list" aria-hidden="true">
+                <li class="bc-mock__row">
+                  <div class="bc-mock__row-left">
+                    <span class="bc-mock__name"><span class="bc-mock__redact bc-mock__redact--lg"></span></span>
+                    <span class="bc-mock__tag bc-mock__tag--tmall">Tmall TP</span>
+                  </div>
+                  <div class="bc-mock__row-right">
+                    <span class="bc-mock__meta">Shanghai · Beauty</span>
+                    <span class="bc-mock__brands">
+                      <span class="bc-mock__redact"></span>
+                      <span class="bc-mock__redact bc-mock__redact--md"></span>
+                      <span class="bc-mock__redact"></span>
+                    </span>
+                  </div>
+                </li>
+                <li class="bc-mock__row">
+                  <div class="bc-mock__row-left">
+                    <span class="bc-mock__name"><span class="bc-mock__redact bc-mock__redact--md"></span></span>
+                    <span class="bc-mock__tag bc-mock__tag--dist">Distributor</span>
+                  </div>
+                  <div class="bc-mock__row-right">
+                    <span class="bc-mock__meta">Hong Kong · Lifestyle</span>
+                    <span class="bc-mock__brands">
+                      <span class="bc-mock__redact"></span>
+                      <span class="bc-mock__redact"></span>
+                    </span>
+                  </div>
+                </li>
+                <li class="bc-mock__row">
+                  <div class="bc-mock__row-left">
+                    <span class="bc-mock__name"><span class="bc-mock__redact bc-mock__redact--lg"></span></span>
+                    <span class="bc-mock__tag bc-mock__tag--douyin">Douyin Partner</span>
+                  </div>
+                  <div class="bc-mock__row-right">
+                    <span class="bc-mock__meta">Shenzhen · Wellness</span>
+                    <span class="bc-mock__brands">
+                      <span class="bc-mock__redact bc-mock__redact--md"></span>
+                      <span class="bc-mock__redact"></span>
+                      <span class="bc-mock__redact"></span>
+                    </span>
+                  </div>
+                </li>
+              </ul>
+
+              <div class="bc-mock__foot">
+                <span class="bc-mock__foot-dot"></span>
+                Names redacted. Released after the brief.
+              </div>
+            </div>
+          </div>
+          </a>
+
+          <div class="bc-hero__chip bc-hero__chip--coverage">
+            <span class="bc-hero__chip-label">Coverage</span>
+            <span>Tmall TP · Distributor · Douyin · Importer</span>
+          </div>
+          <div class="bc-hero__chip bc-hero__chip--cats">
+            <span class="bc-hero__chip-label">Categories</span>
+            <span>Beauty · F&B · Fashion · Wellness · Pet</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <a href="#track" class="bc-hero__scroll" aria-label="Scroll">
+      <span>Scroll</span>
+      <span class="bc-hero__scroll-line"></span>
+    </a>
+  </section>
+
+  <!-- ====================================================================== -->
+  <!-- TRACK RECORD: editorial numeral, twenty years of meetings              -->
+  <!-- ====================================================================== -->
+  <section class="bc-track" id="track">
+    <div class="container">
+      <div class="bc-track__grid">
+        <div class="bc-track__numeral" aria-hidden="true">
+          <span class="bc-track__num" data-count="20">0</span>
+          <span class="bc-track__num-shadow">20</span>
+        </div>
+        <div class="bc-track__copy">
+          <span class="eyebrow">Sourcing depth</span>
+          <h2 class="bc-track__title balance">Twenty years of meetings, vetted into one private database.</h2>
+          <p class="bc-track__lead">
+            A directory cannot protect you from a wrong-partner mistake. A database built one meeting at a time can. Almost every name in BeyondCompass is someone our team has met, briefed, or worked with on a real brand project.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================== -->
+  <!-- WHAT WE DO: tabbed editorial panels, three shapes                      -->
+  <!-- ====================================================================== -->
+  <section class="bc-shapes" id="shapes">
+    <div class="container">
+      <header class="bc-shapes__header">
+        <span class="eyebrow">What we do</span>
+        <h2 class="bc-shapes__title">
+          Partner sourcing, <em>in three shapes.</em>
+        </h2>
+        <p class="bc-shapes__lead">
+          We use BeyondCompass to draw you a list of distribution and channel partners worth talking to, validated against what we have seen recently and what we know about your category.
+        </p>
+      </header>
+
+      <div class="bc-shapes__shell" data-tabs>
+        <div class="bc-shapes__nav" role="tablist" aria-label="Sourcing shapes">
+          {shapes.map((s, i) => (
+            <button
+              type="button"
+              role="tab"
+              aria-selected={i === 0 ? 'true' : 'false'}
+              class={`bc-shapes__tab bc-shapes__tab--${s.key} ${i === 0 ? 'is-active' : ''}`}
+              data-tab={s.key}
+              id={`bc-tab-${s.key}`}
+              aria-controls={`bc-panel-${s.key}`}
+              tabindex={i === 0 ? 0 : -1}
+            >
+              <span class="bc-shapes__tab-pip" aria-hidden="true"></span>
+              <span class="bc-shapes__tab-text">
+                <span class="bc-shapes__tab-label">{s.title}</span>
+                <span class="bc-shapes__tab-count">{s.meta}</span>
+              </span>
+            </button>
+          ))}
+          <span class="bc-shapes__tab-indicator" aria-hidden="true"></span>
+        </div>
+
+        <div class="bc-shapes__panels">
+          {shapes.map((s, i) => (
+            <div
+              class={`bc-shapes__panel bc-shapes__panel--${s.key} ${i === 0 ? 'is-active' : ''}`}
+              role="tabpanel"
+              id={`bc-panel-${s.key}`}
+              aria-labelledby={`bc-tab-${s.key}`}
+              data-panel={s.key}
+              hidden={i !== 0}
+            >
+              <div class="bc-shapes__panel-grid">
+                <div class="bc-shapes__panel-image">
+                  <div class={`bc-shapes__panel-frame bc-shapes__panel-frame--${s.key}`}>
+                    <img src={s.image} alt={s.imageLabel} class="bc-shapes__panel-img" loading="lazy" decoding="async" />
+                    <div class={`bc-shapes__panel-tag bc-shapes__panel-tag--${s.key}`}>
+                      <span>{s.title}</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="bc-shapes__panel-content">
+                  <p class="bc-shapes__panel-intro">{s.intro}</p>
+                  <ul class="bc-shapes__list">
+                    {s.items.map((it) => (
+                      <li class="bc-shapes__item">
+                        <span class={`bc-shapes__item-pip bc-shapes__item-pip--${s.key}`} aria-hidden="true"></span>
+                        <span class="bc-shapes__item-text">
+                          <span class="bc-shapes__item-name">{it.name}.</span>
+                          <span class="bc-shapes__item-body">{it.body}</span>
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ====================================================================== -->
+  <!-- INCLUDED, EVERY TIME                                                    -->
+  <!-- ====================================================================== -->
+  <section class="bc-included">
+    <div class="container">
+      <header class="bc-included__header">
+        <span class="eyebrow">Included, every time</span>
+        <h2 class="bc-included__title balance">
+          A list is not worth much if you do not trust the thinking behind it.
+        </h2>
+      </header>
+
+      <div class="bc-included__grid">
+        {included.map((it) => (
+          <article class={`bc-included__card bc-included__card--${it.icon}`}>
+            <span class="bc-included__icon" aria-hidden="true">
+              {it.icon === 'doc' && (
+                <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6">
+                  <path d="M7 4.5h10l4 4v15A1.5 1.5 0 0 1 19.5 25h-12A1.5 1.5 0 0 1 6 23.5V6A1.5 1.5 0 0 1 7.5 4.5Z" stroke="currentColor"/>
+                  <path d="M17 4.5v4h4" stroke="currentColor"/>
+                  <path d="M9.5 13h9M9.5 16.5h9M9.5 20h6" stroke="currentColor"/>
+                </svg>
+              )}
+              {it.icon === 'session' && (
+                <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6">
+                  <circle cx="10" cy="10" r="3.2" stroke="currentColor"/>
+                  <circle cx="19" cy="11.5" r="2.6" stroke="currentColor"/>
+                  <path d="M4 22c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="currentColor"/>
+                  <path d="M16.5 22c0-2.7 2-5 4.5-5 1.5 0 2.8.8 3.5 2" stroke="currentColor"/>
+                </svg>
+              )}
+              {it.icon === 'intro' && (
+                <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6">
+                  <path d="M3.5 14.5l5-3 4 2.5 6-3.5 6 4" stroke="currentColor"/>
+                  <circle cx="3.5" cy="14.5" r="1.7" stroke="currentColor" fill="currentColor"/>
+                  <circle cx="8.5" cy="11.5" r="1.7" stroke="currentColor"/>
+                  <circle cx="12.5" cy="14" r="1.7" stroke="currentColor"/>
+                  <circle cx="18.5" cy="10.5" r="1.7" stroke="currentColor"/>
+                  <circle cx="24.5" cy="14.5" r="1.7" stroke="currentColor" fill="currentColor"/>
+                </svg>
+              )}
+              {it.icon === 'verdict' && (
+                <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6">
+                  <path d="M14 4.5L23 8v6.5c0 4.7-3.6 8.6-9 9.5-5.4-.9-9-4.8-9-9.5V8l9-3.5Z" stroke="currentColor"/>
+                  <path d="M10 14.5l3 3 5.5-6" stroke="currentColor"/>
+                </svg>
+              )}
+            </span>
+            <div class="bc-included__copy">
+              <h3 class="bc-included__card-title">{it.title}</h3>
+              <p class="bc-included__card-body">{it.body}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================== -->
+  <!-- MANIFESTO: dark editorial, three-line statement                         -->
+  <!-- ====================================================================== -->
+  <section class="bc-manifesto">
+    <div class="bc-manifesto__bg" aria-hidden="true"></div>
+    <div class="container bc-manifesto__container">
+      <span class="eyebrow eyebrow--on-dark">Manifesto</span>
+      <h2 class="bc-manifesto__title">
+        <span class="bc-manifesto__line" data-line>China rewards brands that pick the right partner first.</span>
+        <span class="bc-manifesto__line" data-line>It punishes the ones that do not.</span>
+        <span class="bc-manifesto__line" data-line>The punishment is rarely loud.</span>
+      </h2>
+      <div class="bc-manifesto__statement" data-line>
+        <p>Inventory sits in a warehouse for eighteen months. A flagship store gets run by a team that has never moved your category. Two years of your China entry, gone.</p>
+        <p class="bc-manifesto__emphasis">A database built one meeting at a time, over twenty years, can protect you from that.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================== -->
+  <!-- BOUNDARIES: what we do not do                                          -->
+  <!-- ====================================================================== -->
+  <section class="bc-bounds">
+    <div class="bc-bounds__bg" aria-hidden="true">
+      <span class="bc-bounds__rail">Out of scope · Out of scope · Out of scope · Out of scope</span>
+    </div>
+    <div class="container">
+      <header class="bc-bounds__header">
+        <span class="eyebrow">What this is not</span>
+        <h2 class="bc-bounds__title">
+          Three things <em>this is not.</em>
+        </h2>
+        <p class="bc-bounds__lead">
+          The lines we keep clean. So you know what you are paying for, and what you are not.
+        </p>
+      </header>
+
+      <div class="bc-bounds__grid">
+        {boundaries.map((b, i) => (
+          <article class={`bc-bounds__card bc-bounds__card--${i}`}>
+            <span class="bc-bounds__strike" aria-hidden="true"></span>
+            <span class="bc-bounds__icon" aria-hidden="true">
+              <svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="28" cy="28" r="25" stroke="currentColor" stroke-width="1.4" stroke-dasharray="3 4" />
+                <path d="M19 19 L37 37 M37 19 L19 37" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" />
+              </svg>
+            </span>
+            <span class="bc-bounds__tag">Not in scope</span>
+            <h3 class="bc-bounds__card-title">{b.title}.</h3>
+            <p class="bc-bounds__card-body">{b.body}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================== -->
+  <!-- FINAL CTA                                                              -->
+  <!-- ====================================================================== -->
+  <section class="bc-cta">
+    <div class="bc-cta__bg" aria-hidden="true">
+      <img src="/images/bbg-shanghai-twilight.webp" alt="" onerror="this.style.display='none'" />
+      <div class="bc-cta__bg-scrim"></div>
+    </div>
+    <div class="container bc-cta__content">
+      <span class="eyebrow eyebrow--on-dark">Ready when you are</span>
+      <h2 class="bc-cta__title balance">
+        Find the right China partner first.<br />Before the wrong one finds you.
+      </h2>
+      <div class="bc-cta__actions">
+        <a class="btn btn--primary" href={visitUrl} target="_blank" rel="noreferrer">{visitLabel}</a>
+        <a class="btn btn--ghost-light" href={pathFor('contact', locale)}>Talk to us</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* ===================================================================== */
+  /* BeyondCompass color tokens                                            */
+  /* ===================================================================== */
+  .bc-hero,
+  .bc-shapes,
+  .bc-included,
+  .bc-manifesto,
+  .bc-bounds,
+  .bc-cta,
+  .bc-track {
+    --bc-ink: #0c1220;
+    --bc-teal: #14b8a6;
+    --bc-teal-strong: #0d9488;
+    --bc-gold: #d99a3a;
+    --bc-gold-strong: #b8782b;
+    --bc-rose: #f43f5e;
+    --bc-rose-strong: #d1234a;
+    --bc-paper: #f7f6f1;
+    --bc-paper-2: #efece4;
+  }
+
+  /* ===================================================================== */
+  /* HERO                                                                   */
+  /* ===================================================================== */
+  .bc-hero {
+    position: relative;
+    min-height: 88vh;
+    padding: clamp(2.5rem, 5vh, 4rem) 0 clamp(3rem, 6vh, 5rem);
+    overflow: hidden;
+    isolation: isolate;
+    color: #fff;
+    background: var(--bc-ink);
+  }
+
+  .bc-hero__bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+  .bc-hero__bg-img {
+    position: absolute;
+    inset: -8% -4% -4% -4%;
+    width: 108%;
+    height: 112%;
+    object-fit: cover;
+    object-position: center 35%;
+    will-change: transform;
+    transform: translate3d(0, var(--parallax-y, 0), 0) scale(1.04);
+    filter: saturate(0.7) contrast(1.1) brightness(0.62) hue-rotate(-12deg);
+  }
+  .bc-hero__bg-scrim {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(110deg, rgba(8, 12, 24, 0.92) 0%, rgba(8, 12, 24, 0.7) 38%, rgba(8, 12, 24, 0.34) 65%, rgba(8, 12, 24, 0.65) 100%),
+      linear-gradient(180deg, rgba(8, 12, 24, 0.55) 0%, rgba(8, 12, 24, 0.05) 30%, rgba(8, 12, 24, 0.0) 60%, rgba(8, 12, 24, 0.85) 100%);
+  }
+  .bc-hero__bg-glow {
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(900px 500px at 14% 28%, rgba(20,184,166,0.20), transparent 65%),
+      radial-gradient(800px 480px at 88% 78%, rgba(217,154,58,0.18), transparent 70%);
+    mix-blend-mode: screen;
+  }
+  .bc-hero__bg-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(to right, rgba(255,255,255,0.045) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.045) 1px, transparent 1px);
+    background-size: 88px 88px;
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 80%);
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 80%);
+    opacity: 0.65;
+  }
+
+  .bc-hero__main {
+    position: relative;
+    z-index: 3;
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+    gap: clamp(2rem, 5vw, 5rem);
+    align-items: center;
+  }
+  .bc-hero__content { min-width: 0; max-width: 36rem; }
+  .bc-hero__logo {
+    display: block;
+    width: auto;
+    height: 40px;
+    filter: brightness(0) invert(1) drop-shadow(0 2px 12px rgba(0,0,0,0.4));
+    margin-bottom: var(--space-5);
+    opacity: 0;
+    animation: bcFadeIn 700ms cubic-bezier(0.2,0.8,0.2,1) 0.1s forwards;
+  }
+
+  .bc-hero__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 14px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 999px;
+    font-family: var(--font-display);
+    font-size: 0.74rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    margin-bottom: var(--space-4);
+    opacity: 0;
+    animation: bcFadeIn 700ms cubic-bezier(0.2,0.8,0.2,1) 0.2s forwards;
+  }
+  .bc-hero__eyebrow-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--bc-teal);
+    box-shadow: 0 0 0 0 rgba(20,184,166,0.55);
+    animation: bcPulse 2.4s ease-in-out infinite;
+  }
+
+  .bc-hero__title {
+    font-size: clamp(2.1rem, 3.4vw + 0.5rem, 3.6rem);
+    line-height: 1.04;
+    letter-spacing: -0.03em;
+    font-weight: 600;
+    color: #fff;
+    margin: 0 0 var(--space-5);
+    max-width: 24ch;
+  }
+  .bc-hero__line {
+    display: block;
+    overflow: hidden;
+  }
+  .bc-hero__line[data-anim="word"] {
+    transform: translateY(110%);
+    opacity: 0;
+    animation: bcWordIn 880ms cubic-bezier(0.2, 0.9, 0.2, 1) forwards;
+  }
+  .bc-hero__line[data-anim="word"]:nth-child(1) { animation-delay: 0.30s; }
+  .bc-hero__line[data-anim="word"]:nth-child(2) { animation-delay: 0.42s; }
+  .bc-hero__line[data-anim="word"]:nth-child(3) { animation-delay: 0.58s; }
+  .bc-hero__line[data-anim="word"]:nth-child(4) { animation-delay: 0.70s; }
+  @keyframes bcWordIn {
+    from { transform: translateY(110%); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+
+  .bc-hero__phrase {
+    font-style: normal;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+  }
+  .bc-hero__phrase--exists {
+    background-image: linear-gradient(120deg, #6b7280 0%, #9ca3af 60%, #6b7280 100%);
+  }
+  .bc-hero__phrase--fits {
+    background-image: linear-gradient(120deg, #2dd4bf 0%, #0d9488 60%, #ffd07a 100%);
+  }
+
+  .bc-hero__lead {
+    max-width: 44ch;
+    font-size: clamp(1.05rem, 0.6vw + 0.95rem, 1.2rem);
+    color: rgba(255,255,255,0.82);
+    margin: 0 0 var(--space-5);
+    opacity: 0;
+    animation: bcFadeIn 700ms cubic-bezier(0.2,0.8,0.2,1) 0.95s forwards;
+  }
+
+  .bc-hero__cta-row {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: bcFadeIn 700ms cubic-bezier(0.2,0.8,0.2,1) 1.1s forwards;
+  }
+
+  .bc-magnet {
+    --x: 0px; --y: 0px;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 26px 16px 28px;
+    border-radius: 999px;
+    color: #fff;
+    text-decoration: none;
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+    overflow: hidden;
+    isolation: isolate;
+    transition: transform 220ms cubic-bezier(0.2,0.8,0.2,1);
+    transform: translate(var(--x), var(--y));
+  }
+  .bc-magnet__bg {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(120deg, var(--bc-teal) 0%, var(--bc-teal-strong) 100%);
+    box-shadow: 0 16px 36px -10px rgba(20,184,166,0.55), inset 0 1px 0 rgba(255,255,255,0.2);
+    z-index: -1;
+    transition: transform 320ms cubic-bezier(0.2,0.8,0.2,1);
+  }
+  .bc-magnet:hover .bc-magnet__bg { transform: scale(1.04); }
+  .bc-magnet__arrow {
+    display: inline-block;
+    transform: translateX(0);
+    transition: transform 280ms cubic-bezier(0.2,0.8,0.2,1);
+  }
+  .bc-magnet:hover .bc-magnet__arrow { transform: translateX(4px); }
+
+  .bc-hero__secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255,255,255,0.92);
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 220ms ease;
+  }
+  .bc-hero__secondary svg { transition: transform 220ms ease; }
+  .bc-hero__secondary:hover { color: #5eead4; }
+  .bc-hero__secondary:hover svg { transform: translateX(3px); }
+
+  /* Hero preview: BeyondCompass shortlist mockup (CSS-only) */
+  .bc-hero__preview {
+    position: relative;
+    perspective: 1600px;
+    min-width: 0;
+    opacity: 0;
+    animation: bcFadeIn 900ms cubic-bezier(0.2,0.8,0.2,1) 0.55s forwards;
+  }
+  .bc-hero__preview-frame {
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotateY(var(--tilt-x, -3deg)) rotateX(var(--tilt-y, 2deg));
+    transition: transform 600ms cubic-bezier(0.2,0.8,0.2,1);
+  }
+
+  .bc-mock-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    border-radius: 14px;
+    transition: transform 320ms cubic-bezier(0.2,0.8,0.2,1);
+  }
+  .bc-mock-link:hover { transform: translateY(-2px); }
+  .bc-mock-link:focus-visible { outline: 2px solid #fff; outline-offset: 4px; }
+  .bc-mock-link:hover .bc-mock__visit { opacity: 1; transform: translateY(0); }
+  .bc-mock__visit {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-left: auto;
+    padding: 5px 10px;
+    border-radius: 999px;
+    background: rgba(15,23,42,0.85);
+    color: #fff;
+    font-family: var(--font-display);
+    font-size: 0.66rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    opacity: 0;
+    transform: translateY(-2px);
+    transition: opacity 240ms ease, transform 240ms cubic-bezier(0.2,0.8,0.2,1);
+    pointer-events: none;
+  }
+  .bc-mock {
+    position: relative;
+    background: #ffffff;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow:
+      0 1px 0 rgba(255,255,255,0.5) inset,
+      0 40px 80px -28px rgba(0,0,0,0.55),
+      0 12px 28px -8px rgba(0,0,0,0.35);
+    border: 1px solid rgba(255,255,255,0.10);
+    transform: translateZ(0);
+  }
+  .bc-mock__chrome {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: 10px 14px;
+    background: linear-gradient(180deg, #f8fafc 0%, #eef2f6 100%);
+    border-bottom: 1px solid rgba(15,23,42,0.08);
+  }
+  .bc-mock__dots { display: inline-flex; gap: 6px; }
+  .bc-mock__dot { width: 11px; height: 11px; border-radius: 50%; display: inline-block; }
+  .bc-mock__dot--r { background: #ff5f57; }
+  .bc-mock__dot--y { background: #febc2e; }
+  .bc-mock__dot--g { background: #28c840; }
+  .bc-mock__url {
+    flex: 1;
+    text-align: center;
+    font-family: var(--font-display);
+    font-size: 0.78rem;
+    color: var(--bbg-text-muted);
+    background: rgba(15,23,42,0.04);
+    border-radius: 999px;
+    padding: 4px 10px;
+    letter-spacing: 0.01em;
+    max-width: 360px;
+    margin: 0 auto;
+  }
+  .bc-mock__viewport {
+    position: relative;
+    aspect-ratio: 16 / 11;
+    background: linear-gradient(180deg, #ffffff 0%, #fbfaf6 100%);
+    padding: 18px 22px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .bc-mock__head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .bc-mock__head-eyebrow {
+    font-family: var(--font-display);
+    font-size: 0.66rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--bc-teal-strong);
+  }
+  .bc-mock__head-meta {
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    color: var(--bbg-text-muted);
+    letter-spacing: 0.04em;
+  }
+  .bc-mock__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+  }
+  .bc-mock__row {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+    gap: 12px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    background: rgba(15,23,42,0.025);
+    border: 1px solid rgba(15,23,42,0.06);
+    align-items: center;
+  }
+  .bc-mock__row-left { display: flex; align-items: center; gap: 10px; min-width: 0; }
+  .bc-mock__row-right { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+  .bc-mock__name {
+    display: inline-flex;
+    align-items: center;
+    flex: 1;
+    min-width: 0;
+  }
+  .bc-mock__redact {
+    display: inline-block;
+    height: 10px;
+    width: 60px;
+    border-radius: 3px;
+    background: linear-gradient(90deg, rgba(15,23,42,0.10), rgba(15,23,42,0.18));
+  }
+  .bc-mock__redact--md { width: 80px; }
+  .bc-mock__redact--lg { width: 110px; }
+  .bc-mock__brands {
+    display: inline-flex;
+    gap: 6px;
+    align-items: center;
+  }
+  .bc-mock__brands .bc-mock__redact {
+    height: 8px;
+    background: linear-gradient(90deg, rgba(20,184,166,0.18), rgba(20,184,166,0.32));
+  }
+  .bc-mock__tag {
+    flex-shrink: 0;
+    font-family: var(--font-display);
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 999px;
+    color: #fff;
+  }
+  .bc-mock__tag--tmall  { background: linear-gradient(120deg, #d99a3a, #b8782b); }
+  .bc-mock__tag--dist   { background: linear-gradient(120deg, #14b8a6, #0d9488); }
+  .bc-mock__tag--douyin { background: linear-gradient(120deg, #f43f5e, #d1234a); }
+  .bc-mock__meta {
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    color: var(--bbg-text);
+    letter-spacing: 0.01em;
+  }
+  .bc-mock__foot {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-display);
+    font-size: 0.68rem;
+    color: var(--bbg-text-muted);
+    letter-spacing: 0.04em;
+    border-top: 1px dashed rgba(15,23,42,0.10);
+    padding-top: 10px;
+  }
+  .bc-mock__foot-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--bc-teal);
+    box-shadow: 0 0 0 0 rgba(20,184,166,0.5);
+    animation: bcPulse 2.4s ease-in-out infinite;
+  }
+
+  .bc-hero__chip {
+    position: absolute;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 10px 14px;
+    background: rgba(255,255,255,0.92);
+    color: var(--bbg-ink);
+    border: 1px solid rgba(255,255,255,0.5);
+    border-radius: 14px;
+    font-family: var(--font-display);
+    font-size: 0.84rem;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+    box-shadow: 0 24px 50px -18px rgba(0,0,0,0.45);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transform: translateZ(40px);
+  }
+  .bc-hero__chip-label {
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--bc-teal-strong);
+  }
+  .bc-hero__chip--coverage {
+    top: -22px; left: -28px;
+    animation: bcFloatA 9s ease-in-out infinite;
+  }
+  .bc-hero__chip--cats {
+    bottom: -24px; right: -20px;
+    animation: bcFloatB 11s ease-in-out infinite;
+  }
+  @keyframes bcFloatA { 0%,100% { transform: translateZ(40px) translateY(0); } 50% { transform: translateZ(40px) translateY(-7px); } }
+  @keyframes bcFloatB { 0%,100% { transform: translateZ(40px) translateY(0); } 50% { transform: translateZ(40px) translateY(8px); } }
+
+  /* Scroll hint */
+  .bc-hero__scroll {
+    position: absolute;
+    bottom: clamp(1rem, 3vh, 2rem);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 4;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    transition: color 220ms ease;
+  }
+  .bc-hero__scroll:hover { color: #fff; }
+  .bc-hero__scroll-line {
+    width: 1px;
+    height: 36px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.7), rgba(255,255,255,0));
+    position: relative;
+    overflow: hidden;
+  }
+  .bc-hero__scroll-line::after {
+    content: "";
+    position: absolute;
+    top: -36px;
+    left: 0; right: 0;
+    height: 36px;
+    background: linear-gradient(180deg, rgba(255,255,255,0), rgba(255,255,255,0.95));
+    animation: bcScrollLine 1.8s ease-in-out infinite;
+  }
+  @keyframes bcScrollLine { 0% { top: -36px; } 100% { top: 36px; } }
+
+  @keyframes bcFadeIn { to { opacity: 1; } }
+  @keyframes bcPulse {
+    0%,100% { box-shadow: 0 0 0 0 rgba(20,184,166,0.55); }
+    50% { box-shadow: 0 0 0 7px rgba(20,184,166,0); }
+  }
+
+  @media (max-width: 1023px) {
+    .bc-hero__main { grid-template-columns: 1fr; gap: var(--space-7); }
+    .bc-hero__title { max-width: none; }
+    .bc-hero__chip--coverage { top: -14px; left: 8px; }
+    .bc-hero__chip--cats { bottom: -14px; right: 8px; }
+  }
+  @media (max-width: 639px) {
+    .bc-hero__chip { font-size: 0.72rem; padding: 8px 10px; }
+    .bc-hero__chip--coverage { display: none; }
+    .bc-hero__scroll { display: none; }
+  }
+
+  /* ===================================================================== */
+  /* TRACK RECORD                                                           */
+  /* ===================================================================== */
+  .bc-track {
+    padding: clamp(5rem, 10vh, 8rem) 0 clamp(4rem, 8vh, 6rem);
+    background: linear-gradient(180deg, var(--bbg-white) 0%, var(--bc-paper) 100%);
+    position: relative;
+  }
+  .bc-track__grid {
+    display: grid;
+    grid-template-columns: minmax(0, auto) minmax(0, 1fr);
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: center;
+  }
+  @media (max-width: 1023px) { .bc-track__grid { grid-template-columns: 1fr; gap: var(--space-6); } }
+
+  .bc-track__numeral {
+    position: relative;
+    line-height: 0.85;
+    letter-spacing: -0.06em;
+    font-family: var(--font-display);
+    font-weight: 600;
+    color: var(--bbg-ink);
+  }
+  .bc-track__num {
+    position: relative;
+    z-index: 2;
+    display: inline-block;
+    font-size: clamp(7rem, 18vw, 16rem);
+    background: linear-gradient(180deg, var(--bbg-ink) 0%, #2a2f3f 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    font-variant-numeric: tabular-nums;
+  }
+  .bc-track__num-shadow {
+    position: absolute;
+    top: 4px; left: 5px;
+    font-size: clamp(7rem, 18vw, 16rem);
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(20,184,166,0.22);
+    z-index: 1;
+    pointer-events: none;
+    user-select: none;
+  }
+  .bc-track__copy { max-width: 56ch; }
+  .bc-track__title { font-size: clamp(1.6rem, 2.4vw + 0.6rem, 2.4rem); line-height: 1.15; margin: 0 0 var(--space-4); }
+  .bc-track__lead { font-size: var(--fs-lead); color: var(--bbg-text); }
+
+  /* ===================================================================== */
+  /* SHAPES (services tabs)                                                 */
+  /* ===================================================================== */
+  .bc-shapes {
+    padding: clamp(5rem, 10vh, 8rem) 0 clamp(4rem, 8vh, 6rem);
+    background: var(--bbg-white);
+    position: relative;
+  }
+
+  .bc-shapes__header { max-width: 60ch; margin: 0 0 var(--space-7); }
+  .bc-shapes__title {
+    font-size: clamp(2rem, 3.6vw + 0.5rem, 3.4rem);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    margin: var(--space-3) 0 var(--space-4);
+  }
+  .bc-shapes__title em {
+    font-style: normal;
+    background: linear-gradient(120deg, var(--bc-teal-strong), var(--bc-gold) 60%, var(--bc-rose));
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+  .bc-shapes__lead { color: var(--bbg-text); font-size: var(--fs-lead); max-width: 64ch; }
+
+  .bc-shapes__shell {
+    position: relative;
+    background: var(--bc-paper);
+    border-radius: 28px;
+    padding: clamp(1.5rem, 3vw, 2.5rem);
+    border: 1px solid var(--bbg-border);
+    box-shadow: 0 60px 120px -60px rgba(15, 23, 42, 0.18);
+  }
+
+  .bc-shapes__nav {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px;
+    padding: 6px;
+    background: var(--bbg-white);
+    border: 1px solid var(--bbg-border);
+    border-radius: 16px;
+    margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+  }
+  .bc-shapes__tab-indicator {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    width: calc((100% - 12px) / 3);
+    height: calc(100% - 12px);
+    background: linear-gradient(135deg, var(--bbg-ink) 0%, #2a2f3f 100%);
+    border-radius: 12px;
+    transition: transform 380ms cubic-bezier(0.2, 0.85, 0.2, 1);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .bc-shapes__tab {
+    position: relative;
+    z-index: 1;
+    background: transparent;
+    border: 0;
+    padding: 14px 18px;
+    border-radius: 12px;
+    cursor: pointer;
+    text-align: left;
+    font: inherit;
+    color: var(--bbg-text-muted);
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    gap: 12px;
+    transition: color 320ms ease;
+    min-width: 0;
+  }
+  .bc-shapes__tab.is-active { color: #fff; }
+  .bc-shapes__tab.is-active .bc-shapes__tab-count { color: rgba(255,255,255,0.6); }
+  .bc-shapes__tab-pip {
+    width: 9px; height: 9px;
+    border-radius: 50%;
+    background: currentColor;
+    flex-shrink: 0;
+    transition: background 320ms ease, transform 320ms ease;
+  }
+  .bc-shapes__tab--shortlist.is-active .bc-shapes__tab-pip { background: var(--bc-gold); }
+  .bc-shapes__tab--map.is-active       .bc-shapes__tab-pip { background: var(--bc-teal); }
+  .bc-shapes__tab--replace.is-active   .bc-shapes__tab-pip { background: var(--bc-rose); }
+  .bc-shapes__tab-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+  }
+  .bc-shapes__tab-label {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.02rem;
+    letter-spacing: -0.005em;
+    color: var(--bbg-ink);
+    transition: color 320ms ease;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .bc-shapes__tab.is-active .bc-shapes__tab-label { color: #fff; }
+  .bc-shapes__tab-count {
+    font-family: var(--font-display);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: var(--bbg-text-muted);
+    transition: color 320ms ease;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  @media (max-width: 767px) {
+    .bc-shapes__nav { grid-template-columns: 1fr; }
+    .bc-shapes__tab-indicator { display: none; }
+    .bc-shapes__tab { background: rgba(15,23,42,0.04); }
+    .bc-shapes__tab.is-active { background: var(--bbg-ink); }
+  }
+
+  .bc-shapes__panels { position: relative; min-height: 480px; }
+  .bc-shapes__panel {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 380ms ease, transform 480ms cubic-bezier(0.2, 0.85, 0.2, 1);
+    pointer-events: none;
+  }
+  .bc-shapes__panel.is-active {
+    position: relative;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .bc-shapes__panel-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1fr);
+    gap: clamp(2rem, 4vw, 3.5rem);
+    align-items: stretch;
+  }
+  @media (max-width: 1023px) { .bc-shapes__panel-grid { grid-template-columns: 1fr; } }
+
+  .bc-shapes__panel-image { position: relative; min-height: 420px; }
+  .bc-shapes__panel-frame {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 420px;
+    border-radius: 20px;
+    overflow: hidden;
+    background: var(--bbg-ink);
+    box-shadow: 0 30px 60px -22px rgba(15,23,42,0.30);
+  }
+  .bc-shapes__panel-img {
+    width: 100%;
+    height: 100%;
+    min-height: 420px;
+    object-fit: cover;
+    display: block;
+  }
+  .bc-shapes__panel-frame--shortlist { background: linear-gradient(160deg, #1a1410 0%, #2a2018 100%); }
+  .bc-shapes__panel-frame--map       { background: linear-gradient(160deg, #0f1a1a 0%, #14302d 100%); }
+  .bc-shapes__panel-frame--replace   { background: linear-gradient(160deg, #1a0f14 0%, #2a1820 100%); }
+  .bc-shapes__panel-tag {
+    position: absolute;
+    bottom: 16px; left: 16px;
+    padding: 7px 14px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.92);
+    color: var(--bbg-ink);
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 12px 24px -10px rgba(15,23,42,0.3);
+  }
+  .bc-shapes__panel-tag--shortlist { color: var(--bc-gold-strong); }
+  .bc-shapes__panel-tag--map       { color: var(--bc-teal-strong); }
+  .bc-shapes__panel-tag--replace   { color: var(--bc-rose-strong); }
+
+  .bc-shapes__panel-content { display: flex; flex-direction: column; justify-content: center; min-width: 0; }
+  .bc-shapes__panel-intro {
+    font-size: 1.1rem;
+    line-height: 1.45;
+    color: var(--bbg-ink);
+    margin: 0 0 var(--space-5);
+    font-family: var(--font-display);
+    font-weight: 500;
+    letter-spacing: -0.005em;
+    max-width: 44ch;
+  }
+
+  .bc-shapes__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-4);
+  }
+  .bc-shapes__item {
+    display: grid;
+    grid-template-columns: 14px 1fr;
+    gap: 14px;
+    align-items: start;
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  .bc-shapes__panel.is-active .bc-shapes__item {
+    animation: bcItemIn 520ms cubic-bezier(0.2, 0.85, 0.2, 1) forwards;
+  }
+  .bc-shapes__panel.is-active .bc-shapes__item:nth-child(1) { animation-delay: 0.10s; }
+  .bc-shapes__panel.is-active .bc-shapes__item:nth-child(2) { animation-delay: 0.16s; }
+  .bc-shapes__panel.is-active .bc-shapes__item:nth-child(3) { animation-delay: 0.22s; }
+  .bc-shapes__panel.is-active .bc-shapes__item:nth-child(4) { animation-delay: 0.28s; }
+  @keyframes bcItemIn { to { opacity: 1; transform: translateY(0); } }
+
+  .bc-shapes__item-pip {
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    margin-top: 0.45em;
+    flex-shrink: 0;
+    background: currentColor;
+    box-shadow: 0 0 0 4px color-mix(in srgb, currentColor 12%, transparent);
+  }
+  .bc-shapes__item-pip--shortlist { color: var(--bc-gold); }
+  .bc-shapes__item-pip--map       { color: var(--bc-teal); }
+  .bc-shapes__item-pip--replace   { color: var(--bc-rose); }
+  .bc-shapes__item-text { display: block; line-height: 1.5; font-size: 0.98rem; }
+  .bc-shapes__item-name { font-weight: 600; color: var(--bbg-ink); margin-right: 0.25rem; }
+  .bc-shapes__item-body { color: var(--bbg-text); }
+
+  /* ===================================================================== */
+  /* INCLUDED                                                               */
+  /* ===================================================================== */
+  .bc-included {
+    padding: clamp(5rem, 10vh, 8rem) 0;
+    background: var(--bc-paper);
+    border-top: 1px solid var(--bbg-border);
+    border-bottom: 1px solid var(--bbg-border);
+    position: relative;
+  }
+  .bc-included__header {
+    max-width: 64ch;
+    margin: 0 0 var(--space-7);
+  }
+  .bc-included__title {
+    font-size: clamp(1.8rem, 2.6vw + 0.6rem, 2.6rem);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin: var(--space-3) 0 0;
+  }
+  .bc-included__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(1rem, 2vw, 1.5rem);
+  }
+  @media (max-width: 767px) { .bc-included__grid { grid-template-columns: 1fr; } }
+  .bc-included__card {
+    --bc-card-accent: var(--bc-teal);
+    --bc-card-accent-strong: var(--bc-teal-strong);
+    --bc-card-accent-soft: rgba(20,184,166,0.10);
+    --bc-card-accent-line: rgba(20,184,166,0.22);
+    position: relative;
+    background: var(--bbg-white);
+    border: 1px solid var(--bbg-border);
+    border-radius: 22px;
+    padding: clamp(1.5rem, 2.6vw, 2rem) clamp(1.5rem, 2.6vw, 2rem) clamp(1.5rem, 2.6vw, 2rem);
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: clamp(1rem, 2vw, 1.4rem);
+    align-items: start;
+    transition:
+      transform 360ms cubic-bezier(0.2,0.85,0.2,1),
+      box-shadow 360ms ease,
+      border-color 360ms ease;
+    overflow: hidden;
+  }
+  .bc-included__card--doc     { --bc-card-accent: var(--bc-teal);  --bc-card-accent-strong: var(--bc-teal-strong);  --bc-card-accent-soft: rgba(20,184,166,0.10);  --bc-card-accent-line: rgba(20,184,166,0.22); }
+  .bc-included__card--session { --bc-card-accent: var(--bc-gold);  --bc-card-accent-strong: var(--bc-gold-strong);  --bc-card-accent-soft: rgba(217,154,58,0.10); --bc-card-accent-line: rgba(217,154,58,0.24); }
+  .bc-included__card--intro   { --bc-card-accent: #6366f1;         --bc-card-accent-strong: #4f46e5;                --bc-card-accent-soft: rgba(99,102,241,0.10); --bc-card-accent-line: rgba(99,102,241,0.22); }
+  .bc-included__card--verdict { --bc-card-accent: var(--bc-rose);  --bc-card-accent-strong: var(--bc-rose-strong);  --bc-card-accent-soft: rgba(244,63,94,0.10); --bc-card-accent-line: rgba(244,63,94,0.22); }
+
+  .bc-included__card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background:
+      radial-gradient(420px 220px at 100% 0%, var(--bc-card-accent-soft), transparent 60%);
+    opacity: 0;
+    transition: opacity 360ms ease;
+    pointer-events: none;
+  }
+  .bc-included__card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 28px 60px -28px rgba(15,23,42,0.22);
+    border-color: var(--bc-card-accent-line);
+  }
+  .bc-included__card:hover::before { opacity: 1; }
+
+  .bc-included__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    background: var(--bc-card-accent-soft);
+    color: var(--bc-card-accent-strong);
+    border: 1px solid var(--bc-card-accent-line);
+    flex-shrink: 0;
+    transition: transform 320ms cubic-bezier(0.2,0.85,0.2,1), background 320ms ease;
+  }
+  .bc-included__icon svg {
+    width: 26px;
+    height: 26px;
+  }
+  .bc-included__card:hover .bc-included__icon {
+    transform: scale(1.05) rotate(-3deg);
+    background: color-mix(in srgb, var(--bc-card-accent) 16%, white);
+  }
+
+  .bc-included__copy { min-width: 0; }
+  .bc-included__card-title {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+    color: var(--bbg-ink);
+    margin: 0 0 var(--space-3);
+    line-height: 1.3;
+  }
+  .bc-included__card-body {
+    margin: 0;
+    color: var(--bbg-text);
+    line-height: 1.6;
+    font-size: 1rem;
+  }
+
+  /* ===================================================================== */
+  /* MANIFESTO                                                              */
+  /* ===================================================================== */
+  .bc-manifesto {
+    position: relative;
+    padding: clamp(5rem, 10vh, 8rem) 0;
+    background: var(--bc-ink);
+    color: rgba(255,255,255,0.92);
+    isolation: isolate;
+    overflow: hidden;
+  }
+  .bc-manifesto__bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(900px 500px at 0% 100%, rgba(20,184,166,0.20), transparent 60%),
+      radial-gradient(800px 500px at 100% 0%, rgba(217,154,58,0.16), transparent 60%);
+    pointer-events: none;
+    z-index: -1;
+  }
+  .bc-manifesto__container {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    gap: clamp(2rem, 5vw, 5rem);
+    align-items: start;
+  }
+  @media (max-width: 1023px) {
+    .bc-manifesto__container { grid-template-columns: 1fr; gap: var(--space-6); }
+  }
+  .bc-manifesto__title {
+    display: flex;
+    flex-direction: column;
+    gap: 0.06em;
+    font-size: clamp(1.6rem, 1.9vw + 0.7rem, 2.6rem);
+    line-height: 1.18;
+    letter-spacing: -0.018em;
+    margin: var(--space-4) 0 0;
+    color: #fff;
+    max-width: 22ch;
+    font-weight: 600;
+  }
+  .bc-manifesto__line {
+    display: block;
+    overflow: hidden;
+    position: relative;
+    transition: transform 880ms cubic-bezier(0.2, 0.9, 0.2, 1), opacity 600ms ease;
+  }
+  .bc-manifesto__line > * { display: inline-block; }
+  .bc-manifesto__line:nth-child(2) { transition-delay: 0.10s; }
+  .bc-manifesto__line:nth-child(3) { transition-delay: 0.20s; }
+
+  .bc-manifesto__statement {
+    max-width: 60ch;
+    font-size: clamp(1.05rem, 0.6vw + 0.95rem, 1.25rem);
+    color: rgba(255,255,255,0.82);
+    transition: transform 700ms cubic-bezier(0.2, 0.85, 0.2, 1), opacity 600ms ease;
+    transition-delay: 0.40s;
+  }
+  .bc-manifesto__statement p { margin: 0 0 var(--space-3); }
+  .bc-manifesto__emphasis {
+    font-family: var(--font-display);
+    font-weight: 600;
+    color: #fff;
+    font-size: 1.1em;
+    letter-spacing: -0.01em;
+  }
+
+  /* ===================================================================== */
+  /* BOUNDARIES (what we do not do), editorial off-grid                     */
+  /* ===================================================================== */
+  .bc-bounds {
+    position: relative;
+    padding: clamp(5rem, 10vh, 8rem) 0 clamp(6rem, 12vh, 9rem);
+    background: var(--bc-paper);
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .bc-bounds__bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background-image:
+      radial-gradient(circle at 18% 24%, rgba(244,63,94,0.05), transparent 38%),
+      radial-gradient(circle at 82% 76%, rgba(217,154,58,0.05), transparent 40%);
+  }
+  .bc-bounds__rail {
+    position: absolute;
+    top: 50%;
+    right: -10%;
+    transform: translateY(-50%) rotate(-90deg);
+    transform-origin: center;
+    font-family: var(--font-display);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.45em;
+    text-transform: uppercase;
+    color: rgba(15,23,42,0.05);
+    white-space: nowrap;
+    user-select: none;
+  }
+  @media (max-width: 1023px) { .bc-bounds__rail { display: none; } }
+
+  .bc-bounds__header {
+    max-width: 64ch;
+    margin: 0 0 clamp(2.5rem, 5vw, 4rem);
+    position: relative;
+    z-index: 1;
+  }
+  .bc-bounds__title {
+    font-size: clamp(2rem, 3vw + 0.6rem, 3.4rem);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    margin: var(--space-3) 0 var(--space-4);
+    color: var(--bbg-ink);
+    font-weight: 600;
+  }
+  .bc-bounds__title em {
+    font-style: normal;
+    background: linear-gradient(120deg, var(--bc-rose-strong), var(--bc-gold) 80%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+  .bc-bounds__lead {
+    margin: 0;
+    color: var(--bbg-text);
+    font-size: var(--fs-lead);
+    max-width: 52ch;
+  }
+
+  .bc-bounds__grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: clamp(1rem, 2vw, 1.5rem);
+    position: relative;
+    z-index: 1;
+  }
+  .bc-bounds__card {
+    position: relative;
+    background: var(--bbg-white);
+    border: 1px solid var(--bbg-border);
+    border-radius: 22px;
+    padding: clamp(1.75rem, 2.6vw, 2.25rem);
+    transition:
+      transform 360ms cubic-bezier(0.2,0.85,0.2,1),
+      box-shadow 360ms ease,
+      border-color 360ms ease;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .bc-bounds__card--0 { grid-column: 1 / span 5; margin-top: 0; }
+  .bc-bounds__card--1 { grid-column: 6 / span 5; margin-top: clamp(2rem, 5vw, 4.5rem); }
+  .bc-bounds__card--2 { grid-column: 3 / span 6; margin-top: clamp(0.5rem, 2vw, 1.5rem); }
+  @media (max-width: 1023px) {
+    .bc-bounds__grid { grid-template-columns: 1fr; gap: var(--space-4); }
+    .bc-bounds__card,
+    .bc-bounds__card--0,
+    .bc-bounds__card--1,
+    .bc-bounds__card--2 { grid-column: 1 / -1; margin-top: 0; }
+  }
+
+  .bc-bounds__card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(360px 220px at 100% 0%, rgba(244,63,94,0.06), transparent 65%);
+    opacity: 0;
+    transition: opacity 360ms ease;
+    pointer-events: none;
+    z-index: -1;
+  }
+  .bc-bounds__card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 28px 60px -28px rgba(15,23,42,0.22);
+    border-color: rgba(244,63,94,0.25);
+  }
+  .bc-bounds__card:hover::before { opacity: 1; }
+
+  .bc-bounds__strike {
+    position: absolute;
+    top: 0; right: clamp(1rem, 2.5vw, 1.75rem);
+    width: 1px;
+    height: clamp(2.5rem, 4vw, 3.25rem);
+    background: linear-gradient(180deg, var(--bc-rose), transparent);
+    opacity: 0.65;
+  }
+
+  .bc-bounds__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    background: rgba(244,63,94,0.08);
+    color: var(--bc-rose-strong);
+    border: 1px solid rgba(244,63,94,0.22);
+    margin-bottom: var(--space-5);
+    transition: transform 360ms cubic-bezier(0.2,0.85,0.2,1);
+  }
+  .bc-bounds__card:hover .bc-bounds__icon {
+    transform: rotate(-6deg) scale(1.04);
+  }
+  .bc-bounds__icon svg { width: 30px; height: 30px; }
+
+  .bc-bounds__tag {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-size: 0.66rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--bc-rose-strong);
+    margin-bottom: var(--space-3);
+  }
+
+  .bc-bounds__card-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.2rem, 1.4vw + 0.7rem, 1.55rem);
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+    color: var(--bbg-ink);
+    margin: 0 0 var(--space-4);
+    max-width: 22ch;
+  }
+  .bc-bounds__card-body {
+    margin: 0;
+    color: var(--bbg-text);
+    font-size: 1rem;
+    line-height: 1.6;
+    max-width: 44ch;
+  }
+
+  /* ===================================================================== */
+  /* FINAL CTA                                                              */
+  /* ===================================================================== */
+  .bc-cta {
+    position: relative;
+    padding: clamp(5rem, 10vh, 8rem) 0;
+    color: #fff;
+    isolation: isolate;
+    overflow: hidden;
+    background: var(--bc-ink);
+  }
+  .bc-cta__bg { position: absolute; inset: 0; z-index: -1; }
+  .bc-cta__bg img {
+    width: 100%; height: 100%; object-fit: cover;
+    filter: brightness(0.45) saturate(0.85) hue-rotate(-12deg);
+    transform: scale(1.04);
+  }
+  .bc-cta__bg-scrim {
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(180deg, rgba(8,12,24,0.65) 0%, rgba(8,12,24,0.55) 50%, rgba(8,12,24,0.85) 100%),
+      radial-gradient(700px 400px at 50% 60%, rgba(20,184,166,0.18), transparent 70%);
+  }
+  .bc-cta__content {
+    position: relative;
+    text-align: center;
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .bc-cta__title {
+    font-size: clamp(2rem, 4vw + 0.5rem, 4rem);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    color: #fff;
+    margin: var(--space-4) 0 var(--space-6);
+    text-wrap: balance;
+  }
+  .bc-cta__actions {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  /* Reveal helpers */
+  [data-anim="fade"] { opacity: 0; }
+  .bc-track__numeral,
+  .bc-track__copy,
+  .bc-shapes__header,
+  .bc-shapes__shell,
+  .bc-included__header,
+  .bc-included__card,
+  .bc-bounds__header,
+  .bc-bounds__card {
+    transition: opacity 700ms cubic-bezier(0.2, 0.85, 0.2, 1), transform 800ms cubic-bezier(0.2, 0.85, 0.2, 1);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .bc-hero__bg-img,
+    .bc-hero__line[data-anim="word"],
+    .bc-hero__lead,
+    .bc-hero__cta-row,
+    .bc-hero__logo,
+    .bc-hero__eyebrow,
+    .bc-hero__chip,
+    .bc-shapes__panel.is-active .bc-shapes__item,
+    .bc-manifesto__line,
+    .bc-manifesto__statement,
+    .bc-track__numeral, .bc-track__copy,
+    .bc-shapes__header, .bc-shapes__shell,
+    .bc-included__header, .bc-included__card,
+    .bc-bounds__header, .bc-bounds__card,
+    [data-anim] {
+      animation: none !important;
+      transition: none !important;
+      opacity: 1 !important;
+      transform: none !important;
+    }
+  }
+</style>
+
+<script>
+  const init = () => {
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    /* Reveal on scroll */
+    if (!reduced) {
+      const revealTargets = document.querySelectorAll<HTMLElement>(
+        '.bc-track__numeral, .bc-track__copy, .bc-shapes__header, .bc-shapes__shell, .bc-included__header, .bc-included__card, .bc-bounds__header, .bc-bounds__card'
+      );
+      revealTargets.forEach((el) => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(24px)';
+      });
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const el = entry.target as HTMLElement;
+              el.style.opacity = '';
+              el.style.transform = '';
+              el.classList.add('is-revealed');
+              io.unobserve(el);
+            }
+          });
+        },
+        { rootMargin: '0px 0px -5% 0px', threshold: 0.01 }
+      );
+      revealTargets.forEach((el) => io.observe(el));
+    }
+
+    /* Counter: 0 → 20 */
+    const counter = document.querySelector<HTMLElement>('[data-count]');
+    if (counter) {
+      const target = Number(counter.dataset.count || '0');
+      if (reduced) {
+        counter.textContent = String(target);
+      } else {
+        const cio = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                const start = performance.now();
+                const dur = 1600;
+                const tick = (now: number) => {
+                  const t = Math.min(1, (now - start) / dur);
+                  const eased = 1 - Math.pow(1 - t, 3);
+                  counter.textContent = String(Math.round(eased * target));
+                  if (t < 1) requestAnimationFrame(tick);
+                };
+                requestAnimationFrame(tick);
+                cio.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.4 }
+        );
+        cio.observe(counter);
+      }
+    }
+
+    /* Tabs */
+    const tabsRoot = document.querySelector<HTMLElement>('[data-tabs]');
+    if (tabsRoot) {
+      const tabs = Array.from(tabsRoot.querySelectorAll<HTMLButtonElement>('.bc-shapes__tab'));
+      const panels = Array.from(tabsRoot.querySelectorAll<HTMLElement>('.bc-shapes__panel'));
+      const indicator = tabsRoot.querySelector<HTMLElement>('.bc-shapes__tab-indicator');
+
+      const setIndicator = (idx: number) => {
+        if (!indicator) return;
+        indicator.style.transform = `translateX(${idx * 100}%)`;
+        indicator.style.width = `calc((100% - 12px) / ${tabs.length})`;
+      };
+
+      const activate = (idx: number) => {
+        tabs.forEach((t, i) => {
+          const active = i === idx;
+          t.classList.toggle('is-active', active);
+          t.setAttribute('aria-selected', active ? 'true' : 'false');
+          t.tabIndex = active ? 0 : -1;
+        });
+        panels.forEach((p, i) => {
+          const active = i === idx;
+          p.classList.toggle('is-active', active);
+          if (active) {
+            p.removeAttribute('hidden');
+          } else {
+            p.setAttribute('hidden', '');
+          }
+        });
+        setIndicator(idx);
+      };
+
+      setIndicator(tabs.findIndex((t) => t.classList.contains('is-active')) || 0);
+
+      tabs.forEach((tab, i) => {
+        tab.addEventListener('click', () => activate(i));
+        tab.addEventListener('keydown', (e: KeyboardEvent) => {
+          if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+            e.preventDefault();
+            const dir = e.key === 'ArrowRight' ? 1 : -1;
+            const next = (i + dir + tabs.length) % tabs.length;
+            tabs[next].focus();
+            activate(next);
+          }
+        });
+      });
+    }
+
+    /* Hero parallax tilt + bg parallax */
+    if (!reduced) {
+      const hero = document.querySelector<HTMLElement>('[data-hero]');
+      const tilt = document.querySelector<HTMLElement>('[data-tilt] .bc-hero__preview-frame');
+      const bg = document.querySelector<HTMLElement>('[data-parallax-bg]');
+
+      if (hero && tilt) {
+        let raf = 0;
+        let mx = 0, my = 0;
+        let cx = 0, cy = 0;
+        const onMove = (e: MouseEvent) => {
+          const rect = hero.getBoundingClientRect();
+          mx = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
+          my = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
+          if (!raf) raf = requestAnimationFrame(loop);
+        };
+        const onLeave = () => { mx = 0; my = 0; if (!raf) raf = requestAnimationFrame(loop); };
+        const loop = () => {
+          cx += (mx - cx) * 0.08;
+          cy += (my - cy) * 0.08;
+          tilt.style.setProperty('--tilt-x', `${(-cx * 5).toFixed(2)}deg`);
+          tilt.style.setProperty('--tilt-y', `${(cy * 4).toFixed(2)}deg`);
+          if (Math.abs(mx - cx) > 0.001 || Math.abs(my - cy) > 0.001) {
+            raf = requestAnimationFrame(loop);
+          } else {
+            raf = 0;
+          }
+        };
+        hero.addEventListener('mousemove', onMove);
+        hero.addEventListener('mouseleave', onLeave);
+      }
+
+      if (bg) {
+        const onScroll = () => {
+          const rect = bg.getBoundingClientRect();
+          const offset = Math.max(-200, Math.min(200, rect.top * -0.18));
+          (bg as HTMLElement).style.setProperty('--parallax-y', `${offset}px`);
+        };
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+      }
+    }
+
+    /* Magnetic CTA */
+    if (!reduced) {
+      const magnets = document.querySelectorAll<HTMLElement>('[data-magnet]');
+      magnets.forEach((m) => {
+        m.addEventListener('mousemove', (e: MouseEvent) => {
+          const rect = m.getBoundingClientRect();
+          const x = e.clientX - rect.left - rect.width / 2;
+          const y = e.clientY - rect.top - rect.height / 2;
+          m.style.setProperty('--x', `${(x * 0.18).toFixed(1)}px`);
+          m.style.setProperty('--y', `${(y * 0.18).toFixed(1)}px`);
+        });
+        m.addEventListener('mouseleave', () => {
+          m.style.setProperty('--x', '0px');
+          m.style.setProperty('--y', '0px');
+        });
+      });
+    }
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+</script>

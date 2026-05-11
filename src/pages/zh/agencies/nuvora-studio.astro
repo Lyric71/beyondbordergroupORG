@@ -191,7 +191,7 @@ const visitLabel = '访问 nuvora.studio';
             >
               <span class="nv-services__tab-pip" aria-hidden="true"></span>
               <span class="nv-services__tab-label">{s.title}</span>
-              <span class="nv-services__tab-count">{s.items.length} {s.items.length === 1 ? 'service' : 'services'}</span>
+              <span class="nv-services__tab-count">{s.items.length} 项服务</span>
             </button>
           ))}
           <span class="nv-services__tab-indicator" aria-hidden="true"></span>
@@ -210,7 +210,7 @@ const visitLabel = '访问 nuvora.studio';
               <div class="nv-services__panel-grid">
                 <div class="nv-services__panel-image">
                   <div class="nv-services__panel-frame">
-                    <img src={s.image} alt={`${s.title} editorial`} loading="lazy" decoding="async" />
+                    <img src={s.image} alt={`${s.title} 编辑图`} loading="lazy" decoding="async" />
                     <div class={`nv-services__panel-tag nv-services__panel-tag--${s.key}`}>
                       <span>{s.title}</span>
                     </div>
@@ -224,7 +224,7 @@ const visitLabel = '访问 nuvora.studio';
                       <li class="nv-services__item">
                         <span class={`nv-services__item-pip nv-services__item-pip--${s.key}`} aria-hidden="true"></span>
                         <span class="nv-services__item-text">
-                          <span class="nv-services__item-name">{it.name}.</span>
+                          <span class="nv-services__item-name">{it.name}。</span>
                           <span class="nv-services__item-body">{it.body}</span>
                         </span>
                       </li>
@@ -245,15 +245,15 @@ const visitLabel = '访问 nuvora.studio';
   <section class="nv-operate">
     <div class="nv-operate__bg" aria-hidden="true"></div>
     <div class="container nv-operate__container">
-      <span class="eyebrow eyebrow--on-dark">How we operate</span>
+      <span class="eyebrow eyebrow--on-dark">我们怎么做事</span>
       <h2 class="nv-operate__title">
-        <span class="nv-operate__line" data-line>LinkedIn is not a side channel.</span>
-        <span class="nv-operate__line" data-line>Specialists beat generalists.</span>
-        <span class="nv-operate__line" data-line>Activity is not the goal.</span>
+        <span class="nv-operate__line" data-line>LinkedIn 不是侧边渠道。</span>
+        <span class="nv-operate__line" data-line>专家胜过通才。</span>
+        <span class="nv-operate__line" data-line>「在动」不是目标。</span>
       </h2>
       <div class="nv-operate__statement" data-line>
-        <p>Content earns attention. Ads convert it.</p>
-        <p class="nv-operate__emphasis">Qualified leads compound. Month after month.</p>
+        <p>内容挣注意力。广告把它转化。</p>
+        <p class="nv-operate__emphasis">合格线索是复利。一个月接一个月。</p>
       </div>
     </div>
   </section>
@@ -267,11 +267,11 @@ const visitLabel = '访问 nuvora.studio';
       <div class="nv-cta__bg-scrim"></div>
     </div>
     <div class="container nv-cta__content">
-      <span class="eyebrow eyebrow--on-dark">Ready when you are</span>
-      <h2 class="nv-cta__title balance">More leads on LinkedIn.<br />From decision makers in your market.</h2>
+      <span class="eyebrow eyebrow--on-dark">你准备好，我们就动</span>
+      <h2 class="nv-cta__title balance">在 LinkedIn 上拿到更多线索。<br />来自你那个市场的决策者。</h2>
       <div class="nv-cta__actions">
         <a class="btn btn--primary" href={visitUrl} target="_blank" rel="noreferrer">{visitLabel}</a>
-        <a class="btn btn--ghost-light" href={pathFor('contact', locale)}>Talk to us</a>
+        <a class="btn btn--ghost-light" href={pathFor('contact', locale)}>聊一聊</a>
       </div>
     </div>
   </section>

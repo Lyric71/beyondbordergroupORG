@@ -172,7 +172,7 @@ const agencies = [
         <span class="eyebrow">生态</span>
         <h1 class="hero-statement__title balance">在中国和西方两端打造品牌、产品与服务，并把它们放大。两个方向同时跑。</h1>
         <p class="hero-statement__lead">
-          六家专业公司，一套共识。中西方之间的鸿沟，不是翻译能补上的。它是品牌的问题，是渠道的问题，是基础设施的问题，也是销售的问题。而且，两个方向同时发生。
+          七家专业公司，背后是同一个判断：中西方之间的鸿沟，从来不是翻译能解决的。它是品牌，是渠道，是基础设施，是销售。而且，两个方向同时跑，天天如此。
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href={pathFor('agencies', locale)}>找到合适的公司</a>
@@ -186,8 +186,8 @@ const agencies = [
   <section class="section section--alt">
     <div class="container">
       <header class="section-header">
-        <span class="eyebrow">两条流向，同一页</span>
-        <h2 class="balance">两个方向，现在同处一页。</h2>
+        <span class="eyebrow">两条流向</span>
+        <h2 class="balance">从你这一岸开始。</h2>
       </header>
 
       <div class="bridge-panel">
@@ -254,7 +254,6 @@ const agencies = [
         {agencies.map((a) => (
           <a class="card" href={pathFor(a.route, locale)}>
             <AgencyLogo route={a.route} name={a.name} class="agency-card-logo" />
-            <h3 class="card__title">{a.name}</h3>
             <p>{a.tagline}</p>
             <span class="btn btn--ghost" style="margin-top: auto;">打开</span>
           </a>
