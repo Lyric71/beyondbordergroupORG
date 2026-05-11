@@ -1,33 +1,580 @@
 ---
-import AgencyPage from '../../../components/AgencyPage.astro';
+import Layout from '../../../layouts/Layout.astro';
+import { pathFor } from '../../../i18n/ui';
+
+const locale = 'zh' as const;
+const route = 'agencies/theredscroll' as const;
+
+const platforms = ['微信', '抖音', '小红书', '微博', '另外 14 个'];
+
+const services = [
+  {
+    key: 'plan',
+    title: '规划',
+    items: [
+      { name: '策略、Campaign 与数据', body: '市场和竞品研究，平台选择，内容日历，与业务目标挂钩的 KPI，仪表盘，以及舆情监测。' },
+      { name: '进入中国市场', body: '账号开通、认证，跟天猫、京东、抖音小店的电商对接做完。中文命名，再加一份平台就绪的素材包。' },
+    ],
+  },
+  {
+    key: 'run',
+    title: '运营',
+    items: [
+      { name: '覆盖的平台', body: '微信、抖音、小红书、微博四个核心。B 站、快手、知乎、今日头条等以透明加项的方式接入。' },
+      { name: '内容生产', body: '策略由人主导。AIGC 图像与视频走 HubStudio.ai。中国本地实拍。原生中文文案审。' },
+      { name: '广告策划与投放', body: '微信、抖音、小红书、微博、百度上的付费媒介。CPM、CPC、CPA、ROAS，按周、按月给报告。广告费零加价。' },
+      { name: '达人营销', body: '互动数据核过身份，假粉识别，调性匹配。Brief、共创、发布、直播带货、ROI 报告。' },
+    ],
+  },
+  {
+    key: 'sustain',
+    title: '沉淀',
+    items: [
+      { name: 'CRM 与私域', body: '企业微信搭建，微信 CRM，社群管理，客服流程，会员体系。' },
+      { name: '培训与咨询', body: '微信、抖音、小红书、微博的大师课。围绕内容、达人、付费媒介的工作坊。战略咨询。' },
+    ],
+  },
+];
+
+const visitUrl = 'https://theredscroll.com';
+const visitLabel = '访问 theredscroll.com';
 ---
 
-<AgencyPage
-  locale="zh"
-  route="agencies/theredscroll"
-  name="TheRedScroll"
-  badge="西方进入中国 · 渠道专家"
-  title="TheRedScroll：从一线运营的中国社交媒体。"
-  description="微信、抖音、小红书、微博，再加十四个平台。策略、内容、KOL、投放、CRM。范围固定、价格固定。"
-  hero="从一线运营的中国社交媒体。"
-  thesisLabel="我们的判断"
-  thesis="中国社交不是一个渠道，而是一整套生态。受众、内容、达人、平台、商业互相咬合，少做一环，整盘都不成立。TheRedScroll 是把这些事并联在同一个团队、同一个工位上每天跑的专业公司。"
-  whatLabel="我们具体做的事"
-  doSections={[
-    { h: '策略', items: ['策略、Campaign、数据分析', '账号开通、认证、本地化', '培训和咨询'] },
-    { h: '内容与创意', items: ['内容生产', '通过 HubStudio 提供的 AI 视觉、真实拍摄、原生中文文案', '达人营销：KOL 与 KOC，从 sourcing 到结案报告'] },
-    { h: '媒介与 CRM', items: ['投放策划与采买。从不在 spend 上加价。', 'CRM 与私域：企业微信、社群、自动化触达。'] },
-    { h: '平台', items: ['微信、抖音、小红书、微博、B 站、快手、知乎、今日头条、美团、点评、拼多多、淘宝直播等。'] },
-  ]}
-  whoForLabel="适合谁"
-  fit={[
-    '第一次进入中国的国际品牌。',
-    '已经在中国，但社交端没跑出来的国际品牌。',
-    '想把国内社交基本盘做大的中国品牌。',
-  ]}
-  connectsLabel="如何与其他公司联动"
-  connects="作为 BeyondBorderGroup 全案客户的社交模块。需要 AI 视觉和视频时，从 HubStudio 取；社交活动需要落地页时，找 ChinaWebFoundry。"
-  visitUrl="https://theredscroll.com"
-  visitLabel="访问 theredscroll.com"
-  imageLabel="小红书与抖音内容拼图，带有清晰的品牌签名。"
-/>
+<Layout
+  locale={locale}
+  route={route}
+  title="中国社交媒体公司。范围固定。价格固定。"
+  description="我们替国际品牌在中国把社交账号做起来。范围固定。价格固定。团队在上海和香港，扎在一线。预约通话。"
+>
+  <section class="trs-hero">
+    <div class="trs-hero__bg" aria-hidden="true">
+      <span class="trs-hero__blob trs-hero__blob--a"></span>
+      <span class="trs-hero__blob trs-hero__blob--b"></span>
+      <span class="trs-hero__blob trs-hero__blob--c"></span>
+      <span class="trs-hero__grid-lines"></span>
+    </div>
+
+    <div class="container trs-hero__container">
+      <div class="trs-hero__grid">
+        <div class="trs-hero__content">
+          <img src="/AgencyLogos/TheredScroll%20PNG.png" alt="TheRedScroll 标志" class="trs-hero__logo" width="180" height="40" loading="eager" decoding="async" />
+          <span class="eyebrow eyebrow--rule">中国社交媒体 · 范围固定 · 价格固定</span>
+          <h1 class="trs-hero__title">
+            我们在
+            <span class="trs-hero__phrase trs-hero__phrase--platforms">中国的平台</span>上发声。
+            <span class="trs-hero__phrase trs-hero__phrase--daily">每一天</span>。
+            <span class="trs-hero__phrase trs-hero__phrase--ground">从一线发</span>。
+          </h1>
+          <p class="trs-hero__lead">中国跑在自己的平台上：微信、抖音、小红书、微博，再加另外十四个。在 PPT 上读懂这一点，和每天早上打开这些 app，是两回事。坦白说，多数公司并不打开。</p>
+          <div class="trs-hero__actions">
+            <a class="btn btn--primary trs-hero__cta" href={visitUrl} target="_blank" rel="noreferrer">{visitLabel}</a>
+          </div>
+          <div class="trs-hero__clients">
+            <span class="trs-hero__clients-label">活跃于</span>
+            <ul class="trs-hero__clients-list">
+              {platforms.map((c) => <li>{c}</li>)}
+            </ul>
+          </div>
+        </div>
+
+        <div class="trs-hero__media">
+          <a class="browser-link" href={visitUrl} target="_blank" rel="noreferrer" aria-label={visitLabel}>
+            <div class="browser">
+              <div class="browser__chrome">
+                <span class="browser__dots">
+                  <span class="browser__dot browser__dot--r"></span>
+                  <span class="browser__dot browser__dot--y"></span>
+                  <span class="browser__dot browser__dot--g"></span>
+                </span>
+                <span class="browser__url">theredscroll.com</span>
+              </div>
+              <div class="browser__viewport">
+                <img src="/images/theredscroll-home.webp" alt="theredscroll.com 首页" class="browser__shot" width="1408" height="832" loading="eager" decoding="async" />
+                <span class="browser__visit" aria-hidden="true">
+                  <span>访问网站</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l10-10M7 7h10v10"/></svg>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <div class="trs-hero__chip trs-hero__chip--cities">
+            <span class="trs-hero__chip-dot"></span>
+            上海 · 香港 · 母语团队
+          </div>
+          <div class="trs-hero__chip trs-hero__chip--ai">
+            HubStudio.ai · 规模化 AIGC 内容
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container container--narrow">
+      <span class="eyebrow">我们怎么干</span>
+      <p class="lead">每一条内容、视频、活动和报告，事先都写进一份范围说明书里。一个套餐对一个数字。没有隐藏费用，没有范围蔓延。团队在上海和香港，母语在岗，真正能登上各家平台，跟中国 KOL 之间是直通的路。我们自己建了 HubStudio.ai，把视觉、视频和文案的成本压到原来的一小块。策略仍由人来想。</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <header class="section-header">
+        <span class="eyebrow">我们做什么</span>
+        <h2 class="balance">三条线，八根支柱，端到端。</h2>
+      </header>
+      <div class="services">
+        {services.map((s) => (
+          <article class={`service-card service-card--${s.key}`}>
+            <header class="service-card__head">
+              <span class={`service-card__pip service-card__pip--${s.key}`} aria-hidden="true"></span>
+              <h3 class="service-card__title">{s.title}</h3>
+            </header>
+            <ul class="service-card__list">
+              {s.items.map((it) => (
+                <li class="service-card__item">
+                  <span class="service-card__name">{it.name}。</span>
+                  <span class="service-card__body">{it.body}</span>
+                </li>
+              ))}
+            </ul>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container container--narrow">
+      <span class="eyebrow">怎么打包</span>
+      <p class="lead">三档，价格全部预先报出来。Discovery 给试水中国的品牌，三个月、一个平台。Growth 给在中国扩规模的品牌，六个月、两到三个平台。Premium 给全力下注的品牌，十二个月、四个或以上的平台。每一档都附一份写好的范围说明书和一个固定价。</p>
+    </div>
+  </section>
+
+  <section class="section section--dark">
+    <div class="container container--narrow center">
+      <h2 class="balance">更多粉丝。更多互动。更多线索。更多转化。</h2>
+      <div class="btn-row" style="justify-content: center;">
+        <a class="btn btn--primary" href={visitUrl} target="_blank" rel="noreferrer">{visitLabel}</a>
+        <a class="btn btn--ghost-light" href={pathFor('contact', locale)}>聊一聊</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* ----- Hero (mirrors BBG) ------------------------------------------------ */
+  .trs-hero {
+    position: relative;
+    padding: clamp(5rem, 10vh, 7.5rem) 0 clamp(3rem, 6vh, 5rem);
+    background: linear-gradient(180deg, #ffffff 0%, #fdf5f2 100%);
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .trs-hero__bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+  .trs-hero__blob {
+    position: absolute;
+    display: block;
+    border-radius: 50%;
+    filter: blur(70px);
+    opacity: 0.55;
+    will-change: transform;
+  }
+  .trs-hero__blob--a {
+    width: 520px; height: 520px;
+    top: -180px; left: -120px;
+    background: radial-gradient(circle, rgba(200,16,46,0.45), transparent 65%);
+    animation: trsFloatA 18s ease-in-out infinite;
+  }
+  .trs-hero__blob--b {
+    width: 460px; height: 460px;
+    top: 30%; right: -180px;
+    background: radial-gradient(circle, rgba(217,154,58,0.38), transparent 65%);
+    animation: trsFloatB 22s ease-in-out infinite;
+  }
+  .trs-hero__blob--c {
+    width: 380px; height: 380px;
+    bottom: -160px; left: 35%;
+    background: radial-gradient(circle, rgba(45,106,79,0.30), transparent 65%);
+    animation: trsFloatC 26s ease-in-out infinite;
+  }
+  @keyframes trsFloatA { 0%,100%{transform:translate(0,0)} 50%{transform:translate(40px,30px)} }
+  @keyframes trsFloatB { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-30px,40px)} }
+  @keyframes trsFloatC { 0%,100%{transform:translate(0,0)} 50%{transform:translate(20px,-40px)} }
+
+  .trs-hero__grid-lines {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(to right, rgba(15,23,42,0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(15,23,42,0.04) 1px, transparent 1px);
+    background-size: 64px 64px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, #000 30%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, #000 30%, transparent 75%);
+  }
+
+  .trs-hero__container { position: relative; z-index: 1; }
+  .trs-hero__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+    gap: clamp(2rem, 5vw, 4.5rem);
+    align-items: center;
+  }
+  .trs-hero__content { min-width: 0; }
+  .trs-hero__logo {
+    display: block;
+    width: auto;
+    height: 40px;
+    object-fit: contain;
+    margin-bottom: var(--space-3);
+  }
+
+  .trs-hero__title {
+    font-size: clamp(2.4rem, 4.4vw + 0.6rem, 4.4rem);
+    line-height: 1.02;
+    letter-spacing: -0.03em;
+    font-weight: 600;
+    color: var(--bbg-ink);
+    margin: var(--space-4) 0 var(--space-5);
+    max-width: 18ch;
+  }
+  .trs-hero__phrase {
+    position: relative;
+    white-space: nowrap;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+  .trs-hero__phrase--platforms { background-image: linear-gradient(120deg, #c8102e 0%, #ff5e75 100%); }
+  .trs-hero__phrase--daily     { background-image: linear-gradient(120deg, #d99a3a 0%, #ffcf6f 100%); }
+  .trs-hero__phrase--ground    { background-image: linear-gradient(120deg, #2d6a4f 0%, #52b788 100%); }
+  .trs-hero__phrase::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: -0.08em;
+    height: 0.18em;
+    border-radius: 999px;
+    background: currentColor;
+    opacity: 0.18;
+    transform: scaleX(0.65);
+    transform-origin: left;
+    transition: transform 480ms cubic-bezier(0.2,0.8,0.2,1);
+  }
+  .trs-hero__phrase--platforms::after { background: #c8102e; }
+  .trs-hero__phrase--daily::after     { background: #d99a3a; }
+  .trs-hero__phrase--ground::after    { background: #2d6a4f; }
+  .trs-hero:hover .trs-hero__phrase::after { transform: scaleX(1); }
+
+  .trs-hero__lead {
+    max-width: 52ch;
+    font-size: var(--fs-lead);
+    color: var(--bbg-text);
+    margin-bottom: var(--space-5);
+  }
+
+  .trs-hero__actions { margin-bottom: var(--space-6); }
+  .trs-hero__cta {
+    box-shadow: 0 12px 28px -14px rgba(200,16,46,0.55);
+    transition: transform 220ms cubic-bezier(0.2,0.8,0.2,1), box-shadow 220ms cubic-bezier(0.2,0.8,0.2,1);
+  }
+  .trs-hero__cta:hover { transform: translateY(-2px); box-shadow: 0 18px 36px -14px rgba(200,16,46,0.65); }
+
+  .trs-hero__clients {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--space-3) var(--space-4);
+    padding-top: var(--space-4);
+    border-top: 1px solid rgba(15,23,42,0.08);
+  }
+  .trs-hero__clients-label {
+    font-size: var(--fs-label);
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--bbg-text-muted);
+  }
+  .trs-hero__clients-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3) var(--space-5);
+  }
+  .trs-hero__clients-list li {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--bbg-ink);
+    letter-spacing: -0.005em;
+    position: relative;
+  }
+  .trs-hero__clients-list li + li::before {
+    content: "";
+    position: absolute;
+    left: calc(var(--space-5) * -0.5);
+    top: 50%;
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: #c8102e;
+    transform: translate(-50%, -50%);
+    opacity: 0.6;
+  }
+
+  /* ----- Browser mockup ---------------------------------------------------- */
+  .trs-hero__media { position: relative; min-width: 0; perspective: 1600px; }
+  .browser-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    border-radius: 14px;
+  }
+  .browser-link:focus-visible { outline: 2px solid #c8102e; outline-offset: 4px; }
+  .browser-link:hover .browser__visit { opacity: 1; transform: translateY(0); }
+  .browser-link:hover .browser { transform: rotate(0deg) translateY(-2px); }
+  .browser__visit {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 11px;
+    border-radius: 999px;
+    background: rgba(15,23,42,0.85);
+    color: #fff;
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    opacity: 0;
+    transform: translateY(-4px);
+    transition: opacity 240ms ease, transform 240ms cubic-bezier(0.2,0.8,0.2,1);
+    pointer-events: none;
+    z-index: 2;
+  }
+  .browser {
+    position: relative;
+    background: #ffffff;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow:
+      0 1px 0 rgba(255,255,255,0.6) inset,
+      0 28px 60px -22px rgba(15,23,42,0.30),
+      0 6px 18px -6px rgba(15,23,42,0.16);
+    border: 1px solid rgba(15,23,42,0.08);
+    transform: rotate(-1.2deg) translateZ(0);
+    transition: transform 480ms cubic-bezier(0.2,0.8,0.2,1), box-shadow 480ms cubic-bezier(0.2,0.8,0.2,1);
+    animation: trsBrowserIn 720ms cubic-bezier(0.2,0.8,0.2,1) 0.1s backwards;
+  }
+  @keyframes trsBrowserIn {
+    from { opacity: 0; transform: rotate(-1.2deg) translateY(24px); }
+    to { opacity: 1; transform: rotate(-1.2deg) translateY(0); }
+  }
+  .trs-hero__media:hover .browser {
+    transform: rotate(0deg) translateY(-4px);
+    box-shadow:
+      0 1px 0 rgba(255,255,255,0.6) inset,
+      0 36px 70px -22px rgba(15,23,42,0.34),
+      0 8px 22px -6px rgba(15,23,42,0.18);
+  }
+  .browser__chrome {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: 10px 14px;
+    background: linear-gradient(180deg, #f8fafc 0%, #eef2f6 100%);
+    border-bottom: 1px solid rgba(15,23,42,0.08);
+  }
+  .browser__dots { display: inline-flex; gap: 6px; }
+  .browser__dot { width: 11px; height: 11px; border-radius: 50%; display: inline-block; }
+  .browser__dot--r { background: #ff5f57; }
+  .browser__dot--y { background: #febc2e; }
+  .browser__dot--g { background: #28c840; }
+  .browser__url {
+    flex: 1;
+    text-align: center;
+    font-family: var(--font-display);
+    font-size: 0.78rem;
+    color: var(--bbg-text-muted);
+    background: rgba(15,23,42,0.04);
+    border-radius: 999px;
+    padding: 4px 10px;
+    letter-spacing: 0.01em;
+    max-width: 360px;
+    margin: 0 auto;
+  }
+  .browser__viewport {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    background: #f7f9fb;
+    overflow: hidden;
+  }
+  .browser__shot {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+  }
+
+  /* Floating chips */
+  .trs-hero__chip {
+    position: absolute;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(15,23,42,0.08);
+    border-radius: 999px;
+    font-family: var(--font-display);
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--bbg-ink);
+    letter-spacing: 0.01em;
+    box-shadow: 0 12px 28px -14px rgba(15,23,42,0.25);
+    white-space: nowrap;
+  }
+  .trs-hero__chip--cities {
+    top: -18px; left: -10px;
+    animation: trsChipIn 700ms cubic-bezier(0.2,0.8,0.2,1) 0.35s backwards, trsChipBobA 7s ease-in-out 1s infinite;
+  }
+  .trs-hero__chip--ai {
+    bottom: -18px; right: -10px;
+    animation: trsChipIn 700ms cubic-bezier(0.2,0.8,0.2,1) 0.5s backwards, trsChipBobB 8s ease-in-out 1.5s infinite;
+  }
+  .trs-hero__chip-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: #22c55e;
+    box-shadow: 0 0 0 0 rgba(34,197,94,0.5);
+    animation: trsChipPulse 2.4s ease-in-out infinite;
+  }
+  @keyframes trsChipIn {
+    from { opacity: 0; transform: translateY(8px) scale(0.96); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  @keyframes trsChipBobA { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+  @keyframes trsChipBobB { 0%,100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
+  @keyframes trsChipPulse {
+    0%,100% { box-shadow: 0 0 0 0 rgba(34,197,94,0.5); }
+    50% { box-shadow: 0 0 0 6px rgba(34,197,94,0); }
+  }
+
+  @media (max-width: 1023px) {
+    .trs-hero__grid { grid-template-columns: 1fr; gap: var(--space-7); }
+    .trs-hero__title { max-width: none; }
+    .trs-hero__chip--cities { left: 8px; top: -14px; }
+    .trs-hero__chip--ai { right: 8px; bottom: -14px; }
+  }
+  @media (max-width: 639px) {
+    .trs-hero__chip { font-size: 0.7rem; padding: 6px 10px; }
+    .trs-hero__chip--cities { display: none; }
+  }
+
+  /* ----- Services ---------------------------------------------------------- */
+  .services {
+    display: grid;
+    gap: var(--space-5);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  @media (max-width: 1023px) { .services { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 767px) { .services { grid-template-columns: 1fr; } }
+
+  .service-card {
+    position: relative;
+    background: #ffffff;
+    border: 1px solid var(--bbg-border, rgba(15,23,42,0.08));
+    border-radius: 18px;
+    padding: var(--space-5) var(--space-5) var(--space-6);
+    overflow: hidden;
+    transition:
+      transform 280ms cubic-bezier(0.2,0.8,0.2,1),
+      box-shadow 280ms cubic-bezier(0.2,0.8,0.2,1),
+      border-color 280ms cubic-bezier(0.2,0.8,0.2,1);
+  }
+  .service-card::before {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; top: 0;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, currentColor, transparent);
+    opacity: 0.6;
+  }
+  .service-card--plan    { color: #2d6a4f; }
+  .service-card--run     { color: #c8102e; }
+  .service-card--sustain { color: #d99a3a; }
+
+  .service-card:hover {
+    transform: translateY(-4px);
+    border-color: currentColor;
+    box-shadow: 0 22px 44px -22px rgba(15,23,42,0.22);
+  }
+  .service-card__head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: var(--space-4);
+  }
+  .service-card__pip {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: currentColor;
+    box-shadow: 0 0 0 4px color-mix(in srgb, currentColor 14%, transparent);
+  }
+  .service-card__title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--bbg-ink);
+    margin: 0;
+  }
+  .service-card__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-4);
+  }
+  .service-card__item {
+    display: block;
+    color: var(--bbg-text);
+    font-size: 0.95rem;
+    line-height: 1.55;
+    padding-left: 18px;
+    position: relative;
+  }
+  .service-card__item::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 8px;
+    height: 1px;
+    background: currentColor;
+    opacity: 0.7;
+  }
+  .service-card__name {
+    font-weight: 600;
+    color: var(--bbg-ink);
+    margin-right: 0.25rem;
+  }
+  .service-card__body { color: var(--bbg-text); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .trs-hero__blob, .trs-hero__chip, .trs-hero__chip-dot, .browser, .service-card {
+      animation: none !important;
+      transition: none !important;
+    }
+    .browser { transform: none; }
+  }
+</style>

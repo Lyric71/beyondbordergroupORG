@@ -1,0 +1,131 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const locale = 'de' as const;
+const title = 'Cookies';
+const description = 'Was diese Website auf Ihrem Gerät speichert und was Sie dagegen tun können.';
+---
+
+<Layout locale={locale} route="cookies" title={title} description={description}>
+  <section class="legal-hero">
+    <div class="container container--narrow">
+      <span class="eyebrow">Rechtliches</span>
+      <h1 class="legal-hero__title balance">Cookies</h1>
+      <p class="lead">Was diese Website auf Ihrem Gerät speichert und was Sie dagegen tun können.</p>
+      <p class="legal-meta">Zuletzt aktualisiert am 10. Mai 2026</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container container--narrow legal-prose">
+      <h2>Was Cookies sind</h2>
+      <p>
+        Cookies sind kleine Textdateien, die eine Website Ihrem Browser zur Aufbewahrung übergibt. Sie
+        helfen der Seite, Dinge zwischen Seitenaufrufen, zwischen Besuchen und zwischen Geräten zu
+        behalten. Einige stammen von uns. Andere von Diensten, die wir einbinden.
+      </p>
+
+      <h2>Was wir verwenden</h2>
+      <p>
+        <strong>Unbedingt erforderlich.</strong> Eine kleine Zahl von Cookies, die den Betrieb der Seite
+        sichern: Session, Sicherheit, die gewählte Sprache. Diese lassen sich nicht abschalten, ohne dass
+        die Seite ihre Funktion verliert.
+      </p>
+      <p>
+        <strong>Funktional.</strong> Cookies, die sich Ihre Einstellungen über Seiten hinweg merken,
+        etwa die gewählte Sprachvariante oder Barrierefreiheits-Optionen.
+      </p>
+      <p>
+        <strong>Analyse.</strong> Wir messen Traffic-Muster und Seitenleistung mit einem
+        datenschutzfreundlichen Analyse-Tool. Es bildet keine seitenübergreifenden Profile. Es verkauft
+        Ihre Daten nicht an Werbetreibende. Die Zahlen, die wir uns ansehen, sind aggregiert und keiner
+        Einzelperson zugeordnet.
+      </p>
+      <p>
+        <strong>Marketing.</strong> Aktuell keine. Sollten wir je Retargeting- oder Audience-Pixel
+        einsetzen, aktualisieren wir diese Seite zuerst und holen Ihre Zustimmung ein, bevor wir sie
+        setzen.
+      </p>
+
+      <h2>Cookies Dritter</h2>
+      <p>
+        Einige Seiten binden Videos, Karten oder Social Media ein. Wenn das passiert, können diese
+        Dienste eigene Cookies nach eigenen Richtlinien setzen. Wir nennen die Einbettungen in
+        verständlicher Sprache dort, wo sie erscheinen. Sobald sie geladen sind, liegt das Verhalten in
+        der Hand des jeweiligen Anbieters.
+      </p>
+
+      <h2>Cookies verwalten</h2>
+      <p>
+        Jeder moderne Browser erlaubt es Ihnen, Cookies einzusehen, zu blockieren oder zu löschen. Der
+        Weg dorthin liegt in den Browser-Einstellungen, meist unter Datenschutz. Werden unbedingt
+        erforderliche Cookies blockiert, bricht die Seite; den Rest können Sie abschalten, ohne Zugriff
+        zu verlieren.
+      </p>
+
+      <h2>Rechtsgrundlage</h2>
+      <p>
+        Wir stützen uns auf die Hong Kong Personal Data (Privacy) Ordinance und, soweit anwendbar, auf
+        die entsprechenden Regelungen in Ihrem Land. Für nicht erforderliche Cookies in der EU und im
+        Vereinigten Königreich holen wir Ihre Zustimmung ein, bevor wir sie setzen.
+      </p>
+
+      <h2>Änderungen</h2>
+      <p>
+        Wir überarbeiten diese Seite, sobald sich etwas an dem ändert, was wir erheben. Das Datum oben
+        zeigt, wann das war.
+      </p>
+
+      <h2>Kontakt</h2>
+      <p>
+        BeyondBorderGroup Ltd<br />
+        Hong Kong SAR<br />
+        <a href="mailto:hello@beyondbordergroup.com">hello@beyondbordergroup.com</a>
+      </p>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .legal-hero {
+    padding: clamp(5rem, 12vh, 8rem) 0 clamp(2rem, 5vh, 3.5rem);
+    background: var(--bbg-surface);
+    border-bottom: 1px solid var(--bbg-border);
+  }
+  .legal-hero__title {
+    font-size: clamp(2.25rem, 4vw + 0.5rem, 3.25rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin: var(--space-3) 0 var(--space-4);
+    color: var(--bbg-ink);
+    font-weight: 600;
+  }
+  .legal-meta {
+    margin-top: var(--space-4);
+    font-size: var(--fs-small);
+    color: var(--bbg-text-muted);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .legal-prose h2 {
+    font-size: 1.375rem;
+    font-weight: 600;
+    margin: var(--space-6) 0 var(--space-3);
+    color: var(--bbg-ink);
+  }
+  .legal-prose h2:first-child { margin-top: 0; }
+  .legal-prose p,
+  .legal-prose ul {
+    margin: 0 0 var(--space-3);
+    line-height: 1.65;
+    color: var(--bbg-text);
+  }
+  .legal-prose ul { padding-left: 1.25rem; }
+  .legal-prose li { margin-bottom: var(--space-1); }
+  .legal-prose a {
+    color: var(--bbg-blue);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .legal-prose a:hover { text-decoration-thickness: 2px; }
+</style>
