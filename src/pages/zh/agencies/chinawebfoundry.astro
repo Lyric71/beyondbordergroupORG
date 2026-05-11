@@ -344,8 +344,8 @@ const visitLabel = '访问 chinawebfoundry.com';
                       <span>{p.title}</span>
                     </div>
                     <div class="cwf-services__panel-meta">
-                      <span class="cwf-services__panel-meta-label">Phase</span>
-                      <span class="cwf-services__panel-meta-value">{i + 1} of {phases.length}</span>
+                      <span class="cwf-services__panel-meta-label">阶段</span>
+                      <span class="cwf-services__panel-meta-value">{phases.length} 之 {i + 1}</span>
                     </div>
                   </div>
                 </div>
@@ -357,13 +357,13 @@ const visitLabel = '访问 chinawebfoundry.com';
                       <li class="cwf-services__item">
                         <span class={`cwf-services__item-pip cwf-services__item-pip--${p.key}`} aria-hidden="true"></span>
                         <span class="cwf-services__item-text">
-                          <span class="cwf-services__item-name">{it.name}.</span>
+                          <span class="cwf-services__item-name">{it.name}。</span>
                           <span class="cwf-services__item-body">{it.body}</span>
                           {it.quote && (
                             <span class="cwf-services__item-quote">
                               <span class="cwf-services__item-quote-mark" aria-hidden="true">“</span>
                               <span class="cwf-services__item-quote-text">{it.quote.text}</span>
-                              <span class="cwf-services__item-quote-source">Source: {it.quote.source}</span>
+                              <span class="cwf-services__item-quote-source">来源：{it.quote.source}</span>
                             </span>
                           )}
                         </span>
@@ -385,9 +385,9 @@ const visitLabel = '访问 chinawebfoundry.com';
   <section class="cwf-tech">
     <div class="container">
       <header class="cwf-tech__header">
-        <span class="eyebrow">How We Build</span>
+        <span class="eyebrow">我们怎么建</span>
         <h2 class="cwf-tech__title balance">
-          WordPress, Astro or WeChat. Heres how we decide.
+          WordPress、Astro 还是微信。我们这样选。
         </h2>
       </header>
 
@@ -396,21 +396,21 @@ const visitLabel = '访问 chinawebfoundry.com';
           <figure class="cwf-tech__card-banner cwf-tech__card-banner--logo">
             <img
               src="/AgencyLogos/tech/wordpress.svg"
-              alt="WordPress logo"
+              alt="WordPress 标志"
               loading="lazy"
               decoding="async"
             />
           </figure>
           <header class="cwf-tech__card-head">
-            <h3 class="cwf-tech__card-title">Pick WordPress</h3>
+            <h3 class="cwf-tech__card-title">选 WordPress</h3>
           </header>
           <p class="cwf-tech__card-body">
-            If your marketing team needs to publish without a developer, or your editorial workflow involves more then three contributors. We harden it for the Firewall and strip out the parts that dont belong in China.
+            如果你的市场团队要在不靠开发的情况下发内容，或者你的编辑流程里有三个以上的协作者。我们替你做墙内加固，把不该在中国跑的部分剥掉。
           </p>
           <ul class="cwf-tech__card-traits">
-            <li>Editorial workflow, multi-author.</li>
-            <li>Hardened core, China-safe plugins.</li>
-            <li>WooCommerce localized for the mainland.</li>
+            <li>多人协作的编辑流程。</li>
+            <li>加固过的内核，墙内可用的插件。</li>
+            <li>为大陆本地化过的 WooCommerce。</li>
           </ul>
         </article>
 
@@ -418,21 +418,21 @@ const visitLabel = '访问 chinawebfoundry.com';
           <figure class="cwf-tech__card-banner cwf-tech__card-banner--logo">
             <img
               src="/AgencyLogos/tech/astro.svg"
-              alt="Astro logo"
+              alt="Astro 标志"
               loading="lazy"
               decoding="async"
             />
           </figure>
           <header class="cwf-tech__card-head">
-            <h3 class="cwf-tech__card-title">Pick Astro</h3>
+            <h3 class="cwf-tech__card-title">选 Astro</h3>
           </header>
           <p class="cwf-tech__card-body">
-            If speed is the priority and your content doesnt change every day. Marketing sites, documentation, landing pages. Static output, near-instant load times, far less to maintain.
+            如果速度是第一位的，而内容不是每天都改。市场站、文档站、落地页。静态产物、几乎瞬开、维护负担轻得多。
           </p>
           <ul class="cwf-tech__card-traits">
-            <li>Static output, near-instant TTFB.</li>
-            <li>Documentation, landing, marketing.</li>
-            <li>Hosted on Aliyun or Tencent Cloud.</li>
+            <li>静态产物，TTFB 接近瞬开。</li>
+            <li>文档、落地页、市场站。</li>
+            <li>托管在阿里云或腾讯云。</li>
           </ul>
         </article>
 
@@ -440,26 +440,26 @@ const visitLabel = '访问 chinawebfoundry.com';
           <figure class="cwf-tech__card-banner cwf-tech__card-banner--logo">
             <img
               src="/AgencyLogos/tech/wechat.svg"
-              alt="WeChat logo"
+              alt="微信标志"
               loading="lazy"
               decoding="async"
             />
           </figure>
           <header class="cwf-tech__card-head">
-            <h3 class="cwf-tech__card-title">Pick WeChat</h3>
+            <h3 class="cwf-tech__card-title">选微信</h3>
           </header>
           <p class="cwf-tech__card-body">
-            If your audience already lives inside WeChat (微信) and a website on the open web is not where the conversation happens. Official accounts, mini-programs, H5 pages, content built where Chinese users already are.
+            如果你的受众本来就活在微信里，开放互联网上的网站不是对话发生的地方。公众号、小程序、H5 页面——内容做在中国用户已经在的地方。
           </p>
           <ul class="cwf-tech__card-traits">
-            <li>Official Account, content and CRM.</li>
-            <li>Mini-program for commerce or service.</li>
-            <li>H5 pages for campaigns and KOLs.</li>
+            <li>公众号、内容与 CRM。</li>
+            <li>小程序，做电商或服务。</li>
+            <li>H5 页面，配活动和 KOL。</li>
           </ul>
         </article>
       </div>
 
-      <p class="cwf-tech__footnote">If your not sure, thats what the audit is for.</p>
+      <p class="cwf-tech__footnote">不确定？审计就是干这个的。</p>
     </div>
   </section>
 
@@ -470,10 +470,10 @@ const visitLabel = '访问 chinawebfoundry.com';
     <div class="cwf-engage__bg" aria-hidden="true"></div>
     <div class="container">
       <header class="cwf-engage__header">
-        <span class="eyebrow eyebrow--on-dark">How We Engage</span>
-        <h2 class="cwf-engage__title">Three ways to start.</h2>
+        <span class="eyebrow eyebrow--on-dark">合作方式</span>
+        <h2 class="cwf-engage__title">三种入口。</h2>
         <p class="cwf-engage__lead">
-          You can take one piece, you can take all ten. Most clients start with two or three. Pick the entry point that fits your moment.
+          可以挑一块，也可以十块全要。多数客户从两到三块开始。挑一个最贴合你当下的入口。
         </p>
       </header>
 
@@ -499,8 +499,8 @@ const visitLabel = '访问 chinawebfoundry.com';
       <div class="cwf-cta__bg-scrim"></div>
     </div>
     <div class="container cwf-cta__content">
-      <span class="eyebrow eyebrow--on-dark">Ready when you are</span>
-      <h2 class="cwf-cta__title balance">A site that loads in Shanghai.<br />Built by a team that lives there.</h2>
+      <span class="eyebrow eyebrow--on-dark">你准备好，我们就动</span>
+      <h2 class="cwf-cta__title balance">一个在上海打得开的网站。<br />由一支住在那里的团队建出来。</h2>
       <div class="cwf-cta__actions">
         <a class="btn btn--primary" href={visitUrl} target="_blank" rel="noreferrer">{visitLabel}</a>
       </div>
