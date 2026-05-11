@@ -1,0 +1,153 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const locale = 'de' as const;
+const title = 'AGB';
+const description = 'Die Vereinbarung zwischen Ihnen und BeyondBorderGroup, wenn Sie diese Website nutzen oder eine unserer Agenturen beauftragen.';
+---
+
+<Layout locale={locale} route="terms" title={title} description={description}>
+  <section class="legal-hero">
+    <div class="container container--narrow">
+      <span class="eyebrow">Rechtliches</span>
+      <h1 class="legal-hero__title balance">AGB</h1>
+      <p class="lead">
+        Die Vereinbarung zwischen Ihnen und BeyondBorderGroup, wenn Sie diese Website nutzen oder eine
+        unserer Agenturen beauftragen.
+      </p>
+      <p class="legal-meta">Zuletzt aktualisiert am 10. Mai 2026</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container container--narrow legal-prose">
+      <h2>Was BeyondBorderGroup tut</h2>
+      <p>
+        Die BeyondBorderGroup Ltd, eingetragen in Hongkong, führt eine Gruppe grenzüberschreitender
+        Agenturen. Wir verkaufen Strategie, Web-Infrastruktur, Social Media, Content-Produktion,
+        Distributions-Sourcing und koordiniertes Account Management für Marken, die zwischen China und
+        dem Westen unterwegs sind, in beide Richtungen. Jedes Mandat wird durch eine eigene schriftliche
+        Vereinbarung geregelt, die Agentur, Umfang, Honorar und Zeitplan benennt. Diese seitenweiten
+        Bedingungen decken alles Übrige ab.
+      </p>
+
+      <h2>Nutzung dieser Website</h2>
+      <p>
+        Sie stimmen zu, beyondbordergroup.com bestimmungsgemäß zu nutzen: sich über die Gruppe zu
+        informieren, mit uns Kontakt aufzunehmen, sich auf eine Stelle zu bewerben. Sie werden die Seite
+        nicht scrapen, nicht in sie einzudringen versuchen, sie nicht als Eigenes ausgeben, keine
+        automatisierten Werkzeuge gegen sie laufen lassen, die den normalen Betrieb stören, und nichts
+        Illegales über das Kontaktformular hochladen.
+      </p>
+
+      <h2>Geistiges Eigentum</h2>
+      <p>
+        Die Seite, ihr Design, die Agentur-Logos, die Texte, die Fotografie und der zugrunde liegende
+        Code gehören der BeyondBorderGroup Ltd oder ihren Lizenzgebern. Sie dürfen sie lesen. Sie dürfen
+        kurze Passagen mit Quellenangabe und Verlinkung zitieren. Sie dürfen sie nicht nachbauen oder
+        als eigene Arbeit ausgeben.
+      </p>
+      <p>
+        Für Kundenarbeiten: Leistungen, die unter einem unterzeichneten Mandat entstehen, gehen mit
+        vollständiger Zahlung auf den Kunden über, sofern die Auftragsbestätigung nichts anderes
+        bestimmt. Hintergrund-Werkzeuge, Frameworks, interne Vorlagen und trainierte Modelle, die wir
+        vor oder parallel zu Ihrem Projekt entwickelt haben, verbleiben bei uns.
+      </p>
+
+      <h2>Zahlung</h2>
+      <p>
+        Rechnungen sind innerhalb von 30 Tagen ab Rechnungsdatum fällig. Nach 30 Tagen berechnen wir
+        Verzugszinsen in Höhe von 1,5 % pro Monat auf den offenen Saldo, oder den gesetzlichen
+        Höchstsatz, wenn dieser niedriger ist. Nach 15 Tagen Verzug können wir die Arbeit anhalten, nach
+        60 Tagen das Mandat beenden und das Bezahlte einbehalten.
+      </p>
+
+      <h2>Keine Garantie, begrenzte Haftung</h2>
+      <p>
+        Wir bringen Sorgfalt und Können in jedes Mandat ein. Wir garantieren nicht, dass eine Seite
+        ranken, eine Kampagne konvertieren, ein Partner abschließen oder die Seite, die Sie gerade
+        lesen, fehlerfrei sein wird. Über das hinaus, was zwingendes Recht uns nicht erlaubt
+        auszuschließen, werden die Seite und unsere Leistungen wie besehen bereitgestellt.
+      </p>
+      <p>
+        Geht etwas schief und liegt der Fehler bei uns, ist unsere Gesamthaftung Ihnen gegenüber
+        begrenzt auf die Honorare, die Sie für das konkrete Mandat gezahlt haben, in den zwölf Monaten
+        vor der Geltendmachung. Für indirekte Schäden, Folgeschäden oder entgangenen Gewinn haften wir
+        nicht.
+      </p>
+
+      <h2>Vertraulichkeit</h2>
+      <p>
+        Was Sie uns vertraulich mitteilen (Strategie, Finanzdaten, Kundenlisten, unveröffentlichte
+        Produkte), behandeln wir vertraulich. Ihr Team behandelt unsere Preise, unsere Methoden und
+        unsere internen Unterlagen ebenso. Beide Pflichten gelten zwei Jahre nach Ende des Mandats fort,
+        oder länger, soweit das Gesetz oder eine gesonderte Geheimhaltungsvereinbarung dies vorsieht.
+      </p>
+
+      <h2>Anwendbares Recht</h2>
+      <p>
+        Diese Bedingungen unterliegen dem Recht der Sonderverwaltungsregion Hongkong. Für sämtliche
+        Streitigkeiten sind die Gerichte Hongkongs ausschließlich zuständig, sofern eine gesonderte
+        schriftliche Vereinbarung nicht einen anderen Schiedssitz oder Gerichtsstand benennt.
+      </p>
+
+      <h2>Änderungen</h2>
+      <p>
+        Wir können diese Bedingungen aktualisieren. Die Fassung, die am Tag Ihres Aufrufs auf dieser
+        Seite steht, ist die gültige. Wesentliche Änderungen werden oben gekennzeichnet, damit Sie
+        sehen, was sich bewegt hat.
+      </p>
+
+      <h2>Kontakt</h2>
+      <p>
+        BeyondBorderGroup Ltd<br />
+        Hong Kong SAR<br />
+        <a href="mailto:hello@beyondbordergroup.com">hello@beyondbordergroup.com</a>
+      </p>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .legal-hero {
+    padding: clamp(5rem, 12vh, 8rem) 0 clamp(2rem, 5vh, 3.5rem);
+    background: var(--bbg-surface);
+    border-bottom: 1px solid var(--bbg-border);
+  }
+  .legal-hero__title {
+    font-size: clamp(2.25rem, 4vw + 0.5rem, 3.25rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin: var(--space-3) 0 var(--space-4);
+    color: var(--bbg-ink);
+    font-weight: 600;
+  }
+  .legal-meta {
+    margin-top: var(--space-4);
+    font-size: var(--fs-small);
+    color: var(--bbg-text-muted);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .legal-prose h2 {
+    font-size: 1.375rem;
+    font-weight: 600;
+    margin: var(--space-6) 0 var(--space-3);
+    color: var(--bbg-ink);
+  }
+  .legal-prose h2:first-child { margin-top: 0; }
+  .legal-prose p,
+  .legal-prose ul {
+    margin: 0 0 var(--space-3);
+    line-height: 1.65;
+    color: var(--bbg-text);
+  }
+  .legal-prose ul { padding-left: 1.25rem; }
+  .legal-prose li { margin-bottom: var(--space-1); }
+  .legal-prose a {
+    color: var(--bbg-blue);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .legal-prose a:hover { text-decoration-thickness: 2px; }
+</style>

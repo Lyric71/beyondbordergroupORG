@@ -1,32 +1,1298 @@
 ---
-import AgencyPage from '../../../components/AgencyPage.astro';
+import Layout from '../../../layouts/Layout.astro';
+import { pathFor } from '../../../i18n/ui';
+
+const locale = 'zh' as const;
+const route = 'agencies/nuvora-studio' as const;
+
+type ServiceKey = 'build' | 'convert' | 'learn';
+const services: Array<{
+  key: ServiceKey;
+  title: string;
+  intro: string;
+  image: string;
+  items: { name: string; body: string }[];
+}> = [
+  {
+    key: 'build',
+    title: '搭建',
+    intro: '在买家、候选人和投资人都在看的地方出现。每一天。',
+    image: '/images/nuvora-build.webp',
+    items: [
+      { name: 'LinkedIn 内容', body: '策划、撰写、发布，目标是让买家看到你这家公司。为带来线索而做，不是为点赞而做。' },
+      { name: '高管个人品牌', body: '为创始人、CEO 与高管搭建 LinkedIn 存在感。代笔写得像你本人，并在更大规模上挣到信任。' },
+      { name: '员工发声计划', body: '把你的团队变成一台内容引擎。培训、装备、稳定输出。把触达放大。' },
+    ],
+  },
+  {
+    key: 'convert',
+    title: '转化',
+    intro: '触达到对的决策者，把注意力转成销售管线。',
+    image: '/images/nuvora-grow.webp',
+    items: [
+      { name: 'LinkedIn 广告', body: '把合格线索带进你销售管线的广告。定向、创意、报告全部锚定收入。预算不会烧在错的人群上。' },
+    ],
+  },
+  {
+    key: 'learn',
+    title: '学习',
+    intro: '把内功建到内部去。策略先行，永远不锁客。',
+    image: '/images/nuvora-learn.webp',
+    items: [
+      { name: '培训与工作坊', body: '给内部团队的实操课。算法、个人主页、内容策略。第一天就能用得上。' },
+      { name: '咨询', body: '给现有 LinkedIn 状态做一次完整审计，然后给一份能长出来的路线图。先想清楚，再动手。' },
+    ],
+  },
+];
+
+const visitUrl = 'https://nuvora.studio';
+const visitLabel = '访问 nuvora.studio';
 ---
 
-<AgencyPage
-  locale="zh"
-  route="agencies/nuvora-studio"
-  name="Nuvora Studio"
-  badge="横向 · 只做 LinkedIn 的 B2B"
-  title="Nuvora Studio：只做 LinkedIn 的 B2B 公司。"
-  description="只做 LinkedIn。策略、内容、投放、员工传播、高管个人品牌。面向全球 B2B 团队的专家公司。"
-  hero="只做 LinkedIn 的 B2B 公司。"
-  thesisLabel="我们的判断"
-  thesis="大多数 B2B 公司，在 LinkedIn 上是隐身的。发帖断断续续，公司主页停在两年前，高管几乎没有露脸，广告又投到了错的人那里。LinkedIn 奖励的是持续性和专业性。两样都没有，就等于把最好的 B2B 渠道扔在那里。Nuvora 是只修这一件事、也只修这一件事的专业团队。"
-  whatLabel="我们具体做的事"
-  doSections={[
-    { h: '自然内容', items: ['公司主页运营', '内容生产与编辑', 'LinkedIn 通讯', 'LinkedIn 活动'] },
-    { h: '付费投放', items: ['投放架构', '受众定向', '广告创意与文案', '与 CRM 联动的报表'] },
-    { h: '策略与咨询', items: ['员工传播', '高管个人品牌', '培训 workshop', 'LinkedIn 战略审计'] },
-  ]}
-  whoForLabel="适合谁"
-  fit={[
-    'B2B SaaS、制造业、专业服务、生命科学、金融科技、物流。',
-    '买家就在 LinkedIn 上、却始终触达不到的公司。',
-    '通过 BeyondBridge 出海、需要把 LinkedIn 模块运转起来的中国品牌。',
-  ]}
-  connectsLabel="如何与其他公司联动"
-  connects="为 BeyondBridge 出海客户驱动 LinkedIn 模块；同时作为独立公司，直接服务全球 B2B 客户。规模化的内容视觉与视频，由 HubStudio 出。"
-  visitUrl="https://nuvora.studio"
-  visitLabel="访问 nuvora.studio"
-  imageLabel="LinkedIn 信息流截图：一条高管帖子表现良好。"
-/>
+<Layout
+  locale={locale}
+  route={route}
+  title="Nuvora Studio：在 LinkedIn 上拿到更多线索"
+  description="Nuvora Studio 替 B2B 公司在 LinkedIn 上长出存在感。内容、广告、高管品牌等。从决策者那里拿到合格线索。"
+>
+  <!-- ====================================================================== -->
+  <!-- HERO                                                                   -->
+  <!-- ====================================================================== -->
+  <section class="nv-hero" data-hero>
+    <div class="nv-hero__bg" aria-hidden="true">
+      <img src="/images/nuvora-hero-bg.webp" alt="" class="nv-hero__bg-img" data-parallax-bg onerror="this.style.display='none'" />
+      <div class="nv-hero__bg-scrim"></div>
+      <div class="nv-hero__bg-grain"></div>
+      <div class="nv-hero__bg-grid"></div>
+    </div>
+
+    <div class="container nv-hero__main">
+      <div class="nv-hero__content">
+        <img src="/AgencyLogos/Nuvora%20PNG.png" alt="Nuvora Studio" class="nv-hero__logo" width="160" height="40" loading="eager" decoding="async" />
+
+        <span class="nv-hero__eyebrow">
+          <span class="nv-hero__eyebrow-dot"></span>
+          只做 LinkedIn · B2B · 拿线索
+        </span>
+
+        <h1 class="nv-hero__title">
+          <span class="nv-hero__line" data-anim="word">你的<em class="nv-hero__phrase nv-hero__phrase--buyers">客户</em>在看。</span>
+          <span class="nv-hero__line" data-anim="word">你的<em class="nv-hero__phrase nv-hero__phrase--hires">候选人</em>在看。</span>
+          <span class="nv-hero__line" data-anim="word">你的<em class="nv-hero__phrase nv-hero__phrase--investors">投资人</em>在看。</span>
+        </h1>
+
+        <p class="nv-hero__lead" data-anim="fade">LinkedIn 上超过十亿用户，是全世界的职业档案。我们让你在它上面持续长出来。每一天。</p>
+
+        <div class="nv-hero__cta-row" data-anim="fade">
+          <a class="nv-magnet" href={visitUrl} target="_blank" rel="noreferrer" data-magnet>
+            <span class="nv-magnet__bg"></span>
+            <span class="nv-magnet__label">{visitLabel}</span>
+            <span class="nv-magnet__arrow" aria-hidden="true">→</span>
+          </a>
+          <a class="nv-hero__secondary" href={pathFor('contact', locale)} data-anim="fade">
+            <span>聊一聊</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="nv-hero__preview" data-tilt>
+        <div class="nv-hero__preview-frame">
+          <a class="browser-link" href={visitUrl} target="_blank" rel="noreferrer" aria-label={visitLabel}>
+            <div class="browser">
+              <div class="browser__chrome">
+                <span class="browser__dots">
+                  <span class="browser__dot browser__dot--r"></span>
+                  <span class="browser__dot browser__dot--y"></span>
+                  <span class="browser__dot browser__dot--g"></span>
+                </span>
+                <span class="browser__url">nuvora.studio</span>
+              </div>
+              <div class="browser__viewport">
+                <img src="/images/nuvora-studio-home.webp" alt="nuvora.studio 首页" class="browser__shot" width="1600" height="1000" loading="eager" decoding="async" />
+                <span class="browser__live">
+                  <span class="browser__live-dot"></span>
+                  在线 · {new Date().toLocaleDateString('zh-CN', { month: 'short', year: 'numeric' })}
+                </span>
+                <span class="browser__visit" aria-hidden="true">
+                  <span>访问网站</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l10-10M7 7h10v10"/></svg>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <div class="nv-hero__chip nv-hero__chip--scope">
+            <span class="nv-hero__chip-label">范围</span>
+            <span>内容 · 广告 · 品牌 · 员工发声</span>
+          </div>
+          <div class="nv-hero__chip nv-hero__chip--audience">
+            <span class="nv-hero__chip-label">为谁而做</span>
+            <span>创始人 · CEO · 市场负责人</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <a href="#track" class="nv-hero__scroll" aria-label="向下滚动">
+      <span>向下</span>
+      <span class="nv-hero__scroll-line"></span>
+    </a>
+  </section>
+
+  <!-- ====================================================================== -->
+  <!-- TRACK RECORD                                                           -->
+  <!-- ====================================================================== -->
+  <section class="nv-track" id="track">
+    <div class="container">
+      <div class="nv-track__grid">
+        <div class="nv-track__numeral" aria-hidden="true">
+          <span class="nv-track__num" data-count="1">0</span>
+          <span class="nv-track__num-suffix">B+</span>
+          <span class="nv-track__num-shadow">1B+</span>
+        </div>
+        <div class="nv-track__copy">
+          <span class="eyebrow">这个平台</span>
+          <h2 class="nv-track__title balance">十亿用户。一个决定谁拿到见面机会的平台。</h2>
+          <p class="nv-track__lead">
+            空白的公司主页。沉默的高管。读起来像新闻稿的帖子。烧在错的人群上的广告预算。每一周，都是丢掉的销售管线。我们让这件事翻过来。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================== -->
+  <!-- SERVICES                                                               -->
+  <!-- ====================================================================== -->
+  <section class="nv-services" id="services">
+    <div class="container">
+      <header class="nv-services__header">
+        <span class="eyebrow">我们做什么</span>
+        <h2 class="nv-services__title">
+          三条线。<em>一个平台。</em><br />
+          端到端。
+        </h2>
+        <p class="nv-services__lead">从第一条代笔的帖子，到一整条跑起来的付费线索通道。挑一条最贴合你当下的，或者三条一起跑。</p>
+      </header>
+
+      <div class="nv-services__shell" data-tabs>
+        <div class="nv-services__nav" role="tablist" aria-label="服务线">
+          {services.map((s, i) => (
+            <button
+              type="button"
+              role="tab"
+              aria-selected={i === 0 ? 'true' : 'false'}
+              class={`nv-services__tab nv-services__tab--${s.key} ${i === 0 ? 'is-active' : ''}`}
+              data-tab={s.key}
+              id={`nv-tab-${s.key}`}
+              aria-controls={`nv-panel-${s.key}`}
+              tabindex={i === 0 ? 0 : -1}
+            >
+              <span class="nv-services__tab-pip" aria-hidden="true"></span>
+              <span class="nv-services__tab-label">{s.title}</span>
+              <span class="nv-services__tab-count">{s.items.length} {s.items.length === 1 ? 'service' : 'services'}</span>
+            </button>
+          ))}
+          <span class="nv-services__tab-indicator" aria-hidden="true"></span>
+        </div>
+
+        <div class="nv-services__panels">
+          {services.map((s, i) => (
+            <div
+              class={`nv-services__panel nv-services__panel--${s.key} ${i === 0 ? 'is-active' : ''}`}
+              role="tabpanel"
+              id={`nv-panel-${s.key}`}
+              aria-labelledby={`nv-tab-${s.key}`}
+              data-panel={s.key}
+              hidden={i !== 0}
+            >
+              <div class="nv-services__panel-grid">
+                <div class="nv-services__panel-image">
+                  <div class="nv-services__panel-frame">
+                    <img src={s.image} alt={`${s.title} editorial`} loading="lazy" decoding="async" />
+                    <div class={`nv-services__panel-tag nv-services__panel-tag--${s.key}`}>
+                      <span>{s.title}</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="nv-services__panel-content">
+                  <p class="nv-services__panel-intro">{s.intro}</p>
+                  <ul class="nv-services__list">
+                    {s.items.map((it) => (
+                      <li class="nv-services__item">
+                        <span class={`nv-services__item-pip nv-services__item-pip--${s.key}`} aria-hidden="true"></span>
+                        <span class="nv-services__item-text">
+                          <span class="nv-services__item-name">{it.name}.</span>
+                          <span class="nv-services__item-body">{it.body}</span>
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================== -->
+  <!-- HOW WE OPERATE                                                         -->
+  <!-- ====================================================================== -->
+  <section class="nv-operate">
+    <div class="nv-operate__bg" aria-hidden="true"></div>
+    <div class="container nv-operate__container">
+      <span class="eyebrow eyebrow--on-dark">How we operate</span>
+      <h2 class="nv-operate__title">
+        <span class="nv-operate__line" data-line>LinkedIn is not a side channel.</span>
+        <span class="nv-operate__line" data-line>Specialists beat generalists.</span>
+        <span class="nv-operate__line" data-line>Activity is not the goal.</span>
+      </h2>
+      <div class="nv-operate__statement" data-line>
+        <p>Content earns attention. Ads convert it.</p>
+        <p class="nv-operate__emphasis">Qualified leads compound. Month after month.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================== -->
+  <!-- FINAL CTA                                                              -->
+  <!-- ====================================================================== -->
+  <section class="nv-cta">
+    <div class="nv-cta__bg" aria-hidden="true">
+      <img src="/images/nuvora-hero-bg.webp" alt="" onerror="this.style.display='none'" />
+      <div class="nv-cta__bg-scrim"></div>
+    </div>
+    <div class="container nv-cta__content">
+      <span class="eyebrow eyebrow--on-dark">Ready when you are</span>
+      <h2 class="nv-cta__title balance">More leads on LinkedIn.<br />From decision makers in your market.</h2>
+      <div class="nv-cta__actions">
+        <a class="btn btn--primary" href={visitUrl} target="_blank" rel="noreferrer">{visitLabel}</a>
+        <a class="btn btn--ghost-light" href={pathFor('contact', locale)}>Talk to us</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* ===================================================================== */
+  /* HERO                                                                   */
+  /* ===================================================================== */
+  .nv-hero {
+    position: relative;
+    min-height: 88vh;
+    padding: clamp(2.5rem, 5vh, 4rem) 0 clamp(3rem, 6vh, 5rem);
+    overflow: hidden;
+    isolation: isolate;
+    color: #fff;
+    background: #0a1428;
+  }
+
+  .nv-hero__bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+  .nv-hero__bg-img {
+    position: absolute;
+    inset: -8% -4% -4% -4%;
+    width: 108%;
+    height: 112%;
+    object-fit: cover;
+    object-position: center 40%;
+    will-change: transform;
+    transform: translate3d(0, var(--parallax-y, 0), 0) scale(1.04);
+    filter: saturate(0.85) contrast(1.05) brightness(0.78);
+  }
+  .nv-hero__bg-scrim {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(110deg, rgba(8, 14, 32, 0.86) 0%, rgba(8, 14, 32, 0.62) 38%, rgba(8, 14, 32, 0.30) 65%, rgba(8, 14, 32, 0.55) 100%),
+      linear-gradient(180deg, rgba(8, 14, 32, 0.55) 0%, rgba(8, 14, 32, 0.05) 30%, rgba(8, 14, 32, 0.0) 60%, rgba(8, 14, 32, 0.85) 100%);
+  }
+  .nv-hero__bg-grain {
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(1200px 600px at 20% 30%, rgba(89, 194, 238, 0.22), transparent 65%),
+      radial-gradient(900px 500px at 90% 80%, rgba(10, 102, 194, 0.18), transparent 70%);
+    mix-blend-mode: screen;
+  }
+  .nv-hero__bg-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 88px 88px;
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 80%);
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 80%);
+    opacity: 0.7;
+  }
+
+  .nv-hero__main {
+    position: relative;
+    z-index: 3;
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+    gap: clamp(2rem, 5vw, 5rem);
+    align-items: center;
+  }
+
+  .nv-hero__content { min-width: 0; max-width: 36rem; }
+  .nv-hero__logo {
+    display: block;
+    width: auto;
+    height: 36px;
+    filter: brightness(0) invert(1) drop-shadow(0 2px 12px rgba(0,0,0,0.4));
+    margin-bottom: var(--space-5);
+    opacity: 0;
+    animation: nvFadeIn 700ms cubic-bezier(0.2,0.8,0.2,1) 0.1s forwards;
+  }
+
+  .nv-hero__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 14px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 999px;
+    font-family: var(--font-display);
+    font-size: 0.74rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    margin-bottom: var(--space-4);
+    opacity: 0;
+    animation: nvFadeIn 700ms cubic-bezier(0.2,0.8,0.2,1) 0.2s forwards;
+  }
+  .nv-hero__eyebrow-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: #22c55e;
+    box-shadow: 0 0 0 0 rgba(34,197,94,0.5);
+    animation: nvPulse 2.4s ease-in-out infinite;
+  }
+
+  .nv-hero__title {
+    font-size: clamp(2.5rem, 5vw + 0.5rem, 5.4rem);
+    line-height: 0.98;
+    letter-spacing: -0.035em;
+    font-weight: 600;
+    color: #fff;
+    margin: 0 0 var(--space-5);
+    max-width: 16ch;
+    text-wrap: balance;
+  }
+  .nv-hero__line {
+    display: block;
+    overflow: hidden;
+  }
+  .nv-hero__line[data-anim="word"] {
+    transform: translateY(110%);
+    opacity: 0;
+    animation: nvWordIn 880ms cubic-bezier(0.2, 0.9, 0.2, 1) forwards;
+  }
+  .nv-hero__line[data-anim="word"]:nth-child(1) { animation-delay: 0.30s; }
+  .nv-hero__line[data-anim="word"]:nth-child(2) { animation-delay: 0.42s; }
+  .nv-hero__line[data-anim="word"]:nth-child(3) { animation-delay: 0.54s; }
+  @keyframes nvWordIn {
+    from { transform: translateY(110%); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+
+  .nv-hero__phrase {
+    font-style: normal;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+  }
+  .nv-hero__phrase--buyers    { background-image: linear-gradient(120deg, #59c2ee 0%, #269ada 60%, #59c2ee 100%); }
+  .nv-hero__phrase--hires     { background-image: linear-gradient(120deg, #5ec8d8 0%, #0a66c2 60%, #5ec8d8 100%); }
+  .nv-hero__phrase--investors { background-image: linear-gradient(120deg, #8ddff0 0%, #064a8c 60%, #8ddff0 100%); }
+
+  .nv-hero__lead {
+    max-width: 44ch;
+    font-size: clamp(1.05rem, 0.6vw + 0.95rem, 1.2rem);
+    color: rgba(255,255,255,0.82);
+    margin: 0 0 var(--space-5);
+    opacity: 0;
+    animation: nvFadeIn 700ms cubic-bezier(0.2,0.8,0.2,1) 0.85s forwards;
+  }
+
+  .nv-hero__cta-row {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: nvFadeIn 700ms cubic-bezier(0.2,0.8,0.2,1) 1s forwards;
+  }
+
+  .nv-magnet {
+    --x: 0px; --y: 0px;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 26px 16px 28px;
+    border-radius: 999px;
+    color: #fff;
+    text-decoration: none;
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+    overflow: hidden;
+    isolation: isolate;
+    transition: transform 220ms cubic-bezier(0.2,0.8,0.2,1);
+    transform: translate(var(--x), var(--y));
+  }
+  .nv-magnet__bg {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(120deg, #0a66c2 0%, #064a8c 100%);
+    box-shadow: 0 16px 36px -10px rgba(10,102,194,0.55), inset 0 1px 0 rgba(255,255,255,0.2);
+    z-index: -1;
+    transition: transform 320ms cubic-bezier(0.2,0.8,0.2,1);
+  }
+  .nv-magnet:hover .nv-magnet__bg { transform: scale(1.04); }
+  .nv-magnet__arrow {
+    display: inline-block;
+    transform: translateX(0);
+    transition: transform 280ms cubic-bezier(0.2,0.8,0.2,1);
+  }
+  .nv-magnet:hover .nv-magnet__arrow { transform: translateX(4px); }
+
+  .nv-hero__secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255,255,255,0.92);
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 220ms ease;
+  }
+  .nv-hero__secondary svg { transition: transform 220ms ease; }
+  .nv-hero__secondary:hover { color: #59c2ee; }
+  .nv-hero__secondary:hover svg { transform: translateX(3px); }
+
+  /* Browser preview with parallax tilt */
+  .nv-hero__preview {
+    position: relative;
+    perspective: 1600px;
+    min-width: 0;
+    opacity: 0;
+    animation: nvFadeIn 900ms cubic-bezier(0.2,0.8,0.2,1) 0.5s forwards;
+  }
+  .nv-hero__preview-frame {
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotateY(var(--tilt-x, -3deg)) rotateX(var(--tilt-y, 2deg));
+    transition: transform 600ms cubic-bezier(0.2,0.8,0.2,1);
+  }
+  .browser-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    border-radius: 14px;
+    transition: transform 320ms cubic-bezier(0.2,0.8,0.2,1);
+  }
+  .browser-link:hover { transform: translateY(-2px); }
+  .browser-link:focus-visible { outline: 2px solid #fff; outline-offset: 4px; }
+  .browser-link:hover .browser__visit { opacity: 1; transform: translateY(0); }
+  .browser {
+    position: relative;
+    background: #ffffff;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow:
+      0 1px 0 rgba(255,255,255,0.5) inset,
+      0 40px 80px -28px rgba(0,0,0,0.55),
+      0 12px 28px -8px rgba(0,0,0,0.35);
+    border: 1px solid rgba(255,255,255,0.10);
+    transform: translateZ(0);
+  }
+  .browser__visit {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 11px;
+    border-radius: 999px;
+    background: rgba(15,23,42,0.85);
+    color: #fff;
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    opacity: 0;
+    transform: translateY(-4px);
+    transition: opacity 240ms ease, transform 240ms cubic-bezier(0.2,0.8,0.2,1);
+    pointer-events: none;
+  }
+  .browser__chrome {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: 10px 14px;
+    background: linear-gradient(180deg, #f8fafc 0%, #eef2f6 100%);
+    border-bottom: 1px solid rgba(15,23,42,0.08);
+  }
+  .browser__dots { display: inline-flex; gap: 6px; }
+  .browser__dot { width: 11px; height: 11px; border-radius: 50%; display: inline-block; }
+  .browser__dot--r { background: #ff5f57; }
+  .browser__dot--y { background: #febc2e; }
+  .browser__dot--g { background: #28c840; }
+  .browser__url {
+    flex: 1;
+    text-align: center;
+    font-family: var(--font-display);
+    font-size: 0.78rem;
+    color: var(--bbg-text-muted);
+    background: rgba(15,23,42,0.04);
+    border-radius: 999px;
+    padding: 4px 10px;
+    letter-spacing: 0.01em;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+  .browser__viewport {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    background: #f7f9fb;
+    overflow: hidden;
+  }
+  .browser__shot {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+  }
+  .browser__live {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 6px 10px;
+    background: rgba(8, 14, 32, 0.74);
+    color: #fff;
+    border-radius: 999px;
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+  .browser__live-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: #22c55e;
+    box-shadow: 0 0 0 0 rgba(34,197,94,0.6);
+    animation: nvPulse 2.4s ease-in-out infinite;
+  }
+
+  .nv-hero__chip {
+    position: absolute;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 10px 14px;
+    background: rgba(255,255,255,0.92);
+    color: var(--bbg-ink);
+    border: 1px solid rgba(255,255,255,0.5);
+    border-radius: 14px;
+    font-family: var(--font-display);
+    font-size: 0.84rem;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+    box-shadow: 0 24px 50px -18px rgba(0,0,0,0.45);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transform: translateZ(40px);
+  }
+  .nv-hero__chip-label {
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #0a66c2;
+  }
+  .nv-hero__chip--scope {
+    top: -20px; left: -28px;
+    animation: nvFloatA 9s ease-in-out infinite;
+  }
+  .nv-hero__chip--audience {
+    bottom: -24px; right: -20px;
+    animation: nvFloatB 11s ease-in-out infinite;
+  }
+  @keyframes nvFloatA { 0%,100% { transform: translateZ(40px) translateY(0); } 50% { transform: translateZ(40px) translateY(-7px); } }
+  @keyframes nvFloatB { 0%,100% { transform: translateZ(40px) translateY(0); } 50% { transform: translateZ(40px) translateY(8px); } }
+
+  /* Scroll hint */
+  .nv-hero__scroll {
+    position: absolute;
+    bottom: clamp(1rem, 3vh, 2rem);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 4;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    transition: color 220ms ease;
+  }
+  .nv-hero__scroll:hover { color: #fff; }
+  .nv-hero__scroll-line {
+    width: 1px;
+    height: 36px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.7), rgba(255,255,255,0));
+    position: relative;
+    overflow: hidden;
+  }
+  .nv-hero__scroll-line::after {
+    content: "";
+    position: absolute;
+    top: -36px;
+    left: 0; right: 0;
+    height: 36px;
+    background: linear-gradient(180deg, rgba(255,255,255,0), rgba(255,255,255,0.95));
+    animation: nvScrollLine 1.8s ease-in-out infinite;
+  }
+  @keyframes nvScrollLine { 0% { top: -36px; } 100% { top: 36px; } }
+
+  @keyframes nvFadeIn { to { opacity: 1; } }
+  @keyframes nvPulse {
+    0%,100% { box-shadow: 0 0 0 0 rgba(34,197,94,0.55); }
+    50% { box-shadow: 0 0 0 7px rgba(34,197,94,0); }
+  }
+
+  @media (max-width: 1023px) {
+    .nv-hero__main { grid-template-columns: 1fr; gap: var(--space-7); }
+    .nv-hero__title { max-width: none; }
+    .nv-hero__chip--scope { top: -14px; left: 8px; }
+    .nv-hero__chip--audience { bottom: -14px; right: 8px; }
+  }
+  @media (max-width: 639px) {
+    .nv-hero__chip { font-size: 0.72rem; padding: 8px 10px; }
+    .nv-hero__chip--scope { display: none; }
+    .nv-hero__scroll { display: none; }
+  }
+
+  /* ===================================================================== */
+  /* TRACK RECORD                                                           */
+  /* ===================================================================== */
+  .nv-track {
+    padding: clamp(5rem, 10vh, 8rem) 0 clamp(4rem, 8vh, 6rem);
+    background: linear-gradient(180deg, #ffffff 0%, var(--bbg-paper, #f8fafc) 100%);
+    position: relative;
+  }
+  .nv-track__grid {
+    display: grid;
+    grid-template-columns: minmax(0, auto) minmax(0, 1fr);
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: center;
+  }
+  @media (max-width: 1023px) { .nv-track__grid { grid-template-columns: 1fr; gap: var(--space-6); } }
+
+  .nv-track__numeral {
+    position: relative;
+    line-height: 0.85;
+    letter-spacing: -0.06em;
+    font-family: var(--font-display);
+    font-weight: 600;
+    color: var(--bbg-ink);
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0;
+  }
+  .nv-track__num {
+    position: relative;
+    z-index: 2;
+    display: inline-block;
+    font-size: clamp(7rem, 18vw, 16rem);
+    background: linear-gradient(180deg, var(--bbg-ink) 0%, #2a3550 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    font-variant-numeric: tabular-nums;
+  }
+  .nv-track__num-suffix {
+    position: relative;
+    z-index: 2;
+    font-size: clamp(3rem, 7vw, 6rem);
+    color: #0a66c2;
+    margin-left: 0.05em;
+    letter-spacing: -0.04em;
+  }
+  .nv-track__num-shadow {
+    position: absolute;
+    top: 4px; left: 5px;
+    font-size: clamp(7rem, 18vw, 16rem);
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(10,102,194,0.18);
+    z-index: 1;
+    pointer-events: none;
+    user-select: none;
+  }
+  .nv-track__copy { max-width: 56ch; }
+  .nv-track__title { font-size: clamp(1.6rem, 2.4vw + 0.6rem, 2.4rem); line-height: 1.15; margin: 0 0 var(--space-4); }
+  .nv-track__lead { font-size: var(--fs-lead); color: var(--bbg-text); }
+
+  /* ===================================================================== */
+  /* SERVICES                                                               */
+  /* ===================================================================== */
+  .nv-services {
+    padding: clamp(5rem, 10vh, 8rem) 0;
+    background: var(--bbg-white, #ffffff);
+    position: relative;
+  }
+
+  .nv-services__header {
+    max-width: 60ch;
+    margin: 0 0 var(--space-7);
+  }
+  .nv-services__title {
+    font-size: clamp(2rem, 3.6vw + 0.5rem, 3.6rem);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    margin: var(--space-3) 0 var(--space-4);
+  }
+  .nv-services__title em {
+    font-style: normal;
+    background: linear-gradient(120deg, #59c2ee, #0a66c2 50%, #064a8c);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+  .nv-services__lead { color: var(--bbg-text); font-size: var(--fs-lead); max-width: 60ch; }
+
+  .nv-services__shell {
+    position: relative;
+    background: var(--bbg-paper, #f8fafc);
+    border-radius: 28px;
+    padding: clamp(1.5rem, 3vw, 2.5rem);
+    border: 1px solid var(--bbg-border, rgba(15,23,42,0.08));
+    box-shadow: 0 60px 120px -60px rgba(15, 23, 42, 0.18);
+  }
+
+  .nv-services__nav {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px;
+    padding: 6px;
+    background: var(--bbg-white, #ffffff);
+    border: 1px solid var(--bbg-border, rgba(15,23,42,0.08));
+    border-radius: 16px;
+    margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+  }
+  .nv-services__tab-indicator {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    width: calc((100% - 12px) / 3);
+    height: calc(100% - 12px);
+    background: linear-gradient(135deg, var(--bbg-ink) 0%, #2a3550 100%);
+    border-radius: 12px;
+    transition: transform 380ms cubic-bezier(0.2, 0.85, 0.2, 1);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .nv-services__tab {
+    position: relative;
+    z-index: 1;
+    background: transparent;
+    border: 0;
+    padding: 14px 16px;
+    border-radius: 12px;
+    cursor: pointer;
+    text-align: left;
+    font: inherit;
+    color: var(--bbg-text-muted, #6b7280);
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 10px;
+    transition: color 320ms ease;
+  }
+  .nv-services__tab.is-active { color: #fff; }
+  .nv-services__tab.is-active .nv-services__tab-count { color: rgba(255,255,255,0.6); }
+  .nv-services__tab-pip {
+    width: 9px; height: 9px;
+    border-radius: 50%;
+    background: currentColor;
+    flex-shrink: 0;
+    transition: background 320ms ease, transform 320ms ease;
+  }
+  .nv-services__tab--build.is-active   .nv-services__tab-pip { background: #59c2ee; }
+  .nv-services__tab--convert.is-active .nv-services__tab-pip { background: #5ec8d8; }
+  .nv-services__tab--learn.is-active   .nv-services__tab-pip { background: #8ddff0; }
+  .nv-services__tab-label {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.05rem;
+    letter-spacing: -0.005em;
+    color: var(--bbg-ink);
+    transition: color 320ms ease;
+  }
+  .nv-services__tab.is-active .nv-services__tab-label { color: #fff; }
+  .nv-services__tab-count {
+    font-family: var(--font-display);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--bbg-text-muted, #6b7280);
+    transition: color 320ms ease;
+  }
+
+  .nv-services__panels { position: relative; min-height: 480px; }
+  .nv-services__panel {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 380ms ease, transform 480ms cubic-bezier(0.2, 0.85, 0.2, 1);
+    pointer-events: none;
+  }
+  .nv-services__panel.is-active {
+    position: relative;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .nv-services__panel-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1fr);
+    gap: clamp(2rem, 4vw, 3.5rem);
+    align-items: stretch;
+  }
+  @media (max-width: 1023px) { .nv-services__panel-grid { grid-template-columns: 1fr; } }
+
+  .nv-services__panel-image {
+    position: relative;
+    min-height: 420px;
+  }
+  .nv-services__panel-frame {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 420px;
+    border-radius: 20px;
+    overflow: hidden;
+    background: var(--bbg-ink);
+    box-shadow: 0 30px 60px -22px rgba(15,23,42,0.30);
+  }
+  .nv-services__panel-frame img {
+    width: 100%;
+    height: 100%;
+    min-height: 420px;
+    object-fit: cover;
+    display: block;
+    transition: transform 1.2s cubic-bezier(0.2, 0.85, 0.2, 1);
+  }
+  .nv-services__panel.is-active .nv-services__panel-frame img { animation: nvKenburns 12s ease-in-out infinite alternate; }
+  @keyframes nvKenburns {
+    from { transform: scale(1.0); }
+    to { transform: scale(1.06); }
+  }
+  .nv-services__panel-tag {
+    position: absolute;
+    bottom: 16px; left: 16px;
+    padding: 7px 14px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.92);
+    color: var(--bbg-ink);
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 12px 24px -10px rgba(15,23,42,0.3);
+  }
+  .nv-services__panel-tag--build   { color: #1e7db0; }
+  .nv-services__panel-tag--convert { color: #0a66c2; }
+  .nv-services__panel-tag--learn   { color: #0891b2; }
+
+  .nv-services__panel-content { display: flex; flex-direction: column; justify-content: center; min-width: 0; }
+  .nv-services__panel-intro {
+    font-size: 1.1rem;
+    line-height: 1.45;
+    color: var(--bbg-ink);
+    margin: 0 0 var(--space-5);
+    font-family: var(--font-display);
+    font-weight: 500;
+    letter-spacing: -0.005em;
+    max-width: 38ch;
+  }
+
+  .nv-services__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-4);
+  }
+  .nv-services__item {
+    display: grid;
+    grid-template-columns: 14px 1fr;
+    gap: 14px;
+    align-items: start;
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  .nv-services__panel.is-active .nv-services__item {
+    animation: nvItemIn 520ms cubic-bezier(0.2, 0.85, 0.2, 1) forwards;
+  }
+  .nv-services__panel.is-active .nv-services__item:nth-child(1) { animation-delay: 0.10s; }
+  .nv-services__panel.is-active .nv-services__item:nth-child(2) { animation-delay: 0.16s; }
+  .nv-services__panel.is-active .nv-services__item:nth-child(3) { animation-delay: 0.22s; }
+  @keyframes nvItemIn { to { opacity: 1; transform: translateY(0); } }
+
+  .nv-services__item-pip {
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    margin-top: 0.45em;
+    flex-shrink: 0;
+    background: currentColor;
+    box-shadow: 0 0 0 4px color-mix(in srgb, currentColor 12%, transparent);
+  }
+  .nv-services__item-pip--build   { color: #269ada; }
+  .nv-services__item-pip--convert { color: #0a66c2; }
+  .nv-services__item-pip--learn   { color: #0891b2; }
+  .nv-services__item-text { display: block; line-height: 1.5; font-size: 0.98rem; }
+  .nv-services__item-name { font-weight: 600; color: var(--bbg-ink); margin-right: 0.25rem; }
+  .nv-services__item-body { color: var(--bbg-text); }
+
+  /* ===================================================================== */
+  /* OPERATE                                                                */
+  /* ===================================================================== */
+  .nv-operate {
+    position: relative;
+    padding: clamp(6rem, 12vh, 9rem) 0;
+    background: var(--bbg-ink);
+    color: rgba(255,255,255,0.92);
+    isolation: isolate;
+    overflow: hidden;
+  }
+  .nv-operate__bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(900px 500px at 0% 100%, rgba(89,194,238,0.20), transparent 60%),
+      radial-gradient(800px 500px at 100% 0%, rgba(10,102,194,0.18), transparent 60%);
+    pointer-events: none;
+    z-index: -1;
+  }
+  .nv-operate__container { position: relative; }
+  .nv-operate__title {
+    display: flex;
+    flex-direction: column;
+    gap: 0.05em;
+    font-size: clamp(2.2rem, 4.5vw + 0.5rem, 5rem);
+    line-height: 1.02;
+    letter-spacing: -0.03em;
+    margin: var(--space-4) 0 var(--space-6);
+    color: #fff;
+    max-width: 22ch;
+    font-weight: 600;
+  }
+  .nv-operate__line {
+    display: block;
+    overflow: hidden;
+    position: relative;
+    transition: transform 880ms cubic-bezier(0.2, 0.9, 0.2, 1), opacity 600ms ease;
+  }
+  .nv-operate__line > * { display: inline-block; }
+  .nv-operate__line:nth-child(2) { transition-delay: 0.10s; }
+  .nv-operate__line:nth-child(3) { transition-delay: 0.20s; }
+
+  .nv-operate__statement {
+    max-width: 56ch;
+    font-size: clamp(1.05rem, 0.6vw + 0.95rem, 1.25rem);
+    color: rgba(255,255,255,0.8);
+    transition: transform 700ms cubic-bezier(0.2, 0.85, 0.2, 1), opacity 600ms ease;
+    transition-delay: 0.40s;
+  }
+  .nv-operate__statement p { margin: 0 0 var(--space-3); }
+  .nv-operate__emphasis {
+    font-family: var(--font-display);
+    font-weight: 600;
+    color: #fff;
+    font-size: 1.1em;
+    letter-spacing: -0.01em;
+  }
+
+  /* ===================================================================== */
+  /* FINAL CTA                                                              */
+  /* ===================================================================== */
+  .nv-cta {
+    position: relative;
+    padding: clamp(5rem, 10vh, 8rem) 0;
+    color: #fff;
+    isolation: isolate;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0a1428 0%, #0c1f3d 100%);
+  }
+  .nv-cta__bg { position: absolute; inset: 0; z-index: -1; }
+  .nv-cta__bg img {
+    width: 100%; height: 100%; object-fit: cover;
+    filter: brightness(0.55) saturate(0.9);
+    transform: scale(1.04);
+  }
+  .nv-cta__bg-scrim {
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(180deg, rgba(8,14,32,0.65) 0%, rgba(8,14,32,0.55) 50%, rgba(8,14,32,0.85) 100%);
+  }
+  .nv-cta__content {
+    position: relative;
+    text-align: center;
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .nv-cta__title {
+    font-size: clamp(2rem, 4vw + 0.5rem, 4rem);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    color: #fff;
+    margin: var(--space-4) 0 var(--space-6);
+    text-wrap: balance;
+  }
+  .nv-cta__actions {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  [data-anim="fade"] { opacity: 0; }
+  .nv-track__numeral,
+  .nv-track__copy,
+  .nv-services__header,
+  .nv-services__shell {
+    transition: opacity 700ms cubic-bezier(0.2, 0.85, 0.2, 1), transform 800ms cubic-bezier(0.2, 0.85, 0.2, 1);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .nv-hero__bg-img,
+    .nv-hero__line[data-anim="word"],
+    .nv-hero__lead,
+    .nv-hero__cta-row,
+    .nv-hero__logo,
+    .nv-hero__eyebrow,
+    .nv-hero__chip,
+    .nv-services__panel.is-active .nv-services__panel-frame img,
+    .nv-services__panel.is-active .nv-services__item,
+    .nv-operate__line,
+    .nv-operate__statement,
+    .nv-track__numeral, .nv-track__copy, .nv-services__header, .nv-services__shell,
+    [data-anim] {
+      animation: none !important;
+      transition: none !important;
+      opacity: 1 !important;
+      transform: none !important;
+    }
+  }
+</style>
+
+<script>
+  const init = () => {
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!reduced) {
+      const revealTargets = document.querySelectorAll<HTMLElement>(
+        '.nv-track__numeral, .nv-track__copy, .nv-services__header, .nv-services__shell'
+      );
+      revealTargets.forEach((el) => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(24px)';
+      });
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const el = entry.target as HTMLElement;
+              el.style.opacity = '';
+              el.style.transform = '';
+              el.classList.add('is-revealed');
+              io.unobserve(el);
+            }
+          });
+        },
+        { rootMargin: '0px 0px -5% 0px', threshold: 0.01 }
+      );
+      revealTargets.forEach((el) => io.observe(el));
+    }
+
+    const counter = document.querySelector<HTMLElement>('.nv-track__num[data-count]');
+    if (counter) {
+      const target = Number(counter.dataset.count || '0');
+      if (reduced) {
+        counter.textContent = String(target);
+      } else {
+        const cio = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                const start = performance.now();
+                const dur = 1600;
+                const tick = (now: number) => {
+                  const t = Math.min(1, (now - start) / dur);
+                  const eased = 1 - Math.pow(1 - t, 3);
+                  counter.textContent = String(Math.round(eased * target));
+                  if (t < 1) requestAnimationFrame(tick);
+                };
+                requestAnimationFrame(tick);
+                cio.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.4 }
+        );
+        cio.observe(counter);
+      }
+    }
+
+    const tabsRoot = document.querySelector<HTMLElement>('[data-tabs]');
+    if (tabsRoot) {
+      const tabs = Array.from(tabsRoot.querySelectorAll<HTMLButtonElement>('.nv-services__tab'));
+      const panels = Array.from(tabsRoot.querySelectorAll<HTMLElement>('.nv-services__panel'));
+      const indicator = tabsRoot.querySelector<HTMLElement>('.nv-services__tab-indicator');
+
+      const setIndicator = (idx: number) => {
+        if (!indicator) return;
+        indicator.style.transform = `translateX(${idx * 100}%)`;
+        indicator.style.width = `calc((100% - 12px) / ${tabs.length})`;
+      };
+
+      const activate = (idx: number) => {
+        tabs.forEach((t, i) => {
+          const active = i === idx;
+          t.classList.toggle('is-active', active);
+          t.setAttribute('aria-selected', active ? 'true' : 'false');
+          t.tabIndex = active ? 0 : -1;
+        });
+        panels.forEach((p, i) => {
+          const active = i === idx;
+          p.classList.toggle('is-active', active);
+          if (active) {
+            p.removeAttribute('hidden');
+          } else {
+            p.setAttribute('hidden', '');
+          }
+        });
+        setIndicator(idx);
+      };
+
+      setIndicator(tabs.findIndex((t) => t.classList.contains('is-active')) || 0);
+
+      tabs.forEach((tab, i) => {
+        tab.addEventListener('click', () => activate(i));
+        tab.addEventListener('keydown', (e: KeyboardEvent) => {
+          if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+            e.preventDefault();
+            const dir = e.key === 'ArrowRight' ? 1 : -1;
+            const next = (i + dir + tabs.length) % tabs.length;
+            tabs[next].focus();
+            activate(next);
+          }
+        });
+      });
+    }
+
+    if (!reduced) {
+      const hero = document.querySelector<HTMLElement>('[data-hero]');
+      const tilt = document.querySelector<HTMLElement>('[data-tilt] .nv-hero__preview-frame');
+      const bg = document.querySelector<HTMLElement>('[data-parallax-bg]');
+
+      if (hero && tilt) {
+        let raf = 0;
+        let mx = 0, my = 0;
+        let cx = 0, cy = 0;
+        const onMove = (e: MouseEvent) => {
+          const rect = hero.getBoundingClientRect();
+          mx = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
+          my = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
+          if (!raf) raf = requestAnimationFrame(loop);
+        };
+        const onLeave = () => { mx = 0; my = 0; if (!raf) raf = requestAnimationFrame(loop); };
+        const loop = () => {
+          cx += (mx - cx) * 0.08;
+          cy += (my - cy) * 0.08;
+          tilt.style.setProperty('--tilt-x', `${(-cx * 5).toFixed(2)}deg`);
+          tilt.style.setProperty('--tilt-y', `${(cy * 4).toFixed(2)}deg`);
+          if (Math.abs(mx - cx) > 0.001 || Math.abs(my - cy) > 0.001) {
+            raf = requestAnimationFrame(loop);
+          } else {
+            raf = 0;
+          }
+        };
+        hero.addEventListener('mousemove', onMove);
+        hero.addEventListener('mouseleave', onLeave);
+      }
+
+      if (bg) {
+        const onScroll = () => {
+          const rect = bg.getBoundingClientRect();
+          const offset = Math.max(-200, Math.min(200, rect.top * -0.18));
+          (bg as HTMLElement).style.setProperty('--parallax-y', `${offset}px`);
+        };
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+      }
+    }
+
+    if (!reduced) {
+      const magnets = document.querySelectorAll<HTMLElement>('[data-magnet]');
+      magnets.forEach((m) => {
+        m.addEventListener('mousemove', (e: MouseEvent) => {
+          const rect = m.getBoundingClientRect();
+          const x = e.clientX - rect.left - rect.width / 2;
+          const y = e.clientY - rect.top - rect.height / 2;
+          m.style.setProperty('--x', `${(x * 0.18).toFixed(1)}px`);
+          m.style.setProperty('--y', `${(y * 0.18).toFixed(1)}px`);
+        });
+        m.addEventListener('mouseleave', () => {
+          m.style.setProperty('--x', '0px');
+          m.style.setProperty('--y', '0px');
+        });
+      });
+    }
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+</script>

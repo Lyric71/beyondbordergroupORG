@@ -144,17 +144,17 @@ const visitLabel = '访问 beyondbridge.com';
   <section class="bb-gap">
     <div class="bb-gap__bg" aria-hidden="true"></div>
     <div class="container bb-gap__container">
-      <span class="eyebrow eyebrow--on-dark">The gap</span>
+      <span class="eyebrow eyebrow--on-dark">那道沟</span>
       <h2 class="bb-gap__title">
-        <span class="bb-gap__line" data-line>Translate the homepage.</span>
-        <span class="bb-gap__line" data-line>Hire someone in Frankfurt.</span>
-        <span class="bb-gap__line" data-line>Send the founder out twice a year.</span>
-        <span class="bb-gap__line" data-line>Wait for a distributor to call.</span>
+        <span class="bb-gap__line" data-line>把首页翻译过来。</span>
+        <span class="bb-gap__line" data-line>在法兰克福招一个人。</span>
+        <span class="bb-gap__line" data-line>每年派创始人出去两次。</span>
+        <span class="bb-gap__line" data-line>等着分销商打电话来。</span>
       </h2>
       <div class="bb-gap__statement" data-line>
-        <p>The call rarely comes.</p>
-        <p>The website looks like 2014. The hire quits inside six months. And the factory keeps making great products that the right buyers have never heard of.</p>
-        <p class="bb-gap__emphasis">That is where companies die. In the gap between a great product and a buyer in Hamburg or Houston who actually picks up the phone.</p>
+        <p>电话很少打来。</p>
+        <p>网站看上去像 2014 年。招来的人六个月内辞职。工厂还在做好产品，但对的买家从没听说过。</p>
+        <p class="bb-gap__emphasis">公司就死在这里。死在好产品和汉堡或休斯顿那个真会接电话的买家之间，那道沟里。</p>
       </div>
     </div>
   </section>
@@ -165,16 +165,16 @@ const visitLabel = '访问 beyondbridge.com';
   <section class="bb-services" id="services">
     <div class="container">
       <header class="bb-services__header">
-        <span class="eyebrow">What we do</span>
+        <span class="eyebrow">我们做什么</span>
         <h2 class="bb-services__title">
-          Seven modules. <em>One pipeline.</em><br />
-          Buy the stack or any module on its own.
+          七个模块。<em>一条链路。</em><br />
+          整套来，或者单独买一块。
         </h2>
-        <p class="bb-services__lead">Quarterly retainer with a setup phase. Pick the lane that fits your moment, or run all three.</p>
+        <p class="bb-services__lead">按季度收费，带一次启动期。挑一条最贴合你当下的，或者三条一起跑。</p>
       </header>
 
       <div class="bb-services__shell" data-tabs>
-        <div class="bb-services__nav" role="tablist" aria-label="Service lanes">
+        <div class="bb-services__nav" role="tablist" aria-label="服务线">
           {lanes.map((s, i) => (
             <button
               type="button"
@@ -188,7 +188,7 @@ const visitLabel = '访问 beyondbridge.com';
             >
               <span class="bb-services__tab-pip" aria-hidden="true"></span>
               <span class="bb-services__tab-label">{s.title}</span>
-              <span class="bb-services__tab-count">{s.items.length} {s.items.length === 1 ? 'service' : 'services'}</span>
+              <span class="bb-services__tab-count">{s.items.length} 项服务</span>
             </button>
           ))}
           <span class="bb-services__tab-indicator" aria-hidden="true"></span>
@@ -207,7 +207,7 @@ const visitLabel = '访问 beyondbridge.com';
               <div class="bb-services__panel-grid">
                 <div class="bb-services__panel-image">
                   <div class="bb-services__panel-frame">
-                    <img src={s.image} alt={`${s.title} editorial`} loading="lazy" decoding="async" />
+                    <img src={s.image} alt={`${s.title} 编辑图`} loading="lazy" decoding="async" />
                     <div class={`bb-services__panel-tag bb-services__panel-tag--${s.key}`}>
                       <span>{s.title}</span>
                     </div>
@@ -226,7 +226,7 @@ const visitLabel = '访问 beyondbridge.com';
                       <li class="bb-services__item">
                         <span class={`bb-services__item-pip bb-services__item-pip--${s.key}`} aria-hidden="true"></span>
                         <span class="bb-services__item-text">
-                          <span class="bb-services__item-name">{it.name}.</span>
+                          <span class="bb-services__item-name">{it.name}。</span>
                           <span class="bb-services__item-body">{it.body}</span>
                         </span>
                       </li>
@@ -247,15 +247,15 @@ const visitLabel = '访问 beyondbridge.com';
   <section class="bb-operate">
     <div class="bb-operate__bg" aria-hidden="true"></div>
     <div class="container bb-operate__container">
-      <span class="eyebrow eyebrow--on-dark">How we operate</span>
+      <span class="eyebrow eyebrow--on-dark">我们怎么做事</span>
       <h2 class="bb-operate__title">
-        <span class="bb-operate__line" data-line>One stack.</span>
-        <span class="bb-operate__line" data-line>One team.</span>
-        <span class="bb-operate__line" data-line>One pipeline.</span>
+        <span class="bb-operate__line" data-line>一套阵列。</span>
+        <span class="bb-operate__line" data-line>一支团队。</span>
+        <span class="bb-operate__line" data-line>一条链路。</span>
       </h2>
       <div class="bb-operate__statement" data-line>
-        <p>From your factory to your first signed deal.</p>
-        <p class="bb-operate__emphasis">Every quarter you wait, a smaller competitor gets closer to your buyer.</p>
+        <p>从你的工厂，跑到你签下第一单。</p>
+        <p class="bb-operate__emphasis">你多等一个季度，体量更小的对手就离你的买家更近一步。</p>
       </div>
     </div>
   </section>
@@ -269,11 +269,11 @@ const visitLabel = '访问 beyondbridge.com';
       <div class="bb-cta__bg-scrim"></div>
     </div>
     <div class="container bb-cta__content">
-      <span class="eyebrow eyebrow--on-dark">Ready when you are</span>
-      <h2 class="bb-cta__title balance">Book a call.<br />We will tell you what your first ninety days look like.</h2>
+      <span class="eyebrow eyebrow--on-dark">你准备好，我们就动</span>
+      <h2 class="bb-cta__title balance">预约通话。<br />我们告诉你，前九十天是什么样子。</h2>
       <div class="bb-cta__actions">
         <a class="btn btn--primary" href={visitUrl} target="_blank" rel="noreferrer">{visitLabel}</a>
-        <a class="btn btn--ghost-light" href={pathFor('contact', locale)}>Talk to us</a>
+        <a class="btn btn--ghost-light" href={pathFor('contact', locale)}>聊一聊</a>
       </div>
     </div>
   </section>
