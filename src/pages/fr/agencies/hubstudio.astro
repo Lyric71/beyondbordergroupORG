@@ -16,10 +16,10 @@ const services: Array<{
   {
     key: 'produce',
     title: 'Produire',
-    intro: 'Visuels, vidéos et copy on-brand. Des centaines d\'assets finalisés par mois, générés, tournés, ou hybrides.',
+    intro: 'Visuels, vidéos et textes fidèles à la marque. Des centaines de pièces finalisées par mois, générées, tournées, ou hybrides.',
     image: '/images/hubstudio-produce.webp',
     items: [
-      { name: 'Production image', body: "Visuels on-brand à l'échelle, de 35 $ par brief à 405 $ par asset finalisé. Variations multiples, retouche complète, trois tours de modifications. Génératif, tourné, ou hybride." },
+      { name: 'Production image', body: "Visuels fidèles à la marque, à l'échelle, de 35 $ par brief à 405 $ par pièce finalisée. Variations multiples, retouche complète, trois tours de modifications. Génératif, tourné, ou hybride." },
       { name: 'Vidéo courte et longue', body: 'À partir de 200 $ par script. Pré-production, post-production, voix off, musique, sous-titres. Tournages réels, génératif, ou hybride.' },
       { name: 'Studio prise de vue', body: 'Tournages photo et vidéo réels quand le brief le demande. Utilisé par Mazda, Nescafé, Marriott, Bobbi Brown, et d\'autres.' },
       { name: '3D, CGI, motion', body: 'Animation 3D, CGI produit, motion design, branding vidéo, voix off, text-to-speech.' },
@@ -32,8 +32,8 @@ const services: Array<{
     image: '/images/hubstudio-platform.webp',
     items: [
       { name: 'Plateforme Hub4You', body: "Plateforme de contenu sur mesure, déployée sur vos serveurs GPU dédiés, intégrée à votre DAM et à votre PIM. Votre équipe l'opère. Nous formons et accompagnons. Déploiement en quelques semaines." },
-      { name: 'Modèles entraînés à la marque', body: 'LoRAs sur mesure et fine-tunes par client. Vos couleurs, votre style, vos produits. Verrouillé et reproductible.' },
-      { name: 'Pipelines et outillage', body: "Workflows de production construits sur ComfyUI, Flux, Wan, Veo, Hunyuan, et le modèle qui vient de sortir la semaine dernière. Testés dans de vraies campagnes, pas dans des démos." },
+      { name: 'Modèles entraînés à la marque', body: 'LoRAs sur mesure et ajustements fins par client. Vos couleurs, votre style, vos produits. Verrouillé et reproductible.' },
+      { name: 'Chaînes et outillage', body: "Chaînes de production construites sur ComfyUI, Flux, Wan, Veo, Hunyuan, et le modèle qui vient de sortir la semaine dernière. Testées dans de vraies campagnes, pas dans des démos." },
     ],
   },
   {
@@ -42,9 +42,9 @@ const services: Array<{
     intro: "La couche d'intelligence créative. Stratégie, transcréation, formation. La part qui ne peut pas être automatisée.",
     image: '/images/hubstudio-direct.webp',
     items: [
-      { name: 'Stratégie et guidelines', body: "Stratégie de contenu, positionnement de marque, identité visuelle, créa de campagne, charte d'usage de l'IA, workflows de validation." },
+      { name: 'Stratégie et principes', body: "Stratégie de contenu, positionnement de marque, identité visuelle, créa de campagne, charte d'usage de l'IA, parcours de validation." },
       { name: 'Transcréation', body: 'Multi-marchés, multi-langues, culturellement native. Réalisée par des créatifs qui vivent à l\'intérieur de la culture cible.' },
-      { name: 'Formation', body: 'Ateliers hands-on pour les équipes internes : ComfyUI, Flux, Wan, Veo, MidJourney, Gemini.' },
+      { name: 'Formation', body: 'Ateliers pratiques pour les équipes internes : ComfyUI, Flux, Wan, Veo, MidJourney, Gemini.' },
     ],
   },
 ];
@@ -57,7 +57,7 @@ const visitLabel = 'Visiter hubstudio.ai';
   locale={locale}
   route={route}
   title="HubStudio : production de contenu par IA, à moitié prix"
-  description="Maison de production basée en Chine, utilisant l'AIGC à l'échelle pour réduire les coûts de contenu de 60 % et livrer des centaines d'assets on-brand par mois pour les marques mondiales."
+  description="Maison de production basée en Chine, utilisant l'AIGC à l'échelle pour réduire les coûts de contenu de 60 % et livrer des centaines de pièces fidèles à la marque par mois pour les marques mondiales."
 >
   <section class="hs-hero" data-hero>
     <div class="hs-hero__bg" aria-hidden="true">
@@ -153,9 +153,9 @@ const visitLabel = 'Visiter hubstudio.ai';
         </div>
         <div class="hs-track__copy">
           <span class="eyebrow">Référence</span>
-          <h2 class="hs-track__title balance">Coût par asset finalisé divisé par deux. Volume multiplié par sept.</h2>
+          <h2 class="hs-track__title balance">Coût par pièce finalisée divisé par deux. Volume multiplié par sept.</h2>
           <p class="hs-track__lead">
-            Utilisée correctement, la génération par IA coupe le coût d'un asset finalisé de moitié, parfois plus. Les économies sont réelles et nous les répercutons au client. Les marques ont besoin de centaines d'assets par mois, parfois de milliers, dans des formats qui n'existaient pas il y a cinq ans. Les studios traditionnels n'ont jamais été pensés pour ça. Nous, oui.
+            Utilisée correctement, la génération par IA coupe le coût d'une pièce finalisée de moitié, parfois plus. Les économies sont réelles et nous les répercutons au client. Les marques ont besoin de centaines de pièces par mois, parfois de milliers, dans des formats qui n'existaient pas il y a cinq ans. Les studios traditionnels n'ont jamais été pensés pour ça. Nous, oui.
           </p>
         </div>
       </div>
@@ -271,7 +271,7 @@ const visitLabel = 'Visiter hubstudio.ai';
           <span class="hs-way__tag">Service</span>
           <h3 class="hs-way__title">On le fait pour vous.</h3>
           <p class="hs-way__body">
-            Envoyez le brief, nous livrons le contenu. Visuels, vidéos, packs eCom, déclinaisons de campagne, transcréation, tournages photo et vidéo complets quand le brief le demande. Des centaines d'assets par mois, on-brand, dans les délais.
+            Envoyez le brief, nous livrons le contenu. Visuels, vidéos, packs eCom, déclinaisons de campagne, transcréation, tournages photo et vidéo complets quand le brief le demande. Des centaines de pièces par mois, fidèles à la marque, dans les délais.
           </p>
         </article>
         <article class="hs-way">
