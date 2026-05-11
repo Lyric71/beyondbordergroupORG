@@ -5,116 +5,900 @@ import { pathFor } from '../../i18n/ui';
 
 const locale = 'en' as const;
 const title = 'Seven agencies';
-const description = 'BeyondBorderGroup is seven specialist agencies. Pick the one you need. Each one stands alone. Most clients start with one and add others as projects grow.';
+const description =
+  'BeyondBorderGroup is seven specialist agencies. West-to-China, China-to-West, and horizontal. Each one stands alone. Most clients start with one and add others as projects grow.';
 
-const agencies = [
+type Group = 'West to China' | 'China to West' | 'Horizontal';
+
+type AgencyRoute =
+  | 'agencies/beyondbordergroup'
+  | 'agencies/theredscroll'
+  | 'agencies/chinawebfoundry'
+  | 'agencies/beyondcompass'
+  | 'agencies/beyondbridge'
+  | 'agencies/hubstudio'
+  | 'agencies/nuvora-studio';
+
+interface Agency {
+  slug: string;
+  route: AgencyRoute;
+  name: string;
+  group: Group;
+  category: string;
+  tagline: string;
+  lead: string;
+  lanes: { name: string; body: string }[];
+  signal?: string;
+  visit: { url: string; label: string };
+  based: string;
+  accent: string;
+}
+
+const agencies: Agency[] = [
   {
     slug: 'beyondbordergroup',
-    route: 'agencies/beyondbordergroup' as const,
+    route: 'agencies/beyondbordergroup',
     name: 'BeyondBorderGroup',
-    badge: 'West to China · Full-service',
-    body: 'Enter China, grow in China, learn China. Fifteen years on the ground running market entry, eCommerce, social commerce, media, PR, and masterclasses. We consult, and we run what we recommend.',
-    fit: 'Brands who need one accountable team to enter or scale in China.',
+    group: 'West to China',
+    category: 'Full-service China agency',
+    tagline: 'Enter China. Grow in China. Learn China.',
+    lead:
+      "Fifteen years inside China's commerce ecosystem. Tmall launches, Douyin storms, ICP rewrites, every algorithm shift in between. We consult, and we run what we recommend. No templates. No recycled decks. Just the work.",
+    lanes: [
+      {
+        name: 'Enter',
+        body: 'Market entry consulting, branding and localisation, cross-border eCommerce setup on Tmall Global, JD Worldwide and Douyin, and offline distribution.',
+      },
+      {
+        name: 'Grow',
+        body: 'Daily store operations, social commerce on Xiaohongshu, Douyin and WeChat, paid media, Chinese website inside the Firewall, PR, events and exhibitions.',
+      },
+      {
+        name: 'Learn',
+        body: 'Half-day and full-day masterclasses, multi-day learning expeditions to Shanghai and Shenzhen, and consumer research on demand.',
+      },
+    ],
+    signal: 'Tmall · JD · Douyin · RED · WeChat',
+    visit: { url: 'https://beyondbordergroup.com', label: 'beyondbordergroup.com' },
     based: 'Shanghai. Hong Kong. Paris.',
+    accent: '#269ada',
   },
   {
     slug: 'theredscroll',
-    route: 'agencies/theredscroll' as const,
+    route: 'agencies/theredscroll',
     name: 'TheRedScroll',
-    badge: 'West to China · Channel specialist',
-    body: "Chinese social media run by people who open these apps every morning. WeChat, Douyin, RedNote, Weibo, and fourteen others. Strategy, content, paid, and influencers in one written scope, one number per package.",
-    fit: 'International brands who need Chinese social run properly, with no scope creep.',
+    group: 'West to China',
+    category: 'Chinese social media specialist',
+    tagline: "We post on China's platforms. Every day. From the ground.",
+    lead:
+      "China runs on its own platforms. WeChat, Douyin, RedNote, Weibo, and fourteen others. Knowing this from a slide deck is not the same as opening these apps every morning, which is, frankly, what most agencies don't do.",
+    lanes: [
+      {
+        name: 'Plan',
+        body: 'Strategy, competitor research, content calendars and KPIs tied to business goals. Account setup, verification, naming, eCommerce integration with Tmall, JD and Douyin Shop.',
+      },
+      {
+        name: 'Run',
+        body: 'WeChat, Douyin, RedNote and Weibo at the core. Bilibili, Kuaishou, Zhihu and others as add-ons. Native copy, paid media with no markup on ad spend, and verified influencer engagement.',
+      },
+      {
+        name: 'Sustain',
+        body: 'WeCom and WeChat CRM, private domain, community and customer service flows. Masterclasses and strategic consulting on every platform we run.',
+      },
+    ],
+    signal: 'Fixed scope. Fixed price. One number per package.',
+    visit: { url: 'https://theredscroll.com', label: 'theredscroll.com' },
     based: 'Shanghai. Hong Kong.',
+    accent: '#c8102e',
   },
   {
     slug: 'chinawebfoundry',
-    route: 'agencies/chinawebfoundry' as const,
+    route: 'agencies/chinawebfoundry',
     name: 'ChinaWebFoundry',
-    badge: 'West to China · Web infrastructure',
-    body: "Websites built for the Chinese internet, not retrofitted to it. ICP filing, China hosting, Baidu and DeepSeek visibility, WeChat and Alipay checkout. Plan, build, find, run.",
-    fit: 'Brands whose site needs to actually load, rank, and convert inside the Firewall.',
+    group: 'West to China',
+    category: 'Web infrastructure for the Chinese internet',
+    tagline: 'Websites built for the Chinese internet, not retrofitted to it.',
+    lead:
+      'A Google Font gets blocked on a random Tuesday and your homepage turns into a mess for everyone in Shanghai. Your team in London does not know until someone complains. We build, host and monitor sites from inside the Firewall so that conversation never has to happen.',
+    lanes: [
+      {
+        name: 'Plan',
+        body: "China readiness audits from real browsers in Beijing, Shanghai and Shenzhen. Migration with ICP Bei'an, DNS cutover and a parallel staging environment you can test before you flip the switch.",
+      },
+      {
+        name: 'Build',
+        body: 'UX and UI tuned for Chinese readers. WeChat and Alipay checkout, UnionPay, WooCommerce localized for the mainland, and replacements for every blocked Google call inside your stack.',
+      },
+      {
+        name: 'Find',
+        body: 'Native Chinese content, Baidu Search Resource Platform submission and tracking, and generative engine optimization for DeepSeek, Doubao, Kimi, Yuanbao and Baidu AI.',
+      },
+      {
+        name: 'Run',
+        body: "China hosting on Alibaba Cloud, Tencent Cloud and Huawei Cloud. Hong Kong bridge hosting while Bei'an is processing. Maintenance and uptime monitored from Chinese networks.",
+      },
+    ],
+    signal: 'Baidu held 60.1% of Chinese search in January 2025. Source: StatCounter.',
+    visit: { url: 'https://chinawebfoundry.com', label: 'chinawebfoundry.com' },
     based: 'Shanghai. Hangzhou.',
+    accent: '#d99a3a',
   },
   {
     slug: 'beyondcompass',
-    route: 'agencies/beyondcompass' as const,
+    route: 'agencies/beyondcompass',
     name: 'BeyondCompass',
-    badge: 'West to China · Partner sourcing',
-    body: 'A private file of distributors, Tmall TPs, Douyin Partners, and importers we have actually met, vetted, and worked with. Shortlist, market map, or replacement, with warm introductions and an honest verdict on every name.',
-    fit: 'Brands choosing a China partner for the first time, or unwinding the wrong one.',
+    group: 'West to China',
+    category: 'Partner sourcing and vetting',
+    tagline: 'Find the right China partner first.',
+    lead:
+      'A private file of distributors, Tmall TPs, Douyin Partners, and importers we have actually met, vetted, and worked with. The value is the context around the names, the verdicts, and the warm introductions, not access to a CSV.',
+    lanes: [
+      {
+        name: 'Shortlist',
+        body: 'Three to five vetted names, briefed in depth, ready to meet. For brands that already know what their distribution should look like. Two to three weeks.',
+      },
+      {
+        name: 'Market map',
+        body: 'Fifteen to twenty names mapped by category, channel, and footprint, with a structured comparison and a sequenced shortlist drawn from the names that survive it. Three to six weeks.',
+      },
+      {
+        name: 'Replacement',
+        body: 'For brands that already signed with the wrong partner. Same vetting, tighter constraints, contract unwind support, discreet by default.',
+      },
+    ],
+    signal: 'Written deliverable, working session, warm introductions, honest verdicts.',
+    visit: { url: 'https://beyondcompass.beyondbordergroup.com', label: 'beyondcompass.beyondbordergroup.com' },
     based: 'Shanghai. Twenty years of on-ground vetting.',
+    accent: '#1e7db0',
   },
   {
     slug: 'beyondbridge',
-    route: 'agencies/beyondbridge' as const,
+    route: 'agencies/beyondbridge',
     name: 'BeyondBridge',
-    badge: 'China to West · Full pipeline',
-    body: 'The full overseas pipeline for Chinese companies. Brand, website, LinkedIn, SEO and GEO, Google Ads, and native sales reps in seven countries. One stack, one pipeline, real people taking the call.',
-    fit: 'Chinese companies tired of trade-show booths that close nothing.',
-    based: 'China HQ. Reps in Paris, Munich, Milan, London, New York, Sydney, São Paulo.',
+    group: 'China to West',
+    category: 'Overseas pipeline for Chinese companies',
+    tagline: 'We grow Chinese companies overseas.',
+    lead:
+      'Most Chinese companies going overseas lose two years before they admit the playbook is broken. We close the gap between a great product and a buyer with one stack and one pipeline.',
+    lanes: [
+      {
+        name: 'Build',
+        body: 'Senior consulting on the big calls. Brand strategy built for the markets you are entering, not retrofitted from the China brand. A website that loads fast in Hamburg and Houston, with UX for the Western eye.',
+      },
+      {
+        name: 'Demand',
+        body: 'LinkedIn for B2B buyers. SEO and GEO that gets you found on Google and cited by ChatGPT, Perplexity and Claude. Google Ads that bring qualified leads while SEO compounds.',
+      },
+      {
+        name: 'Close',
+        body: 'Native sales reps in France, Germany, Italy, the UK, the United States, Australia and Latin America. They take the first call. When the deal is worth a flight, they go shake the buyer’s hand.',
+      },
+    ],
+    signal: 'Paris · Munich · Milan · London · New York · Sydney · São Paulo',
+    visit: { url: 'https://beyondbridge.com', label: 'beyondbridge.com' },
+    based: 'China HQ. Reps in seven markets.',
+    accent: '#22c55e',
   },
   {
     slug: 'hubstudio',
-    route: 'agencies/hubstudio' as const,
+    route: 'agencies/hubstudio',
     name: 'HubStudio',
-    badge: 'Horizontal · Content production',
-    body: 'A production house built for what content has become. Image, video, 3D, plus a brand-trained platform on dedicated GPUs. Hundreds of on-brand assets a month. Real shoots when the brief calls for it.',
-    fit: 'Brands, retailers, and agencies that need content at scale without losing the brand.',
+    group: 'Horizontal',
+    category: 'Production house, AIGC at scale',
+    tagline: 'A production house built for what content has become.',
+    lead:
+      'A global appliance brand came to us last year with a 22 percent approval rate. Six months later, that rate hit 78 percent. Output multiplied by seven. Cost dropped by 60 percent. That is roughly the gap between the old way of making content and how it has to work now.',
+    lanes: [
+      {
+        name: 'Produce',
+        body: 'On-brand visuals from $35 a brief to $405 a finalized asset. Short and long video from $200 a script. Live action studio in Shanghai. 3D, CGI and motion. Generated, shot, or hybrid.',
+      },
+      {
+        name: 'Platform',
+        body: 'Hub4You, your own content studio on dedicated GPU servers, integrated into your DAM and PIM. Brand-trained models, custom LoRAs, and pipelines built on ComfyUI, Flux, Wan, Veo, Hunyuan.',
+      },
+      {
+        name: 'Direct',
+        body: 'Content strategy, brand and visual identity, transcreation by creatives who live inside the target culture, and hands-on training for in-house teams.',
+      },
+    ],
+    signal: 'Used by Mazda, Nescafe, Marriott, Bobbi Brown, and others.',
+    visit: { url: 'https://hubstudio.ai', label: 'hubstudio.ai' },
     based: 'Shanghai studio. Global delivery.',
+    accent: '#ff7a8a',
   },
   {
     slug: 'nuvora-studio',
-    route: 'agencies/nuvora-studio' as const,
+    route: 'agencies/nuvora-studio',
     name: 'Nuvora Studio',
-    badge: 'Horizontal · LinkedIn-only B2B',
-    body: 'LinkedIn only, every day. Content, ads, executive personal branding, employee advocacy. Built to drive leads, not just likes.',
-    fit: 'B2B companies whose buyers, hires, and investors all check LinkedIn.',
+    group: 'Horizontal',
+    category: 'LinkedIn-only B2B',
+    tagline: 'Your buyers check it. Your hires check it. Your investors check it.',
+    lead:
+      "With over one billion members, LinkedIn is the world's professional record. We grow your presence on it. Every day. Strategy first, lock-in never.",
+    lanes: [
+      {
+        name: 'Build',
+        body: 'LinkedIn content planned, written, and published to drive leads. Executive personal branding for founders, CEOs, and senior leaders. Employee advocacy that turns your team into a content engine.',
+      },
+      {
+        name: 'Convert',
+        body: 'LinkedIn advertising tied to revenue, not vanity metrics. Targeting, creative and reporting that route qualified leads into your pipeline. No budget burned on the wrong audience.',
+      },
+      {
+        name: 'Learn',
+        body: 'Hands-on training and workshops on algorithm, profile, and content strategy. A full audit of your current LinkedIn presence and the roadmap to grow it.',
+      },
+    ],
+    signal: 'B2B companies anywhere in the world.',
+    visit: { url: 'https://nuvora.studio', label: 'nuvora.studio' },
     based: 'Global.',
+    accent: '#7c3aed',
+  },
+];
+
+const groups: { id: Group; label: string; intro: string }[] = [
+  {
+    id: 'West to China',
+    label: 'West to China',
+    intro: 'For brands entering or scaling in China.',
+  },
+  {
+    id: 'China to West',
+    label: 'China to West',
+    intro: 'For Chinese companies going overseas.',
+  },
+  {
+    id: 'Horizontal',
+    label: 'Horizontal',
+    intro: 'For any company, anywhere. Content production and LinkedIn.',
   },
 ];
 ---
 
 <Layout locale={locale} route="agencies" title={title} description={description}>
-  <section class="hero-editorial">
-    <div class="container">
-      <span class="eyebrow eyebrow--rule">Agencies</span>
-      <h1 class="hero-editorial__title balance">Seven specialist agencies. One ecosystem.</h1>
-      <p class="hero-editorial__lead">
+  <!-- ===================================================================== -->
+  <!-- HERO                                                                  -->
+  <!-- ===================================================================== -->
+  <section class="ag-hero">
+    <div class="ag-hero__bg" aria-hidden="true"></div>
+    <div class="container ag-hero__container">
+      <span class="eyebrow eyebrow--on-dark">The group</span>
+      <h1 class="ag-hero__title balance">
+        Seven specialist agencies.<br />
+        <em>One ecosystem.</em>
+      </h1>
+      <p class="ag-hero__lead">
         Each agency stands alone. Its own brand, its own pricing, its own deliverables. Pick the one that
-        matches what you need. Most clients start with one, and pull in others as the project expands.
+        matches what you need. Most clients start with one and pull in others as the project expands.
       </p>
+
+      <ul class="ag-hero__logos" aria-label="Agency logos">
+        {agencies.map((a) => (
+          <li>
+            <a href={`#${a.slug}`} aria-label={`Jump to ${a.name}`}>
+              <AgencyLogo slug={a.slug} name={a.name} class="ag-hero__logo" />
+            </a>
+          </li>
+        ))}
+      </ul>
     </div>
   </section>
 
+  <!-- ===================================================================== -->
+  <!-- INDEX BY GROUP                                                        -->
+  <!-- ===================================================================== -->
   <section class="section section--alt">
     <div class="container">
-      <div class="grid-2">
-        {agencies.map((a) => (
-          <article class="card" style="gap: var(--space-4);">
-            <div style="display: flex; gap: var(--space-4); align-items: flex-start;">
-              <AgencyLogo slug={a.slug} name={a.name} class="card__logo" />
-            </div>
-            <div class="card__meta">
-              <span class="card__tag">{a.badge}</span>
-            </div>
-            <h2 class="card__title" style="font-size: var(--fs-h3);">{a.name}</h2>
-            <p>{a.body}</p>
-            <p class="muted"><strong>For:</strong> {a.fit}</p>
-            <p class="muted"><strong>Based:</strong> {a.based}</p>
-            <div class="btn-row" style="margin-top: var(--space-3);">
-              <a class="btn btn--primary btn--sm" href={pathFor(a.route, locale)}>Open agency page</a>
-            </div>
+      <div class="ag-index">
+        {groups.map((g) => (
+          <div class="ag-index__col">
+            <span class="eyebrow">{g.label}</span>
+            <p class="ag-index__intro">{g.intro}</p>
+            <ul class="ag-index__list">
+              {agencies
+                .filter((a) => a.group === g.id)
+                .map((a) => (
+                  <li>
+                    <a href={`#${a.slug}`} class="ag-index__link">
+                      <span class="ag-index__name">{a.name}</span>
+                      <span class="ag-index__cat">{a.category}</span>
+                    </a>
+                  </li>
+                ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- AGENCY SECTIONS                                                       -->
+  <!-- ===================================================================== -->
+  {agencies.map((a, i) => (
+    <section
+      id={a.slug}
+      class={`ag-feature ${i % 2 === 1 ? 'ag-feature--alt' : ''}`}
+      style={`--accent: ${a.accent};`}
+    >
+      <div class="container">
+        <header class="ag-feature__head">
+          <div class="ag-feature__head-left">
+            <AgencyLogo slug={a.slug} name={a.name} class="ag-feature__logo" />
+            <span class="ag-feature__group">{a.group} · {a.category}</span>
+          </div>
+          <a class="ag-feature__visit" href={a.visit.url} target="_blank" rel="noreferrer">
+            {a.visit.label}
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17l10-10M7 7h10v10"/></svg>
+          </a>
+        </header>
+
+        <div class="ag-feature__pitch">
+          <h2 class="ag-feature__tagline">{a.tagline}</h2>
+          <p class="ag-feature__lead">{a.lead}</p>
+        </div>
+
+        <ol class={`ag-feature__lanes ag-feature__lanes--${a.lanes.length}`}>
+          {a.lanes.map((lane) => (
+            <li class="ag-feature__lane">
+              <h3 class="ag-feature__lane-title">{lane.name}</h3>
+              <p class="ag-feature__lane-body">{lane.body}</p>
+            </li>
+          ))}
+        </ol>
+
+        <footer class="ag-feature__foot">
+          <div class="ag-feature__foot-meta">
+            <span><strong>Based.</strong> {a.based}</span>
+            {a.signal && <span class="ag-feature__signal">{a.signal}</span>}
+          </div>
+          <div class="ag-feature__foot-cta">
+            <a class="btn btn--primary btn--sm" href={pathFor(a.route, locale)}>Open {a.name}</a>
+          </div>
+        </footer>
+      </div>
+    </section>
+  ))}
+
+  <!-- ===================================================================== -->
+  <!-- HOW THEY FIT TOGETHER                                                 -->
+  <!-- ===================================================================== -->
+  <section class="ag-stacks">
+    <div class="ag-stacks__bg" aria-hidden="true"></div>
+    <div class="container ag-stacks__container">
+      <header class="ag-stacks__head">
+        <span class="eyebrow eyebrow--on-dark">How they fit together</span>
+        <h2 class="ag-stacks__title balance">
+          One project.<br />
+          <em>As many agencies as the work needs.</em>
+        </h2>
+        <p class="ag-stacks__lead">
+          You do not have to figure out the order. Open the agency that matches your moment. We will tell
+          you when it is time to bring another one in, and when you do not need to.
+        </p>
+      </header>
+
+      <div class="ag-stacks__grid">
+        {[
+          {
+            scenario: 'A French skincare brand. Entering China.',
+            steps: [
+              { slug: 'beyondcompass', name: 'BeyondCompass', role: 'Choose the right distributor.' },
+              { slug: 'chinawebfoundry', name: 'ChinaWebFoundry', role: 'Build the China site, ICP filed.' },
+              { slug: 'beyondbordergroup', name: 'BeyondBorderGroup', role: 'Operate Tmall, run media.' },
+              { slug: 'theredscroll', name: 'TheRedScroll', role: 'WeChat, Douyin, RedNote, daily.' },
+            ],
+          },
+          {
+            scenario: 'A Chinese robotics company. Going overseas.',
+            steps: [
+              { slug: 'beyondbridge', name: 'BeyondBridge', role: 'Brand, site, demand, reps in the US and Germany.' },
+              { slug: 'hubstudio', name: 'HubStudio', role: 'Content production at scale, on brand.' },
+              { slug: 'nuvora-studio', name: 'Nuvora Studio', role: 'LinkedIn for the founder, every day.' },
+            ],
+          },
+        ].map((stack) => (
+          <article class="ag-stack">
+            <h3 class="ag-stack__scenario">{stack.scenario}</h3>
+            <ol class="ag-stack__steps">
+              {stack.steps.map((step) => (
+                <li class="ag-stack__step">
+                  <a class="ag-stack__step-link" href={`#${step.slug}`}>
+                    <span class="ag-stack__step-logo">
+                      <AgencyLogo slug={step.slug} name={step.name} class="ag-stack__logo" />
+                    </span>
+                    <span class="ag-stack__step-text">
+                      <span class="ag-stack__step-name">{step.name}</span>
+                      <span class="ag-stack__step-role">{step.role}</span>
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ol>
           </article>
         ))}
+      </div>
+
+      <div class="ag-stacks__cta">
+        <a class="btn btn--primary" href={pathFor('contact', locale)}>Talk to us</a>
+        <a class="btn btn--ghost-light" href={pathFor('how-we-work-together', locale)}>How we work together</a>
       </div>
     </div>
   </section>
 </Layout>
 
 <style>
-  .card :global(.card__logo) {
-    height: 64px;
+  /* ===================================================================== */
+  /* HERO                                                                   */
+  /* ===================================================================== */
+  .ag-hero {
+    position: relative;
+    color: #fff;
+    background: var(--bbg-ink);
+    padding: clamp(4rem, 9vh, 7rem) 0 clamp(3rem, 7vh, 5rem);
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .ag-hero__bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+      radial-gradient(900px 500px at 12% 18%, rgba(38,154,218,0.22), transparent 65%),
+      radial-gradient(800px 500px at 88% 82%, rgba(200,16,46,0.16), transparent 70%),
+      linear-gradient(180deg, #0c1220 0%, #1a1a1a 100%);
+  }
+  .ag-hero__bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 88px 88px;
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 80%);
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 80%);
+    opacity: 0.6;
+  }
+  .ag-hero__container { max-width: 920px; }
+  .ag-hero__title {
+    font-size: clamp(2.5rem, 5vw + 0.5rem, 4.75rem);
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: #fff;
+    margin: var(--space-3) 0 var(--space-5);
+    font-weight: 600;
+  }
+  .ag-hero__title em {
+    font-style: normal;
+    background: linear-gradient(120deg, #59c2ee, #ff7a8a 50%, #ffcf6f);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+  .ag-hero__lead {
+    font-size: clamp(1.05rem, 0.5vw + 0.95rem, 1.2rem);
+    color: rgba(255,255,255,0.82);
+    max-width: 60ch;
+    margin: 0 0 var(--space-7);
+  }
+  .ag-hero__logos {
+    list-style: none;
+    margin: 0;
+    padding: var(--space-5) 0 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: var(--space-3);
+    align-items: stretch;
+    border-top: 1px solid rgba(255,255,255,0.12);
+  }
+  @media (min-width: 1024px) {
+    .ag-hero__logos { grid-template-columns: repeat(7, minmax(0, 1fr)); }
+  }
+  .ag-hero__logos a {
+    display: grid;
+    place-items: center;
+    height: 72px;
+    padding: var(--space-3) var(--space-4);
+    background: #fff;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.18);
+    transition: transform 220ms cubic-bezier(0.2,0.85,0.2,1), box-shadow 220ms ease;
+    box-shadow: 0 10px 30px -16px rgba(0,0,0,0.45);
+  }
+  .ag-hero__logos a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 18px 40px -18px rgba(0,0,0,0.55);
+  }
+  .ag-hero__logos :global(.ag-hero__logo) {
+    max-height: 36px;
     width: auto;
-    max-width: 200px;
+    max-width: 100%;
+    object-fit: contain;
+  }
+
+  /* ===================================================================== */
+  /* INDEX                                                                  */
+  /* ===================================================================== */
+  .ag-index {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(1.5rem, 3vw, 2.5rem);
+  }
+  @media (min-width: 768px) {
+    .ag-index { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  }
+  .ag-index__intro {
+    margin: var(--space-3) 0 var(--space-4);
+    color: var(--bbg-text);
+    font-size: 1.05rem;
+  }
+  .ag-index__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid var(--bbg-border);
+  }
+  .ag-index__list li { border-bottom: 1px solid var(--bbg-border); }
+  .ag-index__link {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: baseline;
+    gap: var(--space-3);
+    padding: var(--space-4) 0;
+    color: var(--bbg-ink);
+    text-decoration: none;
+    transition: color 180ms ease;
+  }
+  .ag-index__link:hover { color: var(--bbg-blue); }
+  .ag-index__name {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.05rem;
+    letter-spacing: -0.005em;
+  }
+  .ag-index__cat {
+    font-size: 0.82rem;
+    color: var(--bbg-text-muted);
+    text-align: right;
+  }
+
+  /* ===================================================================== */
+  /* AGENCY FEATURE                                                         */
+  /* ===================================================================== */
+  .ag-feature {
+    position: relative;
+    padding: clamp(2.5rem, 5vh, 3.75rem) 0;
+    border-top: 1px solid var(--bbg-border);
+    background: var(--bbg-white);
+  }
+  .ag-feature::before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: 0;
+    width: clamp(60px, 8vw, 120px);
+    height: 3px;
+    background: var(--accent);
+  }
+  .ag-feature--alt { background: var(--bbg-paper); }
+
+  .ag-feature__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    margin-bottom: var(--space-5);
+    flex-wrap: wrap;
+  }
+  .ag-feature__head-left {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    min-width: 0;
+    flex-wrap: wrap;
+  }
+  .ag-feature__head-left :global(.ag-feature__logo) {
+    display: block;
+    height: 28px;
+    width: auto;
+    max-width: 160px;
+    object-fit: contain;
+  }
+  .ag-feature__group {
+    font-family: var(--font-display);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    padding: 4px 10px;
+    border: 1px solid var(--accent);
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--accent) 8%, transparent);
+  }
+  .ag-feature__visit {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--bbg-text-muted);
+    text-decoration: none;
+    transition: color 180ms ease;
+  }
+  .ag-feature__visit:hover { color: var(--accent); }
+  .ag-feature__visit svg { transition: transform 180ms ease; }
+  .ag-feature__visit:hover svg { transform: translate(2px, -2px); }
+
+  .ag-feature__pitch {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+    align-items: baseline;
+    margin-bottom: var(--space-6);
+  }
+  @media (min-width: 768px) {
+    .ag-feature__pitch {
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: clamp(1.5rem, 4vw, 3.5rem);
+    }
+  }
+  .ag-feature__tagline {
+    font-size: clamp(1.5rem, 2.4vw + 0.4rem, 2.1rem);
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+    font-weight: 600;
+    margin: 0;
+    color: var(--bbg-ink);
+    max-width: 22ch;
+  }
+  .ag-feature__tagline::first-letter,
+  .ag-feature__tagline {
+    color: var(--bbg-ink);
+  }
+  .ag-feature__lead {
+    margin: 0;
+    color: var(--bbg-text);
+    font-size: 1rem;
+    line-height: 1.6;
+    max-width: 56ch;
+  }
+
+  .ag-feature__lanes {
+    list-style: none;
+    margin: 0 0 var(--space-5);
+    padding: 0;
+    display: grid;
+    gap: var(--space-4);
+    border-top: 1px solid var(--bbg-border);
+    padding-top: var(--space-5);
+  }
+  .ag-feature__lanes--3,
+  .ag-feature__lanes--4 { grid-template-columns: 1fr; }
+  @media (min-width: 640px) {
+    .ag-feature__lanes--3,
+    .ag-feature__lanes--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (min-width: 768px) {
+    .ag-feature__lanes--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  }
+  @media (min-width: 1024px) {
+    .ag-feature__lanes--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  }
+
+  .ag-feature__lane {
+    position: relative;
+    padding-left: var(--space-4);
+    border-left: 2px solid var(--accent);
+  }
+  .ag-feature__lane-title {
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 var(--space-2);
+  }
+  .ag-feature__lane-body {
+    margin: 0;
+    color: var(--bbg-text);
+    font-size: 0.92rem;
+    line-height: 1.55;
+  }
+
+  .ag-feature__foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--bbg-border);
+  }
+  .ag-feature__foot-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4) var(--space-5);
+    color: var(--bbg-text-muted);
+    font-size: 0.88rem;
+  }
+  .ag-feature__foot-meta strong {
+    color: var(--bbg-ink);
+    font-weight: 600;
+    margin-right: 6px;
+  }
+  .ag-feature__signal {
+    color: var(--accent);
+    font-style: italic;
+  }
+
+  /* ===================================================================== */
+  /* STACKS                                                                 */
+  /* ===================================================================== */
+  .ag-stacks {
+    position: relative;
+    color: #fff;
+    padding: clamp(5rem, 10vh, 8rem) 0 clamp(5rem, 10vh, 7rem);
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .ag-stacks__bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+      radial-gradient(900px 500px at 18% 0%, rgba(38,154,218,0.22), transparent 60%),
+      radial-gradient(800px 500px at 85% 100%, rgba(255,122,138,0.18), transparent 65%),
+      linear-gradient(180deg, #0c1220 0%, #1a1a1a 100%);
+  }
+  .ag-stacks__bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(to right, rgba(255,255,255,0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.04) 1px, transparent 1px);
+    background-size: 96px 96px;
+    mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, #000 30%, transparent 80%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, #000 30%, transparent 80%);
+    opacity: 0.55;
+  }
+  .ag-stacks__container { position: relative; }
+
+  .ag-stacks__head {
+    max-width: 760px;
+    margin: 0 0 clamp(2.5rem, 6vh, 4rem);
+  }
+  .ag-stacks__title {
+    color: #fff;
+    font-size: clamp(2rem, 3.6vw + 0.4rem, 3.4rem);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    margin: var(--space-3) 0 var(--space-4);
+    font-weight: 600;
+  }
+  .ag-stacks__title em {
+    font-style: normal;
+    background: linear-gradient(120deg, #59c2ee, #ff7a8a 60%, #ffcf6f);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+  .ag-stacks__lead {
+    font-size: clamp(1.05rem, 0.5vw + 0.95rem, 1.2rem);
+    color: rgba(255,255,255,0.78);
+    max-width: 60ch;
+    margin: 0;
+  }
+
+  .ag-stacks__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(1.5rem, 3vw, 2.5rem);
+    margin-bottom: clamp(2.5rem, 6vh, 4rem);
+  }
+  @media (min-width: 768px) {
+    .ag-stacks__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+
+  .ag-stack {
+    position: relative;
+    padding: clamp(1.75rem, 3vw, 2.5rem);
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.10);
+    border-radius: 20px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  .ag-stack__scenario {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+    color: rgba(255,255,255,0.96);
+    margin: 0 0 var(--space-5);
+    padding-bottom: var(--space-4);
+    border-bottom: 1px solid rgba(255,255,255,0.10);
+  }
+  .ag-stack__steps {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-3);
+  }
+  .ag-stack__step {
+    position: relative;
+  }
+  .ag-stack__step + .ag-stack__step::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 36px;
+    width: 1px;
+    height: 8px;
+    background: rgba(255,255,255,0.30);
+  }
+  .ag-stack__step-link {
+    display: grid;
+    grid-template-columns: 56px minmax(0, 1fr);
+    gap: var(--space-4);
+    align-items: center;
+    padding: var(--space-3) var(--space-4);
+    border-radius: 14px;
+    text-decoration: none;
+    color: #fff;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    transition: background 200ms ease, border-color 200ms ease, transform 200ms ease;
+  }
+  .ag-stack__step-link:hover {
+    background: rgba(255,255,255,0.08);
+    border-color: rgba(255,255,255,0.20);
+    transform: translateX(2px);
+  }
+  .ag-stack__step-logo {
+    display: grid;
+    place-items: center;
+    width: 56px;
+    height: 40px;
+    background: #fff;
+    border-radius: 8px;
+    padding: 6px 8px;
+  }
+  .ag-stack__step-logo :global(.ag-stack__logo) {
+    max-height: 24px;
+    max-width: 100%;
+    width: auto;
+    object-fit: contain;
+  }
+  .ag-stack__step-text {
+    display: grid;
+    gap: 2px;
+    min-width: 0;
+  }
+  .ag-stack__step-name {
+    font-family: var(--font-display);
+    font-size: 0.98rem;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+    color: #fff;
+  }
+  .ag-stack__step-role {
+    font-size: 0.86rem;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.4;
+  }
+
+  .ag-stacks__cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
   }
 </style>

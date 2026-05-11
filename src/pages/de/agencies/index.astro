@@ -5,62 +5,901 @@ import { pathFor } from '../../../i18n/ui';
 
 const locale = 'de' as const;
 const title = 'Sieben Agenturen';
-const description = "BeyondBorderGroup, das sind sieben spezialisierte Agenturen. Sie nehmen die, die Sie brauchen. Jede steht eigenständig. Die meisten Kunden starten mit einer und nehmen weitere hinzu, sobald das Projekt sich öffnet.";
+const description =
+  'BeyondBorderGroup ist ein Verbund aus sieben spezialisierten Agenturen. Westen nach China, China nach Westen und übergreifend. Jede steht für sich. Die meisten Kunden beginnen mit einer und holen weitere dazu, sobald das Projekt wächst.';
 
-const agencies = [
-  { n: '01', slug: 'beyondbordergroup', route: 'agencies/beyondbordergroup' as const, name: 'BeyondBorderGroup', badge: 'Vom Westen nach China · Vollumfänglich', body: "Vollumfängliche China-Agentur. Zwanzig Jahre vor Ort. Branding, Mediaeinkauf, Social, KOLs, Content, PR, Websites, Events, eCommerce, Distribution.", fit: "Marken, die ein verantwortliches Team brauchen, um in China einzutreten oder zu wachsen.", based: 'Shanghai · Hongkong · Paris.' },
-  { n: '02', slug: 'theredscroll', route: 'agencies/theredscroll' as const, name: 'TheRedScroll', badge: 'Vom Westen nach China · Kanal-Spezialist', body: "Chinesische Social Media, betrieben vor Ort. WeChat, Douyin, RED, Weibo und vierzehn weitere Plattformen. Fester Scope, fester Preis.", fit: "Marken, die ihre chinesischen Social-Kanäle endlich sauber geführt haben wollen.", based: 'Shanghai · Hongkong.' },
-  { n: '03', slug: 'chinawebfoundry', route: 'agencies/chinawebfoundry' as const, name: 'ChinaWebFoundry', badge: 'Vom Westen nach China · Web-Infrastruktur', body: "Websites, gebaut für das chinesische Web. ICP, Baidu, KI-Engines, geprüft im WeChat-Browser. WordPress, Astro und WeChat.", fit: "Marken, deren Website in China wirklich funktionieren muss.", based: 'Shanghai · Hangzhou.' },
-  { n: '04', slug: 'beyondcompass', route: 'agencies/beyondcompass' as const, name: 'BeyondCompass', badge: 'Vom Westen nach China · Partnerwahl', body: "Eine private Datenbank aus Distributoren, Tmall TPs, Douyin Partnern und Importeuren, die wir vor Ort getroffen und geprüft haben. Drei Monate Vorlauf weniger.", fit: "Marken, die zum ersten Mal einen chinesischen Partner wählen oder ihre Distributionsaufstellung neu denken.", based: 'Shanghai. Aufgebaut auf fünfzehn Jahren Vor-Ort-Prüfung.' },
-  { n: '05', slug: 'beyondbridge', route: 'agencies/beyondbridge' as const, name: 'BeyondBridge', badge: 'Von China in den Westen · Komplette Kette', body: "Auslandsexpansion aus einer Hand für chinesische Marken. Marke, LinkedIn, Website, SEO/GEO, Ads und namentliche Vertriebsrepräsentanten vor Ort.", fit: "Chinesische Marken, die im Ausland eine echte Pipeline aufbauen wollen – nicht nur Messepräsenz.", based: 'China. Repräsentanten in den USA, in Großbritannien, Deutschland und Frankreich.' },
-  { n: '06', slug: 'hubstudio', route: 'agencies/hubstudio' as const, name: 'HubStudio', badge: 'Horizontal · Content-Produktion', body: "AIGC-Bild, -Video und -Content. Agenturqualität, KI-Geschwindigkeit.", fit: "Marken, Händler, Agenturen und Industriebetriebe, die Content in Skala brauchen.", based: 'Weltweit. Hauptsitz Shanghai.' },
-  { n: '07', slug: 'nuvora-studio', route: 'agencies/nuvora-studio' as const, name: 'Nuvora Studio', badge: 'Horizontal · LinkedIn-B2B', body: "Ausschließlich LinkedIn. Strategie, Content, Mediaeinkauf, Employee Advocacy und persönliche Markenbildung von Führungskräften.", fit: "B2B-Unternehmen weltweit.", based: 'Weltweit.' },
+type Group = 'Westen → China' | 'China → Westen' | 'Übergreifend';
+
+type AgencyRoute =
+  | 'agencies/beyondbordergroup'
+  | 'agencies/theredscroll'
+  | 'agencies/chinawebfoundry'
+  | 'agencies/beyondcompass'
+  | 'agencies/beyondbridge'
+  | 'agencies/hubstudio'
+  | 'agencies/nuvora-studio';
+
+interface Agency {
+  slug: string;
+  route: AgencyRoute;
+  name: string;
+  group: Group;
+  category: string;
+  tagline: string;
+  lead: string;
+  lanes: { name: string; body: string }[];
+  signal?: string;
+  visit: { url: string; label: string };
+  based: string;
+  accent: string;
+}
+
+const agencies: Agency[] = [
+  {
+    slug: 'beyondbordergroup',
+    route: 'agencies/beyondbordergroup',
+    name: 'BeyondBorderGroup',
+    group: 'Westen → China',
+    category: 'Full-Service-Agentur für China',
+    tagline: 'In China ankommen. In China wachsen. China verstehen.',
+    lead:
+      'Fünfzehn Jahre im Inneren des chinesischen Handelsökosystems. Tmall-Launches, Douyin-Stürme, neu geschriebene ICP-Akten und jeder Algorithmuswechsel dazwischen. Wir beraten, und wir setzen das um, was wir empfehlen. Keine Vorlagen. Keine wiederverwerteten Decks. Nur die Arbeit.',
+    lanes: [
+      {
+        name: 'Eintritt',
+        body: 'Markteintrittsberatung, Branding und Lokalisierung, Aufbau des grenzüberschreitenden E-Commerce auf Tmall Global, JD Worldwide und Douyin sowie stationäre Distribution.',
+      },
+      {
+        name: 'Wachstum',
+        body: 'Tägliches Store-Management, Social Commerce auf Xiaohongshu, Douyin und WeChat, Paid Media, chinesische Website innerhalb der Firewall, PR, Veranstaltungen und Messen.',
+      },
+      {
+        name: 'Lernen',
+        body: 'Halb- und ganztägige Masterclasses, mehrtägige Lernreisen nach Shanghai und Shenzhen sowie Konsumentenforschung auf Anfrage.',
+      },
+    ],
+    signal: 'Tmall · JD · Douyin · RED · WeChat',
+    visit: { url: 'https://beyondbordergroup.com', label: 'beyondbordergroup.com' },
+    based: 'Shanghai. Hongkong. Paris.',
+    accent: '#269ada',
+  },
+  {
+    slug: 'theredscroll',
+    route: 'agencies/theredscroll',
+    name: 'TheRedScroll',
+    group: 'Westen → China',
+    category: 'Spezialistin für chinesische Social Media',
+    tagline: 'Wir veröffentlichen auf Chinas Plattformen. Jeden Tag. Vor Ort.',
+    lead:
+      'China läuft auf eigenen Plattformen. WeChat, Douyin, RedNote, Weibo und vierzehn weitere. Das aus einer Folie zu wissen, ist nicht dasselbe, wie diese Apps morgens zu öffnen, was, ehrlich gesagt, kaum eine Agentur tut.',
+    lanes: [
+      {
+        name: 'Planen',
+        body: 'Strategie, Wettbewerbsanalyse, Redaktionspläne und KPIs an Geschäftszielen ausgerichtet. Account-Anlage, Verifizierung, Naming, E-Commerce-Integration mit Tmall, JD und Douyin Shop.',
+      },
+      {
+        name: 'Betreiben',
+        body: 'WeChat, Douyin, RedNote und Weibo im Zentrum. Bilibili, Kuaishou, Zhihu und weitere ergänzend. Native Texte, Paid Media ohne Aufschlag auf das Mediabudget, geprüfte Influencer-Partnerschaften.',
+      },
+      {
+        name: 'Halten',
+        body: 'WeCom und WeChat-CRM, Private Domain, Community und Service-Flows. Masterclasses und strategische Beratung auf jeder Plattform, die wir betreiben.',
+      },
+    ],
+    signal: 'Fester Umfang. Fester Preis. Eine Zahl pro Paket.',
+    visit: { url: 'https://theredscroll.com', label: 'theredscroll.com' },
+    based: 'Shanghai. Hongkong.',
+    accent: '#c8102e',
+  },
+  {
+    slug: 'chinawebfoundry',
+    route: 'agencies/chinawebfoundry',
+    name: 'ChinaWebFoundry',
+    group: 'Westen → China',
+    category: 'Web-Infrastruktur für das chinesische Internet',
+    tagline: 'Websites, gebaut für das chinesische Internet, nicht nachträglich angepasst.',
+    lead:
+      'Eine Google-Schrift wird an einem beliebigen Dienstag blockiert, und Ihre Startseite zerfällt in Shanghai für jeden Besucher. In London merkt es das Team erst, wenn sich jemand beschwert. Wir bauen, hosten und überwachen Websites von innerhalb der Firewall, damit dieses Gespräch nie geführt werden muss.',
+    lanes: [
+      {
+        name: 'Planen',
+        body: 'China-Readiness-Audits aus echten Browsern in Peking, Shanghai und Shenzhen. Migration mit ICP-Bei’an-Akte, DNS-Umstellung und parallelem Staging, das vor dem Schalter geprüft werden kann.',
+      },
+      {
+        name: 'Bauen',
+        body: 'UX und UI auf chinesische Leser zugeschnitten. Bezahlung mit WeChat und Alipay, UnionPay, WooCommerce für das Festland lokalisiert sowie Ersatz für jeden blockierten Google-Aufruf in Ihrem Stack.',
+      },
+      {
+        name: 'Finden',
+        body: 'Native chinesische Inhalte, Einreichung und Tracking auf der Baidu Search Resource Platform sowie generative Suchmaschinenoptimierung für DeepSeek, Doubao, Kimi, Yuanbao und Baidu AI.',
+      },
+      {
+        name: 'Betreiben',
+        body: 'China-Hosting auf Alibaba Cloud, Tencent Cloud und Huawei Cloud. Hongkong-Brücken-Hosting, solange die Bei’an-Akte läuft. Wartung und Monitoring aus chinesischen Netzen.',
+      },
+    ],
+    signal: 'Baidu hielt im Januar 2025 60,1 % der chinesischen Suche. Quelle: StatCounter.',
+    visit: { url: 'https://chinawebfoundry.com', label: 'chinawebfoundry.com' },
+    based: 'Shanghai. Hangzhou.',
+    accent: '#d99a3a',
+  },
+  {
+    slug: 'beyondcompass',
+    route: 'agencies/beyondcompass',
+    name: 'BeyondCompass',
+    group: 'Westen → China',
+    category: 'Partner-Sourcing und Prüfung',
+    tagline: 'Den richtigen China-Partner zuerst finden.',
+    lead:
+      'Eine private Datei mit Distributoren, Tmall-TPs, Douyin-Partnern und Importeuren, die wir tatsächlich getroffen, geprüft und mit denen wir gearbeitet haben. Der Wert liegt im Kontext um die Namen, in den Urteilen und in den persönlichen Vorstellungen, nicht im Zugriff auf eine CSV-Liste.',
+    lanes: [
+      {
+        name: 'Shortlist',
+        body: 'Drei bis fünf geprüfte Namen, ausführlich gebrieft, bereit zum Termin. Für Marken, die bereits wissen, wie ihre Distribution aussehen soll. Zwei bis drei Wochen.',
+      },
+      {
+        name: 'Marktkarte',
+        body: 'Fünfzehn bis zwanzig Namen kartiert nach Kategorie, Kanal und Reichweite, mit strukturiertem Vergleich und einer geordneten Shortlist aus den Namen, die der Analyse standhalten. Drei bis sechs Wochen.',
+      },
+      {
+        name: 'Ablösung',
+        body: 'Für Marken, die bereits mit dem falschen Partner unterzeichnet haben. Dieselbe Prüfung, engere Vorgaben, Begleitung beim Vertragsausstieg, Diskretion als Standard.',
+      },
+    ],
+    signal: 'Schriftliches Ergebnis, Arbeitssitzung, persönliche Vorstellungen, ehrliche Urteile.',
+    visit: { url: 'https://beyondcompass.beyondbordergroup.com', label: 'beyondcompass.beyondbordergroup.com' },
+    based: 'Shanghai. Zwanzig Jahre Prüfung vor Ort.',
+    accent: '#1e7db0',
+  },
+  {
+    slug: 'beyondbridge',
+    route: 'agencies/beyondbridge',
+    name: 'BeyondBridge',
+    group: 'China → Westen',
+    category: 'Auslands-Pipeline für chinesische Unternehmen',
+    tagline: 'Wir lassen chinesische Unternehmen im Ausland wachsen.',
+    lead:
+      'Die meisten chinesischen Unternehmen, die ins Ausland gehen, verlieren zwei Jahre, bevor sie zugeben, dass das Drehbuch nicht funktioniert. Wir schließen die Lücke zwischen einem starken Produkt und einem Käufer, mit einem einzigen Stack und einer einzigen Pipeline.',
+    lanes: [
+      {
+        name: 'Aufbauen',
+        body: 'Senior-Beratung bei den großen Entscheidungen. Markenstrategie, gebaut für die Märkte, in die Sie eintreten, nicht aus der Chinamarke abgeleitet. Eine Website, die in Hamburg wie in Houston schnell lädt, mit UX für das westliche Auge.',
+      },
+      {
+        name: 'Nachfrage',
+        body: 'LinkedIn für B2B-Einkäufer. SEO und GEO, damit Sie auf Google gefunden und von ChatGPT, Perplexity und Claude zitiert werden. Google Ads liefern qualifizierte Leads, während SEO Wirkung aufbaut.',
+      },
+      {
+        name: 'Abschließen',
+        body: 'Native Vertriebsmitarbeiter in Frankreich, Deutschland, Italien, Großbritannien, den USA, Australien und Lateinamerika. Sie nehmen den ersten Anruf an. Wenn das Geschäft den Flug wert ist, gehen sie hin und drücken dem Käufer die Hand.',
+      },
+    ],
+    signal: 'Paris · München · Mailand · London · New York · Sydney · São Paulo',
+    visit: { url: 'https://beyondbridge.com', label: 'beyondbridge.com' },
+    based: 'Hauptsitz in China. Vertreter in sieben Märkten.',
+    accent: '#22c55e',
+  },
+  {
+    slug: 'hubstudio',
+    route: 'agencies/hubstudio',
+    name: 'HubStudio',
+    group: 'Übergreifend',
+    category: 'Produktionshaus, AIGC im großen Maßstab',
+    tagline: 'Ein Produktionshaus, gebaut für das, was Inhalte heute sind.',
+    lead:
+      'Eine globale Hausgerätemarke kam letztes Jahr mit einer Freigabequote von 22 Prozent zu uns. Sechs Monate später lag sie bei 78 Prozent. Output mal sieben. Kosten minus 60 Prozent. Das ist ungefähr der Abstand zwischen der alten Art, Inhalte zu produzieren, und der Art, wie es heute funktionieren muss.',
+    lanes: [
+      {
+        name: 'Produzieren',
+        body: 'Markenkonforme Visuals von 35 $ pro Brief bis 405 $ pro fertigem Asset. Kurz- und Langvideos ab 200 $ pro Skript. Live-Action-Studio in Shanghai. 3D, CGI und Motion. Generiert, gedreht oder hybrid.',
+      },
+      {
+        name: 'Plattform',
+        body: 'Hub4You, Ihr eigenes Content-Studio auf dedizierten GPU-Servern, integriert in Ihr DAM und PIM. Markentrainierte Modelle, eigene LoRAs und Pipelines auf ComfyUI, Flux, Wan, Veo, Hunyuan.',
+      },
+      {
+        name: 'Lenken',
+        body: 'Content-Strategie, Marken- und Bildidentität, Transkreation durch Kreative, die in der Zielkultur leben, sowie praxisnahe Schulungen für interne Teams.',
+      },
+    ],
+    signal: 'Mazda, Nescafé, Marriott, Bobbi Brown und weitere setzen auf uns.',
+    visit: { url: 'https://hubstudio.ai', label: 'hubstudio.ai' },
+    based: 'Studio in Shanghai. Globale Lieferung.',
+    accent: '#ff7a8a',
+  },
+  {
+    slug: 'nuvora-studio',
+    route: 'agencies/nuvora-studio',
+    name: 'Nuvora Studio',
+    group: 'Übergreifend',
+    category: 'B2B ausschließlich auf LinkedIn',
+    tagline: 'Ihre Käufer prüfen es. Ihre neuen Mitarbeiter prüfen es. Ihre Investoren prüfen es.',
+    lead:
+      'Mit über einer Milliarde Mitgliedern ist LinkedIn das berufliche Register der Welt. Wir lassen Ihre Präsenz darauf wachsen. Jeden Tag. Strategie zuerst, kein Lock-in, niemals.',
+    lanes: [
+      {
+        name: 'Aufbauen',
+        body: 'LinkedIn-Inhalte, geplant, geschrieben und veröffentlicht, um Leads zu erzeugen. Personal Branding für Gründer, Vorstände und Führungskräfte. Employee Advocacy, die Ihr Team zum Content-Motor macht.',
+      },
+      {
+        name: 'Konvertieren',
+        body: 'LinkedIn-Werbung am Umsatz orientiert, nicht an Vanity Metrics. Targeting, Kreation und Reporting bringen qualifizierte Leads in Ihre Pipeline. Kein Budget brennt in der falschen Zielgruppe.',
+      },
+      {
+        name: 'Lernen',
+        body: 'Praxisnahe Schulungen und Workshops zu Algorithmus, Profil und Content-Strategie. Vollständiges Audit Ihrer aktuellen LinkedIn-Präsenz und Fahrplan zum Wachstum.',
+      },
+    ],
+    signal: 'B2B-Unternehmen weltweit.',
+    visit: { url: 'https://nuvora.studio', label: 'nuvora.studio' },
+    based: 'Global.',
+    accent: '#7c3aed',
+  },
+];
+
+const groups: { id: Group; label: string; intro: string }[] = [
+  {
+    id: 'Westen → China',
+    label: 'Westen → China',
+    intro: 'Für Marken, die in China eintreten oder skalieren.',
+  },
+  {
+    id: 'China → Westen',
+    label: 'China → Westen',
+    intro: 'Für chinesische Unternehmen, die ins Ausland gehen.',
+  },
+  {
+    id: 'Übergreifend',
+    label: 'Übergreifend',
+    intro: 'Für Unternehmen überall. Content-Produktion und LinkedIn.',
+  },
 ];
 ---
 
 <Layout locale={locale} route="agencies" title={title} description={description}>
-  <section class="hero-editorial">
-    <div class="container">
-      <span class="eyebrow eyebrow--rule">Agenturen</span>
-      <h1 class="hero-editorial__title balance">Sieben spezialisierte Agenturen. Ein Ökosystem.</h1>
-      <p class="hero-editorial__lead">
-        Jede Agentur steht eigenständig: ihre Marke, ihre Preise, ihre Liefergegenstände. Sie wählen die, die
-        zur Aufgabe des Tages passt. Die meisten Kunden starten mit einer und öffnen den Umfang, sobald das
-        Projekt es verlangt.
+  <!-- ===================================================================== -->
+  <!-- HERO                                                                  -->
+  <!-- ===================================================================== -->
+  <section class="ag-hero">
+    <div class="ag-hero__bg" aria-hidden="true"></div>
+    <div class="container ag-hero__container">
+      <span class="eyebrow eyebrow--on-dark">Die Gruppe</span>
+      <h1 class="ag-hero__title balance">
+        Sieben spezialisierte Agenturen.<br />
+        <em>Ein Ökosystem.</em>
+      </h1>
+      <p class="ag-hero__lead">
+        Jede Agentur steht für sich. Eigene Marke, eigene Preise, eigene Leistungen. Wählen Sie diejenige,
+        die zu Ihrem Anliegen passt. Die meisten Kunden beginnen mit einer und ziehen weitere hinzu, sobald
+        das Projekt wächst.
       </p>
+
+      <ul class="ag-hero__logos" aria-label="Logos der Agenturen">
+        {agencies.map((a) => (
+          <li>
+            <a href={`#${a.slug}`} aria-label={`Zu ${a.name} springen`}>
+              <AgencyLogo slug={a.slug} name={a.name} class="ag-hero__logo" />
+            </a>
+          </li>
+        ))}
+      </ul>
     </div>
   </section>
 
+  <!-- ===================================================================== -->
+  <!-- INDEX BY GROUP                                                        -->
+  <!-- ===================================================================== -->
   <section class="section section--alt">
     <div class="container">
-      <div class="grid-2">
-        {agencies.map((a) => (
-          <article class="card" style="gap: var(--space-4);">
-            <div style="display: flex; gap: var(--space-4); align-items: flex-start;">
-              <AgencyLogo slug={a.slug} name={a.name} class="card__logo" />
-            </div>
-            <div class="card__meta">
-              <span class="card__tag card__tag--brand">{a.n}</span>
-              <span class="card__tag">{a.badge}</span>
-            </div>
-            <h2 class="card__title" style="font-size: var(--fs-h3);">{a.name}</h2>
-            <p>{a.body}</p>
-            <p class="muted"><strong>Für wen:</strong> {a.fit}</p>
-            <p class="muted"><strong>Sitz:</strong> {a.based}</p>
-            <div class="btn-row" style="margin-top: var(--space-3);">
-              <a class="btn btn--primary btn--sm" href={pathFor(a.route, locale)}>Agenturseite öffnen</a>
-            </div>
+      <div class="ag-index">
+        {groups.map((g) => (
+          <div class="ag-index__col">
+            <span class="eyebrow">{g.label}</span>
+            <p class="ag-index__intro">{g.intro}</p>
+            <ul class="ag-index__list">
+              {agencies
+                .filter((a) => a.group === g.id)
+                .map((a) => (
+                  <li>
+                    <a href={`#${a.slug}`} class="ag-index__link">
+                      <span class="ag-index__name">{a.name}</span>
+                      <span class="ag-index__cat">{a.category}</span>
+                    </a>
+                  </li>
+                ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- AGENCY SECTIONS                                                       -->
+  <!-- ===================================================================== -->
+  {agencies.map((a, i) => (
+    <section
+      id={a.slug}
+      class={`ag-feature ${i % 2 === 1 ? 'ag-feature--alt' : ''}`}
+      style={`--accent: ${a.accent};`}
+    >
+      <div class="container">
+        <header class="ag-feature__head">
+          <div class="ag-feature__head-left">
+            <AgencyLogo slug={a.slug} name={a.name} class="ag-feature__logo" />
+            <span class="ag-feature__group">{a.group} · {a.category}</span>
+          </div>
+          <a class="ag-feature__visit" href={a.visit.url} target="_blank" rel="noreferrer">
+            {a.visit.label}
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17l10-10M7 7h10v10"/></svg>
+          </a>
+        </header>
+
+        <div class="ag-feature__pitch">
+          <h2 class="ag-feature__tagline">{a.tagline}</h2>
+          <p class="ag-feature__lead">{a.lead}</p>
+        </div>
+
+        <ol class={`ag-feature__lanes ag-feature__lanes--${a.lanes.length}`}>
+          {a.lanes.map((lane) => (
+            <li class="ag-feature__lane">
+              <h3 class="ag-feature__lane-title">{lane.name}</h3>
+              <p class="ag-feature__lane-body">{lane.body}</p>
+            </li>
+          ))}
+        </ol>
+
+        <footer class="ag-feature__foot">
+          <div class="ag-feature__foot-meta">
+            <span><strong>Standort.</strong> {a.based}</span>
+            {a.signal && <span class="ag-feature__signal">{a.signal}</span>}
+          </div>
+          <div class="ag-feature__foot-cta">
+            <a class="btn btn--primary btn--sm" href={pathFor(a.route, locale)}>{a.name} öffnen</a>
+          </div>
+        </footer>
+      </div>
+    </section>
+  ))}
+
+  <!-- ===================================================================== -->
+  <!-- HOW THEY FIT TOGETHER                                                 -->
+  <!-- ===================================================================== -->
+  <section class="ag-stacks">
+    <div class="ag-stacks__bg" aria-hidden="true"></div>
+    <div class="container ag-stacks__container">
+      <header class="ag-stacks__head">
+        <span class="eyebrow eyebrow--on-dark">Wie sie zusammenspielen</span>
+        <h2 class="ag-stacks__title balance">
+          Ein Projekt.<br />
+          <em>So viele Agenturen, wie die Arbeit verlangt.</em>
+        </h2>
+        <p class="ag-stacks__lead">
+          Sie müssen die Reihenfolge nicht selbst herausfinden. Öffnen Sie die Agentur, die zu Ihrem Moment
+          passt. Wir sagen Ihnen, wann es Zeit ist, eine weitere dazuzunehmen, und wann nicht.
+        </p>
+      </header>
+
+      <div class="ag-stacks__grid">
+        {[
+          {
+            scenario: 'Eine französische Pflegemarke. Eintritt in China.',
+            steps: [
+              { slug: 'beyondcompass', name: 'BeyondCompass', role: 'Den richtigen Distributor wählen.' },
+              { slug: 'chinawebfoundry', name: 'ChinaWebFoundry', role: 'Die China-Website bauen, ICP eingereicht.' },
+              { slug: 'beyondbordergroup', name: 'BeyondBorderGroup', role: 'Tmall betreiben, Media steuern.' },
+              { slug: 'theredscroll', name: 'TheRedScroll', role: 'WeChat, Douyin, RedNote, täglich.' },
+            ],
+          },
+          {
+            scenario: 'Ein chinesisches Robotikunternehmen. Schritt ins Ausland.',
+            steps: [
+              { slug: 'beyondbridge', name: 'BeyondBridge', role: 'Marke, Website, Nachfrage, Vertreter in den USA und Deutschland.' },
+              { slug: 'hubstudio', name: 'HubStudio', role: 'Content-Produktion in der Marke, im großen Maßstab.' },
+              { slug: 'nuvora-studio', name: 'Nuvora Studio', role: 'LinkedIn des Gründers, jeden Tag.' },
+            ],
+          },
+        ].map((stack) => (
+          <article class="ag-stack">
+            <h3 class="ag-stack__scenario">{stack.scenario}</h3>
+            <ol class="ag-stack__steps">
+              {stack.steps.map((step) => (
+                <li class="ag-stack__step">
+                  <a class="ag-stack__step-link" href={`#${step.slug}`}>
+                    <span class="ag-stack__step-logo">
+                      <AgencyLogo slug={step.slug} name={step.name} class="ag-stack__logo" />
+                    </span>
+                    <span class="ag-stack__step-text">
+                      <span class="ag-stack__step-name">{step.name}</span>
+                      <span class="ag-stack__step-role">{step.role}</span>
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ol>
           </article>
         ))}
+      </div>
+
+      <div class="ag-stacks__cta">
+        <a class="btn btn--primary" href={pathFor('contact', locale)}>Sprechen Sie mit uns</a>
+        <a class="btn btn--ghost-light" href={pathFor('how-we-work-together', locale)}>Wie wir zusammenarbeiten</a>
       </div>
     </div>
   </section>
 </Layout>
 
 <style>
-  .card :global(.card__logo) {
-    height: 64px;
+  /* ===================================================================== */
+  /* HERO                                                                   */
+  /* ===================================================================== */
+  .ag-hero {
+    position: relative;
+    color: #fff;
+    background: var(--bbg-ink);
+    padding: clamp(4rem, 9vh, 7rem) 0 clamp(3rem, 7vh, 5rem);
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .ag-hero__bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+      radial-gradient(900px 500px at 12% 18%, rgba(38,154,218,0.22), transparent 65%),
+      radial-gradient(800px 500px at 88% 82%, rgba(200,16,46,0.16), transparent 70%),
+      linear-gradient(180deg, #0c1220 0%, #1a1a1a 100%);
+  }
+  .ag-hero__bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 88px 88px;
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 80%);
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 80%);
+    opacity: 0.6;
+  }
+  .ag-hero__container { max-width: 920px; }
+  .ag-hero__title {
+    font-size: clamp(2.5rem, 5vw + 0.5rem, 4.75rem);
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: #fff;
+    margin: var(--space-3) 0 var(--space-5);
+    font-weight: 600;
+  }
+  .ag-hero__title em {
+    font-style: normal;
+    background: linear-gradient(120deg, #59c2ee, #ff7a8a 50%, #ffcf6f);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+  .ag-hero__lead {
+    font-size: clamp(1.05rem, 0.5vw + 0.95rem, 1.2rem);
+    color: rgba(255,255,255,0.82);
+    max-width: 60ch;
+    margin: 0 0 var(--space-7);
+  }
+  .ag-hero__logos {
+    list-style: none;
+    margin: 0;
+    padding: var(--space-5) 0 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: var(--space-3);
+    align-items: stretch;
+    border-top: 1px solid rgba(255,255,255,0.12);
+  }
+  @media (min-width: 1024px) {
+    .ag-hero__logos { grid-template-columns: repeat(7, minmax(0, 1fr)); }
+  }
+  .ag-hero__logos a {
+    display: grid;
+    place-items: center;
+    height: 72px;
+    padding: var(--space-3) var(--space-4);
+    background: #fff;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.18);
+    transition: transform 220ms cubic-bezier(0.2,0.85,0.2,1), box-shadow 220ms ease;
+    box-shadow: 0 10px 30px -16px rgba(0,0,0,0.45);
+  }
+  .ag-hero__logos a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 18px 40px -18px rgba(0,0,0,0.55);
+  }
+  .ag-hero__logos :global(.ag-hero__logo) {
+    max-height: 36px;
     width: auto;
-    max-width: 200px;
+    max-width: 100%;
+    object-fit: contain;
+  }
+
+  /* ===================================================================== */
+  /* INDEX                                                                  */
+  /* ===================================================================== */
+  .ag-index {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(1.5rem, 3vw, 2.5rem);
+  }
+  @media (min-width: 768px) {
+    .ag-index { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  }
+  .ag-index__intro {
+    margin: var(--space-3) 0 var(--space-4);
+    color: var(--bbg-text);
+    font-size: 1.05rem;
+  }
+  .ag-index__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid var(--bbg-border);
+  }
+  .ag-index__list li { border-bottom: 1px solid var(--bbg-border); }
+  .ag-index__link {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: baseline;
+    gap: var(--space-3);
+    padding: var(--space-4) 0;
+    color: var(--bbg-ink);
+    text-decoration: none;
+    transition: color 180ms ease;
+  }
+  .ag-index__link:hover { color: var(--bbg-blue); }
+  .ag-index__name {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.05rem;
+    letter-spacing: -0.005em;
+  }
+  .ag-index__cat {
+    font-size: 0.82rem;
+    color: var(--bbg-text-muted);
+    text-align: right;
+  }
+
+  /* ===================================================================== */
+  /* AGENCY FEATURE                                                         */
+  /* ===================================================================== */
+  .ag-feature {
+    position: relative;
+    padding: clamp(2.5rem, 5vh, 3.75rem) 0;
+    border-top: 1px solid var(--bbg-border);
+    background: var(--bbg-white);
+  }
+  .ag-feature::before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: 0;
+    width: clamp(60px, 8vw, 120px);
+    height: 3px;
+    background: var(--accent);
+  }
+  .ag-feature--alt { background: var(--bbg-paper); }
+
+  .ag-feature__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    margin-bottom: var(--space-5);
+    flex-wrap: wrap;
+  }
+  .ag-feature__head-left {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    min-width: 0;
+    flex-wrap: wrap;
+  }
+  .ag-feature__head-left :global(.ag-feature__logo) {
+    display: block;
+    height: 28px;
+    width: auto;
+    max-width: 160px;
+    object-fit: contain;
+  }
+  .ag-feature__group {
+    font-family: var(--font-display);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    padding: 4px 10px;
+    border: 1px solid var(--accent);
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--accent) 8%, transparent);
+  }
+  .ag-feature__visit {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--bbg-text-muted);
+    text-decoration: none;
+    transition: color 180ms ease;
+  }
+  .ag-feature__visit:hover { color: var(--accent); }
+  .ag-feature__visit svg { transition: transform 180ms ease; }
+  .ag-feature__visit:hover svg { transform: translate(2px, -2px); }
+
+  .ag-feature__pitch {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+    align-items: baseline;
+    margin-bottom: var(--space-6);
+  }
+  @media (min-width: 768px) {
+    .ag-feature__pitch {
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: clamp(1.5rem, 4vw, 3.5rem);
+    }
+  }
+  .ag-feature__tagline {
+    font-size: clamp(1.5rem, 2.4vw + 0.4rem, 2.1rem);
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+    font-weight: 600;
+    margin: 0;
+    color: var(--bbg-ink);
+    max-width: 22ch;
+  }
+  .ag-feature__tagline::first-letter,
+  .ag-feature__tagline {
+    color: var(--bbg-ink);
+  }
+  .ag-feature__lead {
+    margin: 0;
+    color: var(--bbg-text);
+    font-size: 1rem;
+    line-height: 1.6;
+    max-width: 56ch;
+  }
+
+  .ag-feature__lanes {
+    list-style: none;
+    margin: 0 0 var(--space-5);
+    padding: 0;
+    display: grid;
+    gap: var(--space-4);
+    border-top: 1px solid var(--bbg-border);
+    padding-top: var(--space-5);
+  }
+  .ag-feature__lanes--3,
+  .ag-feature__lanes--4 { grid-template-columns: 1fr; }
+  @media (min-width: 640px) {
+    .ag-feature__lanes--3,
+    .ag-feature__lanes--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (min-width: 768px) {
+    .ag-feature__lanes--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  }
+  @media (min-width: 1024px) {
+    .ag-feature__lanes--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  }
+
+  .ag-feature__lane {
+    position: relative;
+    padding-left: var(--space-4);
+    border-left: 2px solid var(--accent);
+  }
+  .ag-feature__lane-title {
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 var(--space-2);
+  }
+  .ag-feature__lane-body {
+    margin: 0;
+    color: var(--bbg-text);
+    font-size: 0.92rem;
+    line-height: 1.55;
+  }
+
+  .ag-feature__foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--bbg-border);
+  }
+  .ag-feature__foot-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4) var(--space-5);
+    color: var(--bbg-text-muted);
+    font-size: 0.88rem;
+  }
+  .ag-feature__foot-meta strong {
+    color: var(--bbg-ink);
+    font-weight: 600;
+    margin-right: 6px;
+  }
+  .ag-feature__signal {
+    color: var(--accent);
+    font-style: italic;
+  }
+
+  /* ===================================================================== */
+  /* STACKS                                                                 */
+  /* ===================================================================== */
+  .ag-stacks {
+    position: relative;
+    color: #fff;
+    padding: clamp(5rem, 10vh, 8rem) 0 clamp(5rem, 10vh, 7rem);
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .ag-stacks__bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+      radial-gradient(900px 500px at 18% 0%, rgba(38,154,218,0.22), transparent 60%),
+      radial-gradient(800px 500px at 85% 100%, rgba(255,122,138,0.18), transparent 65%),
+      linear-gradient(180deg, #0c1220 0%, #1a1a1a 100%);
+  }
+  .ag-stacks__bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(to right, rgba(255,255,255,0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.04) 1px, transparent 1px);
+    background-size: 96px 96px;
+    mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, #000 30%, transparent 80%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, #000 30%, transparent 80%);
+    opacity: 0.55;
+  }
+  .ag-stacks__container { position: relative; }
+
+  .ag-stacks__head {
+    max-width: 760px;
+    margin: 0 0 clamp(2.5rem, 6vh, 4rem);
+  }
+  .ag-stacks__title {
+    color: #fff;
+    font-size: clamp(2rem, 3.6vw + 0.4rem, 3.4rem);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    margin: var(--space-3) 0 var(--space-4);
+    font-weight: 600;
+  }
+  .ag-stacks__title em {
+    font-style: normal;
+    background: linear-gradient(120deg, #59c2ee, #ff7a8a 60%, #ffcf6f);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+  .ag-stacks__lead {
+    font-size: clamp(1.05rem, 0.5vw + 0.95rem, 1.2rem);
+    color: rgba(255,255,255,0.78);
+    max-width: 60ch;
+    margin: 0;
+  }
+
+  .ag-stacks__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(1.5rem, 3vw, 2.5rem);
+    margin-bottom: clamp(2.5rem, 6vh, 4rem);
+  }
+  @media (min-width: 768px) {
+    .ag-stacks__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+
+  .ag-stack {
+    position: relative;
+    padding: clamp(1.75rem, 3vw, 2.5rem);
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.10);
+    border-radius: 20px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  .ag-stack__scenario {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+    color: rgba(255,255,255,0.96);
+    margin: 0 0 var(--space-5);
+    padding-bottom: var(--space-4);
+    border-bottom: 1px solid rgba(255,255,255,0.10);
+  }
+  .ag-stack__steps {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-3);
+  }
+  .ag-stack__step {
+    position: relative;
+  }
+  .ag-stack__step + .ag-stack__step::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 36px;
+    width: 1px;
+    height: 8px;
+    background: rgba(255,255,255,0.30);
+  }
+  .ag-stack__step-link {
+    display: grid;
+    grid-template-columns: 56px minmax(0, 1fr);
+    gap: var(--space-4);
+    align-items: center;
+    padding: var(--space-3) var(--space-4);
+    border-radius: 14px;
+    text-decoration: none;
+    color: #fff;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    transition: background 200ms ease, border-color 200ms ease, transform 200ms ease;
+  }
+  .ag-stack__step-link:hover {
+    background: rgba(255,255,255,0.08);
+    border-color: rgba(255,255,255,0.20);
+    transform: translateX(2px);
+  }
+  .ag-stack__step-logo {
+    display: grid;
+    place-items: center;
+    width: 56px;
+    height: 40px;
+    background: #fff;
+    border-radius: 8px;
+    padding: 6px 8px;
+  }
+  .ag-stack__step-logo :global(.ag-stack__logo) {
+    max-height: 24px;
+    max-width: 100%;
+    width: auto;
+    object-fit: contain;
+  }
+  .ag-stack__step-text {
+    display: grid;
+    gap: 2px;
+    min-width: 0;
+  }
+  .ag-stack__step-name {
+    font-family: var(--font-display);
+    font-size: 0.98rem;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+    color: #fff;
+  }
+  .ag-stack__step-role {
+    font-size: 0.86rem;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.4;
+  }
+
+  .ag-stacks__cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
   }
 </style>
