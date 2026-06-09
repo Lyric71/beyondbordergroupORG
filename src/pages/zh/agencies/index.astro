@@ -6,12 +6,12 @@ import { pathFor } from '../../../i18n/ui';
 const locale = 'zh' as const;
 const title = '七家公司';
 const description =
-  'BeyondBorderGroup 由七家专业公司组成：西方进入中国、中国走向西方，以及两端通用。每一家都独立运转。多数客户从一家开始，随项目展开再把别的拉进来。';
+  'BearingBridge 由七家专业公司组成：西方进入中国、中国走向西方，以及两端通用。每一家都独立运转。多数客户从一家开始，随项目展开再把别的拉进来。';
 
 type Group = '西方 → 中国' | '中国 → 西方' | '两端通用';
 
 type AgencyRoute =
-  | 'agencies/beyondbordergroup'
+  | 'agencies/bearingbridge'
   | 'agencies/theredscroll'
   | 'agencies/chinawebfoundry'
   | 'agencies/beyondcompass'
@@ -36,9 +36,9 @@ interface Agency {
 
 const agencies: Agency[] = [
   {
-    slug: 'beyondbordergroup',
-    route: 'agencies/beyondbordergroup',
-    name: 'BeyondBorderGroup',
+    slug: 'bearingbridge',
+    route: 'agencies/bearingbridge',
+    name: 'BearingBridge',
     group: '西方 → 中国',
     category: '中国市场全案公司',
     tagline: '进入中国。在中国生长。读懂中国。',
@@ -59,7 +59,7 @@ const agencies: Agency[] = [
       },
     ],
     signal: '天猫 · 京东 · 抖音 · 小红书 · 微信',
-    visit: { url: 'https://beyondbordergroup.com', label: 'beyondbordergroup.com' },
+    visit: { url: 'https://bearingbridge.com', label: 'bearingbridge.com' },
     based: '上海。香港。巴黎。',
     accent: '#269ada',
   },
@@ -147,7 +147,7 @@ const agencies: Agency[] = [
       },
     ],
     signal: '书面交付物，一次工作会议，暖介绍，坦诚的判断。',
-    visit: { url: 'https://beyondcompass.beyondbordergroup.com', label: 'beyondcompass.beyondbordergroup.com' },
+    visit: { url: 'https://beyondcompass.bearingbridge.com', label: 'beyondcompass.bearingbridge.com' },
     based: '上海。二十年现场背调经验。',
     accent: '#1e7db0',
   },
@@ -384,7 +384,7 @@ const groups: { id: Group; label: string; intro: string }[] = [
             steps: [
               { slug: 'beyondcompass', name: 'BeyondCompass', role: '选对分销商。' },
               { slug: 'chinawebfoundry', name: 'ChinaWebFoundry', role: '把中国站建好，ICP 备案下来。' },
-              { slug: 'beyondbordergroup', name: 'BeyondBorderGroup', role: '运营天猫，跑媒介。' },
+              { slug: 'bearingbridge', name: 'BearingBridge', role: '运营天猫，跑媒介。' },
               { slug: 'theredscroll', name: 'TheRedScroll', role: '微信、抖音、小红书，每天发。' },
             ],
           },

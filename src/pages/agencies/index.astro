@@ -6,12 +6,12 @@ import { pathFor } from '../../i18n/ui';
 const locale = 'en' as const;
 const title = 'Seven agencies';
 const description =
-  'BeyondBorderGroup is seven specialist agencies. West-to-China, China-to-West, and horizontal. Each one stands alone. Most clients start with one and add others as projects grow.';
+  'BearingBridge is seven specialist agencies. West-to-China, China-to-West, and horizontal. Each one stands alone. Most clients start with one and add others as projects grow.';
 
 type Group = 'West to China' | 'China to West' | 'Horizontal';
 
 type AgencyRoute =
-  | 'agencies/beyondbordergroup'
+  | 'agencies/bearingbridge'
   | 'agencies/theredscroll'
   | 'agencies/chinawebfoundry'
   | 'agencies/beyondcompass'
@@ -36,9 +36,9 @@ interface Agency {
 
 const agencies: Agency[] = [
   {
-    slug: 'beyondbordergroup',
-    route: 'agencies/beyondbordergroup',
-    name: 'BeyondBorderGroup',
+    slug: 'bearingbridge',
+    route: 'agencies/bearingbridge',
+    name: 'BearingBridge',
     group: 'West to China',
     category: 'Full-service China agency',
     tagline: 'Enter China. Grow in China. Learn China.',
@@ -59,7 +59,7 @@ const agencies: Agency[] = [
       },
     ],
     signal: 'Tmall · JD · Douyin · RED · WeChat',
-    visit: { url: 'https://beyondbordergroup.com', label: 'beyondbordergroup.com' },
+    visit: { url: 'https://bearingbridge.com', label: 'bearingbridge.com' },
     based: 'Shanghai. Hong Kong. Paris.',
     accent: '#269ada',
   },
@@ -147,7 +147,7 @@ const agencies: Agency[] = [
       },
     ],
     signal: 'Written deliverable, working session, warm introductions, honest verdicts.',
-    visit: { url: 'https://beyondcompass.beyondbordergroup.com', label: 'beyondcompass.beyondbordergroup.com' },
+    visit: { url: 'https://beyondcompass.bearingbridge.com', label: 'beyondcompass.bearingbridge.com' },
     based: 'Shanghai. Twenty years of on-ground vetting.',
     accent: '#1e7db0',
   },
@@ -386,7 +386,7 @@ const groups: { id: Group; label: string; intro: string }[] = [
             steps: [
               { slug: 'beyondcompass', name: 'BeyondCompass', role: 'Choose the right distributor.' },
               { slug: 'chinawebfoundry', name: 'ChinaWebFoundry', role: 'Build the China site, ICP filed.' },
-              { slug: 'beyondbordergroup', name: 'BeyondBorderGroup', role: 'Operate Tmall, run media.' },
+              { slug: 'bearingbridge', name: 'BearingBridge', role: 'Operate Tmall, run media.' },
               { slug: 'theredscroll', name: 'TheRedScroll', role: 'WeChat, Douyin, RedNote, daily.' },
             ],
           },

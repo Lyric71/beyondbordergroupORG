@@ -17,7 +17,7 @@ export type Route =
   | 'entering-china'
   | 'going-overseas'
   | 'agencies'
-  | 'agencies/beyondbordergroup'
+  | 'agencies/bearingbridge'
   | 'agencies/theredscroll'
   | 'agencies/chinawebfoundry'
   | 'agencies/beyondbridge'
@@ -37,7 +37,7 @@ const routePaths: Record<Route, string> = {
   'entering-china': 'entering-china/',
   'going-overseas': 'going-overseas/',
   agencies: 'agencies/',
-  'agencies/beyondbordergroup': 'agencies/beyondbordergroup/',
+  'agencies/bearingbridge': 'agencies/bearingbridge/',
   'agencies/theredscroll': 'agencies/theredscroll/',
   'agencies/chinawebfoundry': 'agencies/chinawebfoundry/',
   'agencies/beyondbridge': 'agencies/beyondbridge/',
@@ -77,7 +77,7 @@ export interface UI {
     agenciesStandAlone: string;
     viewAllAgencies: string;
     agencyDescs: {
-      beyondbordergroup: string;
+      bearingbridge: string;
       theredscroll: string;
       chinawebfoundry: string;
       beyondcompass: string;
@@ -137,7 +137,7 @@ export const ui: Record<Locale, UI> = {
       agenciesStandAlone: 'Each agency stands alone. Most clients start with one.',
       viewAllAgencies: 'View all agencies',
       agencyDescs: {
-        beyondbordergroup: 'Full-service China entry.',
+        bearingbridge: 'Full-service China entry.',
         theredscroll: 'Chinese social media specialist.',
         chinawebfoundry: 'Websites built for China.',
         beyondcompass: 'Vetted China distributors and TPs.',
@@ -165,13 +165,13 @@ export const ui: Record<Locale, UI> = {
       discover: 'Discover',
       languages: 'Languages',
       offices: 'Shanghai. Hong Kong. Paris. Hangzhou. Reps in the US, UK, Germany, France.',
-      rights: '© 2026 BeyondBorderGroup Ltd. Hong Kong.',
+      rights: '© 2026 Beyond Border Group Ltd. Hong Kong.',
       privacy: 'Privacy',
       terms: 'Terms',
       cookies: 'Cookies',
     },
     meta: {
-      siteName: 'BeyondBorderGroup',
+      siteName: 'BearingBridge',
       skipToContent: 'Skip to content',
     },
   },
@@ -195,7 +195,7 @@ export const ui: Record<Locale, UI> = {
       agenciesStandAlone: 'Chaque agence est autonome. La plupart de nos clients démarrent par une seule.',
       viewAllAgencies: 'Voir toutes les agences',
       agencyDescs: {
-        beyondbordergroup: "Entrée en Chine, intégrée.",
+        bearingbridge: "Entrée en Chine, intégrée.",
         theredscroll: 'Spécialiste des réseaux sociaux chinois.',
         chinawebfoundry: 'Des sites taillés pour la Chine.',
         beyondcompass: 'Distributeurs et TP chinois, déjà qualifiés.',
@@ -223,13 +223,13 @@ export const ui: Record<Locale, UI> = {
       discover: 'Découvrir',
       languages: 'Langues',
       offices: 'Shanghai. Hong Kong. Paris. Hangzhou. Représentants aux États-Unis, au Royaume-Uni, en Allemagne et en France.',
-      rights: '© 2026 BeyondBorderGroup Ltd. Hong Kong.',
+      rights: '© 2026 Beyond Border Group Ltd. Hong Kong.',
       privacy: 'Confidentialité',
       terms: 'Mentions légales',
       cookies: 'Cookies',
     },
     meta: {
-      siteName: 'BeyondBorderGroup',
+      siteName: 'BearingBridge',
       skipToContent: 'Aller au contenu',
     },
   },
@@ -253,7 +253,7 @@ export const ui: Record<Locale, UI> = {
       agenciesStandAlone: '每一家机构都独立运转。多数客户从一家开始。',
       viewAllAgencies: '查看全部机构',
       agencyDescs: {
-        beyondbordergroup: '中国全案代理。',
+        bearingbridge: '中国全案代理。',
         theredscroll: '中国社交媒体专家。',
         chinawebfoundry: '为中国互联网而建的网站。',
         beyondcompass: '已经背调过的中国经销商与 TP。',
@@ -281,13 +281,13 @@ export const ui: Record<Locale, UI> = {
       discover: '了解我们',
       languages: '语言',
       offices: '上海。香港。巴黎。杭州。在美国、英国、德国、法国设有本地代表。',
-      rights: '© 2026 BeyondBorderGroup Ltd. 注册于香港。',
+      rights: '© 2026 Beyond Border Group Ltd. 注册于香港。',
       privacy: '隐私政策',
       terms: '使用条款',
       cookies: 'Cookies',
     },
     meta: {
-      siteName: 'BeyondBorderGroup',
+      siteName: 'BearingBridge',
       skipToContent: '跳到正文',
     },
   },
@@ -311,7 +311,7 @@ export const ui: Record<Locale, UI> = {
       agenciesStandAlone: 'Cada agencia se sostiene sola. La mayoría de los clientes empieza por una.',
       viewAllAgencies: 'Ver todas las agencias',
       agencyDescs: {
-        beyondbordergroup: 'Implantación integral en China.',
+        bearingbridge: 'Implantación integral en China.',
         theredscroll: 'Especialista en redes sociales chinas.',
         chinawebfoundry: 'Webs hechas para la red china.',
         beyondcompass: 'Distribuidores chinos y TP contrastados.',
@@ -339,13 +339,13 @@ export const ui: Record<Locale, UI> = {
       discover: 'Descubrir',
       languages: 'Idiomas',
       offices: 'Shanghái. Hong Kong. París. Hangzhou. Representantes en EE. UU., Reino Unido, Alemania y Francia.',
-      rights: '© 2026 BeyondBorderGroup Ltd. Hong Kong.',
+      rights: '© 2026 Beyond Border Group Ltd. Hong Kong.',
       privacy: 'Privacidad',
       terms: 'Términos',
       cookies: 'Cookies',
     },
     meta: {
-      siteName: 'BeyondBorderGroup',
+      siteName: 'BearingBridge',
       skipToContent: 'Saltar al contenido',
     },
   },
@@ -369,7 +369,7 @@ export const ui: Record<Locale, UI> = {
       agenciesStandAlone: 'Jede Agentur steht für sich. Die meisten Kunden fangen mit einer an.',
       viewAllAgencies: 'Alle Agenturen ansehen',
       agencyDescs: {
-        beyondbordergroup: 'China-Markteintritt aus einer Hand.',
+        bearingbridge: 'China-Markteintritt aus einer Hand.',
         theredscroll: 'Spezialist für chinesische Social Media.',
         chinawebfoundry: 'Websites für das chinesische Web.',
         beyondcompass: 'Geprüfte China-Distributoren und TPs.',
@@ -397,13 +397,13 @@ export const ui: Record<Locale, UI> = {
       discover: 'Entdecken',
       languages: 'Sprachen',
       offices: 'Shanghai. Hongkong. Paris. Hangzhou. Vor-Ort-Ansprechpartner in den USA, in Großbritannien, in Deutschland und in Frankreich.',
-      rights: '© 2026 BeyondBorderGroup Ltd. Hongkong.',
+      rights: '© 2026 Beyond Border Group Ltd. Hongkong.',
       privacy: 'Datenschutz',
       terms: 'AGB',
       cookies: 'Cookies',
     },
     meta: {
-      siteName: 'BeyondBorderGroup',
+      siteName: 'BearingBridge',
       skipToContent: 'Zum Inhalt springen',
     },
   },

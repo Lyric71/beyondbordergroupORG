@@ -1,0 +1,16 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "beyondbordergroup.org" }],
+      "destination": "https://bearingbridge.org/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.beyondbordergroup.org" }],
+      "destination": "https://bearingbridge.org/:path*",
+      "permanent": true
+    }
+  ]
+}

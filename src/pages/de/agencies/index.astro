@@ -6,12 +6,12 @@ import { pathFor } from '../../../i18n/ui';
 const locale = 'de' as const;
 const title = 'Sieben Agenturen';
 const description =
-  'BeyondBorderGroup ist ein Verbund aus sieben spezialisierten Agenturen. Westen nach China, China nach Westen und übergreifend. Jede steht für sich. Die meisten Kunden beginnen mit einer und holen weitere dazu, sobald das Projekt wächst.';
+  'BearingBridge ist ein Verbund aus sieben spezialisierten Agenturen. Westen nach China, China nach Westen und übergreifend. Jede steht für sich. Die meisten Kunden beginnen mit einer und holen weitere dazu, sobald das Projekt wächst.';
 
 type Group = 'Westen → China' | 'China → Westen' | 'Übergreifend';
 
 type AgencyRoute =
-  | 'agencies/beyondbordergroup'
+  | 'agencies/bearingbridge'
   | 'agencies/theredscroll'
   | 'agencies/chinawebfoundry'
   | 'agencies/beyondcompass'
@@ -36,9 +36,9 @@ interface Agency {
 
 const agencies: Agency[] = [
   {
-    slug: 'beyondbordergroup',
-    route: 'agencies/beyondbordergroup',
-    name: 'BeyondBorderGroup',
+    slug: 'bearingbridge',
+    route: 'agencies/bearingbridge',
+    name: 'BearingBridge',
     group: 'Westen → China',
     category: 'Full-Service-Agentur für China',
     tagline: 'In China ankommen. In China wachsen. China verstehen.',
@@ -59,7 +59,7 @@ const agencies: Agency[] = [
       },
     ],
     signal: 'Tmall · JD · Douyin · RED · WeChat',
-    visit: { url: 'https://beyondbordergroup.com', label: 'beyondbordergroup.com' },
+    visit: { url: 'https://bearingbridge.com', label: 'bearingbridge.com' },
     based: 'Shanghai. Hongkong. Paris.',
     accent: '#269ada',
   },
@@ -147,7 +147,7 @@ const agencies: Agency[] = [
       },
     ],
     signal: 'Schriftliches Ergebnis, Arbeitssitzung, persönliche Vorstellungen, ehrliche Urteile.',
-    visit: { url: 'https://beyondcompass.beyondbordergroup.com', label: 'beyondcompass.beyondbordergroup.com' },
+    visit: { url: 'https://beyondcompass.bearingbridge.com', label: 'beyondcompass.bearingbridge.com' },
     based: 'Shanghai. Zwanzig Jahre Prüfung vor Ort.',
     accent: '#1e7db0',
   },
@@ -387,7 +387,7 @@ const groups: { id: Group; label: string; intro: string }[] = [
             steps: [
               { slug: 'beyondcompass', name: 'BeyondCompass', role: 'Den richtigen Distributor wählen.' },
               { slug: 'chinawebfoundry', name: 'ChinaWebFoundry', role: 'Die China-Website bauen, ICP eingereicht.' },
-              { slug: 'beyondbordergroup', name: 'BeyondBorderGroup', role: 'Tmall betreiben, Media steuern.' },
+              { slug: 'bearingbridge', name: 'BearingBridge', role: 'Tmall betreiben, Media steuern.' },
               { slug: 'theredscroll', name: 'TheRedScroll', role: 'WeChat, Douyin, RedNote, täglich.' },
             ],
           },

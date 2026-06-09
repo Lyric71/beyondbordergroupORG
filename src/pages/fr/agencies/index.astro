@@ -6,12 +6,12 @@ import { pathFor } from '../../../i18n/ui';
 const locale = 'fr' as const;
 const title = 'Sept agences';
 const description =
-  "BeyondBorderGroup, ce sont sept agences spécialistes. Occident vers Chine, Chine vers Occident, et transversales. Chacune se tient seule. La majorité de nos clients démarrent par une, et ouvrent le périmètre à mesure que le projet grandit.";
+  "BearingBridge, ce sont sept agences spécialistes. Occident vers Chine, Chine vers Occident, et transversales. Chacune se tient seule. La majorité de nos clients démarrent par une, et ouvrent le périmètre à mesure que le projet grandit.";
 
 type Group = 'Occident → Chine' | 'Chine → Occident' | 'Transversal';
 
 type AgencyRoute =
-  | 'agencies/beyondbordergroup'
+  | 'agencies/bearingbridge'
   | 'agencies/theredscroll'
   | 'agencies/chinawebfoundry'
   | 'agencies/beyondcompass'
@@ -36,9 +36,9 @@ interface Agency {
 
 const agencies: Agency[] = [
   {
-    slug: 'beyondbordergroup',
-    route: 'agencies/beyondbordergroup',
-    name: 'BeyondBorderGroup',
+    slug: 'bearingbridge',
+    route: 'agencies/bearingbridge',
+    name: 'BearingBridge',
     group: 'Occident → Chine',
     category: 'Agence Chine intégrée',
     tagline: 'Entrer en Chine. Grandir en Chine. Comprendre la Chine.',
@@ -59,7 +59,7 @@ const agencies: Agency[] = [
       },
     ],
     signal: 'Tmall · JD · Douyin · RED · WeChat',
-    visit: { url: 'https://beyondbordergroup.com', label: 'beyondbordergroup.com' },
+    visit: { url: 'https://bearingbridge.com', label: 'bearingbridge.com' },
     based: 'Shanghai. Hong Kong. Paris.',
     accent: '#269ada',
   },
@@ -147,7 +147,7 @@ const agencies: Agency[] = [
       },
     ],
     signal: "Livrable écrit, séance de travail, présentations chaleureuses, verdicts honnêtes.",
-    visit: { url: 'https://beyondcompass.beyondbordergroup.com', label: 'beyondcompass.beyondbordergroup.com' },
+    visit: { url: 'https://beyondcompass.bearingbridge.com', label: 'beyondcompass.bearingbridge.com' },
     based: 'Shanghai. Vingt ans de qualification terrain.',
     accent: '#1e7db0',
   },
@@ -387,7 +387,7 @@ const groups: { id: Group; label: string; intro: string }[] = [
             steps: [
               { slug: 'beyondcompass', name: 'BeyondCompass', role: 'Choisir le bon distributeur.' },
               { slug: 'chinawebfoundry', name: 'ChinaWebFoundry', role: 'Construire le site Chine, ICP déposé.' },
-              { slug: 'beyondbordergroup', name: 'BeyondBorderGroup', role: 'Opérer Tmall, piloter le média.' },
+              { slug: 'bearingbridge', name: 'BearingBridge', role: 'Opérer Tmall, piloter le média.' },
               { slug: 'theredscroll', name: 'TheRedScroll', role: 'WeChat, Douyin, RedNote, au quotidien.' },
             ],
           },

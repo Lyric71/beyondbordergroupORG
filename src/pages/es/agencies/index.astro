@@ -6,12 +6,12 @@ import { pathFor } from '../../../i18n/ui';
 const locale = 'es' as const;
 const title = 'Siete agencias';
 const description =
-  'BeyondBorderGroup son siete agencias especialistas. Occidente hacia China, China hacia Occidente y transversales. Cada una se sostiene por sí sola. La mayoría de los clientes empieza por una y suma las demás según crece el proyecto.';
+  'BearingBridge son siete agencias especialistas. Occidente hacia China, China hacia Occidente y transversales. Cada una se sostiene por sí sola. La mayoría de los clientes empieza por una y suma las demás según crece el proyecto.';
 
 type Group = 'Occidente → China' | 'China → Occidente' | 'Transversal';
 
 type AgencyRoute =
-  | 'agencies/beyondbordergroup'
+  | 'agencies/bearingbridge'
   | 'agencies/theredscroll'
   | 'agencies/chinawebfoundry'
   | 'agencies/beyondcompass'
@@ -36,9 +36,9 @@ interface Agency {
 
 const agencies: Agency[] = [
   {
-    slug: 'beyondbordergroup',
-    route: 'agencies/beyondbordergroup',
-    name: 'BeyondBorderGroup',
+    slug: 'bearingbridge',
+    route: 'agencies/bearingbridge',
+    name: 'BearingBridge',
     group: 'Occidente → China',
     category: 'Agencia integral en China',
     tagline: 'Entrar en China. Crecer en China. Entender China.',
@@ -59,7 +59,7 @@ const agencies: Agency[] = [
       },
     ],
     signal: 'Tmall · JD · Douyin · RED · WeChat',
-    visit: { url: 'https://beyondbordergroup.com', label: 'beyondbordergroup.com' },
+    visit: { url: 'https://bearingbridge.com', label: 'bearingbridge.com' },
     based: 'Shanghái. Hong Kong. París.',
     accent: '#269ada',
   },
@@ -147,7 +147,7 @@ const agencies: Agency[] = [
       },
     ],
     signal: 'Entregable escrito, sesión de trabajo, presentaciones cálidas, veredictos honestos.',
-    visit: { url: 'https://beyondcompass.beyondbordergroup.com', label: 'beyondcompass.beyondbordergroup.com' },
+    visit: { url: 'https://beyondcompass.bearingbridge.com', label: 'beyondcompass.bearingbridge.com' },
     based: 'Shanghái. Veinte años validando en el terreno.',
     accent: '#1e7db0',
   },
@@ -387,7 +387,7 @@ const groups: { id: Group; label: string; intro: string }[] = [
             steps: [
               { slug: 'beyondcompass', name: 'BeyondCompass', role: 'Elegir al distribuidor adecuado.' },
               { slug: 'chinawebfoundry', name: 'ChinaWebFoundry', role: 'Construir el sitio China, ICP tramitado.' },
-              { slug: 'beyondbordergroup', name: 'BeyondBorderGroup', role: 'Operar Tmall, llevar los medios.' },
+              { slug: 'bearingbridge', name: 'BearingBridge', role: 'Operar Tmall, llevar los medios.' },
               { slug: 'theredscroll', name: 'TheRedScroll', role: 'WeChat, Douyin, RedNote, a diario.' },
             ],
           },
