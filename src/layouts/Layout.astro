@@ -14,7 +14,7 @@ interface Props {
 const { locale, route, title, description } = Astro.props;
 const ui = t(locale);
 const fullTitle = `${title} | ${ui.meta.siteName}`;
-const canonical = new URL(pathFor(route, locale), Astro.site ?? 'https://beyondbordergroup.com').toString();
+const canonical = new URL(pathFor(route, locale), Astro.site ?? 'https://bearingbridge.org').toString();
 ---
 
 <!doctype html>
