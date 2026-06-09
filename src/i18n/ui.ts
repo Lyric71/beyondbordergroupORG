@@ -37,7 +37,7 @@ const routePaths: Record<Route, string> = {
   'entering-china': 'entering-china/',
   'going-overseas': 'going-overseas/',
   agencies: 'agencies/',
-  'agencies/bearingbridge': 'agencies/bearingbridge/',
+  'agencies/bearingbridge': 'agencies/thechinapath/',
   'agencies/theredscroll': 'agencies/theredscroll/',
   'agencies/chinawebfoundry': 'agencies/chinawebfoundry/',
   'agencies/beyondbridge': 'agencies/beyondbridge/',

@@ -181,3 +181,50 @@ When iterating on a page, section, hero, or copy, change ONLY the English versio
 **Why:** The user iterates on English first, then asks for translations once the design and copy are settled. Bulk-translating premature drafts wastes work, multiplies revisions, and clutters the diff.
 
 **How to apply:** For any edit to a page that exists in 5 locales (home, two-flows, the-bridge, how-we-work-together, contact, agencies/*, etc.), touch only the English file in `src/pages/*.astro`. Leave `src/pages/{fr,es,de,zh}/*.astro` untouched until the user explicitly says "translate", "propagate to other languages", "update all languages", or similar. Shared files (`i18n/ui.ts`, components, styles) are not affected by this rule, update them normally.
+
+---
+
+## 10. Great Firewall compliance — no external runtime calls, ever
+
+**Core principle:** The site must render fully and identically for visitors inside mainland China. This is permanent, non-negotiable, and the default for every change, not a future "if".
+
+**The one hard rule:** every byte the browser fetches at runtime must come from the site's own origin (`beyondbridge.ai` / `bearingbridge.org` and Vercel's edge for that domain) or be inlined. That covers fonts, scripts, stylesheets, images, video, iframes, JSON, web fonts, analytics beacons, error trackers, chat widgets, map tiles, share buttons, and captchas.
+
+**Specifically forbidden (page-level HTML/CSS/JS):**
+- No third-party `<script src>`
+- No third-party `<link rel="stylesheet">`
+- No third-party `<img src>` / `srcset` (no hot-linking, including from sibling agency domains like `theredscroll.com`)
+- No third-party `<iframe>`
+- No `fetch()` / `XMLHttpRequest` to a non-origin host
+- No `@import url(http…)`
+- No `@font-face src: url(http…)`
+- No CSS `background-image: url(http…)`
+- No `preconnect` / `dns-prefetch` to a non-origin host
+
+**Outbound `<a href>` navigation links are allowed** (they only load when the user clicks, navigating away). LinkedIn, agency sites, etc. in anchor `href` are fine. The `xmlns="http://www.w3.org/2000/svg"` namespace and `cite="…"` attributes are not fetches and are fine.
+
+**Blocked/unreliable hosts to never reference at runtime:** Google (`fonts.googleapis.com`, `fonts.gstatic.com`, `*.googleapis.com`, `*.gstatic.com`, google-analytics, googletagmanager, recaptcha), Meta (`*.facebook.com`, `*.fbcdn.net`, `connect.facebook.net`, `*.instagram.com`), Twitter/X (`*.twitter.com`, `*.twimg.com`, `*.x.com`), YouTube/Vimeo (`*.youtube.com`, `*.youtu.be`, `*.ytimg.com`, `*.vimeo.com`), public CDNs (`cdnjs.cloudflare.com`, `cdn.jsdelivr.net`, `unpkg.com`, `ajax.googleapis.com`), captchas (reCAPTCHA, hCaptcha), trackers/widgets (Hotjar, Intercom, Disqus, Sentry public ingest, Cloudflare Insights, `va.vercel-scripts.com`).
+
+**What's allowed:** the production domain itself and Vercel's edge for it. Build-time fetches (Resend, WaveSpeed, npm install) are fine, they bake into static output and never run in the visitor's browser. Server API routes (`src/pages/api/*`) calling third parties run server-side, not in the browser, and are fine.
+
+**How to handle common cases:**
+- Fonts → self-host via `@fontsource/*` npm packages imported from Astro layout frontmatter (emits woff2 under `/_astro/`). Or a pure system-font stack. Never link Google/Bunny Fonts or any font CDN.
+- Icons → inline SVG or local icon component. No icon-font CDN.
+- Analytics → none, or self-hosted on the site's own domain.
+- Maps → static images or self-hosted tiles. No Google Maps / Mapbox CDN.
+- Forms/captcha → honeypot fields + server-side rate limiting. No reCAPTCHA/hCaptcha.
+- Embeds (video, social) → host the asset locally or link out. No in-page YouTube/Vimeo/Twitter/Instagram embeds.
+- Images → local under `public/Images/`, referenced with lowercase `/images/...` paths (the repo convention; Astro emits the folder lowercase and Vercel serves case-sensitively, so `/Images/...` would 404 in production). No hot-linking.
+
+**Verification before merging any HTML/CSS/JS/layout/component change:**
+```
+npm run build
+# external runtime fetches in built output (should be empty):
+grep -rhoE "(src|srcset)=\"https?://[^\"]+|url\(['\"]?https?://[^)]+|@import[^;]+https?" dist/ | grep -vE "https?://(www\.)?(beyondbridge\.ai|bearingbridge\.org|www\.w3\.org)"
+# CSS url() check (should be /_astro, /images, data:, or # only):
+grep -rhoE "url\([^)]+\)" dist/_astro/*.css | grep -vE "(/_astro|/images|data:|#|/fonts)"
+```
+
+**Why:** A single third-party runtime fetch (font, image, script, tracker) that is blocked or throttled in mainland China breaks or stalls the page for the audience the entire BearingBridge brand is built to reach. The site bridges China and the West; if it doesn't load behind the Great Firewall, the premise fails. This is enforced on every change, in every locale.
+
+**How to apply:** Run the verification grep on every layout/component/style/page change. If a dependency exposes runtime URLs, flag it to the user and propose a self-hosted alternative before writing code. When adding any image, download it into `public/Images/` and reference it at `/images/...` rather than hot-linking, even from a sibling agency domain.

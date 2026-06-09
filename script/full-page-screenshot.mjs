@@ -6,7 +6,7 @@ import { writeFile, mkdir } from 'node:fs/promises';
 import { resolve } from 'node:path';
 
 const CHROME = 'C:/Program Files/Google/Chrome/Application/chrome.exe';
-const TARGET_URL = process.argv[2] || 'http://127.0.0.1:4321/agencies/bearingbridge/';
+const TARGET_URL = process.argv[2] || 'http://127.0.0.1:4321/agencies/thechinapath/';
 const OUT = process.argv[3] || resolve(process.env.TEMP || '/tmp', 'fullpage.png');
 const PORT = 9333;
 
