@@ -77,9 +77,9 @@ const agencies = [
           <ol class="rail__list">
             <li class="rail__row" style="--row-i: 0;">
               <a class="rail__link" href={pathFor('agencies/bearingbridge', locale)}>
-                <span class="rail__logo"><img src="/AgencyLogos/BBG%20PNG.png" alt="" /></span>
+                <span class="rail__logo"><img src="/images/thechinapath-horizontal.png" alt="" /></span>
                 <span class="rail__body">
-                  <span class="rail__name">BearingBridge</span>
+                  <span class="rail__name">TheChinaPath</span>
                   <span class="rail__tagline">Full-service West to China</span>
                 </span>
                 <span class="rail__stripe rail__stripe--w" aria-hidden="true"></span>
@@ -297,10 +297,12 @@ const agencies = [
           <div class="matrix-cell matrix-cell--lead" role="cell">
             <span class="matrix-cell__tag">Lead agency</span>
             <span class="matrix-cell__name">TheChinaPath</span>
+            <a class="matrix-cell__site" href="https://thechinapath.com" target="_blank" rel="noreferrer">thechinapath.com <span aria-hidden="true">↗</span></a>
           </div>
           <div class="matrix-cell matrix-cell--lead" role="cell">
             <span class="matrix-cell__tag">Lead agency</span>
             <span class="matrix-cell__name">BeyondBridge</span>
+            <a class="matrix-cell__site" href="https://beyondbridge.com" target="_blank" rel="noreferrer">beyondbridge.com <span aria-hidden="true">↗</span></a>
           </div>
         </div>
 
@@ -312,6 +314,7 @@ const agencies = [
             <span class="matrix-cell__tag">Both ways</span>
             <span class="matrix-cell__name">TheRedScroll</span>
             <span class="matrix-cell__note">WeChat, Douyin, RedNote, Weibo. For Western or Chinese clients.</span>
+            <a class="matrix-cell__site" href="https://theredscroll.com" target="_blank" rel="noreferrer">theredscroll.com <span aria-hidden="true">↗</span></a>
           </div>
         </div>
 
@@ -323,6 +326,7 @@ const agencies = [
             <span class="matrix-cell__tag">Both ways</span>
             <span class="matrix-cell__name">Nuvora Studio</span>
             <span class="matrix-cell__note">LinkedIn-only. For Western or Chinese clients.</span>
+            <a class="matrix-cell__site" href="https://nuvora.studio" target="_blank" rel="noreferrer">nuvora.studio <span aria-hidden="true">↗</span></a>
           </div>
         </div>
 
@@ -334,6 +338,7 @@ const agencies = [
             <span class="matrix-cell__tag">Both ways</span>
             <span class="matrix-cell__name">ChinaWebFoundry</span>
             <span class="matrix-cell__note">Baidu-ready, ICP, Chinese AI engines. For Western or Chinese clients.</span>
+            <a class="matrix-cell__site" href="https://chinawebfoundry.com" target="_blank" rel="noreferrer">chinawebfoundry.com <span aria-hidden="true">↗</span></a>
           </div>
         </div>
 
@@ -345,6 +350,7 @@ const agencies = [
             <span class="matrix-cell__tag">Both ways</span>
             <span class="matrix-cell__name">BeyondCompass</span>
             <span class="matrix-cell__note">Vetted China distributors, Tmall TPs, Douyin Partners.</span>
+            <a class="matrix-cell__site" href="https://beyondcompass.bearingbridge.com" target="_blank" rel="noreferrer">beyondcompass.bearingbridge.com <span aria-hidden="true">↗</span></a>
           </div>
         </div>
 
@@ -360,6 +366,7 @@ const agencies = [
             </span>
             <span class="matrix-cell__name">HubStudio</span>
             <span class="matrix-cell__note">Content production engine. Runs across both directions.</span>
+            <a class="matrix-cell__site" href="https://hubstudio.ai" target="_blank" rel="noreferrer">hubstudio.ai <span aria-hidden="true">↗</span></a>
           </div>
         </div>
       </div>
@@ -556,6 +563,23 @@ const agencies = [
     font-size: 1.0625rem;
     font-weight: 600;
     color: var(--bbg-ink);
+  }
+  .matrix-cell__site {
+    width: fit-content;
+    margin-top: 6px;
+    font-size: var(--fs-small);
+    font-weight: 600;
+    color: var(--bbg-blue);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+    transition: opacity 0.2s var(--ease);
+  }
+  .matrix-cell__site:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .matrix-grid__row--span .matrix-cell__site {
+    color: rgba(255, 255, 255, 0.88);
   }
   .matrix-cell--empty {
     background: transparent;
