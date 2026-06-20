@@ -14,7 +14,7 @@ type AgencyRoute =
   | 'agencies/bearingbridge'
   | 'agencies/theredscroll'
   | 'agencies/chinawebfoundry'
-  | 'agencies/beyondcompass'
+  | 'agencies/compass'
   | 'agencies/beyondbridge'
   | 'agencies/hubstudio'
   | 'agencies/nuvora-studio';
@@ -38,7 +38,7 @@ const agencies: Agency[] = [
   {
     slug: 'bearingbridge',
     route: 'agencies/bearingbridge',
-    name: 'BearingBridge',
+    name: 'TheChinaPath',
     group: 'Occidente → China',
     category: 'Agencia integral en China',
     tagline: 'Entrar en China. Crecer en China. Entender China.',
@@ -124,9 +124,9 @@ const agencies: Agency[] = [
     accent: '#d99a3a',
   },
   {
-    slug: 'beyondcompass',
-    route: 'agencies/beyondcompass',
-    name: 'BeyondCompass',
+    slug: 'compass',
+    route: 'agencies/compass',
+    name: 'Compass',
     group: 'Occidente → China',
     category: 'Búsqueda y validación de partners',
     tagline: 'Encontrar el partner chino correcto, primero.',
@@ -147,7 +147,7 @@ const agencies: Agency[] = [
       },
     ],
     signal: 'Entregable escrito, sesión de trabajo, presentaciones cálidas, veredictos honestos.',
-    visit: { url: 'https://beyondcompass.bearingbridge.com', label: 'beyondcompass.bearingbridge.com' },
+    visit: { url: 'https://compass.bearingbridge.com', label: 'compass.bearingbridge.com' },
     based: 'Shanghái. Veinte años validando en el terreno.',
     accent: '#1e7db0',
   },
@@ -385,9 +385,9 @@ const groups: { id: Group; label: string; intro: string }[] = [
           {
             scenario: 'Una marca francesa de cosmética. Entrando en China.',
             steps: [
-              { slug: 'beyondcompass', name: 'BeyondCompass', role: 'Elegir al distribuidor adecuado.' },
+              { slug: 'compass', name: 'Compass', role: 'Elegir al distribuidor adecuado.' },
               { slug: 'chinawebfoundry', name: 'ChinaWebFoundry', role: 'Construir el sitio China, ICP tramitado.' },
-              { slug: 'bearingbridge', name: 'BearingBridge', role: 'Operar Tmall, llevar los medios.' },
+              { slug: 'bearingbridge', name: 'TheChinaPath', role: 'Operar Tmall, llevar los medios.' },
               { slug: 'theredscroll', name: 'TheRedScroll', role: 'WeChat, Douyin, RedNote, a diario.' },
             ],
           },

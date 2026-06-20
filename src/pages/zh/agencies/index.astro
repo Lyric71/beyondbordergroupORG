@@ -14,7 +14,7 @@ type AgencyRoute =
   | 'agencies/bearingbridge'
   | 'agencies/theredscroll'
   | 'agencies/chinawebfoundry'
-  | 'agencies/beyondcompass'
+  | 'agencies/compass'
   | 'agencies/beyondbridge'
   | 'agencies/hubstudio'
   | 'agencies/nuvora-studio';
@@ -38,7 +38,7 @@ const agencies: Agency[] = [
   {
     slug: 'bearingbridge',
     route: 'agencies/bearingbridge',
-    name: 'BearingBridge',
+    name: 'TheChinaPath',
     group: '西方 → 中国',
     category: '中国市场全案公司',
     tagline: '进入中国。在中国生长。读懂中国。',
@@ -124,9 +124,9 @@ const agencies: Agency[] = [
     accent: '#d99a3a',
   },
   {
-    slug: 'beyondcompass',
-    route: 'agencies/beyondcompass',
-    name: 'BeyondCompass',
+    slug: 'compass',
+    route: 'agencies/compass',
+    name: 'Compass',
     group: '西方 → 中国',
     category: '伙伴搜寻与背调',
     tagline: '先找对中国伙伴。',
@@ -147,7 +147,7 @@ const agencies: Agency[] = [
       },
     ],
     signal: '书面交付物，一次工作会议，暖介绍，坦诚的判断。',
-    visit: { url: 'https://beyondcompass.bearingbridge.com', label: 'beyondcompass.bearingbridge.com' },
+    visit: { url: 'https://compass.bearingbridge.com', label: 'compass.bearingbridge.com' },
     based: '上海。二十年现场背调经验。',
     accent: '#1e7db0',
   },
@@ -382,9 +382,9 @@ const groups: { id: Group; label: string; intro: string }[] = [
           {
             scenario: '一家法国护肤品牌。进入中国。',
             steps: [
-              { slug: 'beyondcompass', name: 'BeyondCompass', role: '选对分销商。' },
+              { slug: 'compass', name: 'Compass', role: '选对分销商。' },
               { slug: 'chinawebfoundry', name: 'ChinaWebFoundry', role: '把中国站建好，ICP 备案下来。' },
-              { slug: 'bearingbridge', name: 'BearingBridge', role: '运营天猫，跑媒介。' },
+              { slug: 'bearingbridge', name: 'TheChinaPath', role: '运营天猫，跑媒介。' },
               { slug: 'theredscroll', name: 'TheRedScroll', role: '微信、抖音、小红书，每天发。' },
             ],
           },

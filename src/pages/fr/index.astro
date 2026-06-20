@@ -4,15 +4,15 @@ import AgencyLogo from '../../components/AgencyLogo.astro';
 import { pathFor } from '../../i18n/ui';
 
 const locale = 'fr' as const;
-const title = "Marques, produits et services conçus pour circuler entre la Chine et l'Occident, dans les deux sens.";
-const description = "Sept agences spécialistes qui font passer marques, produits et services entre la Chine et l'Occident, dans les deux sens. Marque, canaux, web, sourcing de partenaires, contenu, vente. Un écosystème, une colonne vertébrale partagée.";
+const title = "Des marques, des produits et des services qui circulent entre la Chine et l'Occident, dans les deux sens.";
+const description = "Sept agences spécialisées qui font circuler marques, produits et services entre la Chine et l'Occident, dans les deux sens. Marque, canaux, web, recherche de partenaires, contenu, vente. Un écosystème, une colonne vertébrale commune.";
 
 const linkedinUrl = 'https://www.linkedin.com/in/cyril-d-68835729/';
 
 const agencies = [
   {
-    name: 'BearingBridge',
-    tagline: "Entrée en Chine intégrée. Du branding au e-commerce.",
+    name: 'TheChinaPath',
+    tagline: "Implantation en Chine de bout en bout, de la marque au e-commerce.",
     route: 'agencies/bearingbridge' as const,
   },
   {
@@ -22,27 +22,27 @@ const agencies = [
   },
   {
     name: 'ChinaWebFoundry',
-    tagline: "Sites pensés pour le web chinois. Baidu, ICP, moteurs IA.",
+    tagline: "Des sites pensés pour le web chinois : Baidu, ICP, moteurs d'IA.",
     route: 'agencies/chinawebfoundry' as const,
   },
   {
-    name: 'BeyondCompass',
-    tagline: 'Base privée de distributeurs chinois qualifiés, TP Tmall, Douyin Partners.',
-    route: 'agencies/beyondcompass' as const,
+    name: 'Compass',
+    tagline: 'Vivier privé de distributeurs chinois qualifiés, TP Tmall, Douyin Partners.',
+    route: 'agencies/compass' as const,
   },
   {
     name: 'BeyondBridge',
-    tagline: "Pipeline complet pour les marques chinoises à l'export.",
+    tagline: "Dispositif complet pour les marques chinoises à l'export.",
     route: 'agencies/beyondbridge' as const,
   },
   {
     name: 'HubStudio',
-    tagline: "Production d'image, vidéo et contenu à l'échelle.",
+    tagline: "Production d'images, de vidéos et de contenus à grande échelle.",
     route: 'agencies/hubstudio' as const,
   },
   {
     name: 'Nuvora Studio',
-    tagline: 'B2B exclusivement LinkedIn. Stratégie, contenu, ads.',
+    tagline: 'B2B, exclusivement sur LinkedIn. Stratégie, contenu, publicité.',
     route: 'agencies/nuvora-studio' as const,
   },
 ];
@@ -66,7 +66,6 @@ const agencies = [
       <aside class="rail" aria-label="Sept agences du groupe">
         <header class="rail__head">
           <span class="rail__head-tag">Écosystème</span>
-          <span class="rail__head-count">Sept spécialistes</span>
         </header>
 
         <div class="rail__chapter">
@@ -77,9 +76,9 @@ const agencies = [
           <ol class="rail__list">
             <li class="rail__row" style="--row-i: 0;">
               <a class="rail__link" href={pathFor('agencies/bearingbridge', locale)}>
-                <span class="rail__logo"><img src="/AgencyLogos/BBG%20PNG.png" alt="" /></span>
+                <span class="rail__logo"><img src="/images/thechinapath-horizontal.png" alt="" /></span>
                 <span class="rail__body">
-                  <span class="rail__name">BearingBridge</span>
+                  <span class="rail__name">TheChinaPath</span>
                   <span class="rail__tagline">Couverture intégrale Occident → Chine</span>
                 </span>
                 <span class="rail__stripe rail__stripe--w" aria-hidden="true"></span>
@@ -100,7 +99,7 @@ const agencies = [
 
         <div class="rail__chapter">
           <div class="rail__chapter-head">
-            <span class="rail__chapter-label">Spécialistes, dans les deux sens</span>
+            <span class="rail__chapter-label">Spécialistes</span>
             <span class="rail__chapter-rule" aria-hidden="true"></span>
           </div>
           <ol class="rail__list">
@@ -119,16 +118,16 @@ const agencies = [
                 <span class="rail__logo"><img src="/AgencyLogos/Logo-ChinaWebFoundry-transparent.png" alt="" /></span>
                 <span class="rail__body">
                   <span class="rail__name">ChinaWebFoundry</span>
-                  <span class="rail__tagline">Bâti pour le web chinois</span>
+                  <span class="rail__tagline">Pensé pour le web chinois</span>
                 </span>
                 <span class="rail__stripe rail__stripe--both" aria-hidden="true"></span>
               </a>
             </li>
             <li class="rail__row" style="--row-i: 4;">
-              <a class="rail__link" href={pathFor('agencies/beyondcompass', locale)}>
-                <span class="rail__logo"><img src="/AgencyLogos/BeyondCompass%20-%20Transparent%20-%204K.png" alt="" /></span>
+              <a class="rail__link" href={pathFor('agencies/compass', locale)}>
+                <span class="rail__logo"><img src="/AgencyLogos/Logo%20Compass%20-%20Horizontal.svg" alt="" /></span>
                 <span class="rail__body">
-                  <span class="rail__name">BeyondCompass</span>
+                  <span class="rail__name">Compass</span>
                   <span class="rail__tagline">Partenaires chinois qualifiés</span>
                 </span>
                 <span class="rail__stripe rail__stripe--both" aria-hidden="true"></span>
@@ -158,7 +157,7 @@ const agencies = [
                 <span class="rail__logo"><img src="/AgencyLogos/hubStudio%20(2).png" alt="" /></span>
                 <span class="rail__body">
                   <span class="rail__name">HubStudio</span>
-                  <span class="rail__tagline">Traverse les deux sens</span>
+                  <span class="rail__tagline">Au service des deux sens</span>
                 </span>
                 <span class="rail__stripe rail__stripe--c" aria-hidden="true"></span>
               </a>
@@ -170,17 +169,17 @@ const agencies = [
     <div class="container hero-statement__container">
       <div class="hero-statement__content">
         <span class="eyebrow">Écosystème</span>
-        <h1 class="hero-statement__title balance">Nous construisons et faisons grandir des marques, produits et services entre la Chine et l'Occident. Dans les deux sens.</h1>
+        <h1 class="hero-statement__title balance">Nous concevons et développons des marques, des produits et des services qui circulent entre la Chine et l'Occident. Dans les deux sens.</h1>
         <p class="hero-statement__lead">
-          Sept agences spécialistes, une même conviction. L'écart entre la Chine et l'Occident n'a jamais été
-          un problème de traduction. C'est une affaire de marque, de canaux, d'infrastructure et de vente. Et
-          cela se joue dans les deux sens, chaque jour.
+          Sept agences spécialisées, une même conviction : entre la Chine et l'Occident, l'écart n'a jamais été
+          affaire de traduction. Il se joue sur la marque, les canaux, l'infrastructure, la vente. Et il se
+          franchit dans les deux sens, chaque jour.
         </p>
         <div class="btn-row">
-          <a class="btn btn--primary" href={pathFor('agencies', locale)}>Trouver l'agence qu'il vous faut</a>
-          <a class="btn btn--ghost" href={pathFor('contact', locale)}>Parler à l'équipe</a>
+          <a class="btn btn--primary" href={pathFor('agencies', locale)}>Trouver votre agence</a>
+          <a class="btn btn--ghost" href={pathFor('contact', locale)}>Échanger avec l'équipe</a>
         </div>
-        <p class="hero-statement__cite">Shanghai. Hong Kong. Paris. Représentants aux États-Unis, au Royaume-Uni, en Allemagne et en France.</p>
+        <p class="hero-statement__cite">Présence à Shanghai, Hong Kong et Paris. Représentants aux États-Unis, au Royaume-Uni, en Allemagne et en France.</p>
       </div>
     </div>
   </section>
@@ -189,7 +188,7 @@ const agencies = [
     <div class="container">
       <header class="section-header">
         <span class="eyebrow">Deux flux</span>
-        <h2 class="balance">Partez du côté où vous êtes.</h2>
+        <h2 class="balance">Choisissez votre point de départ.</h2>
       </header>
 
       <div class="bridge-panel">
@@ -209,14 +208,14 @@ const agencies = [
             <span class="bridge-panel__arrow" aria-hidden="true">→</span>
             Occident vers Chine · Entrant
           </span>
-          <h3 class="bridge-panel__title">Faire entrer les marques occidentales en Chine.</h3>
+          <h3 class="bridge-panel__title">Implanter les marques occidentales en Chine.</h3>
           <p class="bridge-panel__body">
-            Marque, WeChat, RedNote, Douyin, Tmall, JD, Baidu, KOL, distribution. D'une landing page seule à la
-            stack complète.
+            Marque, WeChat, RedNote, Douyin, Tmall, JD, Baidu, influenceurs, distribution. D'une page unique au
+            dispositif complet.
           </p>
-          <span class="bridge-panel__by">BearingBridge · TheRedScroll · ChinaWebFoundry · BeyondCompass · HubStudio</span>
+          <span class="bridge-panel__by">TheChinaPath · TheRedScroll · ChinaWebFoundry · Compass · HubStudio</span>
           <span class="bridge-panel__cta">
-            Aller au flux entrant
+            Découvrir le flux entrant
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
           </span>
         </a>
@@ -226,21 +225,21 @@ const agencies = [
             <span class="bridge-panel__arrow" aria-hidden="true">←</span>
             Chine vers Occident · Sortant
           </span>
-          <h3 class="bridge-panel__title">Faire sortir les marques chinoises à l'étranger.</h3>
+          <h3 class="bridge-panel__title">Accompagner les marques chinoises à l'international.</h3>
           <p class="bridge-panel__body">
-            Une marque pensée pour les acheteurs occidentaux, une vraie présence LinkedIn, un site bâti pour
-            l'œil occidental, SEO, GEO, Google Ads, et des commerciaux nommés dans le bon fuseau horaire.
+            Une marque pensée pour des acheteurs occidentaux, une présence LinkedIn crédible, un site taillé
+            pour le regard occidental, SEO, GEO, Google Ads, et des commerciaux dans le bon fuseau horaire.
           </p>
           <span class="bridge-panel__by">BeyondBridge · Nuvora Studio</span>
           <span class="bridge-panel__cta">
-            Aller au flux sortant
+            Découvrir le flux sortant
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
           </span>
         </a>
       </div>
 
       <div class="btn-row" style="margin-top: var(--space-6); justify-content: center;">
-        <a class="btn btn--primary" href={pathFor('two-flows', locale)}>Ouvrir la page complète des deux flux</a>
+        <a class="btn btn--primary" href={pathFor('two-flows', locale)}>Voir la page complète des deux flux</a>
       </div>
     </div>
   </section>
@@ -248,11 +247,11 @@ const agencies = [
   <section class="section">
     <div class="container">
       <header class="section-header">
-        <span class="eyebrow">La stack</span>
+        <span class="eyebrow">Le dispositif</span>
         <h2 class="balance">Sept spécialistes. Un seul écosystème.</h2>
         <p class="lead">
-          Chaque agence est autonome. Prenez celle qu'il vous faut. La majorité de nos clients démarrent par
-          une seule, puis ouvrent le périmètre quand le projet grandit.
+          Chaque agence est autonome. Prenez celle dont vous avez besoin. La plupart de nos clients commencent
+          par une seule, puis élargissent le périmètre à mesure que le projet avance.
         </p>
       </header>
       <div class="grid-3">
@@ -273,8 +272,8 @@ const agencies = [
         <span class="eyebrow">La logique</span>
         <h2 class="balance">Deux leaders. Cinq spécialistes. Un moteur.</h2>
         <p class="lead">
-          Deux agences leaders, une par direction. Cinq spécialistes qui se branchent dans les deux sens.
-          Un seul moteur de production qui traverse les deux.
+          Deux agences leaders, une par direction. Cinq spécialistes mobilisables dans les deux sens.
+          Et un même moteur de production qui irrigue l'ensemble.
         </p>
       </header>
       <div class="matrix-grid" role="table" aria-label="Agences par direction et par couche">
@@ -296,11 +295,13 @@ const agencies = [
           </div>
           <div class="matrix-cell matrix-cell--lead" role="cell">
             <span class="matrix-cell__tag">Agence leader</span>
-            <span class="matrix-cell__name">BearingBridge</span>
+            <span class="matrix-cell__name">TheChinaPath</span>
+            <a class="matrix-cell__site" href="https://thechinapath.com" target="_blank" rel="noreferrer">thechinapath.com <span aria-hidden="true">↗</span></a>
           </div>
           <div class="matrix-cell matrix-cell--lead" role="cell">
             <span class="matrix-cell__tag">Agence leader</span>
             <span class="matrix-cell__name">BeyondBridge</span>
+            <a class="matrix-cell__site" href="https://beyondbridge.ai" target="_blank" rel="noreferrer">beyondbridge.ai <span aria-hidden="true">↗</span></a>
           </div>
         </div>
 
@@ -311,7 +312,8 @@ const agencies = [
           <div class="matrix-cell matrix-cell--both" role="cell">
             <span class="matrix-cell__tag">Dans les deux sens</span>
             <span class="matrix-cell__name">TheRedScroll</span>
-            <span class="matrix-cell__note">WeChat, Douyin, RedNote, Weibo. Pour clients occidentaux ou chinois.</span>
+            <span class="matrix-cell__note">WeChat, Douyin, RedNote, Weibo. Pour des clients occidentaux comme chinois.</span>
+            <a class="matrix-cell__site" href="https://theredscroll.com" target="_blank" rel="noreferrer">theredscroll.com <span aria-hidden="true">↗</span></a>
           </div>
         </div>
 
@@ -322,7 +324,8 @@ const agencies = [
           <div class="matrix-cell matrix-cell--both" role="cell">
             <span class="matrix-cell__tag">Dans les deux sens</span>
             <span class="matrix-cell__name">Nuvora Studio</span>
-            <span class="matrix-cell__note">Exclusivement LinkedIn. Pour clients occidentaux ou chinois.</span>
+            <span class="matrix-cell__note">Exclusivement LinkedIn. Pour des clients occidentaux comme chinois.</span>
+            <a class="matrix-cell__site" href="https://nuvora.studio" target="_blank" rel="noreferrer">nuvora.studio <span aria-hidden="true">↗</span></a>
           </div>
         </div>
 
@@ -333,18 +336,20 @@ const agencies = [
           <div class="matrix-cell matrix-cell--both" role="cell">
             <span class="matrix-cell__tag">Dans les deux sens</span>
             <span class="matrix-cell__name">ChinaWebFoundry</span>
-            <span class="matrix-cell__note">Prêt pour Baidu, ICP, moteurs IA chinois. Pour clients occidentaux ou chinois.</span>
+            <span class="matrix-cell__note">Prêt pour Baidu, l'ICP et les moteurs d'IA chinois. Pour des clients occidentaux comme chinois.</span>
+            <a class="matrix-cell__site" href="https://chinawebfoundry.com" target="_blank" rel="noreferrer">chinawebfoundry.com <span aria-hidden="true">↗</span></a>
           </div>
         </div>
 
         <div class="matrix-grid__row matrix-grid__row--both" role="row">
           <div class="matrix-grid__layer" role="rowheader">
-            <span class="matrix-grid__layer-name">Sourcing de partenaires</span>
+            <span class="matrix-grid__layer-name">Recherche de partenaires</span>
           </div>
           <div class="matrix-cell matrix-cell--both" role="cell">
             <span class="matrix-cell__tag">Dans les deux sens</span>
-            <span class="matrix-cell__name">BeyondCompass</span>
+            <span class="matrix-cell__name">Compass</span>
             <span class="matrix-cell__note">Distributeurs chinois qualifiés, TP Tmall, Douyin Partners.</span>
+            <a class="matrix-cell__site" href="https://compass.bearingbridge.com" target="_blank" rel="noreferrer">compass.bearingbridge.com <span aria-hidden="true">↗</span></a>
           </div>
         </div>
 
@@ -359,12 +364,13 @@ const agencies = [
               <span class="matrix-cell__bridge-dot"></span>
             </span>
             <span class="matrix-cell__name">HubStudio</span>
-            <span class="matrix-cell__note">Moteur de production de contenu. Traverse les deux directions.</span>
+            <span class="matrix-cell__note">Moteur de production de contenu. Au service des deux directions.</span>
+            <a class="matrix-cell__site" href="https://hubstudio.ai" target="_blank" rel="noreferrer">hubstudio.ai <span aria-hidden="true">↗</span></a>
           </div>
         </div>
       </div>
       <div style="margin-top: var(--space-6);">
-        <a class="btn btn--ghost" href={pathFor('how-we-work-together', locale)}>Comment on travaille ensemble</a>
+        <a class="btn btn--ghost" href={pathFor('how-we-work-together', locale)}>Notre façon de travailler ensemble</a>
       </div>
     </div>
   </section>
@@ -376,8 +382,9 @@ const agencies = [
           <span class="eyebrow eyebrow--on-dark">Derrière ce groupe</span>
           <h2 class="balance">Un opérateur. Deux décennies des deux côtés.</h2>
           <p class="lead">
-            Le groupe est fondé et dirigé par Cyril Drouin. Vingt-cinq ans de digital, e-commerce et marque en
-            Europe et en Asie du Nord. Ancien Chief Digital and eCommerce Officer pour Publicis North Asia.
+            Le groupe a été fondé par Cyril Drouin, qui le dirige toujours. Vingt-cinq ans de digital, de
+            e-commerce et de marque, entre l'Europe et l'Asie du Nord. Ancien Chief Digital and eCommerce
+            Officer de Publicis North Asia.
           </p>
           <a class="btn btn--ghost-light" href={linkedinUrl} target="_blank" rel="noreferrer">Suivre sur LinkedIn</a>
         </div>
@@ -399,10 +406,10 @@ const agencies = [
 
   <section class="section section--tight">
     <div class="container container--narrow center">
-      <h2 class="balance">Dites-nous dans quel sens vous allez.</h2>
+      <h2 class="balance">Dites-nous dans quelle direction vous avancez.</h2>
       <p class="lead" style="margin-inline: auto;">
         Trente minutes au téléphone. Nous vous dirons quelle agence du groupe est le bon point de départ, ou
-        s'il faut en démarrer plusieurs en même temps.
+        s'il vaut mieux en mobiliser plusieurs d'emblée.
       </p>
       <div class="btn-row" style="justify-content: center; margin-top: var(--space-5);">
         <a class="btn btn--primary" href={pathFor('contact', locale)}>Prendre rendez-vous</a>
@@ -412,6 +419,7 @@ const agencies = [
 </Layout>
 
 <style>
+  /* ---------- The Stack: consistent logo sizing ---------- */
   .card :global(.agency-card-logo) {
     width: 100%;
     height: 56px;
@@ -424,6 +432,7 @@ const agencies = [
     filter: none;
   }
 
+  /* ---------- Modern matrix grid ---------- */
   .matrix-grid {
     display: grid;
     gap: var(--space-3);
@@ -554,6 +563,23 @@ const agencies = [
     font-size: 1.0625rem;
     font-weight: 600;
     color: var(--bbg-ink);
+  }
+  .matrix-cell__site {
+    width: fit-content;
+    margin-top: 6px;
+    font-size: var(--fs-small);
+    font-weight: 600;
+    color: var(--bbg-blue);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+    transition: opacity 0.2s var(--ease);
+  }
+  .matrix-cell__site:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .matrix-grid__row--span .matrix-cell__site {
+    color: rgba(255, 255, 255, 0.88);
   }
   .matrix-cell--empty {
     background: transparent;

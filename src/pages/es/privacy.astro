@@ -1,0 +1,163 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const locale = 'es' as const;
+const title = 'Privacidad';
+const description = 'Cómo trata BearingBridge la información que usted comparte con nosotros.';
+---
+
+<Layout locale={locale} route="privacy" title={title} description={description}>
+  <section class="legal-hero">
+    <div class="container container--narrow">
+      <span class="eyebrow">Aviso legal</span>
+      <h1 class="legal-hero__title balance">Privacidad</h1>
+      <p class="lead">Cómo trata BearingBridge la información que usted comparte con nosotros.</p>
+      <p class="legal-meta">Última actualización: 10 de mayo de 2026</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container container--narrow legal-prose">
+      <h2>Quiénes somos</h2>
+      <p>
+        Beyond Border Group Ltd es una sociedad constituida en Hong Kong. Somos la entidad matriz de un
+        grupo de agencias transfronterizas, entre ellas TheChinaPath, BeyondBridge, TheRedScroll,
+        ChinaWebFoundry, Compass, HubStudio y Nuvora Studio. Esta política se refiere a bearingbridge.org
+        y a los datos que recogemos a través del sitio. Cada agencia puede publicar su propia política en
+        su propia web.
+      </p>
+
+      <h2>Qué recogemos</h2>
+      <p>
+        Hay dos clases de datos. La primera es la información que usted nos facilita de forma directa.
+        Cuando rellena el formulario de contacto, pide una propuesta o trabaja con nosotros en un
+        proyecto, conservamos lo que comparte: nombre, correo electrónico, teléfono, empresa, el encargo
+        que nos describe y cualquier otro dato que decida añadir.
+      </p>
+      <p>
+        La segunda es la información que su navegador deja durante la visita. Los registros estándar del
+        servidor (dirección IP, agente de usuario, hora de la visita, páginas consultadas) y un conjunto
+        reducido de cookies, descritas en nuestra Política de cookies.
+      </p>
+
+      <h2>Cómo la utilizamos</h2>
+      <p>Empleamos lo que usted nos facilita para:</p>
+      <ul>
+        <li>responder a su consulta y darle seguimiento,</li>
+        <li>entregar el trabajo que nos ha encargado,</li>
+        <li>operar y mejorar el sitio,</li>
+        <li>enviarle comunicaciones comerciales solo cuando las ha solicitado, y dejar de hacerlo en cuanto nos lo pida,</li>
+        <li>gestionar la facturación y los contratos,</li>
+        <li>cumplir nuestras obligaciones legales y fiscales.</li>
+      </ul>
+      <p>
+        Los registros del servidor y las cookies se analizan de forma agregada para medir el rendimiento
+        y las pautas de tráfico. No se vinculan a visitantes concretos y no intentamos cruzarlos con los
+        datos personales mencionados antes.
+      </p>
+
+      <h2>Cesión de datos</h2>
+      <p>
+        No vendemos sus datos personales. Tampoco los alquilamos. Quienes acceden a ellos son el equipo
+        de BBG, el equipo de la agencia correspondiente dentro del grupo y el reducido número de
+        proveedores con los que llevamos el negocio (correo electrónico, alojamiento, contabilidad,
+        pagos, videollamadas). Esos proveedores están sujetos a acuerdos de confidencialidad y a sus
+        propias condiciones de privacidad. Entregaremos datos cuando un tribunal o una autoridad con
+        jurisdicción competente nos lo requiera, y no en otro caso.
+      </p>
+
+      <h2>Seguridad</h2>
+      <p>
+        Aplicamos medidas técnicas y organizativas razonables: cifrado en tránsito, controles de acceso
+        y proveedores con estándares equiparables. Ningún sistema conectado a internet es completamente
+        seguro, y no vamos a fingir que el nuestro lo sea. Si sufrimos una brecha que afecte a sus datos,
+        se lo notificaremos a usted y a la autoridad de control en los términos que exija la ley.
+      </p>
+
+      <h2>Sus derechos</h2>
+      <p>Puede pedirnos que:</p>
+      <ul>
+        <li>le mostremos qué información suya conservamos,</li>
+        <li>la corrijamos si es errónea,</li>
+        <li>la suprimamos, cuando ningún contrato ni ley nos obligue a conservarla,</li>
+        <li>dejemos de usarla con fines comerciales,</li>
+        <li>retire un consentimiento que nos haya dado antes.</li>
+      </ul>
+      <p>
+        Escriba a <a href="mailto:hello@bearingbridge.org">hello@bearingbridge.org</a>. Procuramos
+        responder en un plazo de 30 días. Si no queda conforme con nuestra respuesta, el Hong Kong
+        Privacy Commissioner es la autoridad que nos supervisa con arreglo a la Personal Data (Privacy)
+        Ordinance.
+      </p>
+
+      <h2>Menores</h2>
+      <p>
+        Este sitio está pensado para empresas. No recogemos a sabiendas datos personales de menores de
+        16 años. Si cree que un menor nos ha enviado datos, escríbanos y los suprimiremos.
+      </p>
+
+      <h2>Sitios de terceros</h2>
+      <p>
+        Enlazamos con otros sitios: webs de las agencias del grupo, páginas de socios, plataformas
+        sociales. En cuanto sale de aquí, rigen las normas de esos sitios, no las nuestras.
+      </p>
+
+      <h2>Cambios</h2>
+      <p>
+        Podemos revisar esta política. La fecha que figura arriba le indica cuándo. Los cambios
+        sustanciales se señalarán en el sitio para que pueda leerlos antes de decidir qué hacer.
+      </p>
+
+      <h2>Contacto</h2>
+      <p>
+        Beyond Border Group Ltd<br />
+        Hong Kong SAR<br />
+        <a href="mailto:hello@bearingbridge.org">hello@bearingbridge.org</a>
+      </p>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .legal-hero {
+    padding: clamp(5rem, 12vh, 8rem) 0 clamp(2rem, 5vh, 3.5rem);
+    background: var(--bbg-surface);
+    border-bottom: 1px solid var(--bbg-border);
+  }
+  .legal-hero__title {
+    font-size: clamp(2.25rem, 4vw + 0.5rem, 3.25rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin: var(--space-3) 0 var(--space-4);
+    color: var(--bbg-ink);
+    font-weight: 600;
+  }
+  .legal-meta {
+    margin-top: var(--space-4);
+    font-size: var(--fs-small);
+    color: var(--bbg-text-muted);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .legal-prose h2 {
+    font-size: 1.375rem;
+    font-weight: 600;
+    margin: var(--space-6) 0 var(--space-3);
+    color: var(--bbg-ink);
+  }
+  .legal-prose h2:first-child { margin-top: 0; }
+  .legal-prose p,
+  .legal-prose ul {
+    margin: 0 0 var(--space-3);
+    line-height: 1.65;
+    color: var(--bbg-text);
+  }
+  .legal-prose ul { padding-left: 1.25rem; }
+  .legal-prose li { margin-bottom: var(--space-1); }
+  .legal-prose a {
+    color: var(--bbg-blue);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .legal-prose a:hover { text-decoration-thickness: 2px; }
+</style>

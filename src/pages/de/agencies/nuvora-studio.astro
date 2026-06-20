@@ -263,6 +263,9 @@ const visitLabel = 'nuvora.studio besuchen';
 </Layout>
 
 <style>
+  /* ===================================================================== */
+  /* HERO                                                                   */
+  /* ===================================================================== */
   .nv-hero {
     position: relative;
     min-height: 88vh;
@@ -370,7 +373,10 @@ const visitLabel = 'nuvora.studio besuchen';
     max-width: 16ch;
     text-wrap: balance;
   }
-  .nv-hero__line { display: block; overflow: hidden; }
+  .nv-hero__line {
+    display: block;
+    overflow: hidden;
+  }
   .nv-hero__line[data-anim="word"] {
     transform: translateY(110%);
     opacity: 0;
@@ -465,6 +471,7 @@ const visitLabel = 'nuvora.studio besuchen';
   .nv-hero__secondary:hover { color: #59c2ee; }
   .nv-hero__secondary:hover svg { transform: translateX(3px); }
 
+  /* Browser preview with parallax tilt */
   .nv-hero__preview {
     position: relative;
     perspective: 1600px;
@@ -625,6 +632,7 @@ const visitLabel = 'nuvora.studio besuchen';
   @keyframes nvFloatA { 0%,100% { transform: translateZ(40px) translateY(0); } 50% { transform: translateZ(40px) translateY(-7px); } }
   @keyframes nvFloatB { 0%,100% { transform: translateZ(40px) translateY(0); } 50% { transform: translateZ(40px) translateY(8px); } }
 
+  /* Scroll hint */
   .nv-hero__scroll {
     position: absolute;
     bottom: clamp(1rem, 3vh, 2rem);
@@ -681,6 +689,9 @@ const visitLabel = 'nuvora.studio besuchen';
     .nv-hero__scroll { display: none; }
   }
 
+  /* ===================================================================== */
+  /* TRACK RECORD                                                           */
+  /* ===================================================================== */
   .nv-track {
     padding: clamp(5rem, 10vh, 8rem) 0 clamp(4rem, 8vh, 6rem);
     background: linear-gradient(180deg, #ffffff 0%, var(--bbg-paper, #f8fafc) 100%);
@@ -739,6 +750,9 @@ const visitLabel = 'nuvora.studio besuchen';
   .nv-track__title { font-size: clamp(1.6rem, 2.4vw + 0.6rem, 2.4rem); line-height: 1.15; margin: 0 0 var(--space-4); }
   .nv-track__lead { font-size: var(--fs-lead); color: var(--bbg-text); }
 
+  /* ===================================================================== */
+  /* SERVICES                                                               */
+  /* ===================================================================== */
   .nv-services {
     padding: clamp(5rem, 10vh, 8rem) 0;
     background: var(--bbg-white, #ffffff);
@@ -868,7 +882,10 @@ const visitLabel = 'nuvora.studio besuchen';
   }
   @media (max-width: 1023px) { .nv-services__panel-grid { grid-template-columns: 1fr; } }
 
-  .nv-services__panel-image { position: relative; min-height: 420px; }
+  .nv-services__panel-image {
+    position: relative;
+    min-height: 420px;
+  }
   .nv-services__panel-frame {
     position: relative;
     width: 100%;
@@ -961,6 +978,9 @@ const visitLabel = 'nuvora.studio besuchen';
   .nv-services__item-name { font-weight: 600; color: var(--bbg-ink); margin-right: 0.25rem; }
   .nv-services__item-body { color: var(--bbg-text); }
 
+  /* ===================================================================== */
+  /* OPERATE                                                                */
+  /* ===================================================================== */
   .nv-operate {
     position: relative;
     padding: clamp(6rem, 12vh, 9rem) 0;
@@ -1016,6 +1036,9 @@ const visitLabel = 'nuvora.studio besuchen';
     letter-spacing: -0.01em;
   }
 
+  /* ===================================================================== */
+  /* FINAL CTA                                                              */
+  /* ===================================================================== */
   .nv-cta {
     position: relative;
     padding: clamp(5rem, 10vh, 8rem) 0;

@@ -96,8 +96,15 @@ const visitLabel = '访问 beyondbridge.com';
 
       <div class="bb-hero__feature" data-tilt>
         <div class="bb-hero__feature-frame">
-          <img src="/images/bb-bridge-hero-feature.webp" alt="一位中国高管，黄昏时分走出慕尼黑的办公楼" class="bb-hero__feature-img" width="1408" height="832" loading="eager" decoding="async" />
-          <div class="bb-hero__feature-scrim"></div>
+          <div class="bb-hero__browser">
+            <div class="bb-hero__browser-bar" aria-hidden="true">
+              <span class="bb-hero__browser-dots">
+                <span></span><span></span><span></span>
+              </span>
+              <span class="bb-hero__browser-url">beyondbridge.ai</span>
+            </div>
+            <img src="/images/bb-site-shot.webp" alt="BeyondBridge 网站首页" class="bb-hero__feature-img" width="1440" height="900" loading="eager" decoding="async" />
+          </div>
 
           <div class="bb-hero__chip bb-hero__chip--stack">
             <span class="bb-hero__chip-label">阵列</span>
@@ -516,31 +523,59 @@ const visitLabel = '访问 beyondbridge.com';
   }
   .bb-hero__feature-frame {
     position: relative;
-    aspect-ratio: 4 / 5;
-    border-radius: 20px;
+    border-radius: 16px;
     overflow: visible;
     transform-style: preserve-3d;
     transform: rotateY(var(--tilt-x, -3deg)) rotateX(var(--tilt-y, 2deg));
     transition: transform 600ms cubic-bezier(0.2,0.8,0.2,1);
   }
+  .bb-hero__browser {
+    border-radius: 16px;
+    overflow: hidden;
+    background: #0c1220;
+    border: 1px solid rgba(255,255,255,0.12);
+    box-shadow:
+      0 1px 0 rgba(255,255,255,0.18) inset,
+      0 40px 80px -28px rgba(0,0,0,0.6),
+      0 12px 28px -8px rgba(0,0,0,0.4);
+  }
+  .bb-hero__browser-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 11px 16px;
+    background: linear-gradient(180deg, #1a2233 0%, #141b29 100%);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .bb-hero__browser-dots { display: inline-flex; gap: 7px; flex-shrink: 0; }
+  .bb-hero__browser-dots span {
+    width: 11px; height: 11px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.22);
+  }
+  .bb-hero__browser-dots span:nth-child(1) { background: #ff5f57; }
+  .bb-hero__browser-dots span:nth-child(2) { background: #febc2e; }
+  .bb-hero__browser-dots span:nth-child(3) { background: #28c840; }
+  .bb-hero__browser-url {
+    flex: 1;
+    text-align: center;
+    padding: 5px 14px;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.07);
+    font-family: var(--font-display);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    color: rgba(255,255,255,0.7);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
   .bb-hero__feature-img {
     width: 100%;
-    height: 100%;
+    height: auto;
     object-fit: cover;
-    border-radius: 20px;
     display: block;
-    box-shadow:
-      0 1px 0 rgba(255,255,255,0.5) inset,
-      0 40px 80px -28px rgba(0,0,0,0.55),
-      0 12px 28px -8px rgba(0,0,0,0.35);
-    border: 1px solid rgba(255,255,255,0.10);
-  }
-  .bb-hero__feature-scrim {
-    position: absolute;
-    inset: 0;
-    border-radius: 20px;
-    background: linear-gradient(180deg, transparent 50%, rgba(8,12,24,0.45) 100%);
-    pointer-events: none;
   }
 
   .bb-hero__chip {

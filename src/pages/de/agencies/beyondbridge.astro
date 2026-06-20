@@ -93,8 +93,15 @@ const visitLabel = 'beyondbridge.com besuchen';
 
       <div class="bb-hero__feature" data-tilt>
         <div class="bb-hero__feature-frame">
-          <img src="/images/bb-bridge-hero-feature.webp" alt="Eine chinesische Führungskraft tritt in der Abenddämmerung aus einem Münchner Büroturm" class="bb-hero__feature-img" width="1408" height="832" loading="eager" decoding="async" />
-          <div class="bb-hero__feature-scrim"></div>
+          <div class="bb-hero__browser">
+            <div class="bb-hero__browser-bar" aria-hidden="true">
+              <span class="bb-hero__browser-dots">
+                <span></span><span></span><span></span>
+              </span>
+              <span class="bb-hero__browser-url">beyondbridge.ai</span>
+            </div>
+            <img src="/images/bb-site-shot.webp" alt="Die Startseite der BeyondBridge-Website" class="bb-hero__feature-img" width="1440" height="900" loading="eager" decoding="async" />
+          </div>
 
           <div class="bb-hero__chip bb-hero__chip--stack">
             <span class="bb-hero__chip-label">Der Stack</span>
@@ -262,6 +269,9 @@ const visitLabel = 'beyondbridge.com besuchen';
 </Layout>
 
 <style>
+  /* ===================================================================== */
+  /* BeyondBridge palette                                                   */
+  /* ===================================================================== */
   .bb-hero,
   .bb-track,
   .bb-gap,
@@ -277,6 +287,9 @@ const visitLabel = 'beyondbridge.com besuchen';
     --bb-ink: #0c1220;
   }
 
+  /* ===================================================================== */
+  /* HERO                                                                   */
+  /* ===================================================================== */
   .bb-hero {
     position: relative;
     min-height: 88vh;
@@ -346,6 +359,37 @@ const visitLabel = 'beyondbridge.com besuchen';
     animation: bbFadeIn 700ms cubic-bezier(0.2,0.8,0.2,1) 0.1s forwards;
   }
 
+  .bb-hero__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 14px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 999px;
+    font-family: var(--font-display);
+    font-size: 0.74rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    margin-bottom: var(--space-4);
+    opacity: 0;
+    animation: bbFadeIn 700ms cubic-bezier(0.2,0.8,0.2,1) 0.2s forwards;
+    max-width: 100%;
+    white-space: normal;
+  }
+  .bb-hero__eyebrow-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--bb-close);
+    box-shadow: 0 0 0 0 rgba(16,185,129,0.5);
+    animation: bbPulse 2.4s ease-in-out infinite;
+    flex-shrink: 0;
+  }
+
   .bb-hero__title {
     font-size: clamp(2.5rem, 5vw + 0.5rem, 5.4rem);
     line-height: 0.98;
@@ -356,7 +400,10 @@ const visitLabel = 'beyondbridge.com besuchen';
     max-width: 14ch;
     text-wrap: balance;
   }
-  .bb-hero__line { display: block; overflow: hidden; }
+  .bb-hero__line {
+    display: block;
+    overflow: hidden;
+  }
   .bb-hero__line[data-anim="word"] {
     transform: translateY(110%);
     opacity: 0;
@@ -448,6 +495,7 @@ const visitLabel = 'beyondbridge.com besuchen';
   .bb-hero__secondary:hover { color: var(--bb-build-soft); }
   .bb-hero__secondary:hover svg { transform: translateX(3px); }
 
+  /* Hero feature image (right column) */
   .bb-hero__feature {
     position: relative;
     perspective: 1600px;
@@ -457,31 +505,59 @@ const visitLabel = 'beyondbridge.com besuchen';
   }
   .bb-hero__feature-frame {
     position: relative;
-    aspect-ratio: 4 / 5;
-    border-radius: 20px;
+    border-radius: 16px;
     overflow: visible;
     transform-style: preserve-3d;
     transform: rotateY(var(--tilt-x, -3deg)) rotateX(var(--tilt-y, 2deg));
     transition: transform 600ms cubic-bezier(0.2,0.8,0.2,1);
   }
+  .bb-hero__browser {
+    border-radius: 16px;
+    overflow: hidden;
+    background: #0c1220;
+    border: 1px solid rgba(255,255,255,0.12);
+    box-shadow:
+      0 1px 0 rgba(255,255,255,0.18) inset,
+      0 40px 80px -28px rgba(0,0,0,0.6),
+      0 12px 28px -8px rgba(0,0,0,0.4);
+  }
+  .bb-hero__browser-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 11px 16px;
+    background: linear-gradient(180deg, #1a2233 0%, #141b29 100%);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .bb-hero__browser-dots { display: inline-flex; gap: 7px; flex-shrink: 0; }
+  .bb-hero__browser-dots span {
+    width: 11px; height: 11px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.22);
+  }
+  .bb-hero__browser-dots span:nth-child(1) { background: #ff5f57; }
+  .bb-hero__browser-dots span:nth-child(2) { background: #febc2e; }
+  .bb-hero__browser-dots span:nth-child(3) { background: #28c840; }
+  .bb-hero__browser-url {
+    flex: 1;
+    text-align: center;
+    padding: 5px 14px;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.07);
+    font-family: var(--font-display);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    color: rgba(255,255,255,0.7);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
   .bb-hero__feature-img {
     width: 100%;
-    height: 100%;
+    height: auto;
     object-fit: cover;
-    border-radius: 20px;
     display: block;
-    box-shadow:
-      0 1px 0 rgba(255,255,255,0.5) inset,
-      0 40px 80px -28px rgba(0,0,0,0.55),
-      0 12px 28px -8px rgba(0,0,0,0.35);
-    border: 1px solid rgba(255,255,255,0.10);
-  }
-  .bb-hero__feature-scrim {
-    position: absolute;
-    inset: 0;
-    border-radius: 20px;
-    background: linear-gradient(180deg, transparent 50%, rgba(8,12,24,0.45) 100%);
-    pointer-events: none;
   }
 
   .bb-hero__chip {
@@ -523,6 +599,7 @@ const visitLabel = 'beyondbridge.com besuchen';
   @keyframes bbFloatA { 0%,100% { transform: translateZ(40px) translateY(0); } 50% { transform: translateZ(40px) translateY(-7px); } }
   @keyframes bbFloatB { 0%,100% { transform: translateZ(40px) translateY(0); } 50% { transform: translateZ(40px) translateY(8px); } }
 
+  /* Scroll hint */
   .bb-hero__scroll {
     position: absolute;
     bottom: clamp(1rem, 3vh, 2rem);
@@ -562,6 +639,10 @@ const visitLabel = 'beyondbridge.com besuchen';
   @keyframes bbScrollLine { 0% { top: -36px; } 100% { top: 36px; } }
 
   @keyframes bbFadeIn { to { opacity: 1; } }
+  @keyframes bbPulse {
+    0%,100% { box-shadow: 0 0 0 0 rgba(16,185,129,0.55); }
+    50% { box-shadow: 0 0 0 7px rgba(16,185,129,0); }
+  }
 
   @media (max-width: 1023px) {
     .bb-hero__main { grid-template-columns: 1fr; gap: var(--space-7); }
@@ -575,6 +656,9 @@ const visitLabel = 'beyondbridge.com besuchen';
     .bb-hero__scroll { display: none; }
   }
 
+  /* ===================================================================== */
+  /* TRACK RECORD                                                           */
+  /* ===================================================================== */
   .bb-track {
     padding: clamp(5rem, 10vh, 8rem) 0 clamp(4rem, 8vh, 6rem);
     background: linear-gradient(180deg, #ffffff 0%, var(--bbg-paper) 100%);
@@ -623,6 +707,9 @@ const visitLabel = 'beyondbridge.com besuchen';
   .bb-track__title { font-size: clamp(1.6rem, 2.4vw + 0.6rem, 2.4rem); line-height: 1.15; margin: 0 0 var(--space-4); }
   .bb-track__lead { font-size: var(--fs-lead); color: var(--bbg-text); }
 
+  /* ===================================================================== */
+  /* GAP — dark editorial                                                   */
+  /* ===================================================================== */
   .bb-gap {
     position: relative;
     padding: clamp(6rem, 12vh, 9rem) 0;
@@ -678,6 +765,9 @@ const visitLabel = 'beyondbridge.com besuchen';
     letter-spacing: -0.01em;
   }
 
+  /* ===================================================================== */
+  /* SERVICES                                                               */
+  /* ===================================================================== */
   .bb-services {
     padding: clamp(5rem, 10vh, 8rem) 0;
     background: var(--bbg-white);
@@ -925,6 +1015,9 @@ const visitLabel = 'beyondbridge.com besuchen';
   .bb-services__item-name { font-weight: 600; color: var(--bbg-ink); margin-right: 0.25rem; }
   .bb-services__item-body { color: var(--bbg-text); }
 
+  /* ===================================================================== */
+  /* OPERATE                                                                */
+  /* ===================================================================== */
   .bb-operate {
     position: relative;
     padding: clamp(6rem, 12vh, 9rem) 0;
@@ -979,6 +1072,9 @@ const visitLabel = 'beyondbridge.com besuchen';
     letter-spacing: -0.01em;
   }
 
+  /* ===================================================================== */
+  /* FINAL CTA                                                              */
+  /* ===================================================================== */
   .bb-cta {
     position: relative;
     padding: clamp(5rem, 10vh, 8rem) 0;
@@ -1019,6 +1115,7 @@ const visitLabel = 'beyondbridge.com besuchen';
     justify-content: center;
   }
 
+  /* Reveal helpers */
   [data-anim="fade"] { opacity: 0; }
   .bb-track__numeral,
   .bb-track__copy,
@@ -1033,6 +1130,7 @@ const visitLabel = 'beyondbridge.com besuchen';
     .bb-hero__lead,
     .bb-hero__cta-row,
     .bb-hero__logo,
+    .bb-hero__eyebrow,
     .bb-hero__chip,
     .bb-services__panel.is-active .bb-services__panel-frame img,
     .bb-services__panel.is-active .bb-services__item,
@@ -1054,6 +1152,7 @@ const visitLabel = 'beyondbridge.com besuchen';
   const init = () => {
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+    /* ----- Reveal on scroll ----- */
     if (!reduced) {
       const revealTargets = document.querySelectorAll<HTMLElement>(
         '.bb-track__numeral, .bb-track__copy, .bb-services__header, .bb-services__shell'
@@ -1079,6 +1178,7 @@ const visitLabel = 'beyondbridge.com besuchen';
       revealTargets.forEach((el) => io.observe(el));
     }
 
+    /* ----- Counter ----- */
     const counter = document.querySelector<HTMLElement>('[data-count]');
     if (counter) {
       const target = Number(counter.dataset.count || '0');
@@ -1108,6 +1208,7 @@ const visitLabel = 'beyondbridge.com besuchen';
       }
     }
 
+    /* ----- Tabs ----- */
     const tabsRoot = document.querySelector<HTMLElement>('[data-tabs]');
     if (tabsRoot) {
       const tabs = Array.from(tabsRoot.querySelectorAll<HTMLButtonElement>('.bb-services__tab'));
@@ -1155,6 +1256,7 @@ const visitLabel = 'beyondbridge.com besuchen';
       });
     }
 
+    /* ----- Hero parallax tilt + bg parallax ----- */
     if (!reduced) {
       const hero = document.querySelector<HTMLElement>('[data-hero]');
       const tilt = document.querySelector<HTMLElement>('[data-tilt] .bb-hero__feature-frame');
@@ -1197,6 +1299,7 @@ const visitLabel = 'beyondbridge.com besuchen';
       }
     }
 
+    /* ----- Magnetic CTA ----- */
     if (!reduced) {
       const magnets = document.querySelectorAll<HTMLElement>('[data-magnet]');
       magnets.forEach((m) => {

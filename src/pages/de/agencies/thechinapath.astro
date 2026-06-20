@@ -52,14 +52,14 @@ const services: Array<{
   },
 ];
 
-const visitUrl = 'https://bearingbridge.com';
-const visitLabel = 'bearingbridge.com besuchen';
+const visitUrl = 'https://thechinapath.com';
+const visitLabel = 'thechinapath.com besuchen';
 ---
 
 <Layout
   locale={locale}
   route={route}
-  title="BearingBridge. China-Einstieg, Wachstum in China, China verstehen."
+  title="TheChinaPath. China-Einstieg, Wachstum in China, China verstehen."
   description="Fünfzehn Jahre, in denen wir Marken beim China-Eintritt, beim Wachstum und beim Verständnis Chinas begleiten. Vollumfänglich: Markteintritt, eCommerce, Social Commerce, Media, PR, Masterclasses."
 >
   <!-- ====================================================================== -->
@@ -75,7 +75,7 @@ const visitLabel = 'bearingbridge.com besuchen';
 
     <div class="container bbg-hero__main">
       <div class="bbg-hero__content">
-        <img src="/AgencyLogos/BBG%20PNG.png" alt="BearingBridge" class="bbg-hero__logo" width="160" height="40" loading="eager" decoding="async" />
+        <img src="/images/thechinapath-horizontal.png" alt="TheChinaPath" class="bbg-hero__logo" width="160" height="69" loading="eager" decoding="async" />
 
         <span class="bbg-hero__eyebrow">
           <span class="bbg-hero__eyebrow-dot"></span>
@@ -120,10 +120,10 @@ const visitLabel = 'bearingbridge.com besuchen';
                   <span class="browser__dot browser__dot--y"></span>
                   <span class="browser__dot browser__dot--g"></span>
                 </span>
-                <span class="browser__url">bearingbridge.com</span>
+                <span class="browser__url">thechinapath.com</span>
               </div>
               <div class="browser__viewport">
-                <img src="/images/bearingbridge-home.png" alt="Startseite von bearingbridge.com" class="browser__shot" width="1600" height="1000" loading="eager" decoding="async" />
+                <img src="/images/thechinapath-home.webp" alt="Startseite von thechinapath.com" class="browser__shot" width="1600" height="1000" loading="eager" decoding="async" />
                 <span class="browser__live">
                   <span class="browser__live-dot"></span>
                   Live · {new Date().toLocaleDateString('de-DE', { month: 'short', year: 'numeric' })}
@@ -1221,7 +1221,7 @@ const visitLabel = 'bearingbridge.com besuchen';
     justify-content: center;
   }
 
-  /* Reveal helpers, JS adds .is-revealed once an element scrolls into view */
+  /* Reveal helpers — JS adds .is-revealed once an element scrolls into view */
   [data-anim="fade"] { opacity: 0; }
   .bbg-track__numeral,
   .bbg-track__copy,
@@ -1285,7 +1285,7 @@ const visitLabel = 'bearingbridge.com besuchen';
       revealTargets.forEach((el) => io.observe(el));
     }
 
-    /* ----- Counter: 0 -> 25 ----- */
+    /* ----- Counter: 0 → 25 ----- */
     const counter = document.querySelector<HTMLElement>('[data-count]');
     if (counter) {
       const target = Number(counter.dataset.count || '0');

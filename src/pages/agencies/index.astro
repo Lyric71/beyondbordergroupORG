@@ -14,7 +14,7 @@ type AgencyRoute =
   | 'agencies/bearingbridge'
   | 'agencies/theredscroll'
   | 'agencies/chinawebfoundry'
-  | 'agencies/beyondcompass'
+  | 'agencies/compass'
   | 'agencies/beyondbridge'
   | 'agencies/hubstudio'
   | 'agencies/nuvora-studio';
@@ -38,7 +38,7 @@ const agencies: Agency[] = [
   {
     slug: 'bearingbridge',
     route: 'agencies/bearingbridge',
-    name: 'BearingBridge',
+    name: 'TheChinaPath',
     group: 'West to China',
     category: 'Full-service China agency',
     tagline: 'Enter China. Grow in China. Learn China.',
@@ -124,9 +124,9 @@ const agencies: Agency[] = [
     accent: '#d99a3a',
   },
   {
-    slug: 'beyondcompass',
-    route: 'agencies/beyondcompass',
-    name: 'BeyondCompass',
+    slug: 'compass',
+    route: 'agencies/compass',
+    name: 'Compass',
     group: 'West to China',
     category: 'Partner sourcing and vetting',
     tagline: 'Find the right China partner first.',
@@ -147,7 +147,7 @@ const agencies: Agency[] = [
       },
     ],
     signal: 'Written deliverable, working session, warm introductions, honest verdicts.',
-    visit: { url: 'https://beyondcompass.bearingbridge.com', label: 'beyondcompass.bearingbridge.com' },
+    visit: { url: 'https://compass.bearingbridge.com', label: 'compass.bearingbridge.com' },
     based: 'Shanghai. Twenty years of on-ground vetting.',
     accent: '#1e7db0',
   },
@@ -384,9 +384,9 @@ const groups: { id: Group; label: string; intro: string }[] = [
           {
             scenario: 'A French skincare brand. Entering China.',
             steps: [
-              { slug: 'beyondcompass', name: 'BeyondCompass', role: 'Choose the right distributor.' },
+              { slug: 'compass', name: 'Compass', role: 'Choose the right distributor.' },
               { slug: 'chinawebfoundry', name: 'ChinaWebFoundry', role: 'Build the China site, ICP filed.' },
-              { slug: 'bearingbridge', name: 'BearingBridge', role: 'Operate Tmall, run media.' },
+              { slug: 'bearingbridge', name: 'TheChinaPath', role: 'Operate Tmall, run media.' },
               { slug: 'theredscroll', name: 'TheRedScroll', role: 'WeChat, Douyin, RedNote, daily.' },
             ],
           },

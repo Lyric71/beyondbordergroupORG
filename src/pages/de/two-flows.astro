@@ -42,7 +42,7 @@ const inboundReq = [
 
 const inboundAgencies = [
   {
-    name: 'BearingBridge',
+    name: 'TheChinaPath',
     role: 'Der Full-Service-Operator',
     body: 'Zwanzig Jahre vor Ort. Branding, eCommerce, Distribution. Ein Team, das für alles geradesteht.',
     route: 'agencies/bearingbridge' as const,
@@ -60,10 +60,10 @@ const inboundAgencies = [
     route: 'agencies/chinawebfoundry' as const,
   },
   {
-    name: 'BeyondCompass',
+    name: 'Compass',
     role: 'Die Datenbank für Distributoren und TPs',
     body: 'Eine private Datenbank geprüfter China-Distributoren, Tmall-TPs und Douyin Partners.',
-    route: 'agencies/beyondcompass' as const,
+    route: 'agencies/compass' as const,
   },
   {
     name: 'HubStudio',
@@ -376,15 +376,15 @@ const outboundReq = [
           <span class="opening__quote-mark" aria-hidden="true">&#8220;</span>
           <p class="opening__quote">Wir brauchen alles: Marke, Kanäle, eCommerce, KOLs.</p>
           <div class="opening__answer">
-            <span class="opening__by">BearingBridge</span>
+            <span class="opening__by">TheChinaPath</span>
             <span class="opening__line">Full-Service-Markteintritt. Zwanzig Jahre Playbook.</span>
           </div>
         </a>
-        <a class="opening" href={pathFor('agencies/beyondcompass', locale)} style="--i: 3;">
+        <a class="opening" href={pathFor('agencies/compass', locale)} style="--i: 3;">
           <span class="opening__quote-mark" aria-hidden="true">&#8220;</span>
           <p class="opening__quote">Wir brauchen so schnell wie möglich einen Distributor in China.</p>
           <div class="opening__answer">
-            <span class="opening__by">BeyondCompass</span>
+            <span class="opening__by">Compass</span>
             <span class="opening__line">Eine geprüfte Shortlist von Distributoren und TPs in Tagen, nicht Monaten.</span>
           </div>
         </a>
@@ -728,6 +728,7 @@ const outboundReq = [
     margin-bottom: var(--space-3);
   }
 
+  /* HubStudio visual in the "What you also get" split */
   .aigc-visual {
     width: 100%;
     height: auto;
@@ -740,6 +741,7 @@ const outboundReq = [
     display: block;
   }
 
+  /* ---------- Page hero (top of page, biggest) ---------- */
   .page-hero {
     position: relative;
     isolation: isolate;
@@ -751,7 +753,11 @@ const outboundReq = [
     display: flex;
     align-items: center;
   }
-  .page-hero__bg { position: absolute; inset: 0; z-index: -2; }
+  .page-hero__bg {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+  }
   .page-hero__bg svg { width: 100%; height: 100%; display: block; }
   .page-hero__cable {
     stroke-dasharray: 1800;
@@ -846,6 +852,7 @@ const outboundReq = [
     .page-hero__dot { animation: none; }
   }
 
+  /* ---------- Entry hero (sub-hero per flow) ---------- */
   .entry-hero {
     position: relative;
     isolation: isolate;
@@ -857,8 +864,16 @@ const outboundReq = [
     display: flex;
     align-items: center;
   }
-  .entry-hero__bg { position: absolute; inset: 0; z-index: -2; }
-  .entry-hero__bg svg { width: 100%; height: 100%; display: block; }
+  .entry-hero__bg {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+  }
+  .entry-hero__bg svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
   .entry-hero__bg .entry-hero__stream {
     stroke-dasharray: 2000;
     stroke-dashoffset: 2000;
@@ -932,6 +947,7 @@ const outboundReq = [
     .entry-hero__nodes circle { animation: none; }
   }
 
+  /* ---------- Requirements bento ---------- */
   .req-section { position: relative; isolation: isolate; overflow: hidden; }
   .req-section__bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
   .req-section__blob {
@@ -954,9 +970,11 @@ const outboundReq = [
     gap: var(--space-5);
     perspective: 1400px;
   }
+  /* 5 items: row 1 = 3 cards (each spans 2), row 2 = 2 cards (each spans 3) for an asymmetric bento */
   .req-card { grid-column: span 2; }
   .req-card:nth-child(4) { grid-column: span 3; }
   .req-card:nth-child(5) { grid-column: span 3; }
+  /* 6 items: clean 3x2 grid (overrides the asymmetric rules) */
   .req-grid--bento3x2 .req-card,
   .req-grid--bento3x2 .req-card:nth-child(4),
   .req-grid--bento3x2 .req-card:nth-child(5) { grid-column: span 2; }
@@ -1073,6 +1091,7 @@ const outboundReq = [
     .req-card:hover { transform: none; }
   }
 
+  /* ---------- Agency rail (5 specialists) ---------- */
   .agency-section { position: relative; isolation: isolate; }
   .agency-rail {
     display: grid;
@@ -1174,6 +1193,7 @@ const outboundReq = [
     .agency-tile.is-visible { transition-delay: 0s; }
   }
 
+  /* ---------- Packages (3 tiers, stacked) ---------- */
   .pkg-section { position: relative; isolation: isolate; }
   .pkg-grid {
     display: grid;
@@ -1336,6 +1356,7 @@ const outboundReq = [
     .pkg.is-visible { transition-delay: 0s; }
   }
 
+  /* ---------- Openings (six typical asks) ---------- */
   .openings-section { position: relative; isolation: isolate; background: linear-gradient(180deg, var(--bbg-white) 0%, var(--bbg-surface) 100%); }
   .openings {
     display: grid;
@@ -1444,6 +1465,7 @@ const outboundReq = [
 </style>
 
 <script>
+  // Scroll-reveal for req-card, agency-tile, opening cards on the inbound flow.
   const targets = document.querySelectorAll<HTMLElement>('.req-card, .agency-tile, .opening, .pkg');
   if ('IntersectionObserver' in window && targets.length) {
     const io = new IntersectionObserver(
@@ -1462,6 +1484,7 @@ const outboundReq = [
     targets.forEach((el) => el.classList.add('is-visible'));
   }
 
+  // Subtle 3D tilt on req-cards.
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (!reduceMotion) {
     document.querySelectorAll<HTMLElement>('.req-card').forEach((card) => {

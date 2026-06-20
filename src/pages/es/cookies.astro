@@ -1,0 +1,128 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const locale = 'es' as const;
+const title = 'Cookies';
+const description = 'Qué almacena este sitio en su dispositivo y qué puede hacer al respecto.';
+---
+
+<Layout locale={locale} route="cookies" title={title} description={description}>
+  <section class="legal-hero">
+    <div class="container container--narrow">
+      <span class="eyebrow">Aviso legal</span>
+      <h1 class="legal-hero__title balance">Cookies</h1>
+      <p class="lead">Qué almacena este sitio en su dispositivo y qué puede hacer al respecto.</p>
+      <p class="legal-meta">Última actualización: 10 de mayo de 2026</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container container--narrow legal-prose">
+      <h2>Qué son las cookies</h2>
+      <p>
+        Las cookies son pequeños archivos de texto que una web pide a su navegador que conserve. Ayudan
+        al sitio a recordar cosas entre páginas, entre visitas y entre dispositivos. Unas las escribimos
+        nosotros. Otras, los servicios que integramos.
+      </p>
+
+      <h2>Qué utilizamos</h2>
+      <p>
+        <strong>Estrictamente necesarias.</strong> Un número reducido de cookies que mantienen el sitio
+        en funcionamiento: sesión, seguridad, el idioma que ha elegido. No puede desactivarlas y seguir
+        usando el sitio.
+      </p>
+      <p>
+        <strong>Funcionales.</strong> Cookies que recuerdan sus preferencias entre páginas, como la
+        variante de idioma que escogió o los ajustes de accesibilidad.
+      </p>
+      <p>
+        <strong>Analíticas.</strong> Medimos las pautas de tráfico y el rendimiento de las páginas con
+        una herramienta de analítica respetuosa con la privacidad. No elabora perfiles entre sitios. No
+        vende sus datos a los anunciantes. Las cifras que consultamos están agregadas y no se asocian a
+        ninguna persona.
+      </p>
+      <p>
+        <strong>Marketing.</strong> Ninguna por ahora. Si algún día añadimos píxeles de retargeting o de
+        audiencia, actualizaremos antes esta página y le pediremos permiso antes de instalarlos.
+      </p>
+
+      <h2>Cookies de terceros</h2>
+      <p>
+        Algunas páginas integran vídeos, mapas o redes sociales. Cuando lo hacen, esos servicios pueden
+        instalar sus propias cookies con arreglo a sus propias políticas. Indicamos las integraciones en
+        lenguaje claro en las páginas donde aparecen. Una vez cargadas, lo que hagan depende de ellos.
+      </p>
+
+      <h2>Gestión de las cookies</h2>
+      <p>
+        Cualquier navegador moderno le permite ver, bloquear o borrar las cookies. La ruta está en los
+        ajustes del navegador, normalmente dentro de Privacidad. Bloquear las cookies estrictamente
+        necesarias romperá el sitio; las demás puede desactivarlas sin perder el acceso a nada.
+      </p>
+
+      <h2>Base jurídica</h2>
+      <p>
+        Nos basamos en la Hong Kong Personal Data (Privacy) Ordinance y, donde resulte aplicable, en las
+        normas equivalentes de su país. Para las cookies no esenciales en la UE y el Reino Unido,
+        recabamos su consentimiento antes de instalarlas.
+      </p>
+
+      <h2>Cambios</h2>
+      <p>
+        Revisaremos esta página cuando cambie lo que recogemos. La fecha que figura arriba le indica
+        cuándo.
+      </p>
+
+      <h2>Contacto</h2>
+      <p>
+        Beyond Border Group Ltd<br />
+        Hong Kong SAR<br />
+        <a href="mailto:hello@bearingbridge.org">hello@bearingbridge.org</a>
+      </p>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .legal-hero {
+    padding: clamp(5rem, 12vh, 8rem) 0 clamp(2rem, 5vh, 3.5rem);
+    background: var(--bbg-surface);
+    border-bottom: 1px solid var(--bbg-border);
+  }
+  .legal-hero__title {
+    font-size: clamp(2.25rem, 4vw + 0.5rem, 3.25rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin: var(--space-3) 0 var(--space-4);
+    color: var(--bbg-ink);
+    font-weight: 600;
+  }
+  .legal-meta {
+    margin-top: var(--space-4);
+    font-size: var(--fs-small);
+    color: var(--bbg-text-muted);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .legal-prose h2 {
+    font-size: 1.375rem;
+    font-weight: 600;
+    margin: var(--space-6) 0 var(--space-3);
+    color: var(--bbg-ink);
+  }
+  .legal-prose h2:first-child { margin-top: 0; }
+  .legal-prose p,
+  .legal-prose ul {
+    margin: 0 0 var(--space-3);
+    line-height: 1.65;
+    color: var(--bbg-text);
+  }
+  .legal-prose ul { padding-left: 1.25rem; }
+  .legal-prose li { margin-bottom: var(--space-1); }
+  .legal-prose a {
+    color: var(--bbg-blue);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .legal-prose a:hover { text-decoration-thickness: 2px; }
+</style>

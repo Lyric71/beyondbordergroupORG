@@ -13,7 +13,9 @@ The user is the founder of BearingBridge (the parent group/org reflected in the 
 
 He founded the group itself, so treat him as the top-level decision-maker on brand, product direction, and cross-studio concerns, not just a contributor to one studio. When work touches naming, positioning, or how the studios relate to the parent group, defer to his framing.
 
-**Seven canonical agencies (never translated):** BearingBridge, TheRedScroll, ChinaWebFoundry, BeyondCompass, BeyondBridge, Nuvora Studio, HubStudio.
+**Parent group (never translated):** BearingBridge. This is the holding group, not one of the agencies.
+
+**Seven canonical agencies (never translated):** TheChinaPath, TheRedScroll, ChinaWebFoundry, Compass, BeyondBridge, Nuvora Studio, HubStudio. Note the two renames: the full-service China agency is now **TheChinaPath** (formerly the "BearingBridge" agency; its route still resolves under `agencies/bearingbridge` for `pathFor` but renders at `/agencies/thechinapath/`), and **Compass** (formerly BeyondCompass) at `/agencies/compass/`.
 
 ---
 
@@ -47,7 +49,7 @@ NO NUMBER IN CARDS. Never add numeric badges (`01`, `02`, `03`, …), watermark 
 
 ## 4. Hero must include the seven agency logos
 
-Every hero-section design idea proposed for the BearingBridge home page MUST include the seven agency logos (BearingBridge, TheRedScroll, ChinaWebFoundry, BeyondCompass, BeyondBridge, Nuvora Studio, HubStudio). Logo-less concepts (typography-only, abstract motifs, atmospheric photo, ticker, etc.) are not acceptable on their own.
+Every hero-section design idea proposed for the BearingBridge home page MUST include the seven agency logos (TheChinaPath, TheRedScroll, ChinaWebFoundry, Compass, BeyondBridge, Nuvora Studio, HubStudio). Logo-less concepts (typography-only, abstract motifs, atmospheric photo, ticker, etc.) are not acceptable on their own.
 
 **Why:** The user explicitly stated this rule after rejecting a typography-only hero variant and a logo-less Möbius arrow variant. The hero is the brand statement, and the brand IS the seven agencies in one ecosystem; without the logos the hero loses the load-bearing identity.
 
@@ -106,7 +108,7 @@ For every piece of content translated from English (page copy, hero, cards, blog
 - If the same content exists in English and needs the same change, do English first (with humanizer), then translate each locale through this two-step process. Never copy English structure into the translation.
 - For Chinese: prefer simplified Chinese (zh-CN) unless the file path indicates traditional. Match punctuation conventions (full-width `。，、：；" "' '`).
 - For French: use guillemets `« »` for quotes when natural; use insécable spaces conventions where typesetting allows.
-- Keep brand and product names in their canonical form (BearingBridge, BeyondBridge, BeyondCompass, ChinaWebFoundry, TheRedScroll, HubStudio, Nuvora Studio). Do not translate them.
+- Keep brand and product names in their canonical form (BearingBridge, TheChinaPath, BeyondBridge, Compass, ChinaWebFoundry, TheRedScroll, HubStudio, Nuvora Studio). Do not translate them.
 
 ---
 
@@ -153,7 +155,7 @@ For every piece of content translated from English (page copy, hero, cards, blog
 - Trigger: any edit, fix, or update to files under `src/pages/de/`, `src/pages/es/`, `src/pages/fr/`, `src/pages/zh/`, or non-English strings in `src/i18n/`.
 - Combine with section 6 (humanize + native-rewrite is the *style* method; this rule is the *workflow*: improve, don't regenerate).
 - Combine with section 8 (edit only the locale the user referenced).
-- Brand and product names to keep in canonical English form: BearingBridge, BeyondBridge, BeyondCompass, ChinaWebFoundry, TheRedScroll, HubStudio, Nuvora Studio.
+- Brand and product names to keep in canonical English form: BearingBridge, TheChinaPath, BeyondBridge, Compass, ChinaWebFoundry, TheRedScroll, HubStudio, Nuvora Studio.
 - When new English content needs to land in a locale, port only the diff, then run the two-step humanize + native-rewrite on the new section.
 
 ---
@@ -216,7 +218,9 @@ When iterating on a page, section, hero, or copy, change ONLY the English versio
 - Embeds (video, social) → host the asset locally or link out. No in-page YouTube/Vimeo/Twitter/Instagram embeds.
 - Images → local under `public/Images/`, referenced with lowercase `/images/...` paths (the repo convention; Astro emits the folder lowercase and Vercel serves case-sensitively, so `/Images/...` would 404 in production). No hot-linking.
 
-**Verification before merging any HTML/CSS/JS/layout/component change:**
+**Verification timing — pre-commit only:** Do NOT run `npm run build` or the verification grep after every edit or design iteration. Run them once, as a pre-commit gate (right before committing). The GFW rule itself still holds at all times (zero third-party runtime fetches); only the timing of verification is batched to commit. During iterative work, just make the edits.
+
+**Verification before committing any HTML/CSS/JS/layout/component change:**
 ```
 npm run build
 # external runtime fetches in built output (should be empty):
@@ -227,4 +231,19 @@ grep -rhoE "url\([^)]+\)" dist/_astro/*.css | grep -vE "(/_astro|/images|data:|#
 
 **Why:** A single third-party runtime fetch (font, image, script, tracker) that is blocked or throttled in mainland China breaks or stalls the page for the audience the entire BearingBridge brand is built to reach. The site bridges China and the West; if it doesn't load behind the Great Firewall, the premise fails. This is enforced on every change, in every locale.
 
-**How to apply:** Run the verification grep on every layout/component/style/page change. If a dependency exposes runtime URLs, flag it to the user and propose a self-hosted alternative before writing code. When adding any image, download it into `public/Images/` and reference it at `/images/...` rather than hot-linking, even from a sibling agency domain.
+**How to apply:** Run the verification grep as a pre-commit gate, not on every change (see "Verification timing" above). If a dependency exposes runtime URLs, flag it to the user and propose a self-hosted alternative before writing code. When adding any image, download it into `public/Images/` and reference it at `/images/...` rather than hot-linking, even from a sibling agency domain.
+
+---
+
+## 11. Design and layout work — always verify visually, never ship blind
+
+When doing any design or layout work (new sections, redesigns, CSS, scroll/JS effects, reveal animations, responsive changes), you MUST verify the result by actually rendering the page and looking at it before claiming it works. Do not reason about CSS/JS in your head and declare it done. Self-check every time.
+
+**Why:** The user has repeatedly caught broken layouts (invisible images, text overlapping text, reveal animations that never fire) that were shipped because the change was only reasoned about, not seen. Scroll-reveal, `position: sticky`, `clip-path`, `IntersectionObserver`, and z-index/stacking bugs are invisible in source review and only show up when rendered. Guessing wastes the user's time and erodes trust.
+
+**How to apply:**
+- After any visual change, render and inspect it. The repo has helpers: `script/full-page-screenshot.mjs <url> <out.png>` captures a full page (it scrolls to trigger IntersectionObserver reveals), and headless Chrome over CDP can read live computed styles / class state to confirm JS-driven reveals actually applied. Start the dev server (`npm run dev`, serves `http://127.0.0.1:4321`) and screenshot the specific section; crop with `sharp` if needed.
+- For reveal/scroll/animation logic, confirm the end state in the live DOM (e.g. the reveal class is present and the computed property changed), not just that the code "looks right."
+- Check the section at desktop width AND at a narrow width when the layout has responsive branches.
+- Only report a visual change as done after you have seen it render correctly. If you could not render it, say so explicitly rather than implying it works.
+- This composes with the pre-commit build/GFW gate (section 10): visual verification happens during iteration; the build + GFW grep happen once before commit.

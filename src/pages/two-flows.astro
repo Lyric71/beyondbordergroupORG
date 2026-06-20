@@ -42,7 +42,7 @@ const inboundReq = [
 
 const inboundAgencies = [
   {
-    name: 'BearingBridge',
+    name: 'TheChinaPath',
     role: 'The full-service operator',
     body: 'Twenty years on the ground. Branding, eCommerce, distribution. One accountable team.',
     route: 'agencies/bearingbridge' as const,
@@ -60,10 +60,10 @@ const inboundAgencies = [
     route: 'agencies/chinawebfoundry' as const,
   },
   {
-    name: 'BeyondCompass',
+    name: 'Compass',
     role: 'The distributor and TP database',
     body: 'A private database of vetted China distributors, Tmall TPs, and Douyin partners.',
-    route: 'agencies/beyondcompass' as const,
+    route: 'agencies/compass' as const,
   },
   {
     name: 'HubStudio',
@@ -374,15 +374,15 @@ const outboundReq = [
           <span class="opening__quote-mark" aria-hidden="true">&#8220;</span>
           <p class="opening__quote">I need everything: brand, channels, eCommerce, KOLs.</p>
           <div class="opening__answer">
-            <span class="opening__by">BearingBridge</span>
+            <span class="opening__by">TheChinaPath</span>
             <span class="opening__line">Full-service entry. Twenty-year playbook.</span>
           </div>
         </a>
-        <a class="opening" href={pathFor('agencies/beyondcompass', locale)} style="--i: 3;">
+        <a class="opening" href={pathFor('agencies/compass', locale)} style="--i: 3;">
           <span class="opening__quote-mark" aria-hidden="true">&#8220;</span>
           <p class="opening__quote">We need a distributor in China asap.</p>
           <div class="opening__answer">
-            <span class="opening__by">BeyondCompass</span>
+            <span class="opening__by">Compass</span>
             <span class="opening__line">A vetted shortlist of distributors and TPs in days, not months.</span>
           </div>
         </a>

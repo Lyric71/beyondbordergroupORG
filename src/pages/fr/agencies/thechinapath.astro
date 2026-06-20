@@ -52,14 +52,14 @@ const services: Array<{
   },
 ];
 
-const visitUrl = 'https://bearingbridge.com';
-const visitLabel = 'Visiter bearingbridge.com';
+const visitUrl = 'https://thechinapath.com';
+const visitLabel = 'Visiter thechinapath.com';
 ---
 
 <Layout
   locale={locale}
   route={route}
-  title="BearingBridge. Entrer en Chine, grandir en Chine, comprendre la Chine."
+  title="TheChinaPath. Entrer en Chine, grandir en Chine, comprendre la Chine."
   description="Quinze ans à aider les marques à entrer en Chine, à y grandir et à la comprendre. Couverture intégrale : accès au marché, e-commerce, social commerce, média, RP, masterclasses."
 >
   <section class="bbg-hero" data-hero>
@@ -72,7 +72,7 @@ const visitLabel = 'Visiter bearingbridge.com';
 
     <div class="container bbg-hero__main">
       <div class="bbg-hero__content">
-        <img src="/AgencyLogos/BBG%20PNG.png" alt="BearingBridge" class="bbg-hero__logo" width="160" height="40" loading="eager" decoding="async" />
+        <img src="/images/thechinapath-horizontal.png" alt="TheChinaPath" class="bbg-hero__logo" width="160" height="69" loading="eager" decoding="async" />
 
         <span class="bbg-hero__eyebrow">
           <span class="bbg-hero__eyebrow-dot"></span>
@@ -117,10 +117,10 @@ const visitLabel = 'Visiter bearingbridge.com';
                   <span class="browser__dot browser__dot--y"></span>
                   <span class="browser__dot browser__dot--g"></span>
                 </span>
-                <span class="browser__url">bearingbridge.com</span>
+                <span class="browser__url">thechinapath.com</span>
               </div>
               <div class="browser__viewport">
-                <img src="/images/bearingbridge-home.png" alt="Page d'accueil bearingbridge.com" class="browser__shot" width="1600" height="1000" loading="eager" decoding="async" />
+                <img src="/images/thechinapath-home.webp" alt="Page d'accueil thechinapath.com" class="browser__shot" width="1600" height="1000" loading="eager" decoding="async" />
                 <span class="browser__live">
                   <span class="browser__live-dot"></span>
                   En ligne · {new Date().toLocaleDateString('fr-FR', { month: 'short', year: 'numeric' })}
@@ -281,6 +281,9 @@ const visitLabel = 'Visiter bearingbridge.com';
 </Layout>
 
 <style>
+  /* ===================================================================== */
+  /* HERO                                                                   */
+  /* ===================================================================== */
   .bbg-hero {
     position: relative;
     min-height: 88vh;
@@ -329,6 +332,50 @@ const visitLabel = 'Visiter bearingbridge.com';
     -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 80%);
     opacity: 0.7;
   }
+
+  /* Top platform ticker */
+  .bbg-hero__ticker {
+    position: absolute;
+    top: clamp(72px, 8vh, 96px);
+    left: 0; right: 0;
+    z-index: 2;
+    overflow: hidden;
+    padding: 6px 0;
+    border-top: 1px solid rgba(255,255,255,0.10);
+    border-bottom: 1px solid rgba(255,255,255,0.10);
+    background: rgba(8, 12, 24, 0.45);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+  .bbg-hero__ticker-track {
+    display: inline-flex;
+    align-items: center;
+    gap: 0;
+    white-space: nowrap;
+    animation: bbgTicker 38s linear infinite;
+    will-change: transform;
+  }
+  .bbg-hero__ticker-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 18px;
+    padding: 0 18px;
+    font-family: var(--font-display);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.78);
+  }
+  .bbg-hero__ticker-sep {
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: var(--bbg-blue);
+    display: inline-block;
+    box-shadow: 0 0 10px rgba(38,154,218,0.7);
+    color: transparent;
+  }
+  @keyframes bbgTicker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
   .bbg-hero__main {
     position: relative;
@@ -487,6 +534,7 @@ const visitLabel = 'Visiter bearingbridge.com';
   .bbg-hero__secondary:hover { color: #59c2ee; }
   .bbg-hero__secondary:hover svg { transform: translateX(3px); }
 
+  /* Browser preview with parallax tilt */
   .bbg-hero__preview {
     position: relative;
     perspective: 1600px;
@@ -647,6 +695,7 @@ const visitLabel = 'Visiter bearingbridge.com';
   @keyframes bbgFloatA { 0%,100% { transform: translateZ(40px) translateY(0); } 50% { transform: translateZ(40px) translateY(-7px); } }
   @keyframes bbgFloatB { 0%,100% { transform: translateZ(40px) translateY(0); } 50% { transform: translateZ(40px) translateY(8px); } }
 
+  /* Scroll hint */
   .bbg-hero__scroll {
     position: absolute;
     bottom: clamp(1rem, 3vh, 2rem);
@@ -703,6 +752,9 @@ const visitLabel = 'Visiter bearingbridge.com';
     .bbg-hero__scroll { display: none; }
   }
 
+  /* ===================================================================== */
+  /* TRACK RECORD                                                           */
+  /* ===================================================================== */
   .bbg-track {
     padding: clamp(5rem, 10vh, 8rem) 0 clamp(4rem, 8vh, 6rem);
     background: linear-gradient(180deg, #ffffff 0%, var(--bbg-paper) 100%);
@@ -751,6 +803,57 @@ const visitLabel = 'Visiter bearingbridge.com';
   .bbg-track__title { font-size: clamp(1.6rem, 2.4vw + 0.6rem, 2.4rem); line-height: 1.15; margin: 0 0 var(--space-4); }
   .bbg-track__lead { font-size: var(--fs-lead); color: var(--bbg-text); }
 
+  /* Marquee */
+  .bbg-marquee {
+    overflow: hidden;
+    margin: 0 calc(var(--container-pad) * -1);
+    padding: var(--space-5) 0;
+    border-top: 1px solid var(--bbg-border);
+    border-bottom: 1px solid var(--bbg-border);
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+            mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  }
+  .bbg-marquee__track {
+    display: inline-flex;
+    align-items: center;
+    gap: clamp(1.5rem, 3vw, 3rem);
+    white-space: nowrap;
+    animation: bbgMarquee 40s linear infinite;
+    will-change: transform;
+  }
+  .bbg-marquee__item {
+    display: inline-flex;
+    align-items: center;
+    gap: clamp(1.5rem, 3vw, 3rem);
+    font-family: var(--font-display);
+    font-size: clamp(1.6rem, 3vw, 2.6rem);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--bbg-ink);
+    background-clip: text;
+    -webkit-background-clip: text;
+  }
+  .bbg-marquee__item--enter {
+    background-image: linear-gradient(120deg, #1e7db0, #59c2ee);
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+  .bbg-marquee__item--grow {
+    background-image: linear-gradient(120deg, #c8102e, #ff7a8a);
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+  .bbg-marquee__item--learn {
+    background-image: linear-gradient(120deg, #d99a3a, #ffcf6f);
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+  .bbg-marquee__sep { color: var(--bbg-blue); opacity: 0.6; flex-shrink: 0; }
+  @keyframes bbgMarquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  /* ===================================================================== */
+  /* SERVICES                                                               */
+  /* ===================================================================== */
   .bbg-services {
     padding: clamp(5rem, 10vh, 8rem) 0;
     background: var(--bbg-white);
@@ -1001,6 +1104,9 @@ const visitLabel = 'Visiter bearingbridge.com';
   .bbg-services__item-name { font-weight: 600; color: var(--bbg-ink); margin-right: 0.25rem; }
   .bbg-services__item-body { color: var(--bbg-text); }
 
+  /* ===================================================================== */
+  /* OPERATE                                                                */
+  /* ===================================================================== */
   .bbg-operate {
     position: relative;
     padding: clamp(6rem, 12vh, 9rem) 0;
@@ -1056,6 +1162,9 @@ const visitLabel = 'Visiter bearingbridge.com';
     letter-spacing: -0.01em;
   }
 
+  /* ===================================================================== */
+  /* FINAL CTA                                                              */
+  /* ===================================================================== */
   .bbg-cta {
     position: relative;
     padding: clamp(5rem, 10vh, 8rem) 0;
@@ -1096,6 +1205,7 @@ const visitLabel = 'Visiter bearingbridge.com';
     justify-content: center;
   }
 
+  /* Reveal helpers — JS adds .is-revealed once an element scrolls into view */
   [data-anim="fade"] { opacity: 0; }
   .bbg-track__numeral,
   .bbg-track__copy,
@@ -1112,11 +1222,13 @@ const visitLabel = 'Visiter bearingbridge.com';
     .bbg-hero__logo,
     .bbg-hero__eyebrow,
     .bbg-hero__chip,
+    .bbg-hero__ticker-track,
+    .bbg-marquee__track,
     .bbg-services__panel.is-active .bbg-services__panel-frame img,
     .bbg-services__panel.is-active .bbg-services__item,
     .bbg-operate__line,
     .bbg-operate__statement,
-    .bbg-track__numeral, .bbg-track__copy, .bbg-services__header, .bbg-services__shell,
+    .bbg-track__numeral, .bbg-track__copy, .bbg-services__header, .bbg-services__shell, .bbg-marquee,
     [data-anim] {
       animation: none !important;
       transition: none !important;
@@ -1130,6 +1242,8 @@ const visitLabel = 'Visiter bearingbridge.com';
   const init = () => {
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+    /* ----- Reveal on scroll (IntersectionObserver) -----
+       Pre-hide elements via JS so non-JS visitors still see content. */
     if (!reduced) {
       const revealTargets = document.querySelectorAll<HTMLElement>(
         '.bbg-track__numeral, .bbg-track__copy, .bbg-services__header, .bbg-services__shell'
@@ -1155,6 +1269,7 @@ const visitLabel = 'Visiter bearingbridge.com';
       revealTargets.forEach((el) => io.observe(el));
     }
 
+    /* ----- Counter: 0 → 25 ----- */
     const counter = document.querySelector<HTMLElement>('[data-count]');
     if (counter) {
       const target = Number(counter.dataset.count || '0');
@@ -1184,6 +1299,7 @@ const visitLabel = 'Visiter bearingbridge.com';
       }
     }
 
+    /* ----- Tabs ----- */
     const tabsRoot = document.querySelector<HTMLElement>('[data-tabs]');
     if (tabsRoot) {
       const tabs = Array.from(tabsRoot.querySelectorAll<HTMLButtonElement>('.bbg-services__tab'));
@@ -1215,6 +1331,7 @@ const visitLabel = 'Visiter bearingbridge.com';
         setIndicator(idx);
       };
 
+      // Initial indicator position
       setIndicator(tabs.findIndex((t) => t.classList.contains('is-active')) || 0);
 
       tabs.forEach((tab, i) => {
@@ -1231,6 +1348,7 @@ const visitLabel = 'Visiter bearingbridge.com';
       });
     }
 
+    /* ----- Hero parallax tilt + bg parallax ----- */
     if (!reduced) {
       const hero = document.querySelector<HTMLElement>('[data-hero]');
       const tilt = document.querySelector<HTMLElement>('[data-tilt] .bbg-hero__preview-frame');
@@ -1273,6 +1391,7 @@ const visitLabel = 'Visiter bearingbridge.com';
       }
     }
 
+    /* ----- Magnetic CTA ----- */
     if (!reduced) {
       const magnets = document.querySelectorAll<HTMLElement>('[data-magnet]');
       magnets.forEach((m) => {

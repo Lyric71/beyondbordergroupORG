@@ -21,7 +21,7 @@ export type Route =
   | 'agencies/theredscroll'
   | 'agencies/chinawebfoundry'
   | 'agencies/beyondbridge'
-  | 'agencies/beyondcompass'
+  | 'agencies/compass'
   | 'agencies/hubstudio'
   | 'agencies/nuvora-studio'
   | 'how-we-work-together'
@@ -41,7 +41,7 @@ const routePaths: Record<Route, string> = {
   'agencies/theredscroll': 'agencies/theredscroll/',
   'agencies/chinawebfoundry': 'agencies/chinawebfoundry/',
   'agencies/beyondbridge': 'agencies/beyondbridge/',
-  'agencies/beyondcompass': 'agencies/beyondcompass/',
+  'agencies/compass': 'agencies/compass/',
   'agencies/hubstudio': 'agencies/hubstudio/',
   'agencies/nuvora-studio': 'agencies/nuvora-studio/',
   'how-we-work-together': 'how-we-work-together/',
@@ -80,7 +80,7 @@ export interface UI {
       bearingbridge: string;
       theredscroll: string;
       chinawebfoundry: string;
-      beyondcompass: string;
+      compass: string;
       beyondbridge: string;
       hubstudio: string;
       nuvoraStudio: string;
@@ -140,7 +140,7 @@ export const ui: Record<Locale, UI> = {
         bearingbridge: 'Full-service China entry.',
         theredscroll: 'Chinese social media specialist.',
         chinawebfoundry: 'Websites built for China.',
-        beyondcompass: 'Vetted China distributors and TPs.',
+        compass: 'Vetted China distributors and TPs.',
         beyondbridge: 'Chinese brands, Western pipeline.',
         hubstudio: 'Content production engine.',
         nuvoraStudio: 'LinkedIn-only B2B.',
@@ -180,28 +180,28 @@ export const ui: Record<Locale, UI> = {
       bridge: 'Le pont',
       flowsLabel: 'Les deux flux',
       agencies: 'Nos agences',
-      howWeWork: 'Comment on travaille',
+      howWeWork: 'Notre méthode',
       founder: 'Fondateur',
       contact: 'Contact',
-      flowsDesc: "Un pont, deux directions. Prenez le côté d'où vous venez.",
-      agenciesDesc: 'Sept agences spécialistes. Chacune autonome. La plupart de nos clients démarrent par une seule.',
+      flowsDesc: "Un pont, deux sens. Choisissez votre rive de départ.",
+      agenciesDesc: 'Sept agences spécialisées, chacune indépendante. La plupart de nos clients en choisissent une pour commencer.',
       ourWay: 'Notre approche',
-      ourWayDesc: 'Le pont, les flux, et la façon dont on travaille.',
-      bridgeItemDesc: "La thèse transfrontalière. Pourquoi ce groupe existe.",
-      flowsItemDesc: 'Un pont, deux directions. Entrée en Chine et export, sur une seule page.',
-      howWeWorkItemDesc: "Comment un projet se déroule, concrètement.",
+      ourWayDesc: 'Le pont, les flux, notre façon de travailler.',
+      bridgeItemDesc: "Notre conviction transfrontalière, et la raison d'être du groupe.",
+      flowsItemDesc: "Un pont, deux sens. L'entrée en Chine et l'export réunis sur une même page.",
+      howWeWorkItemDesc: "Le déroulement d'un projet, concrètement, étape par étape.",
       ourWayMeta: "De l'idée à la livraison",
-      specialistStudios: (n) => `${n} agences spécialistes`,
-      agenciesStandAlone: 'Chaque agence est autonome. La plupart de nos clients démarrent par une seule.',
+      specialistStudios: (n) => `${n} agences spécialisées`,
+      agenciesStandAlone: 'Chaque agence est indépendante. La plupart de nos clients en choisissent une pour commencer.',
       viewAllAgencies: 'Voir toutes les agences',
       agencyDescs: {
-        bearingbridge: "Entrée en Chine, intégrée.",
+        bearingbridge: "L'implantation en Chine, clés en main.",
         theredscroll: 'Spécialiste des réseaux sociaux chinois.',
-        chinawebfoundry: 'Des sites taillés pour la Chine.',
-        beyondcompass: 'Distributeurs et TP chinois, déjà qualifiés.',
-        beyondbridge: 'Marques chinoises, pipeline en Occident.',
-        hubstudio: 'Moteur de production de contenu.',
-        nuvoraStudio: 'B2B, exclusivement LinkedIn.',
+        chinawebfoundry: 'Des sites pensés pour le web chinois.',
+        compass: 'Distributeurs et TP chinois, triés sur le volet.',
+        beyondbridge: 'Marques chinoises, cap sur l\'Occident.',
+        hubstudio: 'La fabrique de contenus.',
+        nuvoraStudio: 'Le B2B, rien que sur LinkedIn.',
       },
     },
     cta: {
@@ -217,8 +217,8 @@ export const ui: Record<Locale, UI> = {
       send: 'Envoyer',
     },
     footer: {
-      tagline: 'Nous construisons des marques de part et d’autre de la frontière Chine et Occident. Dans les deux sens.',
-      ecosystem: 'L’écosystème',
+      tagline: "Nous bâtissons des marques de part et d'autre de la frontière sino-occidentale. Dans les deux sens.",
+      ecosystem: "L'écosystème",
       sixAgencies: 'Les agences',
       discover: 'Découvrir',
       languages: 'Langues',
@@ -256,7 +256,7 @@ export const ui: Record<Locale, UI> = {
         bearingbridge: '中国全案代理。',
         theredscroll: '中国社交媒体专家。',
         chinawebfoundry: '为中国互联网而建的网站。',
-        beyondcompass: '已经背调过的中国经销商与 TP。',
+        compass: '已经背调过的中国经销商与 TP。',
         beyondbridge: '中国品牌，西方市场管线。',
         hubstudio: '内容生产引擎。',
         nuvoraStudio: '仅 LinkedIn 的 B2B。',
@@ -314,7 +314,7 @@ export const ui: Record<Locale, UI> = {
         bearingbridge: 'Implantación integral en China.',
         theredscroll: 'Especialista en redes sociales chinas.',
         chinawebfoundry: 'Webs hechas para la red china.',
-        beyondcompass: 'Distribuidores chinos y TP contrastados.',
+        compass: 'Distribuidores chinos y TP contrastados.',
         beyondbridge: 'Marcas chinas, pipeline en Occidente.',
         hubstudio: 'Motor de producción de contenido.',
         nuvoraStudio: 'B2B, solo en LinkedIn.',
@@ -372,7 +372,7 @@ export const ui: Record<Locale, UI> = {
         bearingbridge: 'China-Markteintritt aus einer Hand.',
         theredscroll: 'Spezialist für chinesische Social Media.',
         chinawebfoundry: 'Websites für das chinesische Web.',
-        beyondcompass: 'Geprüfte China-Distributoren und TPs.',
+        compass: 'Geprüfte China-Distributoren und TPs.',
         beyondbridge: 'Chinesische Marken, westliche Pipeline.',
         hubstudio: 'Content-Produktionsmotor.',
         nuvoraStudio: 'B2B, ausschließlich auf LinkedIn.',

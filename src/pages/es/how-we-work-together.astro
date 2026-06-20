@@ -51,7 +51,7 @@ const description = 'Agencias independientes, liderazgo compartido, motor de pro
           </div>
           <div class="matrix-cell matrix-cell--lead" role="cell">
             <span class="matrix-cell__tag">Agencia líder</span>
-            <span class="matrix-cell__name">BearingBridge</span>
+            <span class="matrix-cell__name">TheChinaPath</span>
           </div>
           <div class="matrix-cell matrix-cell--lead" role="cell">
             <span class="matrix-cell__tag">Agencia líder</span>
@@ -98,7 +98,7 @@ const description = 'Agencias independientes, liderazgo compartido, motor de pro
           </div>
           <div class="matrix-cell matrix-cell--both" role="cell">
             <span class="matrix-cell__tag">Los dos sentidos</span>
-            <span class="matrix-cell__name">BeyondCompass</span>
+            <span class="matrix-cell__name">Compass</span>
             <span class="matrix-cell__note">Distribuidores chinos, TP de Tmall y Douyin Partners, todos contrastados.</span>
           </div>
         </div>
@@ -242,11 +242,11 @@ const description = 'Agencias independientes, liderazgo compartido, motor de pro
               <polyline points="3 16.5 12 21 21 16.5" />
             </svg>
           </span>
-          <span class="playbook__tag">Líder · BearingBridge</span>
+          <span class="playbook__tag">Líder · TheChinaPath</span>
           <h3 class="playbook__title">El stack completo de entrada.</h3>
           <p class="playbook__copy">
-            BearingBridge pilota el brief, con TheRedScroll en social, ChinaWebFoundry en web,
-            BeyondCompass en distribución y HubStudio produciendo el contenido. Un cliente. Una pipeline.
+            TheChinaPath pilota el brief, con TheRedScroll en social, ChinaWebFoundry en web,
+            Compass en distribución y HubStudio produciendo el contenido. Un cliente. Una pipeline.
             Una sola cifra contra la que medirse.
           </p>
         </li>
@@ -312,6 +312,7 @@ const description = 'Agencias independientes, liderazgo compartido, motor de pro
 </Layout>
 
 <style>
+  /* ---------- Image hero ---------- */
   .hero-image {
     position: relative;
     isolation: isolate;
@@ -361,6 +362,7 @@ const description = 'Agencias independientes, liderazgo compartido, motor de pro
     max-width: 60ch;
   }
 
+  /* ---------- Modern matrix grid (mirrors home "The logic") ---------- */
   .matrix-grid {
     display: grid;
     gap: var(--space-3);
@@ -544,6 +546,7 @@ const description = 'Agencias independientes, liderazgo compartido, motor de pro
     .matrix-grid__row--span .matrix-cell--span { grid-column: 1 / -1; }
   }
 
+  /* ---------- "What every agency draws from" cards ---------- */
   .draws-section { position: relative; }
   .draws-grid {
     list-style: none;
@@ -678,6 +681,7 @@ const description = 'Agencias independientes, liderazgo compartido, motor de pro
     color: var(--draws-chip-color);
   }
 
+  /* ---------- "In practice" playbook cards ---------- */
   .playbook-section { position: relative; }
 
   .playbooks {
@@ -805,6 +809,8 @@ const description = 'Agencias independientes, liderazgo compartido, motor de pro
 <script>
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  // Shared scroll-reveal + 3D-tilt for any grid: pass the wrapper that has [data-*] attribute
+  // and the selector for cards inside it.
   function wireGrid(grid: HTMLElement | null, cardSelector: string) {
     if (!grid) return;
     if ('IntersectionObserver' in window) {
@@ -849,6 +855,7 @@ const description = 'Agencias independientes, liderazgo compartido, motor de pro
 
   wireGrid(document.querySelector<HTMLElement>('[data-draws]'), '.draws-card');
 
+  // Reveal "In practice" playbooks on scroll (single observer, animates the whole grid in sequence).
   const playbooks = document.querySelector<HTMLElement>('[data-playbooks]');
   if (playbooks) {
     if ('IntersectionObserver' in window) {
@@ -868,6 +875,7 @@ const description = 'Agencias independientes, liderazgo compartido, motor de pro
       playbooks.classList.add('is-visible');
     }
 
+    // 3D tilt + diagram parallax on hover
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (!reduceMotion) {
       const cards = playbooks.querySelectorAll<HTMLElement>('.playbook');

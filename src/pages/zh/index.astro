@@ -11,7 +11,7 @@ const linkedinUrl = 'https://www.linkedin.com/in/cyril-d-68835729/';
 
 const agencies = [
   {
-    name: 'BearingBridge',
+    name: 'TheChinaPath',
     tagline: '中国市场全案。从品牌做到电商。',
     route: 'agencies/bearingbridge' as const,
   },
@@ -26,9 +26,9 @@ const agencies = [
     route: 'agencies/chinawebfoundry' as const,
   },
   {
-    name: 'BeyondCompass',
+    name: 'Compass',
     tagline: '一个亲自核过的中国分销商、Tmall TP、抖音 Partner 私库。',
-    route: 'agencies/beyondcompass' as const,
+    route: 'agencies/compass' as const,
   },
   {
     name: 'BeyondBridge',
@@ -66,7 +66,6 @@ const agencies = [
       <aside class="rail" aria-label="集团旗下七家公司">
         <header class="rail__head">
           <span class="rail__head-tag">生态</span>
-          <span class="rail__head-count">七位专家</span>
         </header>
 
         <div class="rail__chapter">
@@ -77,9 +76,9 @@ const agencies = [
           <ol class="rail__list">
             <li class="rail__row" style="--row-i: 0;">
               <a class="rail__link" href={pathFor('agencies/bearingbridge', locale)}>
-                <span class="rail__logo"><img src="/AgencyLogos/BBG%20PNG.png" alt="" /></span>
+                <span class="rail__logo"><img src="/images/thechinapath-horizontal.png" alt="" /></span>
                 <span class="rail__body">
-                  <span class="rail__name">BearingBridge</span>
+                  <span class="rail__name">TheChinaPath</span>
                   <span class="rail__tagline">西方进入中国 · 全案</span>
                 </span>
                 <span class="rail__stripe rail__stripe--w" aria-hidden="true"></span>
@@ -100,7 +99,7 @@ const agencies = [
 
         <div class="rail__chapter">
           <div class="rail__chapter-head">
-            <span class="rail__chapter-label">专家 · 两端通用</span>
+            <span class="rail__chapter-label">专家</span>
             <span class="rail__chapter-rule" aria-hidden="true"></span>
           </div>
           <ol class="rail__list">
@@ -125,10 +124,10 @@ const agencies = [
               </a>
             </li>
             <li class="rail__row" style="--row-i: 4;">
-              <a class="rail__link" href={pathFor('agencies/beyondcompass', locale)}>
-                <span class="rail__logo"><img src="/AgencyLogos/BeyondCompass%20-%20Transparent%20-%204K.png" alt="" /></span>
+              <a class="rail__link" href={pathFor('agencies/compass', locale)}>
+                <span class="rail__logo"><img src="/AgencyLogos/Logo%20Compass%20-%20Horizontal.svg" alt="" /></span>
                 <span class="rail__body">
-                  <span class="rail__name">BeyondCompass</span>
+                  <span class="rail__name">Compass</span>
                   <span class="rail__tagline">中国伙伴严选</span>
                 </span>
                 <span class="rail__stripe rail__stripe--both" aria-hidden="true"></span>
@@ -211,7 +210,7 @@ const agencies = [
           <p class="bridge-panel__body">
             品牌、微信、小红书、抖音、Tmall、京东、百度、KOL、分销。从一张落地页起步，到整套阵列跑起来。
           </p>
-          <span class="bridge-panel__by">BearingBridge · TheRedScroll · ChinaWebFoundry · BeyondCompass · HubStudio</span>
+          <span class="bridge-panel__by">TheChinaPath · TheRedScroll · ChinaWebFoundry · Compass · HubStudio</span>
           <span class="bridge-panel__cta">
             进入入境通道
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
@@ -290,11 +289,13 @@ const agencies = [
           </div>
           <div class="matrix-cell matrix-cell--lead" role="cell">
             <span class="matrix-cell__tag">主力公司</span>
-            <span class="matrix-cell__name">BearingBridge</span>
+            <span class="matrix-cell__name">TheChinaPath</span>
+            <a class="matrix-cell__site" href="https://thechinapath.com" target="_blank" rel="noreferrer">thechinapath.com <span aria-hidden="true">↗</span></a>
           </div>
           <div class="matrix-cell matrix-cell--lead" role="cell">
             <span class="matrix-cell__tag">主力公司</span>
             <span class="matrix-cell__name">BeyondBridge</span>
+            <a class="matrix-cell__site" href="https://beyondbridge.ai" target="_blank" rel="noreferrer">beyondbridge.ai <span aria-hidden="true">↗</span></a>
           </div>
         </div>
 
@@ -306,6 +307,7 @@ const agencies = [
             <span class="matrix-cell__tag">两端通用</span>
             <span class="matrix-cell__name">TheRedScroll</span>
             <span class="matrix-cell__note">微信、抖音、小红书、微博。服务西方客户，也服务中国客户。</span>
+            <a class="matrix-cell__site" href="https://theredscroll.com" target="_blank" rel="noreferrer">theredscroll.com <span aria-hidden="true">↗</span></a>
           </div>
         </div>
 
@@ -317,6 +319,7 @@ const agencies = [
             <span class="matrix-cell__tag">两端通用</span>
             <span class="matrix-cell__name">Nuvora Studio</span>
             <span class="matrix-cell__note">只做 LinkedIn。服务西方客户，也服务中国客户。</span>
+            <a class="matrix-cell__site" href="https://nuvora.studio" target="_blank" rel="noreferrer">nuvora.studio <span aria-hidden="true">↗</span></a>
           </div>
         </div>
 
@@ -328,6 +331,7 @@ const agencies = [
             <span class="matrix-cell__tag">两端通用</span>
             <span class="matrix-cell__name">ChinaWebFoundry</span>
             <span class="matrix-cell__note">为百度而生，走通 ICP 备案，接上中国 AI 引擎。服务西方客户，也服务中国客户。</span>
+            <a class="matrix-cell__site" href="https://chinawebfoundry.com" target="_blank" rel="noreferrer">chinawebfoundry.com <span aria-hidden="true">↗</span></a>
           </div>
         </div>
 
@@ -337,8 +341,9 @@ const agencies = [
           </div>
           <div class="matrix-cell matrix-cell--both" role="cell">
             <span class="matrix-cell__tag">两端通用</span>
-            <span class="matrix-cell__name">BeyondCompass</span>
+            <span class="matrix-cell__name">Compass</span>
             <span class="matrix-cell__note">亲自核过的中国分销商、Tmall TP、抖音 Partner。</span>
+            <a class="matrix-cell__site" href="https://compass.bearingbridge.com" target="_blank" rel="noreferrer">compass.bearingbridge.com <span aria-hidden="true">↗</span></a>
           </div>
         </div>
 
@@ -354,6 +359,7 @@ const agencies = [
             </span>
             <span class="matrix-cell__name">HubStudio</span>
             <span class="matrix-cell__note">内容生产引擎。两个方向都在它上面跑。</span>
+            <a class="matrix-cell__site" href="https://hubstudio.ai" target="_blank" rel="noreferrer">hubstudio.ai <span aria-hidden="true">↗</span></a>
           </div>
         </div>
       </div>
@@ -548,6 +554,23 @@ const agencies = [
     font-size: 1.0625rem;
     font-weight: 600;
     color: var(--bbg-ink);
+  }
+  .matrix-cell__site {
+    width: fit-content;
+    margin-top: 6px;
+    font-size: var(--fs-small);
+    font-weight: 600;
+    color: var(--bbg-blue);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+    transition: opacity 0.2s var(--ease);
+  }
+  .matrix-cell__site:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .matrix-grid__row--span .matrix-cell__site {
+    color: rgba(255, 255, 255, 0.88);
   }
   .matrix-cell--empty {
     background: transparent;

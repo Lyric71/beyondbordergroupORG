@@ -3,7 +3,7 @@ import Layout from '../../../layouts/Layout.astro';
 import { pathFor } from '../../../i18n/ui';
 
 const locale = 'de' as const;
-const route = 'agencies/beyondcompass' as const;
+const route = 'agencies/compass' as const;
 
 type ShapeKey = 'shortlist' | 'map' | 'replace';
 const shapes: Array<{
@@ -20,7 +20,7 @@ const shapes: Array<{
     title: 'Shortlist',
     meta: '2 bis 3 Wochen',
     intro: 'Drei bis fünf geprüfte Namen, ausführlich gebrieft, bereit für das erste Gespräch. Für Marken, die wissen, wie ihre Distribution aussehen soll.',
-    image: '/images/beyondcompass-shortlist.svg',
+    image: '/images/compass-shortlist.svg',
     imageLabel: 'Editorial. Shortlist-Dossier mit einem hervorgehobenen Namen.',
     items: [
       { name: 'Kuratierte Namen', body: 'Drei bis fünf Partner, die zu Kategorie, Reifegrad und Kanalmix passen.' },
@@ -34,7 +34,7 @@ const shapes: Array<{
     title: 'Marktkarte',
     meta: '3 bis 6 Wochen',
     intro: 'Fünfzehn bis zwanzig Namen, vergleichbar aufbereitet. Für Marken, die noch klären, wie ihre Distribution aussehen soll. Anschließend eine fokussierte Shortlist, sobald Sie soweit sind.',
-    image: '/images/beyondcompass-map.svg',
+    image: '/images/compass-map.svg',
     imageLabel: 'Editorial. Marktkarte ausgelegt auf einem langen Tisch.',
     items: [
       { name: 'Longlist-Abdeckung', body: 'Fünfzehn bis zwanzig Namen, sortiert nach Kategorie, Kanal und Footprint.' },
@@ -48,7 +48,7 @@ const shapes: Array<{
     title: 'Ablösung',
     meta: 'Vertragsabhängig',
     intro: 'Für Marken, die bereits mit dem falschen Partner unterschrieben haben. Die Shortlist-Arbeit bleibt gleich. Die Rahmenbedingungen sind enger, und meist hängt ein Vertrag in der Auflösung.',
-    image: '/images/beyondcompass-replacement.svg',
+    image: '/images/compass-replacement.svg',
     imageLabel: 'Editorial. Ablösung in Arbeit, Vertragsprüfung, Shanghai.',
     items: [
       { name: 'Ablöse-Shortlist', body: 'Dieselbe Prüfung, dieselben persönlichen Empfehlungen, aber rund um einen laufenden Betrieb gebaut.' },
@@ -74,7 +74,7 @@ const included: Array<{ icon: IconKey; title: string; body: string }> = [
   {
     icon: 'intro',
     title: 'Persönliche Empfehlungen',
-    body: 'Fast jeder Name in BeyondCompass ist jemand, den unser Team persönlich getroffen, gebrieft oder auf einem realen Markenprojekt begleitet hat. Sie gehen mit einer bestehenden Beziehung ins Gespräch.',
+    body: 'Fast jeder Name in Compass ist jemand, den unser Team persönlich getroffen, gebrieft oder auf einem realen Markenprojekt begleitet hat. Sie gehen mit einer bestehenden Beziehung ins Gespräch.',
   },
   {
     icon: 'verdict',
@@ -83,29 +83,32 @@ const included: Array<{ icon: IconKey; title: string; body: string }> = [
   },
 ];
 
-const boundaries: Array<{ title: string; body: string }> = [
+const boundaries: Array<{ action: string; note: string; instead: string }> = [
   {
-    title: 'Wir verkaufen keinen Zugang zur Datenbank',
-    body: 'Kein Login, keine Seat-Lizenz. Der Wert liegt im Kontext um die Einträge herum, und der lässt sich nicht in eine CSV exportieren.',
+    action: 'verkaufen Zugang zur Datenbank.',
+    note: 'Kein Login, keine Seat-Lizenz.',
+    instead: 'Der Wert liegt im Kontext um die Einträge herum, und der lässt sich nicht in eine CSV exportieren. Sie bekommen unsere Einschätzung zu jedem Namen, persönlich.',
   },
   {
-    title: 'Wir führen die Partnerschaft nach Unterschrift nicht weiter',
-    body: 'Diese Arbeit übernimmt BearingBridge separat, wenn Sie es wünschen.',
+    action: 'führen die Partnerschaft nach Unterschrift weiter.',
+    note: 'Sourcing, nicht Steuerung.',
+    instead: 'Diese Arbeit übernimmt TheChinaPath separat, wenn Sie es wünschen. Zwei Teams, eine saubere Übergabe.',
   },
   {
-    title: 'Wir versprechen keine Ergebnisse zwei Jahre voraus',
-    body: 'Was wir leisten können: dafür sorgen, dass die Namen auf Ihrer Liste ihren Platz auch verdient haben.',
+    action: 'versprechen Ergebnisse zwei Jahre voraus.',
+    note: 'Das kann niemand seriös.',
+    instead: 'Was wir leisten können: dafür sorgen, dass jeder Name auf Ihrer Liste seinen Platz auch verdient hat. Den Rest steuern Sie selbst.',
   },
 ];
 
-const visitUrl = 'https://beyondcompass.bearingbridge.com';
-const visitLabel = 'BeyondCompass besuchen';
+const visitUrl = 'https://compass.bearingbridge.com';
+const visitLabel = 'Compass besuchen';
 ---
 
 <Layout
   locale={locale}
   route={route}
-  title="BeyondCompass. Erst den richtigen Partner in China finden."
+  title="Compass. Erst den richtigen Partner in China finden."
   description="Eine private Datenbank aus Distributoren, Tmall TPs, Douyin Partnern und Importeuren, mit denen wir uns persönlich getroffen, die wir geprüft und auf Markenprojekten begleitet haben. Shortlist, Marktkarte oder Ablösung, gespeist aus zwanzig Jahren vor Ort."
 >
   <!-- ====================================================================== -->
@@ -121,7 +124,7 @@ const visitLabel = 'BeyondCompass besuchen';
 
     <div class="container bc-hero__main">
       <div class="bc-hero__content">
-        <img src="/AgencyLogos/BeyondCompass%20-%20Transparent%20-%204K.png" alt="BeyondCompass" class="bc-hero__logo" width="200" height="48" loading="eager" decoding="async" />
+        <img src="/AgencyLogos/Logo%20Compass%20-%20Horizontal.svg" alt="Compass" class="bc-hero__logo" width="200" height="48" loading="eager" decoding="async" />
 
         <span class="bc-hero__eyebrow">
           <span class="bc-hero__eyebrow-dot"></span>
@@ -162,67 +165,15 @@ const visitLabel = 'BeyondCompass besuchen';
                 <span class="bc-mock__dot bc-mock__dot--y"></span>
                 <span class="bc-mock__dot bc-mock__dot--g"></span>
               </span>
-              <span class="bc-mock__url">beyondcompass.bearingbridge.com</span>
+              <span class="bc-mock__url">compass.bearingbridge.com</span>
               <span class="bc-mock__visit" aria-hidden="true">
                 <span>Seite besuchen</span>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l10-10M7 7h10v10"/></svg>
               </span>
             </div>
 
-            <div class="bc-mock__viewport">
-              <div class="bc-mock__head">
-                <span class="bc-mock__head-eyebrow">Shortlist · Beauty · Cross-Border</span>
-                <span class="bc-mock__head-meta">3 von 4 Namen sichtbar</span>
-              </div>
-
-              <ul class="bc-mock__list" aria-hidden="true">
-                <li class="bc-mock__row">
-                  <div class="bc-mock__row-left">
-                    <span class="bc-mock__name"><span class="bc-mock__redact bc-mock__redact--lg"></span></span>
-                    <span class="bc-mock__tag bc-mock__tag--tmall">Tmall TP</span>
-                  </div>
-                  <div class="bc-mock__row-right">
-                    <span class="bc-mock__meta">Shanghai · Beauty</span>
-                    <span class="bc-mock__brands">
-                      <span class="bc-mock__redact"></span>
-                      <span class="bc-mock__redact bc-mock__redact--md"></span>
-                      <span class="bc-mock__redact"></span>
-                    </span>
-                  </div>
-                </li>
-                <li class="bc-mock__row">
-                  <div class="bc-mock__row-left">
-                    <span class="bc-mock__name"><span class="bc-mock__redact bc-mock__redact--md"></span></span>
-                    <span class="bc-mock__tag bc-mock__tag--dist">Distributor</span>
-                  </div>
-                  <div class="bc-mock__row-right">
-                    <span class="bc-mock__meta">Hongkong · Lifestyle</span>
-                    <span class="bc-mock__brands">
-                      <span class="bc-mock__redact"></span>
-                      <span class="bc-mock__redact"></span>
-                    </span>
-                  </div>
-                </li>
-                <li class="bc-mock__row">
-                  <div class="bc-mock__row-left">
-                    <span class="bc-mock__name"><span class="bc-mock__redact bc-mock__redact--lg"></span></span>
-                    <span class="bc-mock__tag bc-mock__tag--douyin">Douyin Partner</span>
-                  </div>
-                  <div class="bc-mock__row-right">
-                    <span class="bc-mock__meta">Shenzhen · Wellness</span>
-                    <span class="bc-mock__brands">
-                      <span class="bc-mock__redact bc-mock__redact--md"></span>
-                      <span class="bc-mock__redact"></span>
-                      <span class="bc-mock__redact"></span>
-                    </span>
-                  </div>
-                </li>
-              </ul>
-
-              <div class="bc-mock__foot">
-                <span class="bc-mock__foot-dot"></span>
-                Namen geschwärzt. Freigabe nach dem Briefing.
-              </div>
+            <div class="bc-mock__viewport bc-mock__viewport--shot">
+              <img src="/images/compass-site.png" alt="Die Compass-Website von BearingBridge: eine private Datenbank geprüfter chinesischer Distributions- und Kanalpartner." class="bc-mock__shot" loading="lazy" decoding="async" width="1440" height="900" />
             </div>
           </div>
           </a>
@@ -259,7 +210,7 @@ const visitLabel = 'BeyondCompass besuchen';
           <span class="eyebrow">Sourcing-Tiefe</span>
           <h2 class="bc-track__title balance">Zwanzig Jahre Gespräche, geprüft und in einer privaten Datenbank zusammengeführt.</h2>
           <p class="bc-track__lead">
-            Ein Adressregister schützt Sie nicht vor der falschen Partnerwahl. Eine Datenbank, Gespräch um Gespräch über die Jahre aufgebaut, schon. Fast jeder Name in BeyondCompass ist jemand, den unser Team persönlich getroffen, gebrieft oder auf einem realen Markenprojekt begleitet hat.
+            Ein Adressregister schützt Sie nicht vor der falschen Partnerwahl. Eine Datenbank, Gespräch um Gespräch über die Jahre aufgebaut, schon. Fast jeder Name in Compass ist jemand, den unser Team persönlich getroffen, gebrieft oder auf einem realen Markenprojekt begleitet hat.
           </p>
         </div>
       </div>
@@ -277,7 +228,7 @@ const visitLabel = 'BeyondCompass besuchen';
           Partner-Sourcing, <em>in drei Formaten.</em>
         </h2>
         <p class="bc-shapes__lead">
-          Wir nutzen BeyondCompass, um Ihnen eine Liste der Distributions- und Kanalpartner zu erstellen, mit denen sich ein Gespräch lohnt. Geprüft an dem, was wir zuletzt gesehen haben, und an dem, was wir über Ihre Kategorie wissen.
+          Wir nutzen Compass, um Ihnen eine Liste der Distributions- und Kanalpartner zu erstellen, mit denen sich ein Gespräch lohnt. Geprüft an dem, was wir zuletzt gesehen haben, und an dem, was wir über Ihre Kategorie wissen.
         </p>
       </header>
 
@@ -421,43 +372,75 @@ const visitLabel = 'BeyondCompass besuchen';
         <p>Ware steht achtzehn Monate im Lager. Ein Flagship-Store wird von einem Team geführt, das in Ihrer Kategorie nie tätig war. Zwei Jahre Ihres China-Eintritts: verloren.</p>
         <p class="bc-manifesto__emphasis">Eine Datenbank, Gespräch um Gespräch über zwanzig Jahre aufgebaut, kann Sie davor schützen.</p>
       </div>
+      <figure class="bc-manifesto__media">
+        <img src="/images/china-office.webp" alt="Ein Marketingteam bei der Arbeit in einem ebenerdigen Büro in Shanghai" width="1200" height="655" loading="lazy" decoding="async" />
+      </figure>
     </div>
   </section>
 
   <!-- ====================================================================== -->
   <!-- BOUNDARIES: what we do not do                                          -->
   <!-- ====================================================================== -->
-  <section class="bc-bounds">
+  <section class="bc-bounds" data-bounds>
     <div class="bc-bounds__bg" aria-hidden="true">
       <span class="bc-bounds__rail">Nicht im Scope · Nicht im Scope · Nicht im Scope · Nicht im Scope</span>
     </div>
-    <div class="container">
+    <div class="container bc-bounds__inner">
       <header class="bc-bounds__header">
         <span class="eyebrow">Was das nicht ist</span>
         <h2 class="bc-bounds__title">
-          Drei Dinge, <em>die das nicht ist.</em>
+          Drei Linien, <em>die wir sauber halten.</em>
         </h2>
         <p class="bc-bounds__lead">
-          Die Linien, die wir sauber halten. Damit Sie wissen, wofür Sie zahlen, und wofür nicht.
+          Damit Sie jederzeit wissen, wofür Sie zahlen, und wofür nicht.
         </p>
+        <div class="bc-bounds__meter" aria-hidden="true">
+          {boundaries.map((_, i) => (
+            <span class={`bc-bounds__seg bc-bounds__seg--${i}`} data-seg></span>
+          ))}
+        </div>
       </header>
 
-      <div class="bc-bounds__grid">
+      <ol class="bc-bounds__list">
         {boundaries.map((b, i) => (
-          <article class={`bc-bounds__card bc-bounds__card--${i}`}>
-            <span class="bc-bounds__strike" aria-hidden="true"></span>
-            <span class="bc-bounds__icon" aria-hidden="true">
-              <svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="28" cy="28" r="25" stroke="currentColor" stroke-width="1.4" stroke-dasharray="3 4" />
-                <path d="M19 19 L37 37 M37 19 L19 37" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" />
-              </svg>
-            </span>
-            <span class="bc-bounds__tag">Nicht im Scope</span>
-            <h3 class="bc-bounds__card-title">{b.title}.</h3>
-            <p class="bc-bounds__card-body">{b.body}</p>
-          </article>
+          <li class={`bc-bounds__item bc-bounds__item--${i}`}>
+            <article class="bc-bound" data-bound data-tilt-card style={`--bound-i: ${i};`}>
+              <span class="bc-bound__glow" aria-hidden="true"></span>
+              <span class="bc-bound__edge" aria-hidden="true"></span>
+
+              <div class="bc-bound__not">
+                <span class="bc-bound__chip">
+                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <circle cx="12" cy="12" r="9.2" stroke="currentColor" stroke-width="1.5" />
+                    <path d="M8.6 8.6 L15.4 15.4 M15.4 8.6 L8.6 15.4" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" />
+                  </svg>
+                  Wir
+                </span>
+                <h3 class="bc-bound__headline">
+                  <span class="bc-bound__headline-text">{b.action}</span>
+                  <span class="bc-bound__redline" aria-hidden="true"></span>
+                </h3>
+                <p class="bc-bound__note">{b.note}</p>
+              </div>
+
+              <div class="bc-bound__bridge" aria-hidden="true">
+                <span class="bc-bound__bridge-line"></span>
+                <span class="bc-bound__bridge-arrow">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="4" y1="12" x2="18" y2="12" />
+                    <polyline points="12 6 18 12 12 18" />
+                  </svg>
+                </span>
+              </div>
+
+              <div class="bc-bound__instead">
+                <span class="bc-bound__instead-label">Was wir stattdessen tun</span>
+                <p class="bc-bound__instead-body">{b.instead}</p>
+              </div>
+            </article>
+          </li>
         ))}
-      </div>
+      </ol>
     </div>
   </section>
 
@@ -484,7 +467,7 @@ const visitLabel = 'BeyondCompass besuchen';
 
 <style>
   /* ===================================================================== */
-  /* BeyondCompass color tokens                                            */
+  /* Compass color tokens                                            */
   /* ===================================================================== */
   .bc-hero,
   .bc-shapes,
@@ -714,7 +697,7 @@ const visitLabel = 'BeyondCompass besuchen';
   .bc-hero__secondary:hover { color: #5eead4; }
   .bc-hero__secondary:hover svg { transform: translateX(3px); }
 
-  /* Hero preview: BeyondCompass shortlist mockup (CSS-only) */
+  /* Hero preview: Compass shortlist mockup (CSS-only) */
   .bc-hero__preview {
     position: relative;
     perspective: 1600px;
@@ -804,6 +787,18 @@ const visitLabel = 'BeyondCompass besuchen';
     display: flex;
     flex-direction: column;
     gap: 14px;
+  }
+  .bc-mock__viewport--shot {
+    padding: 0;
+    aspect-ratio: 16 / 10;
+    background: var(--bc-ink);
+  }
+  .bc-mock__shot {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
   }
   .bc-mock__head {
     display: flex;
@@ -1468,6 +1463,24 @@ const visitLabel = 'BeyondCompass besuchen';
     font-size: 1.1em;
     letter-spacing: -0.01em;
   }
+  .bc-manifesto__media {
+    margin: 0;
+    align-self: end;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.12);
+    box-shadow: 0 30px 70px -30px rgba(0,0,0,0.6), 0 1px 0 rgba(255,255,255,0.08) inset;
+  }
+  .bc-manifesto__media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+  }
+  @media (max-width: 1023px) {
+    .bc-manifesto__media { align-self: stretch; }
+  }
 
   /* ===================================================================== */
   /* BOUNDARIES (what we do not do), editorial off-grid                     */
@@ -1475,7 +1488,8 @@ const visitLabel = 'BeyondCompass besuchen';
   .bc-bounds {
     position: relative;
     padding: clamp(5rem, 10vh, 8rem) 0 clamp(6rem, 12vh, 9rem);
-    background: var(--bc-paper);
+    background:
+      radial-gradient(120% 80% at 100% 0%, var(--bc-paper-2), var(--bc-paper) 55%);
     overflow: hidden;
     isolation: isolate;
   }
@@ -1485,8 +1499,8 @@ const visitLabel = 'BeyondCompass besuchen';
     pointer-events: none;
     z-index: 0;
     background-image:
-      radial-gradient(circle at 18% 24%, rgba(244,63,94,0.05), transparent 38%),
-      radial-gradient(circle at 82% 76%, rgba(217,154,58,0.05), transparent 40%);
+      radial-gradient(circle at 18% 22%, rgba(244,63,94,0.06), transparent 38%),
+      radial-gradient(circle at 84% 80%, rgba(20,184,166,0.07), transparent 42%);
   }
   .bc-bounds__rail {
     position: absolute;
@@ -1499,17 +1513,29 @@ const visitLabel = 'BeyondCompass besuchen';
     font-weight: 600;
     letter-spacing: 0.45em;
     text-transform: uppercase;
-    color: rgba(15,23,42,0.05);
+    color: rgba(15,23,42,0.045);
     white-space: nowrap;
     user-select: none;
   }
   @media (max-width: 1023px) { .bc-bounds__rail { display: none; } }
 
-  .bc-bounds__header {
-    max-width: 64ch;
-    margin: 0 0 clamp(2.5rem, 5vw, 4rem);
+  .bc-bounds__inner {
     position: relative;
     z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.4fr);
+    gap: clamp(2rem, 5vw, 5rem);
+    align-items: start;
+  }
+  @media (max-width: 1023px) {
+    .bc-bounds__inner { grid-template-columns: 1fr; gap: var(--space-6); }
+  }
+
+  .bc-bounds__header {
+    position: relative;
+  }
+  @media (min-width: 1024px) {
+    .bc-bounds__header { position: sticky; top: clamp(5rem, 14vh, 9rem); }
   }
   .bc-bounds__title {
     font-size: clamp(2rem, 3vw + 0.6rem, 3.4rem);
@@ -1531,113 +1557,231 @@ const visitLabel = 'BeyondCompass besuchen';
     margin: 0;
     color: var(--bbg-text);
     font-size: var(--fs-lead);
-    max-width: 52ch;
+    max-width: 38ch;
   }
 
-  .bc-bounds__grid {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    gap: clamp(1rem, 2vw, 1.5rem);
-    position: relative;
-    z-index: 1;
+  /* Segmented scroll-progress meter (no numerals) */
+  .bc-bounds__meter {
+    display: flex;
+    gap: 8px;
+    margin-top: clamp(1.75rem, 4vw, 2.75rem);
+    max-width: 220px;
   }
-  .bc-bounds__card {
+  .bc-bounds__seg {
     position: relative;
-    background: var(--bbg-white);
-    border: 1px solid var(--bbg-border);
-    border-radius: 22px;
-    padding: clamp(1.75rem, 2.6vw, 2.25rem);
-    transition:
-      transform 360ms cubic-bezier(0.2,0.85,0.2,1),
-      box-shadow 360ms ease,
-      border-color 360ms ease;
+    height: 5px;
+    flex: 1;
+    border-radius: 999px;
+    background: rgba(15,23,42,0.1);
     overflow: hidden;
-    isolation: isolate;
   }
-  .bc-bounds__card--0 { grid-column: 1 / span 5; margin-top: 0; }
-  .bc-bounds__card--1 { grid-column: 6 / span 5; margin-top: clamp(2rem, 5vw, 4.5rem); }
-  .bc-bounds__card--2 { grid-column: 3 / span 6; margin-top: clamp(0.5rem, 2vw, 1.5rem); }
-  @media (max-width: 1023px) {
-    .bc-bounds__grid { grid-template-columns: 1fr; gap: var(--space-4); }
-    .bc-bounds__card,
-    .bc-bounds__card--0,
-    .bc-bounds__card--1,
-    .bc-bounds__card--2 { grid-column: 1 / -1; margin-top: 0; }
-  }
-
-  .bc-bounds__card::before {
+  .bc-bounds__seg::after {
     content: "";
     position: absolute;
     inset: 0;
     border-radius: inherit;
-    background: radial-gradient(360px 220px at 100% 0%, rgba(244,63,94,0.06), transparent 65%);
+    transform: scaleX(0);
+    transform-origin: left center;
+    background: linear-gradient(90deg, var(--bc-rose), var(--bc-gold));
+    transition: transform 620ms cubic-bezier(0.2,0.85,0.2,1);
+  }
+  .bc-bounds__seg.is-on::after { transform: scaleX(1); }
+
+  /* Ledger list */
+  .bc-bounds__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(1.25rem, 2.4vw, 1.75rem);
+  }
+  .bc-bounds__item { margin: 0; }
+
+  .bc-bound {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    align-items: center;
+    gap: clamp(1.25rem, 2.6vw, 2.25rem);
+    background: var(--bbg-white);
+    border: 1px solid var(--bbg-border);
+    border-radius: 22px;
+    padding: clamp(1.5rem, 2.6vw, 2.25rem) clamp(1.5rem, 2.8vw, 2.5rem);
+    overflow: hidden;
+    isolation: isolate;
+    transform: perspective(1200px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateY(var(--ty, 0));
+    transition:
+      box-shadow 420ms ease,
+      border-color 420ms ease,
+      transform 220ms cubic-bezier(0.2,0.85,0.2,1);
+    box-shadow: 0 1px 0 rgba(255,255,255,0.6) inset, 0 10px 30px -24px rgba(15,23,42,0.3);
+  }
+  @media (max-width: 719px) {
+    .bc-bound { grid-template-columns: 1fr; gap: var(--space-4); }
+  }
+  .bc-bound:hover {
+    border-color: rgba(20,184,166,0.4);
+    box-shadow: 0 1px 0 rgba(255,255,255,0.6) inset, 0 36px 70px -34px rgba(15,23,42,0.4);
+  }
+
+  /* Pointer-following glow inside the card */
+  .bc-bound__glow {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    pointer-events: none;
     opacity: 0;
     transition: opacity 360ms ease;
-    pointer-events: none;
-    z-index: -1;
+    background: radial-gradient(
+      260px 200px at var(--mx, 50%) var(--my, 0%),
+      rgba(20,184,166,0.12),
+      transparent 70%
+    );
   }
-  .bc-bounds__card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 28px 60px -28px rgba(15,23,42,0.22);
-    border-color: rgba(244,63,94,0.25);
-  }
-  .bc-bounds__card:hover::before { opacity: 1; }
+  .bc-bound:hover .bc-bound__glow { opacity: 1; }
 
-  .bc-bounds__strike {
+  /* Left accent edge, rose -> teal as it resolves */
+  .bc-bound__edge {
     position: absolute;
-    top: 0; right: clamp(1rem, 2.5vw, 1.75rem);
-    width: 1px;
-    height: clamp(2.5rem, 4vw, 3.25rem);
-    background: linear-gradient(180deg, var(--bc-rose), transparent);
-    opacity: 0.65;
+    left: 0; top: 12%;
+    width: 3px;
+    height: 76%;
+    border-radius: 999px;
+    background: linear-gradient(180deg, var(--bc-rose), var(--bc-gold));
+    transform: scaleY(0);
+    transform-origin: top center;
+    transition: transform 700ms cubic-bezier(0.2,0.85,0.2,1) 120ms;
   }
 
-  .bc-bounds__icon {
+  /* The "not" side */
+  .bc-bound__chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45em;
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--bc-rose-strong);
+    background: rgba(244,63,94,0.08);
+    border: 1px solid rgba(244,63,94,0.22);
+    padding: 0.4em 0.7em;
+    border-radius: 999px;
+    margin-bottom: var(--space-3);
+  }
+  .bc-bound__chip svg { width: 15px; height: 15px; }
+
+  .bc-bound__headline {
+    position: relative;
+    display: inline-block;
+    font-family: var(--font-display);
+    font-size: clamp(1.25rem, 1.4vw + 0.75rem, 1.7rem);
+    font-weight: 600;
+    line-height: 1.18;
+    letter-spacing: -0.018em;
+    color: var(--bbg-ink);
+    margin: 0 0 var(--space-3);
+    max-width: 18ch;
+  }
+  .bc-bound__redline {
+    position: absolute;
+    left: -2px; right: -2px;
+    top: 54%;
+    height: 3px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--bc-rose), var(--bc-rose-strong));
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 640ms cubic-bezier(0.65, 0, 0.35, 1) 260ms;
+  }
+  .bc-bound__note {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--bc-rose-strong);
+    font-weight: 500;
+  }
+
+  /* Bridge connector (brand motif) */
+  .bc-bound__bridge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--bc-teal-strong);
+  }
+  .bc-bound__bridge-line {
+    width: clamp(18px, 3vw, 40px);
+    height: 1px;
+    background: linear-gradient(90deg, transparent, currentColor);
+  }
+  .bc-bound__bridge-arrow {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 56px;
-    height: 56px;
-    border-radius: 14px;
-    background: rgba(244,63,94,0.08);
-    color: var(--bc-rose-strong);
-    border: 1px solid rgba(244,63,94,0.22);
-    margin-bottom: var(--space-5);
-    transition: transform 360ms cubic-bezier(0.2,0.85,0.2,1);
+    width: 38px; height: 38px;
+    flex: none;
+    border-radius: 50%;
+    border: 1px solid rgba(20,184,166,0.3);
+    background: rgba(20,184,166,0.08);
+    margin-left: -1px;
   }
-  .bc-bounds__card:hover .bc-bounds__icon {
-    transform: rotate(-6deg) scale(1.04);
+  .bc-bound__bridge-arrow svg { width: 18px; height: 18px; }
+  .bc-bound:hover .bc-bound__bridge-arrow { animation: bcNudge 900ms ease infinite; }
+  @keyframes bcNudge {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(3px); }
   }
-  .bc-bounds__icon svg { width: 30px; height: 30px; }
+  @media (max-width: 719px) {
+    .bc-bound__bridge { justify-content: flex-start; }
+    .bc-bound__bridge-arrow svg { transform: rotate(90deg); }
+  }
 
-  .bc-bounds__tag {
+  /* The "instead" side */
+  .bc-bound__instead-label {
     display: inline-block;
     font-family: var(--font-display);
     font-size: 0.66rem;
     font-weight: 700;
-    letter-spacing: 0.22em;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: var(--bc-rose-strong);
+    color: var(--bc-teal-strong);
     margin-bottom: var(--space-3);
   }
-
-  .bc-bounds__card-title {
-    font-family: var(--font-display);
-    font-size: clamp(1.2rem, 1.4vw + 0.7rem, 1.55rem);
-    font-weight: 600;
-    line-height: 1.25;
-    letter-spacing: -0.015em;
-    color: var(--bbg-ink);
-    margin: 0 0 var(--space-4);
-    max-width: 22ch;
-  }
-  .bc-bounds__card-body {
+  .bc-bound__instead-body {
     margin: 0;
     color: var(--bbg-text);
-    font-size: 1rem;
+    font-size: 1.02rem;
     line-height: 1.6;
-    max-width: 44ch;
+    max-width: 42ch;
   }
+
+  /* Scroll-reveal armed state (JS adds .is-armed; reduced-motion skips it) */
+  .bc-bounds.is-armed .bc-bound {
+    opacity: 0;
+    --ty: 30px;
+  }
+  .bc-bounds.is-armed .bc-bound.is-in {
+    opacity: 1;
+    --ty: 0px;
+    transition:
+      opacity 720ms cubic-bezier(0.2,0.85,0.2,1),
+      transform 620ms cubic-bezier(0.2,0.85,0.2,1),
+      box-shadow 420ms ease,
+      border-color 420ms ease;
+  }
+  /* Once revealed and idle, let the pointer tilt feel snappy again */
+  .bc-bounds.is-armed .bc-bound.is-in:hover {
+    transition:
+      transform 200ms cubic-bezier(0.2,0.85,0.2,1),
+      box-shadow 420ms ease,
+      border-color 420ms ease;
+  }
+  .bc-bounds.is-armed .bc-bound .bc-bound__redline { transform: scaleX(0); }
+  .bc-bounds.is-armed .bc-bound .bc-bound__edge { transform: scaleY(0); }
+  .bc-bounds.is-armed .bc-bound.is-in .bc-bound__redline { transform: scaleX(1); }
+  .bc-bounds.is-armed .bc-bound.is-in .bc-bound__edge { transform: scaleY(1); }
 
   /* ===================================================================== */
   /* FINAL CTA                                                              */
@@ -1692,8 +1836,7 @@ const visitLabel = 'BeyondCompass besuchen';
   .bc-shapes__shell,
   .bc-included__header,
   .bc-included__card,
-  .bc-bounds__header,
-  .bc-bounds__card {
+  .bc-bounds__header {
     transition: opacity 700ms cubic-bezier(0.2, 0.85, 0.2, 1), transform 800ms cubic-bezier(0.2, 0.85, 0.2, 1);
   }
 
@@ -1711,7 +1854,9 @@ const visitLabel = 'BeyondCompass besuchen';
     .bc-track__numeral, .bc-track__copy,
     .bc-shapes__header, .bc-shapes__shell,
     .bc-included__header, .bc-included__card,
-    .bc-bounds__header, .bc-bounds__card,
+    .bc-bounds__header,
+    .bc-bound, .bc-bound__redline, .bc-bound__edge, .bc-bound__bridge-arrow,
+    .bc-bounds__seg::after,
     [data-anim] {
       animation: none !important;
       transition: none !important;
@@ -1728,7 +1873,7 @@ const visitLabel = 'BeyondCompass besuchen';
     /* Reveal on scroll */
     if (!reduced) {
       const revealTargets = document.querySelectorAll<HTMLElement>(
-        '.bc-track__numeral, .bc-track__copy, .bc-shapes__header, .bc-shapes__shell, .bc-included__header, .bc-included__card, .bc-bounds__header, .bc-bounds__card'
+        '.bc-track__numeral, .bc-track__copy, .bc-shapes__header, .bc-shapes__shell, .bc-included__header, .bc-included__card, .bc-bounds__header'
       );
       revealTargets.forEach((el) => {
         el.style.opacity = '0';
@@ -1872,6 +2017,53 @@ const visitLabel = 'BeyondCompass besuchen';
       }
     }
 
+    /* Boundaries: armed scroll-reveal + segmented progress meter */
+    const boundsSection = document.querySelector<HTMLElement>('[data-bounds]');
+    if (boundsSection) {
+      const items = Array.from(boundsSection.querySelectorAll<HTMLElement>('[data-bound]'));
+      const segs = Array.from(boundsSection.querySelectorAll<HTMLElement>('[data-seg]'));
+
+      if (reduced) {
+        segs.forEach((s) => s.classList.add('is-on'));
+      } else {
+        boundsSection.classList.add('is-armed');
+        const bio = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) return;
+              const el = entry.target as HTMLElement;
+              el.classList.add('is-in');
+              const idx = items.indexOf(el);
+              if (segs[idx]) segs[idx].classList.add('is-on');
+              bio.unobserve(el);
+            });
+          },
+          { rootMargin: '0px 0px -12% 0px', threshold: 0.2 }
+        );
+        items.forEach((el) => bio.observe(el));
+      }
+    }
+
+    /* Pointer-following glow + subtle tilt inside cards */
+    if (!reduced) {
+      const tiltCards = document.querySelectorAll<HTMLElement>('[data-tilt-card]');
+      tiltCards.forEach((card) => {
+        card.addEventListener('mousemove', (e: MouseEvent) => {
+          const rect = card.getBoundingClientRect();
+          const px = (e.clientX - rect.left) / rect.width;
+          const py = (e.clientY - rect.top) / rect.height;
+          card.style.setProperty('--mx', `${(px * 100).toFixed(1)}%`);
+          card.style.setProperty('--my', `${(py * 100).toFixed(1)}%`);
+          card.style.setProperty('--ry', `${((px - 0.5) * 4).toFixed(2)}deg`);
+          card.style.setProperty('--rx', `${((0.5 - py) * 3).toFixed(2)}deg`);
+        });
+        card.addEventListener('mouseleave', () => {
+          card.style.setProperty('--ry', '0deg');
+          card.style.setProperty('--rx', '0deg');
+        });
+      });
+    }
+
     /* Magnetic CTA */
     if (!reduced) {
       const magnets = document.querySelectorAll<HTMLElement>('[data-magnet]');
@@ -1897,5 +2089,3 @@ const visitLabel = 'BeyondCompass besuchen';
     init();
   }
 </script>
-</content>
-</invoke>
