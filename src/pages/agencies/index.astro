@@ -4,9 +4,9 @@ import AgencyLogo from '../../components/AgencyLogo.astro';
 import { pathFor } from '../../i18n/ui';
 
 const locale = 'en' as const;
-const title = 'Seven agencies';
+const title = 'Eight agencies';
 const description =
-  'BearingBridge is seven specialist agencies. West-to-China, China-to-West, and horizontal. Each one stands alone. Most clients start with one and add others as projects grow.';
+  'BearingBridge is eight specialist agencies. West-to-China, China-to-West, and horizontal. Each one stands alone. Most clients start with one and add others as projects grow.';
 
 type Group = 'West to China' | 'China to West' | 'Horizontal';
 
@@ -17,7 +17,8 @@ type AgencyRoute =
   | 'agencies/compass'
   | 'agencies/beyondbridge'
   | 'agencies/hubstudio'
-  | 'agencies/nuvora-studio';
+  | 'agencies/nuvora-studio'
+  | 'agencies/bearingbridgeai';
 
 interface Agency {
   slug: string;
@@ -180,6 +181,38 @@ const agencies: Agency[] = [
     accent: '#22c55e',
   },
   {
+    slug: 'bearingbridgeai',
+    route: 'agencies/bearingbridgeai',
+    name: 'BearingBridge AI',
+    group: 'Horizontal',
+    category: 'AI adoption consulting',
+    tagline: 'AI adoption that survives contact with reality.',
+    lead:
+      'Senior consulting for companies that want AI running in their operations, not sitting in a slide deck. About a third of the use cases we assess should not be built, and we say so. Every pilot ships with kill criteria agreed before we start. You pay for evidence, not promises.',
+    lanes: [
+      {
+        name: 'Assess',
+        body: 'Three to eight weeks, fixed scope. A ranked portfolio of use cases and a roadmap your team can run without us. We tell you where AI does not belong.',
+      },
+      {
+        name: 'Pilot',
+        body: 'Six to twelve weeks. Success and kill criteria agreed up front, benchmarked East and West on your own data. We ship only what survives your operations.',
+      },
+      {
+        name: 'Continuum',
+        body: 'Fractional AI leadership. Monthly adoption and governance, quarterly steering with your executives. Handover is in the method, never an upsell.',
+      },
+      {
+        name: 'Academy',
+        body: 'Executive masterclasses, leadership workshops, and founder-led practitioner training. Your people keep running it after we leave.',
+      },
+    ],
+    signal: 'Qwen · DeepSeek · Kimi · GPT · Claude · Gemini, benchmarked on your data',
+    visit: { url: 'https://www.bearingbridge.ai', label: 'bearingbridge.ai' },
+    based: 'Hong Kong. Shanghai. Across Asia, the Middle East, and Europe.',
+    accent: '#c2922f',
+  },
+  {
     slug: 'hubstudio',
     route: 'agencies/hubstudio',
     name: 'HubStudio',
@@ -237,6 +270,19 @@ const agencies: Agency[] = [
   },
 ];
 
+// Canonical display order, shared with the menu, footer and home page.
+const agencyOrder = [
+  'bearingbridge',
+  'beyondbridge',
+  'hubstudio',
+  'bearingbridgeai',
+  'chinawebfoundry',
+  'theredscroll',
+  'compass',
+  'nuvora-studio',
+];
+agencies.sort((a, b) => agencyOrder.indexOf(a.slug) - agencyOrder.indexOf(b.slug));
+
 const groups: { id: Group; label: string; intro: string }[] = [
   {
     id: 'West to China',
@@ -251,7 +297,7 @@ const groups: { id: Group; label: string; intro: string }[] = [
   {
     id: 'Horizontal',
     label: 'Horizontal',
-    intro: 'For any company, anywhere. Content production and LinkedIn.',
+    intro: 'For any company, anywhere. AI adoption, content production, and LinkedIn.',
   },
 ];
 ---
@@ -265,7 +311,7 @@ const groups: { id: Group; label: string; intro: string }[] = [
     <div class="container ag-hero__container">
       <span class="eyebrow eyebrow--on-dark">The group</span>
       <h1 class="ag-hero__title balance">
-        Seven specialist agencies.<br />
+        Eight specialist agencies.<br />
         <em>One ecosystem.</em>
       </h1>
       <p class="ag-hero__lead">
@@ -495,7 +541,7 @@ const groups: { id: Group; label: string; intro: string }[] = [
     border-top: 1px solid rgba(255,255,255,0.12);
   }
   @media (min-width: 1024px) {
-    .ag-hero__logos { grid-template-columns: repeat(7, minmax(0, 1fr)); }
+    .ag-hero__logos { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   }
   .ag-hero__logos a {
     display: grid;

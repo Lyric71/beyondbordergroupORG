@@ -24,6 +24,7 @@ export type Route =
   | 'agencies/compass'
   | 'agencies/hubstudio'
   | 'agencies/nuvora-studio'
+  | 'agencies/bearingbridgeai'
   | 'how-we-work-together'
   | 'contact'
   | 'privacy'
@@ -44,6 +45,7 @@ const routePaths: Record<Route, string> = {
   'agencies/compass': 'agencies/compass/',
   'agencies/hubstudio': 'agencies/hubstudio/',
   'agencies/nuvora-studio': 'agencies/nuvora-studio/',
+  'agencies/bearingbridgeai': 'agencies/bearingbridgeai/',
   'how-we-work-together': 'how-we-work-together/',
   contact: 'contact/',
   privacy: 'privacy/',
@@ -84,6 +86,7 @@ export interface UI {
       beyondbridge: string;
       hubstudio: string;
       nuvoraStudio: string;
+      bearingbridgeAi: string;
     };
   };
   cta: {
@@ -144,6 +147,7 @@ export const ui: Record<Locale, UI> = {
         beyondbridge: 'Chinese brands, Western pipeline.',
         hubstudio: 'Content production engine.',
         nuvoraStudio: 'LinkedIn-only B2B.',
+        bearingbridgeAi: 'AI adoption consulting, East and West.',
       },
     },
     cta: {
@@ -202,6 +206,7 @@ export const ui: Record<Locale, UI> = {
         beyondbridge: 'Marques chinoises, cap sur l\'Occident.',
         hubstudio: 'La fabrique de contenus.',
         nuvoraStudio: 'Le B2B, rien que sur LinkedIn.',
+        bearingbridgeAi: "Conseil en adoption de l'IA, Est et Ouest.",
       },
     },
     cta: {
@@ -260,6 +265,7 @@ export const ui: Record<Locale, UI> = {
         beyondbridge: '中国品牌，西方市场管线。',
         hubstudio: '内容生产引擎。',
         nuvoraStudio: '仅 LinkedIn 的 B2B。',
+        bearingbridgeAi: 'AI 落地咨询，横跨东西方。',
       },
     },
     cta: {
@@ -299,25 +305,26 @@ export const ui: Record<Locale, UI> = {
       howWeWork: 'Cómo trabajamos',
       founder: 'Fundador',
       contact: 'Contacto',
-      flowsDesc: 'Un puente, dos sentidos. Elija la orilla desde la que parte.',
-      agenciesDesc: 'Agencias especializadas. Cada una se sostiene sola. La mayoría empieza por una.',
-      ourWay: 'Nuestra forma',
-      ourWayDesc: 'El puente, los flujos, la forma de trabajar.',
-      bridgeItemDesc: 'La tesis transfronteriza. Por qué existe este grupo.',
-      flowsItemDesc: 'Un puente, dos sentidos. Entrada y salida, en la misma página.',
-      howWeWorkItemDesc: 'Cómo se ejecuta un proyecto, paso a paso.',
-      ourWayMeta: 'De la idea a la entrega',
+      flowsDesc: 'Un puente, dos direcciones. Todo empieza por su orilla.',
+      agenciesDesc: 'Agencias especializadas e independientes. La mayoría de los proyectos arranca con una sola.',
+      ourWay: 'Nuestro método',
+      ourWayDesc: 'El puente, los flujos y la forma en que trabajamos.',
+      bridgeItemDesc: 'La apuesta transfronteriza. La razón de ser del grupo.',
+      flowsItemDesc: 'Un puente, dos direcciones. Entrada y salida, en una misma página.',
+      howWeWorkItemDesc: 'Cómo discurre un proyecto, de principio a fin.',
+      ourWayMeta: 'De la idea a la ejecución',
       specialistStudios: (n) => `${n} agencias especializadas`,
-      agenciesStandAlone: 'Cada agencia se sostiene sola. La mayoría de los clientes empieza por una.',
+      agenciesStandAlone: 'Cada agencia funciona por su cuenta. La mayoría de los clientes empieza por una.',
       viewAllAgencies: 'Ver todas las agencias',
       agencyDescs: {
-        bearingbridge: 'Implantación integral en China.',
-        theredscroll: 'Especialista en redes sociales chinas.',
-        chinawebfoundry: 'Webs hechas para la red china.',
-        compass: 'Distribuidores chinos y TP contrastados.',
-        beyondbridge: 'Marcas chinas, pipeline en Occidente.',
-        hubstudio: 'Motor de producción de contenido.',
+        bearingbridge: 'Desembarco integral en el mercado chino.',
+        theredscroll: 'Especialistas en redes sociales chinas.',
+        chinawebfoundry: 'Sitios web pensados para China.',
+        compass: 'Distribuidores y trading partners chinos contrastados.',
+        beyondbridge: 'Marcas chinas, con canal en Occidente.',
+        hubstudio: 'Motor de producción de contenidos.',
         nuvoraStudio: 'B2B, solo en LinkedIn.',
+        bearingbridgeAi: 'Consultoría en adopción de IA, a uno y otro lado.',
       },
     },
     cta: {
@@ -333,12 +340,12 @@ export const ui: Record<Locale, UI> = {
       send: 'Enviar',
     },
     footer: {
-      tagline: 'Construimos marcas entre China y Occidente. En los dos sentidos.',
+      tagline: 'Construimos marcas a uno y otro lado de la frontera entre China y Occidente, en ambos sentidos.',
       ecosystem: 'El ecosistema',
       sixAgencies: 'Las agencias',
       discover: 'Descubrir',
       languages: 'Idiomas',
-      offices: 'Shanghái. Hong Kong. París. Hangzhou. Representantes en EE. UU., Reino Unido, Alemania y Francia.',
+      offices: 'Shanghái. Hong Kong. París. Hangzhou. Representación en EE. UU., Reino Unido, Alemania y Francia.',
       rights: '© 2026 Beyond Border Group Ltd. Hong Kong.',
       privacy: 'Privacidad',
       terms: 'Términos',
@@ -376,6 +383,7 @@ export const ui: Record<Locale, UI> = {
         beyondbridge: 'Chinesische Marken, westliche Pipeline.',
         hubstudio: 'Content-Produktionsmotor.',
         nuvoraStudio: 'B2B, ausschließlich auf LinkedIn.',
+        bearingbridgeAi: 'KI-Adoption-Beratung, Ost und West.',
       },
     },
     cta: {

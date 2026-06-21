@@ -16,31 +16,31 @@ const services: Array<{
   {
     key: 'build',
     title: 'Construir',
-    intro: 'Aparezca donde miran compradores, candidatos e inversores. Cada día.',
+    intro: 'Hágase ver allí donde miran sus compradores, sus candidatos y sus inversores. Cada día.',
     image: '/images/nuvora-build.webp',
     items: [
-      { name: 'Contenido en LinkedIn', body: 'Pensado, redactado y publicado para que su empresa la vea el comprador. Hecho para generar leads, no solo likes.' },
-      { name: 'Personal branding de directivos', body: 'Presencia en LinkedIn diseñada para fundadores, CEO y altos cargos. Ghostwriting que suena a usted y construye confianza a escala.' },
-      { name: 'Employee advocacy', body: 'Su equipo, convertido en motor de contenido. Formado, equipado y publicando con constancia. Alcance multiplicado.' },
+      { name: 'Contenido en LinkedIn', body: 'Pensado, escrito y publicado para que el comprador repare en su empresa. Concebido para abrir negocio, no para sumar «me gusta».' },
+      { name: 'Marca personal de directivos', body: 'Una presencia en LinkedIn a la medida de fundadores, directores generales y altos cargos. Redacción en la sombra que conserva su voz y siembra confianza a gran escala.' },
+      { name: 'Embajadores internos', body: 'Su plantilla, convertida en motor de contenido. La formamos, le damos las herramientas y publica con constancia. El alcance se multiplica.' },
     ],
   },
   {
     key: 'convert',
     title: 'Convertir',
-    intro: 'Llegue al decisor correcto y convierta la atención en pipeline.',
+    intro: 'Llegue a quien decide y convierta la atención en negocio.',
     image: '/images/nuvora-grow.webp',
     items: [
-      { name: 'Publicidad en LinkedIn', body: 'Campañas que meten leads cualificados en su pipeline. Segmentación, creatividad e informes atados al ingreso. Ningún presupuesto quemado en la audiencia equivocada.' },
+      { name: 'Publicidad en LinkedIn', body: 'Campañas que nutren su cartera con contactos cualificados. Segmentación, creatividad e informes con la vista puesta en los ingresos. Ni un euro se va en la audiencia equivocada.' },
     ],
   },
   {
     key: 'learn',
     title: 'Aprender',
-    intro: 'Levante el músculo en casa. Estrategia primero, lock-in nunca.',
+    intro: 'Gane músculo de puertas adentro. Primero la estrategia; dependencia, ninguna.',
     image: '/images/nuvora-learn.webp',
     items: [
-      { name: 'Formación y talleres', body: 'Sesiones prácticas para equipos internos. Algoritmo, perfil, estrategia de contenido. Útil desde el primer día.' },
-      { name: 'Consultoría', body: 'Auditoría completa de la presencia actual en LinkedIn y la hoja de ruta para hacerla crecer. La estrategia primero. La ejecución después.' },
+      { name: 'Formación y talleres', body: 'Sesiones prácticas para equipos internos. Algoritmo, perfil y estrategia de contenido. Lo que se aprende se aplica desde el primer día.' },
+      { name: 'Consultoría', body: 'Una auditoría a fondo de su presencia actual en LinkedIn y la hoja de ruta para hacerla crecer. Primero la estrategia. Luego, la ejecución.' },
     ],
   },
 ];
@@ -52,8 +52,8 @@ const visitLabel = 'Visitar nuvora.studio';
 <Layout
   locale={locale}
   route={route}
-  title="Nuvora Studio: Más leads en LinkedIn"
-  description="Nuvora Studio hace crecer la presencia en LinkedIn de empresas B2B. Contenido, anuncios, personal branding de directivos y más. Leads cualificados desde los decisores."
+  title="Nuvora Studio: más leads en LinkedIn"
+  description="Nuvora Studio hace crecer la presencia en LinkedIn de las empresas B2B. Contenido, publicidad, marca personal de directivos y mucho más. Leads cualificados que vienen de quienes deciden."
 >
   <section class="nv-hero" data-hero>
     <div class="nv-hero__bg" aria-hidden="true">
@@ -73,12 +73,12 @@ const visitLabel = 'Visitar nuvora.studio';
         </span>
 
         <h1 class="nv-hero__title">
-          <span class="nv-hero__line" data-anim="word">Sus <em class="nv-hero__phrase nv-hero__phrase--buyers">compradores</em> la consultan.</span>
-          <span class="nv-hero__line" data-anim="word">Sus <em class="nv-hero__phrase nv-hero__phrase--hires">candidatos</em> la consultan.</span>
-          <span class="nv-hero__line" data-anim="word">Sus <em class="nv-hero__phrase nv-hero__phrase--investors">inversores</em> la consultan.</span>
+          <span class="nv-hero__line" data-anim="word">Sus <em class="nv-hero__phrase nv-hero__phrase--buyers">compradores</em> ya lo miran.</span>
+          <span class="nv-hero__line" data-anim="word">Sus <em class="nv-hero__phrase nv-hero__phrase--hires">candidatos</em> ya lo miran.</span>
+          <span class="nv-hero__line" data-anim="word">Sus <em class="nv-hero__phrase nv-hero__phrase--investors">inversores</em> ya lo miran.</span>
         </h1>
 
-        <p class="nv-hero__lead" data-anim="fade">Con más de mil millones de miembros, LinkedIn es el registro profesional del mundo. Hacemos crecer su presencia ahí. Cada día.</p>
+        <p class="nv-hero__lead" data-anim="fade">Con más de mil millones de usuarios, LinkedIn se ha convertido en el gran registro profesional del mundo. Ahí hacemos crecer su presencia. Día tras día.</p>
 
         <div class="nv-hero__cta-row" data-anim="fade">
           <a class="nv-magnet" href={visitUrl} target="_blank" rel="noreferrer" data-magnet>
@@ -87,7 +87,7 @@ const visitLabel = 'Visitar nuvora.studio';
             <span class="nv-magnet__arrow" aria-hidden="true">→</span>
           </a>
           <a class="nv-hero__secondary" href={pathFor('contact', locale)} data-anim="fade">
-            <span>Hablar con nosotros</span>
+            <span>Hablemos</span>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
         </div>
@@ -106,7 +106,7 @@ const visitLabel = 'Visitar nuvora.studio';
                 <span class="browser__url">nuvora.studio</span>
               </div>
               <div class="browser__viewport">
-                <img src="/images/nuvora-studio-home.webp" alt="Portada de nuvora.studio" class="browser__shot" width="1600" height="1000" loading="eager" decoding="async" />
+                <img src="/images/nuvora-studio-home.webp" alt="Página de inicio de nuvora.studio" class="browser__shot" width="1600" height="1000" loading="eager" decoding="async" />
                 <span class="browser__live">
                   <span class="browser__live-dot"></span>
                   En vivo · {new Date().toLocaleDateString('es-ES', { month: 'short', year: 'numeric' })}
@@ -121,17 +121,17 @@ const visitLabel = 'Visitar nuvora.studio';
 
           <div class="nv-hero__chip nv-hero__chip--scope">
             <span class="nv-hero__chip-label">Alcance</span>
-            <span>Contenido · Anuncios · Branding · Advocacy</span>
+            <span>Contenido · Publicidad · Marca personal · Embajadores</span>
           </div>
           <div class="nv-hero__chip nv-hero__chip--audience">
             <span class="nv-hero__chip-label">Pensado para</span>
-            <span>Fundadores · CEO · Directores de marketing</span>
+            <span>Fundadores · Directores generales · Directores de marketing</span>
           </div>
         </div>
       </div>
     </div>
 
-    <a href="#track" class="nv-hero__scroll" aria-label="Bajar">
+    <a href="#track" class="nv-hero__scroll" aria-label="Seguir bajando">
       <span>Bajar</span>
       <span class="nv-hero__scroll-line"></span>
     </a>
@@ -147,9 +147,9 @@ const visitLabel = 'Visitar nuvora.studio';
         </div>
         <div class="nv-track__copy">
           <span class="eyebrow">La plataforma</span>
-          <h2 class="nv-track__title balance">Mil millones de miembros. Una sola plataforma que decide quién consigue la reunión.</h2>
+          <h2 class="nv-track__title balance">Mil millones de usuarios. Una sola plataforma decide quién consigue la reunión.</h2>
           <p class="nv-track__lead">
-            Páginas de empresa vacías. Directivos en silencio. Posts que se leen como notas de prensa. Presupuestos de anuncios gastados en la audiencia equivocada. Eso es pipeline perdido, semana tras semana. Lo cambiamos.
+            Páginas de empresa desiertas. Directivos que callan. Publicaciones que suenan a nota de prensa. Presupuestos de anuncios que se esfuman en la audiencia equivocada. Es negocio que se escapa, semana tras semana. Nosotros le damos la vuelta.
           </p>
         </div>
       </div>
@@ -161,14 +161,14 @@ const visitLabel = 'Visitar nuvora.studio';
       <header class="nv-services__header">
         <span class="eyebrow">Lo que hacemos</span>
         <h2 class="nv-services__title">
-          Tres carriles. <em>Una plataforma.</em><br />
-          De cabo a rabo.
+          Tres vías. <em>Una plataforma.</em><br />
+          De principio a fin.
         </h2>
-        <p class="nv-services__lead">Del primer post escrito por ghostwriter al pipeline de pago en marcha. Coja el carril que encaja con su momento, o corra los tres.</p>
+        <p class="nv-services__lead">De la primera publicación escrita en la sombra a una maquinaria de captación a pleno rendimiento. Elija la vía que mejor encaje con su momento. O acométalas las tres.</p>
       </header>
 
       <div class="nv-services__shell" data-tabs>
-        <div class="nv-services__nav" role="tablist" aria-label="Carriles de servicio">
+        <div class="nv-services__nav" role="tablist" aria-label="Vías de servicio">
           {services.map((s, i) => (
             <button
               type="button"
@@ -233,15 +233,15 @@ const visitLabel = 'Visitar nuvora.studio';
   <section class="nv-operate">
     <div class="nv-operate__bg" aria-hidden="true"></div>
     <div class="container nv-operate__container">
-      <span class="eyebrow eyebrow--on-dark">Cómo lo operamos</span>
+      <span class="eyebrow eyebrow--on-dark">Cómo trabajamos</span>
       <h2 class="nv-operate__title">
-        <span class="nv-operate__line" data-line>LinkedIn no es un canal lateral.</span>
-        <span class="nv-operate__line" data-line>El especialista le gana al generalista.</span>
-        <span class="nv-operate__line" data-line>La actividad no es el objetivo.</span>
+        <span class="nv-operate__line" data-line>LinkedIn no es un canal secundario.</span>
+        <span class="nv-operate__line" data-line>El especialista gana al generalista.</span>
+        <span class="nv-operate__line" data-line>La actividad no es la meta.</span>
       </h2>
       <div class="nv-operate__statement" data-line>
-        <p>El contenido se gana la atención. Los anuncios la convierten.</p>
-        <p class="nv-operate__emphasis">Los leads cualificados componen. Mes tras mes.</p>
+        <p>El contenido se gana la atención. La publicidad la convierte.</p>
+        <p class="nv-operate__emphasis">Los leads cualificados se van sumando. Mes tras mes.</p>
       </div>
     </div>
   </section>
@@ -252,11 +252,11 @@ const visitLabel = 'Visitar nuvora.studio';
       <div class="nv-cta__bg-scrim"></div>
     </div>
     <div class="container nv-cta__content">
-      <span class="eyebrow eyebrow--on-dark">Cuando le venga bien</span>
-      <h2 class="nv-cta__title balance">Más leads en LinkedIn.<br />Desde los decisores de su mercado.</h2>
+      <span class="eyebrow eyebrow--on-dark">Cuando lo considere oportuno</span>
+      <h2 class="nv-cta__title balance">Más leads en LinkedIn.<br />De quienes deciden en su mercado.</h2>
       <div class="nv-cta__actions">
         <a class="btn btn--primary" href={visitUrl} target="_blank" rel="noreferrer">{visitLabel}</a>
-        <a class="btn btn--ghost-light" href={pathFor('contact', locale)}>Hablar con nosotros</a>
+        <a class="btn btn--ghost-light" href={pathFor('contact', locale)}>Hablemos</a>
       </div>
     </div>
   </section>

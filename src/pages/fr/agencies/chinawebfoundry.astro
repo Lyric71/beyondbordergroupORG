@@ -21,15 +21,15 @@ const phases: Array<{
     stamp: '策',
     image: '/images/cwf-plan-audit.webp',
     imageAlt: 'Tableau de bord de préparation Chine, navigateurs à Pékin, Shanghai et Shenzhen.',
-    intro: "Où votre site se situe aujourd'hui en Chine, et ce qu'il faut en faire.",
+    intro: "Faire le point sur ce que vaut votre site en Chine, et décider de la suite.",
     items: [
       {
         name: 'Stratégie & audit',
-        body: 'Nous testons votre site actuel depuis de vrais navigateurs à Pékin, Shanghai et Shenzhen. Chaque ressource bloquée, chaque écart de conformité, chaque angle mort sur Baidu, documenté. Vous repartez avec une feuille de route. Deux à quatre semaines, prix fixe.',
+        body: 'Nous mettons votre site à l\'épreuve depuis de vrais navigateurs, à Pékin, Shanghai et Shenzhen. Chaque ressource bloquée, chaque écart de conformité, chaque angle mort sur Baidu : tout est répertorié. Vous en repartez avec une feuille de route. Deux à quatre semaines, à prix fixe.',
       },
       {
         name: 'Migration',
-        body: "Déplacer un site existant vers la Chine sans perdre l'équité SEO ni le contenu. ICP Bei'an, bascule DNS, transfert de base, environnement de staging en parallèle pour tester depuis l'intérieur du Firewall avant de basculer.",
+        body: "Faire passer un site existant en Chine sans rien céder du référencement acquis ni du contenu. Licence ICP, enregistrement Bei'an, bascule DNS, migration de la base de données, et un environnement de préproduction pour tout vérifier de l'intérieur du Firewall avant la mise en ligne.",
       },
     ],
   },
@@ -39,22 +39,22 @@ const phases: Array<{
     stamp: '建',
     image: '/images/cwf-build-workshop.webp',
     imageAlt: 'Atelier à Shanghai, double écran avec du code, notes en mandarin sur un tableau blanc.',
-    intro: "Design, code et tuyauterie pensés pour l'internet chinois, pas rapiécés pour lui.",
+    intro: "Conception, développement et infrastructure taillés pour l'internet chinois, pas rafistolés après coup.",
     items: [
       {
         name: 'Design UX/UI',
-        body: 'Un design qui sonne juste pour un visiteur chinois. Mobile-first. Mises en page denses. Typographie chinoise lisible sur UC Browser et QQ Browser. Parcours de paiement qui supposent WeChat (微信) et Alipay (支付宝) avant Visa.',
+        body: "Une interface qui tombe sous le sens pour un visiteur chinois. Pensée pour le mobile avant tout, dense, avec une typographie chinoise qui reste nette sur UC Browser comme sur QQ Browser. Des parcours de paiement qui passent par WeChat (微信) et Alipay (支付宝) avant de songer à Visa.",
       },
       {
         name: 'Intégration technique',
-        body: "La tuyauterie. Connexion WeChat, paiement Alipay et UnionPay (银联), WooCommerce localisé pour le continent, fournisseurs de cartographie et analytics non-Google. Si c'est bloqué, nous avons une alternative.",
+        body: "Toute la mécanique interne. Connexion par WeChat, paiement via Alipay et UnionPay (银联), WooCommerce calibré pour le marché continental, cartographie et mesure d'audience affranchies de Google. Dès qu'un service est bloqué, nous avons une solution de rechange.",
       },
       {
         name: 'Plugins et extensions',
-        body: "Une grande part des plugins WordPress populaires appellent Google. Polices, reCAPTCHA, Maps. Nous corrigeons ce qui peut l'être. Nous réécrivons le reste.",
+        body: 'Une bonne partie des extensions WordPress les plus répandues font appel à Google : polices, reCAPTCHA, cartes. Nous corrigeons ce qui peut l\'être et réécrivons le reste.',
         quote: {
-          text: 'Près de 40 % des cent plugins WordPress les plus utilisés font des appels sortants vers des services Google bloqués depuis la Chine continentale.',
-          source: 'Audit plugins ChinaWebFoundry, 2024',
+          text: 'Près de 40 % des cent extensions WordPress les plus utilisées émettent des requêtes vers des services Google inaccessibles depuis la Chine continentale.',
+          source: 'Audit des extensions, ChinaWebFoundry, 2024',
         },
       },
     ],
@@ -65,15 +65,15 @@ const phases: Array<{
     stamp: '见',
     image: '/images/cwf-find-baidu.webp',
     imageAlt: 'Téléphone affichant une page de résultats chinois, onglets Baidu et DeepSeek.',
-    intro: 'Être lu sur Baidu, être cité par DeepSeek, être trouvé par les gens qui vivent déjà ici.',
+    intro: 'Être lu sur Baidu, cité par DeepSeek, et trouvé par ceux qui vivent déjà sur place.',
     items: [
       {
         name: 'Contenu chinois',
-        body: 'Écrit pour le lecteur chinois, pas traduit pour lui. Fiches produit, landing pages, articles de blog, campagnes zhongcao (种草). Rédigé par des gens qui vivent ici.',
+        body: "Écrit pour le lecteur chinois, pas traduit à la va-vite pour lui. Fiches produit, pages d'atterrissage, articles de blog, campagnes zhongcao (种草). Signé par des plumes qui vivent sur place.",
       },
       {
         name: 'SEO Baidu',
-        body: 'Soumission et vérification sur Baidu Search Resource Platform (百度搜索资源平台). Recherche de mots-clés avec Baidu Index (百度指数) et 5118. Mesure via Baidu Tongji (百度统计).',
+        body: "Inscription et vérification sur la Baidu Search Resource Platform (百度搜索资源平台). Recherche de mots-clés avec Baidu Index (百度指数) et 5118. Mesure d'audience via Baidu Tongji (百度统计).",
         quote: {
           text: 'Baidu détenait 60,1 % du marché chinois des moteurs de recherche en janvier 2025.',
           source: 'StatCounter Global Stats, 2025',
@@ -81,7 +81,7 @@ const phases: Array<{
       },
       {
         name: 'GEO Chine',
-        body: 'Optimisation pour les moteurs génératifs chinois. DeepSeek, Doubao (豆包), Kimi, Yuanbao (元宝), Baidu AI. Nous optimisons pour être cités, pas seulement classés. Service récent, en forte croissance.',
+        body: "Optimisation pour les moteurs génératifs chinois : DeepSeek, Doubao (豆包), Kimi, Yuanbao (元宝), Baidu AI. Nous cherchons à être cités, pas seulement bien classés. Un service récent, en plein essor.",
       },
     ],
   },
@@ -91,15 +91,15 @@ const phases: Array<{
     stamp: '营',
     image: '/images/cwf-run-monitor.webp',
     imageAlt: 'Tableau de bord de supervision avec courbes de latence mesurées depuis les réseaux chinois.',
-    intro: "Un site n'est pas fini au lancement. Il l'est le jour où quelqu'un à Shanghai cesse de l'ouvrir.",
+    intro: "Un site n'est pas achevé le jour de sa mise en ligne. Il l'est le jour où, à Shanghai, plus personne ne l'ouvre.",
     items: [
       {
         name: 'Hébergement Chine',
-        body: "Le mauvais hébergement ruine tout le reste. Nous déployons sur Alibaba Cloud (阿里云), Tencent Cloud (腾讯云) et Huawei Cloud (华为云). Hébergement passerelle à Hong Kong disponible pendant le traitement du Bei'an.",
+        body: "Un mauvais hébergement ruine tout le reste. Nous déployons sur Alibaba Cloud (阿里云), Tencent Cloud (腾讯云) et Huawei Cloud (华为云). Le temps que le dossier Bei'an soit instruit, un hébergement provisoire à Hong Kong assure la continuité.",
       },
       {
         name: 'Maintenance et support',
-        body: "Une Google Font se fait bloquer un mardi sans raison et votre page d'accueil devient illisible pour tout Shanghai. À Londres, votre équipe ne le sait pas avant qu'un client ne se plaigne. Nous surveillons depuis les réseaux chinois pour que cette conversation n'ait jamais lieu.",
+        body: "Une police Google se retrouve bloquée un mardi, sans prévenir, et votre page d'accueil devient illisible pour tout Shanghai. À Londres, votre équipe l'ignore jusqu'à ce qu'un client s'en plaigne. Nous surveillons le site depuis les réseaux chinois pour que cette conversation n'ait jamais lieu.",
       },
     ],
   },
@@ -109,22 +109,22 @@ const engageOptions: Array<{ key: 'project' | 'retainer' | 'audit'; label: strin
   {
     key: 'project',
     label: 'Projet',
-    lead: 'Périmètre défini, calendrier fixe.',
+    lead: 'Un périmètre défini, un calendrier arrêté.',
     meta: 'De six semaines à quatre mois.',
     tag: 'Construction',
   },
   {
     key: 'retainer',
     label: 'Forfait mensuel',
-    lead: 'Contenu, SEO, GEO et maintenance en continu.',
-    meta: 'Mensuel, sur douze mois ou plus. La manière dont la plupart de nos clients travaillent avec nous.',
+    lead: 'Contenu, référencement, GEO et maintenance, en continu.',
+    meta: "Au mois, sur douze mois ou davantage. C'est ainsi que travaillent la plupart de nos clients.",
     tag: 'Le plus courant',
   },
   {
     key: 'audit',
     label: 'Audit',
-    lead: 'Un regard ponctuel et approfondi. Performance, conformité, visibilité Baidu et IA.',
-    meta: 'Deux à quatre semaines, prix fixe.',
+    lead: 'Un examen ponctuel et approfondi : performance, conformité, visibilité sur Baidu et dans les moteurs IA.',
+    meta: 'Deux à quatre semaines, à prix fixe.',
     tag: 'Commencez ici',
   },
 ];
@@ -172,7 +172,7 @@ const visitLabel = 'Visiter chinawebfoundry.com';
         </h1>
 
         <p class="cwf-hero__lead" data-anim="fade">
-          Pas depuis une présentation à Paris. Pas depuis un argumentaire à New York. Depuis un bureau à Shanghai, avec une équipe qui construit pour l'internet chinois depuis plus de vingt ans.
+          Pas depuis une présentation à Paris. Pas depuis un argumentaire à New York. Depuis un bureau de Shanghai, avec une équipe qui conçoit pour l'internet chinois depuis plus de vingt ans.
         </p>
 
         <div class="cwf-hero__cta-row" data-anim="fade">
@@ -246,17 +246,17 @@ const visitLabel = 'Visiter chinawebfoundry.com';
             <span class="cwf-manifesto__num-plus">+</span>
           </span>
           <span class="cwf-manifesto__num-shadow">80+</span>
-          <span class="cwf-manifesto__num-caption">sites livrés pour des marques internationales et chinoises</span>
+          <span class="cwf-manifesto__num-caption">sites livrés pour des marques internationales comme chinoises</span>
         </div>
         <div class="cwf-manifesto__copy">
           <span class="eyebrow">Ce que nous croyons</span>
-          <h2 class="cwf-manifesto__title balance">L'écart entre les tableaux de bord verts à Francfort et une page d'accueil qui met dix-sept secondes à charger à Shanghai. Cet écart, c'est notre raison d'être.</h2>
+          <h2 class="cwf-manifesto__title balance">L'écart entre des tableaux de bord au vert à Francfort et une page d'accueil qui met dix-sept secondes à s'afficher à Shanghai : voilà notre raison d'être.</h2>
         </div>
       </div>
 
       <figure class="cwf-manifesto__story">
         <blockquote class="cwf-manifesto__story-quote" cite="https://www.chinawebfoundry.com">
-          <p>Un groupe de luxe français nous a appelés au printemps dernier. Leur site mondial mettait dix-sept secondes à charger depuis Shanghai. Leur directrice marketing à Paris n'en savait rien : son tableau de bord montrait du vert partout parce qu'il mesurait depuis Francfort.</p>
+          <p>Un groupe de luxe français nous a appelés au printemps dernier. Son site mondial mettait dix-sept secondes à s'afficher depuis Shanghai. À Paris, sa directrice marketing l'ignorait : son tableau de bord était au vert d'un bout à l'autre, parce qu'il mesurait depuis Francfort.</p>
         </blockquote>
         <figcaption class="cwf-manifesto__story-cite">
           <span class="cwf-manifesto__story-cite-rule" aria-hidden="true"></span>
@@ -266,15 +266,15 @@ const visitLabel = 'Visiter chinawebfoundry.com';
         <div class="cwf-manifesto__story-body">
           <div class="cwf-manifesto__story-col">
             <p>
-              Cet écart, entre ce qui semble correct depuis l'extérieur de la Chine et ce qui se passe vraiment à l'intérieur, c'est notre raison d'être.
+              Cet écart, entre ce qui paraît correct vu de l'étranger et ce qui se vit réellement sur place, c'est précisément le terrain où nous travaillons.
             </p>
           </div>
           <div class="cwf-manifesto__story-col">
             <p>
-              La plupart des sites « pensés pour la Chine » ne le sont pas vraiment. Conçus ailleurs, traduits, hébergés à Singapour, avec des plugins qui appellent des services bloqués que personne n'a signalés. Six mois plus tard : techniquement en ligne, fonctionnellement invisible.
+              La plupart des sites prétendument « pensés pour la Chine » ne le sont pas. Conçus ailleurs, traduits, hébergés à Singapour, truffés d'extensions qui sollicitent des services bloqués sans que personne ne l'ait relevé. Six mois plus tard, le constat tombe : en ligne sur le papier, invisibles dans les faits.
             </p>
             <p class="cwf-manifesto__story-emphasis">
-              La Chine n'est pas un patch qu'on applique sur un build global. La Chine <em>est</em> le build. Quelqu'un doit surveiller le site depuis l'intérieur du pays. C'est nous.
+              La Chine n'est pas un correctif que l'on applique à une version mondiale. La Chine <em>est</em> la version. Encore faut-il que quelqu'un surveille le site depuis le pays même. C'est notre rôle.
             </p>
           </div>
         </div>
@@ -291,7 +291,7 @@ const visitLabel = 'Visiter chinawebfoundry.com';
           Une équipe.
         </h2>
         <p class="cwf-services__lead">
-          Cadrer d'abord. Puis construire. Puis se faire trouver. Puis opérer pendant toute la durée de vie. Vous prenez un module, ou les dix : la plupart de nos clients démarrent par deux ou trois.
+          Cadrer, d'abord. Construire, ensuite. Se faire trouver. Puis accompagner le site tout au long de sa vie. Vous retenez un module, ou les dix : la plupart de nos clients commencent par deux ou trois.
         </p>
       </header>
 
@@ -375,7 +375,7 @@ const visitLabel = 'Visiter chinawebfoundry.com';
       <header class="cwf-tech__header">
         <span class="eyebrow">Comment nous construisons</span>
         <h2 class="cwf-tech__title balance">
-          WordPress, Astro ou WeChat. Voici comment nous choisissons.
+          WordPress, Astro ou WeChat : voici comment nous tranchons.
         </h2>
       </header>
 
@@ -393,12 +393,12 @@ const visitLabel = 'Visiter chinawebfoundry.com';
             <h3 class="cwf-tech__card-title">Choisir WordPress</h3>
           </header>
           <p class="cwf-tech__card-body">
-            Si votre équipe marketing doit publier sans développeur, ou si votre flux éditorial implique plus de trois contributeurs. Nous le durcissons pour le Firewall et retirons ce qui n'a rien à faire en Chine.
+            Lorsque votre équipe marketing doit publier sans passer par un développeur, ou que votre chaîne éditoriale réunit plus de trois contributeurs. Nous le durcissons pour le Firewall et en retirons tout ce qui n'a rien à faire en Chine.
           </p>
           <ul class="cwf-tech__card-traits">
-            <li>Flux éditorial, multi-auteurs.</li>
-            <li>Cœur durci, plugins China-safe.</li>
-            <li>WooCommerce localisé pour le continent.</li>
+            <li>Chaîne éditoriale, plusieurs auteurs.</li>
+            <li>Cœur durci, extensions compatibles Chine.</li>
+            <li>WooCommerce adapté au marché continental.</li>
           </ul>
         </article>
 
@@ -415,11 +415,11 @@ const visitLabel = 'Visiter chinawebfoundry.com';
             <h3 class="cwf-tech__card-title">Choisir Astro</h3>
           </header>
           <p class="cwf-tech__card-body">
-            Si la vitesse est la priorité et que votre contenu ne bouge pas chaque jour. Sites marketing, documentation, landing pages. Sortie statique, temps de chargement quasi instantanés, beaucoup moins à maintenir.
+            Lorsque la rapidité prime et que votre contenu n'évolue pas tous les jours. Sites vitrines, documentation, pages d'atterrissage. Rendu statique, chargement quasi instantané, et bien moins de maintenance.
           </p>
           <ul class="cwf-tech__card-traits">
-            <li>Sortie statique, TTFB quasi instantané.</li>
-            <li>Documentation, landing, marketing.</li>
+            <li>Rendu statique, TTFB quasi instantané.</li>
+            <li>Documentation, pages d'atterrissage, vitrine.</li>
             <li>Hébergé sur Aliyun ou Tencent Cloud.</li>
           </ul>
         </article>
@@ -437,17 +437,17 @@ const visitLabel = 'Visiter chinawebfoundry.com';
             <h3 class="cwf-tech__card-title">Choisir WeChat</h3>
           </header>
           <p class="cwf-tech__card-body">
-            Si votre audience vit déjà à l'intérieur de WeChat (微信) et qu'un site sur le web ouvert n'est pas l'endroit où la conversation se déroule. Comptes officiels, mini-programmes, pages H5 : du contenu là où les utilisateurs chinois sont déjà.
+            Lorsque votre audience vit déjà au sein de WeChat (微信) et que le web ouvert n'est pas là où se noue la conversation. Comptes officiels, mini-programmes, pages H5 : du contenu là où se trouvent déjà les utilisateurs chinois.
           </p>
           <ul class="cwf-tech__card-traits">
             <li>Compte officiel, contenu et CRM.</li>
-            <li>Mini-programme pour le commerce ou le service.</li>
+            <li>Mini-programme pour la vente ou le service.</li>
             <li>Pages H5 pour les campagnes et les KOL.</li>
           </ul>
         </article>
       </div>
 
-      <p class="cwf-tech__footnote">Si vous n'êtes pas sûr, c'est précisément ce que l'audit sert à clarifier.</p>
+      <p class="cwf-tech__footnote">Dans le doute, c'est précisément ce que l'audit permet de trancher.</p>
     </div>
   </section>
 
@@ -455,10 +455,10 @@ const visitLabel = 'Visiter chinawebfoundry.com';
     <div class="cwf-engage__bg" aria-hidden="true"></div>
     <div class="container">
       <header class="cwf-engage__header">
-        <span class="eyebrow eyebrow--on-dark">Comment on travaille ensemble</span>
+        <span class="eyebrow eyebrow--on-dark">Comment nous travaillons ensemble</span>
         <h2 class="cwf-engage__title">Trois façons de démarrer.</h2>
         <p class="cwf-engage__lead">
-          Vous pouvez prendre un module, ou les dix. La plupart de nos clients démarrent par deux ou trois. Choisissez le point d'entrée qui correspond à votre moment.
+          Vous pouvez retenir un module, ou les dix. La plupart de nos clients commencent par deux ou trois. À vous de choisir le point d'entrée qui correspond à votre situation.
         </p>
       </header>
 
@@ -482,7 +482,7 @@ const visitLabel = 'Visiter chinawebfoundry.com';
     </div>
     <div class="container cwf-cta__content">
       <span class="eyebrow eyebrow--on-dark">Quand vous êtes prêts</span>
-      <h2 class="cwf-cta__title balance">Un site qui charge à Shanghai.<br />Construit par une équipe qui y vit.</h2>
+      <h2 class="cwf-cta__title balance">Un site qui s'affiche à Shanghai.<br />Conçu par une équipe qui y vit.</h2>
       <div class="cwf-cta__actions">
         <a class="btn btn--primary" href={visitUrl} target="_blank" rel="noreferrer">{visitLabel}</a>
       </div>

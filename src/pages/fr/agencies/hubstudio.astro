@@ -16,35 +16,35 @@ const services: Array<{
   {
     key: 'produce',
     title: 'Produire',
-    intro: 'Visuels, vidéos et textes fidèles à la marque. Des centaines de pièces finalisées par mois, générées, tournées, ou hybrides.',
+    intro: 'Des visuels, des vidéos et des textes fidèles à votre marque. Des centaines de contenus livrés chaque mois, générés, tournés ou hybrides.',
     image: '/images/hubstudio-produce.webp',
     items: [
-      { name: 'Production image', body: "Visuels fidèles à la marque, à l'échelle, de 35 $ par brief à 405 $ par pièce finalisée. Variations multiples, retouche complète, trois tours de modifications. Génératif, tourné, ou hybride." },
-      { name: 'Vidéo courte et longue', body: 'À partir de 200 $ par script. Pré-production, post-production, voix off, musique, sous-titres. Tournages réels, génératif, ou hybride.' },
-      { name: 'Studio prise de vue', body: 'Tournages photo et vidéo réels quand le brief le demande. Utilisé par Mazda, Nescafé, Marriott, Bobbi Brown, et d\'autres.' },
-      { name: '3D, CGI, motion', body: 'Animation 3D, CGI produit, motion design, branding vidéo, voix off, text-to-speech.' },
+      { name: 'Production d’images', body: "Des visuels fidèles à la marque, à grande échelle, de 35 $ le brief à 405 $ le contenu finalisé. Déclinaisons multiples, retouche complète, trois séries de retours. Génératif, tourné ou hybride." },
+      { name: 'Vidéo, courte et longue', body: 'À partir de 200 $ le script. Préproduction, postproduction, voix off, musique, sous-titres. Tournages réels, génératif ou hybride.' },
+      { name: 'Studio de prise de vue', body: 'Des tournages photo et vidéo bien réels quand le brief l’exige. Mazda, Nescafé, Marriott ou Bobbi Brown nous font confiance, entre autres.' },
+      { name: '3D, images de synthèse, motion', body: 'Animation 3D, synthèse produit, motion design, habillage vidéo, voix off, synthèse vocale.' },
     ],
   },
   {
     key: 'platform',
     title: 'Plateforme',
-    intro: 'Votre propre studio de contenu sur infrastructure GPU dédiée. Entraîné sur votre marque. Opéré par votre équipe.',
+    intro: 'Votre propre studio de contenu, sur une infrastructure GPU dédiée. Entraîné sur votre marque. Piloté par vos équipes.',
     image: '/images/hubstudio-platform.webp',
     items: [
-      { name: 'Plateforme Hub4You', body: "Plateforme de contenu sur mesure, déployée sur vos serveurs GPU dédiés, intégrée à votre DAM et à votre PIM. Votre équipe l'opère. Nous formons et accompagnons. Déploiement en quelques semaines." },
-      { name: 'Modèles entraînés à la marque', body: 'LoRAs sur mesure et ajustements fins par client. Vos couleurs, votre style, vos produits. Verrouillé et reproductible.' },
-      { name: 'Chaînes et outillage', body: "Chaînes de production construites sur ComfyUI, Flux, Wan, Veo, Hunyuan, et le modèle qui vient de sortir la semaine dernière. Testées dans de vraies campagnes, pas dans des démos." },
+      { name: 'Plateforme Hub4You', body: "Une plateforme de contenu sur mesure, déployée sur vos serveurs GPU dédiés et reliée à votre DAM comme à votre PIM. Vos équipes la pilotent, nous formons et accompagnons. Mise en service en quelques semaines." },
+      { name: 'Modèles entraînés à votre marque', body: 'Des LoRAs et des modèles affinés pour chaque client. Vos couleurs, votre style, vos produits. Verrouillés, reproductibles.' },
+      { name: 'Chaînes de production et outillage', body: "Des chaînes bâties sur ComfyUI, Flux, Wan, Veo, Hunyuan, et le modèle sorti la semaine dernière. Éprouvées en campagne, pas en démo." },
     ],
   },
   {
     key: 'direct',
     title: 'Diriger',
-    intro: "La couche d'intelligence créative. Stratégie, transcréation, formation. La part qui ne peut pas être automatisée.",
+    intro: "La part d’intelligence créative. Stratégie, transcréation, formation. Ce qui ne s’automatise pas.",
     image: '/images/hubstudio-direct.webp',
     items: [
-      { name: 'Stratégie et principes', body: "Stratégie de contenu, positionnement de marque, identité visuelle, créa de campagne, charte d'usage de l'IA, parcours de validation." },
-      { name: 'Transcréation', body: 'Multi-marchés, multi-langues, culturellement native. Réalisée par des créatifs qui vivent à l\'intérieur de la culture cible.' },
-      { name: 'Formation', body: 'Ateliers pratiques pour les équipes internes : ComfyUI, Flux, Wan, Veo, MidJourney, Gemini.' },
+      { name: 'Stratégie et cadre de marque', body: "Stratégie de contenu, positionnement, identité visuelle, création de campagne, charte d’usage de l’IA, circuits de validation." },
+      { name: 'Transcréation', body: 'Multi-marchés, multilingue, culturellement juste. Confiée à des créatifs qui vivent au cœur de la culture visée.' },
+      { name: 'Formation', body: 'Des ateliers concrets pour vos équipes internes : ComfyUI, Flux, Wan, Veo, MidJourney, Gemini.' },
     ],
   },
 ];
@@ -56,8 +56,8 @@ const visitLabel = 'Visiter hubstudio.ai';
 <Layout
   locale={locale}
   route={route}
-  title="HubStudio : production de contenu par IA, à moitié prix"
-  description="Maison de production basée en Chine, utilisant l'AIGC à l'échelle pour réduire les coûts de contenu de 60 % et livrer des centaines de pièces fidèles à la marque par mois pour les marques mondiales."
+  title="HubStudio : la production de contenu par IA, à moitié prix"
+  description="Maison de production basée en Chine. Elle exploite l'IA générative à grande échelle pour réduire les coûts de contenu de 60 % et livrer chaque mois, pour les marques mondiales, des centaines de contenus fidèles à leur image."
 >
   <section class="hs-hero" data-hero>
     <div class="hs-hero__bg" aria-hidden="true">
@@ -73,18 +73,18 @@ const visitLabel = 'Visiter hubstudio.ai';
 
         <span class="hs-hero__eyebrow">
           <span class="hs-hero__eyebrow-dot"></span>
-          Maison de production · Shanghai · AIGC à l'échelle
+          Maison de production · Shanghai · IA générative à grande échelle
         </span>
 
         <h1 class="hs-hero__title">
           <span class="hs-hero__line" data-anim="word">Une maison de production</span>
-          <span class="hs-hero__line" data-anim="word">taillée pour ce qu'est</span>
+          <span class="hs-hero__line" data-anim="word">à la mesure de ce qu'est</span>
           <span class="hs-hero__line" data-anim="word">
             devenu le <em class="hs-hero__phrase">contenu</em>.
           </span>
         </h1>
 
-        <p class="hs-hero__lead" data-anim="fade">Une grande marque mondiale d'électroménager est arrivée chez nous l'an dernier avec un taux de validation de 22 %. Six mois plus tard, il atteignait 78 %. Volume multiplié par sept. Coûts en baisse de 60 %. C'est à peu près l'écart entre l'ancienne manière de produire du contenu et la façon dont il faut désormais travailler.</p>
+        <p class="hs-hero__lead" data-anim="fade">L'an dernier, un grand groupe mondial d'électroménager nous a confié ses contenus. Son taux de validation plafonnait à 22 %. Six mois plus tard, il atteignait 78 %. Sept fois plus de volume, des coûts allégés de 60 %. C'est, à peu de chose près, tout ce qui sépare l'ancienne façon de produire du contenu de celle qu'exige désormais le marché.</p>
 
         <div class="hs-hero__cta-row" data-anim="fade">
           <a class="hs-magnet" href={visitUrl} target="_blank" rel="noreferrer" data-magnet>
@@ -93,7 +93,7 @@ const visitLabel = 'Visiter hubstudio.ai';
             <span class="hs-magnet__arrow" aria-hidden="true">→</span>
           </a>
           <a class="hs-hero__secondary" href={pathFor('contact', locale)} data-anim="fade">
-            <span>Parler à l'équipe</span>
+            <span>Échanger avec l'équipe</span>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
         </div>
@@ -152,10 +152,10 @@ const visitLabel = 'Visiter hubstudio.ai';
           <span class="hs-track__num-shadow">60%</span>
         </div>
         <div class="hs-track__copy">
-          <span class="eyebrow">Référence</span>
-          <h2 class="hs-track__title balance">Coût par pièce finalisée divisé par deux. Volume multiplié par sept.</h2>
+          <span class="eyebrow">Nos résultats</span>
+          <h2 class="hs-track__title balance">Le prix d'un contenu finalisé divisé par deux. Les volumes multipliés par sept.</h2>
           <p class="hs-track__lead">
-            Utilisée correctement, la génération par IA coupe le coût d'une pièce finalisée de moitié, parfois plus. Les économies sont réelles et nous les répercutons au client. Les marques ont besoin de centaines de pièces par mois, parfois de milliers, dans des formats qui n'existaient pas il y a cinq ans. Les studios traditionnels n'ont jamais été pensés pour ça. Nous, oui.
+            Bien employée, la génération par IA réduit de moitié, parfois davantage, le coût d'un contenu finalisé. L'économie est bien réelle, et nous la répercutons intégralement sur nos tarifs. Les marques réclament des centaines de contenus par mois, parfois des milliers, dans des formats qui n'existaient pas il y a cinq ans. Les studios traditionnels n'ont jamais été taillés pour ça. Nous, si.
           </p>
         </div>
       </div>
@@ -163,19 +163,19 @@ const visitLabel = 'Visiter hubstudio.ai';
       <div class="hs-stats">
         <div class="hs-stat">
           <span class="hs-stat__num">22<span class="hs-stat__unit">%</span> <span class="hs-stat__arrow">→</span> 78<span class="hs-stat__unit">%</span></span>
-          <span class="hs-stat__label">Taux de validation, après six mois</span>
+          <span class="hs-stat__label">Taux de validation après six mois</span>
         </div>
         <div class="hs-stat">
           <span class="hs-stat__num">7<span class="hs-stat__unit">×</span></span>
-          <span class="hs-stat__label">Multiplicateur de volume</span>
+          <span class="hs-stat__label">Volumes multipliés</span>
         </div>
         <div class="hs-stat">
           <span class="hs-stat__num">60<span class="hs-stat__unit">%</span></span>
-          <span class="hs-stat__label">Réduction de coût, répercutée</span>
+          <span class="hs-stat__label">Réduction des coûts, répercutée</span>
         </div>
         <div class="hs-stat">
           <span class="hs-stat__num">3<span class="hs-stat__unit">j</span></span>
-          <span class="hs-stat__label">Délais : notre plancher</span>
+          <span class="hs-stat__label">Notre délai plancher</span>
         </div>
       </div>
     </div>
@@ -186,10 +186,10 @@ const visitLabel = 'Visiter hubstudio.ai';
       <header class="hs-services__header">
         <span class="eyebrow">Ce que nous faisons</span>
         <h2 class="hs-services__title">
-          Trois voies. <em>Un studio.</em><br />
+          Trois métiers. <em>Un seul studio.</em><br />
           De bout en bout.
         </h2>
-        <p class="hs-services__lead">Nous sommes une maison de production complète. Nous tournons, nous dirigeons, nous retouchons, nous montons. Nous utilisons aussi la génération IA à un niveau que la plupart des studios n'ont pas encore atteint, et c'est cette partie-là qui mérite qu'on en parle.</p>
+        <p class="hs-services__lead">Nous sommes une maison de production à part entière. Nous tournons, nous réalisons, nous retouchons, nous montons. Nous poussons aussi la génération par IA à un niveau que peu de studios maîtrisent, et c'est sans doute là que tout se joue.</p>
       </header>
 
       <div class="hs-services__shell" data-tabs>
@@ -264,21 +264,21 @@ const visitLabel = 'Visiter hubstudio.ai';
     <div class="container">
       <header class="hs-ways__header">
         <span class="eyebrow">Deux façons de travailler avec nous</span>
-        <h2 class="hs-ways__title balance">Envoyer le brief. Ou opérer la plateforme.</h2>
+        <h2 class="hs-ways__title balance">Confiez-nous le brief. Ou pilotez la plateforme.</h2>
       </header>
       <div class="hs-ways__grid">
         <article class="hs-way">
           <span class="hs-way__tag">Service</span>
-          <h3 class="hs-way__title">On le fait pour vous.</h3>
+          <h3 class="hs-way__title">Nous le faisons pour vous.</h3>
           <p class="hs-way__body">
-            Envoyez le brief, nous livrons le contenu. Visuels, vidéos, packs eCom, déclinaisons de campagne, transcréation, tournages photo et vidéo complets quand le brief le demande. Des centaines de pièces par mois, fidèles à la marque, dans les délais.
+            Vous envoyez le brief, nous livrons les contenus. Visuels, vidéos, packs e-commerce, déclinaisons de campagne, transcréation, tournages photo et vidéo complets quand le brief l'exige. Des centaines de contenus par mois, fidèles à la marque, dans les délais.
           </p>
         </article>
         <article class="hs-way">
           <span class="hs-way__tag">Plateforme</span>
-          <h3 class="hs-way__title">On vous construit la plateforme.</h3>
+          <h3 class="hs-way__title">Nous construisons votre plateforme.</h3>
           <p class="hs-way__body">
-            Hub4You est notre plateforme de contenu sur mesure, déployée sur vos serveurs GPU dédiés, intégrée à votre DAM et à votre PIM. Votre équipe l'opère, nous formons et accompagnons. Déploiement en quelques semaines.
+            Hub4You, c'est notre plateforme de contenu sur mesure, déployée sur vos serveurs GPU dédiés et reliée à votre DAM comme à votre PIM. Vos équipes la pilotent, nous formons et accompagnons. Mise en service en quelques semaines.
           </p>
         </article>
       </div>
@@ -290,13 +290,13 @@ const visitLabel = 'Visiter hubstudio.ai';
     <div class="container hs-operate__container">
       <span class="eyebrow eyebrow--on-dark">Ce que nous croyons</span>
       <h2 class="hs-operate__title">
-        <span class="hs-operate__line" data-line>L'intelligence créative est désormais la seule chose qui compte.</span>
-        <span class="hs-operate__line" data-line>La culture ne se brieffe pas.</span>
-        <span class="hs-operate__line" data-line>La vitesse est le nouveau métier.</span>
+        <span class="hs-operate__line" data-line>L'intelligence créative est désormais tout ce qui compte.</span>
+        <span class="hs-operate__line" data-line>La culture ne tient pas dans un brief.</span>
+        <span class="hs-operate__line" data-line>La vitesse est devenue un savoir-faire.</span>
       </h2>
       <div class="hs-operate__statement" data-line>
-        <p>N'importe qui peut générer une image passable aujourd'hui. La différence entre passable et brillant repose sur les humains qui dirigent le travail.</p>
-        <p class="hs-operate__emphasis">Les délais de trois jours étaient impossibles. C'est désormais notre plancher.</p>
+        <p>Aujourd'hui, n'importe qui sait générer une image correcte. Tout l'écart entre le correct et le remarquable tient à celles et ceux qui dirigent le travail.</p>
+        <p class="hs-operate__emphasis">Le délai de trois jours relevait de l'impossible. C'est devenu notre plancher.</p>
       </div>
     </div>
   </section>
@@ -307,11 +307,11 @@ const visitLabel = 'Visiter hubstudio.ai';
       <div class="hs-cta__bg-scrim"></div>
     </div>
     <div class="container hs-cta__content">
-      <span class="eyebrow eyebrow--on-dark">Quand vous êtes prêts</span>
-      <h2 class="hs-cta__title balance">La maison de production que les marques choisissent<br />quand l'ancienne méthode cesse de fonctionner.</h2>
+      <span class="eyebrow eyebrow--on-dark">Quand vous voulez</span>
+      <h2 class="hs-cta__title balance">La maison de production que les marques choisissent<br />quand l'ancienne méthode ne suit plus.</h2>
       <div class="hs-cta__actions">
         <a class="btn btn--primary" href={visitUrl} target="_blank" rel="noreferrer">{visitLabel}</a>
-        <a class="btn btn--ghost-light" href={pathFor('contact', locale)}>Parler à l'équipe</a>
+        <a class="btn btn--ghost-light" href={pathFor('contact', locale)}>Échanger avec l'équipe</a>
       </div>
     </div>
   </section>

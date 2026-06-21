@@ -1,0 +1,1387 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import AgencyLogo from '../../../components/AgencyLogo.astro';
+import { pathFor } from '../../../i18n/ui';
+
+const locale = 'fr' as const;
+const route = 'agencies/bearingbridgeai' as const;
+
+const visitUrl = 'https://www.bearingbridge.ai';
+const visitLabel = 'Découvrir bearingbridge.ai';
+
+const principles = [
+  {
+    title: 'On vous dit où l\'IA n\'a pas sa place',
+    body: 'Près d\'un cas d\'usage sur trois ne devrait jamais voir le jour, et nous le disons avant que quiconque signe quoi que ce soit. Un non entendu la première semaine vaut bien plus qu\'un oui qui s\'effondre en silence au quatrième mois.',
+  },
+  {
+    title: 'Vous payez des preuves, pas des promesses',
+    body: 'Chaque pilote a sa ligne d\'arrêt, fixée avec vous avant de démarrer. S\'il échoue sur vos propres données, on l\'arrête. Personne ici ne maintiendra un projet mort sous perfusion sous prétexte qu\'il a déjà coûté de l\'argent.',
+  },
+  {
+    title: 'Vos équipes le font tourner sans nous',
+    body: 'La formation et le transfert font partie de la méthode. Ce n\'est pas une facture à part qu\'on agite plus tard. Quand nous partons, le travail continue et ce que nous avons appris reste dans la maison.',
+  },
+];
+
+const phases = [
+  { name: 'Relèvement', q: 'Où en êtes-vous, vraiment ?' },
+  { name: 'Carte', q: 'Où est la valeur, et où ne l\'est-elle pas ?' },
+  { name: 'Traversée', q: 'Tient-il dans vos opérations ?' },
+  { name: 'Construction', q: 'Livrer ce qui a tenu.' },
+  { name: 'Ancrage', q: 'Tient-il une fois que nous partons ?' },
+];
+
+type ServiceKey = 'assessment' | 'pilot' | 'continuum' | 'academy';
+const services: Array<{
+  key: ServiceKey;
+  name: string;
+  meta: string;
+  stamp: string;
+  intro: string;
+  items: string[];
+}> = [
+  {
+    key: 'assessment',
+    name: 'Diagnostic',
+    meta: 'Trois à huit semaines, périmètre fixe',
+    stamp: '测',
+    intro: 'Une liste de cas d\'usage hiérarchisée et une feuille de route applicable dès lundi matin.',
+    items: [
+      'Chaque candidat noté sur ce qu\'il vaut et sur la difficulté à le livrer.',
+      'Ceux auxquels nous ne toucherions pas, raisonnement à l\'appui, en clair.',
+      'Une feuille de route qui vous appartient entièrement, que vous nous gardiez ou non.',
+    ],
+  },
+  {
+    key: 'pilot',
+    name: 'Pilote',
+    meta: 'Six à douze semaines',
+    stamp: '验',
+    intro: 'Critères de réussite et d\'arrêt posés sur la table avant la moindre ligne de code.',
+    items: [
+      'Testé à l\'Est comme à l\'Ouest sur vos propres données, jamais sur une démo d\'éditeur.',
+      'Chaque chiffre confronté à un objectif que vous avez validé d\'abord.',
+      'Ce qui franchit le seuil part en production. Le reste, on l\'arrête, et on vous dit pourquoi.',
+    ],
+  },
+  {
+    key: 'continuum',
+    name: 'Continuum',
+    meta: 'Direction IA à temps partagé',
+    stamp: '续',
+    intro: 'Un regard senior dans la pièce chaque mois, sans porter un poste à plein temps.',
+    items: [
+      'Adoption et gouvernance, pilotées de bout en bout chaque mois.',
+      'Comité trimestriel avec vos dirigeants, en langage d\'affaires, sans jargon.',
+      'Le plan avance pendant que vos équipes continuent de livrer.',
+    ],
+  },
+  {
+    key: 'academy',
+    name: 'Académie',
+    meta: 'Formations et ateliers',
+    stamp: '授',
+    intro: 'Conçue pour que vos équipes portent le travail une fois que nous sommes partis.',
+    items: [
+      'Masterclasses dirigeants qui séparent le signal du tapage.',
+      'Ateliers dirigeants et équipes sur vos vraies tâches, pas des cas d\'école.',
+      'Formation praticienne menée par le fondateur, les mains sur le clavier.',
+    ],
+  },
+];
+
+const east = ['Qwen', 'DeepSeek', 'Kimi'];
+const west = ['GPT', 'Claude', 'Gemini'];
+const expertise = ['Marketing', 'Communication', 'Médias', 'eCommerce', 'Supply Chain', 'RH'];
+---
+
+<Layout
+  locale={locale}
+  route={route}
+  title="BearingBridge AI : le conseil en adoption de l'IA, d'Est en Ouest"
+  description="Conseil senior en adoption de l'IA pour les entreprises qui veulent une IA au travail dans leurs opérations, pas dans un slide. Diagnostic honnête, pilotes à critères d'arrêt, transfert de compétences. D'Est en Ouest, mesuré sur vos données."
+>
+  <!-- ====================================================================== -->
+  <!-- HERO                                                                   -->
+  <!-- ====================================================================== -->
+  <section class="bbai-hero" data-hero>
+    <div class="bbai-hero__bg" aria-hidden="true"></div>
+    <div class="container bbai-hero__main">
+      <div class="bbai-hero__content">
+        <span class="bbai-hero__logo-chip">
+          <AgencyLogo slug="bearingbridgeai" name="BearingBridge AI" class="bbai-hero__logo" />
+        </span>
+
+        <span class="bbai-hero__eyebrow" data-anim="fade">
+          <span class="bbai-hero__dot"></span>
+          Conseil en adoption de l'IA · Est et Ouest
+        </span>
+
+        <h1 class="bbai-hero__title">
+          <span class="bbai-hero__line" data-anim="word">Une adoption de l'IA</span>
+          <span class="bbai-hero__line" data-anim="word">qui résiste à l'épreuve</span>
+          <span class="bbai-hero__line" data-anim="word">du <em>réel.</em></span>
+        </h1>
+
+        <p class="bbai-hero__lead" data-anim="fade">
+          Conseil senior pour les entreprises qui veulent une IA qui travaille vraiment dans l'activité, pas une IA qui dort dans un slide de comité. Nous l'avons déployée au sein de grands groupes : nous savons où elle rapporte et où elle grignote le budget en silence. Que la Chine soit dans le viseur ou non, le métier reste le même.
+        </p>
+
+        <div class="bbai-hero__cta-row" data-anim="fade">
+          <a class="bbai-magnet" href={visitUrl} target="_blank" rel="noreferrer" data-magnet>
+            <span class="bbai-magnet__label">{visitLabel}</span>
+            <span class="bbai-magnet__arrow" aria-hidden="true">→</span>
+          </a>
+          <a class="bbai-hero__secondary" href="#method">
+            <span>Voir la méthode</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="bbai-hero__feature" data-tilt>
+        <div class="bbai-hero__feature-frame">
+          <div class="bbai-browser">
+            <div class="bbai-browser__bar" aria-hidden="true">
+              <span class="bbai-browser__dots"><span></span><span></span><span></span></span>
+              <span class="bbai-browser__url">bearingbridge.ai</span>
+            </div>
+            <img
+              src="/images/bbai-site-shot.webp"
+              alt="La page d'accueil du site BearingBridge AI"
+              class="bbai-browser__img"
+              width="1440"
+              height="900"
+              loading="eager"
+              decoding="async"
+            />
+          </div>
+
+          <div class="bbai-hero__chip bbai-hero__chip--method">
+            <span class="bbai-hero__chip-label">La méthode</span>
+            <span>AZIMUTH · cinq phases à seuils</span>
+          </div>
+          <div class="bbai-hero__chip bbai-hero__chip--bench">
+            <span class="bbai-hero__chip-label">Pilote 07</span>
+            <span>A franchi tous ses seuils</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================== -->
+  <!-- OPERATOR CREDIBILITY                                                    -->
+  <!-- ====================================================================== -->
+  <section class="bbai-track" id="who">
+    <div class="container">
+      <div class="bbai-track__grid">
+        <div class="bbai-track__numeral" aria-hidden="true">
+          <span class="bbai-track__num" data-count="25">0</span>
+          <span class="bbai-track__num-suffix">ans</span>
+        </div>
+        <div class="bbai-track__copy">
+          <span class="eyebrow">Qui pilote</span>
+          <h2 class="bbai-track__title balance">Vingt-cinq ans à bâtir des activités digitales et commerciales entre l'Asie et l'Europe. Nous avons fait le métier, pas seulement conseillé.</h2>
+          <p class="bbai-track__lead">
+            Cyril Drouin a ouvert l'une des premières agences eCommerce de Chine en 2003, avant de diriger Publicis Commerce et Performance Marketing pour la Chine et l'Asie du Nord. L'adoption de l'IA, c'est le même travail que ces vingt dernières années. Trouver le signal, livrer ce qui tient la route, et laisser l'équipe capable de continuer seule.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================== -->
+  <!-- PRINCIPLES                                                             -->
+  <!-- ====================================================================== -->
+  <section class="bbai-principles-sec">
+    <div class="container">
+      <header class="bbai-block-head">
+        <span class="eyebrow">Pourquoi la plupart des programmes s'enlisent</span>
+        <h2 class="bbai-block-title balance">
+          La plupart des programmes d'IA ne calent pas sur la technologie. <em>Ils calent sur l'honnêteté.</em>
+        </h2>
+        <p class="bbai-block-lead">
+          Des pilotes qui promettent la lune. Des outils achetés avant même d'avoir nommé le problème. Des feuilles de route écrites pour bien passer en comité, jamais pour être construites. Nous prenons le problème par l'autre bout.
+        </p>
+      </header>
+
+      <div class="bbai-principles">
+        {principles.map((p) => (
+          <article class="bbai-principle">
+            <span class="bbai-principle__mark" aria-hidden="true"></span>
+            <h3 class="bbai-principle__title">{p.title}</h3>
+            <p class="bbai-principle__body">{p.body}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================== -->
+  <!-- METHOD: AZIMUTH (dark)                                                  -->
+  <!-- ====================================================================== -->
+  <section class="bbai-method" id="method">
+    <div class="bbai-method__bg" aria-hidden="true"></div>
+    <div class="container bbai-method__inner">
+      <header class="bbai-method__head">
+        <span class="eyebrow eyebrow--on-dark">La méthode</span>
+        <h2 class="bbai-method__title">AZIMUTH</h2>
+        <p class="bbai-method__lead">
+          Le cap que nous suivons. Cinq phases, un seuil entre chacune. On ne passe à la suivante que lorsque les preuves l'ont mérité.
+        </p>
+      </header>
+
+      <ol class="bbai-phases">
+        {phases.map((ph) => (
+          <li class="bbai-phase">
+            <span class="bbai-phase__name">{ph.name}</span>
+            <span class="bbai-phase__q">{ph.q}</span>
+          </li>
+        ))}
+      </ol>
+
+      <p class="bbai-method__horizon">
+        <span class="bbai-method__horizon-label">Horizon</span>
+        Sous tout cela, nous gardons l'œil sur ce qui bouge en IA, à l'Est comme à l'Ouest, et nous le traduisons en ce qui compte vraiment pour le chantier devant vous.
+      </p>
+    </div>
+  </section>
+
+  <!-- ====================================================================== -->
+  <!-- SERVICES (tabbed)                                                       -->
+  <!-- ====================================================================== -->
+  <section class="bbai-services" id="services">
+    <div class="container">
+      <header class="bbai-block-head">
+        <span class="eyebrow">Comment travailler avec nous</span>
+        <h2 class="bbai-block-title balance">Quatre portes d'entrée. <em>Commencez où vous en êtes.</em></h2>
+        <p class="bbai-block-lead">Prenez tout le parcours ou une seule étape. Chacune se justifie à elle seule.</p>
+      </header>
+
+      <div class="bbai-tabs" data-tabs>
+        <div class="bbai-tabs__nav" role="tablist" aria-label="Formules">
+          {services.map((s, i) => (
+            <button
+              type="button"
+              role="tab"
+              aria-selected={i === 0 ? 'true' : 'false'}
+              class={`bbai-tabs__tab ${i === 0 ? 'is-active' : ''}`}
+              data-tab={s.key}
+              id={`bbai-tab-${s.key}`}
+              aria-controls={`bbai-panel-${s.key}`}
+              tabindex={i === 0 ? 0 : -1}
+            >
+              <span class="bbai-tabs__tab-pip" aria-hidden="true"></span>
+              <span class="bbai-tabs__tab-label">{s.name}</span>
+            </button>
+          ))}
+          <span class="bbai-tabs__indicator" aria-hidden="true"></span>
+        </div>
+
+        <div class="bbai-tabs__panels">
+          {services.map((s, i) => (
+            <div
+              class={`bbai-tabs__panel ${i === 0 ? 'is-active' : ''}`}
+              role="tabpanel"
+              id={`bbai-panel-${s.key}`}
+              aria-labelledby={`bbai-tab-${s.key}`}
+              data-panel={s.key}
+              hidden={i !== 0}
+            >
+              <div class="bbai-tabs__grid">
+                <div class="bbai-facet">
+                  <span class="bbai-facet__stamp" aria-hidden="true">{s.stamp}</span>
+                  <svg class="bbai-facet__rose" viewBox="0 0 200 200" fill="none" aria-hidden="true">
+                    <circle cx="100" cy="100" r="78" stroke="currentColor" stroke-width="1" opacity="0.35" />
+                    <circle cx="100" cy="100" r="52" stroke="currentColor" stroke-width="1" opacity="0.25" />
+                    <path d="M100 16 L112 100 L100 184 L88 100 Z" fill="currentColor" opacity="0.9" />
+                    <path d="M16 100 L100 88 L184 100 L100 112 Z" fill="currentColor" opacity="0.35" />
+                  </svg>
+                  <span class="bbai-facet__name">{s.name}</span>
+                  <span class="bbai-facet__meta">{s.meta}</span>
+                </div>
+
+                <div class="bbai-tabs__content">
+                  <p class="bbai-tabs__intro">{s.intro}</p>
+                  <ul class="bbai-tabs__list">
+                    {s.items.map((it) => (
+                      <li class="bbai-tabs__item">
+                        <span class="bbai-tabs__item-pip" aria-hidden="true"></span>
+                        <span>{it}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================== -->
+  <!-- EAST + WEST                                                            -->
+  <!-- ====================================================================== -->
+  <section class="bbai-ew-sec">
+    <div class="container">
+      <div class="bbai-ew">
+        <div class="bbai-ew__copy">
+          <span class="eyebrow">Est et Ouest</span>
+          <h2 class="bbai-block-title balance">Nous évaluons les deux camps. <em>Sur vos données.</em></h2>
+          <p class="bbai-block-lead">
+            Le bon modèle, c'est celui qui fait le mieux votre travail. Nous faisons tourner les deux écosystèmes côte à côte, sur la même tâche, et nous laissons les résultats désigner le gagnant.
+          </p>
+          <p class="bbai-ew__note">
+            Vos données ne passent pas par la Chine, sauf si vous demandez expressément un hébergement en Chine.
+          </p>
+        </div>
+        <div class="bbai-ew__cols">
+          <div class="bbai-ew__col">
+            <span class="bbai-ew__label">Est</span>
+            <ul class="bbai-ew__list">
+              {east.map((m) => <li>{m}</li>)}
+            </ul>
+          </div>
+          <div class="bbai-ew__col">
+            <span class="bbai-ew__label">Ouest</span>
+            <ul class="bbai-ew__list">
+              {west.map((m) => <li>{m}</li>)}
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="bbai-expertise">
+        <span class="bbai-expertise__label">Au cœur des fonctions qui touchent au chiffre d'affaires et aux équipes</span>
+        <ul class="bbai-expertise__tags">
+          {expertise.map((e) => <li>{e}</li>)}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================== -->
+  <!-- EDITORIAL STANDARD (dark)                                               -->
+  <!-- ====================================================================== -->
+  <section class="bbai-operate">
+    <div class="bbai-operate__bg" aria-hidden="true"></div>
+    <div class="container bbai-operate__inner">
+      <span class="eyebrow eyebrow--on-dark">L'exigence</span>
+      <h2 class="bbai-operate__title">
+        <span class="bbai-operate__line" data-line>Ce qui marche en démo</span>
+        <span class="bbai-operate__line" data-line>et ce qui marche sur le terrain</span>
+        <span class="bbai-operate__line" data-line>ne sont presque jamais la même chose.</span>
+      </h2>
+      <div class="bbai-operate__statement" data-line>
+        <p>La seule preuve à laquelle nous nous fions, ce sont vos propres données, dans vos contraintes réelles, mesurées face à un objectif fixé ensemble avant le premier coup de pioche.</p>
+        <p class="bbai-operate__emphasis">Tout le reste n'est qu'une démo commerciale. Ce n'est pas notre métier.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================== -->
+  <!-- FINAL CTA                                                              -->
+  <!-- ====================================================================== -->
+  <section class="bbai-cta">
+    <div class="bbai-cta__bg" aria-hidden="true"></div>
+    <div class="container bbai-cta__inner">
+      <span class="eyebrow eyebrow--on-dark">Quand vous voulez</span>
+      <h2 class="bbai-cta__title balance">Commencez par faire le point.<br />Trente minutes de conversation.</h2>
+      <div class="bbai-cta__actions">
+        <a class="bbai-cta__primary" href={visitUrl} target="_blank" rel="noreferrer">{visitLabel}</a>
+        <a class="bbai-cta__ghost" href={pathFor('contact', locale)}>Parlons-en</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* ===================================================================== */
+  /* BearingBridge AI palette (matches bearingbridge.ai)                    */
+  /* ===================================================================== */
+  .bbai-hero,
+  .bbai-track,
+  .bbai-principles-sec,
+  .bbai-method,
+  .bbai-services,
+  .bbai-ew-sec,
+  .bbai-operate,
+  .bbai-cta {
+    --paper: #fffdf9;
+    --cream: #f3e9d8;
+    --cream-soft: #f8f1e5;
+    --ink: #16181d;
+    --accent: #a63d2f;
+    --accent-dark: #8c3023;
+    --sea: #32536a;
+    --green: #16a34a;
+    --line: #e6dcc8;
+  }
+
+  /* ===================================================================== */
+  /* HERO                                                                   */
+  /* ===================================================================== */
+  .bbai-hero {
+    position: relative;
+    background: var(--paper);
+    color: var(--ink);
+    padding: clamp(2.5rem, 6vh, 4.5rem) 0 clamp(3rem, 7vh, 5.5rem);
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .bbai-hero__bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+      radial-gradient(900px 560px at 90% 8%, var(--cream-soft), transparent 62%),
+      linear-gradient(180deg, var(--paper) 0%, var(--cream-soft) 100%);
+  }
+  .bbai-hero__bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(to right, rgba(22,24,29,0.045) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(22,24,29,0.045) 1px, transparent 1px);
+    background-size: 92px 92px;
+    mask-image: radial-gradient(ellipse 65% 65% at 35% 40%, #000 25%, transparent 78%);
+    -webkit-mask-image: radial-gradient(ellipse 65% 65% at 35% 40%, #000 25%, transparent 78%);
+  }
+  .bbai-hero__main {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+    gap: clamp(2rem, 5vw, 4.5rem);
+    align-items: center;
+  }
+  .bbai-hero__content { min-width: 0; max-width: 38rem; }
+  .bbai-hero__logo-chip {
+    display: inline-grid;
+    place-items: center;
+    padding: 10px 16px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    box-shadow: 0 10px 26px -16px rgba(22,24,29,0.4);
+  }
+  .bbai-hero__content :global(.bbai-hero__logo) { height: 28px; width: auto; }
+  .bbai-hero__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin: var(--space-5) 0 var(--space-4);
+    font-family: var(--font-display);
+    font-size: 0.74rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--sea);
+  }
+  .bbai-hero__dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 4px rgba(166,61,47,0.14);
+  }
+  .bbai-hero__title {
+    font-size: clamp(2.4rem, 4.4vw + 0.5rem, 4.4rem);
+    line-height: 1.02;
+    letter-spacing: -0.03em;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 0 0 var(--space-5);
+    max-width: 16ch;
+  }
+  .bbai-hero__line { display: block; overflow: hidden; }
+  .bbai-hero__line em {
+    font-style: normal;
+    color: var(--accent);
+  }
+  .bbai-hero__lead {
+    font-size: clamp(1.05rem, 0.5vw + 0.95rem, 1.22rem);
+    color: var(--bbg-text);
+    max-width: 50ch;
+    margin: 0 0 var(--space-6);
+  }
+  .bbai-hero__cta-row {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-5);
+    flex-wrap: wrap;
+  }
+  .bbai-magnet {
+    --x: 0px; --y: 0px;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px 26px;
+    border-radius: 999px;
+    background: var(--accent);
+    color: #fff;
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 16px 34px -12px rgba(166,61,47,0.5);
+    transform: translate(var(--x), var(--y));
+    transition: transform 220ms cubic-bezier(0.2,0.8,0.2,1), background 200ms ease;
+  }
+  .bbai-magnet:hover { background: var(--accent-dark); }
+  .bbai-magnet__arrow { transition: transform 260ms cubic-bezier(0.2,0.8,0.2,1); }
+  .bbai-magnet:hover .bbai-magnet__arrow { transform: translateX(4px); }
+  .bbai-hero__secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--ink);
+    font-family: var(--font-display);
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 180ms ease;
+  }
+  .bbai-hero__secondary svg { transition: transform 180ms ease; }
+  .bbai-hero__secondary:hover { color: var(--accent); }
+  .bbai-hero__secondary:hover svg { transform: translateX(3px); }
+
+  /* Hero feature: browser-framed site screenshot */
+  .bbai-hero__feature {
+    position: relative;
+    perspective: 1500px;
+    min-width: 0;
+  }
+  .bbai-hero__feature-frame {
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotateY(var(--tilt-x, -3deg)) rotateX(var(--tilt-y, 2deg));
+    transition: transform 600ms cubic-bezier(0.2,0.8,0.2,1);
+  }
+  .bbai-browser {
+    border-radius: 16px;
+    overflow: hidden;
+    background: #fff;
+    border: 1px solid var(--line);
+    box-shadow:
+      0 1px 0 rgba(255,255,255,0.6) inset,
+      0 44px 90px -34px rgba(22,24,29,0.5),
+      0 14px 30px -10px rgba(22,24,29,0.2);
+  }
+  .bbai-browser__bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 11px 16px;
+    background: linear-gradient(180deg, #fff 0%, var(--cream-soft) 100%);
+    border-bottom: 1px solid var(--line);
+  }
+  .bbai-browser__dots { display: inline-flex; gap: 7px; flex-shrink: 0; }
+  .bbai-browser__dots span { width: 11px; height: 11px; border-radius: 50%; background: #ddd2bd; }
+  .bbai-browser__dots span:nth-child(1) { background: #e0897e; }
+  .bbai-browser__dots span:nth-child(2) { background: #e6c074; }
+  .bbai-browser__dots span:nth-child(3) { background: #9fc08c; }
+  .bbai-browser__url {
+    flex: 1;
+    text-align: center;
+    padding: 5px 14px;
+    border-radius: 8px;
+    background: rgba(22,24,29,0.05);
+    font-family: var(--font-display);
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--sea);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .bbai-browser__img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+  }
+
+  .bbai-hero__chip {
+    position: absolute;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 10px 14px;
+    background: var(--ink);
+    color: #fff;
+    border-radius: 13px;
+    font-family: var(--font-display);
+    font-size: 0.82rem;
+    font-weight: 600;
+    box-shadow: 0 22px 46px -18px rgba(22,24,29,0.5);
+    transform: translateZ(40px);
+    max-width: 17rem;
+  }
+  .bbai-hero__chip-label {
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--cream);
+  }
+  .bbai-hero__chip--method {
+    top: -22px; left: -26px;
+    animation: bbaiFloatA 9s ease-in-out infinite;
+  }
+  .bbai-hero__chip--bench {
+    bottom: -24px; right: -18px;
+    animation: bbaiFloatB 11s ease-in-out infinite;
+  }
+  .bbai-hero__chip--bench .bbai-hero__chip-label { color: #cfe0b8; }
+  @keyframes bbaiFloatA { 0%,100% { transform: translateZ(40px) translateY(0); } 50% { transform: translateZ(40px) translateY(-7px); } }
+  @keyframes bbaiFloatB { 0%,100% { transform: translateZ(40px) translateY(0); } 50% { transform: translateZ(40px) translateY(8px); } }
+
+  @media (max-width: 1023px) {
+    .bbai-hero__main { grid-template-columns: 1fr; gap: var(--space-8); }
+    .bbai-hero__title { max-width: none; }
+    .bbai-hero__chip--method { top: -16px; left: 8px; }
+    .bbai-hero__chip--bench { bottom: -16px; right: 8px; }
+  }
+  @media (max-width: 560px) {
+    .bbai-hero__chip--method { display: none; }
+  }
+
+  /* ===================================================================== */
+  /* OPERATOR CREDIBILITY                                                   */
+  /* ===================================================================== */
+  .bbai-track {
+    padding: clamp(4rem, 9vh, 7rem) 0;
+    background: linear-gradient(180deg, var(--cream-soft) 0%, var(--paper) 100%);
+  }
+  .bbai-track__grid {
+    display: grid;
+    grid-template-columns: minmax(0, auto) minmax(0, 1fr);
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: center;
+  }
+  @media (max-width: 1023px) { .bbai-track__grid { grid-template-columns: 1fr; gap: var(--space-5); } }
+  .bbai-track__numeral {
+    position: relative;
+    display: flex;
+    align-items: baseline;
+    gap: 0.1em;
+    line-height: 0.85;
+    font-family: var(--font-display);
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .bbai-track__num {
+    font-size: clamp(6rem, 15vw, 13rem);
+    letter-spacing: -0.05em;
+    font-variant-numeric: tabular-nums;
+  }
+  .bbai-track__num-suffix {
+    font-size: clamp(1.6rem, 3vw, 2.6rem);
+    font-weight: 600;
+    color: var(--accent);
+  }
+  .bbai-track__copy { max-width: 56ch; }
+  .bbai-track__title {
+    font-size: clamp(1.6rem, 2.4vw + 0.6rem, 2.4rem);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    font-weight: 600;
+    color: var(--ink);
+    margin: var(--space-3) 0 var(--space-4);
+  }
+  .bbai-track__lead { font-size: var(--fs-lead); color: var(--bbg-text); }
+
+  /* ===================================================================== */
+  /* SHARED BLOCK HEADINGS                                                  */
+  /* ===================================================================== */
+  .bbai-block-head { max-width: 60ch; margin: 0 0 var(--space-7); }
+  .bbai-block-title {
+    font-size: clamp(1.7rem, 2.6vw + 0.5rem, 2.6rem);
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+    font-weight: 600;
+    color: var(--ink);
+    margin: var(--space-3) 0 var(--space-4);
+  }
+  .bbai-block-title em { font-style: normal; color: var(--accent); }
+  .bbai-block-lead { color: var(--bbg-text); font-size: var(--fs-lead); max-width: 58ch; }
+  .bbai-services .eyebrow,
+  .bbai-principles-sec .eyebrow,
+  .bbai-ew-sec .eyebrow { color: var(--sea); }
+
+  /* ===================================================================== */
+  /* PRINCIPLES                                                             */
+  /* ===================================================================== */
+  .bbai-principles-sec { padding: clamp(4rem, 9vh, 7rem) 0; background: var(--paper); }
+  .bbai-principles {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+  @media (min-width: 768px) {
+    .bbai-principles { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  }
+  .bbai-principle {
+    position: relative;
+    padding: var(--space-6) var(--space-5) var(--space-5);
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+  }
+  .bbai-principle__mark {
+    position: absolute;
+    top: 0; left: var(--space-5);
+    width: 40px; height: 3px;
+    background: var(--accent);
+    border-radius: 0 0 3px 3px;
+  }
+  .bbai-principle__title {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin: 0 0 var(--space-3);
+  }
+  .bbai-principle__body { margin: 0; color: var(--bbg-text); font-size: 0.96rem; line-height: 1.6; }
+
+  /* ===================================================================== */
+  /* METHOD (dark)                                                          */
+  /* ===================================================================== */
+  .bbai-method {
+    position: relative;
+    color: var(--cream);
+    padding: clamp(4.5rem, 9vh, 7rem) 0;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .bbai-method__bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: var(--ink);
+  }
+  .bbai-method__bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(to right, rgba(243,233,216,0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(243,233,216,0.05) 1px, transparent 1px);
+    background-size: 80px 80px;
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, #000 30%, transparent 80%);
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, #000 30%, transparent 80%);
+    opacity: 0.7;
+  }
+  .bbai-method__head { max-width: 60ch; margin: 0 0 clamp(2rem, 5vh, 3.5rem); }
+  .bbai-method .eyebrow--on-dark { color: var(--cream); opacity: 0.75; }
+  .bbai-method__title {
+    font-size: clamp(2.4rem, 4.4vw + 0.5rem, 3.8rem);
+    letter-spacing: 0.07em;
+    font-weight: 600;
+    color: #fff;
+    margin: var(--space-3) 0 var(--space-4);
+  }
+  .bbai-method__lead { color: rgba(243,233,216,0.78); font-size: var(--fs-lead); max-width: 58ch; margin: 0; }
+  .bbai-phases {
+    list-style: none;
+    margin: 0 0 var(--space-6);
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+  @media (min-width: 640px) { .bbai-phases { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 960px) { .bbai-phases { grid-template-columns: repeat(5, 1fr); } }
+  .bbai-phase {
+    padding: var(--space-4);
+    background: rgba(243,233,216,0.04);
+    border: 1px solid rgba(243,233,216,0.12);
+    border-radius: 14px;
+    border-top: 2px solid var(--accent);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .bbai-phase__name {
+    font-family: var(--font-display);
+    font-size: 1.02rem;
+    font-weight: 600;
+    color: #fff;
+  }
+  .bbai-phase__q { font-size: 0.88rem; line-height: 1.5; color: rgba(243,233,216,0.7); }
+  .bbai-method__horizon {
+    max-width: 70ch;
+    margin: 0;
+    padding: var(--space-4) var(--space-5);
+    background: rgba(243,233,216,0.04);
+    border: 1px solid rgba(243,233,216,0.12);
+    border-radius: 14px;
+    color: rgba(243,233,216,0.82);
+    font-size: 0.96rem;
+    line-height: 1.6;
+  }
+  .bbai-method__horizon-label {
+    display: inline-block;
+    margin-right: 10px;
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--cream);
+  }
+
+  /* ===================================================================== */
+  /* SERVICES (tabbed)                                                      */
+  /* ===================================================================== */
+  .bbai-services { padding: clamp(4.5rem, 9vh, 7rem) 0; background: var(--cream-soft); }
+  .bbai-tabs {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 26px;
+    padding: clamp(1.25rem, 3vw, 2.25rem);
+    box-shadow: 0 50px 100px -60px rgba(22,24,29,0.25);
+  }
+  .bbai-tabs__nav {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px;
+    padding: 6px;
+    background: var(--cream-soft);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    margin-bottom: clamp(1.5rem, 3vw, 2.25rem);
+  }
+  .bbai-tabs__indicator {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    width: calc((100% - 12px) / 4);
+    height: calc(100% - 12px);
+    background: var(--ink);
+    border-radius: 10px;
+    transition: transform 380ms cubic-bezier(0.2, 0.85, 0.2, 1);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .bbai-tabs__tab {
+    position: relative;
+    z-index: 1;
+    background: transparent;
+    border: 0;
+    padding: 12px 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    font: inherit;
+    transition: color 320ms ease;
+  }
+  .bbai-tabs__tab-pip {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--line);
+    transition: background 320ms ease;
+    flex-shrink: 0;
+  }
+  .bbai-tabs__tab.is-active .bbai-tabs__tab-pip { background: var(--accent); }
+  .bbai-tabs__tab-label {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.02rem;
+    letter-spacing: -0.005em;
+    color: var(--ink);
+    transition: color 320ms ease;
+  }
+  .bbai-tabs__tab.is-active .bbai-tabs__tab-label { color: #fff; }
+  @media (max-width: 640px) {
+    .bbai-tabs__nav { grid-template-columns: repeat(2, 1fr); }
+    .bbai-tabs__indicator { display: none; }
+    .bbai-tabs__tab.is-active { background: var(--ink); border-radius: 10px; }
+  }
+
+  .bbai-tabs__panels { position: relative; min-height: 360px; }
+  .bbai-tabs__panel {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 360ms ease, transform 460ms cubic-bezier(0.2, 0.85, 0.2, 1);
+    pointer-events: none;
+  }
+  .bbai-tabs__panel.is-active {
+    position: relative;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  .bbai-tabs__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1fr);
+    gap: clamp(2rem, 4vw, 3.5rem);
+    align-items: stretch;
+  }
+  @media (max-width: 900px) { .bbai-tabs__grid { grid-template-columns: 1fr; } }
+
+  .bbai-facet {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 4px;
+    min-height: 340px;
+    padding: var(--space-6);
+    border-radius: 20px;
+    background:
+      radial-gradient(120% 90% at 80% 10%, rgba(166,61,47,0.18), transparent 60%),
+      var(--ink);
+    color: var(--cream);
+    overflow: hidden;
+  }
+  .bbai-facet__rose {
+    position: absolute;
+    top: -28px; right: -34px;
+    width: 230px; height: 230px;
+    color: var(--cream);
+    opacity: 0.4;
+  }
+  .bbai-facet__stamp {
+    position: absolute;
+    top: 20px; left: 22px;
+    font-family: 'PingFang SC', 'Microsoft YaHei', serif;
+    font-size: 3.4rem;
+    font-weight: 700;
+    color: var(--accent);
+    opacity: 0.92;
+    line-height: 1;
+  }
+  .bbai-facet__name {
+    position: relative;
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: #fff;
+  }
+  .bbai-facet__meta {
+    position: relative;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--cream);
+    opacity: 0.8;
+  }
+
+  .bbai-tabs__content { display: flex; flex-direction: column; justify-content: center; min-width: 0; }
+  .bbai-tabs__intro {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    line-height: 1.4;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin: 0 0 var(--space-5);
+    max-width: 42ch;
+  }
+  .bbai-tabs__list { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-4); }
+  .bbai-tabs__item {
+    display: grid;
+    grid-template-columns: 14px 1fr;
+    gap: 14px;
+    align-items: start;
+    font-size: 0.98rem;
+    line-height: 1.55;
+    color: var(--bbg-text);
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  .bbai-tabs__panel.is-active .bbai-tabs__item {
+    animation: bbaiItemIn 480ms cubic-bezier(0.2, 0.85, 0.2, 1) forwards;
+  }
+  .bbai-tabs__panel.is-active .bbai-tabs__item:nth-child(1) { animation-delay: 0.08s; }
+  .bbai-tabs__panel.is-active .bbai-tabs__item:nth-child(2) { animation-delay: 0.14s; }
+  .bbai-tabs__panel.is-active .bbai-tabs__item:nth-child(3) { animation-delay: 0.20s; }
+  @keyframes bbaiItemIn { to { opacity: 1; transform: translateY(0); } }
+  .bbai-tabs__item-pip {
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    margin-top: 0.32em;
+    background: var(--accent);
+    box-shadow: 0 0 0 4px rgba(166,61,47,0.12);
+    flex-shrink: 0;
+  }
+
+  /* ===================================================================== */
+  /* EAST + WEST                                                           */
+  /* ===================================================================== */
+  .bbai-ew-sec { padding: clamp(4.5rem, 9vh, 7rem) 0; background: var(--paper); }
+  .bbai-ew {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(2rem, 4vw, 3.5rem);
+    align-items: center;
+    margin-bottom: var(--space-7);
+  }
+  @media (min-width: 900px) { .bbai-ew { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); } }
+  .bbai-ew__note {
+    margin: var(--space-4) 0 0;
+    font-size: 0.9rem;
+    color: var(--bbg-text-muted);
+    font-style: italic;
+  }
+  .bbai-ew__cols { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); }
+  .bbai-ew__col {
+    padding: var(--space-5);
+    background: var(--cream-soft);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+  }
+  .bbai-ew__label {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: var(--space-3);
+  }
+  .bbai-ew__list { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+  .bbai-ew__list li {
+    font-family: var(--font-display);
+    font-size: 1.02rem;
+    font-weight: 500;
+    color: var(--ink);
+  }
+  .bbai-expertise { padding-top: var(--space-6); border-top: 1px solid var(--line); }
+  .bbai-expertise__label {
+    display: block;
+    font-size: 0.92rem;
+    color: var(--bbg-text-muted);
+    margin-bottom: var(--space-3);
+  }
+  .bbai-expertise__tags { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+  .bbai-expertise__tags li {
+    padding: 7px 14px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    font-family: var(--font-display);
+    font-size: 0.86rem;
+    font-weight: 500;
+    color: var(--ink);
+    background: #fff;
+  }
+
+  /* ===================================================================== */
+  /* EDITORIAL STANDARD (dark)                                             */
+  /* ===================================================================== */
+  .bbai-operate {
+    position: relative;
+    padding: clamp(5rem, 11vh, 8.5rem) 0;
+    color: var(--cream);
+    isolation: isolate;
+    overflow: hidden;
+  }
+  .bbai-operate__bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+      radial-gradient(900px 520px at 100% 0%, rgba(166,61,47,0.22), transparent 60%),
+      radial-gradient(800px 520px at 0% 100%, rgba(50,83,106,0.3), transparent 62%),
+      var(--ink);
+  }
+  .bbai-operate__inner { position: relative; }
+  .bbai-operate .eyebrow--on-dark { color: var(--cream); opacity: 0.75; }
+  .bbai-operate__title {
+    display: flex;
+    flex-direction: column;
+    gap: 0.04em;
+    font-size: clamp(2rem, 4.4vw + 0.5rem, 4.4rem);
+    line-height: 1.04;
+    letter-spacing: -0.03em;
+    margin: var(--space-4) 0 var(--space-6);
+    color: #fff;
+    max-width: 20ch;
+    font-weight: 600;
+  }
+  .bbai-operate__title .bbai-operate__line:last-child { color: var(--cream); }
+  .bbai-operate__statement {
+    max-width: 56ch;
+    font-size: clamp(1.05rem, 0.6vw + 0.95rem, 1.25rem);
+    color: rgba(243,233,216,0.82);
+  }
+  .bbai-operate__statement p { margin: 0 0 var(--space-3); }
+  .bbai-operate__emphasis {
+    font-family: var(--font-display);
+    font-weight: 600;
+    color: #fff;
+    font-size: 1.08em;
+    letter-spacing: -0.01em;
+  }
+
+  /* ===================================================================== */
+  /* FINAL CTA                                                             */
+  /* ===================================================================== */
+  .bbai-cta {
+    position: relative;
+    padding: clamp(4.5rem, 9vh, 7rem) 0;
+    color: var(--cream);
+    isolation: isolate;
+    overflow: hidden;
+  }
+  .bbai-cta__bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+      radial-gradient(800px 460px at 50% 0%, rgba(166,61,47,0.26), transparent 62%),
+      linear-gradient(135deg, #0f1014 0%, var(--ink) 60%, #1d212b 100%);
+  }
+  .bbai-cta__inner { text-align: center; max-width: 780px; margin: 0 auto; }
+  .bbai-cta .eyebrow--on-dark { color: var(--cream); opacity: 0.75; }
+  .bbai-cta__title {
+    font-size: clamp(2rem, 3.6vw + 0.5rem, 3.4rem);
+    line-height: 1.06;
+    letter-spacing: -0.025em;
+    color: #fff;
+    margin: var(--space-4) 0 var(--space-6);
+  }
+  .bbai-cta__actions {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .bbai-cta__primary {
+    display: inline-flex;
+    align-items: center;
+    padding: 15px 28px;
+    border-radius: 999px;
+    background: var(--accent);
+    color: #fff;
+    font-family: var(--font-display);
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 16px 34px -12px rgba(166,61,47,0.55);
+    transition: background 200ms ease, transform 200ms ease;
+  }
+  .bbai-cta__primary:hover { background: var(--accent-dark); transform: translateY(-1px); }
+  .bbai-cta__ghost {
+    display: inline-flex;
+    align-items: center;
+    padding: 15px 26px;
+    border-radius: 999px;
+    border: 1.5px solid rgba(243,233,216,0.4);
+    color: var(--cream);
+    font-family: var(--font-display);
+    font-weight: 600;
+    text-decoration: none;
+    transition: border-color 200ms ease, background 200ms ease;
+  }
+  .bbai-cta__ghost:hover { border-color: var(--cream); background: rgba(243,233,216,0.08); }
+
+  /* ===================================================================== */
+  /* Reveal helpers                                                        */
+  /* ===================================================================== */
+  [data-anim="fade"] { opacity: 0; animation: bbaiFadeIn 700ms cubic-bezier(0.2,0.8,0.2,1) forwards; }
+  .bbai-hero__eyebrow { animation-delay: 0.15s; }
+  .bbai-hero__lead { animation-delay: 0.5s; }
+  .bbai-hero__cta-row { animation-delay: 0.65s; }
+  .bbai-hero__line[data-anim="word"] {
+    display: block;
+    transform: translateY(110%);
+    opacity: 0;
+    animation: bbaiWordIn 820ms cubic-bezier(0.2, 0.9, 0.2, 1) forwards;
+  }
+  .bbai-hero__line:nth-child(1) { animation-delay: 0.2s; }
+  .bbai-hero__line:nth-child(2) { animation-delay: 0.32s; }
+  .bbai-hero__line:nth-child(3) { animation-delay: 0.44s; }
+  @keyframes bbaiWordIn { to { transform: translateY(0); opacity: 1; } }
+  @keyframes bbaiFadeIn { to { opacity: 1; } }
+
+  .bbai-track__numeral,
+  .bbai-track__copy,
+  .bbai-block-head,
+  .bbai-principle,
+  .bbai-tabs,
+  .bbai-ew,
+  .bbai-expertise {
+    transition: opacity 700ms cubic-bezier(0.2, 0.85, 0.2, 1), transform 800ms cubic-bezier(0.2, 0.85, 0.2, 1);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-anim], .bbai-hero__line,
+    .bbai-hero__chip,
+    .bbai-tabs__panel.is-active .bbai-tabs__item,
+    .bbai-track__numeral, .bbai-track__copy, .bbai-block-head,
+    .bbai-principle, .bbai-tabs, .bbai-ew, .bbai-expertise {
+      animation: none !important;
+      transition: none !important;
+      opacity: 1 !important;
+      transform: none !important;
+    }
+  }
+</style>
+
+<script>
+  const init = () => {
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    /* ----- Reveal on scroll ----- */
+    if (!reduced) {
+      const targets = document.querySelectorAll<HTMLElement>(
+        '.bbai-track__numeral, .bbai-track__copy, .bbai-block-head, .bbai-principle, .bbai-tabs, .bbai-ew, .bbai-expertise'
+      );
+      targets.forEach((el) => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(24px)';
+      });
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const el = entry.target as HTMLElement;
+              el.style.opacity = '';
+              el.style.transform = '';
+              io.unobserve(el);
+            }
+          });
+        },
+        { rootMargin: '0px 0px -5% 0px', threshold: 0.01 }
+      );
+      targets.forEach((el) => io.observe(el));
+    }
+
+    /* ----- Counter ----- */
+    const counter = document.querySelector<HTMLElement>('[data-count]');
+    if (counter) {
+      const target = Number(counter.dataset.count || '0');
+      if (reduced) {
+        counter.textContent = String(target);
+      } else {
+        const cio = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                const start = performance.now();
+                const dur = 1400;
+                const tick = (now: number) => {
+                  const t = Math.min(1, (now - start) / dur);
+                  const eased = 1 - Math.pow(1 - t, 3);
+                  counter.textContent = String(Math.round(eased * target));
+                  if (t < 1) requestAnimationFrame(tick);
+                };
+                requestAnimationFrame(tick);
+                cio.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.4 }
+        );
+        cio.observe(counter);
+      }
+    }
+
+    /* ----- Tabs ----- */
+    const tabsRoot = document.querySelector<HTMLElement>('[data-tabs]');
+    if (tabsRoot) {
+      const tabs = Array.from(tabsRoot.querySelectorAll<HTMLButtonElement>('.bbai-tabs__tab'));
+      const panels = Array.from(tabsRoot.querySelectorAll<HTMLElement>('.bbai-tabs__panel'));
+      const indicator = tabsRoot.querySelector<HTMLElement>('.bbai-tabs__indicator');
+
+      const setIndicator = (idx: number) => {
+        if (!indicator) return;
+        indicator.style.transform = `translateX(${idx * 100}%)`;
+        indicator.style.width = `calc((100% - 12px) / ${tabs.length})`;
+      };
+
+      const activate = (idx: number) => {
+        tabs.forEach((t, i) => {
+          const active = i === idx;
+          t.classList.toggle('is-active', active);
+          t.setAttribute('aria-selected', active ? 'true' : 'false');
+          t.tabIndex = active ? 0 : -1;
+        });
+        panels.forEach((p, i) => {
+          const active = i === idx;
+          p.classList.toggle('is-active', active);
+          if (active) p.removeAttribute('hidden');
+          else p.setAttribute('hidden', '');
+        });
+        setIndicator(idx);
+      };
+
+      setIndicator(Math.max(0, tabs.findIndex((t) => t.classList.contains('is-active'))));
+
+      tabs.forEach((tab, i) => {
+        tab.addEventListener('click', () => activate(i));
+        tab.addEventListener('keydown', (e: KeyboardEvent) => {
+          if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+            e.preventDefault();
+            const dir = e.key === 'ArrowRight' ? 1 : -1;
+            const next = (i + dir + tabs.length) % tabs.length;
+            tabs[next].focus();
+            activate(next);
+          }
+        });
+      });
+    }
+
+    /* ----- Hero tilt ----- */
+    if (!reduced) {
+      const hero = document.querySelector<HTMLElement>('[data-hero]');
+      const tilt = document.querySelector<HTMLElement>('[data-tilt] .bbai-hero__feature-frame');
+      if (hero && tilt) {
+        let raf = 0;
+        let mx = 0, my = 0, cx = 0, cy = 0;
+        const onMove = (e: MouseEvent) => {
+          const rect = hero.getBoundingClientRect();
+          mx = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
+          my = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
+          if (!raf) raf = requestAnimationFrame(loop);
+        };
+        const onLeave = () => { mx = 0; my = 0; if (!raf) raf = requestAnimationFrame(loop); };
+        const loop = () => {
+          cx += (mx - cx) * 0.08;
+          cy += (my - cy) * 0.08;
+          tilt.style.setProperty('--tilt-x', `${(-cx * 5).toFixed(2)}deg`);
+          tilt.style.setProperty('--tilt-y', `${(cy * 4).toFixed(2)}deg`);
+          if (Math.abs(mx - cx) > 0.001 || Math.abs(my - cy) > 0.001) raf = requestAnimationFrame(loop);
+          else raf = 0;
+        };
+        hero.addEventListener('mousemove', onMove);
+        hero.addEventListener('mouseleave', onLeave);
+      }
+    }
+
+    /* ----- Magnetic CTA ----- */
+    if (!reduced) {
+      document.querySelectorAll<HTMLElement>('[data-magnet]').forEach((m) => {
+        m.addEventListener('mousemove', (e: MouseEvent) => {
+          const rect = m.getBoundingClientRect();
+          const x = e.clientX - rect.left - rect.width / 2;
+          const y = e.clientY - rect.top - rect.height / 2;
+          m.style.setProperty('--x', `${(x * 0.18).toFixed(1)}px`);
+          m.style.setProperty('--y', `${(y * 0.18).toFixed(1)}px`);
+        });
+        m.addEventListener('mouseleave', () => {
+          m.style.setProperty('--x', '0px');
+          m.style.setProperty('--y', '0px');
+        });
+      });
+    }
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+</script>

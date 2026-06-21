@@ -5,7 +5,7 @@ import { pathFor } from '../../i18n/ui';
 
 const locale = 'zh' as const;
 const title = '品牌、产品、服务，为跨越中国与西方而生。两个方向，一起跑。';
-const description = '七家专业公司，把品牌、产品与服务在中国与西方之间双向打通。品牌、渠道、网站、伙伴对接、内容、销售。一个生态，一根共用脊柱。';
+const description = '八家专业公司，把品牌、产品与服务在中国与西方之间双向打通。品牌、渠道、网站、伙伴对接、内容、销售。一个生态，一根共用脊柱。';
 
 const linkedinUrl = 'https://www.linkedin.com/in/cyril-d-68835729/';
 
@@ -16,21 +16,6 @@ const agencies = [
     route: 'agencies/bearingbridge' as const,
   },
   {
-    name: 'TheRedScroll',
-    tagline: '中国社交平台。微信、抖音、小红书、微博。',
-    route: 'agencies/theredscroll' as const,
-  },
-  {
-    name: 'ChinaWebFoundry',
-    tagline: '为中国互联网而生的网站。百度、ICP、AI 引擎。',
-    route: 'agencies/chinawebfoundry' as const,
-  },
-  {
-    name: 'Compass',
-    tagline: '一个亲自核过的中国分销商、Tmall TP、抖音 Partner 私库。',
-    route: 'agencies/compass' as const,
-  },
-  {
     name: 'BeyondBridge',
     tagline: '中国品牌出海的整条链路。',
     route: 'agencies/beyondbridge' as const,
@@ -39,6 +24,26 @@ const agencies = [
     name: 'HubStudio',
     tagline: '图像、视频、内容，规模化产出。',
     route: 'agencies/hubstudio' as const,
+  },
+  {
+    name: 'BearingBridge AI',
+    tagline: 'AI 落地咨询。东西方并行，在你的数据上跑。',
+    route: 'agencies/bearingbridgeai' as const,
+  },
+  {
+    name: 'ChinaWebFoundry',
+    tagline: '为中国互联网而生的网站。百度、ICP、AI 引擎。',
+    route: 'agencies/chinawebfoundry' as const,
+  },
+  {
+    name: 'TheRedScroll',
+    tagline: '中国社交平台。微信、抖音、小红书、微博。',
+    route: 'agencies/theredscroll' as const,
+  },
+  {
+    name: 'Compass',
+    tagline: '一个亲自核过的中国分销商、Tmall TP、抖音 Partner 私库。',
+    route: 'agencies/compass' as const,
   },
   {
     name: 'Nuvora Studio',
@@ -63,7 +68,7 @@ const agencies = [
     </video>
     <div class="hero-statement__scrim" aria-hidden="true"></div>
     <div class="hero-statement__rail">
-      <aside class="rail" aria-label="集团旗下七家公司">
+      <aside class="rail" aria-label="集团旗下八家公司">
         <header class="rail__head">
           <span class="rail__head-tag">生态</span>
         </header>
@@ -99,21 +104,40 @@ const agencies = [
 
         <div class="rail__chapter">
           <div class="rail__chapter-head">
-            <span class="rail__chapter-label">专家</span>
+            <span class="rail__chapter-label">两端通用</span>
             <span class="rail__chapter-rule" aria-hidden="true"></span>
           </div>
           <ol class="rail__list">
             <li class="rail__row" style="--row-i: 2;">
-              <a class="rail__link" href={pathFor('agencies/theredscroll', locale)}>
-                <span class="rail__logo"><img src="/AgencyLogos/TheredScroll%20PNG.png" alt="" /></span>
+              <a class="rail__link" href={pathFor('agencies/hubstudio', locale)}>
+                <span class="rail__logo"><img src="/AgencyLogos/hubStudio%20(2).png" alt="" /></span>
                 <span class="rail__body">
-                  <span class="rail__name">TheRedScroll</span>
-                  <span class="rail__tagline">中国社交平台</span>
+                  <span class="rail__name">HubStudio</span>
+                  <span class="rail__tagline">内容生产引擎</span>
                 </span>
-                <span class="rail__stripe rail__stripe--both" aria-hidden="true"></span>
+                <span class="rail__stripe rail__stripe--c" aria-hidden="true"></span>
               </a>
             </li>
             <li class="rail__row" style="--row-i: 3;">
+              <a class="rail__link" href={pathFor('agencies/bearingbridgeai', locale)}>
+                <span class="rail__logo"><img src="/AgencyLogos/BearingBridgeAI.svg" alt="" /></span>
+                <span class="rail__body">
+                  <span class="rail__name">BearingBridge AI</span>
+                  <span class="rail__tagline">AI 落地</span>
+                </span>
+                <span class="rail__stripe rail__stripe--c" aria-hidden="true"></span>
+              </a>
+            </li>
+          </ol>
+        </div>
+
+        <div class="rail__chapter">
+          <div class="rail__chapter-head">
+            <span class="rail__chapter-label">专家</span>
+            <span class="rail__chapter-rule" aria-hidden="true"></span>
+          </div>
+          <ol class="rail__list">
+            <li class="rail__row" style="--row-i: 4;">
               <a class="rail__link" href={pathFor('agencies/chinawebfoundry', locale)}>
                 <span class="rail__logo"><img src="/AgencyLogos/Logo-ChinaWebFoundry-transparent.png" alt="" /></span>
                 <span class="rail__body">
@@ -123,7 +147,17 @@ const agencies = [
                 <span class="rail__stripe rail__stripe--both" aria-hidden="true"></span>
               </a>
             </li>
-            <li class="rail__row" style="--row-i: 4;">
+            <li class="rail__row" style="--row-i: 5;">
+              <a class="rail__link" href={pathFor('agencies/theredscroll', locale)}>
+                <span class="rail__logo"><img src="/AgencyLogos/TheredScroll%20PNG.png" alt="" /></span>
+                <span class="rail__body">
+                  <span class="rail__name">TheRedScroll</span>
+                  <span class="rail__tagline">中国社交平台</span>
+                </span>
+                <span class="rail__stripe rail__stripe--both" aria-hidden="true"></span>
+              </a>
+            </li>
+            <li class="rail__row" style="--row-i: 6;">
               <a class="rail__link" href={pathFor('agencies/compass', locale)}>
                 <span class="rail__logo"><img src="/AgencyLogos/Logo%20Compass%20-%20Horizontal.svg" alt="" /></span>
                 <span class="rail__body">
@@ -133,7 +167,7 @@ const agencies = [
                 <span class="rail__stripe rail__stripe--both" aria-hidden="true"></span>
               </a>
             </li>
-            <li class="rail__row" style="--row-i: 5;">
+            <li class="rail__row" style="--row-i: 7;">
               <a class="rail__link" href={pathFor('agencies/nuvora-studio', locale)}>
                 <span class="rail__logo"><img src="/AgencyLogos/Nuvora%20PNG.png" alt="" /></span>
                 <span class="rail__body">
@@ -145,25 +179,6 @@ const agencies = [
             </li>
           </ol>
         </div>
-
-        <div class="rail__chapter">
-          <div class="rail__chapter-head">
-            <span class="rail__chapter-label">生产</span>
-            <span class="rail__chapter-rule" aria-hidden="true"></span>
-          </div>
-          <ol class="rail__list">
-            <li class="rail__row" style="--row-i: 6;">
-              <a class="rail__link" href={pathFor('agencies/hubstudio', locale)}>
-                <span class="rail__logo"><img src="/AgencyLogos/hubStudio%20(2).png" alt="" /></span>
-                <span class="rail__body">
-                  <span class="rail__name">HubStudio</span>
-                  <span class="rail__tagline">横跨两端</span>
-                </span>
-                <span class="rail__stripe rail__stripe--c" aria-hidden="true"></span>
-              </a>
-            </li>
-          </ol>
-        </div>
       </aside>
     </div>
     <div class="container hero-statement__container">
@@ -171,7 +186,7 @@ const agencies = [
         <span class="eyebrow">生态</span>
         <h1 class="hero-statement__title balance">在中国和西方两端打造品牌、产品与服务，并把它们放大。两个方向同时跑。</h1>
         <p class="hero-statement__lead">
-          七家专业公司，背后是同一个判断：中西方之间的鸿沟，从来不是翻译能解决的。它是品牌，是渠道，是基础设施，是销售。而且，两个方向同时跑，天天如此。
+          八家专业公司，背后是同一个判断：中西方之间的鸿沟，从来不是翻译能解决的。它是品牌，是渠道，是基础设施，是销售。而且，两个方向同时跑，天天如此。
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href={pathFor('agencies', locale)}>找到合适的公司</a>
@@ -244,7 +259,7 @@ const agencies = [
     <div class="container">
       <header class="section-header">
         <span class="eyebrow">阵容</span>
-        <h2 class="balance">七位专家。一个生态。</h2>
+        <h2 class="balance">八位专家。一个生态。</h2>
         <p class="lead">
           每一家都自成一格。要谁，启用谁。多数客户从一家开始，随着项目展开再把别的拉进来。
         </p>
@@ -304,7 +319,6 @@ const agencies = [
             <span class="matrix-grid__layer-name">社交平台</span>
           </div>
           <div class="matrix-cell matrix-cell--both" role="cell">
-            <span class="matrix-cell__tag">两端通用</span>
             <span class="matrix-cell__name">TheRedScroll</span>
             <span class="matrix-cell__note">微信、抖音、小红书、微博。服务西方客户，也服务中国客户。</span>
             <a class="matrix-cell__site" href="https://theredscroll.com" target="_blank" rel="noreferrer">theredscroll.com <span aria-hidden="true">↗</span></a>
@@ -316,7 +330,6 @@ const agencies = [
             <span class="matrix-grid__layer-name">LinkedIn B2B</span>
           </div>
           <div class="matrix-cell matrix-cell--both" role="cell">
-            <span class="matrix-cell__tag">两端通用</span>
             <span class="matrix-cell__name">Nuvora Studio</span>
             <span class="matrix-cell__note">只做 LinkedIn。服务西方客户，也服务中国客户。</span>
             <a class="matrix-cell__site" href="https://nuvora.studio" target="_blank" rel="noreferrer">nuvora.studio <span aria-hidden="true">↗</span></a>
@@ -328,7 +341,6 @@ const agencies = [
             <span class="matrix-grid__layer-name">网站基础设施</span>
           </div>
           <div class="matrix-cell matrix-cell--both" role="cell">
-            <span class="matrix-cell__tag">两端通用</span>
             <span class="matrix-cell__name">ChinaWebFoundry</span>
             <span class="matrix-cell__note">为百度而生，走通 ICP 备案，接上中国 AI 引擎。服务西方客户，也服务中国客户。</span>
             <a class="matrix-cell__site" href="https://chinawebfoundry.com" target="_blank" rel="noreferrer">chinawebfoundry.com <span aria-hidden="true">↗</span></a>
@@ -340,7 +352,6 @@ const agencies = [
             <span class="matrix-grid__layer-name">伙伴对接</span>
           </div>
           <div class="matrix-cell matrix-cell--both" role="cell">
-            <span class="matrix-cell__tag">两端通用</span>
             <span class="matrix-cell__name">Compass</span>
             <span class="matrix-cell__note">亲自核过的中国分销商、Tmall TP、抖音 Partner。</span>
             <a class="matrix-cell__site" href="https://compass.bearingbridge.com" target="_blank" rel="noreferrer">compass.bearingbridge.com <span aria-hidden="true">↗</span></a>
@@ -360,6 +371,22 @@ const agencies = [
             <span class="matrix-cell__name">HubStudio</span>
             <span class="matrix-cell__note">内容生产引擎。两个方向都在它上面跑。</span>
             <a class="matrix-cell__site" href="https://hubstudio.ai" target="_blank" rel="noreferrer">hubstudio.ai <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+
+        <div class="matrix-grid__row matrix-grid__row--span" role="row">
+          <div class="matrix-grid__layer" role="rowheader">
+            <span class="matrix-grid__layer-name">AI 落地</span>
+          </div>
+          <div class="matrix-cell matrix-cell--span matrix-cell--ai" role="cell">
+            <span class="matrix-cell__bridge" aria-hidden="true">
+              <span class="matrix-cell__bridge-dot"></span>
+              <span class="matrix-cell__bridge-line"></span>
+              <span class="matrix-cell__bridge-dot"></span>
+            </span>
+            <span class="matrix-cell__name">BearingBridge AI</span>
+            <span class="matrix-cell__note">AI 落地咨询，东西方并行。给任何公司，不只是面向中国。</span>
+            <a class="matrix-cell__site" href="https://www.bearingbridge.ai" target="_blank" rel="noreferrer">bearingbridge.ai <span aria-hidden="true">↗</span></a>
           </div>
         </div>
       </div>
@@ -627,6 +654,27 @@ const agencies = [
     width: 64px; height: 2px;
     background: linear-gradient(90deg, var(--bbg-blue), #c8102e);
     border-radius: 2px;
+  }
+  /* BearingBridge AI: same span layout as HubStudio, brand navy + gold. */
+  .matrix-grid__row--span .matrix-cell--ai {
+    background: linear-gradient(135deg, #131d33 0%, #1f2e4d 100%);
+  }
+  .matrix-grid__row--span .matrix-cell--ai::after {
+    background:
+      radial-gradient(circle at 30% 50%, rgba(194, 146, 47, 0.18), transparent 40%),
+      radial-gradient(circle at 70% 50%, rgba(224, 179, 94, 0.16), transparent 40%);
+  }
+  .matrix-cell--ai .matrix-cell__bridge-dot {
+    background: #c2922f;
+    box-shadow: 0 0 12px rgba(194, 146, 47, 0.7);
+  }
+  .matrix-cell--ai .matrix-cell__bridge-dot:last-child {
+    background: #e0b35e;
+    box-shadow: 0 0 12px rgba(224, 179, 94, 0.7);
+    animation-delay: 1.25s;
+  }
+  .matrix-cell--ai .matrix-cell__bridge-line {
+    background: linear-gradient(90deg, #c2922f, #e0b35e);
   }
   @keyframes bridge-pulse {
     0%, 100% { transform: scale(1); opacity: 1; }

@@ -12,39 +12,39 @@ const services = [
     key: 'plan',
     title: 'Concevoir',
     items: [
-      { name: 'Stratégie, campagnes et analytics', body: "Étude de marché et concurrence, sélection des plateformes, calendrier éditorial, KPI alignés sur les objectifs business, tableaux de bord et social listening." },
-      { name: 'Entrée sur le marché chinois', body: "Création des comptes, vérification, intégration e-commerce avec Tmall, JD et Douyin Shop, naming chinois et packs d'assets prêts pour chaque plateforme." },
+      { name: 'Stratégie, campagnes et mesure', body: "Étude du marché et de la concurrence, choix des plateformes, ligne éditoriale, indicateurs adossés à vos objectifs commerciaux, tableaux de bord et écoute des réseaux sociaux." },
+      { name: 'Implantation en Chine', body: "Ouverture et certification des comptes, intégration e-commerce avec Tmall, JD et Douyin Shop, choix d'un nom de marque chinois et kits de contenus prêts à publier sur chaque plateforme." },
     ],
   },
   {
     key: 'run',
     title: 'Opérer',
     items: [
-      { name: 'Couverture des plateformes', body: "WeChat, Douyin, RedNote et Weibo au cœur. Bilibili, Kuaishou, Zhihu, Toutiao et d'autres en option transparente." },
-      { name: 'Production de contenu', body: 'Stratégie pilotée par des humains. Visuels et vidéos AIGC via HubStudio.ai. Tournages réels en Chine. Relecture native chinoise.' },
-      { name: 'Planification et achat média', body: 'Achat média sur WeChat, Douyin, RedNote, Weibo et Baidu. Reporting hebdo et mensuel CPM, CPC, CPA, ROAS. Aucune marge sur le budget média.' },
-      { name: "Marketing d'influence", body: "Données d'engagement vérifiées, détection de faux abonnés, ciblage par niche. Briefs, co-création, publication, live commerce et reporting ROI." },
+      { name: 'Présence sur les plateformes', body: "WeChat, Douyin, RedNote et Weibo au centre du dispositif. Bilibili, Kuaishou, Zhihu, Toutiao et d'autres en option, facturés en toute transparence." },
+      { name: 'Production de contenu', body: "Création pilotée par nos équipes. Visuels et vidéos générés par IA via HubStudio.ai. Tournages réels en Chine. Textes relus par des correcteurs natifs." },
+      { name: "Plan et achat d'espace", body: "Achat média sur WeChat, Douyin, RedNote, Weibo et Baidu. Bilans hebdomadaires et mensuels : CPM, CPC, CPA, ROAS. Pas un yuan de marge prélevé sur le budget publicitaire." },
+      { name: "Marketing d'influence", body: "Données d'engagement vérifiées, détection des faux abonnés, ciblage par niche. Briefs, co-création, publication, vente en direct et bilan du retour sur investissement." },
     ],
   },
   {
     key: 'sustain',
     title: 'Faire durer',
     items: [
-      { name: 'CRM et domaine privé', body: 'Mise en place de WeCom, CRM WeChat, gestion de communauté, flux service client et programmes de fidélité.' },
+      { name: 'CRM et domaine privé', body: "Déploiement de WeCom, CRM WeChat, animation des communautés, parcours de service client et programmes de fidélité." },
       { name: 'Formation et conseil', body: "Masterclasses WeChat, Douyin, RedNote et Weibo. Ateliers contenu, influence et achat média. Conseil stratégique." },
     ],
   },
 ];
 
 const visitUrl = 'https://theredscroll.com';
-const visitLabel = 'Visiter theredscroll.com';
+const visitLabel = 'Voir theredscroll.com';
 ---
 
 <Layout
   locale={locale}
   route={route}
-  title="Agence réseaux sociaux chinois. Périmètre fixe. Prix fixe."
-  description="Nous développons les réseaux sociaux en Chine des marques internationales. Périmètre fixe. Prix fixe. Équipe sur le terrain à Shanghai et Hong Kong. Prenez rendez-vous."
+  title="Agence de réseaux sociaux chinois. Périmètre défini, prix ferme."
+  description="Nous développons l'audience des marques internationales sur les réseaux sociaux chinois. Périmètre défini, prix ferme. Une équipe sur le terrain à Shanghai et Hong Kong. Prenez rendez-vous."
 >
   <section class="trs-hero">
     <div class="trs-hero__bg" aria-hidden="true">
@@ -58,19 +58,19 @@ const visitLabel = 'Visiter theredscroll.com';
       <div class="trs-hero__grid">
         <div class="trs-hero__content">
           <img src="/AgencyLogos/TheredScroll%20PNG.png" alt="Logo TheRedScroll" class="trs-hero__logo" width="180" height="40" loading="eager" decoding="async" />
-          <span class="eyebrow eyebrow--rule">Réseaux sociaux chinois · Périmètre fixe · Prix fixe</span>
+          <span class="eyebrow eyebrow--rule">Réseaux sociaux chinois · Périmètre défini · Prix ferme</span>
           <h1 class="trs-hero__title">
             Nous publions sur les
             <span class="trs-hero__phrase trs-hero__phrase--platforms">plateformes chinoises</span>.
             <span class="trs-hero__phrase trs-hero__phrase--daily">Tous les jours</span>.
             <span class="trs-hero__phrase trs-hero__phrase--ground">Depuis le terrain</span>.
           </h1>
-          <p class="trs-hero__lead">La Chine tourne sur ses propres plateformes. WeChat, Douyin, RedNote, Weibo, et quatorze autres. Le savoir par un slide n'a rien à voir avec ouvrir ces applis chaque matin, ce que, franchement, la plupart des agences ne font pas.</p>
+          <p class="trs-hero__lead">La Chine vit sur ses propres plateformes : WeChat, Douyin, RedNote, Weibo et quatorze autres. En parler depuis une présentation est une chose ; les ouvrir chaque matin en est une autre. La plupart des agences en restent à la première.</p>
           <div class="trs-hero__actions">
             <a class="btn btn--primary trs-hero__cta" href={visitUrl} target="_blank" rel="noreferrer">{visitLabel}</a>
           </div>
           <div class="trs-hero__clients">
-            <span class="trs-hero__clients-label">En activité sur</span>
+            <span class="trs-hero__clients-label">Présents sur</span>
             <ul class="trs-hero__clients-list">
               {platforms.map((c) => <li>{c}</li>)}
             </ul>
@@ -89,7 +89,7 @@ const visitLabel = 'Visiter theredscroll.com';
                 <span class="browser__url">theredscroll.com</span>
               </div>
               <div class="browser__viewport">
-                <img src="/images/theredscroll-home.webp" alt="Page d'accueil theredscroll.com" class="browser__shot" width="1408" height="832" loading="eager" decoding="async" />
+                <img src="/images/theredscroll-home.webp" alt="Page d'accueil de theredscroll.com" class="browser__shot" width="1408" height="832" loading="eager" decoding="async" />
                 <span class="browser__visit" aria-hidden="true">
                   <span>Voir le site</span>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l10-10M7 7h10v10"/></svg>
@@ -103,7 +103,7 @@ const visitLabel = 'Visiter theredscroll.com';
             Shanghai · Hong Kong · Équipe native
           </div>
           <div class="trs-hero__chip trs-hero__chip--ai">
-            HubStudio.ai · AIGC à l'échelle
+            HubStudio.ai · IA générative à grande échelle
           </div>
         </div>
       </div>
@@ -113,7 +113,7 @@ const visitLabel = 'Visiter theredscroll.com';
   <section class="section section--alt">
     <div class="container container--narrow">
       <span class="eyebrow">Notre méthode</span>
-      <p class="lead">Chaque post, vidéo, campagne et rapport est défini en amont dans un périmètre écrit. Un chiffre par offre. Pas de coûts cachés, pas de dérive de périmètre. Notre équipe travaille depuis Shanghai et Hong Kong, avec des locuteurs natifs, un vrai accès aux plateformes et des relations directes avec les influenceurs chinois. Nous avons construit HubStudio.ai pour produire visuels, vidéos et textes à une fraction du coût d'avant. La stratégie reste humaine.</p>
+      <p class="lead">Publications, vidéos, campagnes, bilans : tout est arrêté d'avance dans un périmètre écrit. Un prix par offre, et rien d'autre. Aucun frais caché, aucune dérive en cours de route. Notre équipe opère depuis Shanghai et Hong Kong : des locuteurs natifs, un accès sans intermédiaire aux plateformes, des relations directes avec les influenceurs chinois. Nous avons bâti HubStudio.ai pour produire visuels, vidéos et textes à une fraction du coût habituel. La stratégie, elle, reste humaine.</p>
     </div>
   </section>
 
@@ -121,7 +121,7 @@ const visitLabel = 'Visiter theredscroll.com';
     <div class="container">
       <header class="section-header">
         <span class="eyebrow">Ce que nous faisons</span>
-        <h2 class="balance">Trois voies. Huit piliers. De bout en bout.</h2>
+        <h2 class="balance">Trois axes. Huit piliers. De bout en bout.</h2>
       </header>
       <div class="services">
         {services.map((s) => (
@@ -147,13 +147,13 @@ const visitLabel = 'Visiter theredscroll.com';
   <section class="section section--alt">
     <div class="container container--narrow">
       <span class="eyebrow">Nos offres</span>
-      <p class="lead">Trois paliers, tous chiffrés en amont. Discovery, pour les marques qui testent la Chine : trois mois sur une plateforme. Growth, pour les marques qui changent d'échelle : six mois sur deux ou trois plateformes. Premium, pour les marques qui parient gros sur la Chine : douze mois sur quatre plateformes ou plus. Chaque palier est livré avec un périmètre écrit et un prix fixe.</p>
+      <p class="lead">Trois formules, toutes chiffrées d'avance. Discovery s'adresse aux marques qui sondent le marché chinois : trois mois sur une plateforme. Growth accompagne celles qui montent en puissance : six mois sur deux ou trois plateformes. Premium est taillée pour celles qui jouent gros en Chine : douze mois sur quatre plateformes ou davantage. Chaque formule s'accompagne d'un périmètre écrit et d'un prix ferme.</p>
     </div>
   </section>
 
   <section class="section section--dark">
     <div class="container container--narrow center">
-      <h2 class="balance">Plus d'abonnés. Plus d'engagement. Plus de leads. Plus de conversions.</h2>
+      <h2 class="balance">Plus d'abonnés. Plus d'engagement. Plus de prospects. Plus de ventes.</h2>
       <div class="btn-row" style="justify-content: center;">
         <a class="btn btn--primary" href={visitUrl} target="_blank" rel="noreferrer">{visitLabel}</a>
         <a class="btn btn--ghost-light" href={pathFor('contact', locale)}>Parler à l'équipe</a>

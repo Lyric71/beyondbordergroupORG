@@ -19,42 +19,42 @@ const shapes: Array<{
     key: 'shortlist',
     title: 'Shortlist',
     meta: '2 a 3 semanas',
-    intro: 'Tres a cinco nombres auditados, briefados a fondo, listos para reunirse. Para marcas que ya saben cómo debe ser su distribución.',
+    intro: 'Entre tres y cinco candidatos contrastados, documentados a fondo y listos para la primera reunión. Pensado para marcas que ya tienen claro su modelo de distribución.',
     image: '/images/compass-shortlist.svg',
     imageLabel: 'Editorial. Dossier de shortlist con un nombre destacado.',
     items: [
-      { name: 'Nombres seleccionados', body: 'Tres a cinco partners que encajan con su categoría, su etapa y su mix de canales.' },
-      { name: 'Briefs a fondo', body: 'Huella, marcas con las que han trabajado, condiciones comerciales, nuestra lectura de cada uno.' },
-      { name: 'Sesión de trabajo', body: 'Seniors repasando cada nombre. Por qué este, por qué no aquel, dónde presionaríamos en la negociación.' },
-      { name: 'Presentaciones en caliente', body: 'Usted entra con una relación detrás. Suele acceder al equipo senior, no al equipo comercial.' },
+      { name: 'Candidatos escogidos', body: 'Entre tres y cinco socios afines a su categoría, a su fase de desarrollo y a su combinación de canales.' },
+      { name: 'Fichas detalladas', body: 'Implantación, marcas con las que han trabajado, condiciones comerciales y nuestra valoración de cada uno.' },
+      { name: 'Sesión de trabajo', body: 'Nuestro equipo sénior repasa con usted cada candidato: por qué este sí, por qué aquel no y dónde conviene apretar en la negociación.' },
+      { name: 'Presentaciones con respaldo', body: 'Se sienta a negociar con una relación previa que lo respalda. Y suele tratar con la dirección, no con el equipo comercial.' },
     ],
   },
   {
     key: 'map',
     title: 'Mapa de mercado',
     meta: '3 a 6 semanas',
-    intro: 'Quince a veinte nombres, estructurados para comparar. Para marcas que aún están definiendo cómo debe ser su distribución. Después, una shortlist enfocada cuando esté lista.',
+    intro: 'Entre quince y veinte candidatos, ordenados para poder compararlos. Pensado para marcas que todavía están perfilando su modelo de distribución. Después llega una shortlist más acotada, cuando usted lo decida.',
     image: '/images/compass-map.svg',
     imageLabel: 'Editorial. Mapa de mercado desplegado sobre una mesa larga.',
     items: [
-      { name: 'Cobertura del longlist', body: 'Quince a veinte nombres, mapeados por categoría, canal y huella.' },
-      { name: 'Comparación estructurada', body: 'Las mismas categorías en cada fila, para poder comparar opciones sobre los mismos ejes.' },
-      { name: 'Lógica de canal', body: 'Cross-border frente a doméstico, TP de Tmall frente a distribuidor, B2B frente a DTC. Decimos cuál encaja.' },
-      { name: 'Shortlist secuenciada', body: 'La forma más habitual para las primeras entradas en China. Primero el mapa, después una shortlist enfocada con los nombres que sobrevivieron.' },
+      { name: 'Panorama completo', body: 'Entre quince y veinte candidatos, ordenados por categoría, canal e implantación.' },
+      { name: 'Comparación homogénea', body: 'Los mismos criterios en cada ficha, para medir todas las opciones por el mismo rasero.' },
+      { name: 'Lógica de canal', body: 'Transfronterizo o nacional, TP de Tmall o distribuidor, B2B o venta directa. Le decimos cuál encaja en su caso.' },
+      { name: 'Shortlist por fases', body: 'El camino más habitual para una primera entrada en China: primero el mapa y, después, una shortlist depurada con los nombres que superan el filtro.' },
     ],
   },
   {
     key: 'replace',
-    title: 'Reemplazo',
+    title: 'Relevo',
     meta: 'Según el contrato',
-    intro: 'Para marcas que ya firmaron con el partner equivocado. El trabajo de shortlist es el mismo. Las restricciones son más ajustadas y suele haber un contrato que desenredar.',
+    intro: 'Para marcas que ya firmaron con el socio equivocado. El trabajo de selección es el mismo, pero el margen de maniobra es más estrecho y casi siempre queda un contrato que deshacer.',
     image: '/images/compass-replacement.svg',
-    imageLabel: 'Editorial. Trabajo de reemplazo, revisión de contrato, Shanghái.',
+    imageLabel: 'Editorial. Trabajo de relevo, revisión de contrato, Shanghái.',
     items: [
-      { name: 'Shortlist de reemplazo', body: 'Misma auditoría, mismas presentaciones en caliente, pero construidas alrededor de una operación activa.' },
-      { name: 'Plan de transición', body: 'Cómo mover stock, canales y contenido sin perder la ventana de lanzamiento.' },
-      { name: 'Apoyo en la salida del contrato', body: 'Ayudamos por el lado de los recursos. Buscar un reemplazo, comparar opciones, llevar la transición.' },
-      { name: 'Discretos por defecto', body: 'Sin ruido público. Lo hemos hecho suficientes veces como para saber cuándo guardar silencio.' },
+      { name: 'Shortlist de relevo', body: 'El mismo análisis y las mismas presentaciones, esta vez sobre una operación que ya está en marcha.' },
+      { name: 'Plan de transición', body: 'Cómo trasladar inventario, canales y contenidos sin perder la ventana de lanzamiento.' },
+      { name: 'Acompañamiento en la salida', body: 'Le damos apoyo en la parte de recursos: buscar relevo, comparar alternativas y conducir el cambio.' },
+      { name: 'Discreción ante todo', body: 'Sin ruido público. Lo hemos hecho las veces suficientes para saber cuándo conviene callar.' },
     ],
   },
 ];
@@ -63,41 +63,41 @@ type IconKey = 'doc' | 'session' | 'intro' | 'verdict';
 const included: Array<{ icon: IconKey; title: string; body: string }> = [
   {
     icon: 'doc',
-    title: 'Un entregable por escrito',
-    body: 'Categorías reales, canales, huella, condiciones comerciales, las marcas con las que han trabajado y nuestra lectura sobre cada nombre.',
+    title: 'Un informe por escrito',
+    body: 'Categorías reales, canales, implantación, condiciones comerciales, las marcas con las que han trabajado y nuestra valoración de cada candidato.',
   },
   {
     icon: 'session',
     title: 'Una sesión de trabajo',
-    body: 'Seniors repasando cada nombre. Por qué este, por qué no aquel, dónde presionaríamos en la negociación.',
+    body: 'Nuestro equipo sénior repasa cada candidato: por qué este sí, por qué aquel no y dónde conviene apretar en la negociación.',
   },
   {
     icon: 'intro',
-    title: 'Presentaciones en caliente',
-    body: 'Casi cada nombre de Compass es alguien a quien nuestro equipo ha conocido, briefado o con quien ha trabajado en un proyecto real. Usted entra con una relación detrás.',
+    title: 'Presentaciones con respaldo',
+    body: 'Casi todos los nombres de Compass son personas a las que nuestro equipo ha tratado, informado o con las que ha trabajado en un proyecto real. Usted se sienta con una relación previa que lo respalda.',
   },
   {
     icon: 'verdict',
-    title: 'Evaluaciones honestas',
-    body: 'A quién recomendaríamos sin pensarlo dos veces, de quién le advertiríamos, y quién solo encaja con un tipo muy concreto de marca.',
+    title: 'Valoraciones sin rodeos',
+    body: 'A quién recomendaríamos sin dudarlo, de quién lo pondríamos sobre aviso y quién solo encaja con un tipo muy concreto de marca.',
   },
 ];
 
 const boundaries: Array<{ action: string; note: string; instead: string }> = [
   {
-    action: 'Vendemos acceso a la base de datos.',
-    note: 'Sin login, sin licencia por puesto.',
-    instead: 'El valor está en el contexto que rodea a cada fila, y eso no cabe en un CSV. Le damos nuestra lectura de cada nombre, en persona.',
+    action: 'Vender el acceso a la base de datos.',
+    note: 'Ni claves ni licencias por usuario.',
+    instead: 'El valor está en el contexto que rodea a cada ficha, y eso no cabe en un CSV. Le damos nuestra lectura de cada nombre, en persona.',
   },
   {
-    action: 'Operamos el acuerdo una vez firmado.',
-    note: 'Buscamos socios, no los gestionamos.',
-    instead: 'De eso se ocupa TheChinaPath, por separado, cuando usted quiera. Dos equipos, un único traspaso limpio.',
+    action: 'Gestionar la alianza una vez firmada.',
+    note: 'Buscamos socios; no los gestionamos.',
+    instead: 'De eso se ocupa TheChinaPath, por separado y cuando usted quiera. Dos equipos, un solo traspaso limpio.',
   },
   {
-    action: 'Prometemos resultados a dos años vista.',
-    note: 'Nadie honesto puede.',
-    instead: 'Lo que sí podemos es asegurar que cada nombre de su lista se ha ganado su sitio. El resto queda en sus manos.',
+    action: 'Prometer resultados a dos años vista.',
+    note: 'Nadie serio puede hacerlo.',
+    instead: 'Lo que sí garantizamos es que cada nombre de su lista se ha ganado su sitio. El resto queda en sus manos.',
   },
 ];
 
@@ -108,8 +108,8 @@ const visitLabel = 'Visitar Compass';
 <Layout
   locale={locale}
   route={route}
-  title="Compass. Encontrar al partner chino correcto primero."
-  description="Una base privada de distribuidores, TP de Tmall, Douyin Partners e importadores con los que nos hemos sentado, a los que hemos auditado y con los que hemos trabajado. Shortlist, mapa de mercado o reemplazo, surgidos de veinte años sobre el terreno."
+  title="Compass. Encuentre antes al socio chino adecuado."
+  description="Una base privada de distribuidores, TP de Tmall, Douyin Partners e importadores con los que nos hemos sentado, a los que hemos evaluado y con los que hemos trabajado. Shortlist, mapa de mercado o relevo, fruto de veinte años sobre el terreno."
 >
   <!-- ====================================================================== -->
   <!-- HERO: cinematic dark + curated shortlist preview                       -->
@@ -139,7 +139,7 @@ const visitLabel = 'Visitar Compass';
         </h1>
 
         <p class="bc-hero__lead" data-anim="fade">
-          El sourcing ya lo hicimos. Usted no tiene que empezar donde empieza la mayoría de las marcas.
+          La búsqueda ya está hecha. Usted no tiene por qué empezar por donde empieza la mayoría de las marcas.
         </p>
 
         <div class="bc-hero__cta-row" data-anim="fade">
@@ -173,7 +173,7 @@ const visitLabel = 'Visitar Compass';
             </div>
 
             <div class="bc-mock__viewport bc-mock__viewport--shot">
-              <img src="/images/compass-site.png" alt="El sitio Compass, de BearingBridge: una base privada de distribuidores y partners de canal en China, ya contrastados." class="bc-mock__shot" loading="lazy" decoding="async" width="1440" height="900" />
+              <img src="/images/compass-site.png" alt="El sitio Compass, de BearingBridge: una base privada de distribuidores y socios de canal en China, ya contrastados." class="bc-mock__shot" loading="lazy" decoding="async" width="1440" height="900" />
             </div>
           </div>
           </a>
@@ -207,10 +207,10 @@ const visitLabel = 'Visitar Compass';
           <span class="bc-track__num-shadow">20</span>
         </div>
         <div class="bc-track__copy">
-          <span class="eyebrow">Profundidad de sourcing</span>
-          <h2 class="bc-track__title balance">Veinte años de reuniones, auditadas en una sola base privada.</h2>
+          <span class="eyebrow">Profundidad de la búsqueda</span>
+          <h2 class="bc-track__title balance">Veinte años de reuniones, depuradas en una sola base privada.</h2>
           <p class="bc-track__lead">
-            Un directorio no le protege de un error de partner. Una base construida reunión a reunión, sí. Casi cada nombre de Compass es alguien a quien nuestro equipo ha conocido, briefado o con quien ha trabajado en un proyecto de marca real.
+            Un directorio no le protege de elegir mal al socio. Una base construida reunión a reunión, sí. Casi todos los nombres de Compass son personas a las que nuestro equipo ha tratado, informado o con las que ha trabajado en un proyecto de marca real.
           </p>
         </div>
       </div>
@@ -225,15 +225,15 @@ const visitLabel = 'Visitar Compass';
       <header class="bc-shapes__header">
         <span class="eyebrow">Lo que hacemos</span>
         <h2 class="bc-shapes__title">
-          Sourcing de partners, <em>en tres formatos.</em>
+          Selección de socios, <em>en tres formatos.</em>
         </h2>
         <p class="bc-shapes__lead">
-          Usamos Compass para trazarle una lista de partners de distribución y canal con los que vale la pena hablar, contrastados con lo que hemos visto en los últimos meses y con lo que sabemos de su categoría.
+          Con Compass le preparamos una lista de socios de distribución y de canal que merece la pena conocer, contrastada con lo que hemos visto estos últimos meses y con lo que sabemos de su categoría.
         </p>
       </header>
 
       <div class="bc-shapes__shell" data-tabs>
-        <div class="bc-shapes__nav" role="tablist" aria-label="Formatos de sourcing">
+        <div class="bc-shapes__nav" role="tablist" aria-label="Formatos de selección">
           {shapes.map((s, i) => (
             <button
               type="button"
@@ -306,7 +306,7 @@ const visitLabel = 'Visitar Compass';
       <header class="bc-included__header">
         <span class="eyebrow">Incluido, siempre</span>
         <h2 class="bc-included__title balance">
-          Una lista vale poco si no se confía en el razonamiento que la sostiene.
+          Una lista solo vale lo que vale el criterio que tiene detrás.
         </h2>
       </header>
 
@@ -364,13 +364,13 @@ const visitLabel = 'Visitar Compass';
     <div class="container bc-manifesto__container">
       <span class="eyebrow eyebrow--on-dark">Manifiesto</span>
       <h2 class="bc-manifesto__title">
-        <span class="bc-manifesto__line" data-line>China premia a las marcas que eligen al partner correcto desde el principio.</span>
+        <span class="bc-manifesto__line" data-line>China premia a las marcas que aciertan con el socio desde el primer día.</span>
         <span class="bc-manifesto__line" data-line>Castiga a las que no.</span>
-        <span class="bc-manifesto__line" data-line>El castigo rara vez es ruidoso.</span>
+        <span class="bc-manifesto__line" data-line>Y el castigo rara vez hace ruido.</span>
       </h2>
       <div class="bc-manifesto__statement" data-line>
-        <p>Stock que duerme dieciocho meses en un almacén. Una tienda insignia operada por un equipo que jamás ha movido su categoría. Dos años de su entrada en China, esfumados.</p>
-        <p class="bc-manifesto__emphasis">Una base construida reunión a reunión, a lo largo de veinte años, puede protegerle de todo eso.</p>
+        <p>Mercancía que duerme dieciocho meses en un almacén. Una tienda insignia en manos de un equipo que nunca ha movido su categoría. Dos años de su entrada en China, esfumados.</p>
+        <p class="bc-manifesto__emphasis">Una base construida reunión a reunión, a lo largo de veinte años, puede ahorrarle todo eso.</p>
       </div>
       <figure class="bc-manifesto__media">
         <img src="/images/china-office.webp" alt="Un equipo de marketing trabajando en una oficina a pie de calle en Shanghái" width="1200" height="655" loading="lazy" decoding="async" />
@@ -389,10 +389,10 @@ const visitLabel = 'Visitar Compass';
       <header class="bc-bounds__header">
         <span class="eyebrow">Lo que esto no es</span>
         <h2 class="bc-bounds__title">
-          Tres líneas <em>que mantenemos limpias.</em>
+          Tres líneas <em>que no cruzamos.</em>
         </h2>
         <p class="bc-bounds__lead">
-          Para que siempre sepa por qué está pagando, y por qué no.
+          Para que siempre sepa por qué paga, y por qué no.
         </p>
         <div class="bc-bounds__meter" aria-hidden="true">
           {boundaries.map((_, i) => (
@@ -455,7 +455,7 @@ const visitLabel = 'Visitar Compass';
     <div class="container bc-cta__content">
       <span class="eyebrow eyebrow--on-dark">Cuando esté listo</span>
       <h2 class="bc-cta__title balance">
-        Encuentre primero al partner chino correcto.<br />Antes de que el equivocado le encuentre a usted.
+        Encuentre primero al socio chino adecuado.<br />Antes de que el equivocado dé con usted.
       </h2>
       <div class="bc-cta__actions">
         <a class="btn btn--primary" href={visitUrl} target="_blank" rel="noreferrer">{visitLabel}</a>

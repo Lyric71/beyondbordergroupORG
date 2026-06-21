@@ -4,9 +4,9 @@ import AgencyLogo from '../../../components/AgencyLogo.astro';
 import { pathFor } from '../../../i18n/ui';
 
 const locale = 'fr' as const;
-const title = 'Sept agences';
+const title = 'Huit agences';
 const description =
-  "BearingBridge, ce sont sept agences spécialistes. Occident vers Chine, Chine vers Occident, et transversales. Chacune se tient seule. La majorité de nos clients démarrent par une, et ouvrent le périmètre à mesure que le projet grandit.";
+  "BearingBridge, ce sont huit agences spécialistes. Occident vers Chine, Chine vers Occident, et transversales. Chacune se tient seule. La majorité de nos clients démarrent par une, et ouvrent le périmètre à mesure que le projet grandit.";
 
 type Group = 'Occident → Chine' | 'Chine → Occident' | 'Transversal';
 
@@ -17,7 +17,8 @@ type AgencyRoute =
   | 'agencies/compass'
   | 'agencies/beyondbridge'
   | 'agencies/hubstudio'
-  | 'agencies/nuvora-studio';
+  | 'agencies/nuvora-studio'
+  | 'agencies/bearingbridgeai';
 
 interface Agency {
   slug: string;
@@ -180,6 +181,38 @@ const agencies: Agency[] = [
     accent: '#22c55e',
   },
   {
+    slug: 'bearingbridgeai',
+    route: 'agencies/bearingbridgeai',
+    name: 'BearingBridge AI',
+    group: 'Transversal',
+    category: "Conseil en adoption de l'IA",
+    tagline: "Une adoption de l'IA qui tient face au réel.",
+    lead:
+      "Conseil senior pour les entreprises qui veulent l'IA dans leurs opérations, pas dans une présentation. Près d'un tiers des cas d'usage que nous examinons ne devraient pas être construits, et nous le disons. Chaque pilote part avec des critères d'arrêt fixés avant de commencer. Vous payez pour des preuves, pas pour des promesses.",
+    lanes: [
+      {
+        name: 'Évaluer',
+        body: "Trois à huit semaines, périmètre fixe. Un portefeuille de cas d'usage classés et une feuille de route que votre équipe peut exécuter sans nous. Nous vous disons où l'IA n'a pas sa place.",
+      },
+      {
+        name: 'Piloter',
+        body: "Six à douze semaines. Critères de réussite et d'arrêt arrêtés d'emblée, comparés Est et Ouest sur vos propres données. Nous ne déployons que ce qui survit à vos opérations.",
+      },
+      {
+        name: 'Continuum',
+        body: "Direction IA à temps partagé. Adoption et gouvernance chaque mois, comité de pilotage trimestriel avec vos dirigeants. Le transfert est dans la méthode, jamais un argument de vente.",
+      },
+      {
+        name: 'Académie',
+        body: "Masterclasses pour dirigeants, ateliers de leadership et formation de praticiens menée par le fondateur. Vos équipes continuent à faire tourner le dispositif après notre départ.",
+      },
+    ],
+    signal: 'Qwen · DeepSeek · Kimi · GPT · Claude · Gemini, comparés sur vos données',
+    visit: { url: 'https://www.bearingbridge.ai', label: 'bearingbridge.ai' },
+    based: 'Hong Kong. Shanghai. En Asie, au Moyen-Orient et en Europe.',
+    accent: '#c2922f',
+  },
+  {
     slug: 'hubstudio',
     route: 'agencies/hubstudio',
     name: 'HubStudio',
@@ -237,6 +270,19 @@ const agencies: Agency[] = [
   },
 ];
 
+// Ordre d'affichage canonique, partagé avec le menu, le pied de page et l'accueil.
+const agencyOrder = [
+  'bearingbridge',
+  'beyondbridge',
+  'hubstudio',
+  'bearingbridgeai',
+  'chinawebfoundry',
+  'theredscroll',
+  'compass',
+  'nuvora-studio',
+];
+agencies.sort((a, b) => agencyOrder.indexOf(a.slug) - agencyOrder.indexOf(b.slug));
+
 const groups: { id: Group; label: string; intro: string }[] = [
   {
     id: 'Occident → Chine',
@@ -251,7 +297,7 @@ const groups: { id: Group; label: string; intro: string }[] = [
   {
     id: 'Transversal',
     label: 'Transversal',
-    intro: 'Pour toute entreprise, partout. Production de contenu et LinkedIn.',
+    intro: "Pour toute entreprise, partout. Adoption de l'IA, production de contenu et LinkedIn.",
   },
 ];
 ---
@@ -265,7 +311,7 @@ const groups: { id: Group; label: string; intro: string }[] = [
     <div class="container ag-hero__container">
       <span class="eyebrow eyebrow--on-dark">Le groupe</span>
       <h1 class="ag-hero__title balance">
-        Sept agences spécialistes.<br />
+        Huit agences spécialistes.<br />
         <em>Un seul écosystème.</em>
       </h1>
       <p class="ag-hero__lead">
@@ -496,7 +542,7 @@ const groups: { id: Group; label: string; intro: string }[] = [
     border-top: 1px solid rgba(255,255,255,0.12);
   }
   @media (min-width: 1024px) {
-    .ag-hero__logos { grid-template-columns: repeat(7, minmax(0, 1fr)); }
+    .ag-hero__logos { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   }
   .ag-hero__logos a {
     display: grid;

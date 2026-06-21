@@ -4,9 +4,9 @@ import AgencyLogo from '../../../components/AgencyLogo.astro';
 import { pathFor } from '../../../i18n/ui';
 
 const locale = 'zh' as const;
-const title = '七家公司';
+const title = '八家公司';
 const description =
-  'BearingBridge 由七家专业公司组成：西方进入中国、中国走向西方，以及两端通用。每一家都独立运转。多数客户从一家开始，随项目展开再把别的拉进来。';
+  'BearingBridge 由八家专业公司组成：西方进入中国、中国走向西方，以及两端通用。每一家都独立运转。多数客户从一家开始，随项目展开再把别的拉进来。';
 
 type Group = '西方 → 中国' | '中国 → 西方' | '两端通用';
 
@@ -17,7 +17,8 @@ type AgencyRoute =
   | 'agencies/compass'
   | 'agencies/beyondbridge'
   | 'agencies/hubstudio'
-  | 'agencies/nuvora-studio';
+  | 'agencies/nuvora-studio'
+  | 'agencies/bearingbridgeai';
 
 interface Agency {
   slug: string;
@@ -208,6 +209,38 @@ const agencies: Agency[] = [
     accent: '#ff7a8a',
   },
   {
+    slug: 'bearingbridgeai',
+    route: 'agencies/bearingbridgeai',
+    name: 'BearingBridge AI',
+    group: '两端通用',
+    category: 'AI 落地咨询',
+    tagline: 'AI 落地，要扛得住真实运营的考验。',
+    lead:
+      '面向那些真想让 AI 在业务里跑起来、而不是停在 PPT 上的公司，提供资深咨询。我们评估过的用例，大约三分之一根本不该做，我们会直说。每一个试点开跑前，先和你定好叫停标准。你买的是证据，不是承诺。',
+    lanes: [
+      {
+        name: '评估',
+        body: '三到八周，范围固定。交付一份排好序的用例清单，和一张你的团队不靠我们也能自己跑的路线图。AI 不该碰的地方，我们会告诉你。',
+      },
+      {
+        name: '试点',
+        body: '六到十二周。成功标准和叫停标准开跑前定死，在你自己的数据上做东西方对标。只有扛住你真实运营的那部分才会上线。',
+      },
+      {
+        name: '续航',
+        body: '分时制的 AI 负责人。每月推进落地与治理，每季度和你的高管层做战略复盘。交接写进方法本身，从不当成加项来卖。',
+      },
+      {
+        name: '学院',
+        body: '高管大师课、领导力工作坊，以及创始人亲自带的实战训练。我们走了之后，你的人能继续把它跑下去。',
+      },
+    ],
+    signal: 'Qwen · DeepSeek · Kimi · GPT · Claude · Gemini，在你的数据上对标',
+    visit: { url: 'https://www.bearingbridge.ai', label: 'bearingbridge.ai' },
+    based: '香港。上海。覆盖亚洲、中东与欧洲。',
+    accent: '#c2922f',
+  },
+  {
     slug: 'nuvora-studio',
     route: 'agencies/nuvora-studio',
     name: 'Nuvora Studio',
@@ -237,6 +270,19 @@ const agencies: Agency[] = [
   },
 ];
 
+// Canonical display order, shared with the menu, footer and home page.
+const agencyOrder = [
+  'bearingbridge',
+  'beyondbridge',
+  'hubstudio',
+  'bearingbridgeai',
+  'chinawebfoundry',
+  'theredscroll',
+  'compass',
+  'nuvora-studio',
+];
+agencies.sort((a, b) => agencyOrder.indexOf(a.slug) - agencyOrder.indexOf(b.slug));
+
 const groups: { id: Group; label: string; intro: string }[] = [
   {
     id: '西方 → 中国',
@@ -251,7 +297,7 @@ const groups: { id: Group; label: string; intro: string }[] = [
   {
     id: '两端通用',
     label: '两端通用',
-    intro: '给任何公司，任何地方。内容生产与 LinkedIn。',
+    intro: '给任何公司，任何地方。AI 落地、内容生产与 LinkedIn。',
   },
 ];
 ---
@@ -265,7 +311,7 @@ const groups: { id: Group; label: string; intro: string }[] = [
     <div class="container ag-hero__container">
       <span class="eyebrow eyebrow--on-dark">集团</span>
       <h1 class="ag-hero__title balance">
-        七家专业公司。<br />
+        八家专业公司。<br />
         <em>一个生态。</em>
       </h1>
       <p class="ag-hero__lead">
@@ -493,7 +539,7 @@ const groups: { id: Group; label: string; intro: string }[] = [
     border-top: 1px solid rgba(255,255,255,0.12);
   }
   @media (min-width: 1024px) {
-    .ag-hero__logos { grid-template-columns: repeat(7, minmax(0, 1fr)); }
+    .ag-hero__logos { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   }
   .ag-hero__logos a {
     display: grid;
