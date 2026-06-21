@@ -16,45 +16,45 @@ const lanes: Array<{
   {
     key: 'build',
     title: 'Aufbauen',
-    intro: 'Die Marke, der ein westlicher Käufer vertraut, auf einer Website, die nicht wie eine Übersetzung wirkt.',
+    intro: 'Eine Marke, der westliche Käufer vertrauen, auf einer Website, die nicht nach Übersetzung klingt.',
     image: '/images/bb-bridge-build.webp',
     items: [
-      { name: 'Beratung', body: 'Senior Counsel für die großen Entscheidungen. Marktwahl, Positionierung, Preisgestaltung, Go oder No-Go. Auch eigenständig, für Unternehmen, die das Denken ohne die Umsetzung wollen.' },
-      { name: 'Markenstrategie für den Auslandsmarkt', body: 'Gebaut für die Märkte, in die Sie eintreten, nicht von der China-Marke abgeleitet.' },
-      { name: 'Website', body: 'UX und UI für westliches Publikum, nicht für chinesisches. Außerhalb der Firewall gehostet, schnell in Hamburg und Houston.' },
+      { name: 'Beratung', body: 'Erfahrene Köpfe für die großen Entscheidungen. Marktwahl, Positionierung, Preisgestaltung, Go oder No-Go. Auf Wunsch auch eigenständig, für Unternehmen, die das Denken brauchen, nicht die Umsetzung.' },
+      { name: 'Markenstrategie für den Westen', body: 'Entwickelt für die Märkte, die Sie erschließen wollen, und nicht aus der China-Marke abgeleitet.' },
+      { name: 'Website', body: 'UX und UI für ein westliches Publikum, nicht für ein chinesisches. Außerhalb der Firewall gehostet, schnell in Hamburg wie in Houston.' },
     ],
   },
   {
     key: 'demand',
     title: 'Nachfrage',
-    intro: 'Die Kanäle, die Sie vor die Käufer bringen, die ohnehin schon suchen.',
+    intro: 'Die Kanäle, die Sie vor jene Käufer bringen, die ohnehin bereits suchen.',
     image: '/images/bb-bridge-demand.webp',
     items: [
-      { name: 'LinkedIn', body: 'Dort, wo westliche B2B-Käufer aktiv sind. Gründerprofil, Unternehmensseite, Content und Outreach.' },
-      { name: 'SEO und GEO', body: 'Auf Google gefunden, in ChatGPT, Perplexity und Claude zitiert. Gebaut für Käufer, die auf Englisch, Deutsch und Französisch suchen.' },
-      { name: 'Google Ads', body: 'Paid Search, die qualifizierte Leads bringt, während SEO sich aufbaut. Reporting in RMB.' },
+      { name: 'LinkedIn', body: 'Präsent dort, wo westliche B2B-Käufer aktiv sind. Gründerprofil, Unternehmensseite, Inhalte und gezielte Ansprache.' },
+      { name: 'SEO und GEO', body: 'Bei Google gefunden, in ChatGPT, Perplexity und Claude zitiert. Ausgelegt auf Käufer, die auf Englisch, Deutsch und Französisch suchen.' },
+      { name: 'Google Ads', body: 'Bezahlte Suchanzeigen, die qualifizierte Leads liefern, während SEO erst Fahrt aufnimmt. Auswertung in Renminbi.' },
     ],
   },
   {
     key: 'close',
     title: 'Abschließen',
-    intro: 'Echte Menschen in sieben Märkten. Sie übernehmen das erste Gespräch. Wenn der Deal eine Reise wert ist, drücken sie dem Käufer persönlich die Hand.',
+    intro: 'Echte Menschen in sieben Märkten. Sie führen das erste Gespräch. Und wenn ein Abschluss die Reise wert ist, geben sie dem Käufer persönlich die Hand.',
     image: '/images/bb-bridge-sell.webp',
     items: [
-      { name: 'Externer Vertrieb', body: 'Native Vertreter in Frankreich, Deutschland, Italien, Großbritannien, den USA, Australien und Lateinamerika. Ihr Team in deren Markt, auf Ihrem Retainer.' },
+      { name: 'Externer Vertrieb', body: 'Muttersprachliche Vertriebsleute in Frankreich, Deutschland, Italien, Großbritannien, den USA, Australien und Lateinamerika. Ihr Team in deren Markt, auf Honorarbasis für Sie tätig.' },
     ],
   },
 ];
 
 const visitUrl = 'https://beyondbridge.com';
-const visitLabel = 'beyondbridge.com besuchen';
+const visitLabel = 'beyondbridge.com aufrufen';
 ---
 
 <Layout
   locale={locale}
   route={route}
-  title="BeyondBridge. Wir bringen chinesische Unternehmen ins Ausland."
-  description="Wir helfen chinesischen Unternehmen, westliche Käufer zu finden. Marke, Website, LinkedIn, Ads und echte Vertriebsleute in sieben Ländern. Ein Stack. Eine Pipeline."
+  title="BeyondBridge. Wir bringen chinesische Unternehmen in den Westen."
+  description="Wir verhelfen chinesischen Unternehmen zu westlichen Käufern. Marke, Website, LinkedIn, Anzeigen und echte Vertriebsleute in sieben Ländern. Ein Stack. Eine Pipeline."
 >
   <section class="bb-hero" data-hero>
     <div class="bb-hero__bg" aria-hidden="true">
@@ -73,10 +73,10 @@ const visitLabel = 'beyondbridge.com besuchen';
           <span class="bb-hero__line" data-anim="word">
             <em class="bb-hero__phrase">chinesische Unternehmen</em>
           </span>
-          <span class="bb-hero__line" data-anim="word">ins Ausland.</span>
+          <span class="bb-hero__line" data-anim="word">in den Westen.</span>
         </h1>
 
-        <p class="bb-hero__lead" data-anim="fade">Die meisten chinesischen Unternehmen auf dem Weg ins Ausland verlieren zwei Jahre, bevor sie zugeben, dass das Playbook nicht trägt. Wir schließen die Lücke zwischen einem starken Produkt und einem Käufer.</p>
+        <p class="bb-hero__lead" data-anim="fade">Die meisten chinesischen Unternehmen verlieren auf dem Weg in westliche Märkte zwei Jahre, ehe sie sich eingestehen, dass ihr bewährtes Vorgehen hier nicht greift. Wir schließen die Lücke zwischen einem starken Produkt und dem Käufer, der es haben will.</p>
 
         <div class="bb-hero__cta-row" data-anim="fade">
           <a class="bb-magnet" href={visitUrl} target="_blank" rel="noreferrer" data-magnet>
@@ -85,7 +85,7 @@ const visitLabel = 'beyondbridge.com besuchen';
             <span class="bb-magnet__arrow" aria-hidden="true">→</span>
           </a>
           <a class="bb-hero__secondary" href={pathFor('contact', locale)} data-anim="fade">
-            <span>Termin buchen</span>
+            <span>Termin vereinbaren</span>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
         </div>
@@ -100,7 +100,7 @@ const visitLabel = 'beyondbridge.com besuchen';
               </span>
               <span class="bb-hero__browser-url">beyondbridge.ai</span>
             </div>
-            <img src="/images/bb-site-shot.webp" alt="Die Startseite der BeyondBridge-Website" class="bb-hero__feature-img" width="1440" height="900" loading="eager" decoding="async" />
+            <img src="/images/bb-site-shot.webp" alt="Startseite der Website von BeyondBridge" class="bb-hero__feature-img" width="1440" height="900" loading="eager" decoding="async" />
           </div>
 
           <div class="bb-hero__chip bb-hero__chip--stack">
@@ -130,9 +130,9 @@ const visitLabel = 'beyondbridge.com besuchen';
         </div>
         <div class="bb-track__copy">
           <span class="eyebrow">Track Record</span>
-          <h2 class="bb-track__title balance">Sieben Städte. Ein Team. Eine Pipeline von Ihrer Fabrik bis zum ersten unterschriebenen Deal.</h2>
+          <h2 class="bb-track__title balance">Sieben Städte. Ein Team. Eine Pipeline, die von Ihrer Fabrik bis zum ersten unterzeichneten Vertrag reicht.</h2>
           <p class="bb-track__lead">
-            Wir sind keine Berater, die ein Deck schreiben und dann verschwinden. Wir sind Operatoren. Unser CEO hat über Jahre Publicis Commerce in China geführt. Wir bauen die Marke, die Site, die LinkedIn-Präsenz, die Suche und die Anzeigen auf. Danach setzen wir echte Menschen vor Ort ein, die ans Telefon gehen.
+            Wir sind keine Berater, die eine Präsentation abliefern und wieder verschwinden. Wir setzen um. Unser CEO hat Publicis Commerce in China über Jahre geführt. Wir bauen die Marke, die Website, die Präsenz auf LinkedIn, die Sichtbarkeit in der Suche und die Kampagnen auf. Danach stellen wir Menschen vor Ort, die tatsächlich ans Telefon gehen.
           </p>
         </div>
       </div>
@@ -144,15 +144,15 @@ const visitLabel = 'beyondbridge.com besuchen';
     <div class="container bb-gap__container">
       <span class="eyebrow eyebrow--on-dark">Die Lücke</span>
       <h2 class="bb-gap__title">
-        <span class="bb-gap__line" data-line>Die Startseite übersetzen.</span>
+        <span class="bb-gap__line" data-line>Die Startseite übersetzen lassen.</span>
         <span class="bb-gap__line" data-line>Jemanden in Frankfurt einstellen.</span>
-        <span class="bb-gap__line" data-line>Den Gründer zweimal im Jahr losschicken.</span>
+        <span class="bb-gap__line" data-line>Den Gründer zweimal im Jahr auf Reisen schicken.</span>
         <span class="bb-gap__line" data-line>Auf den Anruf eines Distributors warten.</span>
       </h2>
       <div class="bb-gap__statement" data-line>
-        <p>Der Anruf kommt selten.</p>
-        <p>Die Website wirkt wie aus 2014. Die Einstellung kündigt innerhalb von sechs Monaten. Und die Fabrik produziert weiterhin starke Produkte, von denen die richtigen Käufer nie gehört haben.</p>
-        <p class="bb-gap__emphasis">Dort sterben Unternehmen. In der Lücke zwischen einem starken Produkt und einem Käufer in Hamburg oder Houston, der den Hörer wirklich abnimmt.</p>
+        <p>Der Anruf bleibt meist aus.</p>
+        <p>Die Website sieht aus wie aus dem Jahr 2014. Der neue Mitarbeiter kündigt binnen sechs Monaten. Und die Fabrik fertigt weiter starke Produkte, von denen die richtigen Käufer nie erfahren.</p>
+        <p class="bb-gap__emphasis">Genau hier scheitern Unternehmen. In der Lücke zwischen einem starken Produkt und dem Käufer in Hamburg oder Houston, der tatsächlich abnimmt.</p>
       </div>
     </div>
   </section>
@@ -163,9 +163,9 @@ const visitLabel = 'beyondbridge.com besuchen';
         <span class="eyebrow">Was wir tun</span>
         <h2 class="bb-services__title">
           Sieben Module. <em>Eine Pipeline.</em><br />
-          Den ganzen Stack buchen, oder ein einzelnes Modul.
+          Buchen Sie den gesamten Stack oder ein einzelnes Modul.
         </h2>
-        <p class="bb-services__lead">Quartalsretainer mit Setup-Phase. Wählen Sie die Spur, die zu Ihrem Moment passt, oder fahren Sie alle drei.</p>
+        <p class="bb-services__lead">Quartalsweise Retainer mit vorgeschalteter Setup-Phase. Wählen Sie die Spur, die zu Ihrer Lage passt, oder kombinieren Sie alle drei.</p>
       </header>
 
       <div class="bb-services__shell" data-tabs>
@@ -202,7 +202,7 @@ const visitLabel = 'beyondbridge.com besuchen';
               <div class="bb-services__panel-grid">
                 <div class="bb-services__panel-image">
                   <div class="bb-services__panel-frame">
-                    <img src={s.image} alt={`${s.title}, redaktioneller Blick`} loading="lazy" decoding="async" />
+                    <img src={s.image} alt={`${s.title}, redaktionelle Aufnahme`} loading="lazy" decoding="async" />
                     <div class={`bb-services__panel-tag bb-services__panel-tag--${s.key}`}>
                       <span>{s.title}</span>
                     </div>
@@ -246,8 +246,8 @@ const visitLabel = 'beyondbridge.com besuchen';
         <span class="bb-operate__line" data-line>Eine Pipeline.</span>
       </h2>
       <div class="bb-operate__statement" data-line>
-        <p>Von Ihrer Fabrik bis zum ersten unterschriebenen Deal.</p>
-        <p class="bb-operate__emphasis">Jedes Quartal, das Sie warten, kommt ein kleinerer Wettbewerber Ihrem Käufer näher.</p>
+        <p>Von Ihrer Fabrik bis zum ersten unterzeichneten Vertrag.</p>
+        <p class="bb-operate__emphasis">Mit jedem Quartal, das Sie zögern, rückt ein kleinerer Wettbewerber näher an Ihren Käufer heran.</p>
       </div>
     </div>
   </section>
@@ -258,8 +258,8 @@ const visitLabel = 'beyondbridge.com besuchen';
       <div class="bb-cta__bg-scrim"></div>
     </div>
     <div class="container bb-cta__content">
-      <span class="eyebrow eyebrow--on-dark">Wann immer Sie soweit sind</span>
-      <h2 class="bb-cta__title balance">Termin buchen.<br />Wir sagen Ihnen, wie Ihre ersten neunzig Tage aussehen.</h2>
+      <span class="eyebrow eyebrow--on-dark">Wann immer Sie bereit sind</span>
+      <h2 class="bb-cta__title balance">Vereinbaren Sie einen Termin.<br />Wir zeigen Ihnen, wie Ihre ersten neunzig Tage aussehen.</h2>
       <div class="bb-cta__actions">
         <a class="btn btn--primary" href={visitUrl} target="_blank" rel="noreferrer">{visitLabel}</a>
         <a class="btn btn--ghost-light" href={pathFor('contact', locale)}>Mit uns sprechen</a>

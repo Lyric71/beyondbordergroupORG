@@ -12,26 +12,26 @@ const services = [
     key: 'plan',
     title: 'Planen',
     items: [
-      { name: 'Strategie, Kampagnen und Analytics', body: 'Markt- und Wettbewerbsanalyse, Plattformauswahl, Content-Kalender, KPIs an Geschäftszielen ausgerichtet, Dashboards und Social Listening.' },
-      { name: 'Markteintritt China', body: 'Account-Anlage, Verifizierung, eCommerce-Integration mit Tmall, JD und Douyin Shop, chinesisches Naming und plattformfertige Asset-Pakete.' },
+      { name: 'Strategie, Kampagnen und Analytics', body: 'Markt- und Wettbewerbsanalysen, Wahl der Plattformen, Redaktionsplan, an Ihren Zielen ausgerichtete Kennzahlen, Dashboards und Social Listening.' },
+      { name: 'Markteintritt in China', body: 'Kontoeröffnung und Verifizierung, Anbindung an die Shops von Tmall, JD und Douyin, chinesische Markennamen und fertig aufbereitete Inhalte für jede Plattform.' },
     ],
   },
   {
     key: 'run',
     title: 'Betreiben',
     items: [
-      { name: 'Plattform-Abdeckung', body: 'WeChat, Douyin, RedNote und Weibo im Kern. Bilibili, Kuaishou, Zhihu, Toutiao und weitere als transparente Add-ons.' },
-      { name: 'Content-Produktion', body: 'Strategie von Menschen geführt. AIGC-Bilder und -Videos über HubStudio.ai. Echte Shoots in China. Lektorat in chinesischer Muttersprache.' },
-      { name: 'Mediaplanung und -einkauf', body: 'Paid Media auf WeChat, Douyin, RedNote, Weibo und Baidu. Wöchentliche und monatliche Reports zu CPM, CPC, CPA und ROAS. Kein Aufschlag auf das Mediabudget.' },
-      { name: 'Influencer-Marketing', body: 'Geprüfte Engagement-Daten, Erkennung gefälschter Follower, Nischen-Matching. Briefings, Co-Creation, Posting, Live Commerce und ROI-Reports.' },
+      { name: 'Abdeckung der Plattformen', body: 'WeChat, Douyin, RedNote und Weibo bilden den Kern. Bilibili, Kuaishou, Zhihu, Toutiao und weitere kommen als transparent ausgewiesene Zusatzleistungen hinzu.' },
+      { name: 'Content-Produktion', body: 'Die Strategie verantworten Menschen. Bilder und Videos entstehen mit KI über HubStudio.ai, ergänzt um echte Produktionen vor Ort in China. Lektorat durch muttersprachliche Redaktion.' },
+      { name: 'Mediaplanung und -einkauf', body: 'Paid Media auf WeChat, Douyin, RedNote, Weibo und Baidu. Wöchentliche und monatliche Berichte zu CPM, CPC, CPA und ROAS. Auf das Mediabudget erheben wir keinen Aufschlag.' },
+      { name: 'Influencer-Marketing', body: 'Geprüfte Interaktionsdaten, Erkennung gekaufter Follower und passgenaue Auswahl für die jeweilige Nische. Briefing, gemeinsame Produktion, Veröffentlichung, Live-Commerce und ROI-Berichte.' },
     ],
   },
   {
     key: 'sustain',
-    title: 'Halten',
+    title: 'Pflegen',
     items: [
-      { name: 'CRM und Private Domain', body: 'WeCom-Setup, WeChat-CRM, Community-Management, Service-Flows und Loyalty-Programme.' },
-      { name: 'Schulung und Beratung', body: 'Masterclasses zu WeChat, Douyin, RedNote und Weibo. Workshops zu Content, Influencern und Paid Media. Strategische Beratung.' },
+      { name: 'CRM und Private Domain', body: 'Einrichtung von WeCom, WeChat-CRM, Community-Management, Serviceprozesse und Treueprogramme.' },
+      { name: 'Schulung und Beratung', body: 'Masterclasses zu WeChat, Douyin, RedNote und Weibo. Workshops zu Content, Influencern und Paid Media. Dazu strategische Beratung.' },
     ],
   },
 ];
@@ -43,8 +43,8 @@ const visitLabel = 'theredscroll.com besuchen';
 <Layout
   locale={locale}
   route={route}
-  title="Agentur für chinesische Social Media. Fester Scope. Fester Preis."
-  description="Wir bauen Social-Media-Präsenzen in China für internationale Marken auf. Fester Scope. Fester Preis. Team vor Ort in Shanghai und Hongkong. Termin buchen."
+  title="Agentur für chinesische Social Media. Fester Umfang, fester Preis."
+  description="Wir bauen für internationale Marken die Social-Media-Präsenz in China auf. Fester Umfang, fester Preis. Team vor Ort in Shanghai und Hongkong. Jetzt Termin vereinbaren."
 >
   <section class="trs-hero">
     <div class="trs-hero__bg" aria-hidden="true">
@@ -58,14 +58,14 @@ const visitLabel = 'theredscroll.com besuchen';
       <div class="trs-hero__grid">
         <div class="trs-hero__content">
           <img src="/AgencyLogos/TheredScroll%20PNG.png" alt="TheRedScroll-Logo" class="trs-hero__logo" width="180" height="40" loading="eager" decoding="async" />
-          <span class="eyebrow eyebrow--rule">Chinesische Social Media · Fester Scope · Fester Preis</span>
+          <span class="eyebrow eyebrow--rule">Chinesische Social Media · Fester Umfang · Fester Preis</span>
           <h1 class="trs-hero__title">
-            Wir posten auf
+            Wir veröffentlichen auf
             <span class="trs-hero__phrase trs-hero__phrase--platforms">Chinas Plattformen</span>.
             <span class="trs-hero__phrase trs-hero__phrase--daily">Jeden Tag</span>.
             <span class="trs-hero__phrase trs-hero__phrase--ground">Vor Ort</span>.
           </h1>
-          <p class="trs-hero__lead">China läuft auf eigenen Plattformen. WeChat, Douyin, RedNote, Weibo und vierzehn weitere. Das aus einer Folie zu wissen, ist nicht dasselbe, wie diese Apps jeden Morgen zu öffnen, was, ehrlich gesagt, kaum eine Agentur tut.</p>
+          <p class="trs-hero__lead">China hat seine eigenen Plattformen: WeChat, Douyin, RedNote, Weibo und vierzehn weitere. Sie aus einer Präsentation zu kennen, ist das eine. Sie jeden Morgen zu öffnen, das andere. Und Letzteres tun die wenigsten Agenturen.</p>
           <div class="trs-hero__actions">
             <a class="btn btn--primary trs-hero__cta" href={visitUrl} target="_blank" rel="noreferrer">{visitLabel}</a>
           </div>
@@ -100,10 +100,10 @@ const visitLabel = 'theredscroll.com besuchen';
 
           <div class="trs-hero__chip trs-hero__chip--cities">
             <span class="trs-hero__chip-dot"></span>
-            Shanghai · Hongkong · Muttersprachliches Team
+            Shanghai · Hongkong · Team aus Muttersprachlern
           </div>
           <div class="trs-hero__chip trs-hero__chip--ai">
-            HubStudio.ai · AIGC-Content in Skala
+            HubStudio.ai · KI-Inhalte in großem Umfang
           </div>
         </div>
       </div>
@@ -113,7 +113,7 @@ const visitLabel = 'theredscroll.com besuchen';
   <section class="section section--alt">
     <div class="container container--narrow">
       <span class="eyebrow">Wie wir arbeiten</span>
-      <p class="lead">Jeder Beitrag, jedes Video, jede Kampagne und jeder Report ist vorab in einem schriftlichen Leistungsumfang festgeschrieben. Eine Zahl pro Paket. Keine versteckten Gebühren, kein Scope-Creep. Unser Team arbeitet aus Shanghai und Hongkong, mit Muttersprachlern, echtem Plattform-Zugang und direkten Drähten zu chinesischen Influencern. Wir haben HubStudio.ai gebaut, um Visuals, Video und Texte zu einem Bruchteil der alten Kosten zu produzieren. Die Strategie bleibt menschlich.</p>
+      <p class="lead">Jeder Beitrag, jedes Video, jede Kampagne und jeder Bericht steht vorab schriftlich im Leistungsumfang fest. Ein Preis pro Paket. Keine versteckten Gebühren, keine schleichende Ausweitung des Umfangs. Unser Team sitzt in Shanghai und Hongkong, besteht aus Muttersprachlern, hat unmittelbaren Zugang zu den Plattformen und unterhält direkte Drähte zu chinesischen Influencern. HubStudio.ai haben wir entwickelt, um Bild, Video und Text zu einem Bruchteil der früheren Kosten zu produzieren. Die Strategie aber bleibt in der Hand von Menschen.</p>
     </div>
   </section>
 
@@ -121,7 +121,7 @@ const visitLabel = 'theredscroll.com besuchen';
     <div class="container">
       <header class="section-header">
         <span class="eyebrow">Was wir tun</span>
-        <h2 class="balance">Drei Spuren. Acht Säulen. Von Anfang bis Ende.</h2>
+        <h2 class="balance">Drei Spuren. Acht Säulen. Durchgängig betreut.</h2>
       </header>
       <div class="services">
         {services.map((s) => (
@@ -146,14 +146,14 @@ const visitLabel = 'theredscroll.com besuchen';
 
   <section class="section section--alt">
     <div class="container container--narrow">
-      <span class="eyebrow">Wie wir es paketieren</span>
-      <p class="lead">Drei Stufen, alle mit Festpreis. Discovery ist für Marken, die China testen, drei Monate auf einer Plattform. Growth ist für Marken, die in China skalieren, sechs Monate auf zwei oder drei Plattformen. Premium ist für Marken, die voll einsteigen, zwölf Monate auf vier oder mehr Plattformen. Jede Stufe kommt mit schriftlichem Leistungsumfang und Festpreis.</p>
+      <span class="eyebrow">Wie wir es bündeln</span>
+      <p class="lead">Drei Stufen, alle zum Festpreis. Discovery richtet sich an Marken, die den chinesischen Markt erproben: drei Monate auf einer Plattform. Growth ist für Marken, die in China wachsen wollen: sechs Monate auf zwei bis drei Plattformen. Premium ist für Marken, die aufs Ganze gehen: zwölf Monate auf vier oder mehr Plattformen. Zu jeder Stufe gehören ein schriftlicher Leistungsumfang und ein fester Preis.</p>
     </div>
   </section>
 
   <section class="section section--dark">
     <div class="container container--narrow center">
-      <h2 class="balance">Mehr Follower. Mehr Engagement. Mehr Leads. Mehr Conversions.</h2>
+      <h2 class="balance">Mehr Follower. Mehr Interaktion. Mehr Anfragen. Mehr Abschlüsse.</h2>
       <div class="btn-row" style="justify-content: center;">
         <a class="btn btn--primary" href={visitUrl} target="_blank" rel="noreferrer">{visitLabel}</a>
         <a class="btn btn--ghost-light" href={pathFor('contact', locale)}>Mit uns sprechen</a>

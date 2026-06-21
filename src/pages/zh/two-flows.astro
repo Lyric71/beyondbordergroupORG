@@ -5,37 +5,37 @@ import { pathFor } from '../../i18n/ui';
 
 const locale = 'zh' as const;
 const title = '两条流向';
-const description = '一座桥，两个方向。进入或扩张中国市场的整套入境阵列，加上中国品牌走出去的整条出境链路。';
+const description = '一座桥，双向通行。西方品牌进入中国的整套入境打法，中国品牌走向世界的整条出境链路。';
 
 const inboundReq = [
   {
     icon: 'badge',
-    h: '在中国受众眼里读得出「高级」的品牌',
-    body: '信任凭据放在最前面。认证、合作方 logo、第三方背书。在西方看起来太密的东西，在中国读起来才像认真做生意。',
-    pill: '信息密度即高级感',
+    h: '在中国受众眼里立得住的高端品牌',
+    body: '信任凭据要摆在最显眼的位置：资质认证、合作方背书、第三方证言。在西方嫌堆得太满的信息，恰恰是中国市场掂量你够不够认真的尺子。',
+    pill: '信息密度即专业感',
   },
   {
     icon: 'channels',
-    h: '中国消费者真正在用的渠道',
-    body: '微信建信任。小红书做候选清单。抖音做发现。微博做覆盖。每一个都有自己的格式，也都要自己一支团队。',
+    h: '中国消费者真正泡在上面的渠道',
+    body: '微信沉淀信任，小红书挤进备选清单，抖音负责被刷到，微博铺开声量。四个平台，各有一套玩法，各要一支专门的团队。',
     pill: '不是一套，是四套',
   },
   {
     icon: 'server',
-    h: '建在墙内的网络基础设施',
-    body: '阿里云、腾讯云或华为云上的 ICP 备案托管。一个百度能索引的站。手机优先不是潮流，是硬规则。',
-    pill: '95%+ 来自手机',
+    h: '扎在中国境内的网络基础设施',
+    body: '服务器放在阿里云、腾讯云或华为云，ICP 备案办妥；网站要让百度爬得进、收得了；移动优先在这儿不是潮流，是底线。',
+    pill: '95% 以上流量来自手机',
   },
   {
     icon: 'search',
-    h: '在中国买家用的搜索引擎里被找到',
-    body: '百度仍占了一半以上的搜索份额，Google 在百分之三以下。35 岁以下的人正在直接跳过搜索，转去用 AI：DeepSeek、豆包、Kimi、元宝。',
+    h: '出现在中国买家常用的搜索入口里',
+    body: '百度仍握着一半以上的搜索份额，Google 连百分之三都不到。35 岁以下的人，正绕开传统搜索，直奔 AI：DeepSeek、豆包、Kimi、元宝。',
     pill: '百度 > 50% · Google < 3%',
   },
   {
     icon: 'cart',
-    h: '买家真正下单的地方',
-    body: 'Tmall、京东、抖音小店、小红书，再加上微信里的社交电商。电商和社交在中国是同一个界面，不是两个漏斗。',
+    h: '买家真正掏钱的地方',
+    body: '天猫、京东、抖音小店、小红书，再加上微信里的社交电商。在中国，电商和社交挤在同一块屏幕上，不是两条各走各的漏斗。',
     pill: '社交即电商',
   },
 ];
@@ -44,31 +44,31 @@ const inboundAgencies = [
   {
     name: 'TheChinaPath',
     role: '全案操盘手',
-    body: '二十年扎根在地。品牌、电商、分销。一支负责到底的团队。',
+    body: '在中国本地扎了二十年，品牌、电商、分销一把抓，一支团队负责到底。',
     route: 'agencies/bearingbridge' as const,
   },
   {
     name: 'TheRedScroll',
     role: '社交媒体专家',
-    body: '微信、抖音、小红书、微博，再加上另外 14 个平台。范围固定、价格固定，两周完成接入。',
+    body: '微信、抖音、小红书、微博，再加 14 个平台。范围固定，价格固定，两周接入到位。',
     route: 'agencies/theredscroll' as const,
   },
   {
     name: 'ChinaWebFoundry',
     role: '网站基础设施专家',
-    body: 'ICP 备案托管、百度 SEO、手机优先 UX，面向中国 AI 引擎的 GEO。',
+    body: 'ICP 备案托管、百度 SEO、移动端体验，再到面向中国 AI 引擎的 GEO。',
     route: 'agencies/chinawebfoundry' as const,
   },
   {
     name: 'Compass',
     role: '分销商与 TP 私库',
-    body: '一个亲自核过的中国分销商、Tmall TP、抖音 Partner 私库。',
+    body: '一份一家一家核过的中国分销商、天猫 TP 和抖音服务商名录。',
     route: 'agencies/compass' as const,
   },
   {
     name: 'HubStudio',
     role: '面向中国的内容生产引擎',
-    body: '按小红书、抖音、微信要的频次，把做给中国受众看的内容产出来。',
+    body: '小红书、抖音、微信要多勤，就供多勤，内容专为中国受众量身做。',
     route: 'agencies/hubstudio' as const,
   },
 ];
@@ -76,39 +76,39 @@ const inboundAgencies = [
 const outboundReq = [
   {
     icon: 'badge',
-    h: '西方买家认得出的品牌',
-    body: '不是从中文翻过来的。能站得住的名字，不别扭的承诺，能在法兰克福和芝加哥落地、不用加注解的视觉。',
-    pill: '重新打造，不是翻译',
+    h: '西方买家一眼读懂的品牌',
+    body: '不是把中文硬翻过去。一个立得住的名字，一句不别扭的承诺，一套到了法兰克福、芝加哥都不用再加解释的视觉。',
+    pill: '重新打造，而非翻译',
   },
   {
     icon: 'channels',
-    h: 'LinkedIn 上的存在感',
-    body: '西方 B2B 买家在打电话之前会先翻 LinkedIn。页面空，电话就没。高管自己发内容时，买家对公司的信任明显更高。',
-    pill: '82% 更信发声的高管',
+    h: '在 LinkedIn 上的存在感',
+    body: '西方 B2B 买家打电话之前，先翻一遍你的 LinkedIn。主页空着，电话就没了下文。高管亲自下场发声，买家对公司的信任明显高一截。',
+    pill: '82% 更信任主动发声的高管',
   },
   {
     icon: 'monitor',
-    h: '按西方眼光做出来的网站',
-    body: '干净。留白。一页一个动作。托管在境外。打开要快：超过三秒，一半以上的访客就走了。',
-    pill: '3 秒加载 = 流失一半',
+    h: '按西方审美做出来的网站',
+    body: '干净，留白，一屏只让人做一件事，服务器放在境外。打开要快：超过三秒，一半以上的人扭头就走。',
+    pill: '加载超 3 秒，流失过半',
   },
   {
     icon: 'search',
-    h: '在西方搜索引擎里被找到',
-    body: 'Google 排名，外加 ChatGPT、Perplexity、Gemini 的引用。竞争对手早就把答案占了。',
+    h: '出现在西方买家常用的搜索结果里',
+    body: '不光要在 Google 上有排名，还要被 ChatGPT、Perplexity、Gemini 引用。这些位置，对手早就占下了。',
     pill: 'Google + ChatGPT + AI',
   },
   {
     icon: 'megaphone',
-    h: '第一页的搜索广告',
-    body: 'SEO 在堆资产的同时，让 Google Ads 先把你顶到第一页。西方版的着陆页，不是翻译过来的。对的关键词，对的地区。',
-    pill: '上线第一天，就在第一页',
+    h: '搜索结果首页的广告位',
+    body: 'SEO 慢慢攒家底，Google Ads 先把你顶到首页。落地页照西方的习惯重做，不是翻过来的，关键词选对，地区也选对。',
+    pill: '上线首日即登首页',
   },
   {
     icon: 'globe',
     h: '在对的时区接电话的销售',
-    body: '德国买家上午十点写信。这时候深圳还在睡。等深圳团队上班，三个竞争对手已经回过去了。',
-    pill: '先回的那个赢',
+    body: '德国买家上午十点发来询盘，深圳这边还在睡。等深圳团队到岗，三家对手早就回过去了。',
+    pill: '谁先回，谁拿单',
   },
 ];
 
@@ -173,7 +173,7 @@ const outboundReq = [
         一座桥。<span class="page-hero__accent">两条流向。</span>
       </h1>
       <p class="page-hero__lead">
-        无论你往哪边走，两岸的活我们都干过。从你那一岸开始。
+        不管往哪个方向走，桥的两头我们都做过。就从你这一头开始。
       </p>
       <div class="page-hero__jumps">
         <a class="page-hero__jump" href="#inbound">
@@ -236,10 +236,10 @@ const outboundReq = [
     <div class="container entry-hero__content">
       <span class="eyebrow eyebrow--on-dark eyebrow--rule">流向一 · 入境 · 西方进入中国</span>
       <h2 class="entry-hero__title balance">
-        你有一个品牌。中国有 11 亿网民。中间这段距离，翻译填不上。
+        你有一个品牌，中国有 11 亿网民。中间这段距离，翻译补不上。
       </h2>
       <p class="entry-hero__lead">
-        中国互联网跑在自己的一套底座上。平台不同，搜索引擎不同，基础设施不同，内容密度不同，买家读出来的信号也不同。我们在这套底座里做了二十年。
+        中国互联网自成一套规矩：平台不同，搜索引擎不同，基础设施不同，内容密度不同，买家读到的信号也不同。这套规矩，我们趟了二十年。
       </p>
       <div class="entry-hero__chips">
         <span class="entry-hero__chip">微信</span>
@@ -262,8 +262,8 @@ const outboundReq = [
     <div class="container">
       <header class="section-header">
         <span class="eyebrow">真正要做的事</span>
-        <h2 class="balance">五个面，一个中国互联网。</h2>
-        <p class="lead">在中国落地，是五件事同时在跑。每一个面都有自己的逻辑，自己的节奏，以及自己那笔做错了要付的学费。</p>
+        <h2 class="balance">五个层面，一个中国互联网。</h2>
+        <p class="lead">在中国落地，是五件事同时铺开。每件事都有自己的逻辑、自己的节奏，也都藏着一笔做错就得交的学费。</p>
       </header>
 
       <ol class="req-grid" role="list">
@@ -323,8 +323,8 @@ const outboundReq = [
     <div class="container">
       <header class="section-header">
         <span class="eyebrow">五位专家，一条流向</span>
-        <h2 class="balance">整套来，或者只挑一块。</h2>
-        <p class="lead">五支独立团队，把入境这整条链跑下来。请一家。请两家。五家全请。它们共用同一根脊柱。</p>
+        <h2 class="balance">整套打包，也可单挑一家。</h2>
+        <p class="lead">五支独立团队，把入境这条链一起跑通。用一家可以，用两家可以，五家全用也可以。它们共用同一根中枢。</p>
       </header>
       <div class="agency-rail" data-stagger>
         {inboundAgencies.map((a, i) => (
@@ -348,40 +348,40 @@ const outboundReq = [
     <div class="container">
       <header class="section-header">
         <span class="eyebrow">客户通常这样开始</span>
-        <h2 class="balance">六个典型的开场。</h2>
-        <p class="lead">多数项目，最初都是一句话。找一句最像你的。</p>
+        <h2 class="balance">六种典型的开场。</h2>
+        <p class="lead">多数项目，开头都是一句话。挑一句最像你的。</p>
       </header>
       <div class="openings" data-stagger>
         <a class="opening" href={pathFor('agencies/chinawebfoundry', locale)} style="--i: 0;">
           <span class="opening__quote-mark" aria-hidden="true">&#8220;</span>
-          <p class="opening__quote">我就想要一个真正跑得起来的中文网站。</p>
+          <p class="opening__quote">我只想要一个真正能跑起来的中文网站。</p>
           <div class="opening__answer">
             <span class="opening__by">ChinaWebFoundry</span>
-            <span class="opening__line">六周完成迁移。ICP 备案下来。百度能索引。</span>
+            <span class="opening__line">六周搬完站，ICP 备案下来，百度正常收录。</span>
           </div>
         </a>
         <a class="opening" href={pathFor('agencies/theredscroll', locale)} style="--i: 1;">
           <span class="opening__quote-mark" aria-hidden="true">&#8220;</span>
-          <p class="opening__quote">我要在 90 天内上小红书和抖音。</p>
+          <p class="opening__quote">我要在 90 天内入驻小红书和抖音。</p>
           <div class="opening__answer">
             <span class="opening__by">TheRedScroll</span>
-            <span class="opening__line">两周接入完成。半个月内第一条内容上线。</span>
+            <span class="opening__line">两周接入到位，半个月内第一条内容上线。</span>
           </div>
         </a>
         <a class="opening" href={pathFor('agencies/bearingbridge', locale)} style="--i: 2;">
           <span class="opening__quote-mark" aria-hidden="true">&#8220;</span>
-          <p class="opening__quote">我什么都要：品牌、渠道、电商、KOL。</p>
+          <p class="opening__quote">我全都要：品牌、渠道、电商、KOL。</p>
           <div class="opening__answer">
             <span class="opening__by">TheChinaPath</span>
-            <span class="opening__line">全案进入中国。二十年打过的剧本。</span>
+            <span class="opening__line">全案进入中国，一套跑了二十年的打法。</span>
           </div>
         </a>
         <a class="opening" href={pathFor('agencies/compass', locale)} style="--i: 3;">
           <span class="opening__quote-mark" aria-hidden="true">&#8220;</span>
-          <p class="opening__quote">我们要尽快在中国找到一个分销商。</p>
+          <p class="opening__quote">我们想尽快在中国找到分销商。</p>
           <div class="opening__answer">
             <span class="opening__by">Compass</span>
-            <span class="opening__line">几天就给到一份核过的分销商和 TP 短名单，不是几个月。</span>
+            <span class="opening__line">几天就给你一份核过的分销商和 TP 短名单，不用等上几个月。</span>
           </div>
         </a>
         <a class="opening" href={pathFor('agencies/hubstudio', locale)} style="--i: 4;">
@@ -389,15 +389,15 @@ const outboundReq = [
           <p class="opening__quote">我们的内容打不动中国受众。</p>
           <div class="opening__answer">
             <span class="opening__by">HubStudio</span>
-            <span class="opening__line">为中国读者重做的内容，按渠道要的频次产出。</span>
+            <span class="opening__line">内容为中国受众重做，各个渠道要多少，就稳定供多少。</span>
           </div>
         </a>
         <a class="opening opening--cta" href={pathFor('contact', locale)} style="--i: 5;">
           <span class="opening__quote-mark" aria-hidden="true">&#8220;</span>
-          <p class="opening__quote">我不太确定从哪儿开始。</p>
+          <p class="opening__quote">我还没想好从哪儿开始。</p>
           <div class="opening__answer">
             <span class="opening__by">预约通话</span>
-            <span class="opening__line">三十分钟。我们告诉你：选哪一家，前 90 天什么样。</span>
+            <span class="opening__line">三十分钟，我们帮你理清：选哪一家，头 90 天怎么走。</span>
           </div>
         </a>
       </div>
@@ -448,10 +448,10 @@ const outboundReq = [
     <div class="container entry-hero__content">
       <span class="eyebrow eyebrow--on-dark eyebrow--rule">流向二 · 出境 · 中国走向西方</span>
       <h2 class="entry-hero__title balance">
-        好产品。好价格。好工厂。海外没有一条线索通道。
+        产品好，价格好，工厂好。可一到海外，连一条通向客户的线索通道都没有。
       </h2>
       <p class="entry-hero__lead">
-        每一家出海的中国 B2B 和服务公司，撞的都是同一堵墙。品牌是按中国买家做的。网站在西方眼里读起来太密。LinkedIn 页面空着。柏林上午十点发来的询盘，没人回。我们专攻 B2B 和服务这两块，桥的另一头，我们也建了二十年。
+        出海的中国 B2B 和服务公司，撞的几乎是同一堵墙：品牌是冲着中国买家做的，网站在西方人眼里太挤，LinkedIn 主页空着，柏林上午十点发来的询盘没人接。我们专做 B2B 和服务这两块，桥的另一头，也建了二十年。
       </p>
       <div class="entry-hero__chips">
         <span class="entry-hero__chip">LinkedIn</span>
@@ -472,7 +472,7 @@ const outboundReq = [
       <header class="section-header">
         <span class="eyebrow">真正要做的事</span>
         <h2 class="balance">六条战线，一条出海链路。</h2>
-        <p class="lead">在海外落地，是六件事同时在跑。每一个面都有自己的逻辑，自己的节奏，以及自己那笔做错了要付的学费。</p>
+        <p class="lead">在海外落地，是六件事同时铺开。每件事都有自己的逻辑、自己的节奏，也都藏着一笔做错就得交的学费。</p>
       </header>
 
       <ol class="req-grid req-grid--bento3x2" role="list">
@@ -535,8 +535,8 @@ const outboundReq = [
     <div class="container">
       <header class="section-header">
         <span class="eyebrow">三档套餐</span>
-        <h2 class="balance">先选一档。等项目要了，再往上加一档。</h2>
-        <p class="lead">为出海的中国 B2B 和服务公司而做。三档可以叠加。每一档都包含下一档的全部内容。</p>
+        <h2 class="balance">先挑一档，等项目要了，再一档一档往上加。</h2>
+        <p class="lead">专给出海的中国 B2B 和服务公司做。三档层层叠上去，上一档把下一档整个包住。</p>
       </header>
 
       <div class="pkg-grid" data-stagger>
@@ -546,7 +546,7 @@ const outboundReq = [
             <span class="pkg__theme">存在感</span>
           </div>
           <h3 class="pkg__title">品牌 + LinkedIn + 网站</h3>
-          <p class="pkg__body">在西方 B2B 买家眼里看起来靠谱的最低门槛。给第一次出海的服务公司。</p>
+          <p class="pkg__body">让西方 B2B 买家觉得你靠谱的最低门槛。给第一次出海的服务公司。</p>
           <ul class="pkg__features">
             <li><span class="pkg__check" aria-hidden="true">&#10003;</span>面向西方买家的品牌策略</li>
             <li><span class="pkg__check" aria-hidden="true">&#10003;</span>LinkedIn 主页与高管发声</li>
@@ -563,13 +563,13 @@ const outboundReq = [
             <span class="pkg__theme">可见度</span>
           </div>
           <h3 class="pkg__title">起步档 + SEO/GEO + Google Ads</h3>
-          <p class="pkg__body">存在感加上流量。B2B 买家在 Google 上、在 ChatGPT 里、在付费搜索里都能找到你。</p>
+          <p class="pkg__body">存在感之上，再加流量。Google 上、ChatGPT 里、付费搜索里，B2B 买家都能找到你。</p>
           <ul class="pkg__features">
             <li><span class="pkg__check" aria-hidden="true">&#10003;</span>起步档的全部</li>
             <li><span class="pkg__check" aria-hidden="true">&#10003;</span>面向西方 AI 引擎的 SEO 与 GEO</li>
-            <li><span class="pkg__check" aria-hidden="true">&#10003;</span>Google Ads 第一天就开跑</li>
+            <li><span class="pkg__check" aria-hidden="true">&#10003;</span>Google Ads 首日即开跑</li>
           </ul>
-          <span class="pkg__cta">升到增长档
+          <span class="pkg__cta">升级到增长档
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
           </span>
         </a>
@@ -581,7 +581,7 @@ const outboundReq = [
             <span class="pkg__theme">收入</span>
           </div>
           <h3 class="pkg__title">增长档 + 外部销售团队</h3>
-          <p class="pkg__body">每一条进来的线索都做完资格筛选，打过电话，干净地交到你团队手里去成单。</p>
+          <p class="pkg__body">进来的每一条线索，都先筛过资格、打过电话，再干干净净交到你团队手里去成单。</p>
           <ul class="pkg__features">
             <li><span class="pkg__check" aria-hidden="true">&#10003;</span>增长档的全部</li>
             <li><span class="pkg__check" aria-hidden="true">&#10003;</span>在当地的具名代表</li>
@@ -603,45 +603,45 @@ const outboundReq = [
     <div class="container">
       <header class="section-header">
         <span class="eyebrow">客户通常这样开始</span>
-        <h2 class="balance">七个典型的开场。</h2>
-        <p class="lead">多数出海项目，最初都是一句话。找一句最像你的。</p>
+        <h2 class="balance">七种典型的开场。</h2>
+        <p class="lead">多数出海项目，开头都是一句话。挑一句最像你的。</p>
       </header>
       <div class="openings" data-stagger>
         <a class="opening" href={pathFor('agencies/beyondbridge', locale)} style="--i: 0;">
           <span class="opening__quote-mark" aria-hidden="true">&#8220;</span>
-          <p class="opening__quote">我们三个月后要在德国参展，可线上几乎没有像样的东西。</p>
+          <p class="opening__quote">我们三个月后要去德国参展，线上几乎拿不出什么像样的东西。</p>
           <div class="opening__answer">
             <span class="opening__by">起步档</span>
-            <span class="opening__line">九十天搞定品牌、LinkedIn 与面向西方的网站。</span>
+            <span class="opening__line">九十天，品牌、LinkedIn 和面向西方的网站全部备齐。</span>
           </div>
         </a>
         <a class="opening" href={pathFor('agencies/beyondbridge', locale)} style="--i: 1;">
           <span class="opening__quote-mark" aria-hidden="true">&#8220;</span>
-          <p class="opening__quote">存在感有了，可线索没有进来。</p>
+          <p class="opening__quote">存在感有了，线索却没进来。</p>
           <div class="opening__answer">
             <span class="opening__by">增长档</span>
-            <span class="opening__line">在起步档之上叠 SEO、GEO 和 Google Ads。</span>
+            <span class="opening__line">在起步档上加 SEO、GEO 和 Google Ads。</span>
           </div>
         </a>
         <a class="opening" href={pathFor('agencies/beyondbridge', locale)} style="--i: 2;">
           <span class="opening__quote-mark" aria-hidden="true">&#8220;</span>
-          <p class="opening__quote">线索有了。欧洲没人接。</p>
+          <p class="opening__quote">线索有了，欧洲却没人接。</p>
           <div class="opening__answer">
             <span class="opening__by">整条链路</span>
-            <span class="opening__line">把当地销售团队加上。美、英、德、法都有具名代表。</span>
+            <span class="opening__line">补上当地销售团队，美、英、德、法都有具名代表。</span>
           </div>
         </a>
         <a class="opening" href={pathFor('agencies/nuvora-studio', locale)} style="--i: 3;">
           <span class="opening__quote-mark" aria-hidden="true">&#8220;</span>
-          <p class="opening__quote">我们的 LinkedIn 是空的，高管也不发内容。</p>
+          <p class="opening__quote">我们的 LinkedIn 空着，高管也不怎么发声。</p>
           <div class="opening__answer">
             <span class="opening__by">Nuvora Studio</span>
-            <span class="opening__line">只做 LinkedIn 的 B2B 专家。策略、内容、投放、高管发声。</span>
+            <span class="opening__line">只做 LinkedIn 的 B2B 团队：策略、内容、投放、高管发声，全包。</span>
           </div>
         </a>
         <a class="opening" href={pathFor('agencies/beyondbridge', locale)} style="--i: 4;">
           <span class="opening__quote-mark" aria-hidden="true">&#8220;</span>
-          <p class="opening__quote">我们的话术听起来像翻译。</p>
+          <p class="opening__quote">我们说出来的话，总有股翻译腔。</p>
           <div class="opening__answer">
             <span class="opening__by">BeyondBridge 品牌模块</span>
             <span class="opening__line">为西方 B2B 买家重做的品牌，不是从中文搬过去的。</span>
@@ -652,15 +652,15 @@ const outboundReq = [
           <p class="opening__quote">西方买家在 Google 和 ChatGPT 里都搜不到我们。</p>
           <div class="opening__answer">
             <span class="opening__by">SEO 与 GEO</span>
-            <span class="opening__line">在 Google 上排名。被 ChatGPT、Perplexity、Gemini 引用。</span>
+            <span class="opening__line">在 Google 上有排名，被 ChatGPT、Perplexity、Gemini 引用。</span>
           </div>
         </a>
         <a class="opening opening--cta" href={pathFor('contact', locale)} style="--i: 6;">
           <span class="opening__quote-mark" aria-hidden="true">&#8220;</span>
-          <p class="opening__quote">我们不太确定从哪儿开始。</p>
+          <p class="opening__quote">我们还没想好从哪儿开始。</p>
           <div class="opening__answer">
             <span class="opening__by">预约通话</span>
-            <span class="opening__line">三十分钟。我们告诉你：选哪一档，前 90 天什么样。</span>
+            <span class="opening__line">三十分钟，我们帮你理清：选哪一档，头 90 天怎么走。</span>
           </div>
         </a>
       </div>
@@ -670,9 +670,9 @@ const outboundReq = [
   <section class="section section--dark">
     <div class="container container--narrow">
       <span class="eyebrow eyebrow--on-dark">等待的代价</span>
-      <h2 class="balance">排名是复利。关系是复利。权威也是复利。</h2>
+      <h2 class="balance">排名是复利，关系是复利，权威也是复利。</h2>
       <p class="lead">
-        每多一个月没有西方端的存在感，就有一批生意被先到的对手拿走。每多一个季度没有线索通道，就有一笔预算烧在展会、翻译和打不通的冷拓上。每多等一年，追回来的成本翻一倍。今天在海外赢的那批中国公司，都是两年前开始的。
+        西方这头的存在感每空一个月，就有一批生意被早到的对手抢走。线索通道每缺一个季度，就有一笔预算白烧在展会、翻译和打不通的陌生电话上。每多等一年，追回来的成本就翻一番。今天在海外赢的那批中国公司，大多两年前就上路了。
       </p>
       <div class="btn-row" style="margin-top: var(--space-5);">
         <a class="btn btn--primary" href={pathFor('contact', locale)}>预约通话</a>
@@ -686,9 +686,9 @@ const outboundReq = [
       <div class="split split--text-first">
         <div class="prose">
           <span class="eyebrow">你还会拿到的</span>
-          <h2 class="balance">一台旗下公司共享的生产引擎。两个方向都用得上。</h2>
+          <h2 class="balance">一台各家公司共用的生产引擎，两个方向都用得上。</h2>
           <p>
-            这一页上每一次合作，无论入境还是出境，都接到 HubStudio 的内容生产引擎上。这就是为什么在两边都要的频次下，单条内容的成本还能压得住：中国这一边每周三到五条小红书、每天一条抖音视频；海外那一边每周一条 LinkedIn、每月一次活动刷新与素材库更新。背后没有一台 AI 原生的内容引擎，账两个方向都算不过来。
+            这一页上的每一次合作，无论入境还是出境，最后都接到 HubStudio 的内容生产引擎上。正因如此，哪怕两头都要高频更新，单条内容的成本还是压得住：中国这头每周三到五条小红书、每天一条抖音；海外那头每周一条 LinkedIn，每月一轮活动焕新和素材库更新。背后要是没有一台 AI 原生的内容引擎，这笔账，两个方向都算不平。
           </p>
           <a class="btn btn--ghost" href={pathFor('agencies/hubstudio', locale)}>查看 HubStudio</a>
         </div>

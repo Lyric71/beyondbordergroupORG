@@ -4,8 +4,8 @@ import AgencyLogo from '../../components/AgencyLogo.astro';
 import { pathFor } from '../../i18n/ui';
 
 const locale = 'de' as const;
-const title = 'Marken, Produkte und Services, gemacht für den Weg zwischen China und dem Westen. In beide Richtungen.';
-const description = 'Acht spezialisierte Agenturen, die Marken, Produkte und Services zwischen China und dem Westen bewegen. In beide Richtungen. Marke, Kanäle, Web, Partner-Sourcing, Content, Vertrieb. Ein Ökosystem, ein gemeinsames Rückgrat.';
+const title = 'Marken, Produkte und Dienstleistungen für den Weg zwischen China und dem Westen. In beide Richtungen.';
+const description = 'Acht spezialisierte Agenturen, die Marken, Produkte und Dienstleistungen zwischen China und dem Westen in Bewegung bringen. In beide Richtungen: Markenführung, Kanäle, Web, Partner-Sourcing, Content und Vertrieb. Ein Ökosystem mit gemeinsamem Rückgrat.';
 
 const linkedinUrl = 'https://www.linkedin.com/in/cyril-d-68835729/';
 
@@ -17,17 +17,17 @@ const agencies = [
   },
   {
     name: 'BeyondBridge',
-    tagline: 'Die komplette Pipeline für chinesische Marken auf dem Weg ins Ausland.',
+    tagline: 'Die vollständige Pipeline für chinesische Marken auf dem Weg ins Ausland.',
     route: 'agencies/beyondbridge' as const,
   },
   {
     name: 'HubStudio',
-    tagline: 'Bild, Video und Content in Skala.',
+    tagline: 'Bild, Video und Content in großem Maßstab.',
     route: 'agencies/hubstudio' as const,
   },
   {
     name: 'BearingBridge AI',
-    tagline: 'Beratung zur KI-Adoption. Im Osten wie im Westen, auf Ihren Daten.',
+    tagline: 'Beratung zur KI-Adoption. Im Osten wie im Westen, auf Basis Ihrer Daten.',
     route: 'agencies/bearingbridgeai' as const,
   },
   {
@@ -84,7 +84,7 @@ const agencies = [
                 <span class="rail__logo"><img src="/images/thechinapath-horizontal.png" alt="" /></span>
                 <span class="rail__body">
                   <span class="rail__name">TheChinaPath</span>
-                  <span class="rail__tagline">Vollservice Westen nach China</span>
+                  <span class="rail__tagline">Vollservice: Westen nach China</span>
                 </span>
                 <span class="rail__stripe rail__stripe--w" aria-hidden="true"></span>
               </a>
@@ -94,7 +94,7 @@ const agencies = [
                 <span class="rail__logo"><img src="/AgencyLogos/BeyondBridge-%20Logo-EN-4K-Transparent.png" alt="" /></span>
                 <span class="rail__body">
                   <span class="rail__name">BeyondBridge</span>
-                  <span class="rail__tagline">Vollservice China nach Westen</span>
+                  <span class="rail__tagline">Vollservice: China nach Westen</span>
                 </span>
                 <span class="rail__stripe rail__stripe--e" aria-hidden="true"></span>
               </a>
@@ -184,17 +184,17 @@ const agencies = [
     <div class="container hero-statement__container">
       <div class="hero-statement__content">
         <span class="eyebrow">Ökosystem</span>
-        <h1 class="hero-statement__title balance">Wir bauen und skalieren Marken, Produkte und Services zwischen China und dem Westen. In beide Richtungen.</h1>
+        <h1 class="hero-statement__title balance">Wir bauen Marken, Produkte und Dienstleistungen auf und lassen sie wachsen, zwischen China und dem Westen. In beide Richtungen.</h1>
         <p class="hero-statement__lead">
-          Acht spezialisierte Agenturen, eine gemeinsame These. Die Distanz zwischen China und dem Westen
-          war nie eine Frage der Übersetzung. Es geht um Marke, Kanäle, Infrastruktur und Vertrieb. Und das
-          läuft in beide Richtungen, jeden Tag.
+          Acht spezialisierte Agenturen, eine gemeinsame Überzeugung. Die Kluft zwischen China und dem Westen
+          war noch nie eine Frage der Übersetzung. Entscheidend sind Marke, Kanäle, Infrastruktur und Vertrieb.
+          Und das in beide Richtungen, Tag für Tag.
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href={pathFor('agencies', locale)}>Die passende Agentur finden</a>
-          <a class="btn btn--ghost" href={pathFor('contact', locale)}>Mit uns sprechen</a>
+          <a class="btn btn--ghost" href={pathFor('contact', locale)}>Sprechen Sie mit uns</a>
         </div>
-        <p class="hero-statement__cite">Shanghai. Hongkong. Paris. Vor-Ort-Ansprechpartner in den USA, Großbritannien, Deutschland und Frankreich.</p>
+        <p class="hero-statement__cite">Shanghai. Hongkong. Paris. Ansprechpartner vor Ort in den USA, Großbritannien, Deutschland und Frankreich.</p>
       </div>
     </div>
   </section>
@@ -226,11 +226,11 @@ const agencies = [
           <h3 class="bridge-panel__title">Westliche Marken nach China bringen.</h3>
           <p class="bridge-panel__body">
             Marke, WeChat, RedNote, Douyin, Tmall, JD, Baidu, KOLs, Distribution. Von der einzelnen
-            Landingpage bis zum kompletten Stack.
+            Landingpage bis zum vollständigen Stack.
           </p>
           <span class="bridge-panel__by">TheChinaPath · TheRedScroll · ChinaWebFoundry · Compass · HubStudio</span>
           <span class="bridge-panel__cta">
-            Zum Inbound springen
+            Zum Inbound
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
           </span>
         </a>
@@ -242,20 +242,20 @@ const agencies = [
           </span>
           <h3 class="bridge-panel__title">Chinesische Marken in den Westen bringen.</h3>
           <p class="bridge-panel__body">
-            Eine Marke, die für westliche Käufer funktioniert, eine echte Präsenz auf LinkedIn, eine Website
-            für westliches Publikum, SEO, GEO, Google Ads und feste Vertriebsleute mit Namen in der richtigen
-            Zeitzone.
+            Eine Marke, die bei westlichen Käufern ankommt, eine glaubwürdige Präsenz auf LinkedIn, eine
+            Website, die für ein westliches Publikum gemacht ist, dazu SEO, GEO, Google Ads und feste
+            Ansprechpartner im Vertrieb, mit Namen und in der richtigen Zeitzone.
           </p>
           <span class="bridge-panel__by">BeyondBridge · Nuvora Studio</span>
           <span class="bridge-panel__cta">
-            Zum Outbound springen
+            Zum Outbound
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
           </span>
         </a>
       </div>
 
       <div class="btn-row" style="margin-top: var(--space-6); justify-content: center;">
-        <a class="btn btn--primary" href={pathFor('two-flows', locale)}>Die Seite „Zwei Flüsse" öffnen</a>
+        <a class="btn btn--primary" href={pathFor('two-flows', locale)}>Die Seite „Zwei Flüsse“ öffnen</a>
       </div>
     </div>
   </section>
@@ -266,8 +266,8 @@ const agencies = [
         <span class="eyebrow">Der Stack</span>
         <h2 class="balance">Acht Spezialisten. Ein Ökosystem.</h2>
         <p class="lead">
-          Jede Agentur steht für sich. Sie holen sich die, die Sie brauchen. Die meisten Kunden fangen mit
-          einer an und holen weitere dazu, sobald das Projekt wächst.
+          Jede Agentur steht für sich. Sie wählen genau die aus, die Sie brauchen. Die meisten Kunden beginnen
+          mit einer einzigen und ziehen weitere hinzu, sobald das Projekt wächst.
         </p>
       </header>
       <div class="grid-3">
@@ -288,8 +288,8 @@ const agencies = [
         <span class="eyebrow">Die Logik</span>
         <h2 class="balance">Zwei Leitagenturen. Fünf Spezialisten. Ein Motor.</h2>
         <p class="lead">
-          Zwei Leitagenturen, je eine pro Richtung. Fünf Spezialisten, die sich in beide Richtungen
-          einklinken. Ein Produktionsmotor, der quer durch beide läuft.
+          Zwei Leitagenturen, je eine pro Richtung. Fünf Spezialisten, die in beide Richtungen andocken. Dazu
+          ein Produktionsmotor, der beide Richtungen antreibt.
         </p>
       </header>
       <div class="matrix-grid" role="table" aria-label="Agenturen nach Richtung und Ebene">
@@ -376,7 +376,7 @@ const agencies = [
               <span class="matrix-cell__bridge-dot"></span>
             </span>
             <span class="matrix-cell__name">HubStudio</span>
-            <span class="matrix-cell__note">Content-Produktionsmotor. Quer durch beide Richtungen.</span>
+            <span class="matrix-cell__note">Content-Produktionsmotor für beide Richtungen.</span>
             <a class="matrix-cell__site" href="https://hubstudio.ai" target="_blank" rel="noreferrer">hubstudio.ai <span aria-hidden="true">↗</span></a>
           </div>
         </div>
@@ -408,10 +408,11 @@ const agencies = [
       <div class="split split--text-first">
         <div>
           <span class="eyebrow eyebrow--on-dark">Wer dahintersteht</span>
-          <h2 class="balance">Ein Operator. Zwei Jahrzehnte auf beiden Seiten.</h2>
+          <h2 class="balance">Ein Praktiker. Zwei Jahrzehnte auf beiden Seiten.</h2>
           <p class="lead">
-            Gegründet und geführt von Cyril Drouin. 25 Jahre in Digital, eCommerce und Markenarbeit, verteilt
-            auf Europa und Nordasien. Ehemals Chief Digital and eCommerce Officer von Publicis North Asia.
+            Gegründet und geführt von Cyril Drouin. 25 Jahre in den Bereichen Digital, eCommerce und
+            Markenführung, zwischen Europa und Nordasien. Zuvor Chief Digital and eCommerce Officer bei
+            Publicis North Asia.
           </p>
           <a class="btn btn--ghost-light" href={linkedinUrl} target="_blank" rel="noreferrer">Auf LinkedIn vernetzen</a>
         </div>
@@ -433,10 +434,10 @@ const agencies = [
 
   <section class="section section--tight">
     <div class="container container--narrow center">
-      <h2 class="balance">Sagen Sie uns, in welche Richtung Sie gehen.</h2>
+      <h2 class="balance">Sagen Sie uns, in welche Richtung es gehen soll.</h2>
       <p class="lead" style="margin-inline: auto;">
-        Dreißig Minuten am Telefon. Wir sagen Ihnen, mit welcher Agentur Sie sinnvoll anfangen, oder ob Sie
-        besser mit zwei parallel starten.
+        Dreißig Minuten am Telefon. Wir sagen Ihnen, mit welcher Agentur Sie am besten beginnen, oder ob sich
+        zwei parallel lohnen.
       </p>
       <div class="btn-row" style="justify-content: center; margin-top: var(--space-5);">
         <a class="btn btn--primary" href={pathFor('contact', locale)}>Termin buchen</a>

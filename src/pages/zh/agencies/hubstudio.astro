@@ -16,35 +16,35 @@ const services: Array<{
   {
     key: 'produce',
     title: '生产',
-    intro: '合规于品牌的视觉、视频与文案。每月几百条最终交付物，可生成、可拍摄、可混合。',
+    intro: '契合品牌规范的视觉、视频与文案。每月成片数以百计，或生成，或实拍，或二者并用。',
     image: '/images/hubstudio-produce.webp',
     items: [
-      { name: '图像生产', body: '合规于品牌的视觉，规模化产出。单条 35 美元起，最终交付物封顶 405 美元。多版本、完整修图、三轮修改。生成、拍摄、混合都行。' },
-      { name: '短视频与长视频', body: '从一条 200 美元的脚本起步。前期、后期、配音、音乐、字幕。实拍、生成、混合都行。' },
-      { name: '实拍棚', body: '当 brief 要实拍时，真拍。马自达、雀巢、万豪、Bobbi Brown 等都用过。' },
-      { name: '3D、CGI、动效', body: '3D 动画、CGI 产品、动效设计、视频品牌化、配音、TTS。' },
+      { name: '图像生产', body: '契合品牌规范的视觉，规模化产出。单条 35 美元起，成片上限 405 美元，含多版本、全流程修图与三轮修改。生成、实拍、混合，皆可。' },
+      { name: '短视频与长视频', body: '脚本每条 200 美元起，前期、后期、配音、配乐、字幕一应俱全。实拍、生成、混合，均可承接。' },
+      { name: '实拍棚', body: '需要实拍的项目，我们进棚实拍。马自达、雀巢、万豪、Bobbi Brown 均在合作之列。' },
+      { name: '3D、CGI、动效', body: '3D 动画、CGI 产品建模、动效设计、视频品牌化、配音与 TTS。' },
     ],
   },
   {
     key: 'platform',
     title: '平台',
-    intro: '搭在专属 GPU 上的自家内容工作室。按你的品牌训练。由你的团队跑。',
+    intro: '架设于专属 GPU 之上的自有内容工作室，依您的品牌调校，交由您的团队自主运营。',
     image: '/images/hubstudio-platform.webp',
     items: [
-      { name: 'Hub4You 平台', body: '一套定制的内容平台，部署在你的专属 GPU 服务器上，跟你的 DAM 和 PIM 打通。你团队操作。我们培训和支持。几周内完成部署。' },
-      { name: '品牌训练的模型', body: '按客户定制的 LoRA 与微调。你的颜色、你的风格、你的产品。锁住、可复现。' },
-      { name: '流水线与工具', body: '生产工作流跑在 ComfyUI、Flux、Wan、Veo、Hunyuan，以及上周刚出的新模型上。在真实活动里跑过，不是 demo。' },
+      { name: 'Hub4You 平台', body: '一套为您量身定制的内容平台，架设于您的专属 GPU 服务器，与既有 DAM、PIM 系统对接。日常由您的团队操作，培训与技术支持由我们承担，数周之内即可上线。' },
+      { name: '品牌专属模型', body: '为您的品牌量身训练的 LoRA 与微调模型，色彩、风格、产品悉数还原。参数固化，输出可复现。' },
+      { name: '流水线与工具', body: '生产流程构建于 ComfyUI、Flux、Wan、Veo、Hunyuan 之上，新模型一经发布即时接入。每一项皆经真实项目检验，绝非演示摆设。' },
     ],
   },
   {
     key: 'direct',
     title: '主导',
-    intro: '创意智力的那一层。策略、转写创作、培训。无法被自动化的那一段。',
+    intro: '创意决策的那一层：策略、创译与培训。自动化无从替代的，正是这一层。',
     image: '/images/hubstudio-direct.webp',
     items: [
-      { name: '策略与规范', body: '内容策略、品牌定位、视觉识别、活动创意、AI 使用政策、审核流程。' },
-      { name: '转写创作', body: '跨市场、跨语言、文化原生。由住在目标文化里的创意人来做。' },
-      { name: '培训', body: '给内部团队的实操课：ComfyUI、Flux、Wan、Veo、MidJourney、Gemini。' },
+      { name: '策略与规范', body: '内容策略、品牌定位、视觉识别、活动创意、AI 使用规范与审核流程。' },
+      { name: '创译', body: '跨市场、跨语言，扎根在地文化。执笔者，皆为真正生活于目标文化之中的创意人。' },
+      { name: '培训', body: '面向您团队的实操培训，覆盖 ComfyUI、Flux、Wan、Veo、MidJourney 与 Gemini。' },
     ],
   },
 ];
@@ -56,8 +56,8 @@ const visitLabel = '访问 hubstudio.ai';
 <Layout
   locale={locale}
   route={route}
-  title="HubStudio：AI 内容生产，成本砍半"
-  description="一家扎根中国的内容生产公司，规模化用 AIGC，把内容成本压下来 60%，每月给全球品牌交付几百条合规视觉。"
+  title="HubStudio：AI 内容生产，成本减半"
+  description="一家扎根中国的内容生产公司，以规模化 AIGC 将内容成本削减 60%，每月为全球品牌交付数百条契合品牌规范的视觉素材。"
 >
   <!-- ====================================================================== -->
   <!-- HERO                                                                   -->
@@ -81,11 +81,11 @@ const visitLabel = '访问 hubstudio.ai';
 
         <h1 class="hs-hero__title">
           <span class="hs-hero__line" data-anim="word">为</span>
-          <span class="hs-hero__line" data-anim="word">现在的<em class="hs-hero__phrase">内容</em></span>
-          <span class="hs-hero__line" data-anim="word">而建的生产公司。</span>
+          <span class="hs-hero__line" data-anim="word">当下的<em class="hs-hero__phrase">内容</em></span>
+          <span class="hs-hero__line" data-anim="word">而生的生产公司。</span>
         </h1>
 
-        <p class="hs-hero__lead" data-anim="fade">去年一家全球家电品牌找上门，过审率只有 22%。六个月后，过审率到了 78%。产出乘以七，成本下来 60%。那就是旧的内容生产方式，和今天它必须长出来的样子，之间的距离。</p>
+        <p class="hs-hero__lead" data-anim="fade">去年，一家全球家电品牌找到我们时，内容过审率仅为 22%。六个月后，这一数字升至 78%，产出提升七倍，成本下降 60%。旧有的内容生产方式，与它今日理应成为的模样，差距正在于此。</p>
 
         <div class="hs-hero__cta-row" data-anim="fade">
           <a class="hs-magnet" href={visitUrl} target="_blank" rel="noreferrer" data-magnet>
@@ -94,7 +94,7 @@ const visitLabel = '访问 hubstudio.ai';
             <span class="hs-magnet__arrow" aria-hidden="true">→</span>
           </a>
           <a class="hs-hero__secondary" href={pathFor('contact', locale)} data-anim="fade">
-            <span>聊一聊</span>
+            <span>洽谈合作</span>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
         </div>
@@ -156,10 +156,10 @@ const visitLabel = '访问 hubstudio.ai';
           <span class="hs-track__num-shadow">60%</span>
         </div>
         <div class="hs-track__copy">
-          <span class="eyebrow">这些年做过的事</span>
-          <h2 class="hs-track__title balance">单条最终交付物的成本砍半。产出乘以七。</h2>
+          <span class="eyebrow">过往实绩</span>
+          <h2 class="hs-track__title balance">单条成片成本减半，产出提升七倍。</h2>
           <p class="hs-track__lead">
-            用得对，AI 生成可以把单条最终交付物的成本压一半或更多。这笔省下来的钱是真的，我们直接让客户拿到。品牌每月要几百条素材，有时候几千条，覆盖五年前根本没有的格式。传统工作室从一开始就不是为这件事建的。我们是。
+            运用得当，AI 生成可将单条成片的成本压缩一半，乃至更多。省下的每一分都货真价实，我们如数让予客户。品牌每月所需素材动辄数百，多时上千，且涵盖五年前尚不存在的格式。传统工作室自创立之初便非为此而设，我们则不然。
           </p>
         </div>
       </div>
@@ -175,7 +175,7 @@ const visitLabel = '访问 hubstudio.ai';
         </div>
         <div class="hs-stat">
           <span class="hs-stat__num">60<span class="hs-stat__unit">%</span></span>
-          <span class="hs-stat__label">成本下降，直接让给客户</span>
+          <span class="hs-stat__label">成本降幅，全数让予客户</span>
         </div>
         <div class="hs-stat">
           <span class="hs-stat__num">3<span class="hs-stat__unit">天</span></span>
@@ -196,7 +196,7 @@ const visitLabel = '访问 hubstudio.ai';
           三条线。<em>一个工作室。</em><br />
           端到端。
         </h2>
-        <p class="hs-services__lead">我们就是一家完整的内容生产公司。会拍、会导、会修、会剪。我们同时把 AI 生成做到大多数工作室还没到的水平，这一段才值得拿出来说。</p>
+        <p class="hs-services__lead">我们是一家完整的内容生产公司，能拍、能导、能修、能剪。真正拉开差距的，是 AI 生成：这一环，我们已抵达多数同行尚未触及的水准。</p>
       </header>
 
       <div class="hs-services__shell" data-tabs>
@@ -274,21 +274,21 @@ const visitLabel = '访问 hubstudio.ai';
     <div class="container">
       <header class="hs-ways__header">
         <span class="eyebrow">两种合作方式</span>
-        <h2 class="hs-ways__title balance">把 brief 发给我们。或者，让我们替你搭起平台。</h2>
+        <h2 class="hs-ways__title balance">将需求交予我们，或者，由我们为您搭建平台。</h2>
       </header>
       <div class="hs-ways__grid">
         <article class="hs-way">
           <span class="hs-way__tag">服务</span>
-          <h3 class="hs-way__title">我们替你做。</h3>
+          <h3 class="hs-way__title">我们替您完成。</h3>
           <p class="hs-way__body">
-            把 brief 发过来，内容我们交付。视觉、视频、电商素材包、活动适配、转写创作，brief 要实拍就上摄影棚。每月几百条素材，合规于品牌，按时交。
+            将需求交来，内容由我们交付：视觉、视频、电商素材包、活动适配、创译；需要实拍者，我们进棚拍摄。每月数百条素材，契合品牌规范，准时交付。
           </p>
         </article>
         <article class="hs-way">
           <span class="hs-way__tag">平台</span>
-          <h3 class="hs-way__title">我们替你把平台搭起来。</h3>
+          <h3 class="hs-way__title">我们为您搭建平台。</h3>
           <p class="hs-way__body">
-            Hub4You 是我们定制的内容平台，部署在你的专属 GPU 服务器上，跟你的 DAM 和 PIM 打通。你的团队操作，我们培训和支持。几周完成部署。
+            Hub4You 是我们为您定制的内容平台，架设于您的专属 GPU 服务器，与既有 DAM、PIM 对接。日常由您的团队操作，培训与支持由我们承担，数周之内完成部署。
           </p>
         </article>
       </div>
@@ -303,13 +303,13 @@ const visitLabel = '访问 hubstudio.ai';
     <div class="container hs-operate__container">
       <span class="eyebrow eyebrow--on-dark">我们相信什么</span>
       <h2 class="hs-operate__title">
-        <span class="hs-operate__line" data-line>创意智力，是这个行业里剩下唯一重要的东西。</span>
-        <span class="hs-operate__line" data-line>文化没法用 brief 抓出来。</span>
+        <span class="hs-operate__line" data-line>这一行里，真正要紧的，只剩创意智识。</span>
+        <span class="hs-operate__line" data-line>文化，难以收进一纸简报。</span>
         <span class="hs-operate__line" data-line>速度，是新的手艺。</span>
       </h2>
       <div class="hs-operate__statement" data-line>
-        <p>现在谁都能生成一张过得去的图。过得去和真正出彩之间的距离，仍然在导演那些活儿的那群人手里。</p>
-        <p class="hs-operate__emphasis">三天交付，曾经是不可能。现在，是我们工作的下限。</p>
+        <p>如今，人人皆可生成一张尚可的图像。然而，从尚可到出色之间的距离，依旧掌握在懂得驾驭创作的人手中。</p>
+        <p class="hs-operate__emphasis">三天交付，昔日近乎天方夜谭；如今，已是我们的工作底线。</p>
       </div>
     </div>
   </section>
@@ -323,11 +323,11 @@ const visitLabel = '访问 hubstudio.ai';
       <div class="hs-cta__bg-scrim"></div>
     </div>
     <div class="container hs-cta__content">
-      <span class="eyebrow eyebrow--on-dark">你准备好，我们就动</span>
-      <h2 class="hs-cta__title balance">当旧的那一套跑不动时，<br />品牌选的那家生产公司。</h2>
+      <span class="eyebrow eyebrow--on-dark">您准备就绪，我们即刻启动</span>
+      <h2 class="hs-cta__title balance">当旧有方式难以为继时，<br />品牌会想到的那家生产公司。</h2>
       <div class="hs-cta__actions">
         <a class="btn btn--primary" href={visitUrl} target="_blank" rel="noreferrer">{visitLabel}</a>
-        <a class="btn btn--ghost-light" href={pathFor('contact', locale)}>聊一聊</a>
+        <a class="btn btn--ghost-light" href={pathFor('contact', locale)}>洽谈合作</a>
       </div>
     </div>
   </section>

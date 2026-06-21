@@ -15,32 +15,32 @@ const services: Array<{
 }> = [
   {
     key: 'build',
-    title: '搭建',
-    intro: '在买家、候选人和投资人都在看的地方出现。每一天。',
+    title: '建立',
+    intro: '客户、人才、投资人都在这里。你要做的，就是天天出现。',
     image: '/images/nuvora-build.webp',
     items: [
-      { name: 'LinkedIn 内容', body: '策划、撰写、发布，目标是让买家看到你这家公司。为带来线索而做，不是为点赞而做。' },
-      { name: '高管个人品牌', body: '为创始人、CEO 与高管搭建 LinkedIn 存在感。代笔写得像你本人，并在更大规模上挣到信任。' },
-      { name: '员工发声计划', body: '把你的团队变成一台内容引擎。培训、装备、稳定输出。把触达放大。' },
+      { name: 'LinkedIn 内容', body: '选题、撰稿、发布一气呵成，让买家记住贵公司。我们冲着生意去，不为点赞。' },
+      { name: '高管个人品牌', body: '替创始人、CEO 和高管打理 LinkedIn。代笔写得像你本人，让信任一点点攒成规模。' },
+      { name: '员工发声计划', body: '把团队炼成一台内容引擎：人人受训、配齐工具、稳定开口，声量翻着倍往上走。' },
     ],
   },
   {
     key: 'convert',
     title: '转化',
-    intro: '触达到对的决策者，把注意力转成销售管线。',
+    intro: '精准找到拍板的人，把注意力变成实打实的生意。',
     image: '/images/nuvora-grow.webp',
     items: [
-      { name: 'LinkedIn 广告', body: '把合格线索带进你销售管线的广告。定向、创意、报告全部锚定收入。预算不会烧在错的人群上。' },
+      { name: 'LinkedIn 广告', body: '投广告，把合格线索源源不断带进来。从定向、创意到复盘，每一步都咬住营收，预算绝不花在错的人身上。' },
     ],
   },
   {
     key: 'learn',
     title: '学习',
-    intro: '把内功建到内部去。策略先行，永远不锁客。',
+    intro: '让本事长在自己人身上。先谋策略，绝不绑定。',
     image: '/images/nuvora-learn.webp',
     items: [
-      { name: '培训与工作坊', body: '给内部团队的实操课。算法、个人主页、内容策略。第一天就能用得上。' },
-      { name: '咨询', body: '给现有 LinkedIn 状态做一次完整审计，然后给一份能长出来的路线图。先想清楚，再动手。' },
+      { name: '培训与工作坊', body: '给内部团队上的实战课：摸透算法、打磨主页、理清内容策略，听完就能上手。' },
+      { name: '咨询', body: '先把你现在的 LinkedIn 表现彻底盘一遍，再给你一张能一直跑下去的增长路线图。谋定，而后动。' },
     ],
   },
 ];
@@ -52,8 +52,8 @@ const visitLabel = '访问 nuvora.studio';
 <Layout
   locale={locale}
   route={route}
-  title="Nuvora Studio：在 LinkedIn 上拿到更多线索"
-  description="Nuvora Studio 替 B2B 公司在 LinkedIn 上长出存在感。内容、广告、高管品牌等。从决策者那里拿到合格线索。"
+  title="Nuvora Studio：在 LinkedIn 上赢得更多商机"
+  description="Nuvora Studio 为 B2B 企业经营 LinkedIn 影响力，涵盖内容、广告与高管品牌，帮你赢得来自关键决策者的优质线索。"
 >
   <!-- ====================================================================== -->
   <!-- HERO                                                                   -->
@@ -72,16 +72,16 @@ const visitLabel = '访问 nuvora.studio';
 
         <span class="nv-hero__eyebrow">
           <span class="nv-hero__eyebrow-dot"></span>
-          只做 LinkedIn · B2B · 拿线索
+          专注 LinkedIn · B2B · 线索增长
         </span>
 
         <h1 class="nv-hero__title">
           <span class="nv-hero__line" data-anim="word">你的<em class="nv-hero__phrase nv-hero__phrase--buyers">客户</em>在看。</span>
-          <span class="nv-hero__line" data-anim="word">你的<em class="nv-hero__phrase nv-hero__phrase--hires">候选人</em>在看。</span>
+          <span class="nv-hero__line" data-anim="word">你要的<em class="nv-hero__phrase nv-hero__phrase--hires">人才</em>在看。</span>
           <span class="nv-hero__line" data-anim="word">你的<em class="nv-hero__phrase nv-hero__phrase--investors">投资人</em>在看。</span>
         </h1>
 
-        <p class="nv-hero__lead" data-anim="fade">LinkedIn 上超过十亿用户，是全世界的职业档案。我们让你在它上面持续长出来。每一天。</p>
+        <p class="nv-hero__lead" data-anim="fade">十亿人聚在 LinkedIn，这里就是全球职场的明面履历。我们帮你一天天经营，把分量攒起来。</p>
 
         <div class="nv-hero__cta-row" data-anim="fade">
           <a class="nv-magnet" href={visitUrl} target="_blank" rel="noreferrer" data-magnet>
@@ -90,7 +90,7 @@ const visitLabel = '访问 nuvora.studio';
             <span class="nv-magnet__arrow" aria-hidden="true">→</span>
           </a>
           <a class="nv-hero__secondary" href={pathFor('contact', locale)} data-anim="fade">
-            <span>聊一聊</span>
+            <span>与我们聊聊</span>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
         </div>
@@ -123,11 +123,11 @@ const visitLabel = '访问 nuvora.studio';
           </a>
 
           <div class="nv-hero__chip nv-hero__chip--scope">
-            <span class="nv-hero__chip-label">范围</span>
+            <span class="nv-hero__chip-label">服务范围</span>
             <span>内容 · 广告 · 品牌 · 员工发声</span>
           </div>
           <div class="nv-hero__chip nv-hero__chip--audience">
-            <span class="nv-hero__chip-label">为谁而做</span>
+            <span class="nv-hero__chip-label">服务对象</span>
             <span>创始人 · CEO · 市场负责人</span>
           </div>
         </div>
@@ -152,10 +152,10 @@ const visitLabel = '访问 nuvora.studio';
           <span class="nv-track__num-shadow">1B+</span>
         </div>
         <div class="nv-track__copy">
-          <span class="eyebrow">这个平台</span>
-          <h2 class="nv-track__title balance">十亿用户。一个决定谁拿到见面机会的平台。</h2>
+          <span class="eyebrow">关于这个平台</span>
+          <h2 class="nv-track__title balance">十亿用户。一个平台，决定谁能坐上谈判桌。</h2>
           <p class="nv-track__lead">
-            空白的公司主页。沉默的高管。读起来像新闻稿的帖子。烧在错的人群上的广告预算。每一周，都是丢掉的销售管线。我们让这件事翻过来。
+            空白的公司主页，沉默的高管，读来像通稿的帖子，投错人群的预算。一周又一周，商机就这样白白溜走。我们来扭转它。
           </p>
         </div>
       </div>
@@ -168,12 +168,12 @@ const visitLabel = '访问 nuvora.studio';
   <section class="nv-services" id="services">
     <div class="container">
       <header class="nv-services__header">
-        <span class="eyebrow">我们做什么</span>
+        <span class="eyebrow">我们的工作</span>
         <h2 class="nv-services__title">
-          三条线。<em>一个平台。</em><br />
-          端到端。
+          三条主线。<em>一个平台。</em><br />
+          全程贯通。
         </h2>
-        <p class="nv-services__lead">从第一条代笔的帖子，到一整条跑起来的付费线索通道。挑一条最贴合你当下的，或者三条一起跑。</p>
+        <p class="nv-services__lead">从第一篇代笔的帖子，到一整套跑起来的付费获客链路。你可以只挑当下最要紧的那条，也可以三线齐发。</p>
       </header>
 
       <div class="nv-services__shell" data-tabs>
@@ -210,7 +210,7 @@ const visitLabel = '访问 nuvora.studio';
               <div class="nv-services__panel-grid">
                 <div class="nv-services__panel-image">
                   <div class="nv-services__panel-frame">
-                    <img src={s.image} alt={`${s.title} 编辑图`} loading="lazy" decoding="async" />
+                    <img src={s.image} alt={`${s.title} 主题图`} loading="lazy" decoding="async" />
                     <div class={`nv-services__panel-tag nv-services__panel-tag--${s.key}`}>
                       <span>{s.title}</span>
                     </div>
@@ -245,15 +245,15 @@ const visitLabel = '访问 nuvora.studio';
   <section class="nv-operate">
     <div class="nv-operate__bg" aria-hidden="true"></div>
     <div class="container nv-operate__container">
-      <span class="eyebrow eyebrow--on-dark">我们怎么做事</span>
+      <span class="eyebrow eyebrow--on-dark">我们的原则</span>
       <h2 class="nv-operate__title">
-        <span class="nv-operate__line" data-line>LinkedIn 不是侧边渠道。</span>
-        <span class="nv-operate__line" data-line>专家胜过通才。</span>
-        <span class="nv-operate__line" data-line>「在动」不是目标。</span>
+        <span class="nv-operate__line" data-line>LinkedIn 不是边角渠道。</span>
+        <span class="nv-operate__line" data-line>专才，胜过通才。</span>
+        <span class="nv-operate__line" data-line>忙，不等于有结果。</span>
       </h2>
       <div class="nv-operate__statement" data-line>
-        <p>内容挣注意力。广告把它转化。</p>
-        <p class="nv-operate__emphasis">合格线索是复利。一个月接一个月。</p>
+        <p>内容赢得注意力，广告完成转化。</p>
+        <p class="nv-operate__emphasis">合格线索会复利滚动，月复一月。</p>
       </div>
     </div>
   </section>
@@ -267,11 +267,11 @@ const visitLabel = '访问 nuvora.studio';
       <div class="nv-cta__bg-scrim"></div>
     </div>
     <div class="container nv-cta__content">
-      <span class="eyebrow eyebrow--on-dark">你准备好，我们就动</span>
-      <h2 class="nv-cta__title balance">在 LinkedIn 上拿到更多线索。<br />来自你那个市场的决策者。</h2>
+      <span class="eyebrow eyebrow--on-dark">随时为你启动</span>
+      <h2 class="nv-cta__title balance">在 LinkedIn 上谈成更多生意，<br />对接你所在市场里真正拍板的人。</h2>
       <div class="nv-cta__actions">
         <a class="btn btn--primary" href={visitUrl} target="_blank" rel="noreferrer">{visitLabel}</a>
-        <a class="btn btn--ghost-light" href={pathFor('contact', locale)}>聊一聊</a>
+        <a class="btn btn--ghost-light" href={pathFor('contact', locale)}>与我们聊聊</a>
       </div>
     </div>
   </section>

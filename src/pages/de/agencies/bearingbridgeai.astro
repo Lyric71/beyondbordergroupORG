@@ -7,20 +7,20 @@ const locale = 'de' as const;
 const route = 'agencies/bearingbridgeai' as const;
 
 const visitUrl = 'https://www.bearingbridge.ai';
-const visitLabel = 'bearingbridge.ai ansehen';
+const visitLabel = 'bearingbridge.ai besuchen';
 
 const principles = [
   {
-    title: 'Wir sagen Ihnen, wo KI nichts zu suchen hat',
-    body: 'Rund ein Drittel der geprüften Anwendungsfälle sollte nie gebaut werden, und das sagen wir, bevor jemand etwas unterschreibt. Ein Nein in der ersten Woche ist weit mehr wert als ein Ja, das im vierten Monat leise zerfällt.',
+    title: 'Wir benennen, wo KI fehl am Platz ist',
+    body: 'Etwa ein Drittel der Anwendungsfälle, die wir prüfen, gehört gar nicht erst umgesetzt. Das sagen wir, bevor irgendetwas unterschrieben ist. Ein Nein in der ersten Woche wiegt schwerer als ein Ja, das im vierten Monat sang- und klanglos in sich zusammenfällt.',
   },
   {
     title: 'Sie zahlen für Belege, nicht für Versprechen',
-    body: 'Jeder Pilot hat eine Abbruchlinie, die wir mit Ihnen vorab festlegen. Verfehlt er sie auf Ihren eigenen Daten, stoppen wir ihn. Niemand hält hier ein totes Projekt am Leben, nur weil es schon Geld gekostet hat.',
+    body: 'Für jeden Piloten legen wir vorab fest, woran er scheitern darf. Verfehlt er die Schwelle an Ihren eigenen Daten, brechen wir ab. Kein Projekt wird hier künstlich am Leben gehalten, nur weil es schon Geld gekostet hat.',
   },
   {
-    title: 'Ihr Team betreibt es ohne uns',
-    body: 'Schulung und Übergabe stecken in der Methode. Sie sind keine separate Rechnung, mit der wir später wedeln. Wenn wir gehen, läuft die Arbeit weiter, und was wir gelernt haben, bleibt im Haus.',
+    title: 'Am Ende führt Ihr Team es allein weiter',
+    body: 'Schulung und Übergabe stecken in der Methode, sie sind keine Rechnung, die später kommt. Wenn wir gehen, läuft die Arbeit weiter, und das Wissen bleibt im Haus.',
   },
 ];
 
@@ -28,8 +28,8 @@ const phases = [
   { name: 'Standort', q: 'Wo stehen Sie wirklich?' },
   { name: 'Karte', q: 'Wo liegt der Wert, und wo nicht?' },
   { name: 'Überfahrt', q: 'Hält es Ihrem Betrieb stand?' },
-  { name: 'Bau', q: 'Liefern, was bestanden hat.' },
-  { name: 'Anker', q: 'Hält es, wenn wir weg sind?' },
+  { name: 'Bau', q: 'Liefern, was sich bewährt hat.' },
+  { name: 'Anker', q: 'Bleibt es, wenn wir gehen?' },
 ];
 
 type ServiceKey = 'assessment' | 'pilot' | 'continuum' | 'academy';
@@ -46,11 +46,11 @@ const services: Array<{
     name: 'Einschätzung',
     meta: 'Drei bis acht Wochen, fester Umfang',
     stamp: '测',
-    intro: 'Eine priorisierte Liste von Anwendungsfällen und eine Roadmap, die Sie am Montagmorgen umsetzen können.',
+    intro: 'Eine priorisierte Auswahl an Anwendungsfällen und ein Fahrplan, mit dem Sie Montagfrüh loslegen können.',
     items: [
-      'Jeder Kandidat bewertet nach Wert und danach, wie schwer er zu liefern ist.',
-      'Die, die wir in Ruhe ließen, samt Begründung im Klartext.',
-      'Eine Roadmap, die ganz Ihnen gehört, ob Sie uns behalten oder nicht.',
+      'Jeder Kandidat bewertet nach Nutzen und Umsetzungsaufwand.',
+      'Auch die Fälle, von denen wir abraten, mit klarer Begründung.',
+      'Ein Fahrplan, der ganz Ihnen gehört, ob Sie uns danach behalten oder nicht.',
     ],
   },
   {
@@ -58,11 +58,11 @@ const services: Array<{
     name: 'Pilot',
     meta: 'Sechs bis zwölf Wochen',
     stamp: '验',
-    intro: 'Erfolgs- und Abbruchkriterien auf dem Tisch, bevor wir eine Zeile Code schreiben.',
+    intro: 'Erfolgs- und Abbruchkriterien stehen fest, bevor die erste Zeile Code entsteht.',
     items: [
-      'Im Osten wie im Westen an Ihren eigenen Daten getestet, nie an einem Anbieter-Demo-Set.',
-      'Jede Zahl an einem Ziel gemessen, das Sie zuerst freigegeben haben.',
-      'Was die Schwelle nimmt, geht live. Was nicht, stoppen wir, und wir sagen Ihnen warum.',
+      'An Ost- und West-Modellen erprobt, an Ihren eigenen Daten, nie an den Demodaten eines Anbieters.',
+      'Jede Kennzahl gemessen an einem Ziel, das Sie zuvor freigegeben haben.',
+      'Was die Schwelle nimmt, geht in den Betrieb. Was nicht, stoppen wir und sagen Ihnen, warum.',
     ],
   },
   {
@@ -70,10 +70,10 @@ const services: Array<{
     name: 'Continuum',
     meta: 'KI-Führung auf Zeit',
     stamp: '续',
-    intro: 'Senior-Urteil jeden Monat im Raum, ohne eine Vollzeitstelle zu tragen.',
+    intro: 'Erfahrenes Urteil, Monat für Monat, ohne dafür eine Vollzeitstelle zu schaffen.',
     items: [
-      'Adoption und Governance, monatlich von Anfang bis Ende geführt.',
-      'Vierteljährliche Steuerung mit Ihrer Führung, in klarer Geschäftssprache.',
+      'Einführung und Governance, jeden Monat durchgängig begleitet.',
+      'Vierteljährliche Steuerung mit Ihrer Führung, im Klartext statt im Fachjargon.',
       'Der Plan kommt voran, während Ihr Team weiter liefert.',
     ],
   },
@@ -82,11 +82,11 @@ const services: Array<{
     name: 'Akademie',
     meta: 'Schulungen und Workshops',
     stamp: '授',
-    intro: 'Gebaut, damit Ihre Leute die Arbeit tragen, wenn wir weg sind.',
+    intro: 'Darauf angelegt, dass Ihre Leute die Arbeit tragen, sobald wir nicht mehr da sind.',
     items: [
-      'Executive-Masterclasses, die das Signal vom Lärm trennen.',
-      'Führungs- und Team-Workshops an Ihren echten Aufgaben, nicht an Spielbeispielen.',
-      'Praxistraining vom Gründer geführt, die Hände auf der Tastatur.',
+      'Masterclasses für Führungskräfte, die Substanz vom Hype trennen.',
+      'Workshops für Führung und Teams an Ihren echten Aufgaben, nicht an Trockenübungen.',
+      'Praxistraining vom Gründer, direkt an der Tastatur.',
     ],
   },
 ];
@@ -99,8 +99,8 @@ const expertise = ['Marketing', 'Kommunikation', 'Medien', 'eCommerce', 'Lieferk
 <Layout
   locale={locale}
   route={route}
-  title="BearingBridge AI: KI-Adoptionsberatung, Ost und West"
-  description="Senior-Beratung für die KI-Adoption von Unternehmen, die KI in ihren Abläufen arbeiten sehen wollen, nicht auf einer Folie. Ehrliche Einschätzung, Piloten mit Abbruchkriterien und Wissenstransfer. Ost und West, gemessen an Ihren Daten."
+  title="BearingBridge AI: Beratung zur KI-Einführung, Ost und West"
+  description="Erfahrene Beratung zur KI-Einführung für Unternehmen, die KI im Betrieb arbeiten sehen wollen, nicht auf einer Präsentationsfolie. Ehrliche Einschätzung, Piloten mit Abbruchkriterien, Wissenstransfer. Ost und West, gemessen an Ihren Daten."
 >
   <!-- ====================================================================== -->
   <!-- HERO                                                                   -->
@@ -115,17 +115,17 @@ const expertise = ['Marketing', 'Kommunikation', 'Medien', 'eCommerce', 'Lieferk
 
         <span class="bbai-hero__eyebrow" data-anim="fade">
           <span class="bbai-hero__dot"></span>
-          KI-Adoptionsberatung · Ost und West
+          Beratung zur KI-Einführung · Ost und West
         </span>
 
         <h1 class="bbai-hero__title">
-          <span class="bbai-hero__line" data-anim="word">KI-Adoption,</span>
+          <span class="bbai-hero__line" data-anim="word">KI-Einführung,</span>
           <span class="bbai-hero__line" data-anim="word">die der Wirklichkeit</span>
           <span class="bbai-hero__line" data-anim="word"><em>standhält.</em></span>
         </h1>
 
         <p class="bbai-hero__lead" data-anim="fade">
-          Senior-Beratung für Unternehmen, die KI wirklich im Geschäft arbeiten lassen wollen, statt sie auf einer Vorstandsfolie zu parken. Wir haben sie in großen Organisationen zum Laufen gebracht und wissen, wo sie sich auszahlt und wo sie still das Budget auffrisst. Ob China im Blick ist oder nicht, die Aufgabe bleibt dieselbe.
+          Erfahrene Beratung für Unternehmen, die KI echte Arbeit im Tagesgeschäft übernehmen lassen wollen, statt sie in einer Vorstandspräsentation zu parken. Wir haben sie in großen Organisationen zum Laufen gebracht und wissen, wo sie sich rechnet und wo sie unbemerkt Budget verbrennt. Ob China auf der Agenda steht oder nicht, die Aufgabe bleibt dieselbe.
         </p>
 
         <div class="bbai-hero__cta-row" data-anim="fade">
@@ -134,7 +134,7 @@ const expertise = ['Marketing', 'Kommunikation', 'Medien', 'eCommerce', 'Lieferk
             <span class="bbai-magnet__arrow" aria-hidden="true">→</span>
           </a>
           <a class="bbai-hero__secondary" href="#method">
-            <span>Die Methode ansehen</span>
+            <span>Zur Methode</span>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
         </div>
@@ -160,11 +160,11 @@ const expertise = ['Marketing', 'Kommunikation', 'Medien', 'eCommerce', 'Lieferk
 
           <div class="bbai-hero__chip bbai-hero__chip--method">
             <span class="bbai-hero__chip-label">Die Methode</span>
-            <span>AZIMUTH · fünf Phasen mit Schwelle</span>
+            <span>AZIMUTH · fünf Phasen mit Schwellen</span>
           </div>
           <div class="bbai-hero__chip bbai-hero__chip--bench">
             <span class="bbai-hero__chip-label">Pilot 07</span>
-            <span>Hat jede Schwelle genommen</span>
+            <span>Hat jede vereinbarte Schwelle genommen</span>
           </div>
         </div>
       </div>
@@ -182,10 +182,10 @@ const expertise = ['Marketing', 'Kommunikation', 'Medien', 'eCommerce', 'Lieferk
           <span class="bbai-track__num-suffix">Jahre</span>
         </div>
         <div class="bbai-track__copy">
-          <span class="eyebrow">Wer es führt</span>
-          <h2 class="bbai-track__title balance">Fünfundzwanzig Jahre digitales Geschäft und Handel zwischen Asien und Europa. Wir haben die Arbeit gemacht, nicht nur beraten.</h2>
+          <span class="eyebrow">Wer dahintersteht</span>
+          <h2 class="bbai-track__title balance">Fünfundzwanzig Jahre Digitalgeschäft und Handel zwischen Asien und Europa. Wir haben die Arbeit selbst gemacht, nicht nur beraten.</h2>
           <p class="bbai-track__lead">
-            Cyril Drouin gründete 2003 eine der ersten eCommerce-Agenturen Chinas und leitete danach Publicis Commerce und Performance Marketing für China und Nordasien. KI-Adoption ist dieselbe Arbeit wie in den letzten zwanzig Jahren. Das Signal finden, das liefern, was hält, und das Team so zurücklassen, dass es allein weitermacht.
+            Cyril Drouin gründete 2003 eine der ersten E-Commerce-Agenturen Chinas und führte später bei Publicis das Commerce- und Performance-Marketing für China und Nordasien. KI-Einführung ist dieselbe Arbeit wie in den vergangenen zwanzig Jahren: das Signal finden, liefern, was trägt, und das Team so übergeben, dass es allein weitermacht.
           </p>
         </div>
       </div>
@@ -198,12 +198,12 @@ const expertise = ['Marketing', 'Kommunikation', 'Medien', 'eCommerce', 'Lieferk
   <section class="bbai-principles-sec">
     <div class="container">
       <header class="bbai-block-head">
-        <span class="eyebrow">Warum die meisten Programme steckenbleiben</span>
+        <span class="eyebrow">Warum die meisten Programme scheitern</span>
         <h2 class="bbai-block-title balance">
           Die meisten KI-Programme scheitern nicht an der Technik. <em>Sie scheitern an der Ehrlichkeit.</em>
         </h2>
         <p class="bbai-block-lead">
-          Piloten, die das Blaue vom Himmel versprechen. Werkzeuge, gekauft, bevor jemand das Problem benannt hat. Roadmaps, geschrieben fürs Vorstandsmeeting, nie zum Bauen gedacht. Wir packen es vom anderen Ende an.
+          Piloten, die das Blaue vom Himmel versprechen. Tools, gekauft, bevor das Problem überhaupt benannt ist. Fahrpläne, geschrieben für den Auftritt im Vorstand, nie zum Bauen gedacht. Wir fangen am anderen Ende an.
         </p>
       </header>
 
@@ -229,7 +229,7 @@ const expertise = ['Marketing', 'Kommunikation', 'Medien', 'eCommerce', 'Lieferk
         <span class="eyebrow eyebrow--on-dark">Die Methode</span>
         <h2 class="bbai-method__title">AZIMUTH</h2>
         <p class="bbai-method__lead">
-          Der Kurs, dem wir folgen. Fünf Phasen, zwischen jeder eine Schwelle. Zur nächsten geht es erst, wenn die Belege es verdient haben.
+          Der Kurs, nach dem wir steuern. Fünf Phasen, zwischen jeder eine Schwelle. Zur nächsten geht es erst, wenn die Belege es rechtfertigen.
         </p>
       </header>
 
@@ -244,7 +244,7 @@ const expertise = ['Marketing', 'Kommunikation', 'Medien', 'eCommerce', 'Lieferk
 
       <p class="bbai-method__horizon">
         <span class="bbai-method__horizon-label">Horizont</span>
-        Unter allem behalten wir im Blick, was sich in der KI bewegt, im Osten wie im Westen, und übersetzen es in das, was für die Arbeit vor Ihnen wirklich zählt.
+        Bei alledem behalten wir im Blick, was sich in der KI bewegt, in Ost und West, und übersetzen es in das, was für Ihre konkrete Arbeit wirklich zählt.
       </p>
     </div>
   </section>
@@ -256,8 +256,8 @@ const expertise = ['Marketing', 'Kommunikation', 'Medien', 'eCommerce', 'Lieferk
     <div class="container">
       <header class="bbai-block-head">
         <span class="eyebrow">So arbeiten wir zusammen</span>
-        <h2 class="bbai-block-title balance">Vier Wege hinein. <em>Fangen Sie an, wo Sie stehen.</em></h2>
-        <p class="bbai-block-lead">Nehmen Sie den ganzen Bogen oder ein einzelnes Stück. Jedes trägt sich von allein.</p>
+        <h2 class="bbai-block-title balance">Vier Wege hinein. <em>Beginnen Sie, wo Sie stehen.</em></h2>
+        <p class="bbai-block-lead">Nehmen Sie den gesamten Bogen oder ein einzelnes Stück. Jedes rechnet sich für sich.</p>
       </header>
 
       <div class="bbai-tabs" data-tabs>
@@ -332,10 +332,10 @@ const expertise = ['Marketing', 'Kommunikation', 'Medien', 'eCommerce', 'Lieferk
           <span class="eyebrow">Ost und West</span>
           <h2 class="bbai-block-title balance">Wir messen beide Seiten. <em>An Ihren Daten.</em></h2>
           <p class="bbai-block-lead">
-            Das richtige Modell ist das, das Ihre Aufgabe am besten erledigt. Wir lassen beide Ökosysteme nebeneinander laufen, an derselben Aufgabe, und lassen die Ergebnisse den Sieger bestimmen.
+            Das richtige Modell ist jenes, das Ihre Aufgabe am besten löst. Wir lassen beide Ökosysteme nebeneinander an derselben Aufgabe laufen und überlassen den Ergebnissen die Entscheidung.
           </p>
           <p class="bbai-ew__note">
-            Ihre Daten verlassen den Westen nicht Richtung China, außer Sie verlangen ausdrücklich ein in China gehostetes Deployment.
+            Ihre Daten verlassen den Westen nicht in Richtung China, sofern Sie nicht ausdrücklich einen in China gehosteten Betrieb wünschen.
           </p>
         </div>
         <div class="bbai-ew__cols">
@@ -355,7 +355,7 @@ const expertise = ['Marketing', 'Kommunikation', 'Medien', 'eCommerce', 'Lieferk
       </div>
 
       <div class="bbai-expertise">
-        <span class="bbai-expertise__label">Tief in den Funktionen, die Umsatz und Menschen berühren</span>
+        <span class="bbai-expertise__label">Tief verankert in den Bereichen, die Umsatz und Menschen berühren</span>
         <ul class="bbai-expertise__tags">
           {expertise.map((e) => <li>{e}</li>)}
         </ul>
@@ -376,7 +376,7 @@ const expertise = ['Marketing', 'Kommunikation', 'Medien', 'eCommerce', 'Lieferk
         <span class="bbai-operate__line" data-line>ist selten dasselbe.</span>
       </h2>
       <div class="bbai-operate__statement" data-line>
-        <p>Der einzige Beleg, dem wir trauen, sind Ihre eigenen Daten, unter Ihren echten Bedingungen, gemessen an einem Ziel, das wir vorab gemeinsam gesetzt haben.</p>
+        <p>Der einzige Beweis, dem wir trauen, sind Ihre eigenen Daten, unter Ihren realen Bedingungen, gemessen an einem Ziel, das wir vorab gemeinsam festgelegt haben.</p>
         <p class="bbai-operate__emphasis">Alles darunter ist eine Verkaufsdemo. Das ist nicht unser Geschäft.</p>
       </div>
     </div>

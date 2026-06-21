@@ -11,25 +11,25 @@ const visitLabel = '访问 bearingbridge.ai';
 
 const principles = [
   {
-    title: '我们会告诉你 AI 不该用在哪里',
-    body: '我们评估的用例里，差不多每三个就有一个根本不该做，而且我们会在任何人签字之前就直说。第一周听到的一个“不”，远比第四个月悄无声息散架的一个“好”更值钱。',
+    title: '哪些地方不该用 AI，我们会直接讲明',
+    body: '我们评估过的用例里，约三分之一根本不该上马。这一点，我们会赶在任何合同签署之前就跟您说清楚。宁可头一周就被叫停，也好过拖到第四个月，眼看它悄悄散架。',
   },
   {
-    title: '你买的是证据，不是承诺',
-    body: '每个试点都有一条止损线，开工前和你一起定好。如果它在你自己的数据上没达标，我们就停。这里没人会因为已经花了钱，就硬把一个死项目吊着续命。',
+    title: '为证据付费，而不是为承诺买单',
+    body: '每个试点都有一条止损线，在启动前和您一起定下。只要在您自己的数据上没达标，我们立刻叫停。没有人会因为钱已经砸进去，就让一个毫无起色的项目硬拖着不放。',
   },
   {
-    title: '你的团队不靠我们也能跑',
-    body: '培训和交接本就写在方法里，不是事后另开的一张账单。我们一走，活儿照常运转，学到的东西也留在你这边。',
+    title: '没有我们，团队照样运转',
+    body: '培训和交接本就是方法的一部分，不是事后另算的一笔费用。我们前脚一走，业务照常运转，一路积累下来的经验也都留在您的团队里。',
   },
 ];
 
 const phases = [
-  { name: '定位', q: '你究竟身在何处？' },
+  { name: '定位', q: '您此刻究竟身在何处？' },
   { name: '航图', q: '价值在哪里，又不在哪里？' },
-  { name: '过渡', q: '它扛得住你的运营吗？' },
-  { name: '建造', q: '把扛住的交付出去。' },
-  { name: '抛锚', q: '我们走后它还稳得住吗？' },
+  { name: '过渡', q: '它经得起实际运营的考验吗？' },
+  { name: '建造', q: '把过关的那部分交付出去。' },
+  { name: '抛锚', q: '我们撤出之后，它还立得住吗？' },
 ];
 
 type ServiceKey = 'assessment' | 'pilot' | 'continuum' | 'academy';
@@ -46,11 +46,11 @@ const services: Array<{
     name: '评估',
     meta: '三到八周，范围固定',
     stamp: '测',
-    intro: '一份排好优先级的用例清单，以及一张周一上午就能动手的路线图。',
+    intro: '一份排好优先级的用例清单，再配一张周一就能上手的路线图。',
     items: [
-      '每个候选项都按价值和交付难度打分。',
-      '我们不会去碰的那些，连同理由，都说清楚。',
-      '一张完全归你的路线图，无论你是否继续留我们。',
+      '每个候选用例，都按价值和落地难度打分。',
+      '那些我们建议先放一放的，连同理由一并讲清楚。',
+      '一张完全属于您的路线图，无论之后是否继续合作。',
     ],
   },
   {
@@ -58,23 +58,23 @@ const services: Array<{
     name: '试点',
     meta: '六到十二周',
     stamp: '验',
-    intro: '成功标准和止损标准摆上桌面，然后我们才写第一行代码。',
+    intro: '在写下第一行代码之前，成功标准和叫停标准早就摆在桌面上。',
     items: [
-      '在你自己的数据上、东西两边都跑过，绝不用厂商的演示数据。',
-      '每个数字都对照你事先签过字的目标核验。',
-      '过关的上线，不过关的就停，并且告诉你为什么。',
+      '在您自己的数据上、东西两端同时验证，绝不拿厂商的演示数据充数。',
+      '每一个数字，都对照您事先确认过的目标逐一核验。',
+      '过关的就上线，不过关的就叫停，并把原因告诉您。',
     ],
   },
   {
     key: 'continuum',
     name: '持续',
-    meta: '分时 AI 负责人',
+    meta: '分时制 AI 负责人',
     stamp: '续',
-    intro: '每个月都有资深判断坐在会议室里，却不用养一个全职岗位。',
+    intro: '每个月都有一位资深的人坐在决策桌前，却不必为此养一个全职岗位。',
     items: [
-      '采纳与治理，每月从头到尾盯到底。',
-      '每季度与你的管理层复盘，用业务的话讲，不绕术语。',
-      '计划往前走，你的团队照样在交付。',
+      '采纳与治理，按月从头管到尾。',
+      '每季度和您的管理层复盘，用业务的话讲，不堆术语。',
+      '规划持续往前推，团队交付照常。',
     ],
   },
   {
@@ -82,11 +82,11 @@ const services: Array<{
     name: '学院',
     meta: '培训与工作坊',
     stamp: '授',
-    intro: '为的是我们走后，你的人能把这摊活儿接着扛下去。',
+    intro: '目的只有一个：等我们离开，您的团队能独立接手这项工作。',
     items: [
-      '面向高管的大师课，把信号从喧嚣里挑出来。',
-      '针对你真实任务的管理层与团队工作坊，不是练习题。',
-      '由创始人带的实操培训，手就放在键盘上。',
+      '面向高管的大师课，帮您在一片喧嚣里辨出真正有用的信号。',
+      '围绕您真实业务的管理层与团队工作坊，而不是纸上谈兵的练习。',
+      '由创始人亲自带的实操培训，全程动手实练。',
     ],
   },
 ];
@@ -100,7 +100,7 @@ const expertise = ['市场营销', '传播', '媒介', '电商', '供应链', '�
   locale={locale}
   route={route}
   title="BearingBridge AI：贯通东西的 AI 落地咨询"
-  description="为希望让 AI 真正在业务中运转、而非停留在幻灯片上的企业提供资深落地咨询。诚实评估，设有止损线的试点，以及知识交接。横跨东西，基于你的数据验证。"
+  description="为那些真想让 AI 在业务里跑起来、而不只是停在幻灯片上的企业，提供资深落地咨询：诚实的评估、带止损线的试点，以及完整的知识交接。横跨东西，在您自己的数据上验证。"
 >
   <!-- ====================================================================== -->
   <!-- HERO                                                                   -->
@@ -125,7 +125,7 @@ const expertise = ['市场营销', '传播', '媒介', '电商', '供应链', '�
         </h1>
 
         <p class="bbai-hero__lead" data-anim="fade">
-          我们为那些希望 AI 真正在业务里干活、而不是躺在汇报幻灯片上的企业，提供资深咨询。我们在大型组织里把它跑起来过，知道它在哪里创造回报，又在哪里悄悄吞掉预算。无论你是否盯着中国市场，要做的事都是一样的。
+          我们为那些真想让 AI 在业务里派上用场、而不只是停在汇报幻灯片上的企业提供资深咨询。这件事我们在大公司内部亲手做过，清楚它在哪儿能挣回成本，又在哪儿悄悄烧掉预算。中国市场做不做，要补的功课都一样。
         </p>
 
         <div class="bbai-hero__cta-row" data-anim="fade">
@@ -160,7 +160,7 @@ const expertise = ['市场营销', '传播', '媒介', '电商', '供应链', '�
 
           <div class="bbai-hero__chip bbai-hero__chip--method">
             <span class="bbai-hero__chip-label">方法</span>
-            <span>AZIMUTH · 五个设关的阶段</span>
+            <span>AZIMUTH · 五个阶段，逐关推进</span>
           </div>
           <div class="bbai-hero__chip bbai-hero__chip--bench">
             <span class="bbai-hero__chip-label">试点 07</span>
@@ -182,10 +182,10 @@ const expertise = ['市场营销', '传播', '媒介', '电商', '供应链', '�
           <span class="bbai-track__num-suffix">年</span>
         </div>
         <div class="bbai-track__copy">
-          <span class="eyebrow">由谁操盘</span>
-          <h2 class="bbai-track__title balance">二十五年，在亚洲和欧洲之间打造数字与电商业务。我们是亲手做事的人，不只是出主意。</h2>
+          <span class="eyebrow">操盘的人</span>
+          <h2 class="bbai-track__title balance">二十五年，在亚洲与欧洲之间搭建数字与电商业务。这些事我们亲手做过，不只是在一旁出主意。</h2>
           <p class="bbai-track__lead">
-            Cyril Drouin 在 2003 年创办了中国最早的电商代理之一，随后执掌阳狮商务与效果营销在中国及北亚的业务。AI 落地，和过去二十年是同一桩活儿：找到信号，交付扛得住的东西，再把团队带到能自己跑下去。
+            Cyril Drouin 在 2003 年创办了中国最早的电商代理机构之一，此后执掌阳狮商务与效果营销在中国及北亚的业务。AI 落地和过去二十年做的是同一件事：找到信号，交付经得起检验的成果，再把团队带到能够自己跑下去的程度。
           </p>
         </div>
       </div>
@@ -200,10 +200,10 @@ const expertise = ['市场营销', '传播', '媒介', '电商', '供应链', '�
       <header class="bbai-block-head">
         <span class="eyebrow">多数项目为何停滞</span>
         <h2 class="bbai-block-title balance">
-          多数 AI 项目并非卡在技术上。 <em>它们卡在诚实上。</em>
+          多数 AI 项目的症结不在技术。 <em>而在诚实。</em>
         </h2>
         <p class="bbai-block-lead">
-          动辄许下天大承诺的试点。问题还没说清就先买好的工具。为了在董事会上好看、却从没打算落地的路线图。我们偏偏反着来。
+          动辄许下大承诺的试点；问题还没说清就先买下的工具；为了在董事会上好看、却根本没打算落地的路线图。我们偏偏从相反的一端做起。
         </p>
       </header>
 
@@ -229,7 +229,7 @@ const expertise = ['市场营销', '传播', '媒介', '电商', '供应链', '�
         <span class="eyebrow eyebrow--on-dark">方法</span>
         <h2 class="bbai-method__title">AZIMUTH</h2>
         <p class="bbai-method__lead">
-          我们循的方位。五个阶段，每两个之间设一道关。只有证据够格了，才走向下一关。
+          这是我们循的方位。五个阶段，每两个之间设一道关。证据过得了关，才走到下一步。
         </p>
       </header>
 
@@ -244,7 +244,7 @@ const expertise = ['市场营销', '传播', '媒介', '电商', '供应链', '�
 
       <p class="bbai-method__horizon">
         <span class="bbai-method__horizon-label">地平线</span>
-        在这一切之下，我们一直盯着 AI 在东西两边的动向，再把它翻译成对你眼前这摊活儿真正要紧的东西。
+        在所有这些项目底下，我们一直盯着 AI 在东西两端的最新动向，再把它转化为对您手头工作真正要紧的判断。
       </p>
     </div>
   </section>
@@ -256,8 +256,8 @@ const expertise = ['市场营销', '传播', '媒介', '电商', '供应链', '�
     <div class="container">
       <header class="bbai-block-head">
         <span class="eyebrow">如何与我们合作</span>
-        <h2 class="bbai-block-title balance">四种切入。<em>从你所在之处开始。</em></h2>
-        <p class="bbai-block-lead">整段走完，或只取其中一步。每一步都自己撑得起。</p>
+        <h2 class="bbai-block-title balance">四种切入方式。<em>从您所在的地方开始。</em></h2>
+        <p class="bbai-block-lead">可以走完整段，也可以只取其中一环。每一环都能独立见效。</p>
       </header>
 
       <div class="bbai-tabs" data-tabs>
@@ -330,12 +330,12 @@ const expertise = ['市场营销', '传播', '媒介', '电商', '供应链', '�
       <div class="bbai-ew">
         <div class="bbai-ew__copy">
           <span class="eyebrow">东与西</span>
-          <h2 class="bbai-block-title balance">两边我们都测。<em>在你的数据上。</em></h2>
+          <h2 class="bbai-block-title balance">东西两端，我们都验证。<em>就在您的数据上。</em></h2>
           <p class="bbai-block-lead">
-            对的模型，就是把你这件事做得最好的那个。我们让两套生态并排跑同一个任务，让结果自己分高下。
+            所谓合适的模型，就是把您这件事做得最好的那一个。我们让两套生态在同一个任务上同台较量，让结果说了算。
           </p>
           <p class="bbai-ew__note">
-            你的数据不会经过中国，除非你明确要求部署在中国境内。
+            除非您明确要求部署在中国境内，否则您的数据不会进入中国。
           </p>
         </div>
         <div class="bbai-ew__cols">
@@ -355,7 +355,7 @@ const expertise = ['市场营销', '传播', '媒介', '电商', '供应链', '�
       </div>
 
       <div class="bbai-expertise">
-        <span class="bbai-expertise__label">深耕那些直接关乎营收与人的职能</span>
+        <span class="bbai-expertise__label">深耕那些直接关系到营收和人的核心职能</span>
         <ul class="bbai-expertise__tags">
           {expertise.map((e) => <li>{e}</li>)}
         </ul>
@@ -371,13 +371,13 @@ const expertise = ['市场营销', '传播', '媒介', '电商', '供应链', '�
     <div class="container bbai-operate__inner">
       <span class="eyebrow eyebrow--on-dark">标准</span>
       <h2 class="bbai-operate__title">
-        <span class="bbai-operate__line" data-line>在演示里好用的</span>
-        <span class="bbai-operate__line" data-line>和在你现场好用的</span>
-        <span class="bbai-operate__line" data-line>往往不是一回事。</span>
+        <span class="bbai-operate__line" data-line>在演示里跑得通的，</span>
+        <span class="bbai-operate__line" data-line>和在您现场跑得通的，</span>
+        <span class="bbai-operate__line" data-line>常常不是一回事。</span>
       </h2>
       <div class="bbai-operate__statement" data-line>
-        <p>我们唯一信的证据，是你自己的数据，在你真实的约束下，对照一个开工前我们一起定好的目标来衡量。</p>
-        <p class="bbai-operate__emphasis">差一点，那都只是销售演示。我们不做这门生意。</p>
+        <p>我们唯一相信的证据，是您自己的数据，在您真实的约束下，对照一个动工前就一起定好的目标来衡量。</p>
+        <p class="bbai-operate__emphasis">差一点，都只是销售演示。这门生意，我们不做。</p>
       </div>
     </div>
   </section>
@@ -388,11 +388,11 @@ const expertise = ['市场营销', '传播', '媒介', '电商', '供应链', '�
   <section class="bbai-cta">
     <div class="bbai-cta__bg" aria-hidden="true"></div>
     <div class="container bbai-cta__inner">
-      <span class="eyebrow eyebrow--on-dark">你准备好就开始</span>
-      <h2 class="bbai-cta__title balance">先从定位开始。<br />一场三十分钟的对话。</h2>
+      <span class="eyebrow eyebrow--on-dark">您准备好，就开始</span>
+      <h2 class="bbai-cta__title balance">先把方位定下来。<br />一场三十分钟的对话。</h2>
       <div class="bbai-cta__actions">
         <a class="bbai-cta__primary" href={visitUrl} target="_blank" rel="noreferrer">{visitLabel}</a>
-        <a class="bbai-cta__ghost" href={pathFor('contact', locale)}>聊聊</a>
+        <a class="bbai-cta__ghost" href={pathFor('contact', locale)}>与我们聊聊</a>
       </div>
     </div>
   </section>

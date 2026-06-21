@@ -5,33 +5,33 @@ import { pathFor } from '../../../i18n/ui';
 const locale = 'zh' as const;
 const route = 'agencies/theredscroll' as const;
 
-const platforms = ['微信', '抖音', '小红书', '微博', '另外 14 个'];
+const platforms = ['微信', '抖音', '小红书', '微博', '等 14 个平台'];
 
 const services = [
   {
     key: 'plan',
     title: '规划',
     items: [
-      { name: '策略、Campaign 与数据', body: '市场和竞品研究，平台选择，内容日历，与业务目标挂钩的 KPI，仪表盘，以及舆情监测。' },
-      { name: '进入中国市场', body: '账号开通、认证，跟天猫、京东、抖音小店的电商对接做完。中文命名，再加一份平台就绪的素材包。' },
+      { name: '策略、营销活动与数据分析', body: '市场与竞品调研、平台选型、内容排期，KPI 与业务目标挂钩，配数据看板和社媒舆情监测。' },
+      { name: '进入中国市场', body: '账号开通与认证，打通天猫、京东、抖音小店的电商链路，中文品牌命名，外加一套拿来即用的平台素材包。' },
     ],
   },
   {
     key: 'run',
     title: '运营',
     items: [
-      { name: '覆盖的平台', body: '微信、抖音、小红书、微博四个核心。B 站、快手、知乎、今日头条等以透明加项的方式接入。' },
-      { name: '内容生产', body: '策略由人主导。AIGC 图像与视频走 HubStudio.ai。中国本地实拍。原生中文文案与审校。' },
-      { name: '广告策划与投放', body: '微信、抖音、小红书、微博、百度上的付费媒介。CPM、CPC、CPA、ROAS，按周、按月给报告。广告费零加价。' },
-      { name: '达人营销', body: '互动数据核过身份，假粉识别，调性匹配。Brief、共创、发布、直播带货、ROI 报告。' },
+      { name: '平台覆盖', body: '主阵地是微信、抖音、小红书、微博；B 站、快手、知乎、今日头条等，按透明加项接入。' },
+      { name: '内容生产', body: '策略由人主导；AIGC 图像与视频出自 HubStudio.ai；在中国本地实拍；文案以原生中文撰写并审校。' },
+      { name: '广告策划与投放', body: '微信、抖音、小红书、微博、百度全平台付费投放，CPM、CPC、CPA、ROAS 按周按月出报告，广告费一分不加。' },
+      { name: '达人营销', body: '核实互动数据、揪出虚假粉丝、按垂类匹配；从 Brief、共创、发布到直播带货，再到 ROI 复盘。' },
     ],
   },
   {
     key: 'sustain',
     title: '沉淀',
     items: [
-      { name: 'CRM 与私域', body: '企业微信搭建，微信 CRM，社群管理，客服流程，会员体系。' },
-      { name: '培训与咨询', body: '微信、抖音、小红书、微博的大师课。围绕内容、达人、付费媒介的工作坊。战略咨询。' },
+      { name: 'CRM 与私域', body: '企业微信搭建、微信 CRM、社群运营、客服流程与会员体系。' },
+      { name: '培训与咨询', body: '微信、抖音、小红书、微博的大师课，内容、达人、付费投放的实战工作坊，以及战略咨询。' },
     ],
   },
 ];
@@ -43,8 +43,8 @@ const visitLabel = '访问 theredscroll.com';
 <Layout
   locale={locale}
   route={route}
-  title="中国社交媒体公司。范围固定。价格固定。"
-  description="我们替国际品牌在中国把社交账号做起来。范围固定。价格固定。团队在上海和香港，扎在一线。预约通话。"
+  title="中国社媒代理公司。范围固定。价格固定。"
+  description="我们为国际品牌运营中国社交媒体，把粉丝和声量一起做起来。范围固定，价格固定。团队扎在上海和香港，做在一线。欢迎预约沟通。"
 >
   <section class="trs-hero">
     <div class="trs-hero__bg" aria-hidden="true">
@@ -62,10 +62,10 @@ const visitLabel = '访问 theredscroll.com';
           <h1 class="trs-hero__title">
             我们在
             <span class="trs-hero__phrase trs-hero__phrase--platforms">中国的平台</span>上发声。
-            <span class="trs-hero__phrase trs-hero__phrase--daily">每一天</span>。
-            <span class="trs-hero__phrase trs-hero__phrase--ground">从一线发</span>。
+            <span class="trs-hero__phrase trs-hero__phrase--daily">日复一日</span>。
+            <span class="trs-hero__phrase trs-hero__phrase--ground">扎根一线</span>。
           </h1>
-          <p class="trs-hero__lead">中国跑在自己的平台上：微信、抖音、小红书、微博，再加另外十四个。在 PPT 上读懂这一点，和每天早上打开这些 app，是两回事。坦白说，多数公司并不打开。</p>
+          <p class="trs-hero__lead">中国的互联网，跑在自己的一套平台上：微信、抖音、小红书、微博，还有另外十四个。把这些写进 PPT 是一回事，每天清早把这些 App 逐一点开，又是另一回事。说句实话，后者多数同行根本不做。</p>
           <div class="trs-hero__actions">
             <a class="btn btn--primary trs-hero__cta" href={visitUrl} target="_blank" rel="noreferrer">{visitLabel}</a>
           </div>
@@ -112,16 +112,16 @@ const visitLabel = '访问 theredscroll.com';
 
   <section class="section section--alt">
     <div class="container container--narrow">
-      <span class="eyebrow">我们怎么干</span>
-      <p class="lead">每一条内容、视频、活动和报告，事先都写进一份范围说明书里。一个套餐对一个数字。没有隐藏费用，没有范围蔓延。团队在上海和香港，母语在岗，真正能登上各家平台，跟中国 KOL 之间是直通的路。我们自己建了 HubStudio.ai，把视觉、视频和文案的成本压到原来的一小块。策略仍由人来想。</p>
+      <span class="eyebrow">合作方式</span>
+      <p class="lead">每一条内容、每一支视频、每一次活动、每一份报告，开工前都白纸黑字写进工作说明书。一个套餐，对应一个价格。没有隐性收费，也不会中途加码。团队扎在上海和香港，成员皆为母语者，手握真实的平台账号，与中国达人直接对接。视觉、视频、文案的成本，被我们自研的 HubStudio.ai 压到了过去的零头；唯有策略，始终由人来定。</p>
     </div>
   </section>
 
   <section class="section">
     <div class="container">
       <header class="section-header">
-        <span class="eyebrow">我们做什么</span>
-        <h2 class="balance">三条线，八根支柱，端到端。</h2>
+        <span class="eyebrow">服务内容</span>
+        <h2 class="balance">三条主线，八大支柱，端到端。</h2>
       </header>
       <div class="services">
         {services.map((s) => (
@@ -146,8 +146,8 @@ const visitLabel = '访问 theredscroll.com';
 
   <section class="section section--alt">
     <div class="container container--narrow">
-      <span class="eyebrow">怎么打包</span>
-      <p class="lead">三档，价格全部预先报出来。Discovery 给试水中国的品牌，三个月、一个平台。Growth 给在中国扩规模的品牌，六个月、两到三个平台。Premium 给全力下注的品牌，十二个月、四个或以上的平台。每一档都附一份写好的范围说明书和一个固定价。</p>
+      <span class="eyebrow">套餐组合</span>
+      <p class="lead">三档套餐，价格全部摆在明处。Discovery 适合初探中国的品牌，三个月，单一平台。Growth 适合谋求扩张的品牌，六个月，两到三个平台。Premium 适合全力押注的品牌，十二个月，四个及以上平台。每一档都配一纸工作说明书，和一个不再变动的价格。</p>
     </div>
   </section>
 
@@ -156,7 +156,7 @@ const visitLabel = '访问 theredscroll.com';
       <h2 class="balance">更多粉丝。更多互动。更多线索。更多转化。</h2>
       <div class="btn-row" style="justify-content: center;">
         <a class="btn btn--primary" href={visitUrl} target="_blank" rel="noreferrer">{visitLabel}</a>
-        <a class="btn btn--ghost-light" href={pathFor('contact', locale)}>聊一聊</a>
+        <a class="btn btn--ghost-light" href={pathFor('contact', locale)}>与我们联系</a>
       </div>
     </div>
   </section>

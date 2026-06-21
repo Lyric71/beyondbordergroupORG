@@ -4,50 +4,50 @@ import AgencyLogo from '../../components/AgencyLogo.astro';
 import { pathFor } from '../../i18n/ui';
 
 const locale = 'zh' as const;
-const title = '品牌、产品、服务，为跨越中国与西方而生。两个方向，一起跑。';
-const description = '八家专业公司，把品牌、产品与服务在中国与西方之间双向打通。品牌、渠道、网站、伙伴对接、内容、销售。一个生态，一根共用脊柱。';
+const title = '跨越中国与西方：品牌、产品、服务，双向贯通。';
+const description = '八家专精公司，推动品牌、产品与服务在中国与西方之间双向流动，覆盖品牌、渠道、网站、伙伴对接、内容与销售。同属一个生态，共用一套中枢。';
 
 const linkedinUrl = 'https://www.linkedin.com/in/cyril-d-68835729/';
 
 const agencies = [
   {
     name: 'TheChinaPath',
-    tagline: '中国市场全案。从品牌做到电商。',
+    tagline: '中国市场全案，从品牌建设到电商运营。',
     route: 'agencies/bearingbridge' as const,
   },
   {
     name: 'BeyondBridge',
-    tagline: '中国品牌出海的整条链路。',
+    tagline: '中国品牌出海，打通完整链路。',
     route: 'agencies/beyondbridge' as const,
   },
   {
     name: 'HubStudio',
-    tagline: '图像、视频、内容，规模化产出。',
+    tagline: '图像、视频与内容，规模化生产。',
     route: 'agencies/hubstudio' as const,
   },
   {
     name: 'BearingBridge AI',
-    tagline: 'AI 落地咨询。东西方并行，在你的数据上跑。',
+    tagline: 'AI 落地咨询，东西方并行，基于你的数据。',
     route: 'agencies/bearingbridgeai' as const,
   },
   {
     name: 'ChinaWebFoundry',
-    tagline: '为中国互联网而生的网站。百度、ICP、AI 引擎。',
+    tagline: '为中国互联网而生的网站：百度、ICP 备案、AI 引擎。',
     route: 'agencies/chinawebfoundry' as const,
   },
   {
     name: 'TheRedScroll',
-    tagline: '中国社交平台。微信、抖音、小红书、微博。',
+    tagline: '中国社交平台：微信、抖音、小红书、微博。',
     route: 'agencies/theredscroll' as const,
   },
   {
     name: 'Compass',
-    tagline: '一个亲自核过的中国分销商、Tmall TP、抖音 Partner 私库。',
+    tagline: '严选中国分销商、天猫 TP 与抖音服务商的专属资源库。',
     route: 'agencies/compass' as const,
   },
   {
     name: 'Nuvora Studio',
-    tagline: '只做 LinkedIn 的 B2B。策略、内容、投放。',
+    tagline: '专注 LinkedIn 的 B2B：策略、内容、投放。',
     route: 'agencies/nuvora-studio' as const,
   },
 ];
@@ -84,7 +84,7 @@ const agencies = [
                 <span class="rail__logo"><img src="/images/thechinapath-horizontal.png" alt="" /></span>
                 <span class="rail__body">
                   <span class="rail__name">TheChinaPath</span>
-                  <span class="rail__tagline">西方进入中国 · 全案</span>
+                  <span class="rail__tagline">西方入华 · 全案</span>
                 </span>
                 <span class="rail__stripe rail__stripe--w" aria-hidden="true"></span>
               </a>
@@ -94,7 +94,7 @@ const agencies = [
                 <span class="rail__logo"><img src="/AgencyLogos/BeyondBridge-%20Logo-EN-4K-Transparent.png" alt="" /></span>
                 <span class="rail__body">
                   <span class="rail__name">BeyondBridge</span>
-                  <span class="rail__tagline">中国走向西方 · 全案</span>
+                  <span class="rail__tagline">中国出海 · 全案</span>
                 </span>
                 <span class="rail__stripe rail__stripe--e" aria-hidden="true"></span>
               </a>
@@ -104,7 +104,7 @@ const agencies = [
 
         <div class="rail__chapter">
           <div class="rail__chapter-head">
-            <span class="rail__chapter-label">两端通用</span>
+            <span class="rail__chapter-label">横向支撑</span>
             <span class="rail__chapter-rule" aria-hidden="true"></span>
           </div>
           <ol class="rail__list">
@@ -133,7 +133,7 @@ const agencies = [
 
         <div class="rail__chapter">
           <div class="rail__chapter-head">
-            <span class="rail__chapter-label">专家</span>
+            <span class="rail__chapter-label">专精公司</span>
             <span class="rail__chapter-rule" aria-hidden="true"></span>
           </div>
           <ol class="rail__list">
@@ -184,15 +184,15 @@ const agencies = [
     <div class="container hero-statement__container">
       <div class="hero-statement__content">
         <span class="eyebrow">生态</span>
-        <h1 class="hero-statement__title balance">在中国和西方两端打造品牌、产品与服务，并把它们放大。两个方向同时跑。</h1>
+        <h1 class="hero-statement__title balance">我们在中国与西方两端，打造并壮大品牌、产品与服务。双向并行。</h1>
         <p class="hero-statement__lead">
-          八家专业公司，背后是同一个判断：中西方之间的鸿沟，从来不是翻译能解决的。它是品牌，是渠道，是基础设施，是销售。而且，两个方向同时跑，天天如此。
+          八家专精公司，秉持同一个判断：中国与西方之间的鸿沟，从来不是翻译所能弥合。它关乎品牌，关乎渠道，关乎基础设施，也关乎销售。而这道鸿沟，我们每天都在双向跨越。
         </p>
         <div class="btn-row">
-          <a class="btn btn--primary" href={pathFor('agencies', locale)}>找到合适的公司</a>
-          <a class="btn btn--ghost" href={pathFor('contact', locale)}>聊一聊</a>
+          <a class="btn btn--primary" href={pathFor('agencies', locale)}>找到适合你的公司</a>
+          <a class="btn btn--ghost" href={pathFor('contact', locale)}>与我们洽谈</a>
         </div>
-        <p class="hero-statement__cite">上海。香港。巴黎。在美国、英国、德国、法国设有本地代表。</p>
+        <p class="hero-statement__cite">上海。香港。巴黎。在美国、英国、德国、法国派驻本地代表。</p>
       </div>
     </div>
   </section>
@@ -200,8 +200,8 @@ const agencies = [
   <section class="section section--alt">
     <div class="container">
       <header class="section-header">
-        <span class="eyebrow">两条流向</span>
-        <h2 class="balance">从你这一岸开始。</h2>
+        <span class="eyebrow">双向流动</span>
+        <h2 class="balance">从你所在的这一岸出发。</h2>
       </header>
 
       <div class="bridge-panel">
@@ -219,15 +219,15 @@ const agencies = [
         <a class="bridge-panel__side bridge-panel__side--inbound" href={`${pathFor('two-flows', locale)}#inbound`}>
           <span class="bridge-panel__direction">
             <span class="bridge-panel__arrow" aria-hidden="true">→</span>
-            西方进入中国 · 入境
+            西方入华 · 入境
           </span>
-          <h3 class="bridge-panel__title">把西方品牌带进中国。</h3>
+          <h3 class="bridge-panel__title">将西方品牌引入中国。</h3>
           <p class="bridge-panel__body">
-            品牌、微信、小红书、抖音、Tmall、京东、百度、KOL、分销。从一张落地页起步，到整套阵列跑起来。
+            品牌、微信、小红书、抖音、天猫、京东、百度、KOL、分销。从一张落地页，到整套体系。
           </p>
           <span class="bridge-panel__by">TheChinaPath · TheRedScroll · ChinaWebFoundry · Compass · HubStudio</span>
           <span class="bridge-panel__cta">
-            进入入境通道
+            查看入境业务
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
           </span>
         </a>
@@ -235,22 +235,22 @@ const agencies = [
         <a class="bridge-panel__side bridge-panel__side--outbound" href={`${pathFor('two-flows', locale)}#outbound`}>
           <span class="bridge-panel__direction">
             <span class="bridge-panel__arrow" aria-hidden="true">←</span>
-            中国走向西方 · 出境
+            中国出海 · 出境
           </span>
-          <h3 class="bridge-panel__title">把中国品牌带到海外。</h3>
+          <h3 class="bridge-panel__title">将中国品牌推向海外。</h3>
           <p class="bridge-panel__body">
-            为西方买家做的品牌，一个真在维护的 LinkedIn，一份按西方眼光做出来的网站，外加 SEO、GEO、Google Ads，还有能在对的时区接电话的具名销售。
+            面向西方买家的品牌，持续运营的 LinkedIn，依西方审美打造的网站，加上 SEO、GEO、Google Ads，以及身处合适时区、实名对接的销售团队。
           </p>
           <span class="bridge-panel__by">BeyondBridge · Nuvora Studio</span>
           <span class="bridge-panel__cta">
-            进入出境通道
+            查看出境业务
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
           </span>
         </a>
       </div>
 
       <div class="btn-row" style="margin-top: var(--space-6); justify-content: center;">
-        <a class="btn btn--primary" href={pathFor('two-flows', locale)}>打开「两条流向」整页</a>
+        <a class="btn btn--primary" href={pathFor('two-flows', locale)}>展开「双向流动」全页</a>
       </div>
     </div>
   </section>
@@ -259,9 +259,9 @@ const agencies = [
     <div class="container">
       <header class="section-header">
         <span class="eyebrow">阵容</span>
-        <h2 class="balance">八位专家。一个生态。</h2>
+        <h2 class="balance">八家专精公司。一个生态。</h2>
         <p class="lead">
-          每一家都自成一格。要谁，启用谁。多数客户从一家开始，随着项目展开再把别的拉进来。
+          每一家都能独立成事。需要哪一家，就启用哪一家。多数客户从一家起步，随着项目推进，再陆续引入其他公司。
         </p>
       </header>
       <div class="grid-3">
@@ -269,7 +269,7 @@ const agencies = [
           <a class="card" href={pathFor(a.route, locale)}>
             <AgencyLogo route={a.route} name={a.name} class="agency-card-logo" />
             <p>{a.tagline}</p>
-            <span class="btn btn--ghost" style="margin-top: auto;">打开</span>
+            <span class="btn btn--ghost" style="margin-top: auto;">了解</span>
           </a>
         ))}
       </div>
@@ -279,10 +279,10 @@ const agencies = [
   <section class="section section--alt">
     <div class="container">
       <header class="section-header">
-        <span class="eyebrow">逻辑</span>
-        <h2 class="balance">两位主力。五位专家。一台引擎。</h2>
+        <span class="eyebrow">布局</span>
+        <h2 class="balance">两家主力。五家专精。一台引擎。</h2>
         <p class="lead">
-          两家主力公司，方向各一家。五家专家，哪一边都能接进去。一台生产引擎，横跨两端。
+          两家主力公司，各领一个方向。五家专精公司，可接入任一方向。一台生产引擎，贯通两端。
         </p>
       </header>
       <div class="matrix-grid" role="table" aria-label="按方向与层次划分的公司矩阵">
@@ -320,7 +320,7 @@ const agencies = [
           </div>
           <div class="matrix-cell matrix-cell--both" role="cell">
             <span class="matrix-cell__name">TheRedScroll</span>
-            <span class="matrix-cell__note">微信、抖音、小红书、微博。服务西方客户，也服务中国客户。</span>
+            <span class="matrix-cell__note">微信、抖音、小红书、微博，中外客户兼顾。</span>
             <a class="matrix-cell__site" href="https://theredscroll.com" target="_blank" rel="noreferrer">theredscroll.com <span aria-hidden="true">↗</span></a>
           </div>
         </div>
@@ -331,7 +331,7 @@ const agencies = [
           </div>
           <div class="matrix-cell matrix-cell--both" role="cell">
             <span class="matrix-cell__name">Nuvora Studio</span>
-            <span class="matrix-cell__note">只做 LinkedIn。服务西方客户，也服务中国客户。</span>
+            <span class="matrix-cell__note">专注 LinkedIn，中外客户兼顾。</span>
             <a class="matrix-cell__site" href="https://nuvora.studio" target="_blank" rel="noreferrer">nuvora.studio <span aria-hidden="true">↗</span></a>
           </div>
         </div>
@@ -342,7 +342,7 @@ const agencies = [
           </div>
           <div class="matrix-cell matrix-cell--both" role="cell">
             <span class="matrix-cell__name">ChinaWebFoundry</span>
-            <span class="matrix-cell__note">为百度而生，走通 ICP 备案，接上中国 AI 引擎。服务西方客户，也服务中国客户。</span>
+            <span class="matrix-cell__note">为百度优化，完成 ICP 备案，对接中国 AI 引擎，中外客户兼顾。</span>
             <a class="matrix-cell__site" href="https://chinawebfoundry.com" target="_blank" rel="noreferrer">chinawebfoundry.com <span aria-hidden="true">↗</span></a>
           </div>
         </div>
@@ -353,7 +353,7 @@ const agencies = [
           </div>
           <div class="matrix-cell matrix-cell--both" role="cell">
             <span class="matrix-cell__name">Compass</span>
-            <span class="matrix-cell__note">亲自核过的中国分销商、Tmall TP、抖音 Partner。</span>
+            <span class="matrix-cell__note">经过严选的中国分销商、天猫 TP 与抖音服务商。</span>
             <a class="matrix-cell__site" href="https://compass.bearingbridge.com" target="_blank" rel="noreferrer">compass.bearingbridge.com <span aria-hidden="true">↗</span></a>
           </div>
         </div>
@@ -369,7 +369,7 @@ const agencies = [
               <span class="matrix-cell__bridge-dot"></span>
             </span>
             <span class="matrix-cell__name">HubStudio</span>
-            <span class="matrix-cell__note">内容生产引擎。两个方向都在它上面跑。</span>
+            <span class="matrix-cell__note">内容生产引擎，贯通两个方向。</span>
             <a class="matrix-cell__site" href="https://hubstudio.ai" target="_blank" rel="noreferrer">hubstudio.ai <span aria-hidden="true">↗</span></a>
           </div>
         </div>
@@ -385,13 +385,13 @@ const agencies = [
               <span class="matrix-cell__bridge-dot"></span>
             </span>
             <span class="matrix-cell__name">BearingBridge AI</span>
-            <span class="matrix-cell__note">AI 落地咨询，东西方并行。给任何公司，不只是面向中国。</span>
+            <span class="matrix-cell__note">AI 落地咨询，东西方并行，面向各类企业，不限于中国市场。</span>
             <a class="matrix-cell__site" href="https://www.bearingbridge.ai" target="_blank" rel="noreferrer">bearingbridge.ai <span aria-hidden="true">↗</span></a>
           </div>
         </div>
       </div>
       <div style="margin-top: var(--space-6);">
-        <a class="btn btn--ghost" href={pathFor('how-we-work-together', locale)}>看我们如何配合</a>
+        <a class="btn btn--ghost" href={pathFor('how-we-work-together', locale)}>了解我们如何协作</a>
       </div>
     </div>
   </section>
@@ -400,12 +400,12 @@ const agencies = [
     <div class="container">
       <div class="split split--text-first">
         <div>
-          <span class="eyebrow eyebrow--on-dark">幕后是谁</span>
-          <h2 class="balance">一个真正操过盘的人。两边都跑了二十多年。</h2>
+          <span class="eyebrow eyebrow--on-dark">操盘者</span>
+          <h2 class="balance">一位真正的操盘者。横跨中西，深耕二十余年。</h2>
           <p class="lead">
-            集团由 Cyril Drouin 创立并领导。二十五年数字、电商与品牌经验，横跨欧洲与北亚。曾任阳狮（Publicis）北亚首席数字与电商官。
+            集团由 Cyril Drouin 创立并执掌。深耕数字、电商与品牌领域二十五年，横跨欧洲与北亚，曾任阳狮集团（Publicis）北亚区首席数字与电商官。
           </p>
-          <a class="btn btn--ghost-light" href={linkedinUrl} target="_blank" rel="noreferrer">在 LinkedIn 上联系</a>
+          <a class="btn btn--ghost-light" href={linkedinUrl} target="_blank" rel="noreferrer">通过 LinkedIn 联系</a>
         </div>
         <div>
           <a class="founder-portrait" href={linkedinUrl} target="_blank" rel="noreferrer" aria-label="Cyril Drouin on LinkedIn">
@@ -425,9 +425,9 @@ const agencies = [
 
   <section class="section section--tight">
     <div class="container container--narrow center">
-      <h2 class="balance">告诉我们，你要往哪边走。</h2>
+      <h2 class="balance">告诉我们，你要往哪个方向走。</h2>
       <p class="lead" style="margin-inline: auto;">
-        三十分钟一通电话。我们告诉你：从集团里的哪一家入手，或者要不要几家同时开跑。
+        一通三十分钟的电话。我们会告诉你：从集团中的哪一家入手，又或者，是否需要多家并行推进。
       </p>
       <div class="btn-row" style="justify-content: center; margin-top: var(--space-5);">
         <a class="btn btn--primary" href={pathFor('contact', locale)}>预约通话</a>

@@ -15,49 +15,49 @@ const services: Array<{
 }> = [
   {
     key: 'produce',
-    title: 'Produzieren',
-    intro: 'Markengerechte Visuals, Video und Texte. Hunderte fertige Assets pro Monat, generiert, real fotografiert oder hybrid.',
+    title: 'Produktion',
+    intro: 'Bildwelten, Bewegtbild und Text im Markenton. Mehrere hundert fertige Assets im Monat, generiert, fotografiert oder im Hybridverfahren.',
     image: '/images/hubstudio-produce.webp',
     items: [
-      { name: 'Bildproduktion', body: 'Markengerechte Visuals in Skala, ab 35 $ pro Briefing bis 405 $ für ein fertiges Asset. Mehrere Varianten, vollständige Retusche, drei Korrekturschleifen. Generiert, real fotografiert oder hybrid.' },
-      { name: 'Kurz- und Langvideo', body: 'Ab 200 $ pro Drehbuch. Pre-Production, Post-Production, Voice-over, Musik, Untertitel. Echte Drehs, generiert oder hybrid.' },
-      { name: 'Realdreh-Studio', body: 'Echte Foto- und Videodrehs, wenn das Briefing es verlangt. Im Einsatz für Mazda, Nescafe, Marriott, Bobbi Brown und andere.' },
-      { name: '3D, CGI, Motion', body: '3D-Animation, CGI für Produktvisuals, Motion Design, Video-Branding, Voice-over, Text-to-Speech.' },
+      { name: 'Bildproduktion', body: 'Markengerechte Bildwelten in Serie, vom Briefing ab 35 $ bis zum fertigen Asset für 405 $. Mehrere Varianten, vollständige Retusche, drei Korrekturschleifen. Generiert, fotografiert oder hybrid.' },
+      { name: 'Kurz- und Langvideo', body: 'Ab 200 $ je Drehbuch. Vorproduktion, Postproduktion, Sprecher, Musik, Untertitel. Echte Drehs, generiert oder als Mischung aus beidem.' },
+      { name: 'Realdreh-Studio', body: 'Echte Foto- und Filmdrehs, wenn das Briefing danach verlangt. Realisiert unter anderem für Mazda, Nescafé, Marriott und Bobbi Brown.' },
+      { name: '3D, CGI, Motion', body: '3D-Animation, CGI für Produktbilder, Motion Design, Bewegtbild-Branding, Sprachaufnahmen, Text-to-Speech.' },
     ],
   },
   {
     key: 'platform',
     title: 'Plattform',
-    intro: 'Ihr eigenes Content-Studio auf dedizierter GPU-Infrastruktur. Auf Ihre Marke trainiert. Von Ihrem Team betrieben.',
+    intro: 'Ihr eigenes Content-Studio auf dedizierter GPU-Infrastruktur. Trainiert auf Ihre Marke, betrieben von Ihrem Team.',
     image: '/images/hubstudio-platform.webp',
     items: [
-      { name: 'Hub4You-Plattform', body: 'Eine maßgeschneiderte Content-Plattform, ausgerollt auf Ihren dedizierten GPU-Servern, integriert in Ihr DAM und PIM. Ihr Team bedient sie. Wir schulen und betreuen. Deployment in Wochen.' },
-      { name: 'Modelle, auf Ihre Marke trainiert', body: 'Eigene LoRAs und Fine-Tunes pro Kunde. Ihre Farben, Ihr Stil, Ihre Produkte. Stabil hinterlegt und reproduzierbar.' },
-      { name: 'Pipelines und Tooling', body: 'Produktionsworkflows auf Basis von ComfyUI, Flux, Wan, Veo, Hunyuan und dem Modell, das letzte Woche herauskam. Erprobt in echten Kampagnen, nicht in Demos.' },
+      { name: 'Hub4You-Plattform', body: 'Eine Content-Plattform nach Maß, ausgerollt auf Ihren eigenen GPU-Servern und angebunden an DAM und PIM. Bedient wird sie von Ihrem Team, Schulung und Betreuung übernehmen wir. Einsatzbereit in wenigen Wochen.' },
+      { name: 'Modelle, auf Ihre Marke trainiert', body: 'Eigene LoRAs und Fine-Tunes für jeden Kunden. Ihre Farben, Ihre Handschrift, Ihre Produkte. Fest hinterlegt und jederzeit reproduzierbar.' },
+      { name: 'Pipelines und Tooling', body: 'Produktionsabläufe auf Basis von ComfyUI, Flux, Wan, Veo, Hunyuan und dem Modell, das vergangene Woche erschienen ist. Erprobt in echten Kampagnen, nicht in Demos.' },
     ],
   },
   {
     key: 'direct',
     title: 'Regie',
-    intro: 'Die Schicht kreativer Intelligenz. Strategie, Transkreation, Schulung. Der Teil, der sich nicht automatisieren lässt.',
+    intro: 'Die Ebene der kreativen Intelligenz. Strategie, Transkreation, Schulung. Der Teil, der sich nicht automatisieren lässt.',
     image: '/images/hubstudio-direct.webp',
     items: [
-      { name: 'Strategie und Guidelines', body: 'Content-Strategie, Markenpositionierung, visuelle Identität, Kampagnenkreation, KI-Nutzungsrichtlinien, Freigabe-Workflows.' },
-      { name: 'Transkreation', body: 'Mehrere Märkte, mehrere Sprachen, mit muttersprachlicher Kulturkenntnis. Von Kreativen gebaut, die in der Zielkultur leben.' },
-      { name: 'Schulung', body: 'Praxis-Workshops für hauseigene Teams zu ComfyUI, Flux, Wan, Veo, MidJourney, Gemini.' },
+      { name: 'Strategie und Guidelines', body: 'Content-Strategie, Markenpositionierung, visuelle Identität, Kampagnenidee, Richtlinien für den KI-Einsatz, Freigabeprozesse.' },
+      { name: 'Transkreation', body: 'Mehrere Märkte, mehrere Sprachen, mit dem kulturellen Gespür von Muttersprachlern. Entwickelt von Kreativen, die in der jeweiligen Kultur zu Hause sind.' },
+      { name: 'Schulung', body: 'Praxisnahe Workshops für interne Teams zu ComfyUI, Flux, Wan, Veo, MidJourney und Gemini.' },
     ],
   },
 ];
 
 const visitUrl = 'https://hubstudio.ai';
-const visitLabel = 'hubstudio.ai besuchen';
+const visitLabel = 'hubstudio.ai ansehen';
 ---
 
 <Layout
   locale={locale}
   route={route}
   title="HubStudio: KI-Content-Produktion zum halben Preis"
-  description="Eine Produktionsschmiede in China, die AIGC im Maßstab einsetzt. Content-Kosten minus 60 Prozent, hunderte markengerechte Assets pro Monat für internationale Marken."
+  description="Eine Produktionsschmiede in China, die KI-Content im großen Maßstab umsetzt. 60 Prozent geringere Content-Kosten, mehrere hundert markengerechte Assets pro Monat für internationale Marken."
 >
   <!-- ====================================================================== -->
   <!-- HERO                                                                   -->
@@ -76,18 +76,18 @@ const visitLabel = 'hubstudio.ai besuchen';
 
         <span class="hs-hero__eyebrow">
           <span class="hs-hero__eyebrow-dot"></span>
-          Produktionsschmiede · Shanghai · AIGC in Skala
+          Produktionsschmiede · Shanghai · KI-Content im Maßstab
         </span>
 
         <h1 class="hs-hero__title">
           <span class="hs-hero__line" data-anim="word">Eine Produktionsschmiede,</span>
-          <span class="hs-hero__line" data-anim="word">gebaut für das,</span>
+          <span class="hs-hero__line" data-anim="word">gemacht für das, was</span>
           <span class="hs-hero__line" data-anim="word">
-            was <em class="hs-hero__phrase">Content</em> heute ist.
+            <em class="hs-hero__phrase">Content</em> heute verlangt.
           </span>
         </h1>
 
-        <p class="hs-hero__lead" data-anim="fade">Eine internationale Hausgerätemarke kam letztes Jahr mit einer Freigabequote von 22 Prozent zu uns. Sechs Monate später lag dieser Wert bei 78 Prozent. Der Output versiebenfachte sich. Die Kosten fielen um 60 Prozent. So groß ist ungefähr der Abstand zwischen der alten Art, Content zu machen, und dem, was heute funktionieren muss.</p>
+        <p class="hs-hero__lead" data-anim="fade">Als eine internationale Haushaltsgerätemarke im vergangenen Jahr zu uns kam, lag ihre Freigabequote bei 22 Prozent. Ein halbes Jahr später waren es 78. Die Produktion hatte sich versiebenfacht, die Kosten um 60 Prozent gesenkt. Ungefähr so weit liegt die alte Art, Content zu produzieren, von dem entfernt, was heute tragen muss.</p>
 
         <div class="hs-hero__cta-row" data-anim="fade">
           <a class="hs-magnet" href={visitUrl} target="_blank" rel="noreferrer" data-magnet>
@@ -121,7 +121,7 @@ const visitLabel = 'hubstudio.ai besuchen';
                   Live · {new Date().toLocaleDateString('de-DE', { month: 'short', year: 'numeric' })}
                 </span>
                 <span class="browser__visit" aria-hidden="true">
-                  <span>Site besuchen</span>
+                  <span>Zur Website</span>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l10-10M7 7h10v10"/></svg>
                 </span>
               </div>
@@ -159,9 +159,9 @@ const visitLabel = 'hubstudio.ai besuchen';
         </div>
         <div class="hs-track__copy">
           <span class="eyebrow">Track Record</span>
-          <h2 class="hs-track__title balance">Kosten pro fertigem Asset halbiert. Output vervielfacht.</h2>
+          <h2 class="hs-track__title balance">Kosten je fertigem Asset halbiert. Die Produktion vervielfacht.</h2>
           <p class="hs-track__lead">
-            Richtig eingesetzt halbiert KI-Generierung die Kosten eines fertigen Assets, oft fällt der Wert noch tiefer. Die Ersparnis ist real, und wir geben sie an den Kunden weiter. Marken brauchen heute hunderte Assets pro Monat, manchmal tausende, in Formaten, die es vor fünf Jahren noch nicht gab. Klassische Studios waren nie für diese Welt gebaut. Wir schon.
+            Klug eingesetzt halbiert die KI-Generierung die Kosten eines fertigen Assets, häufig sogar mehr. Diese Ersparnis ist echt, und wir reichen sie an unsere Kunden weiter. Marken brauchen heute mehrere hundert Assets im Monat, manchmal Tausende, in Formaten, die es vor fünf Jahren nicht gab. Für diese Welt waren klassische Studios nie gebaut. Wir schon.
           </p>
         </div>
       </div>
@@ -173,15 +173,15 @@ const visitLabel = 'hubstudio.ai besuchen';
         </div>
         <div class="hs-stat">
           <span class="hs-stat__num">7<span class="hs-stat__unit">×</span></span>
-          <span class="hs-stat__label">Output-Multiplikator</span>
+          <span class="hs-stat__label">mehr Produktionsvolumen</span>
         </div>
         <div class="hs-stat">
           <span class="hs-stat__num">60<span class="hs-stat__unit">%</span></span>
-          <span class="hs-stat__label">Kostenersparnis, voll weitergegeben</span>
+          <span class="hs-stat__label">Kostenersparnis, vollständig weitergegeben</span>
         </div>
         <div class="hs-stat">
           <span class="hs-stat__num">3<span class="hs-stat__unit">T</span></span>
-          <span class="hs-stat__label">Durchlaufzeit, das Minimum, mit dem wir arbeiten</span>
+          <span class="hs-stat__label">Tage Durchlaufzeit, unser absolutes Minimum</span>
         </div>
       </div>
     </div>
@@ -196,9 +196,9 @@ const visitLabel = 'hubstudio.ai besuchen';
         <span class="eyebrow">Was wir tun</span>
         <h2 class="hs-services__title">
           Drei Spuren. <em>Ein Studio.</em><br />
-          Von Anfang bis Ende.
+          Von der Idee bis zum fertigen Asset.
         </h2>
-        <p class="hs-services__lead">Wir sind eine vollständige Produktionsschmiede. Wir drehen, führen Regie, retuschieren, schneiden. Und wir setzen KI-Generierung auf einem Niveau ein, das die meisten Studios noch nicht erreicht haben. Über diesen Teil lohnt es sich zu sprechen.</p>
+        <p class="hs-services__lead">Wir sind eine Produktionsschmiede mit allem, was dazugehört. Wir drehen, führen Regie, retuschieren, schneiden. Und wir setzen KI-Generierung auf einem Niveau ein, das die meisten Studios noch nicht erreichen. Über diesen Teil lohnt das Gespräch.</p>
       </header>
 
       <div class="hs-services__shell" data-tabs>
@@ -275,22 +275,22 @@ const visitLabel = 'hubstudio.ai besuchen';
   <section class="hs-ways">
     <div class="container">
       <header class="hs-ways__header">
-        <span class="eyebrow">Zwei Wege, mit uns zu arbeiten</span>
-        <h2 class="hs-ways__title balance">Briefing schicken. Oder die Plattform selbst fahren.</h2>
+        <span class="eyebrow">Zwei Wege der Zusammenarbeit</span>
+        <h2 class="hs-ways__title balance">Briefing schicken. Oder die Plattform selbst betreiben.</h2>
       </header>
       <div class="hs-ways__grid">
         <article class="hs-way">
           <span class="hs-way__tag">Service</span>
-          <h3 class="hs-way__title">Wir machen es für Sie.</h3>
+          <h3 class="hs-way__title">Wir übernehmen das für Sie.</h3>
           <p class="hs-way__body">
-            Schicken Sie das Briefing, wir liefern den Content. Visuals, Video, eCommerce-Pakete, Kampagnenadaptionen, Transkreation, vollständige Foto- und Videodrehs, wenn das Briefing es verlangt. Hunderte Assets im Monat, markengerecht, termintreu.
+            Sie schicken das Briefing, wir liefern den Content. Bildwelten, Video, E-Commerce-Pakete, Kampagnenadaptionen, Transkreation und bei Bedarf komplette Foto- und Filmdrehs. Mehrere hundert Assets im Monat, im Markenton und pünktlich.
           </p>
         </article>
         <article class="hs-way">
           <span class="hs-way__tag">Plattform</span>
           <h3 class="hs-way__title">Wir bauen Ihnen die Plattform.</h3>
           <p class="hs-way__body">
-            Hub4You ist unsere maßgeschneiderte Content-Plattform, ausgerollt auf Ihren dedizierten GPU-Servern, integriert in Ihr DAM und PIM. Ihr Team bedient sie, wir schulen und betreuen. Deployment in Wochen.
+            Hub4You ist unsere Content-Plattform nach Maß, ausgerollt auf Ihren eigenen GPU-Servern und angebunden an DAM und PIM. Ihr Team bedient sie, wir schulen und begleiten. Einsatzbereit in wenigen Wochen.
           </p>
         </article>
       </div>
@@ -310,8 +310,8 @@ const visitLabel = 'hubstudio.ai besuchen';
         <span class="hs-operate__line" data-line>Tempo ist das neue Handwerk.</span>
       </h2>
       <div class="hs-operate__statement" data-line>
-        <p>Ein brauchbares Bild zu generieren, kann inzwischen jeder. Der Abstand zwischen brauchbar und brillant liegt bei den Menschen, die die Arbeit führen.</p>
-        <p class="hs-operate__emphasis">Drei Tage Durchlauf galten früher als unmöglich. Heute sind sie das Minimum, mit dem wir arbeiten.</p>
+        <p>Ein brauchbares Bild generiert heute jeder. Der Abstand zwischen brauchbar und brillant entscheidet sich an den Menschen, die die Arbeit führen.</p>
+        <p class="hs-operate__emphasis">Drei Tage Durchlaufzeit galten lange als undenkbar. Heute sind sie unser Minimum.</p>
       </div>
     </div>
   </section>
@@ -325,7 +325,7 @@ const visitLabel = 'hubstudio.ai besuchen';
       <div class="hs-cta__bg-scrim"></div>
     </div>
     <div class="container hs-cta__content">
-      <span class="eyebrow eyebrow--on-dark">Bereit, wenn Sie es sind</span>
+      <span class="eyebrow eyebrow--on-dark">Bereit, sobald Sie es sind</span>
       <h2 class="hs-cta__title balance">Die Produktionsschmiede, zu der Marken wechseln,<br />wenn der alte Weg nicht mehr trägt.</h2>
       <div class="hs-cta__actions">
         <a class="btn btn--primary" href={visitUrl} target="_blank" rel="noreferrer">{visitLabel}</a>

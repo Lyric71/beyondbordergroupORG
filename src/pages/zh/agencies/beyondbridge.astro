@@ -16,32 +16,32 @@ const lanes: Array<{
   {
     key: 'build',
     title: '搭建',
-    intro: '一个西方买家会信的品牌，一份读起来不像翻译的网站。',
+    intro: '一个西方买家信得过的品牌，一个读起来不像翻译的网站。',
     image: '/images/bb-bridge-build.webp',
     items: [
-      { name: '咨询', body: '在大决策上给资深咨询。市场选择、定位、定价、上或不上。也可以单独买：只要思路、不要执行的客户。' },
-      { name: '面向海外的品牌策略', body: '按你进入的市场来做，不是从中国品牌里改一改。' },
-      { name: '网站', body: 'UX 和 UI 按西方眼光来，不是按中国眼光。托管在墙外。在汉堡和休斯顿都能秒开。' },
+      { name: '战略咨询', body: '在关键决策上提供资深参谋：市场选择、品牌定位、价格策略，以及要不要进这个市场。也可单独委托，适合只要判断、不要执行的客户。' },
+      { name: '面向海外的品牌策略', body: '站在目标市场的角度从头打造，而不是把现成的中国品牌改几笔就推出去。' },
+      { name: '网站', body: 'UX 与 UI 以西方用户的审美为准，不照搬国内习惯。网站部署在境外，无论汉堡还是休斯顿，打开就快。' },
     ],
   },
   {
     key: 'demand',
     title: '引流',
-    intro: '让你出现在那些已经在找的买家面前的渠道。',
+    intro: '几条渠道，让正在找你的买家一眼就看见你。',
     image: '/images/bb-bridge-demand.webp',
     items: [
-      { name: 'LinkedIn', body: '西方 B2B 买家就在那儿。创始人主页、公司主页、内容和触达。' },
-      { name: 'SEO 与 GEO', body: '在 Google 上被找到，在 ChatGPT、Perplexity 和 Claude 里被引用。按用英文、德文、法文搜索的买家来做。' },
-      { name: 'Google Ads', body: '付费搜索先把合格线索带进来，让 SEO 慢慢堆复利。报告用人民币。' },
+      { name: 'LinkedIn', body: '西方 B2B 买家都在这里。创始人个人页、公司主页、内容运营和主动触达，全交给我们。' },
+      { name: 'SEO 与 GEO', body: '让你在 Google 上搜得到，在 ChatGPT、Perplexity 和 Claude 里被引用。专为用英文、德文、法文搜索的买家做优化。' },
+      { name: 'Google Ads', body: '付费搜索先带来合格线索，为 SEO 的长期复利争取时间。投放数据按人民币结算。' },
     ],
   },
   {
     key: 'close',
     title: '成交',
-    intro: '七个市场都有真人。他们接第一通电话。订单值得一张机票时，他们亲自飞过去握手。',
+    intro: '七个市场，每个都有本地真人坐镇。第一通电话他们接；只要订单值得一张机票，就亲自飞过去，当面把单签下来。',
     image: '/images/bb-bridge-sell.webp',
     items: [
-      { name: '外部销售团队', body: '法国、德国、意大利、英国、美国、澳大利亚、拉美的母语代表。你的团队，在他们的市场里，按你的合约。' },
+      { name: '外派销售团队', body: '法国、德国、意大利、英国、美国、澳大利亚和拉美的母语销售。他们是你的人，深耕各自的市场，按你的合约办事。' },
     ],
   },
 ];
@@ -53,8 +53,8 @@ const visitLabel = '访问 beyondbridge.com';
 <Layout
   locale={locale}
   route={route}
-  title="BeyondBridge。我们把中国企业带到海外，做起来。"
-  description="我们帮中国企业找到西方买家。品牌、网站、LinkedIn、广告，以及在七个国家里真人做销售。一套阵列。一条链路。"
+  title="BeyondBridge：带中国企业出海，把生意做成。"
+  description="我们帮中国企业打入西方市场：品牌、网站、LinkedIn、广告，外加七个国家的本地销售团队。一套阵列，从触达到成交。"
 >
   <!-- ====================================================================== -->
   <!-- HERO                                                                   -->
@@ -72,14 +72,14 @@ const visitLabel = '访问 beyondbridge.com';
         <img src="/AgencyLogos/BeyondBridge-%20Logo-EN-4K-Transparent.png" alt="BeyondBridge" class="bb-hero__logo" width="240" height="48" loading="eager" decoding="async" />
 
         <h1 class="bb-hero__title">
-          <span class="bb-hero__line" data-anim="word">我们把</span>
+          <span class="bb-hero__line" data-anim="word">我们带</span>
           <span class="bb-hero__line" data-anim="word">
             <em class="bb-hero__phrase">中国企业</em>
           </span>
-          <span class="bb-hero__line" data-anim="word">带到海外，做起来。</span>
+          <span class="bb-hero__line" data-anim="word">出海，把生意做成。</span>
         </h1>
 
-        <p class="bb-hero__lead" data-anim="fade">多数中国企业出海，要先丢掉两年，才肯承认旧打法已经失效。我们把好产品和买家之间的距离合上。</p>
+        <p class="bb-hero__lead" data-anim="fade">很多中国企业出海，要先白白花掉两年，才肯承认老一套早已行不通。我们要做的，就是补上好产品与真正买家之间那段断层。</p>
 
         <div class="bb-hero__cta-row" data-anim="fade">
           <a class="bb-magnet" href={visitUrl} target="_blank" rel="noreferrer" data-magnet>
@@ -135,10 +135,10 @@ const visitLabel = '访问 beyondbridge.com';
           <span class="bb-track__num-shadow">7</span>
         </div>
         <div class="bb-track__copy">
-          <span class="eyebrow">这些年做过的事</span>
-          <h2 class="bb-track__title balance">七个城市。一支团队。从你的工厂，跑到你签下第一单。</h2>
+          <span class="eyebrow">这些年做出的成绩</span>
+          <h2 class="bb-track__title balance">七座城市，一支团队。从你的工厂，一直陪你拿下第一单。</h2>
           <p class="bb-track__lead">
-            我们不是写完一份 PPT 就走人的咨询。我们是亲自动手的操盘手。我们的 CEO 在中国带了好几年阳狮电商。我们建品牌、建网站、做 LinkedIn、做搜索、做广告。然后把真人放到当地，接电话。
+            我们不是交完 PPT 就走人的咨询公司，而是亲自下场的操盘手。我们的 CEO 在中国操盘阳狮电商多年。品牌、网站、LinkedIn、搜索、广告，全部自己做，再把人派驻当地，每一通电话亲自接。
           </p>
         </div>
       </div>
@@ -151,17 +151,17 @@ const visitLabel = '访问 beyondbridge.com';
   <section class="bb-gap">
     <div class="bb-gap__bg" aria-hidden="true"></div>
     <div class="container bb-gap__container">
-      <span class="eyebrow eyebrow--on-dark">那道沟</span>
+      <span class="eyebrow eyebrow--on-dark">那段断层</span>
       <h2 class="bb-gap__title">
-        <span class="bb-gap__line" data-line>把首页翻译过来。</span>
+        <span class="bb-gap__line" data-line>把官网首页翻成外语。</span>
         <span class="bb-gap__line" data-line>在法兰克福招一个人。</span>
-        <span class="bb-gap__line" data-line>每年派创始人出去两次。</span>
-        <span class="bb-gap__line" data-line>等着分销商打电话来。</span>
+        <span class="bb-gap__line" data-line>每年让创始人飞两趟。</span>
+        <span class="bb-gap__line" data-line>坐等分销商主动来电。</span>
       </h2>
       <div class="bb-gap__statement" data-line>
-        <p>电话很少打来。</p>
-        <p>网站看上去像 2014 年。招来的人六个月内辞职。工厂还在做好产品，但对的买家从没听说过。</p>
-        <p class="bb-gap__emphasis">公司就死在这里。死在好产品和汉堡或休斯顿那个真会接电话的买家之间，那道沟里。</p>
+        <p>可电话总是不响。</p>
+        <p>网站看上去还停在 2014 年。招来的人不到半年就走。工厂照样在做好产品，对的买家却根本没听说过它。</p>
+        <p class="bb-gap__emphasis">多少公司就卡在这一步。一边是好产品，一边是汉堡或休斯顿那个真正会接电话的买家，中间隔着一段谁也跨不过去的断层。</p>
       </div>
     </div>
   </section>
@@ -174,10 +174,10 @@ const visitLabel = '访问 beyondbridge.com';
       <header class="bb-services__header">
         <span class="eyebrow">我们做什么</span>
         <h2 class="bb-services__title">
-          七个模块。<em>一条链路。</em><br />
-          整套来，或者单独买一块。
+          七个模块，<em>从触达到成交。</em><br />
+          可以整套打包，也可以只挑其中一块。
         </h2>
-        <p class="bb-services__lead">按季度收费，带一次启动期。挑一条最贴合你当下的，或者三条一起跑。</p>
+        <p class="bb-services__lead">按季度计费，含一次启动期。可以只做眼下最要紧的一块，也可以三块一起推进。</p>
       </header>
 
       <div class="bb-services__shell" data-tabs>
@@ -214,7 +214,7 @@ const visitLabel = '访问 beyondbridge.com';
               <div class="bb-services__panel-grid">
                 <div class="bb-services__panel-image">
                   <div class="bb-services__panel-frame">
-                    <img src={s.image} alt={`${s.title} 编辑图`} loading="lazy" decoding="async" />
+                    <img src={s.image} alt={`${s.title} 主题图`} loading="lazy" decoding="async" />
                     <div class={`bb-services__panel-tag bb-services__panel-tag--${s.key}`}>
                       <span>{s.title}</span>
                     </div>
@@ -254,15 +254,15 @@ const visitLabel = '访问 beyondbridge.com';
   <section class="bb-operate">
     <div class="bb-operate__bg" aria-hidden="true"></div>
     <div class="container bb-operate__container">
-      <span class="eyebrow eyebrow--on-dark">我们怎么做事</span>
+      <span class="eyebrow eyebrow--on-dark">我们如何运作</span>
       <h2 class="bb-operate__title">
         <span class="bb-operate__line" data-line>一套阵列。</span>
         <span class="bb-operate__line" data-line>一支团队。</span>
         <span class="bb-operate__line" data-line>一条链路。</span>
       </h2>
       <div class="bb-operate__statement" data-line>
-        <p>从你的工厂，跑到你签下第一单。</p>
-        <p class="bb-operate__emphasis">你多等一个季度，体量更小的对手就离你的买家更近一步。</p>
+        <p>从你的工厂，一路做到你签下第一单。</p>
+        <p class="bb-operate__emphasis">你每多等一个季度，那些比你更小的对手，就离你的买家更近一步。</p>
       </div>
     </div>
   </section>
@@ -276,8 +276,8 @@ const visitLabel = '访问 beyondbridge.com';
       <div class="bb-cta__bg-scrim"></div>
     </div>
     <div class="container bb-cta__content">
-      <span class="eyebrow eyebrow--on-dark">你准备好，我们就动</span>
-      <h2 class="bb-cta__title balance">预约通话。<br />我们告诉你，前九十天是什么样子。</h2>
+      <span class="eyebrow eyebrow--on-dark">你准备好，我们就出发</span>
+      <h2 class="bb-cta__title balance">预约一次通话。<br />头九十天大概是什么样子，我们当面讲清楚。</h2>
       <div class="bb-cta__actions">
         <a class="btn btn--primary" href={visitUrl} target="_blank" rel="noreferrer">{visitLabel}</a>
         <a class="btn btn--ghost-light" href={pathFor('contact', locale)}>聊一聊</a>
