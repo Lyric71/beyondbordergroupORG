@@ -124,7 +124,7 @@ export const POST: APIRoute = async ({ request }) => {
           ${briefCell}
         </div>
       </div>
-      <p style="color:#94A3B8;font-size:12px;text-align:center;margin-top:16px;">Sent from bearingbridge.org/contact</p>
+      <p style="color:#94A3B8;font-size:12px;text-align:center;margin-top:16px;">Sent from bearingbridge.com/contact</p>
     </div>
   `;
 

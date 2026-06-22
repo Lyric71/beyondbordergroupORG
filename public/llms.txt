@@ -1,0 +1,29 @@
+# BearingBridge
+
+> Eight specialist agencies that carry brands, products, and services across China and the West, both ways. Brand, channels, web, partner sourcing, content, sales. One ecosystem, one shared spine.
+
+BearingBridge is the holding group (Beyond Border Group Ltd, Hong Kong) for a set of independent cross-border agencies. Each agency stands alone, and most clients start with one. Offices in Shanghai, Hong Kong, Paris, and Hangzhou, with representatives in the US, UK, Germany, and France.
+
+## Agencies
+
+- [TheChinaPath](https://thechinapath.com): Full-service China entry.
+- [TheRedScroll](https://theredscroll.com): Chinese social media specialist.
+- [ChinaWebFoundry](https://chinawebfoundry.com): Websites built for China.
+- [Compass](https://compass.bearingbridge.com): Vetted China distributors and TPs.
+- [BeyondBridge](https://beyondbridge.ai): Chinese brands, Western pipeline.
+- [HubStudio](https://hubstudio.ai): Content production engine.
+- [Nuvora Studio](https://nuvora.studio): LinkedIn-only B2B.
+- [BearingBridge AI](https://www.bearingbridge.ai): AI adoption consulting, East and West.
+
+## Core pages
+
+- [Home](https://www.bearingbridge.com/)
+- [The bridge](https://www.bearingbridge.com/the-bridge/): The cross-border thesis. Why this group exists.
+- [Two flows](https://www.bearingbridge.com/two-flows/): One bridge, two directions. Inbound and outbound, both on one page.
+- [How we work](https://www.bearingbridge.com/how-we-work-together/): How a project actually runs.
+- [Agencies](https://www.bearingbridge.com/agencies/): All agencies in one place.
+- [Contact](https://www.bearingbridge.com/contact/)
+
+## Languages
+
+Available in English, French, Chinese (Simplified), Spanish, and German. Localized paths use /fr/, /zh/, /es/, and /de/ prefixes.

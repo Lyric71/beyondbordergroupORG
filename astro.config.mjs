@@ -6,7 +6,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://bearingbridge.org',
+  site: 'https://www.bearingbridge.com',
   output: 'static',
   adapter: vercel(),
   server: {

@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
+import SeoSchema from '../components/SeoSchema.astro';
 import { type Locale, type Route, t, htmlLang, pathFor } from '../i18n/ui';
 
 interface Props {
@@ -14,7 +15,9 @@ interface Props {
 const { locale, route, title, description } = Astro.props;
 const ui = t(locale);
 const fullTitle = `${title} | ${ui.meta.siteName}`;
-const canonical = new URL(pathFor(route, locale), Astro.site ?? 'https://bearingbridge.org').toString();
+const siteOrigin = Astro.site ?? new URL('https://www.bearingbridge.com');
+const abs = (loc: Locale) => new URL(pathFor(route, loc), siteOrigin).toString();
+const canonical = abs(locale);
 ---
 
 <!doctype html>
@@ -28,12 +31,14 @@ const canonical = new URL(pathFor(route, locale), Astro.site ?? 'https://bearing
     <meta name="generator" content={Astro.generator} />
     {description && <meta name="description" content={description} />}
     <link rel="canonical" href={canonical} />
-    <link rel="alternate" hreflang="en" href={pathFor(route, 'en')} />
-    <link rel="alternate" hreflang="fr" href={pathFor(route, 'fr')} />
-    <link rel="alternate" hreflang="zh" href={pathFor(route, 'zh')} />
-    <link rel="alternate" hreflang="es" href={pathFor(route, 'es')} />
-    <link rel="alternate" hreflang="de" href={pathFor(route, 'de')} />
+    <link rel="alternate" hreflang="en" href={abs('en')} />
+    <link rel="alternate" hreflang="fr" href={abs('fr')} />
+    <link rel="alternate" hreflang="zh-CN" href={abs('zh')} />
+    <link rel="alternate" hreflang="es" href={abs('es')} />
+    <link rel="alternate" hreflang="de" href={abs('de')} />
+    <link rel="alternate" hreflang="x-default" href={abs('en')} />
     <title>{fullTitle}</title>
+    <SeoSchema locale={locale} route={route} title={title} site={Astro.site} />
   </head>
   <body>
     <a href="#main" class="skip-link">{ui.meta.skipToContent}</a>

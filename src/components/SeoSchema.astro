@@ -1,0 +1,115 @@
+---
+import { type Locale, type Route, type UI, t, htmlLang, pathFor } from '../i18n/ui';
+
+interface Props {
+  locale: Locale;
+  route: Route;
+  title: string;
+  site: URL | undefined;
+}
+
+const { locale, route, title, site } = Astro.props;
+const ui = t(locale);
+const origin = site ?? new URL('https://www.bearingbridge.com');
+const abs = (r: Route) => new URL(pathFor(r, locale), origin).toString();
+const inLanguage = htmlLang(locale);
+const orgId = new URL('/#organization', origin).toString();
+const siteId = new URL('/#website', origin).toString();
+
+// The eight agency sites + the founder's LinkedIn. Drives Organization.sameAs.
+const sameAs = [
+  'https://thechinapath.com',
+  'https://theredscroll.com',
+  'https://chinawebfoundry.com',
+  'https://beyondbridge.ai',
+  'https://compass.bearingbridge.com',
+  'https://hubstudio.ai',
+  'https://nuvora.studio',
+  'https://www.bearingbridge.ai',
+  'https://www.linkedin.com/in/cyril-d-68835729/',
+];
+
+type AgencyMeta = { name: string; url: string; descKey: keyof UI['nav']['agencyDescs'] };
+const agencies: Partial<Record<Route, AgencyMeta>> = {
+  'agencies/bearingbridge': { name: 'TheChinaPath', url: 'https://thechinapath.com', descKey: 'bearingbridge' },
+  'agencies/theredscroll': { name: 'TheRedScroll', url: 'https://theredscroll.com', descKey: 'theredscroll' },
+  'agencies/chinawebfoundry': { name: 'ChinaWebFoundry', url: 'https://chinawebfoundry.com', descKey: 'chinawebfoundry' },
+  'agencies/beyondbridge': { name: 'BeyondBridge', url: 'https://beyondbridge.ai', descKey: 'beyondbridge' },
+  'agencies/compass': { name: 'Compass', url: 'https://compass.bearingbridge.com', descKey: 'compass' },
+  'agencies/hubstudio': { name: 'HubStudio', url: 'https://hubstudio.ai', descKey: 'hubstudio' },
+  'agencies/nuvora-studio': { name: 'Nuvora Studio', url: 'https://nuvora.studio', descKey: 'nuvoraStudio' },
+  'agencies/bearingbridgeai': { name: 'BearingBridge AI', url: 'https://www.bearingbridge.ai', descKey: 'bearingbridgeAi' },
+};
+
+const graph: Record<string, unknown>[] = [
+  {
+    '@type': 'Organization',
+    '@id': orgId,
+    name: ui.meta.siteName,
+    legalName: 'Beyond Border Group Ltd',
+    url: abs('home'),
+    logo: new URL('/icon.png', origin).toString(),
+    sameAs,
+  },
+  {
+    '@type': 'WebSite',
+    '@id': siteId,
+    name: ui.meta.siteName,
+    url: abs('home'),
+    inLanguage,
+    publisher: { '@id': orgId },
+  },
+];
+
+function labelFor(r: Route): string {
+  switch (r) {
+    case 'home': return ui.meta.siteName;
+    case 'bridge': return ui.nav.bridge;
+    case 'two-flows': return ui.nav.flowsLabel;
+    case 'agencies': return ui.nav.agencies;
+    case 'how-we-work-together': return ui.nav.howWeWork;
+    case 'contact': return ui.nav.contact;
+    case 'privacy': return ui.footer.privacy;
+    case 'terms': return ui.footer.terms;
+    case 'cookies': return ui.footer.cookies;
+    default: return agencies[r]?.name ?? title;
+  }
+}
+
+if (route !== 'home') {
+  const crumbs: { name: string; url: string }[] = [{ name: ui.meta.siteName, url: abs('home') }];
+  const agency = agencies[route];
+  if (agency) {
+    crumbs.push({ name: ui.nav.agencies, url: abs('agencies') });
+    crumbs.push({ name: agency.name, url: abs(route) });
+  } else {
+    crumbs.push({ name: labelFor(route), url: abs(route) });
+  }
+  graph.push({
+    '@type': 'BreadcrumbList',
+    itemListElement: crumbs.map((c, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: c.name,
+      item: c.url,
+    })),
+  });
+}
+
+const agency = agencies[route];
+if (agency) {
+  graph.push({
+    '@type': 'ProfessionalService',
+    '@id': new URL(pathFor(route, locale) + '#agency', origin).toString(),
+    name: agency.name,
+    url: agency.url,
+    description: ui.nav.agencyDescs[agency.descKey],
+    inLanguage,
+    parentOrganization: { '@id': orgId },
+    isPartOf: { '@id': siteId },
+  });
+}
+
+const jsonLd = { '@context': 'https://schema.org', '@graph': graph };
+---
+<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
