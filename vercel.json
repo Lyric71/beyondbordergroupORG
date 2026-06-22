@@ -11,6 +11,11 @@
       "has": [{ "type": "host", "value": "www.beyondbordergroup.org" }],
       "destination": "https://bearingbridge.org/:path*",
       "permanent": true
+    },
+    {
+      "source": "/sitemap.xml",
+      "destination": "/sitemap-index.xml",
+      "permanent": true
     }
   ],
   "headers": [
