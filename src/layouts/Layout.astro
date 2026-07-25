@@ -16,8 +16,7 @@ const { locale, route, title, description } = Astro.props;
 const ui = t(locale);
 const fullTitle = `${title} | ${ui.meta.siteName}`;
 const siteOrigin = Astro.site ?? new URL('https://www.bearingbridge.com');
-const abs = (loc: Locale) => new URL(pathFor(route, loc), siteOrigin).toString();
-const canonical = abs(locale);
+const canonical = new URL(pathFor(route, locale), siteOrigin).toString();
 ---
 
 <!doctype html>
@@ -31,12 +30,6 @@ const canonical = abs(locale);
     <meta name="generator" content={Astro.generator} />
     {description && <meta name="description" content={description} />}
     <link rel="canonical" href={canonical} />
-    <link rel="alternate" hreflang="en" href={abs('en')} />
-    <link rel="alternate" hreflang="fr" href={abs('fr')} />
-    <link rel="alternate" hreflang="zh-CN" href={abs('zh')} />
-    <link rel="alternate" hreflang="es" href={abs('es')} />
-    <link rel="alternate" hreflang="de" href={abs('de')} />
-    <link rel="alternate" hreflang="x-default" href={abs('en')} />
     <title>{fullTitle}</title>
     <SeoSchema locale={locale} route={route} title={title} site={Astro.site} />
   </head>

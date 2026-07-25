@@ -1,9 +1,6 @@
 ---
-import { type Locale, pathFor, t, localeNames } from '../i18n/ui';
+import { type Locale, pathFor, t } from '../i18n/ui';
 import AgencyLogo from './AgencyLogo.astro';
-import LocaleFlag from './LocaleFlag.astro';
-
-const langs: Locale[] = ['en', 'fr', 'es', 'de', 'zh'];
 
 interface Props {
   locale: Locale;
@@ -158,18 +155,6 @@ const isAgenciesActive = !!current && (current === 'agencies' || current.startsW
     </nav>
 
     <div class="nav-right">
-      <span class="lang-switch" aria-label="Language">
-        {langs.map((l) => (
-          <a
-            href={pathFor((current as any) ?? 'home', l)}
-            aria-current={locale === l}
-            aria-label={localeNames[l]}
-            title={localeNames[l]}
-          >
-            <LocaleFlag locale={l} />
-          </a>
-        ))}
-      </span>
       <a href={pathFor('contact', locale)} class="btn btn--primary btn--sm nav-right__cta">{ui.nav.contact}</a>
       <button
         type="button"
@@ -219,19 +204,6 @@ const isAgenciesActive = !!current && (current === 'agencies' || current.startsW
           <a class="nav-mobile__link nav-mobile__link--cta btn btn--primary" href={pathFor('contact', locale)}>{ui.nav.contact}</a>
         </li>
       </ul>
-
-      <span class="lang-switch nav-mobile__lang" aria-label="Language">
-        {langs.map((l) => (
-          <a
-            href={pathFor((current as any) ?? 'home', l)}
-            aria-current={locale === l}
-            aria-label={localeNames[l]}
-            title={localeNames[l]}
-          >
-            <LocaleFlag locale={l} />
-          </a>
-        ))}
-      </span>
     </div>
   </nav>
 

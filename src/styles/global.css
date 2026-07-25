@@ -1465,44 +1465,6 @@ body:has(.nav-item--mega:focus-within) .site-overlay { opacity: 1; }
 /* Right side */
 .nav-right { display: flex; align-items: center; gap: var(--space-3); }
 
-/* Lang switcher — flag pill with active highlight */
-.lang-switch {
-  display: inline-flex;
-  align-items: center;
-  gap: 2px;
-  padding: 3px;
-  background: rgba(0, 0, 0, 0.045);
-  border: 1px solid rgba(0, 0, 0, 0.04);
-  border-radius: 999px;
-}
-.lang-switch a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 4px 6px;
-  border-radius: 999px;
-  transition: background 220ms var(--ease), transform 220ms var(--ease-out);
-}
-.lang-switch a:hover { background: rgba(0, 0, 0, 0.05); }
-.lang-switch a[aria-current="true"] {
-  background: rgba(0, 0, 0, 0.08);
-  box-shadow: 0 4px 12px -4px rgba(15, 23, 42, 0.18);
-}
-.lang-switch .flag {
-  display: block;
-  width: 20px;
-  height: auto;
-  border-radius: 2px;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
-  opacity: 0.7;
-  transition: opacity 220ms var(--ease), transform 220ms var(--ease);
-}
-.lang-switch a:hover .flag { opacity: 1; }
-.lang-switch a[aria-current="true"] .flag {
-  opacity: 1;
-  transform: scale(1.06);
-}
-
 /* CTA button — shimmer on hover */
 .nav-right__cta { position: relative; overflow: hidden; isolation: isolate; }
 .nav-right__cta::after {
@@ -1641,15 +1603,12 @@ body:has(.nav-item--mega:focus-within) .site-overlay { opacity: 1; }
   gap: 2px;
   border-left: 2px solid rgba(38, 154, 218, 0.25);
 }
-.nav-mobile__lang { justify-self: start; padding: var(--space-3); }
-
 body.nav-open { overflow: hidden; }
 
 @media (max-width: 1024px) {
   .nav-primary { display: none; }
   .nav-primary__list { display: none; }
   .nav-toggle { display: inline-flex; }
-  .nav-right .lang-switch { display: none; }
   .nav-right__cta { display: none; }
 }
 
@@ -1665,7 +1624,7 @@ body.nav-open { overflow: hidden; }
 
 @media (prefers-reduced-motion: reduce) {
   .mega-item, .mega, .nav-primary__link::after, .nav-chev,
-  .lang-switch a, .lang-switch .flag, .nav-right__cta::after, .brand__logo,
+  .nav-right__cta::after, .brand__logo,
   .mega-item__icon, .mega-item__logo, .mega-item__arrow,
   .site-header__progress, .site-header__inner, .nav-mobile__link {
     transition: none !important;

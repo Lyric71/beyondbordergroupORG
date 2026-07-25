@@ -12,25 +12,8 @@ export default defineConfig({
   server: {
     host: '127.0.0.1',
   },
-  i18n: {
-    defaultLocale: 'en',
-    locales: ['en', 'fr', 'zh', 'es', 'de'],
-    routing: {
-      prefixDefaultLocale: false,
-    },
-  },
   integrations: [
     sitemap({
-      i18n: {
-        defaultLocale: 'en',
-        locales: {
-          en: 'en',
-          fr: 'fr',
-          zh: 'zh-CN',
-          es: 'es',
-          de: 'de',
-        },
-      },
       // Keep post-conversion and utility pages out of Google's index.
       filter: (page) =>
         !/\/thank-you\/?$/.test(page) &&
