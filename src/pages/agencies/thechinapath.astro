@@ -67,7 +67,7 @@ const visitLabel = 'Visit thechinapath.com';
   <!-- ====================================================================== -->
   <section class="bbg-hero" data-hero>
     <div class="bbg-hero__bg" aria-hidden="true">
-      <img src="/images/bbg-shanghai-twilight.webp" alt="" class="bbg-hero__bg-img" data-parallax-bg />
+      <img src="/images/bbg-shanghai-twilight.webp" alt="" class="bbg-hero__bg-img" />
       <div class="bbg-hero__bg-scrim"></div>
       <div class="bbg-hero__bg-grain"></div>
       <div class="bbg-hero__bg-grid"></div>
@@ -78,56 +78,39 @@ const visitLabel = 'Visit thechinapath.com';
         <img src="/images/thechinapath-horizontal.png" alt="TheChinaPath" class="bbg-hero__logo" width="160" height="69" loading="eager" decoding="async" />
 
         <span class="bbg-hero__eyebrow">
-          <span class="bbg-hero__eyebrow-dot"></span>
-          15 years on the ground · Shanghai · Hong Kong · Paris
+          15 years on the ground in Shanghai, Hong Kong and Paris
         </span>
 
         <h1 class="bbg-hero__title">
           <span class="bbg-hero__line" data-anim="word">We help brands</span>
           <span class="bbg-hero__line" data-anim="word">
-            <em class="bbg-hero__phrase bbg-hero__phrase--enter">Enter China</em>,
+            <em class="bbg-hero__phrase">Enter China</em>,
           </span>
           <span class="bbg-hero__line" data-anim="word">
-            <em class="bbg-hero__phrase bbg-hero__phrase--grow">Grow in China</em>,
+            <em class="bbg-hero__phrase">Grow in China</em>,
           </span>
           <span class="bbg-hero__line" data-anim="word">
-            and <em class="bbg-hero__phrase bbg-hero__phrase--learn">Learn China</em>.
+            and <em class="bbg-hero__phrase">Learn China</em>.
           </span>
         </h1>
 
         <p class="bbg-hero__lead" data-anim="fade">We consult, and we run what we recommend. No templates. No recycled decks. Just the work.</p>
 
         <div class="bbg-hero__cta-row" data-anim="fade">
-          <a class="bbg-magnet" href={visitUrl} target="_blank" rel="noreferrer" data-magnet>
-            <span class="bbg-magnet__bg"></span>
-            <span class="bbg-magnet__label">{visitLabel}</span>
-            <span class="bbg-magnet__arrow" aria-hidden="true">→</span>
+          <a class="pill-cta" href={visitUrl} target="_blank" rel="noreferrer">{visitLabel}
+            <span class="pill-cta__disc" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg></span>
           </a>
-          <a class="bbg-hero__secondary" href={pathFor('contact', locale)} data-anim="fade">
-            <span>Talk to us</span>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
+          <a class="pill-ghost" href={pathFor('contact', locale)}>Book a call</a>
         </div>
       </div>
 
       <div class="bbg-hero__preview" data-tilt>
         <div class="bbg-hero__preview-frame">
+          <div class="bbg-bezel">
           <a class="browser-link" href={visitUrl} target="_blank" rel="noreferrer" aria-label={visitLabel}>
             <div class="browser">
-              <div class="browser__chrome">
-                <span class="browser__dots">
-                  <span class="browser__dot browser__dot--r"></span>
-                  <span class="browser__dot browser__dot--y"></span>
-                  <span class="browser__dot browser__dot--g"></span>
-                </span>
-                <span class="browser__url">thechinapath.com</span>
-              </div>
               <div class="browser__viewport">
                 <img src="/images/thechinapath-home.webp" alt="thechinapath.com homepage" class="browser__shot" width="1600" height="1000" loading="eager" decoding="async" />
-                <span class="browser__live">
-                  <span class="browser__live-dot"></span>
-                  Live · {new Date().toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}
-                </span>
                 <span class="browser__visit" aria-hidden="true">
                   <span>Visit site</span>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l10-10M7 7h10v10"/></svg>
@@ -135,23 +118,10 @@ const visitLabel = 'Visit thechinapath.com';
               </div>
             </div>
           </a>
-
-          <div class="bbg-hero__chip bbg-hero__chip--platforms">
-            <span class="bbg-hero__chip-label">Platforms</span>
-            <span>Tmall · JD · Douyin · RED · WeChat</span>
-          </div>
-          <div class="bbg-hero__chip bbg-hero__chip--cities">
-            <span class="bbg-hero__chip-label">On the ground</span>
-            <span>Shanghai · Shenzhen · Hong Kong · Paris</span>
           </div>
         </div>
       </div>
     </div>
-
-    <a href="#track" class="bbg-hero__scroll" aria-label="Scroll">
-      <span>Scroll</span>
-      <span class="bbg-hero__scroll-line"></span>
-    </a>
   </section>
 
   <!-- ====================================================================== -->
@@ -165,10 +135,9 @@ const visitLabel = 'Visit thechinapath.com';
           <span class="bbg-track__num-shadow">15</span>
         </div>
         <div class="bbg-track__copy">
-          <span class="eyebrow">Track record</span>
           <h2 class="bbg-track__title balance">Fifteen years inside China's commerce ecosystem.</h2>
           <p class="bbg-track__lead">
-            We know what works because we have done it. We know what fails because we have seen it. Through Tmall launches, Douyin storms, ICP rewrites, every algorithm shift in between.
+            We know what works because we have done it. We know what fails because we have seen it. Through Tmall launches, Douyin storms, ICP rewrites, and every algorithm shift in between.
           </p>
         </div>
       </div>
@@ -182,7 +151,6 @@ const visitLabel = 'Visit thechinapath.com';
   <section class="bbg-services" id="services">
     <div class="container">
       <header class="bbg-services__header">
-        <span class="eyebrow">What we do</span>
         <h2 class="bbg-services__title">
           Three lanes. <em>One team.</em><br />
           End to end.
@@ -190,6 +158,7 @@ const visitLabel = 'Visit thechinapath.com';
         <p class="bbg-services__lead">From the first market study to the next live-stream campaign on Douyin. Pick the lane that fits your moment, or run all three.</p>
       </header>
 
+      <div class="bbg-services__bezel">
       <div class="bbg-services__shell" data-tabs>
         <div class="bbg-services__nav" role="tablist" aria-label="Service lanes">
           {services.map((s, i) => (
@@ -255,6 +224,7 @@ const visitLabel = 'Visit thechinapath.com';
           ))}
         </div>
       </div>
+      </div>
     </div>
   </section>
 
@@ -264,15 +234,13 @@ const visitLabel = 'Visit thechinapath.com';
   <section class="bbg-operate">
     <div class="bbg-operate__bg" aria-hidden="true"></div>
     <div class="container bbg-operate__container">
-      <span class="eyebrow eyebrow--on-dark">How we operate</span>
       <h2 class="bbg-operate__title">
         <span class="bbg-operate__line" data-line>China moves fast.</span>
         <span class="bbg-operate__line" data-line>Platforms change every quarter.</span>
         <span class="bbg-operate__line" data-line>Consumers change every week.</span>
       </h2>
       <div class="bbg-operate__statement" data-line>
-        <p>We consult, and we run what we recommend.</p>
-        <p class="bbg-operate__emphasis">No templates. No recycled decks. Just the work.</p>
+        <p class="bbg-operate__emphasis">We consult, and we run what we recommend. The work is the deliverable.</p>
       </div>
     </div>
   </section>
@@ -286,11 +254,12 @@ const visitLabel = 'Visit thechinapath.com';
       <div class="bbg-cta__bg-scrim"></div>
     </div>
     <div class="container bbg-cta__content">
-      <span class="eyebrow eyebrow--on-dark">Ready when you are</span>
       <h2 class="bbg-cta__title balance">Enter, grow, learn China.<br />With a team that has done it.</h2>
       <div class="bbg-cta__actions">
-        <a class="btn btn--primary" href={visitUrl} target="_blank" rel="noreferrer">{visitLabel}</a>
-        <a class="btn btn--ghost-light" href={pathFor('contact', locale)}>Talk to us</a>
+        <a class="pill-cta" href={visitUrl} target="_blank" rel="noreferrer">{visitLabel}
+          <span class="pill-cta__disc" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg></span>
+        </a>
+        <a class="pill-ghost" href={pathFor('contact', locale)}>Book a call</a>
       </div>
     </div>
   </section>
@@ -302,7 +271,7 @@ const visitLabel = 'Visit thechinapath.com';
   /* ===================================================================== */
   .bbg-hero {
     position: relative;
-    min-height: 88vh;
+    min-height: 88dvh;
     padding: clamp(2.5rem, 5vh, 4rem) 0 clamp(3rem, 6vh, 5rem);
     overflow: hidden;
     isolation: isolate;
@@ -318,8 +287,7 @@ const visitLabel = 'Visit thechinapath.com';
     height: 112%;
     object-fit: cover;
     object-position: center 40%;
-    will-change: transform;
-    transform: translate3d(0, var(--parallax-y, 0), 0) scale(1.04);
+    transform: scale(1.04);
     filter: saturate(0.85) contrast(1.05) brightness(0.78);
   }
   .bbg-hero__bg-scrim {
@@ -348,50 +316,6 @@ const visitLabel = 'Visit thechinapath.com';
     -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 80%);
     opacity: 0.7;
   }
-
-  /* Top platform ticker */
-  .bbg-hero__ticker {
-    position: absolute;
-    top: clamp(72px, 8vh, 96px);
-    left: 0; right: 0;
-    z-index: 2;
-    overflow: hidden;
-    padding: 6px 0;
-    border-top: 1px solid rgba(255,255,255,0.10);
-    border-bottom: 1px solid rgba(255,255,255,0.10);
-    background: rgba(8, 12, 24, 0.45);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-  }
-  .bbg-hero__ticker-track {
-    display: inline-flex;
-    align-items: center;
-    gap: 0;
-    white-space: nowrap;
-    animation: bbgTicker 38s linear infinite;
-    will-change: transform;
-  }
-  .bbg-hero__ticker-item {
-    display: inline-flex;
-    align-items: center;
-    gap: 18px;
-    padding: 0 18px;
-    font-family: var(--font-display);
-    font-size: 0.78rem;
-    font-weight: 600;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.78);
-  }
-  .bbg-hero__ticker-sep {
-    width: 4px; height: 4px;
-    border-radius: 50%;
-    background: var(--bbg-blue);
-    display: inline-block;
-    box-shadow: 0 0 10px rgba(38,154,218,0.7);
-    color: transparent;
-  }
-  @keyframes bbgTicker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
   .bbg-hero__main {
     position: relative;
@@ -433,13 +357,6 @@ const visitLabel = 'Visit thechinapath.com';
     opacity: 0;
     animation: bbgFadeIn 700ms cubic-bezier(0.2,0.8,0.2,1) 0.2s forwards;
   }
-  .bbg-hero__eyebrow-dot {
-    width: 7px; height: 7px;
-    border-radius: 50%;
-    background: #22c55e;
-    box-shadow: 0 0 0 0 rgba(34,197,94,0.5);
-    animation: bbgPulse 2.4s ease-in-out infinite;
-  }
 
   .bbg-hero__title {
     font-size: clamp(2.5rem, 5vw + 0.5rem, 5.4rem);
@@ -476,10 +393,8 @@ const visitLabel = 'Visit thechinapath.com';
     color: transparent;
     -webkit-text-fill-color: transparent;
     position: relative;
+    background-image: linear-gradient(120deg, #ff7a8a 0%, #c8102e 60%, #ff7a8a 100%);
   }
-  .bbg-hero__phrase--enter { background-image: linear-gradient(120deg, #59c2ee 0%, #269ada 60%, #59c2ee 100%); }
-  .bbg-hero__phrase--grow  { background-image: linear-gradient(120deg, #ff7a8a 0%, #c8102e 60%, #ff7a8a 100%); }
-  .bbg-hero__phrase--learn { background-image: linear-gradient(120deg, #ffcf6f 0%, #d99a3a 60%, #ffcf6f 100%); }
 
   .bbg-hero__lead {
     max-width: 44ch;
@@ -499,56 +414,12 @@ const visitLabel = 'Visit thechinapath.com';
     animation: bbgFadeIn 700ms cubic-bezier(0.2,0.8,0.2,1) 1s forwards;
   }
 
-  .bbg-magnet {
-    --x: 0px; --y: 0px;
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    gap: 14px;
-    padding: 16px 26px 16px 28px;
-    border-radius: 999px;
-    color: #fff;
-    text-decoration: none;
-    font-family: var(--font-display);
-    font-size: 1rem;
-    font-weight: 600;
-    letter-spacing: -0.005em;
-    overflow: hidden;
-    isolation: isolate;
-    transition: transform 220ms cubic-bezier(0.2,0.8,0.2,1);
-    transform: translate(var(--x), var(--y));
+  /* Shared pills, page accent */
+  .pill-cta {
+    background: #c8102e;
+    box-shadow: 0 16px 36px -12px rgba(200,16,46,0.45);
   }
-  .bbg-magnet__bg {
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    background: linear-gradient(120deg, #269ada 0%, #1e7db0 100%);
-    box-shadow: 0 16px 36px -10px rgba(38,154,218,0.55), inset 0 1px 0 rgba(255,255,255,0.2);
-    z-index: -1;
-    transition: transform 320ms cubic-bezier(0.2,0.8,0.2,1);
-  }
-  .bbg-magnet:hover .bbg-magnet__bg { transform: scale(1.04); }
-  .bbg-magnet__arrow {
-    display: inline-block;
-    transform: translateX(0);
-    transition: transform 280ms cubic-bezier(0.2,0.8,0.2,1);
-  }
-  .bbg-magnet:hover .bbg-magnet__arrow { transform: translateX(4px); }
-
-  .bbg-hero__secondary {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    color: rgba(255,255,255,0.92);
-    font-family: var(--font-display);
-    font-size: 1rem;
-    font-weight: 500;
-    text-decoration: none;
-    transition: color 220ms ease;
-  }
-  .bbg-hero__secondary svg { transition: transform 220ms ease; }
-  .bbg-hero__secondary:hover { color: #59c2ee; }
-  .bbg-hero__secondary:hover svg { transform: translateX(3px); }
+  .pill-cta:hover { background: #a00d25; }
 
   /* Browser preview with parallax tilt */
   .bbg-hero__preview {
@@ -564,27 +435,32 @@ const visitLabel = 'Visit thechinapath.com';
     transform: rotateY(var(--tilt-x, -3deg)) rotateX(var(--tilt-y, 2deg));
     transition: transform 600ms cubic-bezier(0.2,0.8,0.2,1);
   }
+  .bbg-bezel {
+    padding: 6px;
+    border-radius: 28px;
+    background: rgba(255,255,255,0.06);
+    box-shadow:
+      0 0 0 1px rgba(255,255,255,0.1),
+      0 40px 80px -28px rgba(0,0,0,0.55),
+      0 12px 28px -8px rgba(0,0,0,0.35);
+    transition: transform 0.5s cubic-bezier(0.32, 0.72, 0, 1);
+  }
+  .bbg-bezel:hover { transform: translateY(-4px); }
   .browser-link {
     display: block;
     text-decoration: none;
     color: inherit;
     cursor: pointer;
-    border-radius: 14px;
-    transition: transform 320ms cubic-bezier(0.2,0.8,0.2,1);
+    border-radius: 22px;
   }
-  .browser-link:hover { transform: translateY(-2px); }
   .browser-link:focus-visible { outline: 2px solid #fff; outline-offset: 4px; }
   .browser-link:hover .browser__visit { opacity: 1; transform: translateY(0); }
   .browser {
     position: relative;
     background: #ffffff;
-    border-radius: 14px;
+    border-radius: 22px;
     overflow: hidden;
-    box-shadow:
-      0 1px 0 rgba(255,255,255,0.5) inset,
-      0 40px 80px -28px rgba(0,0,0,0.55),
-      0 12px 28px -8px rgba(0,0,0,0.35);
-    border: 1px solid rgba(255,255,255,0.10);
+    box-shadow: inset 0 1px 1px rgba(255,255,255,0.12);
     transform: translateZ(0);
   }
   .browser__visit {
@@ -609,32 +485,6 @@ const visitLabel = 'Visit thechinapath.com';
     transition: opacity 240ms ease, transform 240ms cubic-bezier(0.2,0.8,0.2,1);
     pointer-events: none;
   }
-  .browser__chrome {
-    display: flex;
-    align-items: center;
-    gap: var(--space-3);
-    padding: 10px 14px;
-    background: linear-gradient(180deg, #f8fafc 0%, #eef2f6 100%);
-    border-bottom: 1px solid rgba(15,23,42,0.08);
-  }
-  .browser__dots { display: inline-flex; gap: 6px; }
-  .browser__dot { width: 11px; height: 11px; border-radius: 50%; display: inline-block; }
-  .browser__dot--r { background: #ff5f57; }
-  .browser__dot--y { background: #febc2e; }
-  .browser__dot--g { background: #28c840; }
-  .browser__url {
-    flex: 1;
-    text-align: center;
-    font-family: var(--font-display);
-    font-size: 0.78rem;
-    color: var(--bbg-text-muted);
-    background: rgba(15,23,42,0.04);
-    border-radius: 999px;
-    padding: 4px 10px;
-    letter-spacing: 0.01em;
-    max-width: 320px;
-    margin: 0 auto;
-  }
   .browser__viewport {
     position: relative;
     aspect-ratio: 16 / 10;
@@ -648,124 +498,11 @@ const visitLabel = 'Visit thechinapath.com';
     object-position: center top;
     display: block;
   }
-  .browser__live {
-    position: absolute;
-    bottom: 12px;
-    right: 12px;
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-    padding: 6px 10px;
-    background: rgba(8, 12, 24, 0.74);
-    color: #fff;
-    border-radius: 999px;
-    font-family: var(--font-display);
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-  }
-  .browser__live-dot {
-    width: 7px; height: 7px;
-    border-radius: 50%;
-    background: #22c55e;
-    box-shadow: 0 0 0 0 rgba(34,197,94,0.6);
-    animation: bbgPulse 2.4s ease-in-out infinite;
-  }
-
-  .bbg-hero__chip {
-    position: absolute;
-    display: inline-flex;
-    flex-direction: column;
-    gap: 2px;
-    padding: 10px 14px;
-    background: rgba(255,255,255,0.92);
-    color: var(--bbg-ink);
-    border: 1px solid rgba(255,255,255,0.5);
-    border-radius: 14px;
-    font-family: var(--font-display);
-    font-size: 0.84rem;
-    font-weight: 600;
-    letter-spacing: -0.005em;
-    box-shadow: 0 24px 50px -18px rgba(0,0,0,0.45);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    transform: translateZ(40px);
-  }
-  .bbg-hero__chip-label {
-    font-size: 0.62rem;
-    font-weight: 700;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--bbg-blue);
-  }
-  .bbg-hero__chip--platforms {
-    top: -20px; left: -28px;
-    animation: bbgFloatA 9s ease-in-out infinite;
-  }
-  .bbg-hero__chip--cities {
-    bottom: -24px; right: -20px;
-    animation: bbgFloatB 11s ease-in-out infinite;
-  }
-  @keyframes bbgFloatA { 0%,100% { transform: translateZ(40px) translateY(0); } 50% { transform: translateZ(40px) translateY(-7px); } }
-  @keyframes bbgFloatB { 0%,100% { transform: translateZ(40px) translateY(0); } 50% { transform: translateZ(40px) translateY(8px); } }
-
-  /* Scroll hint */
-  .bbg-hero__scroll {
-    position: absolute;
-    bottom: clamp(1rem, 3vh, 2rem);
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 4;
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    color: rgba(255,255,255,0.7);
-    text-decoration: none;
-    font-family: var(--font-display);
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    transition: color 220ms ease;
-  }
-  .bbg-hero__scroll:hover { color: #fff; }
-  .bbg-hero__scroll-line {
-    width: 1px;
-    height: 36px;
-    background: linear-gradient(180deg, rgba(255,255,255,0.7), rgba(255,255,255,0));
-    position: relative;
-    overflow: hidden;
-  }
-  .bbg-hero__scroll-line::after {
-    content: "";
-    position: absolute;
-    top: -36px;
-    left: 0; right: 0;
-    height: 36px;
-    background: linear-gradient(180deg, rgba(255,255,255,0), rgba(255,255,255,0.95));
-    animation: bbgScrollLine 1.8s ease-in-out infinite;
-  }
-  @keyframes bbgScrollLine { 0% { top: -36px; } 100% { top: 36px; } }
-
   @keyframes bbgFadeIn { to { opacity: 1; } }
-  @keyframes bbgPulse {
-    0%,100% { box-shadow: 0 0 0 0 rgba(34,197,94,0.55); }
-    50% { box-shadow: 0 0 0 7px rgba(34,197,94,0); }
-  }
 
   @media (max-width: 1023px) {
     .bbg-hero__main { grid-template-columns: 1fr; gap: var(--space-7); }
     .bbg-hero__title { max-width: none; }
-    .bbg-hero__chip--platforms { top: -14px; left: 8px; }
-    .bbg-hero__chip--cities { bottom: -14px; right: 8px; }
-  }
-  @media (max-width: 639px) {
-    .bbg-hero__chip { font-size: 0.72rem; padding: 8px 10px; }
-    .bbg-hero__chip--platforms { display: none; }
-    .bbg-hero__scroll { display: none; }
   }
 
   /* ===================================================================== */
@@ -819,54 +556,6 @@ const visitLabel = 'Visit thechinapath.com';
   .bbg-track__title { font-size: clamp(1.6rem, 2.4vw + 0.6rem, 2.4rem); line-height: 1.15; margin: 0 0 var(--space-4); }
   .bbg-track__lead { font-size: var(--fs-lead); color: var(--bbg-text); }
 
-  /* Marquee */
-  .bbg-marquee {
-    overflow: hidden;
-    margin: 0 calc(var(--container-pad) * -1);
-    padding: var(--space-5) 0;
-    border-top: 1px solid var(--bbg-border);
-    border-bottom: 1px solid var(--bbg-border);
-    -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
-            mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
-  }
-  .bbg-marquee__track {
-    display: inline-flex;
-    align-items: center;
-    gap: clamp(1.5rem, 3vw, 3rem);
-    white-space: nowrap;
-    animation: bbgMarquee 40s linear infinite;
-    will-change: transform;
-  }
-  .bbg-marquee__item {
-    display: inline-flex;
-    align-items: center;
-    gap: clamp(1.5rem, 3vw, 3rem);
-    font-family: var(--font-display);
-    font-size: clamp(1.6rem, 3vw, 2.6rem);
-    font-weight: 600;
-    letter-spacing: -0.02em;
-    color: var(--bbg-ink);
-    background-clip: text;
-    -webkit-background-clip: text;
-  }
-  .bbg-marquee__item--enter {
-    background-image: linear-gradient(120deg, #1e7db0, #59c2ee);
-    color: transparent;
-    -webkit-text-fill-color: transparent;
-  }
-  .bbg-marquee__item--grow {
-    background-image: linear-gradient(120deg, #c8102e, #ff7a8a);
-    color: transparent;
-    -webkit-text-fill-color: transparent;
-  }
-  .bbg-marquee__item--learn {
-    background-image: linear-gradient(120deg, #d99a3a, #ffcf6f);
-    color: transparent;
-    -webkit-text-fill-color: transparent;
-  }
-  .bbg-marquee__sep { color: var(--bbg-blue); opacity: 0.6; flex-shrink: 0; }
-  @keyframes bbgMarquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-
   /* ===================================================================== */
   /* SERVICES                                                               */
   /* ===================================================================== */
@@ -888,21 +577,23 @@ const visitLabel = 'Visit thechinapath.com';
   }
   .bbg-services__title em {
     font-style: normal;
-    background: linear-gradient(120deg, #269ada, #c8102e 50%, #d99a3a);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    -webkit-text-fill-color: transparent;
+    color: #c8102e;
   }
   .bbg-services__lead { color: var(--bbg-text); font-size: var(--fs-lead); max-width: 60ch; }
 
+  .bbg-services__bezel {
+    padding: 6px;
+    border-radius: 28px;
+    background: rgba(10,20,30,0.04);
+    box-shadow: 0 0 0 1px rgba(10,20,30,0.05);
+  }
   .bbg-services__shell {
     position: relative;
     background: var(--bbg-paper);
-    border-radius: 28px;
+    border-radius: 22px;
+    overflow: hidden;
     padding: clamp(1.5rem, 3vw, 2.5rem);
-    border: 1px solid var(--bbg-border);
-    box-shadow: 0 60px 120px -60px rgba(15, 23, 42, 0.18);
+    box-shadow: 0 24px 50px -36px rgba(10,20,30,0.35);
   }
 
   .bbg-services__nav {
@@ -924,7 +615,7 @@ const visitLabel = 'Visit thechinapath.com';
     height: calc(100% - 12px);
     background: linear-gradient(135deg, var(--bbg-ink) 0%, #2a2f3f 100%);
     border-radius: 12px;
-    transition: transform 380ms cubic-bezier(0.2, 0.85, 0.2, 1);
+    transition: transform 0.5s cubic-bezier(0.32, 0.72, 0, 1);
     pointer-events: none;
     z-index: 0;
   }
@@ -943,7 +634,7 @@ const visitLabel = 'Visit thechinapath.com';
     grid-template-columns: auto 1fr auto;
     align-items: center;
     gap: 10px;
-    transition: color 320ms ease;
+    transition: color 0.5s cubic-bezier(0.32, 0.72, 0, 1);
   }
   .bbg-services__tab.is-active { color: #fff; }
   .bbg-services__tab.is-active .bbg-services__tab-count { color: rgba(255,255,255,0.6); }
@@ -952,7 +643,7 @@ const visitLabel = 'Visit thechinapath.com';
     border-radius: 50%;
     background: currentColor;
     flex-shrink: 0;
-    transition: background 320ms ease, transform 320ms ease;
+    transition: background 0.5s cubic-bezier(0.32, 0.72, 0, 1), transform 0.5s cubic-bezier(0.32, 0.72, 0, 1);
   }
   .bbg-services__tab--enter.is-active .bbg-services__tab-pip { background: #59c2ee; }
   .bbg-services__tab--grow.is-active .bbg-services__tab-pip  { background: #ff7a8a; }
@@ -963,7 +654,7 @@ const visitLabel = 'Visit thechinapath.com';
     font-size: 1.05rem;
     letter-spacing: -0.005em;
     color: var(--bbg-ink);
-    transition: color 320ms ease;
+    transition: color 0.5s cubic-bezier(0.32, 0.72, 0, 1);
   }
   .bbg-services__tab.is-active .bbg-services__tab-label { color: #fff; }
   .bbg-services__tab-count {
@@ -972,7 +663,7 @@ const visitLabel = 'Visit thechinapath.com';
     font-weight: 600;
     letter-spacing: 0.04em;
     color: var(--bbg-text-muted);
-    transition: color 320ms ease;
+    transition: color 0.5s cubic-bezier(0.32, 0.72, 0, 1);
   }
 
   .bbg-services__panels { position: relative; min-height: 480px; }
@@ -1008,7 +699,7 @@ const visitLabel = 'Visit thechinapath.com';
     width: 100%;
     height: 100%;
     min-height: 420px;
-    border-radius: 20px;
+    border-radius: 16px;
     overflow: hidden;
     background: var(--bbg-ink);
     box-shadow: 0 30px 60px -22px rgba(15,23,42,0.30);
@@ -1134,6 +825,7 @@ const visitLabel = 'Visit thechinapath.com';
   .bbg-operate__bg {
     position: absolute; inset: 0;
     background:
+      radial-gradient(1100px 680px at 52% 48%, rgba(200,16,46,0.10), transparent 65%),
       radial-gradient(900px 500px at 0% 100%, rgba(38,154,218,0.18), transparent 60%),
       radial-gradient(800px 500px at 100% 0%, rgba(200,16,46,0.14), transparent 60%);
     pointer-events: none;
@@ -1221,13 +913,13 @@ const visitLabel = 'Visit thechinapath.com';
     justify-content: center;
   }
 
-  /* Reveal helpers — JS adds .is-revealed once an element scrolls into view */
+  /* Reveal helpers: JS adds .is-revealed once an element scrolls into view */
   [data-anim="fade"] { opacity: 0; }
   .bbg-track__numeral,
   .bbg-track__copy,
   .bbg-services__header,
-  .bbg-services__shell {
-    transition: opacity 700ms cubic-bezier(0.2, 0.85, 0.2, 1), transform 800ms cubic-bezier(0.2, 0.85, 0.2, 1);
+  .bbg-services__bezel {
+    transition: opacity 700ms cubic-bezier(0.32, 0.72, 0, 1), transform 800ms cubic-bezier(0.32, 0.72, 0, 1);
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -1237,14 +929,11 @@ const visitLabel = 'Visit thechinapath.com';
     .bbg-hero__cta-row,
     .bbg-hero__logo,
     .bbg-hero__eyebrow,
-    .bbg-hero__chip,
-    .bbg-hero__ticker-track,
-    .bbg-marquee__track,
     .bbg-services__panel.is-active .bbg-services__panel-frame img,
     .bbg-services__panel.is-active .bbg-services__item,
     .bbg-operate__line,
     .bbg-operate__statement,
-    .bbg-track__numeral, .bbg-track__copy, .bbg-services__header, .bbg-services__shell, .bbg-marquee,
+    .bbg-track__numeral, .bbg-track__copy, .bbg-services__header, .bbg-services__bezel,
     [data-anim] {
       animation: none !important;
       transition: none !important;
@@ -1262,7 +951,7 @@ const visitLabel = 'Visit thechinapath.com';
        Pre-hide elements via JS so non-JS visitors still see content. */
     if (!reduced) {
       const revealTargets = document.querySelectorAll<HTMLElement>(
-        '.bbg-track__numeral, .bbg-track__copy, .bbg-services__header, .bbg-services__shell'
+        '.bbg-track__numeral, .bbg-track__copy, .bbg-services__header, .bbg-services__bezel'
       );
       revealTargets.forEach((el) => {
         el.style.opacity = '0';
@@ -1364,11 +1053,10 @@ const visitLabel = 'Visit thechinapath.com';
       });
     }
 
-    /* ----- Hero parallax tilt + bg parallax ----- */
+    /* ----- Hero parallax tilt ----- */
     if (!reduced) {
       const hero = document.querySelector<HTMLElement>('[data-hero]');
       const tilt = document.querySelector<HTMLElement>('[data-tilt] .bbg-hero__preview-frame');
-      const bg = document.querySelector<HTMLElement>('[data-parallax-bg]');
 
       if (hero && tilt) {
         let raf = 0;
@@ -1395,35 +1083,8 @@ const visitLabel = 'Visit thechinapath.com';
         hero.addEventListener('mousemove', onMove);
         hero.addEventListener('mouseleave', onLeave);
       }
-
-      if (bg) {
-        const onScroll = () => {
-          const rect = bg.getBoundingClientRect();
-          const offset = Math.max(-200, Math.min(200, rect.top * -0.18));
-          (bg as HTMLElement).style.setProperty('--parallax-y', `${offset}px`);
-        };
-        window.addEventListener('scroll', onScroll, { passive: true });
-        onScroll();
-      }
     }
 
-    /* ----- Magnetic CTA ----- */
-    if (!reduced) {
-      const magnets = document.querySelectorAll<HTMLElement>('[data-magnet]');
-      magnets.forEach((m) => {
-        m.addEventListener('mousemove', (e: MouseEvent) => {
-          const rect = m.getBoundingClientRect();
-          const x = e.clientX - rect.left - rect.width / 2;
-          const y = e.clientY - rect.top - rect.height / 2;
-          m.style.setProperty('--x', `${(x * 0.18).toFixed(1)}px`);
-          m.style.setProperty('--y', `${(y * 0.18).toFixed(1)}px`);
-        });
-        m.addEventListener('mouseleave', () => {
-          m.style.setProperty('--x', '0px');
-          m.style.setProperty('--y', '0px');
-        });
-      });
-    }
   };
 
   if (document.readyState === 'loading') {

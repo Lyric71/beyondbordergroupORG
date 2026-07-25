@@ -51,6 +51,7 @@ const agencies = [
     </video>
     <div class="hero-statement__scrim" aria-hidden="true"></div>
     <div class="hero-statement__rail">
+      <div class="rail-bezel">
       <aside class="rail" aria-label="Five agencies in the practice">
         <header class="rail__head">
           <span class="rail__head-tag">The practice</span>
@@ -124,37 +125,33 @@ const agencies = [
           </ol>
         </div>
       </aside>
+      </div>
     </div>
     <div class="container hero-statement__container">
       <div class="hero-statement__content">
-        <span class="eyebrow">Cross-Border Marketing</span>
-        <h1 class="hero-statement__title balance">We build and grow brands, products, and services across China and the West. Both ways.</h1>
+        <h1 class="hero-statement__title balance">We carry brands between China and the West. Both ways.</h1>
         <p class="hero-statement__lead">
           Five specialist agencies, built around one thesis. The gap between China and the West was never a
           translation problem. It's brand, channels, infrastructure, and sales. And it runs in both directions,
           every day.
         </p>
-        <p class="hero-statement__lead hero-statement__lead--secondary">
-          We have run this for brands in beauty and dermo-cosmetics, automotive and EV, food and beverage,
-          hospitality, home and lifestyle, and digital health.
-        </p>
         <div class="btn-row">
-          <a class="btn btn--primary" href="#the-stack">Find the right agency</a>
-          <a class="btn btn--ghost" href={pathFor('contact', locale)}>Talk to us</a>
+          <a class="pill-cta" href="#the-stack">Find your agency
+            <span class="pill-cta__disc" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg></span>
+          </a>
+          <a class="pill-ghost pill-ghost--ink" href={pathFor('contact', locale)}>Book a call</a>
         </div>
-        <p class="hero-statement__cite">Run from Shanghai and Hangzhou, with the Western side handled from Paris and by in-market reps.</p>
       </div>
     </div>
   </section>
 
   <section class="section section--alt" id="two-flows">
     <div class="container">
-      <header class="section-header">
-        <span class="eyebrow">Two flows</span>
+      <header class="section-header" data-reveal>
         <h2 class="balance">Start from the side you're standing on.</h2>
       </header>
 
-      <div class="bridge-panel">
+      <div class="bridge-panel" data-reveal style="--ri: 1;">
         <span class="bridge-panel__spine" aria-hidden="true">
           <span class="bridge-panel__spine-line"></span>
           <span class="bridge-panel__spine-mark">
@@ -169,14 +166,14 @@ const agencies = [
         <a class="bridge-panel__side bridge-panel__side--inbound" href={`${pathFor('two-flows', locale)}#inbound`}>
           <span class="bridge-panel__direction">
             <span class="bridge-panel__arrow" aria-hidden="true">→</span>
-            West to China · Inbound
+            West to China, Inbound
           </span>
           <h3 class="bridge-panel__title">Bringing Western brands into China.</h3>
           <p class="bridge-panel__body">
             Brand, WeChat, RedNote, Douyin, Tmall, JD, Baidu, KOLs, distribution. From a single landing page
             to the full stack.
           </p>
-          <span class="bridge-panel__by">TheChinaPath · TheRedScroll · ChinaWebFoundry · Compass</span>
+          <span class="bridge-panel__by">TheChinaPath, TheRedScroll, ChinaWebFoundry, Compass</span>
           <span class="bridge-panel__cta">
             Jump to inbound
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
@@ -186,7 +183,7 @@ const agencies = [
         <a class="bridge-panel__side bridge-panel__side--outbound" href={`${pathFor('two-flows', locale)}#outbound`}>
           <span class="bridge-panel__direction">
             <span class="bridge-panel__arrow" aria-hidden="true">←</span>
-            China to the West · Outbound
+            China to the West, Outbound
           </span>
           <h3 class="bridge-panel__title">Taking Chinese brands overseas.</h3>
           <p class="bridge-panel__body">
@@ -201,21 +198,15 @@ const agencies = [
         </a>
       </div>
 
-      <div class="btn-row" style="margin-top: var(--space-6); justify-content: center;">
-        <a class="btn btn--primary" href={pathFor('two-flows', locale)}>Open the full Two-flows page</a>
+      <div class="btn-row" style="margin-top: var(--space-6); justify-content: center; --ri: 2;" data-reveal>
+        <a class="pill-ghost pill-ghost--ink" href={pathFor('two-flows', locale)}>Open Two flows</a>
       </div>
     </div>
   </section>
 
   <section class="section">
     <div class="container">
-      <header class="section-header">
-        <span class="eyebrow">The stack</span>
-        <p class="transition-line">
-          If you cannot tell which side you are standing on, pick the flow first. The agency follows.
-          And if what you need is AI, content volume, or LinkedIn, that is
-          <a href={pathFor('ai-services', locale)}>AI Services</a>.
-        </p>
+      <header class="section-header" data-reveal>
         <h2 class="balance" id="the-stack">Five specialists. One practice.</h2>
         <p class="lead">
           Every agency here takes clients directly. Start with the one your project needs; the others join
@@ -223,8 +214,8 @@ const agencies = [
         </p>
       </header>
       <div class="grid-3">
-        {agencies.map((a) => (
-          <a class="card" href={pathFor(a.route, locale)}>
+        {agencies.map((a, i) => (
+          <a class="card" href={pathFor(a.route, locale)} data-reveal style={`--ri: ${i};`}>
             <AgencyLogo route={a.route} name={a.name} class="agency-card-logo" />
             <p>{a.tagline}</p>
             <span class="btn btn--ghost" style="margin-top: auto;">Open</span>
@@ -236,15 +227,14 @@ const agencies = [
 
   <section class="section section--alt">
     <div class="container">
-      <header class="section-header">
-        <span class="eyebrow">The logic</span>
+      <header class="section-header" data-reveal>
         <h2 class="balance">Two leads. Three specialists.</h2>
         <p class="lead">
           Two lead agencies, one per direction, each running the full project. Three specialists that slot
           into either direction when the work calls for their piece: social, web, partners.
         </p>
       </header>
-      <div class="matrix-grid" role="table" aria-label="Agencies by direction and layer">
+      <div class="matrix-grid" role="table" aria-label="Agencies by direction and layer" data-reveal style="--ri: 1;">
         <div class="matrix-grid__head" role="row">
           <div class="matrix-grid__corner" aria-hidden="true"></div>
           <div class="matrix-grid__direction matrix-grid__direction--west" role="columnheader">
@@ -329,7 +319,7 @@ const agencies = [
   </section>
 
   <section class="section section--tight">
-    <div class="container container--narrow center">
+    <div class="container container--narrow center" data-reveal>
       <h2 class="balance">Tell us which way you are going.</h2>
       <p class="lead" style="margin-inline: auto;">
         Thirty minutes on a call about your market, your channels, your timeline. You leave knowing which
@@ -338,31 +328,44 @@ const agencies = [
         agency sites.
       </p>
       <div class="btn-row" style="justify-content: center; margin-top: var(--space-5);">
-        <a class="btn btn--primary" href={pathFor('contact', locale)}>Book a call</a>
+        <a class="pill-cta" href={pathFor('contact', locale)}>Book a call
+          <span class="pill-cta__disc" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg></span>
+        </a>
       </div>
     </div>
   </section>
 </Layout>
 
 <style>
-  .hero-statement__lead--secondary {
-    margin-top: var(--space-3);
-    font-size: 0.95em;
-    opacity: 0.85;
+  /* ---------- Hero rail: bezel frame (outer 28 / inner 22) ---------- */
+  .rail-bezel {
+    padding: 6px;
+    border-radius: 28px;
+    background: rgba(255, 255, 255, 0.06);
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.12);
+    opacity: 0;
+    animation: rail-bezel-in 0.7s cubic-bezier(0.34, 1.2, 0.64, 1) 0.1s forwards;
+  }
+  .rail-bezel :global(.rail) {
+    border-radius: 22px;
+  }
+  @keyframes rail-bezel-in {
+    to { opacity: 1; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .rail-bezel { animation: none; opacity: 1; }
   }
 
-  .transition-line {
-    margin-bottom: var(--space-3);
-    font-size: var(--fs-small);
-    color: var(--bbg-text-muted);
-    max-width: 62ch;
+  /* ---------- Bridge split: bezel polish over the shared panel ---------- */
+  #two-flows :global(.bridge-panel) {
+    border-radius: 28px;
+    border: 6px solid rgba(10, 20, 30, 0.08);
+    background-clip: padding-box;
+    box-shadow:
+      0 0 0 1px rgba(10, 20, 30, 0.05),
+      inset 0 1px 1px rgba(255, 255, 255, 0.12),
+      0 24px 50px -36px rgba(10, 20, 30, 0.5);
   }
-  .transition-line a {
-    color: var(--bbg-blue);
-    font-weight: 600;
-    text-decoration: none;
-  }
-  .transition-line a:hover { text-decoration: underline; text-underline-offset: 3px; }
 
   /* ---------- The Stack: consistent logo sizing ---------- */
   .card :global(.agency-card-logo) {
@@ -440,14 +443,21 @@ const agencies = [
     gap: var(--space-1);
     padding: var(--space-4) var(--space-5);
     background: var(--bbg-white);
-    border: 1px solid var(--bbg-border);
-    border-radius: 12px;
-    transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease), border-color 0.25s var(--ease);
+    border: 1px solid rgba(10, 20, 30, 0.06);
+    border-radius: 16px;
+    box-shadow: 0 20px 40px -30px rgba(10, 20, 30, 0.3);
+    transition:
+      transform 0.5s cubic-bezier(0.32, 0.72, 0, 1),
+      box-shadow 0.5s cubic-bezier(0.32, 0.72, 0, 1),
+      border-color 0.25s var(--ease);
   }
   .matrix-cell:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 14px 30px -16px rgba(15, 23, 42, 0.18);
-    border-color: var(--bbg-border-strong);
+    transform: translateY(-4px);
+    box-shadow: 0 28px 52px -28px rgba(10, 20, 30, 0.38);
+    border-color: rgba(10, 20, 30, 0.1);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .matrix-cell:hover { transform: none; }
   }
   .matrix-cell--lead {
     background: linear-gradient(180deg, #ffffff 0%, var(--bbg-surface) 100%);
@@ -547,13 +557,9 @@ const agencies = [
   .matrix-cell__bridge-dot {
     width: 8px; height: 8px; border-radius: 50%;
     background: var(--bbg-blue);
-    box-shadow: 0 0 12px rgba(38, 154, 218, 0.7);
-    animation: bridge-pulse 2.5s ease-in-out infinite;
   }
   .matrix-cell__bridge-dot:last-child {
     background: #c8102e;
-    box-shadow: 0 0 12px rgba(200, 16, 46, 0.7);
-    animation-delay: 1.25s;
   }
   .matrix-cell__bridge-line {
     width: 64px; height: 2px;
@@ -570,19 +576,12 @@ const agencies = [
   }
   .matrix-cell--ai .matrix-cell__bridge-dot {
     background: #c2922f;
-    box-shadow: 0 0 12px rgba(194, 146, 47, 0.7);
   }
   .matrix-cell--ai .matrix-cell__bridge-dot:last-child {
     background: #e0b35e;
-    box-shadow: 0 0 12px rgba(224, 179, 94, 0.7);
-    animation-delay: 1.25s;
   }
   .matrix-cell--ai .matrix-cell__bridge-line {
     background: linear-gradient(90deg, #c2922f, #e0b35e);
-  }
-  @keyframes bridge-pulse {
-    0%, 100% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(1.4); opacity: 0.6; }
   }
   @media (max-width: 767px) {
     .matrix-grid__head { display: none; }

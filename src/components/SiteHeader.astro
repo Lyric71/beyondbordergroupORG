@@ -25,6 +25,9 @@ const cbItems: MegaItem[] = [
   { href: pathFor('agencies/chinawebfoundry', locale), title: 'ChinaWebFoundry', desc: 'Websites built for China.', logoRoute: 'agencies/chinawebfoundry' },
   { href: pathFor('agencies/theredscroll', locale), title: 'TheRedScroll', desc: 'Chinese social media.', logoRoute: 'agencies/theredscroll' },
   { href: pathFor('agencies/compass', locale), title: 'Compass', desc: 'Vetted China distributors and TPs.', logoRoute: 'agencies/compass' },
+];
+
+const cbAsideItems: MegaItem[] = [
   { href: pathFor('two-flows', locale), title: 'Two flows', desc: 'One bridge, two directions.' },
   { href: pathFor('bridge', locale), title: ui.nav.bridge, desc: ui.nav.bridgeItemDesc },
 ];
@@ -39,7 +42,7 @@ const groupItems: MegaItem[] = [
   { href: pathFor('how-we-work', locale), title: ui.nav.howWeWork, desc: ui.nav.howWeWorkItemDesc },
 ];
 
-const megas: { key: string; label: string; route: Route; lead: string; meta: string; footNote: string; items: MegaItem[] }[] = [
+const megas: { key: string; label: string; route: Route; lead: string; meta: string; footNote: string; items: MegaItem[]; asideLabel?: string; asideItems?: MegaItem[] }[] = [
   {
     key: 'ai',
     label: 'AI Services',
@@ -57,6 +60,8 @@ const megas: { key: string; label: string; route: Route; lead: string; meta: str
     meta: 'Both directions, every day',
     footNote: 'Every agency takes clients directly.',
     items: cbItems,
+    asideLabel: 'The thinking',
+    asideItems: cbAsideItems,
   },
   {
     key: 'products',
@@ -117,20 +122,23 @@ const activeMega = (key: string): boolean => {
                     <h3>{m.label}</h3>
                     <p>{m.lead}</p>
                   </div>
-                  <span class="mega__lead-meta"><span class="dot" aria-hidden="true"></span>{m.meta}</span>
+                  <span class="mega__lead-meta">{m.meta}</span>
                 </div>
+                <div class={`mega__body${m.asideItems ? ' mega__body--split' : ''}`}>
                 <div class="mega__items">
                   {m.items.map((item, i) => (
-                    <a class={`mega-item${item.logoRoute ? ' mega-item--with-logo' : ''}`} href={item.href} style={`--i: ${i}`}>
+                    <a class={`mega-item${item.logoRoute || item.icon ? ' mega-item--with-logo' : ''}`} href={item.href} style={`--i: ${i}`}>
                       {item.logoRoute ? (
                         <span class="mega-item__logo">
                           <AgencyLogo route={item.logoRoute} name={item.title} />
                         </span>
-                      ) : (
-                        <span class="mega-item__title">
-                          {item.icon && <img class="mega-item__brand-icon" src={item.icon} alt="" width="96" height="96" loading="lazy" decoding="async" />}
-                          {item.title}
+                      ) : item.icon ? (
+                        <span class="mega-item__logo mega-item__logo--lockup">
+                          <img class="mega-item__brand-icon" src={item.icon} alt="" width="96" height="96" loading="lazy" decoding="async" />
+                          <span class="mega-item__lockup-name">{item.title}</span>
                         </span>
+                      ) : (
+                        <span class="mega-item__title">{item.title}</span>
                       )}
                       <span class="mega-item__desc">{item.desc}</span>
                       <svg class="mega-item__arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -139,6 +147,24 @@ const activeMega = (key: string): boolean => {
                       </svg>
                     </a>
                   ))}
+                </div>
+                {m.asideItems && (
+                  <aside class="mega__aside">
+                    <span class="mega__aside-label">{m.asideLabel}</span>
+                    {m.asideItems.map((item) => (
+                      <a class="mega-aside-link" href={item.href}>
+                        <span class="mega-aside-link__title">
+                          {item.title}
+                          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M3 8h10" />
+                            <path d="M9 4l4 4-4 4" />
+                          </svg>
+                        </span>
+                        <span class="mega-aside-link__desc">{item.desc}</span>
+                      </a>
+                    ))}
+                  </aside>
+                )}
                 </div>
                 <div class="mega__footer">
                   <span>{m.footNote}</span>
@@ -186,7 +212,7 @@ const activeMega = (key: string): boolean => {
               {m.key !== 'group' && (
                 <li><a class="nav-mobile__link" href={pathFor(m.route, locale)}>Open {m.label}</a></li>
               )}
-              {m.items.map((item) => (
+              {[...m.items, ...(m.asideItems ?? [])].map((item) => (
                 <li>
                   <a class={`nav-mobile__link${item.logoRoute ? ' nav-mobile__link--with-logo' : ''}`} href={item.href}>
                     {item.logoRoute && (
@@ -210,12 +236,20 @@ const activeMega = (key: string): boolean => {
 <div class="site-overlay" aria-hidden="true"></div>
 
 <style>
+  .mega-item__logo--lockup {
+    gap: 10px;
+  }
   .mega-item__brand-icon {
-    width: 20px;
-    height: 20px;
-    display: inline-block;
-    vertical-align: -4px;
-    margin-right: 8px;
+    width: 38px;
+    height: 38px;
+    flex: none;
+  }
+  .mega-item__lockup-name {
+    font-weight: 600;
+    font-size: 1.3rem;
+    letter-spacing: -0.01em;
+    color: var(--bbg-ink);
+    white-space: nowrap;
   }
 </style>
 

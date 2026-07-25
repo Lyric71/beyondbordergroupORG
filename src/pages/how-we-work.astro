@@ -8,19 +8,19 @@ const description = 'How a BearingBridge project runs: start with one team, evid
 
 const steps = [
   {
-    lead: 'One, the call.',
+    lead: 'The call.',
     body: 'Thirty minutes on your market, your data, and what you need to be doing six months out. A senior person replies within one working day. No funnel, no auto-responder.',
   },
   {
-    lead: 'Two, the scope.',
+    lead: 'The scope.',
     body: 'We tell you which practice and which team fit, and whether you should start with more than one. You get a scope in writing before anything is built.',
   },
   {
-    lead: 'Three, the work.',
+    lead: 'The work.',
     body: 'The senior who wrote the plan stays on it. One team owns the outcome, not four agencies with four briefs and four invoices.',
   },
   {
-    lead: 'Four, the review.',
+    lead: 'The review.',
     body: 'A single weekly cadence, a live view of what is happening, and a monthly senior business review on the calendar. No PDFs that arrive a week late.',
   },
 ];
@@ -28,8 +28,7 @@ const steps = [
 
 <Layout locale={locale} route="how-we-work" title={title} description={description}>
   <section class="hero-editorial hero-editorial--dark">
-    <div class="container">
-      <span class="eyebrow eyebrow--on-dark">How we work</span>
+    <div class="container" data-reveal>
       <h1 class="hero-editorial__title balance">Start with one team. Add others when the work grows.</h1>
       <p class="hero-editorial__lead">
         Every practice and agency in the group takes clients directly. You do not buy the whole group; you
@@ -39,29 +38,26 @@ const steps = [
   </section>
 
   <section class="section section--alt" id="principle">
-    <div class="container container--narrow">
-      <span class="eyebrow">The principle</span>
-      <p class="transition-line">One rule sits under everything below.</p>
+    <div class="container container--narrow" data-reveal>
       <h2 class="balance">Evidence before scale.</h2>
       <p class="lead">
         We measure before we recommend and agree on the metric before we build. A pilot runs small and
         timeboxed, on a dated baseline, and we read the result honestly. When the evidence says scale, we
-        scale. When it says stop, we say stop. This is the AZIMUTH method on the AI side, and the same
-        instinct runs through the cross-border work: test what the platforms reward this week, not last
-        year.
+        scale. When it says stop, we say stop. This is AZIMUTH, our gated pilot method on the AI side,
+        and the same instinct runs through the cross-border work: test what the platforms reward this
+        week, not last year.
       </p>
     </div>
   </section>
 
   <section class="section" id="how">
     <div class="container">
-      <header class="section-header">
-        <span class="eyebrow">How a project runs</span>
+      <header class="section-header" data-reveal>
         <h2 class="balance">Four steps, whichever practice you enter.</h2>
       </header>
-      <div class="grid-2">
-        {steps.map((s) => (
-          <div class="card step-card">
+      <div class="steps-grid">
+        {steps.map((s, i) => (
+          <div class="card step-card" data-reveal style={`--ri: ${i}`}>
             <h3>{s.lead}</h3>
             <p>{s.body}</p>
           </div>
@@ -71,8 +67,7 @@ const steps = [
   </section>
 
   <section class="section section--alt" id="who">
-    <div class="container container--narrow">
-      <span class="eyebrow">Who does the work</span>
+    <div class="container container--narrow" data-reveal>
       <h2 class="balance">Senior people, on the work.</h2>
       <p class="lead">
         Most agencies hand you an account manager. We hand you an operator. The people who scope your
@@ -84,8 +79,7 @@ const steps = [
   </section>
 
   <section class="section" id="contract">
-    <div class="container container--narrow">
-      <span class="eyebrow">One group, one contract</span>
+    <div class="container container--narrow" data-reveal>
       <h2 class="balance">One relationship, however many teams.</h2>
       <p class="lead">
         Pull in three more teams without renegotiating from scratch. We contract from Shanghai or Hong
@@ -97,24 +91,46 @@ const steps = [
   </section>
 
   <section class="section section--tight section--alt">
-    <div class="container container--narrow center">
+    <div class="container container--narrow center" data-reveal>
       <h2 class="balance">Tell us where you are.</h2>
       <p class="lead" style="margin-inline: auto;">
         Wherever the work sits, AI, China, or a product idea, the first step is the same. Thirty minutes,
         a senior person, a straight answer.
       </p>
       <div class="btn-row" style="justify-content: center; margin-top: var(--space-5);">
-        <a class="btn btn--primary" href={pathFor('contact', locale)}>Book a call</a>
+        <a class="pill-cta" href={pathFor('contact', locale)}>Book a call
+          <span class="pill-cta__disc" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg></span>
+        </a>
       </div>
     </div>
   </section>
 </Layout>
 
 <style>
-  .transition-line {
-    margin-bottom: var(--space-3);
-    font-size: var(--fs-small);
-    color: var(--bbg-text-muted);
+  .steps-grid {
+    display: grid;
+    gap: var(--space-5);
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: 767px) {
+    .steps-grid { grid-template-columns: 1fr; }
+  }
+  .card.step-card {
+    border: 0;
+    border-radius: 18px;
+    background: var(--bbg-white);
+    box-shadow:
+      0 0 0 1px rgba(10, 20, 30, 0.06),
+      0 20px 40px -30px rgba(10, 20, 30, 0.3);
+    transition:
+      transform 0.6s cubic-bezier(0.32, 0.72, 0, 1),
+      box-shadow 0.6s cubic-bezier(0.32, 0.72, 0, 1);
+  }
+  .card.step-card:hover {
+    transform: translateY(-4px);
+    box-shadow:
+      0 0 0 1px rgba(10, 20, 30, 0.06),
+      0 26px 52px -30px rgba(10, 20, 30, 0.35);
   }
   .step-card h3 { margin-bottom: var(--space-2); }
 </style>

@@ -24,8 +24,8 @@ const modules = [
 
 <Layout locale={locale} route="ai-services/intelligence" title={title} description={description}>
   <section class="hero-editorial hero-editorial--dark intel-hero">
-    <div class="container">
-      <span class="eyebrow eyebrow--on-dark">Intelligence · a BearingBridge platform</span>
+    <div class="container" data-reveal>
+      <span class="eyebrow eyebrow--on-dark">Intelligence, a BearingBridge platform</span>
       <h1 class="hero-editorial__title balance">See AI at work. Before you commit to it.</h1>
       <p class="hero-editorial__lead">
         A slide deck tells you what AI might do. A working platform shows you. Intelligence is the set of
@@ -35,32 +35,37 @@ const modules = [
         AI seriously.
       </p>
       <div class="btn-row">
-        <a class="btn btn--primary" href={pathFor('contact', locale)}>Ask for a walkthrough</a>
-        <a class="btn btn--ghost-light" href="https://intelligence.bearingbridge.ai" target="_blank" rel="noreferrer">Open the platform (sign-in) ↗</a>
+        <a class="pill-cta" href={pathFor('contact', locale)}>Ask for a walkthrough
+          <span class="pill-cta__disc" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg></span>
+        </a>
+        <a class="pill-ghost" href="https://intelligence.bearingbridge.ai" target="_blank" rel="noreferrer">Open the platform ↗</a>
       </div>
     </div>
   </section>
 
   <section class="section section--alt intel-visual-section">
     <div class="container">
-      <figure class="intel-visual">
-        <img
-          src="/images/intelligence-platform.webp"
-          alt="The Intelligence platform running a task, with the live cost counter on screen."
-          loading="lazy"
-          decoding="async"
-          width="1050"
-          height="620"
-        />
-        <figcaption>// the platform, as it runs today</figcaption>
+      <figure class="intel-visual" data-reveal>
+        <div class="intel-visual__tray">
+          <div class="intel-visual__plate">
+            <img
+              src="/images/intelligence-platform.webp"
+              alt="The Intelligence platform running a task, with the live cost counter on screen."
+              loading="lazy"
+              decoding="async"
+              width="1050"
+              height="620"
+            />
+          </div>
+        </div>
+        <figcaption>The platform, as it runs today.</figcaption>
       </figure>
     </div>
   </section>
 
   <section class="section" id="modules">
     <div class="container">
-      <header class="section-header">
-        <span class="eyebrow">The modules</span>
+      <header class="section-header" data-reveal>
         <h2 class="balance">Running today.</h2>
         <p class="lead">
           Start where a win would be felt fastest. For most companies that is Marketing or Sales. Each
@@ -69,25 +74,23 @@ const modules = [
       </header>
 
       <div class="grid-3">
-        {modules.map((m) => (
-          <div class="card intel-module">
+        {modules.map((m, i) => (
+          <div class="card intel-module" data-reveal style={`--ri: ${i}`}>
             <h3>{m.name}</h3>
             <p>{m.body}</p>
           </div>
         ))}
       </div>
 
-      <p class="intel-modules__more">
+      <p class="intel-modules__more" data-reveal>
         And if your function is not on that list, the same foundation gets wired into the systems your team
         already opens every morning. Your data stays yours, and residency is decided with you up front.
       </p>
     </div>
   </section>
 
-  <section class="section section--dark" id="cost">
-    <div class="container container--narrow">
-      <span class="eyebrow eyebrow--on-dark">Cost transparency</span>
-      <p class="transition-line transition-line--on-dark">One more thing the demo makes visible.</p>
+  <section class="section section--alt" id="cost">
+    <div class="container container--narrow" data-reveal>
       <h2 class="balance">Every cost on screen.</h2>
       <p class="lead">
         There is no estimate deck and no invoice surprise at quarter end. You watch each run and what it
@@ -97,7 +100,7 @@ const modules = [
   </section>
 
   <section class="section section--tight">
-    <div class="container container--narrow center">
+    <div class="container container--narrow center" data-reveal>
       <h2 class="balance">Start with one module.</h2>
       <p class="lead" style="margin-inline: auto;">
         Pick the function where the pain is loudest. We show you the module running on a real task. The
@@ -107,8 +110,10 @@ const modules = [
         the consulting team that built and operates it.
       </p>
       <div class="btn-row" style="justify-content: center; margin-top: var(--space-5);">
-        <a class="btn btn--ghost" href="https://intelligence.bearingbridge.ai" target="_blank" rel="noreferrer">Open the platform ↗</a>
-        <a class="btn btn--primary" href={pathFor('contact', locale)}>Book a call</a>
+        <a class="pill-ghost pill-ghost--ink" href="https://intelligence.bearingbridge.ai" target="_blank" rel="noreferrer">Open the platform ↗</a>
+        <a class="pill-cta" href={pathFor('contact', locale)}>Ask for a walkthrough
+          <span class="pill-cta__disc" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg></span>
+        </a>
       </div>
     </div>
   </section>
@@ -123,34 +128,52 @@ const modules = [
     max-width: 920px;
     margin-inline: auto;
   }
+  .intel-visual__tray {
+    padding: 10px;
+    border-radius: 30px;
+    background: rgba(10, 20, 30, 0.04);
+    box-shadow: 0 0 0 1px rgba(10, 20, 30, 0.05);
+  }
+  .intel-visual__plate {
+    border-radius: 22px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 24px 50px -36px rgba(10, 20, 30, 0.35);
+  }
   .intel-visual img {
     display: block;
     width: 100%;
     height: auto;
-    border-radius: 14px;
-    border: 1px solid var(--bbg-border);
-    box-shadow: 0 24px 60px -30px rgba(15, 23, 42, 0.35);
   }
   .intel-visual figcaption {
-    margin-top: var(--space-2);
-    font-family: var(--font-mono, monospace);
+    margin-top: var(--space-3);
     font-size: 0.8125rem;
     color: var(--bbg-text-muted);
   }
 
+  .card.intel-module {
+    border: 0;
+    border-radius: 18px;
+    background: var(--bbg-white);
+    box-shadow:
+      0 0 0 1px rgba(10, 20, 30, 0.06),
+      0 20px 40px -30px rgba(10, 20, 30, 0.3);
+    transition:
+      transform 0.6s cubic-bezier(0.32, 0.72, 0, 1),
+      box-shadow 0.6s cubic-bezier(0.32, 0.72, 0, 1);
+  }
+  .card.intel-module:hover {
+    transform: translateY(-4px);
+    box-shadow:
+      0 0 0 1px rgba(10, 20, 30, 0.06),
+      0 26px 52px -30px rgba(10, 20, 30, 0.35);
+  }
   .intel-module h3 { margin-bottom: var(--space-2); }
   .intel-modules__more {
     margin-top: var(--space-5);
     max-width: 68ch;
     color: var(--bbg-text-muted);
   }
-
-  .transition-line {
-    margin-bottom: var(--space-3);
-    font-size: var(--fs-small);
-    color: var(--bbg-text-muted);
-  }
-  .transition-line--on-dark { color: rgba(255, 255, 255, 0.6); }
 
   .section--tight .lead a {
     color: var(--bbg-blue);

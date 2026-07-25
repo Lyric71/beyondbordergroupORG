@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import AgencyLogo from '../components/AgencyLogo.astro';
-import { pathFor } from '../i18n/ui';
+import { pathFor, type Route } from '../i18n/ui';
 
 const locale = 'en' as const;
 const title = 'One group, three practices';
@@ -15,7 +15,7 @@ const practices: { key: string; label: string; line: string; brands: Brand[]; hr
   {
     key: 'ai',
     label: 'AI Services',
-    line: 'Strategy through production, evidence over hype.',
+    line: 'From strategy through production. We benchmark Western and Chinese models side by side, implement on your data, then turn AI into content and pipeline at scale. Intelligence, our platform, lets you watch AI run real tasks before you commit.',
     brands: [
       { name: 'BearingBridge AI', logoRoute: 'agencies/bearingbridgeai' },
       { name: 'Intelligence', icon: '/AgencyLogos/intelligence-icon.png' },
@@ -28,7 +28,7 @@ const practices: { key: string; label: string; line: string; brands: Brand[]; hr
   {
     key: 'cb',
     label: 'Cross-Border Marketing',
-    line: 'Brands carried between China and the West, both ways.',
+    line: 'For brands crossing between China and the West, either direction: brand, channels, web, partner sourcing, sales. The track record spans beauty, automotive, food and beverage, hospitality, and home.',
     brands: [
       { name: 'TheChinaPath', logoRoute: 'agencies/bearingbridge' },
       { name: 'BeyondBridge', logoRoute: 'agencies/beyondbridge' },
@@ -42,133 +42,139 @@ const practices: { key: string; label: string; line: string; brands: Brand[]; hr
   {
     key: 'products',
     label: 'Products',
-    line: 'Media and software we own and run ourselves.',
+    line: 'Proof before promises. Media and software we own and run ourselves, starting with BBChien, built on the stack we sell and live in public.',
     brands: [{ name: 'BBChien', logoRoute: 'bbchien' }, { name: 'DeuceLadder' }],
     href: pathFor('products', locale),
     img: '/images/practice-products.webp',
   },
+];
+
+type HeroBrand = { name: string; href: string; route?: Route; slug?: string; icon?: string };
+
+const heroBrands: HeroBrand[] = [
+  { name: 'BearingBridge AI', href: pathFor('agencies/bearingbridgeai', locale), route: 'agencies/bearingbridgeai' },
+  { name: 'Intelligence', href: pathFor('ai-services/intelligence', locale), icon: '/AgencyLogos/intelligence-icon.png' },
+  { name: 'HubStudio', href: pathFor('agencies/hubstudio', locale), route: 'agencies/hubstudio' },
+  { name: 'Nuvora Studio', href: pathFor('agencies/nuvora-studio', locale), route: 'agencies/nuvora-studio' },
+  { name: 'TheChinaPath', href: pathFor('agencies/bearingbridge', locale), route: 'agencies/bearingbridge' },
+  { name: 'BeyondBridge', href: pathFor('agencies/beyondbridge', locale), route: 'agencies/beyondbridge' },
+  { name: 'ChinaWebFoundry', href: pathFor('agencies/chinawebfoundry', locale), route: 'agencies/chinawebfoundry' },
+  { name: 'TheRedScroll', href: pathFor('agencies/theredscroll', locale), route: 'agencies/theredscroll' },
+  { name: 'Compass', href: pathFor('agencies/compass', locale), route: 'agencies/compass' },
+  { name: 'BBChien', href: `${pathFor('products', locale)}#bbchien`, slug: 'bbchien' },
 ];
 ---
 
 <Layout locale={locale} route="home" title={title} description={description}>
   <section class="tri-hero">
     <div class="container tri-hero__intro">
-      <span class="eyebrow">BearingBridge</span>
       <h1 class="tri-hero__title balance">One group. Three practices.</h1>
       <p class="tri-hero__lead">
-        We run three businesses under one roof. AI consulting and production. Cross-border growth between
-        China and the West. And a portfolio of products we own and operate.
+        Three businesses under one roof: AI consulting and production, cross-border growth between China
+        and the West, and products we own.
       </p>
-      <div class="btn-row">
-        <a class="btn btn--primary" href="#practices">Pick your practice</a>
-        <a class="btn btn--ghost" href={pathFor('contact', locale)}>Talk to us</a>
-      </div>
-      <p class="tri-hero__cite">Shanghai. Hong Kong. Singapore. Paris. Hangzhou. Reps in the US, UK, Germany, France.</p>
-    </div>
-
-    <div class="tri-hero__panels">
-      {practices.map((p, i) => (
-        <a class={`tri-panel tri-panel--${p.key}`} href={p.href} style={`--panel-i: ${i}`}>
-          <img class="tri-panel__img" src={p.img} alt="" loading={i === 0 ? 'eager' : 'lazy'} decoding="async" />
-          <span class="tri-panel__scrim" aria-hidden="true"></span>
-          <span class="tri-panel__content">
-            <span class="tri-panel__name">{p.label}</span>
-            <span class="tri-panel__line">{p.line}</span>
-            <span class="tri-panel__brands">
-              {p.brands.map((b) => (
-                <span class="tri-panel__brand">
-                  {b.logoRoute ? (
-                    <AgencyLogo route={b.logoRoute} name={b.name} />
-                  ) : (
-                    <>
-                      {b.icon && <img class="tri-panel__brand-icon" src={b.icon} alt="" width="96" height="96" loading="lazy" decoding="async" />}
-                      {b.name}
-                    </>
-                  )}
-                </span>
-              ))}
-            </span>
-            <span class="tri-panel__cta">
-              Open
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="15" height="15"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
-            </span>
+      <div class="tri-hero__ctas">
+        <a class="pill-cta" href="#practices">
+          Pick your practice
+          <span class="pill-cta__disc" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
           </span>
         </a>
-      ))}
+        <a class="pill-ghost" href={pathFor('contact', locale)}>Book a call</a>
+      </div>
+      <ul class="tri-hero__logos" aria-label="The BearingBridge brands">
+        {heroBrands.map((b) => (
+          <li>
+            <a class="tri-hero__logo-chip" href={b.href} aria-label={b.name}>
+              {b.route ? (
+                <AgencyLogo route={b.route} name={b.name} />
+              ) : b.slug ? (
+                <AgencyLogo slug={b.slug} name={b.name} />
+              ) : (
+                <>
+                  <img class="tri-hero__chip-icon" src={b.icon} alt="" width="96" height="96" loading="lazy" decoding="async" />
+                  <span class="tri-hero__chip-name">{b.name}</span>
+                </>
+              )}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <div class="container tri-hero__panels-wrap" id="practices">
+      <div class="tri-hero__panels">
+        {practices.map((p, i) => (
+          <a class={`tri-panel tri-panel--${p.key}`} href={p.href} style={`--panel-i: ${i}`} data-reveal>
+            <span class="tri-panel__core">
+              <img class="tri-panel__img" src={p.img} alt="" loading={i === 0 ? 'eager' : 'lazy'} decoding="async" />
+              <span class="tri-panel__scrim" aria-hidden="true"></span>
+              <span class="tri-panel__content">
+                <span class="tri-panel__name">{p.label}</span>
+                <span class="tri-panel__line">{p.line}</span>
+                <span class="tri-panel__brands">
+                  {p.brands.map((b) => (
+                    <span class="tri-panel__brand">
+                      {b.logoRoute ? (
+                        <AgencyLogo route={b.logoRoute} name={b.name} />
+                      ) : (
+                        <>
+                          {b.icon && <img class="tri-panel__brand-icon" src={b.icon} alt="" width="96" height="96" loading="lazy" decoding="async" />}
+                          {b.name}
+                        </>
+                      )}
+                    </span>
+                  ))}
+                </span>
+                <span class="tri-panel__cta">
+                  Open
+                  <span class="tri-panel__cta-disc" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" width="13" height="13"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
+                  </span>
+                </span>
+              </span>
+            </span>
+          </a>
+        ))}
+      </div>
     </div>
   </section>
 
-  <section class="section" id="practices">
+  <section class="section group-teaser">
     <div class="container">
-      <header class="section-header">
-        <span class="eyebrow">The practices</span>
-        <h2 class="balance">Pick the one you need.</h2>
-        <p class="lead">
-          Each practice stands on its own, and most clients start with just one. Not sure which?
-          <a href={pathFor('contact', locale)}>Talk to us</a> and we will point you the right way.
-        </p>
-      </header>
-
-      <div class="grid-3 practice-cards">
-        <a class="card practice-card" href={pathFor('ai-services', locale)}>
-          <h3>AI Services</h3>
-          <p>
-            For companies adopting AI, wherever they sell. We take you from strategy through production.
-            We benchmark Western and Chinese models side by side and implement on your data, then turn AI
-            into content and pipeline at scale. Intelligence, our platform, lets you watch AI run real
-            tasks before you commit.
+      <div class="split split--media-first" data-reveal>
+        <div>
+          <figure class="group-teaser__figure">
+            <img
+              src="/images/home-the-group.webp"
+              alt="A dual-screen workstation: an AI coding assistant on one monitor, a website design canvas on the other."
+              width="1050"
+              height="620"
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+        </div>
+        <div>
+          <span class="eyebrow eyebrow--rule">The group</span>
+          <h2 class="balance">AI changed the agency job. We rebuilt the group around it.</h2>
+          <p class="lead">
+            There is no AI department at BearingBridge, because there is no non-AI department. Every brief
+            in the group, a Tmall flagship launch or a LinkedIn program, runs on the same stack we sell,
+            and our teams benchmark Western and Chinese models against each other month after month. Work
+            is priced on outcomes and volume, not headcount. The judgment stays human. That part we do not
+            hand to a machine.
           </p>
-          <span class="practice-card__brands">
-            <span class="practice-card__brand"><AgencyLogo route="agencies/bearingbridgeai" name="BearingBridge AI" /></span>
-            <span class="practice-card__brand practice-card__brand--text">
-              <img class="practice-card__brand-icon" src="/AgencyLogos/intelligence-icon.png" alt="" width="96" height="96" loading="lazy" decoding="async" />
-              Intelligence
-            </span>
-            <span class="practice-card__brand"><AgencyLogo route="agencies/hubstudio" name="HubStudio" /></span>
-            <span class="practice-card__brand"><AgencyLogo route="agencies/nuvora-studio" name="Nuvora Studio" /></span>
-          </span>
-          <span class="btn btn--ghost" style="margin-top: auto;">Open AI Services</span>
-        </a>
-
-        <a class="card practice-card" href={pathFor('cross-border-marketing', locale)}>
-          <h3>Cross-Border Marketing</h3>
-          <p>
-            For brands crossing between China and the West, either direction. We carry brands, products,
-            and services across: brand, channels, web, partner sourcing, sales. Track record spans beauty,
-            automotive, food and beverage, hospitality, and home.
-          </p>
-          <span class="practice-card__brands">
-            <span class="practice-card__brand"><AgencyLogo route="agencies/bearingbridge" name="TheChinaPath" /></span>
-            <span class="practice-card__brand"><AgencyLogo route="agencies/beyondbridge" name="BeyondBridge" /></span>
-            <span class="practice-card__brand"><AgencyLogo route="agencies/chinawebfoundry" name="ChinaWebFoundry" /></span>
-            <span class="practice-card__brand"><AgencyLogo route="agencies/theredscroll" name="TheRedScroll" /></span>
-            <span class="practice-card__brand"><AgencyLogo route="agencies/compass" name="Compass" /></span>
-          </span>
-          <span class="btn btn--ghost" style="margin-top: auto;">Open Cross-Border Marketing</span>
-        </a>
-
-        <a class="card practice-card" href={pathFor('products', locale)}>
-          <h3>Products</h3>
-          <p>
-            Proof before promises. Media and software we own and run ourselves, starting with BBChien,
-            built on the stack we sell and live in public.
-          </p>
-          <span class="practice-card__brands">
-            <span class="practice-card__brand"><AgencyLogo slug="bbchien" name="BBChien" /></span>
-            <span class="practice-card__brand practice-card__brand--text">DeuceLadder</span>
-            <span class="practice-card__brand practice-card__brand--text">more in build</span>
-          </span>
-          <span class="btn btn--ghost" style="margin-top: auto;">Open Products</span>
-        </a>
+          <a class="btn btn--ghost" href={pathFor('the-group', locale)}>Read about the group</a>
+        </div>
       </div>
     </div>
   </section>
 
   <section class="section section--dark">
     <div class="container">
-      <div class="split split--text-first">
+      <div class="split split--text-first" data-reveal>
         <div>
-          <span class="eyebrow eyebrow--on-dark">Who is behind this</span>
           <h2 class="balance">One operator. Europe and North Asia.</h2>
           <p class="lead">
             The group is founded and led by Cyril Drouin. Digital, eCommerce, brand: his work has run
@@ -178,7 +184,7 @@ const practices: { key: string; label: string; line: string; brands: Brand[]; hr
           <a class="btn btn--ghost-light" href={linkedinUrl} target="_blank" rel="noreferrer">Connect on LinkedIn</a>
         </div>
         <div>
-          <a class="founder-portrait" href={linkedinUrl} target="_blank" rel="noreferrer" aria-label="Cyril Drouin on LinkedIn">
+          <a class="founder-frame" href={linkedinUrl} target="_blank" rel="noreferrer" aria-label="Cyril Drouin on LinkedIn">
             <img
               src="/Team/CyrilDrouin.jpg"
               alt="Cyril Drouin, founder of BearingBridge."
@@ -193,29 +199,72 @@ const practices: { key: string; label: string; line: string; brands: Brand[]; hr
     </div>
   </section>
 
-  <section class="section section--alt">
-    <div class="container container--narrow">
-      <span class="eyebrow">The logic</span>
-      <p class="transition-line">Three businesses, one reason they sit together.</p>
-      <h2 class="balance">Same stack. Three uses.</h2>
-      <p class="lead">
-        The stack is everything we build in the AI practice: the tools, the agents, the publishing systems.
-        The cross-border practice runs it between China and the West, two markets that expose weak work
-        quickly. The products then prove it in public, on businesses we own outright, so what we learn in
-        one practice moves straight into the other two.
-      </p>
+  <section class="section section--alt stack-section">
+    <div class="container">
+      <div class="split split--text-first" data-reveal>
+        <div>
+          <h2 class="balance">Same stack. Three uses.</h2>
+          <p class="lead">
+            The stack is everything we build in the AI practice: the tools, the agents, the publishing systems.
+            The cross-border practice runs it between China and the West, two markets that expose weak work
+            quickly. The products then prove it in public, on businesses we own outright, so what we learn in
+            one practice moves straight into the other two.
+          </p>
+        </div>
+        <div>
+          <figure class="stack-figure">
+            <svg class="stack-diagram" viewBox="0 0 520 390" role="img" aria-label="One stack cycling through three practices: AI Services builds it, Cross-Border Marketing runs it, Products prove it.">
+              <defs>
+                <marker id="loop-arrow" markerWidth="7" markerHeight="7" refX="5.5" refY="3.5" orient="auto">
+                  <path d="M0 0 L7 3.5 L0 7 Z" fill="#269ada"></path>
+                </marker>
+              </defs>
+
+              <circle cx="260" cy="200" r="145" fill="none" stroke="#cfdae4" stroke-width="1.5" stroke-dasharray="2.5 7"></circle>
+
+              <path d="M382.9 123.2 A145 145 0 0 1 389.2 134.2" fill="none" stroke="#269ada" stroke-width="1.8" marker-end="url(#loop-arrow)"></path>
+              <path d="M270.1 344.7 A145 145 0 0 1 249.9 344.7" fill="none" stroke="#269ada" stroke-width="1.8" marker-end="url(#loop-arrow)"></path>
+              <path d="M132 131.9 A145 145 0 0 1 138.4 121.1" fill="none" stroke="#269ada" stroke-width="1.8" marker-end="url(#loop-arrow)"></path>
+
+              <circle cx="260" cy="200" r="52" fill="#ffffff" stroke="#e5e5e5"></circle>
+              <text x="260" y="205" text-anchor="middle" class="stack-diagram__hub">The stack</text>
+
+              <g>
+                <rect x="184" y="30" width="152" height="50" rx="25" fill="#ffffff" stroke="#e5e5e5"></rect>
+                <text x="260" y="51" text-anchor="middle" class="stack-diagram__name">AI Services</text>
+                <text x="260" y="68" text-anchor="middle" class="stack-diagram__verb">builds it</text>
+              </g>
+              <g>
+                <rect x="309.6" y="247.5" width="152" height="50" rx="25" fill="#ffffff" stroke="#e5e5e5"></rect>
+                <text x="385.6" y="268.5" text-anchor="middle" class="stack-diagram__name">Cross-Border</text>
+                <text x="385.6" y="285.5" text-anchor="middle" class="stack-diagram__verb">runs it</text>
+              </g>
+              <g>
+                <rect x="58.4" y="247.5" width="152" height="50" rx="25" fill="#ffffff" stroke="#e5e5e5"></rect>
+                <text x="134.4" y="268.5" text-anchor="middle" class="stack-diagram__name">Products</text>
+                <text x="134.4" y="285.5" text-anchor="middle" class="stack-diagram__verb">proves it</text>
+              </g>
+            </svg>
+          </figure>
+        </div>
+      </div>
     </div>
   </section>
 
   <section class="section section--tight">
-    <div class="container container--narrow center">
+    <div class="container container--narrow center" data-reveal>
       <h2 class="balance">Tell us what you are building.</h2>
       <p class="lead" style="margin-inline: auto;">
         Thirty minutes on a call, no deck. We will tell you which practice, and which team inside it, is
         the right place to start, or whether you should start with more than one.
       </p>
-      <div class="btn-row" style="justify-content: center; margin-top: var(--space-5);">
-        <a class="btn btn--primary" href={pathFor('contact', locale)}>Book a call</a>
+      <div class="tri-hero__ctas tri-hero__ctas--center">
+        <a class="pill-cta" href={pathFor('contact', locale)}>
+          Book a call
+          <span class="pill-cta__disc" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
+          </span>
+        </a>
       </div>
       <p class="home-cta__meta">
         Shanghai. Hong Kong. Singapore. Paris. Hangzhou. Reps in the US, UK, Germany, France.
@@ -226,55 +275,197 @@ const practices: { key: string; label: string; line: string; brands: Brand[]; hr
 </Layout>
 
 <style>
-  /* ---------- Tri-panel hero ---------- */
+  /* ---------- Hero: deep black with brand orbs ---------- */
   .tri-hero {
-    background: var(--bbg-ink, #0f172a);
+    position: relative;
+    background:
+      radial-gradient(560px 420px at 12% -10%, rgba(38, 154, 218, 0.16), transparent 65%),
+      radial-gradient(640px 480px at 92% 30%, rgba(200, 16, 46, 0.11), transparent 65%),
+      #050505;
     color: #fff;
-    padding-top: calc(var(--space-8, 6rem) + 40px);
-    padding-bottom: 0;
+    padding-top: calc(var(--space-9, 7.5rem) + 24px);
+    padding-bottom: var(--space-9, 7.5rem);
+    overflow: hidden;
   }
   .tri-hero__intro {
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: var(--space-3);
-    padding-bottom: var(--space-6);
-  }
-  .tri-hero__intro .eyebrow {
-    color: rgba(255, 255, 255, 0.65);
+    gap: var(--space-4);
+    padding-bottom: var(--space-8);
   }
   .tri-hero__title {
     color: #fff;
-    font-size: clamp(2.4rem, 6vw, 4.25rem);
-    line-height: 1.05;
+    font-size: clamp(2.6rem, 6.2vw, 4.75rem);
+    line-height: 1.03;
+    letter-spacing: -0.035em;
+    font-weight: 650;
     margin: 0;
   }
   .tri-hero__lead {
     max-width: 46ch;
     font-size: clamp(1.05rem, 1.6vw, 1.25rem);
     line-height: 1.6;
-    color: rgba(255, 255, 255, 0.82);
+    color: rgba(255, 255, 255, 0.78);
     margin: 0;
   }
-  .tri-hero__cite {
-    font-size: var(--fs-small, 0.875rem);
-    color: rgba(255, 255, 255, 0.55);
-    letter-spacing: 0.02em;
-    margin: 0;
+
+  /* Staggered entrance */
+  @media (prefers-reduced-motion: no-preference) {
+    .tri-hero__intro > * {
+      opacity: 0;
+      transform: translateY(26px);
+      filter: blur(6px);
+      animation: hero-rise 0.9s cubic-bezier(0.32, 0.72, 0, 1) forwards;
+    }
+    .tri-hero__intro > *:nth-child(1) { animation-delay: 0.05s; }
+    .tri-hero__intro > *:nth-child(2) { animation-delay: 0.16s; }
+    .tri-hero__intro > *:nth-child(3) { animation-delay: 0.27s; }
+    .tri-hero__intro > *:nth-child(4) { animation-delay: 0.38s; }
   }
+  @keyframes hero-rise {
+    to { opacity: 1; transform: translateY(0); filter: blur(0); }
+  }
+
+  /* ---------- Pill CTAs (button-in-button) ---------- */
+  .tri-hero__ctas {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: var(--space-2);
+  }
+  .tri-hero__ctas--center { justify-content: center; margin-top: var(--space-5); }
+  .pill-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 7px 7px 7px 24px;
+    border-radius: 999px;
+    background: var(--bbg-blue);
+    color: #fff;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: transform 0.5s cubic-bezier(0.32, 0.72, 0, 1), background 0.5s cubic-bezier(0.32, 0.72, 0, 1);
+  }
+  .pill-cta:hover { background: var(--bbg-blue-dark); transform: translateY(-1px); }
+  .pill-cta:active { transform: scale(0.98); }
+  .pill-cta__disc {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.22);
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.25);
+    transition: transform 0.5s cubic-bezier(0.32, 0.72, 0, 1);
+  }
+  .pill-cta:hover .pill-cta__disc { transform: translateX(3px); }
+  .pill-ghost {
+    display: inline-flex;
+    align-items: center;
+    padding: 13px 26px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    color: #fff;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: background 0.5s cubic-bezier(0.32, 0.72, 0, 1), border-color 0.5s cubic-bezier(0.32, 0.72, 0, 1), transform 0.5s cubic-bezier(0.32, 0.72, 0, 1);
+  }
+  .pill-ghost:hover { background: rgba(255, 255, 255, 0.08); border-color: rgba(255, 255, 255, 0.3); transform: translateY(-1px); }
+  .pill-ghost:active { transform: scale(0.98); }
+
+  /* ---------- Brand chips: equal cells, glass tray feel ---------- */
+  .tri-hero__logos {
+    list-style: none;
+    margin: var(--space-4) 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(5, 126px);
+    justify-content: center;
+    gap: 8px;
+  }
+  .tri-hero__logos li { display: contents; }
+  .tri-hero__logo-chip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    padding: 0 12px;
+    overflow: hidden;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.08),
+      0 14px 34px -18px rgba(0, 0, 0, 0.85);
+    text-decoration: none;
+    transition: transform 0.55s cubic-bezier(0.32, 0.72, 0, 1), background 0.55s cubic-bezier(0.32, 0.72, 0, 1);
+  }
+  .tri-hero__logo-chip:hover {
+    background: #fff;
+    transform: translateY(-3px);
+  }
+  .tri-hero__logo-chip:active { transform: scale(0.98); }
+  .tri-hero__logo-chip :global(.agency-logo) {
+    height: 19px;
+    width: auto;
+    max-width: 100%;
+  }
+  .tri-hero__chip-icon {
+    width: 17px;
+    height: 17px;
+    margin-right: 6px;
+    object-fit: contain;
+  }
+  .tri-hero__chip-name {
+    font-weight: 600;
+    font-size: 0.82rem;
+    letter-spacing: -0.01em;
+    color: #1a2438;
+    white-space: nowrap;
+  }
+  @media (max-width: 980px) {
+    .tri-hero__logos { grid-template-columns: repeat(3, minmax(108px, 126px)); }
+  }
+  @media (max-width: 640px) {
+    .tri-hero__logos { grid-template-columns: repeat(2, minmax(0, 1fr)); width: 100%; }
+    .tri-hero__logo-chip { height: 36px; padding: 0 10px; }
+    .tri-hero__logo-chip :global(.agency-logo) { height: 15px; }
+    .tri-hero__chip-icon { width: 14px; height: 14px; margin-right: 5px; }
+    .tri-hero__chip-name { font-size: 0.78rem; }
+  }
+
+  /* ---------- Practice panels: double-bezel cards on black ---------- */
+  .tri-hero__panels-wrap { position: relative; }
   .tri-hero__panels {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2px;
+    gap: 16px;
   }
   .tri-panel {
-    position: relative;
     display: block;
-    min-height: 380px;
-    overflow: hidden;
+    padding: 6px;
+    border-radius: 28px;
+    background: rgba(255, 255, 255, 0.06);
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1);
     text-decoration: none;
     color: #fff;
+    transition: transform 0.6s cubic-bezier(0.32, 0.72, 0, 1), box-shadow 0.6s cubic-bezier(0.32, 0.72, 0, 1);
+  }
+  .tri-panel:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.18), 0 30px 60px -30px rgba(0, 0, 0, 0.9);
+  }
+  .tri-panel__core {
+    position: relative;
+    display: block;
+    min-height: 460px;
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.12);
   }
   .tri-panel__img {
     position: absolute;
@@ -282,17 +473,17 @@ const practices: { key: string; label: string; line: string; brands: Brand[]; hr
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.6s var(--ease, ease);
+    transition: transform 0.8s cubic-bezier(0.32, 0.72, 0, 1);
   }
-  .tri-panel:hover .tri-panel__img { transform: scale(1.04); }
+  .tri-panel:hover .tri-panel__img { transform: scale(1.045); }
   .tri-panel__scrim {
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(10, 15, 30, 0.25) 0%, rgba(10, 15, 30, 0.82) 100%);
-    transition: background 0.4s var(--ease, ease);
+    background: linear-gradient(180deg, rgba(5, 8, 16, 0.2) 0%, rgba(5, 8, 16, 0.85) 100%);
+    transition: background 0.6s cubic-bezier(0.32, 0.72, 0, 1);
   }
   .tri-panel:hover .tri-panel__scrim {
-    background: linear-gradient(180deg, rgba(10, 15, 30, 0.15) 0%, rgba(10, 15, 30, 0.88) 100%);
+    background: linear-gradient(180deg, rgba(5, 8, 16, 0.12) 0%, rgba(5, 8, 16, 0.9) 100%);
   }
   .tri-panel__content {
     position: absolute;
@@ -305,13 +496,14 @@ const practices: { key: string; label: string; line: string; brands: Brand[]; hr
   .tri-panel__name {
     font-family: var(--font-display, inherit);
     font-size: 1.375rem;
-    font-weight: 700;
-    letter-spacing: 0.01em;
+    font-weight: 650;
+    letter-spacing: -0.01em;
   }
   .tri-panel__line {
     font-size: 0.95rem;
-    color: rgba(255, 255, 255, 0.85);
-    line-height: 1.45;
+    color: rgba(255, 255, 255, 0.88);
+    line-height: 1.55;
+    max-width: 44ch;
   }
   .tri-panel__brands {
     display: flex;
@@ -340,61 +532,127 @@ const practices: { key: string; label: string; line: string; brands: Brand[]; hr
     height: 13px;
     margin-right: 5px;
   }
-  .practice-card__brand-icon {
-    width: 16px;
-    height: 16px;
-    margin-right: 6px;
-  }
   .tri-panel__cta {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
+    gap: 9px;
     margin-top: var(--space-2, 0.5rem);
     font-size: var(--fs-small, 0.875rem);
     font-weight: 600;
     color: #fff;
-    opacity: 0.85;
-    transition: opacity 0.25s var(--ease, ease), gap 0.25s var(--ease, ease);
+    opacity: 0.9;
   }
-  .tri-panel:hover .tri-panel__cta { opacity: 1; gap: 10px; }
-
-  @media (max-width: 900px) {
-    .tri-hero__panels { grid-template-columns: 1fr; }
-    .tri-panel { min-height: 240px; }
-  }
-
-  /* ---------- Practice cards ---------- */
-  .practice-card h3 {
-    margin-bottom: var(--space-2);
-  }
-  .practice-card__brands {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: var(--space-2) var(--space-3);
-    margin: var(--space-3) 0;
-  }
-  .practice-card__brand {
+  .tri-panel__cta-disc {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.14);
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.18);
+    transition: transform 0.5s cubic-bezier(0.32, 0.72, 0, 1), background 0.5s cubic-bezier(0.32, 0.72, 0, 1);
   }
-  .practice-card__brand :global(.agency-logo) {
-    height: 20px;
-    width: auto;
-    max-width: 130px;
-  }
-  .practice-card__brand--text {
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: var(--bbg-text-muted);
+  .tri-panel:hover .tri-panel__cta-disc {
+    transform: translateX(3px);
+    background: rgba(255, 255, 255, 0.24);
   }
 
-  .transition-line {
-    margin-bottom: var(--space-3);
-    font-size: var(--fs-small);
-    color: var(--bbg-text-muted);
+  @media (max-width: 900px) {
+    .tri-hero { padding-top: calc(var(--space-8, 5rem) + 24px); padding-bottom: var(--space-7, 4rem); }
+    .tri-hero__panels { grid-template-columns: 1fr; gap: 12px; }
+    .tri-panel__core { min-height: 300px; }
+  }
+
+  /* ---------- Group teaser ---------- */
+  .group-teaser .split { align-items: center; }
+  .group-teaser h2 { margin-bottom: var(--space-4); }
+  .group-teaser .lead { margin-bottom: var(--space-4); }
+  .group-teaser__figure {
+    margin: 0;
+    padding: 8px;
+    border-radius: 26px;
+    background: rgba(10, 20, 30, 0.04);
+    box-shadow: 0 0 0 1px rgba(10, 20, 30, 0.05);
+  }
+  .group-teaser__figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 19px;
+  }
+
+  /* ---------- Founder portrait: bezel frame ---------- */
+  .founder-frame {
+    display: block;
+    max-width: 380px;
+    margin-inline: auto;
+    padding: 8px;
+    border-radius: 26px;
+    background: rgba(255, 255, 255, 0.06);
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1);
+    transition: transform 0.6s cubic-bezier(0.32, 0.72, 0, 1);
+  }
+  .founder-frame:hover { transform: translateY(-4px); }
+  .founder-frame img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 19px;
+  }
+
+  /* ---------- Stack diagram ---------- */
+  .stack-section .split { align-items: center; }
+  .stack-figure {
+    margin: 0;
+    padding: 10px;
+    border-radius: 30px;
+    background: rgba(10, 20, 30, 0.04);
+    box-shadow: 0 0 0 1px rgba(10, 20, 30, 0.05);
+    max-width: 560px;
+    margin-inline: auto;
+  }
+  .stack-diagram {
+    display: block;
+    width: 100%;
+    height: auto;
+    background: #fff;
+    border-radius: 22px;
+    box-shadow: 0 24px 50px -36px rgba(10, 20, 30, 0.35);
+  }
+  .stack-diagram text {
+    font-family: var(--font-sans);
+  }
+  .stack-diagram__hub {
+    font-size: 15px;
+    font-weight: 650;
+    fill: var(--bbg-ink);
+    letter-spacing: -0.01em;
+  }
+  .stack-diagram__name {
+    font-size: 13px;
+    font-weight: 600;
+    fill: var(--bbg-ink);
+  }
+  .stack-diagram__verb {
+    font-size: 11px;
+    fill: var(--bbg-text-muted);
+  }
+
+  /* ---------- Scroll reveals ---------- */
+  @media (prefers-reduced-motion: no-preference) {
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(28px);
+      filter: blur(5px);
+      transition: opacity 0.9s cubic-bezier(0.32, 0.72, 0, 1), transform 0.9s cubic-bezier(0.32, 0.72, 0, 1), filter 0.9s cubic-bezier(0.32, 0.72, 0, 1);
+      transition-delay: calc(var(--panel-i, 0) * 90ms);
+    }
+    [data-reveal].is-in {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
   }
 
   .home-cta__meta {
@@ -403,3 +661,24 @@ const practices: { key: string; label: string; line: string; brands: Brand[]; hr
     color: var(--bbg-text-muted);
   }
 </style>
+
+<script>
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const targets = document.querySelectorAll('[data-reveal]');
+  if (reduce || !('IntersectionObserver' in window)) {
+    targets.forEach((el) => el.classList.add('is-in'));
+  } else {
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-in');
+            io.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+    targets.forEach((el) => io.observe(el));
+  }
+</script>

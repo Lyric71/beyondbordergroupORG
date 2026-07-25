@@ -3,7 +3,6 @@ import type { Locale } from './ui';
 export interface ContactCopy {
   title: string;
   description: string;
-  eyebrow: string;
   heroTitle: string;
   heroLead: string;
   emailTitle: string;
@@ -14,7 +13,6 @@ export interface ContactCopy {
   officeParis: string;
   officesNote: string;
   directTitle: string;
-  formEyebrow: string;
   formHeading: string;
   labelName: string;
   labelEmail: string;
@@ -49,7 +47,6 @@ export const contactCopy: Record<Locale, ContactCopy> = {
   en: {
     title: 'Contact',
     description: 'Tell us about your project. We answer within 24 hours, in your time zone.',
-    eyebrow: 'Contact',
     heroTitle: 'Tell us about your project.',
     heroLead: 'Cross-border, both ways. Within 24 hours, Monday to Friday.',
     emailTitle: 'Email',
@@ -60,7 +57,6 @@ export const contactCopy: Record<Locale, ContactCopy> = {
     officeParis: '<strong>Paris</strong> and Hangzhou',
     officesNote: 'In-market reps in the US, UK, Germany, France.',
     directTitle: 'Or contact an agency directly',
-    formEyebrow: 'Tell us about your project',
     formHeading: 'A short brief is enough to get started.',
     labelName: 'Name',
     labelEmail: 'Email',

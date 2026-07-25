@@ -44,7 +44,7 @@ const agencies: Agency[] = [
     category: 'Full-service China agency',
     tagline: 'Enter China. Grow in China. Learn China.',
     lead:
-      "Fifteen years inside China's commerce ecosystem. Tmall launches, Douyin storms, ICP rewrites, every algorithm shift in between. We consult, and we run what we recommend. No templates. No recycled decks. Just the work.",
+      "Fifteen years inside China's commerce ecosystem. Tmall launches, Douyin storms, ICP rewrites, every algorithm shift in between. We consult, and we run what we recommend.",
     lanes: [
       {
         name: 'Enter',
@@ -59,7 +59,7 @@ const agencies: Agency[] = [
         body: 'Half-day and full-day masterclasses, multi-day learning expeditions to Shanghai and Shenzhen, and consumer research on demand.',
       },
     ],
-    signal: 'Tmall · JD · Douyin · RED · WeChat',
+    signal: 'Tmall, JD, Douyin, RED, WeChat',
     visit: { url: 'https://bearingbridge.com', label: 'bearingbridge.com' },
     based: 'Shanghai. Hong Kong. Paris.',
     accent: '#269ada',
@@ -72,7 +72,7 @@ const agencies: Agency[] = [
     category: 'Chinese social media specialist',
     tagline: "We post on China's platforms. Every day. From the ground.",
     lead:
-      "China runs on its own platforms. WeChat, Douyin, RedNote, Weibo, and fourteen others. Knowing this from a slide deck is not the same as opening these apps every morning, which is, frankly, what most agencies don't do.",
+      'China runs on its own platforms. WeChat, Douyin, RedNote, Weibo, and fourteen others. Knowing this from a slide deck is not the same as opening these apps every morning.',
     lanes: [
       {
         name: 'Plan',
@@ -175,7 +175,7 @@ const agencies: Agency[] = [
         body: 'Native sales reps in France, Germany, Italy, the UK, the United States, Australia and Latin America. They take the first call. When the deal is worth a flight, they go shake the buyer’s hand.',
       },
     ],
-    signal: 'Paris · Munich · Milan · London · New York · Sydney · São Paulo',
+    signal: 'Paris, Munich, Milan, London, New York, Sydney, São Paulo',
     visit: { url: 'https://beyondbridge.com', label: 'beyondbridge.com' },
     based: 'China HQ. Reps in seven markets.',
     accent: '#22c55e',
@@ -207,7 +207,7 @@ const agencies: Agency[] = [
         body: 'Executive masterclasses, leadership workshops, and founder-led practitioner training. Your people keep running it after we leave.',
       },
     ],
-    signal: 'Qwen · DeepSeek · Kimi · GPT · Claude · Gemini, benchmarked on your data',
+    signal: 'Qwen, DeepSeek, Kimi, GPT, Claude, Gemini, benchmarked on your data',
     visit: { url: 'https://www.bearingbridge.ai', label: 'bearingbridge.ai' },
     based: 'Hong Kong. Shanghai. Across Asia, the Middle East, and Europe.',
     accent: '#c2922f',
@@ -220,11 +220,11 @@ const agencies: Agency[] = [
     category: 'Production house, AIGC at scale',
     tagline: 'A production house built for what content has become.',
     lead:
-      'A global appliance brand came to us last year with a 22 percent approval rate. Six months later, that rate hit 78 percent. Output multiplied by seven. Cost dropped by 60 percent. That is roughly the gap between the old way of making content and how it has to work now.',
+      'One global appliance brand watched approval rates triple and cost per asset fall by more than half within six months. That is roughly the gap between the old way of making content and how it has to work now.',
     lanes: [
       {
         name: 'Produce',
-        body: 'On-brand visuals from $35 a brief to $405 a finalized asset. Short and long video from $200 a script. Live action studio in Shanghai. 3D, CGI and motion. Generated, shot, or hybrid.',
+        body: 'On-brand visuals and video, priced per asset, from social cutdowns to full films. Live action studio in Shanghai. 3D, CGI and motion. Generated, shot, or hybrid.',
       },
       {
         name: 'Platform',
@@ -309,7 +309,6 @@ const groups: { id: Group; label: string; intro: string }[] = [
   <section class="ag-hero">
     <div class="ag-hero__bg" aria-hidden="true"></div>
     <div class="container ag-hero__container">
-      <span class="eyebrow eyebrow--on-dark">The group</span>
       <h1 class="ag-hero__title balance">
         Eight specialist agencies.<br />
         <em>One ecosystem.</em>
@@ -369,10 +368,10 @@ const groups: { id: Group; label: string; intro: string }[] = [
       style={`--accent: ${a.accent};`}
     >
       <div class="container">
-        <header class="ag-feature__head">
+        <header class="ag-feature__head" data-reveal>
           <div class="ag-feature__head-left">
             <AgencyLogo slug={a.slug} name={a.name} class="ag-feature__logo" />
-            <span class="ag-feature__group">{a.group} · {a.category}</span>
+            <span class="ag-feature__group">{a.group}, {a.category}</span>
           </div>
           <a class="ag-feature__visit" href={a.visit.url} target="_blank" rel="noreferrer">
             {a.visit.label}
@@ -380,14 +379,14 @@ const groups: { id: Group; label: string; intro: string }[] = [
           </a>
         </header>
 
-        <div class="ag-feature__pitch">
+        <div class="ag-feature__pitch" data-reveal style="--ri: 1;">
           <h2 class="ag-feature__tagline">{a.tagline}</h2>
           <p class="ag-feature__lead">{a.lead}</p>
         </div>
 
         <ol class={`ag-feature__lanes ag-feature__lanes--${a.lanes.length}`}>
-          {a.lanes.map((lane) => (
-            <li class="ag-feature__lane">
+          {a.lanes.map((lane, li) => (
+            <li class="ag-feature__lane" data-reveal style={`--ri: ${li + 2};`}>
               <h3 class="ag-feature__lane-title">{lane.name}</h3>
               <p class="ag-feature__lane-body">{lane.body}</p>
             </li>
@@ -414,7 +413,6 @@ const groups: { id: Group; label: string; intro: string }[] = [
     <div class="ag-stacks__bg" aria-hidden="true"></div>
     <div class="container ag-stacks__container">
       <header class="ag-stacks__head">
-        <span class="eyebrow eyebrow--on-dark">How they fit together</span>
         <h2 class="ag-stacks__title balance">
           One project.<br />
           <em>As many agencies as the work needs.</em>
@@ -446,6 +444,7 @@ const groups: { id: Group; label: string; intro: string }[] = [
           },
         ].map((stack) => (
           <article class="ag-stack">
+            <div class="ag-stack__inner">
             <h3 class="ag-stack__scenario">{stack.scenario}</h3>
             <ol class="ag-stack__steps">
               {stack.steps.map((step) => (
@@ -462,13 +461,16 @@ const groups: { id: Group; label: string; intro: string }[] = [
                 </li>
               ))}
             </ol>
+            </div>
           </article>
         ))}
       </div>
 
       <div class="ag-stacks__cta">
-        <a class="btn btn--primary" href={pathFor('contact', locale)}>Talk to us</a>
-        <a class="btn btn--ghost-light" href={pathFor('how-we-work', locale)}>How we work</a>
+        <a class="pill-cta" href={pathFor('contact', locale)}>Book a call
+          <span class="pill-cta__disc" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg></span>
+        </a>
+        <a class="pill-ghost" href={pathFor('how-we-work', locale)}>How we work</a>
       </div>
     </div>
   </section>
@@ -518,11 +520,7 @@ const groups: { id: Group; label: string; intro: string }[] = [
   }
   .ag-hero__title em {
     font-style: normal;
-    background: linear-gradient(120deg, #59c2ee, #ff7a8a 50%, #ffcf6f);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    -webkit-text-fill-color: transparent;
+    color: #59c2ee;
   }
   .ag-hero__lead {
     font-size: clamp(1.05rem, 0.5vw + 0.95rem, 1.2rem);
@@ -535,31 +533,40 @@ const groups: { id: Group; label: string; intro: string }[] = [
     margin: 0;
     padding: var(--space-5) 0 0;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-    gap: var(--space-3);
+    grid-template-columns: repeat(4, 176px);
+    gap: 12px;
     align-items: stretch;
     border-top: 1px solid rgba(255,255,255,0.12);
   }
-  @media (min-width: 1024px) {
-    .ag-hero__logos { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .ag-hero__logos li { display: contents; }
+  @media (max-width: 980px) {
+    .ag-hero__logos { grid-template-columns: repeat(3, minmax(150px, 176px)); }
+  }
+  @media (max-width: 640px) {
+    .ag-hero__logos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
   .ag-hero__logos a {
     display: grid;
     place-items: center;
-    height: 72px;
-    padding: var(--space-3) var(--space-4);
-    background: #fff;
-    border-radius: 12px;
-    border: 1px solid rgba(255,255,255,0.18);
-    transition: transform 220ms cubic-bezier(0.2,0.85,0.2,1), box-shadow 220ms ease;
-    box-shadow: 0 10px 30px -16px rgba(0,0,0,0.45);
+    height: 60px;
+    padding: 0 18px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 14px;
+    box-shadow:
+      0 0 0 1px rgba(255,255,255,0.08),
+      0 14px 34px -18px rgba(0,0,0,0.85);
+    transition: transform 500ms cubic-bezier(0.32,0.72,0,1), box-shadow 500ms cubic-bezier(0.32,0.72,0,1), background 500ms cubic-bezier(0.32,0.72,0,1);
   }
   .ag-hero__logos a:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 18px 40px -18px rgba(0,0,0,0.55);
+    background: #fff;
+    transform: translateY(-3px);
+    box-shadow:
+      0 0 0 1px rgba(255,255,255,0.12),
+      0 20px 42px -18px rgba(0,0,0,0.85);
   }
+  .ag-hero__logos a:active { transform: scale(0.98); }
   .ag-hero__logos :global(.ag-hero__logo) {
-    max-height: 36px;
+    max-height: 30px;
     width: auto;
     max-width: 100%;
     object-fit: contain;
@@ -738,8 +745,30 @@ const groups: { id: Group; label: string; intro: string }[] = [
 
   .ag-feature__lane {
     position: relative;
-    padding-left: var(--space-4);
-    border-left: 2px solid var(--accent);
+    padding: var(--space-5) var(--space-4) var(--space-4);
+    background: var(--bbg-white);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow:
+      0 0 0 1px rgba(10,20,30,0.07),
+      0 18px 40px -32px rgba(10,20,30,0.4);
+    transition: transform 500ms cubic-bezier(0.32,0.72,0,1), box-shadow 500ms cubic-bezier(0.32,0.72,0,1);
+  }
+  .ag-feature__lane::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: var(--space-4);
+    width: 32px;
+    height: 3px;
+    border-radius: 0 0 3px 3px;
+    background: var(--accent);
+  }
+  .ag-feature__lane:hover {
+    transform: translateY(-4px);
+    box-shadow:
+      0 0 0 1px rgba(10,20,30,0.09),
+      0 26px 50px -32px rgba(10,20,30,0.5);
   }
   .ag-feature__lane-title {
     font-family: var(--font-display);
@@ -830,11 +859,7 @@ const groups: { id: Group; label: string; intro: string }[] = [
   }
   .ag-stacks__title em {
     font-style: normal;
-    background: linear-gradient(120deg, #59c2ee, #ff7a8a 60%, #ffcf6f);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    -webkit-text-fill-color: transparent;
+    color: #59c2ee;
   }
   .ag-stacks__lead {
     font-size: clamp(1.05rem, 0.5vw + 0.95rem, 1.2rem);
@@ -855,12 +880,20 @@ const groups: { id: Group; label: string; intro: string }[] = [
 
   .ag-stack {
     position: relative;
-    padding: clamp(1.75rem, 3vw, 2.5rem);
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.10);
-    border-radius: 20px;
+    padding: 6px;
+    border-radius: 28px;
+    background: rgba(255,255,255,0.06);
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.1);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
+  }
+  .ag-stack__inner {
+    border-radius: 22px;
+    overflow: hidden;
+    background: rgba(255,255,255,0.03);
+    box-shadow: inset 0 1px 1px rgba(255,255,255,0.12);
+    padding: clamp(1.5rem, 2.6vw, 2.25rem);
+    height: 100%;
   }
   .ag-stack__scenario {
     font-family: var(--font-display);

@@ -13,7 +13,7 @@ const phases: Array<{
   image: string;
   imageAlt: string;
   intro: string;
-  items: { name: string; body: string; quote?: { text: string; source: string } }[];
+  items: { name: string; body: string }[];
 }> = [
   {
     key: 'plan',
@@ -29,7 +29,7 @@ const phases: Array<{
       },
       {
         name: 'Migration',
-        body: "Moving an existing site into China without losing SEO equity or content. ICP Bei'an, DNS cutover, database transfer, parallel staging enviroment that lets you test from inside the Firewall before you flip the switch.",
+        body: "Moving an existing site into China without losing SEO equity or content. ICP Bei'an, DNS cutover, database transfer, parallel staging environment that lets you test from inside the Firewall before you flip the switch.",
       },
     ],
   },
@@ -47,15 +47,11 @@ const phases: Array<{
       },
       {
         name: 'Technical Integration',
-        body: 'The plumbing. WeChat login, Alipay and UnionPay (银联) checkout, WooCommerce localized for the mainland, map providers and analytics that arent Google. If its blocked, we have a replacement.',
+        body: "The plumbing. WeChat login, Alipay and UnionPay (银联) checkout, WooCommerce localized for the mainland, map providers and analytics that aren't Google. If it's blocked, we have a replacement.",
       },
       {
         name: 'Plugins & Extensions',
-        body: 'A large share of popular WordPress plugins call out to Google. Fonts, reCAPTCHA, Maps. We patch what can be saved. We rewrite the rest.',
-        quote: {
-          text: 'Roughly 40% of the top 100 WordPress plugins make outbound calls to Google services that are blocked from mainland China.',
-          source: 'ChinaWebFoundry plugin audit, 2024',
-        },
+        body: 'In our own audits, a large share of the most popular WordPress plugins call blocked services somewhere in their chain. Fonts, reCAPTCHA, Maps. We patch what can be saved. We rewrite the rest.',
       },
     ],
   },
@@ -73,11 +69,7 @@ const phases: Array<{
       },
       {
         name: 'Baidu SEO',
-        body: 'Submission and verification on Baidu Search Resource Platform (百度搜索资源平台). Keyword research with Baidu Index (百度指数) and 5118. Measurement through Baidu Tongji (百度统计).',
-        quote: {
-          text: 'Baidu held a 60.1% share of the Chinese search engine market as of January 2025.',
-          source: 'StatCounter Global Stats, 2025',
-        },
+        body: 'Submission and verification on Baidu Search Resource Platform (百度搜索资源平台). Keyword research with Baidu Index (百度指数) and 5118. Measurement through Baidu Tongji (百度统计). Baidu still carries most of the search traffic that matters in China, and Google barely registers.',
       },
       {
         name: 'GEO China',
@@ -99,7 +91,7 @@ const phases: Array<{
       },
       {
         name: 'Maintenance & Support',
-        body: 'A Google Font gets blocked on a random Tuesday and your homepage turns into a mess for everyone in Shanghai. Your team in London doesnt know untill someone complains. We monitor from Chinese networks so that conversation never has to happen.',
+        body: "A Google Font gets blocked on a random Tuesday and your homepage turns into a mess for everyone in Shanghai. Your team in London doesn't know until someone complains. We monitor from Chinese networks so that conversation never has to happen.",
       },
     ],
   },
@@ -148,7 +140,6 @@ const visitLabel = 'Visit chinawebfoundry.com';
         src="/images/bbg-shanghai-twilight.webp"
         alt=""
         class="cwf-hero__bg-img"
-        data-cwf-parallax-bg
       />
       <div class="cwf-hero__bg-scrim"></div>
       <div class="cwf-hero__bg-grain"></div>
@@ -181,10 +172,8 @@ const visitLabel = 'Visit chinawebfoundry.com';
         </p>
 
         <div class="cwf-hero__cta-row" data-anim="fade">
-          <a class="cwf-magnet" href={visitUrl} target="_blank" rel="noreferrer" data-cwf-magnet>
-            <span class="cwf-magnet__bg"></span>
-            <span class="cwf-magnet__label">{visitLabel}</span>
-            <span class="cwf-magnet__arrow" aria-hidden="true">→</span>
+          <a class="pill-cta" href={visitUrl} target="_blank" rel="noreferrer">{visitLabel}
+            <span class="pill-cta__disc" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg></span>
           </a>
         </div>
       </div>
@@ -193,15 +182,6 @@ const visitLabel = 'Visit chinawebfoundry.com';
         <div class="cwf-hero__preview-frame">
           <a class="cwf-browser-link" href={visitUrl} target="_blank" rel="noreferrer" aria-label={visitLabel}>
             <div class="cwf-browser">
-              <div class="cwf-browser__chrome">
-                <span class="cwf-browser__dots">
-                  <span class="cwf-browser__dot cwf-browser__dot--r"></span>
-                  <span class="cwf-browser__dot cwf-browser__dot--y"></span>
-                  <span class="cwf-browser__dot cwf-browser__dot--g"></span>
-                </span>
-                <span class="cwf-browser__url">chinawebfoundry.com</span>
-                <span class="cwf-browser__region" aria-hidden="true">CN · Shanghai</span>
-              </div>
               <div class="cwf-browser__viewport">
                 <img
                   class="cwf-browser__shot"
@@ -212,10 +192,6 @@ const visitLabel = 'Visit chinawebfoundry.com';
                   loading="eager"
                   decoding="async"
                 />
-                <span class="cwf-browser__live">
-                  <span class="cwf-browser__live-dot"></span>
-                  Live · {new Date().toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}
-                </span>
                 <span class="cwf-browser__visit" aria-hidden="true">
                   <span>Visit site</span>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l10-10M7 7h10v10"/></svg>
@@ -223,23 +199,9 @@ const visitLabel = 'Visit chinawebfoundry.com';
               </div>
             </div>
           </a>
-
-          <div class="cwf-hero__chip cwf-hero__chip--compliance">
-            <span class="cwf-hero__chip-label">Compliance</span>
-            <span>ICP · Bei'an · MIIT</span>
-          </div>
-          <div class="cwf-hero__chip cwf-hero__chip--search">
-            <span class="cwf-hero__chip-label">Search & GEO</span>
-            <span>Baidu · DeepSeek · Doubao · Kimi · Yuanbao</span>
-          </div>
         </div>
       </div>
     </div>
-
-    <a href="#manifesto" class="cwf-hero__scroll" aria-label="Scroll">
-      <span>Scroll</span>
-      <span class="cwf-hero__scroll-line"></span>
-    </a>
   </section>
 
   <!-- ====================================================================== -->
@@ -254,21 +216,20 @@ const visitLabel = 'Visit chinawebfoundry.com';
             <span class="cwf-manifesto__num-plus">+</span>
           </span>
           <span class="cwf-manifesto__num-shadow">80+</span>
-          <span class="cwf-manifesto__num-caption">sites delivered for international and chinese brands</span>
+          <span class="cwf-manifesto__num-caption">sites delivered for international and Chinese brands</span>
         </div>
         <div class="cwf-manifesto__copy">
-          <span class="eyebrow">What We Believe</span>
           <h2 class="cwf-manifesto__title balance">The gap between green dashboards in Frankfurt and a homepage that takes seventeen seconds to load in Shanghai. That gap is why we exist.</h2>
         </div>
       </div>
 
       <figure class="cwf-manifesto__story">
         <blockquote class="cwf-manifesto__story-quote" cite="https://www.chinawebfoundry.com">
-          <p>A French luxury group called us last spring. Their global homepage was taking seventeen seconds to load from Shanghai. Their marketing director in Paris had no idea, her dashboard showed green accross the board because it was measuring from Frankfurt.</p>
+          <p>A French luxury group called us last spring. Their global homepage was taking seventeen seconds to load from Shanghai. Their marketing director in Paris had no idea, her dashboard showed green across the board because it was measuring from Frankfurt.</p>
         </blockquote>
         <figcaption class="cwf-manifesto__story-cite">
           <span class="cwf-manifesto__story-cite-rule" aria-hidden="true"></span>
-          <span class="cwf-manifesto__story-cite-text">A client conversation, ChinaWebFoundry, Shanghai · 2025</span>
+          <span class="cwf-manifesto__story-cite-text">A client conversation, Shanghai, 2025</span>
         </figcaption>
 
         <div class="cwf-manifesto__story-body">
@@ -279,10 +240,10 @@ const visitLabel = 'Visit chinawebfoundry.com';
           </div>
           <div class="cwf-manifesto__story-col">
             <p>
-              Most websites built for China arent really built for China. Designed somewhere else, translated, hosted in Singapore, plugins calling out to blocked services nobody flagged. Six months in, technically live and functionally invisible.
+              Most websites built for China aren't really built for China. Designed somewhere else, translated, hosted in Singapore, plugins calling out to blocked services nobody flagged. Six months in, technically live and functionally invisible.
             </p>
             <p class="cwf-manifesto__story-emphasis">
-              China isnt a patch we apply on top of a global build. China <em>is</em> the build. Someone has to watch the site from inside the country. Thats us.
+              China isn't a patch we apply on top of a global build. China <em>is</em> the build. Someone has to watch the site from inside the country. That's us.
             </p>
           </div>
         </div>
@@ -296,16 +257,16 @@ const visitLabel = 'Visit chinawebfoundry.com';
   <section class="cwf-services" id="services">
     <div class="container">
       <header class="cwf-services__header">
-        <span class="eyebrow">What We Do</span>
         <h2 class="cwf-services__title">
           Ten services. <em>Four phases.</em><br />
           One team.
         </h2>
         <p class="cwf-services__lead">
-          Plan first. Then build. Then get found. Then run the thing for as long as its live. You can take one piece, you can take all ten, most clients start with two or three.
+          Plan first. Then build. Then get found. Then run the thing for as long as it's live. You can take one piece, you can take all ten, most clients start with two or three.
         </p>
       </header>
 
+      <div class="cwf-services__tray">
       <div class="cwf-services__shell" data-cwf-tabs>
         <div class="cwf-services__nav" role="tablist" aria-label="Phases of the lifecycle">
           {phases.map((p, i) => (
@@ -345,10 +306,6 @@ const visitLabel = 'Visit chinawebfoundry.com';
                     <div class="cwf-services__panel-tag">
                       <span>{p.title}</span>
                     </div>
-                    <div class="cwf-services__panel-meta">
-                      <span class="cwf-services__panel-meta-label">Phase</span>
-                      <span class="cwf-services__panel-meta-value">{i + 1} of {phases.length}</span>
-                    </div>
                   </div>
                 </div>
 
@@ -361,13 +318,6 @@ const visitLabel = 'Visit chinawebfoundry.com';
                         <span class="cwf-services__item-text">
                           <span class="cwf-services__item-name">{it.name}.</span>
                           <span class="cwf-services__item-body">{it.body}</span>
-                          {it.quote && (
-                            <span class="cwf-services__item-quote">
-                              <span class="cwf-services__item-quote-mark" aria-hidden="true">“</span>
-                              <span class="cwf-services__item-quote-text">{it.quote.text}</span>
-                              <span class="cwf-services__item-quote-source">Source: {it.quote.source}</span>
-                            </span>
-                          )}
                         </span>
                       </li>
                     ))}
@@ -378,6 +328,7 @@ const visitLabel = 'Visit chinawebfoundry.com';
           ))}
         </div>
       </div>
+      </div>
     </div>
   </section>
 
@@ -387,9 +338,8 @@ const visitLabel = 'Visit chinawebfoundry.com';
   <section class="cwf-tech">
     <div class="container">
       <header class="cwf-tech__header">
-        <span class="eyebrow">How We Build</span>
         <h2 class="cwf-tech__title balance">
-          WordPress, Astro or WeChat. Heres how we decide.
+          WordPress, Astro or WeChat. Here's how we decide.
         </h2>
       </header>
 
@@ -407,7 +357,7 @@ const visitLabel = 'Visit chinawebfoundry.com';
             <h3 class="cwf-tech__card-title">Pick WordPress</h3>
           </header>
           <p class="cwf-tech__card-body">
-            If your marketing team needs to publish without a developer, or your editorial workflow involves more then three contributors. We harden it for the Firewall and strip out the parts that dont belong in China.
+            If your marketing team needs to publish without a developer, or your editorial workflow involves more than three contributors. We harden it for the Firewall and strip out the parts that don't belong in China.
           </p>
           <ul class="cwf-tech__card-traits">
             <li>Editorial workflow, multi-author.</li>
@@ -429,7 +379,7 @@ const visitLabel = 'Visit chinawebfoundry.com';
             <h3 class="cwf-tech__card-title">Pick Astro</h3>
           </header>
           <p class="cwf-tech__card-body">
-            If speed is the priority and your content doesnt change every day. Marketing sites, documentation, landing pages. Static output, near-instant load times, far less to maintain.
+            If speed is the priority and your content doesn't change every day. Marketing sites, documentation, landing pages. Static output, near-instant load times, far less to maintain.
           </p>
           <ul class="cwf-tech__card-traits">
             <li>Static output, near-instant TTFB.</li>
@@ -461,7 +411,7 @@ const visitLabel = 'Visit chinawebfoundry.com';
         </article>
       </div>
 
-      <p class="cwf-tech__footnote">If your not sure, thats what the audit is for.</p>
+      <p class="cwf-tech__footnote">If you're not sure, that's what the audit is for.</p>
     </div>
   </section>
 
@@ -472,7 +422,6 @@ const visitLabel = 'Visit chinawebfoundry.com';
     <div class="cwf-engage__bg" aria-hidden="true"></div>
     <div class="container">
       <header class="cwf-engage__header">
-        <span class="eyebrow eyebrow--on-dark">How We Engage</span>
         <h2 class="cwf-engage__title">Three ways to start.</h2>
         <p class="cwf-engage__lead">
           You can take one piece, you can take all ten. Most clients start with two or three. Pick the entry point that fits your moment.
@@ -501,10 +450,11 @@ const visitLabel = 'Visit chinawebfoundry.com';
       <div class="cwf-cta__bg-scrim"></div>
     </div>
     <div class="container cwf-cta__content">
-      <span class="eyebrow eyebrow--on-dark">Ready when you are</span>
       <h2 class="cwf-cta__title balance">A site that loads in Shanghai.<br />Built by a team that lives there.</h2>
       <div class="cwf-cta__actions">
-        <a class="btn btn--primary" href={visitUrl} target="_blank" rel="noreferrer">{visitLabel}</a>
+        <a class="pill-cta" href={visitUrl} target="_blank" rel="noreferrer">{visitLabel}
+          <span class="pill-cta__disc" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg></span>
+        </a>
       </div>
     </div>
   </section>
@@ -516,7 +466,7 @@ const visitLabel = 'Visit chinawebfoundry.com';
   /* ===================================================================== */
   .cwf-hero {
     position: relative;
-    min-height: 92vh;
+    min-height: 92dvh;
     padding: clamp(2.5rem, 5vh, 4rem) 0 clamp(3rem, 6vh, 5rem);
     overflow: hidden;
     isolation: isolate;
@@ -532,8 +482,7 @@ const visitLabel = 'Visit chinawebfoundry.com';
     height: 112%;
     object-fit: cover;
     object-position: center 40%;
-    will-change: transform;
-    transform: translate3d(0, var(--parallax-y, 0), 0) scale(1.04);
+    transform: scale(1.04);
     filter: saturate(0.85) contrast(1.05) brightness(0.72);
   }
   .cwf-hero__bg-scrim {
@@ -579,34 +528,6 @@ const visitLabel = 'Visit chinawebfoundry.com';
     margin-bottom: var(--space-5);
     opacity: 0;
     animation: cwfFadeIn 700ms cubic-bezier(0.2,0.8,0.2,1) 0.1s forwards;
-  }
-
-  .cwf-hero__eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 8px 14px;
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.14);
-    border-radius: 999px;
-    font-family: var(--font-display);
-    font-size: 0.74rem;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.85);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    margin-bottom: var(--space-4);
-    opacity: 0;
-    animation: cwfFadeIn 700ms cubic-bezier(0.2,0.8,0.2,1) 0.2s forwards;
-  }
-  .cwf-hero__eyebrow-dot {
-    width: 7px; height: 7px;
-    border-radius: 50%;
-    background: #22c55e;
-    box-shadow: 0 0 0 0 rgba(34,197,94,0.5);
-    animation: cwfPulse 2.4s ease-in-out infinite;
   }
 
   .cwf-hero__title {
@@ -659,55 +580,12 @@ const visitLabel = 'Visit chinawebfoundry.com';
     animation: cwfFadeIn 700ms cubic-bezier(0.2,0.8,0.2,1) 1s forwards;
   }
 
-  .cwf-magnet {
-    --x: 0px; --y: 0px;
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    gap: 14px;
-    padding: 16px 26px 16px 28px;
-    border-radius: 999px;
-    color: #fff;
-    text-decoration: none;
-    font-family: var(--font-display);
-    font-size: 1rem;
-    font-weight: 600;
-    letter-spacing: -0.005em;
-    overflow: hidden;
-    isolation: isolate;
-    transition: transform 220ms cubic-bezier(0.2,0.8,0.2,1);
-    transform: translate(var(--x), var(--y));
+  /* Pill CTA, page accent (red) over the global blue default */
+  .pill-cta {
+    background: #c8102e;
+    box-shadow: 0 16px 36px -12px rgba(200,16,46,0.45);
   }
-  .cwf-magnet__bg {
-    position: absolute; inset: 0;
-    border-radius: inherit;
-    background: linear-gradient(120deg, #c8102e 0%, #8d0a20 100%);
-    box-shadow: 0 16px 36px -10px rgba(200,16,46,0.55), inset 0 1px 0 rgba(255,255,255,0.2);
-    z-index: -1;
-    transition: transform 320ms cubic-bezier(0.2,0.8,0.2,1);
-  }
-  .cwf-magnet:hover .cwf-magnet__bg { transform: scale(1.04); }
-  .cwf-magnet__arrow {
-    display: inline-block;
-    transform: translateX(0);
-    transition: transform 280ms cubic-bezier(0.2,0.8,0.2,1);
-  }
-  .cwf-magnet:hover .cwf-magnet__arrow { transform: translateX(4px); }
-
-  .cwf-hero__secondary {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    color: rgba(255,255,255,0.92);
-    font-family: var(--font-display);
-    font-size: 1rem;
-    font-weight: 500;
-    text-decoration: none;
-    transition: color 220ms ease;
-  }
-  .cwf-hero__secondary svg { transition: transform 220ms ease; }
-  .cwf-hero__secondary:hover { color: #ff9aa6; }
-  .cwf-hero__secondary:hover svg { transform: translateX(3px); }
+  .pill-cta:hover { background: #a30d26; }
 
   /* Browser preview with parallax tilt */
   .cwf-hero__preview {
@@ -721,17 +599,21 @@ const visitLabel = 'Visit chinawebfoundry.com';
     position: relative;
     transform-style: preserve-3d;
     transform: rotateY(var(--tilt-x, -3deg)) rotateX(var(--tilt-y, 2deg));
-    transition: transform 600ms cubic-bezier(0.2,0.8,0.2,1);
+    transition: transform 600ms cubic-bezier(0.32,0.72,0,1);
+    padding: 6px;
+    border-radius: 28px;
+    background: rgba(255,255,255,0.06);
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.1);
   }
   .cwf-browser-link {
     display: block;
     text-decoration: none;
     color: inherit;
     cursor: pointer;
-    border-radius: 14px;
-    transition: transform 320ms cubic-bezier(0.2,0.8,0.2,1), box-shadow 320ms ease;
+    border-radius: 22px;
+    transition: transform 500ms cubic-bezier(0.32,0.72,0,1);
   }
-  .cwf-browser-link:hover { transform: translateY(-2px); }
+  .cwf-browser-link:hover { transform: translateY(-4px); }
   .cwf-browser-link:focus-visible {
     outline: 2px solid #fff;
     outline-offset: 4px;
@@ -743,13 +625,12 @@ const visitLabel = 'Visit chinawebfoundry.com';
   .cwf-browser {
     position: relative;
     background: #ffffff;
-    border-radius: 14px;
+    border-radius: 22px;
     overflow: hidden;
     box-shadow:
-      0 1px 0 rgba(255,255,255,0.5) inset,
+      inset 0 1px 1px rgba(255,255,255,0.12),
       0 40px 80px -28px rgba(0,0,0,0.55),
       0 12px 28px -8px rgba(0,0,0,0.35);
-    border: 1px solid rgba(255,255,255,0.10);
     transform: translateZ(0);
   }
   .cwf-browser__visit {
@@ -774,44 +655,6 @@ const visitLabel = 'Visit chinawebfoundry.com';
     transition: opacity 240ms ease, transform 240ms cubic-bezier(0.2,0.8,0.2,1);
     pointer-events: none;
   }
-  .cwf-browser__chrome {
-    display: flex;
-    align-items: center;
-    gap: var(--space-3);
-    padding: 10px 14px;
-    background: linear-gradient(180deg, #f8fafc 0%, #eef2f6 100%);
-    border-bottom: 1px solid rgba(15,23,42,0.08);
-  }
-  .cwf-browser__dots { display: inline-flex; gap: 6px; }
-  .cwf-browser__dot { width: 11px; height: 11px; border-radius: 50%; display: inline-block; }
-  .cwf-browser__dot--r { background: #ff5f57; }
-  .cwf-browser__dot--y { background: #febc2e; }
-  .cwf-browser__dot--g { background: #28c840; }
-  .cwf-browser__url {
-    flex: 1;
-    text-align: center;
-    font-family: var(--font-display);
-    font-size: 0.78rem;
-    color: var(--bbg-text-muted);
-    background: rgba(15,23,42,0.04);
-    border-radius: 999px;
-    padding: 4px 10px;
-    letter-spacing: 0.01em;
-    max-width: 280px;
-    margin: 0 auto;
-  }
-  .cwf-browser__region {
-    font-family: var(--font-display);
-    font-size: 0.66rem;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: #c8102e;
-    background: rgba(200,16,46,0.08);
-    border: 1px solid rgba(200,16,46,0.18);
-    padding: 3px 8px;
-    border-radius: 999px;
-  }
   .cwf-browser__viewport {
     position: relative;
     aspect-ratio: 16 / 10;
@@ -826,323 +669,11 @@ const visitLabel = 'Visit chinawebfoundry.com';
     display: block;
   }
 
-  .cwf-mock {
-    position: absolute; inset: 0;
-    display: flex;
-    flex-direction: column;
-    color: var(--bbg-ink);
-    overflow: hidden;
-    isolation: isolate;
-  }
-  .cwf-mock__bg {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -2;
-    filter: saturate(0.95) brightness(0.9);
-  }
-  .cwf-mock__bg-scrim {
-    position: absolute;
-    inset: 0;
-    background:
-      linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.72) 35%, rgba(255,255,255,0.55) 70%, rgba(255,255,255,0.30) 100%);
-    z-index: -1;
-  }
-  .cwf-mock__header {
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    align-items: center;
-    gap: 12px;
-    padding: 12px 18px;
-    background: rgba(255,255,255,0.72);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border-bottom: 1px solid rgba(15,23,42,0.06);
-  }
-  .cwf-mock__brand {
-    font-family: var(--font-display);
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    font-size: 0.78rem;
-    color: var(--bbg-ink);
-  }
-  .cwf-mock__nav-center {
-    display: inline-flex;
-    justify-content: center;
-    gap: 14px;
-    color: var(--bbg-ink);
-    font-size: 0.66rem;
-    font-family: var(--font-display);
-    font-weight: 600;
-    letter-spacing: 0.01em;
-  }
-  .cwf-mock__nav-right {
-    display: inline-flex;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 12px;
-    color: var(--bbg-text);
-    font-size: 0.62rem;
-    font-family: var(--font-display);
-    font-weight: 600;
-    letter-spacing: 0.04em;
-  }
-  .cwf-mock__lang {
-    padding: 3px 7px;
-    border: 1px solid rgba(15,23,42,0.18);
-    border-radius: 6px;
-    color: var(--bbg-ink);
-    font-weight: 700;
-  }
-  .cwf-mock__hero {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 14px 28px;
-    gap: 8px;
-  }
-  .cwf-mock__live {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 5px 11px;
-    border: 1px solid rgba(15,23,42,0.18);
-    border-radius: 999px;
-    background: rgba(255,255,255,0.72);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    color: var(--bbg-ink);
-    font-family: var(--font-display);
-    font-size: 0.62rem;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    margin-bottom: 4px;
-  }
-  .cwf-mock__live-flag {
-    display: inline-grid;
-    place-items: center;
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    background: #c8102e;
-    color: #fff;
-    font-family: 'PingFang SC', 'Microsoft YaHei', serif;
-    font-size: 0.55rem;
-    font-weight: 700;
-    line-height: 1;
-  }
-  .cwf-mock__h {
-    font-family: var(--font-display);
-    font-size: clamp(1rem, 1.6vw + 0.4rem, 1.6rem);
-    line-height: 1.1;
-    letter-spacing: -0.025em;
-    margin: 0;
-    color: var(--bbg-ink);
-    max-width: 22ch;
-    font-weight: 600;
-  }
-  .cwf-mock__p {
-    font-size: 0.74rem;
-    line-height: 1.45;
-    color: var(--bbg-text);
-    margin: 0;
-    max-width: 32ch;
-  }
-  .cwf-mock__btn-row {
-    display: inline-flex;
-    gap: 8px;
-    margin-top: 6px;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  .cwf-mock__btn {
-    font-family: var(--font-display);
-    font-weight: 600;
-    font-size: 0.66rem;
-    letter-spacing: 0.02em;
-    padding: 7px 12px;
-    border-radius: 999px;
-    line-height: 1;
-  }
-  .cwf-mock__btn--primary {
-    background: var(--bbg-ink);
-    color: #fff;
-    box-shadow: 0 6px 14px -6px rgba(15,23,42,0.5);
-  }
-  .cwf-mock__btn--ghost {
-    background: rgba(255,255,255,0.85);
-    color: var(--bbg-ink);
-    border: 1px solid rgba(15,23,42,0.18);
-  }
-
-  .cwf-browser__live {
-    position: absolute;
-    bottom: 12px;
-    right: 12px;
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-    padding: 6px 10px;
-    background: rgba(8, 12, 24, 0.78);
-    color: #fff;
-    border-radius: 999px;
-    font-family: var(--font-display);
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-  }
-  .cwf-browser__live-dot {
-    width: 7px; height: 7px;
-    border-radius: 50%;
-    background: #22c55e;
-    box-shadow: 0 0 0 0 rgba(34,197,94,0.6);
-    animation: cwfPulse 2.4s ease-in-out infinite;
-  }
-
-  .cwf-hero__chip {
-    position: absolute;
-    display: inline-flex;
-    flex-direction: column;
-    gap: 2px;
-    padding: 10px 14px;
-    background: rgba(255,255,255,0.92);
-    color: var(--bbg-ink);
-    border: 1px solid rgba(255,255,255,0.5);
-    border-radius: 14px;
-    font-family: var(--font-display);
-    font-size: 0.84rem;
-    font-weight: 600;
-    letter-spacing: -0.005em;
-    box-shadow: 0 24px 50px -18px rgba(0,0,0,0.45);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    transform: translateZ(40px);
-    max-width: 16rem;
-  }
-  .cwf-hero__chip-label {
-    font-size: 0.62rem;
-    font-weight: 700;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: #c8102e;
-  }
-  .cwf-hero__chip--compliance {
-    top: -20px; left: -28px;
-    animation: cwfFloatA 9s ease-in-out infinite;
-  }
-  .cwf-hero__chip--search {
-    bottom: -24px; right: -20px;
-    animation: cwfFloatB 11s ease-in-out infinite;
-  }
-  @keyframes cwfFloatA { 0%,100% { transform: translateZ(40px) translateY(0); } 50% { transform: translateZ(40px) translateY(-7px); } }
-  @keyframes cwfFloatB { 0%,100% { transform: translateZ(40px) translateY(0); } 50% { transform: translateZ(40px) translateY(8px); } }
-
-  /* Trust strip */
-  .cwf-hero__strip {
-    position: relative;
-    z-index: 3;
-    margin-top: clamp(2.5rem, 6vh, 4rem);
-  }
-  .cwf-strip__list {
-    list-style: none;
-    margin: 0;
-    padding: 14px 24px;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: 10px clamp(1rem, 2.5vw, 2.25rem);
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.10);
-    border-radius: 999px;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    font-family: var(--font-display);
-    font-size: 0.78rem;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.82);
-  }
-  .cwf-strip__item {
-    position: relative;
-  }
-  .cwf-strip__item + .cwf-strip__item::before {
-    content: "";
-    position: absolute;
-    left: calc(-1 * clamp(1rem, 2.5vw, 2.25rem) / 2 - 1.5px);
-    top: 50%;
-    transform: translateY(-50%);
-    width: 3px;
-    height: 3px;
-    border-radius: 50%;
-    background: #c8102e;
-    box-shadow: 0 0 8px rgba(200,16,46,0.6);
-  }
-
-  /* Scroll hint */
-  .cwf-hero__scroll {
-    position: absolute;
-    bottom: clamp(0.5rem, 2vh, 1.25rem);
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 4;
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    color: rgba(255,255,255,0.7);
-    text-decoration: none;
-    font-family: var(--font-display);
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    transition: color 220ms ease;
-  }
-  .cwf-hero__scroll:hover { color: #fff; }
-  .cwf-hero__scroll-line {
-    width: 1px;
-    height: 36px;
-    background: linear-gradient(180deg, rgba(255,255,255,0.7), rgba(255,255,255,0));
-    position: relative;
-    overflow: hidden;
-  }
-  .cwf-hero__scroll-line::after {
-    content: "";
-    position: absolute;
-    top: -36px;
-    left: 0; right: 0;
-    height: 36px;
-    background: linear-gradient(180deg, rgba(255,255,255,0), rgba(255,255,255,0.95));
-    animation: cwfScrollLine 1.8s ease-in-out infinite;
-  }
-  @keyframes cwfScrollLine { 0% { top: -36px; } 100% { top: 36px; } }
-
   @keyframes cwfFadeIn { to { opacity: 1; } }
-  @keyframes cwfPulse {
-    0%,100% { box-shadow: 0 0 0 0 rgba(34,197,94,0.55); }
-    50% { box-shadow: 0 0 0 7px rgba(34,197,94,0); }
-  }
 
   @media (max-width: 1023px) {
     .cwf-hero__main { grid-template-columns: 1fr; gap: var(--space-7); }
     .cwf-hero__title { max-width: none; }
-    .cwf-hero__chip--compliance { top: -14px; left: 8px; }
-    .cwf-hero__chip--search { bottom: -14px; right: 8px; }
-  }
-  @media (max-width: 639px) {
-    .cwf-hero__chip { font-size: 0.72rem; padding: 8px 10px; }
-    .cwf-hero__chip--compliance { display: none; }
-    .cwf-hero__scroll { display: none; }
-    .cwf-strip__list { font-size: 0.7rem; padding: 12px 16px; }
   }
 
   /* ===================================================================== */
@@ -1344,7 +875,7 @@ const visitLabel = 'Visit chinawebfoundry.com';
   }
   .cwf-services__title em {
     font-style: normal;
-    background: linear-gradient(120deg, #269ada, #c8102e 50%, #d99a3a);
+    background: linear-gradient(120deg, #c8102e, #8d0a20);
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
@@ -1356,13 +887,19 @@ const visitLabel = 'Visit chinawebfoundry.com';
     max-width: 60ch;
   }
 
+  .cwf-services__tray {
+    padding: 6px;
+    border-radius: 28px;
+    background: rgba(10,20,30,.04);
+    box-shadow: 0 0 0 1px rgba(10,20,30,.05);
+  }
   .cwf-services__shell {
     position: relative;
-    background: var(--bbg-paper);
-    border-radius: 28px;
+    background: #fff;
+    border-radius: 22px;
+    overflow: hidden;
     padding: clamp(1.5rem, 3vw, 2.5rem);
-    border: 1px solid var(--bbg-border);
-    box-shadow: 0 60px 120px -60px rgba(15, 23, 42, 0.18);
+    box-shadow: 0 24px 50px -36px rgba(10,20,30,.35);
   }
 
   .cwf-services__nav {
@@ -1371,7 +908,7 @@ const visitLabel = 'Visit chinawebfoundry.com';
     grid-template-columns: repeat(4, 1fr);
     gap: 4px;
     padding: 6px;
-    background: var(--bbg-white);
+    background: var(--bbg-paper);
     border: 1px solid var(--bbg-border);
     border-radius: 16px;
     margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
@@ -1384,7 +921,7 @@ const visitLabel = 'Visit chinawebfoundry.com';
     height: calc(100% - 12px);
     background: linear-gradient(135deg, var(--bbg-ink) 0%, #2a2f3f 100%);
     border-radius: 12px;
-    transition: transform 380ms cubic-bezier(0.2, 0.85, 0.2, 1);
+    transition: transform 500ms cubic-bezier(0.32, 0.72, 0, 1);
     pointer-events: none;
     z-index: 0;
   }
@@ -1450,7 +987,7 @@ const visitLabel = 'Visit chinawebfoundry.com';
     inset: 0;
     opacity: 0;
     transform: translateY(12px);
-    transition: opacity 380ms ease, transform 480ms cubic-bezier(0.2, 0.85, 0.2, 1);
+    transition: opacity 500ms cubic-bezier(0.32, 0.72, 0, 1), transform 600ms cubic-bezier(0.32, 0.72, 0, 1);
     pointer-events: none;
   }
   .cwf-services__panel.is-active {
@@ -1474,7 +1011,7 @@ const visitLabel = 'Visit chinawebfoundry.com';
     width: 100%;
     height: 100%;
     min-height: 460px;
-    border-radius: 20px;
+    border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 30px 60px -22px rgba(15,23,42,0.30);
     isolation: isolate;
@@ -1538,29 +1075,6 @@ const visitLabel = 'Visit chinawebfoundry.com';
     -webkit-backdrop-filter: blur(8px);
     box-shadow: 0 12px 24px -10px rgba(15,23,42,0.3);
   }
-  .cwf-services__panel-meta {
-    position: absolute;
-    top: 18px; right: 18px;
-    display: inline-flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 1px;
-    color: rgba(255,255,255,0.94);
-    font-family: var(--font-display);
-  }
-  .cwf-services__panel-meta-label {
-    font-size: 0.62rem;
-    font-weight: 700;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    opacity: 0.7;
-  }
-  .cwf-services__panel-meta-value {
-    font-size: 0.85rem;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-  }
-
   .cwf-services__panel-content { display: flex; flex-direction: column; justify-content: center; min-width: 0; }
   .cwf-services__panel-intro {
     font-size: 1.1rem;
@@ -1611,45 +1125,6 @@ const visitLabel = 'Visit chinawebfoundry.com';
   .cwf-services__item-text { display: block; line-height: 1.55; font-size: 0.98rem; }
   .cwf-services__item-name { font-weight: 700; color: var(--bbg-ink); margin-right: 0.25rem; }
   .cwf-services__item-body { color: var(--bbg-text); }
-
-  .cwf-services__item-quote {
-    display: block;
-    margin-top: var(--space-3);
-    padding: 14px 16px 14px 18px;
-    background: var(--bbg-white);
-    border-left: 3px solid currentColor;
-    border-radius: 0 12px 12px 0;
-    box-shadow: 0 8px 20px -12px rgba(15,23,42,0.15);
-  }
-  .cwf-services__panel--build .cwf-services__item-quote { color: #c8102e; }
-  .cwf-services__panel--find  .cwf-services__item-quote { color: #d99a3a; }
-  .cwf-services__panel--plan  .cwf-services__item-quote { color: #269ada; }
-  .cwf-services__panel--run   .cwf-services__item-quote { color: #10b981; }
-  .cwf-services__item-quote-mark {
-    display: block;
-    font-family: 'Georgia', serif;
-    font-size: 1.6rem;
-    line-height: 0.5;
-    margin-bottom: 6px;
-    color: currentColor;
-  }
-  .cwf-services__item-quote-text {
-    display: block;
-    color: var(--bbg-ink);
-    font-style: italic;
-    font-size: 0.96rem;
-    line-height: 1.5;
-  }
-  .cwf-services__item-quote-source {
-    display: block;
-    margin-top: 6px;
-    font-family: var(--font-display);
-    font-size: 0.74rem;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    color: var(--bbg-text-muted);
-  }
 
   /* ===================================================================== */
   /* TECHNOLOGY                                                             */
@@ -1799,8 +1274,7 @@ const visitLabel = 'Visit chinawebfoundry.com';
   .cwf-engage__bg {
     position: absolute; inset: 0;
     background:
-      radial-gradient(900px 500px at 0% 100%, rgba(38,154,218,0.18), transparent 60%),
-      radial-gradient(800px 500px at 100% 0%, rgba(200,16,46,0.16), transparent 60%);
+      radial-gradient(900px 500px at 100% 0%, rgba(200,16,46,0.10), transparent 60%);
     pointer-events: none;
     z-index: -1;
   }
@@ -1928,8 +1402,6 @@ const visitLabel = 'Visit chinawebfoundry.com';
     .cwf-hero__lead,
     .cwf-hero__cta-row,
     .cwf-hero__logo,
-    .cwf-hero__eyebrow,
-    .cwf-hero__chip,
     .cwf-services__panel.is-active .cwf-services__item,
     [data-anim] {
       animation: none !important;
@@ -2022,11 +1494,10 @@ const visitLabel = 'Visit chinawebfoundry.com';
       });
     }
 
-    /* ----- Hero parallax tilt + bg parallax ----- */
+    /* ----- Hero parallax tilt ----- */
     if (!reduced) {
       const hero = document.querySelector<HTMLElement>('[data-cwf-hero]');
       const tilt = document.querySelector<HTMLElement>('[data-cwf-tilt] .cwf-hero__preview-frame');
-      const bg = document.querySelector<HTMLElement>('[data-cwf-parallax-bg]');
 
       if (hero && tilt) {
         let raf = 0;
@@ -2053,35 +1524,8 @@ const visitLabel = 'Visit chinawebfoundry.com';
         hero.addEventListener('mousemove', onMove);
         hero.addEventListener('mouseleave', onLeave);
       }
-
-      if (bg) {
-        const onScroll = () => {
-          const rect = bg.getBoundingClientRect();
-          const offset = Math.max(-200, Math.min(200, rect.top * -0.18));
-          (bg as HTMLElement).style.setProperty('--parallax-y', `${offset}px`);
-        };
-        window.addEventListener('scroll', onScroll, { passive: true });
-        onScroll();
-      }
     }
 
-    /* ----- Magnetic CTA ----- */
-    if (!reduced) {
-      const magnets = document.querySelectorAll<HTMLElement>('[data-cwf-magnet]');
-      magnets.forEach((m) => {
-        m.addEventListener('mousemove', (e: MouseEvent) => {
-          const rect = m.getBoundingClientRect();
-          const x = e.clientX - rect.left - rect.width / 2;
-          const y = e.clientY - rect.top - rect.height / 2;
-          m.style.setProperty('--x', `${(x * 0.18).toFixed(1)}px`);
-          m.style.setProperty('--y', `${(y * 0.18).toFixed(1)}px`);
-        });
-        m.addEventListener('mouseleave', () => {
-          m.style.setProperty('--x', '0px');
-          m.style.setProperty('--y', '0px');
-        });
-      });
-    }
   };
 
   if (document.readyState === 'loading') {

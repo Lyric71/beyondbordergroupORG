@@ -64,7 +64,7 @@ const visitLabel = 'Visit hubstudio.ai';
   <!-- ====================================================================== -->
   <section class="hs-hero" data-hero>
     <div class="hs-hero__bg" aria-hidden="true">
-      <img src="/images/hubstudio-shanghai-studio.webp" alt="" class="hs-hero__bg-img" data-parallax-bg onerror="this.style.display='none'" />
+      <img src="/images/hubstudio-shanghai-studio.webp" alt="" class="hs-hero__bg-img" />
       <div class="hs-hero__bg-scrim"></div>
       <div class="hs-hero__bg-grain"></div>
       <div class="hs-hero__bg-grid"></div>
@@ -75,8 +75,7 @@ const visitLabel = 'Visit hubstudio.ai';
         <img src="/AgencyLogos/hubStudio%20(2).png" alt="HubStudio" class="hs-hero__logo" width="160" height="40" loading="eager" decoding="async" />
 
         <span class="hs-hero__eyebrow">
-          <span class="hs-hero__eyebrow-dot"></span>
-          Production house · Shanghai · AIGC at scale
+          A Shanghai production house, AIGC at scale
         </span>
 
         <h1 class="hs-hero__title">
@@ -90,36 +89,20 @@ const visitLabel = 'Visit hubstudio.ai';
         <p class="hs-hero__lead" data-anim="fade">A global appliance brand came to us last year with a 22 percent approval rate. Six months later, that rate hit 78 percent. Output multiplied by seven. Cost dropped by 60 percent. That is roughly the gap between the old way of making content and how it has to work now.</p>
 
         <div class="hs-hero__cta-row" data-anim="fade">
-          <a class="hs-magnet" href={visitUrl} target="_blank" rel="noreferrer" data-magnet>
-            <span class="hs-magnet__bg"></span>
-            <span class="hs-magnet__label">{visitLabel}</span>
-            <span class="hs-magnet__arrow" aria-hidden="true">→</span>
+          <a class="pill-cta" href={visitUrl} target="_blank" rel="noreferrer">{visitLabel}
+            <span class="pill-cta__disc" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg></span>
           </a>
-          <a class="hs-hero__secondary" href={pathFor('contact', locale)} data-anim="fade">
-            <span>Talk to us</span>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
+          <a class="pill-ghost" href={pathFor('contact', locale)}>Book a call</a>
         </div>
       </div>
 
       <div class="hs-hero__preview" data-tilt>
         <div class="hs-hero__preview-frame">
+          <div class="hs-bezel">
           <a class="browser-link" href={visitUrl} target="_blank" rel="noreferrer" aria-label={visitLabel}>
             <div class="browser">
-              <div class="browser__chrome">
-                <span class="browser__dots">
-                  <span class="browser__dot browser__dot--r"></span>
-                  <span class="browser__dot browser__dot--y"></span>
-                  <span class="browser__dot browser__dot--g"></span>
-                </span>
-                <span class="browser__url">hubstudio.ai</span>
-              </div>
               <div class="browser__viewport">
-                <img src="/images/hubstudio-home.webp" alt="hubstudio.ai homepage" class="browser__shot" width="1440" height="900" loading="eager" decoding="async" onerror="this.style.display='none'" />
-                <span class="browser__live">
-                  <span class="browser__live-dot"></span>
-                  Live · {new Date().toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}
-                </span>
+                <img src="/images/hubstudio-home.webp" alt="hubstudio.ai homepage" class="browser__shot" width="1440" height="900" loading="eager" decoding="async" />
                 <span class="browser__visit" aria-hidden="true">
                   <span>Visit site</span>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l10-10M7 7h10v10"/></svg>
@@ -127,23 +110,10 @@ const visitLabel = 'Visit hubstudio.ai';
               </div>
             </div>
           </a>
-
-          <div class="hs-hero__chip hs-hero__chip--stack">
-            <span class="hs-hero__chip-label">Stack</span>
-            <span>ComfyUI · Flux · Wan · Veo · Hunyuan</span>
-          </div>
-          <div class="hs-hero__chip hs-hero__chip--clients">
-            <span class="hs-hero__chip-label">Trusted by</span>
-            <span>Mazda · Nescafe · Marriott · Bobbi Brown</span>
           </div>
         </div>
       </div>
     </div>
-
-    <a href="#track" class="hs-hero__scroll" aria-label="Scroll">
-      <span>Scroll</span>
-      <span class="hs-hero__scroll-line"></span>
-    </a>
   </section>
 
   <!-- ====================================================================== -->
@@ -158,30 +128,10 @@ const visitLabel = 'Visit hubstudio.ai';
           <span class="hs-track__num-shadow">60%</span>
         </div>
         <div class="hs-track__copy">
-          <span class="eyebrow">Track record</span>
-          <h2 class="hs-track__title balance">Cost per finalized asset, cut in half. Output multiplied by seven.</h2>
+          <h2 class="hs-track__title balance">Cost per finalized asset, down by more than half. Output multiplied by seven.</h2>
           <p class="hs-track__lead">
-            Used the right way, AI generation cuts the cost of a finalized asset by half or more. The savings are real and we pass them through to the client. Brands need hundreds of assets a month, sometimes thousands of them, across formats nobody was making five years ago. Traditional studios were never built for any of this. We were.
+            Used the right way, AI generation cuts the cost of a finalized asset by half or more. The savings are real and we pass them through to the client. Brands need hundreds of assets a month, sometimes thousands of them, across formats nobody was making five years ago. Traditional studios were never built for any of this. We were. The work has shipped for Mazda, Nescafe, Marriott and Bobbi Brown.
           </p>
-        </div>
-      </div>
-
-      <div class="hs-stats">
-        <div class="hs-stat">
-          <span class="hs-stat__num">22<span class="hs-stat__unit">%</span> <span class="hs-stat__arrow">→</span> 78<span class="hs-stat__unit">%</span></span>
-          <span class="hs-stat__label">Approval rate, six months in</span>
-        </div>
-        <div class="hs-stat">
-          <span class="hs-stat__num">7<span class="hs-stat__unit">×</span></span>
-          <span class="hs-stat__label">Output multiplier</span>
-        </div>
-        <div class="hs-stat">
-          <span class="hs-stat__num">60<span class="hs-stat__unit">%</span></span>
-          <span class="hs-stat__label">Cost reduction, passed through</span>
-        </div>
-        <div class="hs-stat">
-          <span class="hs-stat__num">3<span class="hs-stat__unit">d</span></span>
-          <span class="hs-stat__label">Turnarounds, the floor we work from</span>
         </div>
       </div>
     </div>
@@ -193,14 +143,13 @@ const visitLabel = 'Visit hubstudio.ai';
   <section class="hs-services" id="services">
     <div class="container">
       <header class="hs-services__header">
-        <span class="eyebrow">What we do</span>
         <h2 class="hs-services__title">
-          Three lanes. <em>One studio.</em><br />
-          End to end.
+          Produce. <em>Platform.</em> Direct.
         </h2>
         <p class="hs-services__lead">We are a full production house. We shoot, we direct, we retouch, we edit. We also use AI generation at a level most studios have not reached yet, and that is the part worth talking about.</p>
       </header>
 
+      <div class="hs-services__bezel">
       <div class="hs-services__shell" data-tabs>
         <div class="hs-services__nav" role="tablist" aria-label="Service lanes">
           {services.map((s, i) => (
@@ -235,7 +184,7 @@ const visitLabel = 'Visit hubstudio.ai';
               <div class="hs-services__panel-grid">
                 <div class="hs-services__panel-image">
                   <div class="hs-services__panel-frame">
-                    <img src={s.image} alt={`${s.title} editorial`} loading="lazy" decoding="async" onerror="this.style.display='none'" />
+                    <img src={s.image} alt={`${s.title} editorial`} loading="lazy" decoding="async" />
                     <div class={`hs-services__panel-tag hs-services__panel-tag--${s.key}`}>
                       <span>{s.title}</span>
                     </div>
@@ -266,6 +215,7 @@ const visitLabel = 'Visit hubstudio.ai';
           ))}
         </div>
       </div>
+      </div>
     </div>
   </section>
 
@@ -275,7 +225,6 @@ const visitLabel = 'Visit hubstudio.ai';
   <section class="hs-ways">
     <div class="container">
       <header class="hs-ways__header">
-        <span class="eyebrow">Two ways to work with us</span>
         <h2 class="hs-ways__title balance">Send the brief. Or run the platform.</h2>
       </header>
       <div class="hs-ways__grid">
@@ -303,11 +252,9 @@ const visitLabel = 'Visit hubstudio.ai';
   <section class="hs-operate">
     <div class="hs-operate__bg" aria-hidden="true"></div>
     <div class="container hs-operate__container">
-      <span class="eyebrow eyebrow--on-dark">What we believe</span>
       <h2 class="hs-operate__title">
         <span class="hs-operate__line" data-line>Creative intelligence is the only thing left that matters.</span>
         <span class="hs-operate__line" data-line>Culture cannot be briefed.</span>
-        <span class="hs-operate__line" data-line>Speed is the new craft.</span>
       </h2>
       <div class="hs-operate__statement" data-line>
         <p>Anyone can generate a passable image now. The difference between passable and brilliant sits with the humans directing the work.</p>
@@ -321,15 +268,16 @@ const visitLabel = 'Visit hubstudio.ai';
   <!-- ====================================================================== -->
   <section class="hs-cta">
     <div class="hs-cta__bg" aria-hidden="true">
-      <img src="/images/hubstudio-shanghai-studio.webp" alt="" onerror="this.style.display='none'" />
+      <img src="/images/hubstudio-shanghai-studio.webp" alt="" />
       <div class="hs-cta__bg-scrim"></div>
     </div>
     <div class="container hs-cta__content">
-      <span class="eyebrow eyebrow--on-dark">Ready when you are</span>
       <h2 class="hs-cta__title balance">The production house brands choose<br />when the old way stops working.</h2>
       <div class="hs-cta__actions">
-        <a class="btn btn--primary" href={visitUrl} target="_blank" rel="noreferrer">{visitLabel}</a>
-        <a class="btn btn--ghost-light" href={pathFor('contact', locale)}>Talk to us</a>
+        <a class="pill-cta" href={visitUrl} target="_blank" rel="noreferrer">{visitLabel}
+          <span class="pill-cta__disc" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg></span>
+        </a>
+        <a class="pill-ghost" href={pathFor('contact', locale)}>Book a call</a>
       </div>
     </div>
   </section>
@@ -341,7 +289,7 @@ const visitLabel = 'Visit hubstudio.ai';
   /* ===================================================================== */
   .hs-hero {
     position: relative;
-    min-height: 88vh;
+    min-height: 88dvh;
     padding: clamp(2.5rem, 5vh, 4rem) 0 clamp(3rem, 6vh, 5rem);
     overflow: hidden;
     isolation: isolate;
@@ -357,8 +305,7 @@ const visitLabel = 'Visit hubstudio.ai';
     height: 112%;
     object-fit: cover;
     object-position: center 40%;
-    will-change: transform;
-    transform: translate3d(0, var(--parallax-y, 0), 0) scale(1.04);
+    transform: scale(1.04);
     filter: saturate(0.85) contrast(1.05) brightness(0.72);
   }
   .hs-hero__bg-scrim {
@@ -428,13 +375,6 @@ const visitLabel = 'Visit hubstudio.ai';
     opacity: 0;
     animation: hsFadeIn 700ms cubic-bezier(0.2,0.8,0.2,1) 0.2s forwards;
   }
-  .hs-hero__eyebrow-dot {
-    width: 7px; height: 7px;
-    border-radius: 50%;
-    background: #ff7a3c;
-    box-shadow: 0 0 0 0 rgba(255,122,60,0.5);
-    animation: hsPulse 2.4s ease-in-out infinite;
-  }
 
   .hs-hero__title {
     font-size: clamp(2.5rem, 5vw + 0.5rem, 5.4rem);
@@ -491,56 +431,12 @@ const visitLabel = 'Visit hubstudio.ai';
     animation: hsFadeIn 700ms cubic-bezier(0.2,0.8,0.2,1) 1s forwards;
   }
 
-  .hs-magnet {
-    --x: 0px; --y: 0px;
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    gap: 14px;
-    padding: 16px 26px 16px 28px;
-    border-radius: 999px;
-    color: #fff;
-    text-decoration: none;
-    font-family: var(--font-display);
-    font-size: 1rem;
-    font-weight: 600;
-    letter-spacing: -0.005em;
-    overflow: hidden;
-    isolation: isolate;
-    transition: transform 220ms cubic-bezier(0.2,0.8,0.2,1);
-    transform: translate(var(--x), var(--y));
+  /* Shared pills, page accent */
+  .pill-cta {
+    background: #ff5a3c;
+    box-shadow: 0 16px 36px -12px rgba(255,90,60,0.45);
   }
-  .hs-magnet__bg {
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    background: linear-gradient(120deg, #ff5a3c 0%, #c8341d 100%);
-    box-shadow: 0 16px 36px -10px rgba(255,90,60,0.55), inset 0 1px 0 rgba(255,255,255,0.2);
-    z-index: -1;
-    transition: transform 320ms cubic-bezier(0.2,0.8,0.2,1);
-  }
-  .hs-magnet:hover .hs-magnet__bg { transform: scale(1.04); }
-  .hs-magnet__arrow {
-    display: inline-block;
-    transform: translateX(0);
-    transition: transform 280ms cubic-bezier(0.2,0.8,0.2,1);
-  }
-  .hs-magnet:hover .hs-magnet__arrow { transform: translateX(4px); }
-
-  .hs-hero__secondary {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    color: rgba(255,255,255,0.92);
-    font-family: var(--font-display);
-    font-size: 1rem;
-    font-weight: 500;
-    text-decoration: none;
-    transition: color 220ms ease;
-  }
-  .hs-hero__secondary svg { transition: transform 220ms ease; }
-  .hs-hero__secondary:hover { color: #ffb56a; }
-  .hs-hero__secondary:hover svg { transform: translateX(3px); }
+  .pill-cta:hover { background: #c8341d; }
 
   /* Browser preview with parallax tilt */
   .hs-hero__preview {
@@ -556,27 +452,32 @@ const visitLabel = 'Visit hubstudio.ai';
     transform: rotateY(var(--tilt-x, -3deg)) rotateX(var(--tilt-y, 2deg));
     transition: transform 600ms cubic-bezier(0.2,0.8,0.2,1);
   }
+  .hs-bezel {
+    padding: 6px;
+    border-radius: 28px;
+    background: rgba(255,255,255,0.06);
+    box-shadow:
+      0 0 0 1px rgba(255,255,255,0.1),
+      0 40px 80px -28px rgba(0,0,0,0.55),
+      0 12px 28px -8px rgba(0,0,0,0.35);
+    transition: transform 0.5s cubic-bezier(0.32, 0.72, 0, 1);
+  }
+  .hs-bezel:hover { transform: translateY(-4px); }
   .browser-link {
     display: block;
     text-decoration: none;
     color: inherit;
     cursor: pointer;
-    border-radius: 14px;
-    transition: transform 320ms cubic-bezier(0.2,0.8,0.2,1);
+    border-radius: 22px;
   }
-  .browser-link:hover { transform: translateY(-2px); }
   .browser-link:focus-visible { outline: 2px solid #fff; outline-offset: 4px; }
   .browser-link:hover .browser__visit { opacity: 1; transform: translateY(0); }
   .browser {
     position: relative;
     background: #ffffff;
-    border-radius: 14px;
+    border-radius: 22px;
     overflow: hidden;
-    box-shadow:
-      0 1px 0 rgba(255,255,255,0.5) inset,
-      0 40px 80px -28px rgba(0,0,0,0.55),
-      0 12px 28px -8px rgba(0,0,0,0.35);
-    border: 1px solid rgba(255,255,255,0.10);
+    box-shadow: inset 0 1px 1px rgba(255,255,255,0.12);
     transform: translateZ(0);
   }
   .browser__visit {
@@ -601,32 +502,6 @@ const visitLabel = 'Visit hubstudio.ai';
     transition: opacity 240ms ease, transform 240ms cubic-bezier(0.2,0.8,0.2,1);
     pointer-events: none;
   }
-  .browser__chrome {
-    display: flex;
-    align-items: center;
-    gap: var(--space-3);
-    padding: 10px 14px;
-    background: linear-gradient(180deg, #f8fafc 0%, #eef2f6 100%);
-    border-bottom: 1px solid rgba(15,23,42,0.08);
-  }
-  .browser__dots { display: inline-flex; gap: 6px; }
-  .browser__dot { width: 11px; height: 11px; border-radius: 50%; display: inline-block; }
-  .browser__dot--r { background: #ff5f57; }
-  .browser__dot--y { background: #febc2e; }
-  .browser__dot--g { background: #28c840; }
-  .browser__url {
-    flex: 1;
-    text-align: center;
-    font-family: var(--font-display);
-    font-size: 0.78rem;
-    color: var(--bbg-text-muted);
-    background: rgba(15,23,42,0.04);
-    border-radius: 999px;
-    padding: 4px 10px;
-    letter-spacing: 0.01em;
-    max-width: 320px;
-    margin: 0 auto;
-  }
   .browser__viewport {
     position: relative;
     aspect-ratio: 16 / 10;
@@ -640,123 +515,11 @@ const visitLabel = 'Visit hubstudio.ai';
     object-position: center top;
     display: block;
   }
-  .browser__live {
-    position: absolute;
-    bottom: 12px;
-    right: 12px;
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-    padding: 6px 10px;
-    background: rgba(16, 10, 10, 0.74);
-    color: #fff;
-    border-radius: 999px;
-    font-family: var(--font-display);
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-  }
-  .browser__live-dot {
-    width: 7px; height: 7px;
-    border-radius: 50%;
-    background: #ff7a3c;
-    box-shadow: 0 0 0 0 rgba(255,122,60,0.6);
-    animation: hsPulse 2.4s ease-in-out infinite;
-  }
-
-  .hs-hero__chip {
-    position: absolute;
-    display: inline-flex;
-    flex-direction: column;
-    gap: 2px;
-    padding: 10px 14px;
-    background: rgba(255,255,255,0.92);
-    color: var(--bbg-ink);
-    border: 1px solid rgba(255,255,255,0.5);
-    border-radius: 14px;
-    font-family: var(--font-display);
-    font-size: 0.84rem;
-    font-weight: 600;
-    letter-spacing: -0.005em;
-    box-shadow: 0 24px 50px -18px rgba(0,0,0,0.45);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    transform: translateZ(40px);
-  }
-  .hs-hero__chip-label {
-    font-size: 0.62rem;
-    font-weight: 700;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: #c8341d;
-  }
-  .hs-hero__chip--stack {
-    top: -20px; left: -28px;
-    animation: hsFloatA 9s ease-in-out infinite;
-  }
-  .hs-hero__chip--clients {
-    bottom: -24px; right: -20px;
-    animation: hsFloatB 11s ease-in-out infinite;
-  }
-  @keyframes hsFloatA { 0%,100% { transform: translateZ(40px) translateY(0); } 50% { transform: translateZ(40px) translateY(-7px); } }
-  @keyframes hsFloatB { 0%,100% { transform: translateZ(40px) translateY(0); } 50% { transform: translateZ(40px) translateY(8px); } }
-
-  .hs-hero__scroll {
-    position: absolute;
-    bottom: clamp(1rem, 3vh, 2rem);
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 4;
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    color: rgba(255,255,255,0.7);
-    text-decoration: none;
-    font-family: var(--font-display);
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    transition: color 220ms ease;
-  }
-  .hs-hero__scroll:hover { color: #fff; }
-  .hs-hero__scroll-line {
-    width: 1px;
-    height: 36px;
-    background: linear-gradient(180deg, rgba(255,255,255,0.7), rgba(255,255,255,0));
-    position: relative;
-    overflow: hidden;
-  }
-  .hs-hero__scroll-line::after {
-    content: "";
-    position: absolute;
-    top: -36px;
-    left: 0; right: 0;
-    height: 36px;
-    background: linear-gradient(180deg, rgba(255,255,255,0), rgba(255,255,255,0.95));
-    animation: hsScrollLine 1.8s ease-in-out infinite;
-  }
-  @keyframes hsScrollLine { 0% { top: -36px; } 100% { top: 36px; } }
-
   @keyframes hsFadeIn { to { opacity: 1; } }
-  @keyframes hsPulse {
-    0%,100% { box-shadow: 0 0 0 0 rgba(255,122,60,0.55); }
-    50% { box-shadow: 0 0 0 7px rgba(255,122,60,0); }
-  }
 
   @media (max-width: 1023px) {
     .hs-hero__main { grid-template-columns: 1fr; gap: var(--space-7); }
     .hs-hero__title { max-width: none; }
-    .hs-hero__chip--stack { top: -14px; left: 8px; }
-    .hs-hero__chip--clients { bottom: -14px; right: 8px; }
-  }
-  @media (max-width: 639px) {
-    .hs-hero__chip { font-size: 0.72rem; padding: 8px 10px; }
-    .hs-hero__chip--stack { display: none; }
-    .hs-hero__scroll { display: none; }
   }
 
   /* ===================================================================== */
@@ -820,47 +583,6 @@ const visitLabel = 'Visit hubstudio.ai';
   .hs-track__title { font-size: clamp(1.6rem, 2.4vw + 0.6rem, 2.4rem); line-height: 1.15; margin: 0 0 var(--space-4); }
   .hs-track__lead { font-size: var(--fs-lead); color: var(--bbg-text); }
 
-  .hs-stats {
-    margin-top: var(--space-7);
-    padding-top: var(--space-6);
-    border-top: 1px solid var(--bbg-border, rgba(15,23,42,0.08));
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: clamp(1.25rem, 3vw, 2.5rem);
-  }
-  @media (max-width: 1023px) { .hs-stats { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 639px) { .hs-stats { grid-template-columns: 1fr; } }
-  .hs-stat {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
-  .hs-stat__num {
-    font-family: var(--font-display);
-    font-weight: 600;
-    font-size: clamp(1.6rem, 2.4vw + 0.4rem, 2.4rem);
-    letter-spacing: -0.02em;
-    line-height: 1;
-    color: var(--bbg-ink);
-    font-variant-numeric: tabular-nums;
-  }
-  .hs-stat__unit {
-    color: #c8341d;
-    font-size: 0.7em;
-    margin-left: 0.05em;
-  }
-  .hs-stat__arrow {
-    color: #c8341d;
-    margin: 0 0.25em;
-    font-weight: 500;
-  }
-  .hs-stat__label {
-    font-size: 0.85rem;
-    color: var(--bbg-text-muted, #6b7280);
-    line-height: 1.4;
-    max-width: 22ch;
-  }
-
   /* ===================================================================== */
   /* SERVICES                                                               */
   /* ===================================================================== */
@@ -890,13 +612,19 @@ const visitLabel = 'Visit hubstudio.ai';
   }
   .hs-services__lead { color: var(--bbg-text); font-size: var(--fs-lead); max-width: 60ch; }
 
+  .hs-services__bezel {
+    padding: 6px;
+    border-radius: 28px;
+    background: rgba(10,20,30,0.04);
+    box-shadow: 0 0 0 1px rgba(10,20,30,0.05);
+  }
   .hs-services__shell {
     position: relative;
     background: var(--bbg-paper, #f8fafc);
-    border-radius: 28px;
+    border-radius: 22px;
+    overflow: hidden;
     padding: clamp(1.5rem, 3vw, 2.5rem);
-    border: 1px solid var(--bbg-border, rgba(15,23,42,0.08));
-    box-shadow: 0 60px 120px -60px rgba(15, 23, 42, 0.18);
+    box-shadow: 0 24px 50px -36px rgba(10,20,30,0.35);
   }
 
   .hs-services__nav {
@@ -918,7 +646,7 @@ const visitLabel = 'Visit hubstudio.ai';
     height: calc(100% - 12px);
     background: linear-gradient(135deg, var(--bbg-ink) 0%, #2a2222 100%);
     border-radius: 12px;
-    transition: transform 380ms cubic-bezier(0.2, 0.85, 0.2, 1);
+    transition: transform 0.5s cubic-bezier(0.32, 0.72, 0, 1);
     pointer-events: none;
     z-index: 0;
   }
@@ -937,7 +665,7 @@ const visitLabel = 'Visit hubstudio.ai';
     grid-template-columns: auto 1fr auto;
     align-items: center;
     gap: 10px;
-    transition: color 320ms ease;
+    transition: color 0.5s cubic-bezier(0.32, 0.72, 0, 1);
   }
   .hs-services__tab.is-active { color: #fff; }
   .hs-services__tab.is-active .hs-services__tab-count { color: rgba(255,255,255,0.6); }
@@ -946,7 +674,7 @@ const visitLabel = 'Visit hubstudio.ai';
     border-radius: 50%;
     background: currentColor;
     flex-shrink: 0;
-    transition: background 320ms ease, transform 320ms ease;
+    transition: background 0.5s cubic-bezier(0.32, 0.72, 0, 1), transform 0.5s cubic-bezier(0.32, 0.72, 0, 1);
   }
   .hs-services__tab--produce.is-active  .hs-services__tab-pip { background: #ff9b6f; }
   .hs-services__tab--platform.is-active .hs-services__tab-pip { background: #ff5a3c; }
@@ -957,7 +685,7 @@ const visitLabel = 'Visit hubstudio.ai';
     font-size: 1.05rem;
     letter-spacing: -0.005em;
     color: var(--bbg-ink);
-    transition: color 320ms ease;
+    transition: color 0.5s cubic-bezier(0.32, 0.72, 0, 1);
   }
   .hs-services__tab.is-active .hs-services__tab-label { color: #fff; }
   .hs-services__tab-count {
@@ -966,7 +694,7 @@ const visitLabel = 'Visit hubstudio.ai';
     font-weight: 600;
     letter-spacing: 0.04em;
     color: var(--bbg-text-muted, #6b7280);
-    transition: color 320ms ease;
+    transition: color 0.5s cubic-bezier(0.32, 0.72, 0, 1);
   }
 
   .hs-services__panels { position: relative; min-height: 480px; }
@@ -1002,7 +730,7 @@ const visitLabel = 'Visit hubstudio.ai';
     width: 100%;
     height: 100%;
     min-height: 420px;
-    border-radius: 20px;
+    border-radius: 16px;
     overflow: hidden;
     background: var(--bbg-ink);
     box-shadow: 0 30px 60px -22px rgba(15,23,42,0.30);
@@ -1143,7 +871,7 @@ const visitLabel = 'Visit hubstudio.ai';
     border-radius: 22px;
     padding: clamp(1.75rem, 3vw, 2.5rem);
     box-shadow: 0 28px 60px -36px rgba(15,23,42,0.25);
-    transition: transform 320ms cubic-bezier(0.2, 0.85, 0.2, 1), box-shadow 320ms ease;
+    transition: transform 0.5s cubic-bezier(0.32, 0.72, 0, 1), box-shadow 0.5s cubic-bezier(0.32, 0.72, 0, 1);
   }
   .hs-way:hover {
     transform: translateY(-4px);
@@ -1196,6 +924,7 @@ const visitLabel = 'Visit hubstudio.ai';
   .hs-operate__bg {
     position: absolute; inset: 0;
     background:
+      radial-gradient(1100px 680px at 52% 48%, rgba(255,90,60,0.10), transparent 65%),
       radial-gradient(900px 500px at 0% 100%, rgba(255,90,60,0.20), transparent 60%),
       radial-gradient(800px 500px at 100% 0%, rgba(217,154,58,0.16), transparent 60%);
     pointer-events: none;
@@ -1222,7 +951,6 @@ const visitLabel = 'Visit hubstudio.ai';
   }
   .hs-operate__line > * { display: inline-block; }
   .hs-operate__line:nth-child(2) { transition-delay: 0.10s; }
-  .hs-operate__line:nth-child(3) { transition-delay: 0.20s; }
 
   .hs-operate__statement {
     max-width: 60ch;
@@ -1287,12 +1015,11 @@ const visitLabel = 'Visit hubstudio.ai';
   [data-anim="fade"] { opacity: 0; }
   .hs-track__numeral,
   .hs-track__copy,
-  .hs-stats,
   .hs-services__header,
-  .hs-services__shell,
+  .hs-services__bezel,
   .hs-ways__header,
   .hs-way {
-    transition: opacity 700ms cubic-bezier(0.2, 0.85, 0.2, 1), transform 800ms cubic-bezier(0.2, 0.85, 0.2, 1);
+    transition: opacity 700ms cubic-bezier(0.32, 0.72, 0, 1), transform 800ms cubic-bezier(0.32, 0.72, 0, 1);
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -1302,12 +1029,11 @@ const visitLabel = 'Visit hubstudio.ai';
     .hs-hero__cta-row,
     .hs-hero__logo,
     .hs-hero__eyebrow,
-    .hs-hero__chip,
     .hs-services__panel.is-active .hs-services__panel-frame img,
     .hs-services__panel.is-active .hs-services__item,
     .hs-operate__line,
     .hs-operate__statement,
-    .hs-track__numeral, .hs-track__copy, .hs-stats, .hs-services__header, .hs-services__shell, .hs-ways__header, .hs-way,
+    .hs-track__numeral, .hs-track__copy, .hs-services__header, .hs-services__bezel, .hs-ways__header, .hs-way,
     [data-anim] {
       animation: none !important;
       transition: none !important;
@@ -1323,7 +1049,7 @@ const visitLabel = 'Visit hubstudio.ai';
 
     if (!reduced) {
       const revealTargets = document.querySelectorAll<HTMLElement>(
-        '.hs-track__numeral, .hs-track__copy, .hs-stats, .hs-services__header, .hs-services__shell, .hs-ways__header, .hs-way'
+        '.hs-track__numeral, .hs-track__copy, .hs-services__header, .hs-services__bezel, .hs-ways__header, .hs-way'
       );
       revealTargets.forEach((el) => {
         el.style.opacity = '0';
@@ -1425,7 +1151,6 @@ const visitLabel = 'Visit hubstudio.ai';
     if (!reduced) {
       const hero = document.querySelector<HTMLElement>('[data-hero]');
       const tilt = document.querySelector<HTMLElement>('[data-tilt] .hs-hero__preview-frame');
-      const bg = document.querySelector<HTMLElement>('[data-parallax-bg]');
 
       if (hero && tilt) {
         let raf = 0;
@@ -1452,34 +1177,8 @@ const visitLabel = 'Visit hubstudio.ai';
         hero.addEventListener('mousemove', onMove);
         hero.addEventListener('mouseleave', onLeave);
       }
-
-      if (bg) {
-        const onScroll = () => {
-          const rect = bg.getBoundingClientRect();
-          const offset = Math.max(-200, Math.min(200, rect.top * -0.18));
-          (bg as HTMLElement).style.setProperty('--parallax-y', `${offset}px`);
-        };
-        window.addEventListener('scroll', onScroll, { passive: true });
-        onScroll();
-      }
     }
 
-    if (!reduced) {
-      const magnets = document.querySelectorAll<HTMLElement>('[data-magnet]');
-      magnets.forEach((m) => {
-        m.addEventListener('mousemove', (e: MouseEvent) => {
-          const rect = m.getBoundingClientRect();
-          const x = e.clientX - rect.left - rect.width / 2;
-          const y = e.clientY - rect.top - rect.height / 2;
-          m.style.setProperty('--x', `${(x * 0.18).toFixed(1)}px`);
-          m.style.setProperty('--y', `${(y * 0.18).toFixed(1)}px`);
-        });
-        m.addEventListener('mouseleave', () => {
-          m.style.setProperty('--x', '0px');
-          m.style.setProperty('--y', '0px');
-        });
-      });
-    }
   };
 
   if (document.readyState === 'loading') {

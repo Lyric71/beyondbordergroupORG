@@ -5,7 +5,6 @@ import type { Locale } from '../i18n/ui';
 interface ContactCopy {
   title: string;
   description: string;
-  eyebrow: string;
   heroTitle: string;
   heroLead: string;
   emailTitle: string;
@@ -16,7 +15,6 @@ interface ContactCopy {
   officeParis: string;
   officesNote: string;
   directTitle: string;
-  formEyebrow: string;
   formHeading: string;
   labelName: string;
   labelEmail: string;
@@ -57,14 +55,13 @@ const captchaQuestion = `${a} + ${b}`;
     <div class="container contact-split__container">
       <div class="contact-split__grid">
         <aside class="contact-split__intro">
-          <span class="eyebrow eyebrow--on-dark">{copy.eyebrow}</span>
           <h1 class="contact-split__title balance">{copy.heroTitle}</h1>
           <p class="contact-split__lead">{copy.heroLead}</p>
 
           <div class="contact-split__info">
             <div class="contact-split__info-block">
               <h2 class="contact-split__info-title">{copy.emailTitle}</h2>
-              <p><a href="mailto:hello@beyondbordergroup.com">hello@beyondbordergroup.com</a></p>
+              <p><a href="mailto:hello@bearingbridge.com">hello@bearingbridge.com</a></p>
               <p class="contact-split__info-note">{copy.emailNote}</p>
             </div>
 
@@ -93,9 +90,9 @@ const captchaQuestion = `${a} + ${b}`;
         </aside>
 
         <div class="contact-split__form-col">
+          <div class="contact-form-bezel">
           <div class="contact-form-wrap">
             <header class="contact-form-header">
-              <span class="eyebrow">{copy.formEyebrow}</span>
               <h2 class="balance">{copy.formHeading}</h2>
             </header>
 
@@ -169,10 +166,13 @@ const captchaQuestion = `${a} + ${b}`;
               <p id="contact-status" class="form-status" role="status" aria-live="polite" hidden></p>
 
               <div class="btn-row contact-form__actions">
-                <button id="contact-submit" class="btn btn--primary btn--lg" type="submit">{copy.submit}</button>
+                <button id="contact-submit" class="pill-cta" type="submit"><span class="pill-cta__label">{copy.submit}</span>
+                  <span class="pill-cta__disc" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg></span>
+                </button>
                 <p class="muted contact-form__hint">{copy.formHint}</p>
               </div>
             </form>
+          </div>
           </div>
         </div>
       </div>
@@ -215,8 +215,9 @@ const captchaQuestion = `${a} + ${b}`;
       }
 
       submit.disabled = true;
-      const originalLabel = submit.textContent;
-      submit.textContent = sendingLabel;
+      const submitLabel = submit.querySelector('.pill-cta__label') ?? submit;
+      const originalLabel = submitLabel.textContent;
+      submitLabel.textContent = sendingLabel;
       setStatus(msgSending, 'info');
 
       try {
@@ -231,7 +232,7 @@ const captchaQuestion = `${a} + ${b}`;
         if (!response.ok) {
           setStatus(result.error || msgGeneric, 'error');
           submit.disabled = false;
-          submit.textContent = originalLabel;
+          submitLabel.textContent = originalLabel;
           return;
         }
 
@@ -239,7 +240,7 @@ const captchaQuestion = `${a} + ${b}`;
       } catch {
         setStatus(msgNetwork, 'error');
         submit.disabled = false;
-        submit.textContent = originalLabel;
+        submitLabel.textContent = originalLabel;
       }
     });
   }
@@ -251,7 +252,7 @@ const captchaQuestion = `${a} + ${b}`;
     isolation: isolate;
     color: var(--bbg-white);
     padding: clamp(5rem, 11vh, 7.5rem) 0 clamp(4rem, 9vh, 6rem);
-    min-height: 100vh;
+    min-height: 100dvh;
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -290,12 +291,13 @@ const captchaQuestion = `${a} + ${b}`;
   @media (max-width: 1023px) {
     .contact-split { min-height: 0; align-items: flex-start; }
     .contact-split__grid { grid-template-columns: 1fr; }
-    .contact-split__form-col { order: 1; }
-    .contact-split__intro { order: 2; max-width: none; }
-    .contact-split__intro > .eyebrow,
-    .contact-split__title,
-    .contact-split__lead { display: none; }
-    .contact-split__info { border-top: 0; padding-top: 0; }
+    /* Flatten the intro so its children order against the form column:
+       heading and lead first, then the form, then the info blocks. */
+    .contact-split__intro { display: contents; }
+    .contact-split__title { order: 1; margin-bottom: 0; }
+    .contact-split__lead { order: 2; margin-bottom: 0; }
+    .contact-split__form-col { order: 3; }
+    .contact-split__info { order: 4; border-top: 0; padding-top: 0; }
   }
 
   .contact-split__intro { max-width: 560px; }
@@ -358,14 +360,17 @@ const captchaQuestion = `${a} + ${b}`;
 
   .contact-split__form-col { position: relative; }
 
+  .contact-form-bezel {
+    padding: 6px;
+    border-radius: 28px;
+    background: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.16);
+  }
   .contact-form-wrap {
     background: var(--bbg-white);
-    border: 1px solid var(--bbg-border);
-    border-radius: 18px;
+    border-radius: 22px;
     padding: clamp(var(--space-5), 3.5vw, var(--space-6));
-    box-shadow:
-      0 1px 2px rgba(15, 23, 42, 0.06),
-      0 30px 60px -24px rgba(15, 23, 42, 0.35);
+    box-shadow: 0 24px 50px -30px rgba(10, 20, 30, 0.5);
     color: var(--bbg-ink);
   }
   .contact-form-header { margin-bottom: var(--space-5); }
@@ -378,7 +383,7 @@ const captchaQuestion = `${a} + ${b}`;
   .contact-form .form-field input,
   .contact-form .form-field select,
   .contact-form .form-field textarea {
-    border-radius: 10px;
+    border-radius: 12px;
     padding: 0.8rem 1rem;
     background: #fafbfd;
     border-color: #e2e6ec;
@@ -388,7 +393,7 @@ const captchaQuestion = `${a} + ${b}`;
   .contact-form .form-field textarea:focus {
     background: #fff;
     border-color: var(--bbg-blue);
-    box-shadow: 0 0 0 3px rgba(38, 154, 218, 0.12);
+    box-shadow: 0 0 0 4px rgba(38, 154, 218, 0.15);
   }
   .contact-form .form-field label { font-weight: 600; color: var(--bbg-ink); font-size: 0.875rem; }
   .req { color: #c8102e; }
@@ -443,13 +448,13 @@ const captchaQuestion = `${a} + ${b}`;
     font: inherit;
     font-weight: 600;
     border: 1px solid #e2e6ec;
-    border-radius: 8px;
+    border-radius: 12px;
     background: var(--bbg-white);
   }
   .captcha input[type="text"]:focus {
     outline: none;
     border-color: var(--bbg-blue);
-    box-shadow: 0 0 0 3px rgba(38, 154, 218, 0.12);
+    box-shadow: 0 0 0 4px rgba(38, 154, 218, 0.15);
   }
 
   .contact-form__actions {
@@ -460,7 +465,6 @@ const captchaQuestion = `${a} + ${b}`;
     flex-wrap: wrap;
   }
   .contact-form__hint { margin: 0; font-size: 0.8125rem; }
-  .btn--lg { padding: 0.9rem 1.5rem; font-size: 1rem; }
 
   .form-status {
     margin: var(--space-4) 0 0;

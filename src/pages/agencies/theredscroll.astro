@@ -5,8 +5,6 @@ import { pathFor } from '../../i18n/ui';
 const locale = 'en' as const;
 const route = 'agencies/theredscroll' as const;
 
-const platforms = ['WeChat', 'Douyin', 'RedNote', 'Weibo', '+14 more'];
-
 const services = [
   {
     key: 'plan',
@@ -58,36 +56,25 @@ const visitLabel = 'Visit theredscroll.com';
       <div class="trs-hero__grid">
         <div class="trs-hero__content">
           <img src="/AgencyLogos/TheredScroll%20PNG.png" alt="TheRedScroll logo" class="trs-hero__logo" width="180" height="40" loading="eager" decoding="async" />
-          <span class="eyebrow eyebrow--rule">China social media · Fixed scope · Fixed price</span>
+          <span class="eyebrow eyebrow--rule">China social media, fixed scope, fixed price</span>
           <h1 class="trs-hero__title">
             We post on
-            <span class="trs-hero__phrase trs-hero__phrase--platforms">China's platforms</span>.
-            <span class="trs-hero__phrase trs-hero__phrase--daily">Every day</span>.
-            <span class="trs-hero__phrase trs-hero__phrase--ground">From the ground</span>.
+            <span class="trs-hero__phrase">China's platforms</span>.
+            Every day.
+            From the ground.
           </h1>
-          <p class="trs-hero__lead">China runs on its own platforms. WeChat, Douyin, RedNote, Weibo, and fourteen others. Knowing this from a slide deck is not the same as opening these apps every morning, which is, frankly, what most agencies don't do.</p>
+          <p class="trs-hero__lead">China runs on its own platforms. WeChat, Douyin, RedNote, Weibo, and fourteen others. Knowing this from a slide deck is not the same as knowing it from the feed.</p>
           <div class="trs-hero__actions">
-            <a class="btn btn--primary trs-hero__cta" href={visitUrl} target="_blank" rel="noreferrer">{visitLabel}</a>
-          </div>
-          <div class="trs-hero__clients">
-            <span class="trs-hero__clients-label">Active on</span>
-            <ul class="trs-hero__clients-list">
-              {platforms.map((c) => <li>{c}</li>)}
-            </ul>
+            <a class="pill-cta" href={visitUrl} target="_blank" rel="noreferrer">{visitLabel}
+              <span class="pill-cta__disc" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg></span>
+            </a>
           </div>
         </div>
 
         <div class="trs-hero__media">
           <a class="browser-link" href={visitUrl} target="_blank" rel="noreferrer" aria-label={visitLabel}>
+            <div class="trs-bezel">
             <div class="browser">
-              <div class="browser__chrome">
-                <span class="browser__dots">
-                  <span class="browser__dot browser__dot--r"></span>
-                  <span class="browser__dot browser__dot--y"></span>
-                  <span class="browser__dot browser__dot--g"></span>
-                </span>
-                <span class="browser__url">theredscroll.com</span>
-              </div>
               <div class="browser__viewport">
                 <img src="/images/theredscroll-home.webp" alt="theredscroll.com homepage" class="browser__shot" width="1408" height="832" loading="eager" decoding="async" />
                 <span class="browser__visit" aria-hidden="true">
@@ -96,34 +83,26 @@ const visitLabel = 'Visit theredscroll.com';
                 </span>
               </div>
             </div>
+            </div>
           </a>
-
-          <div class="trs-hero__chip trs-hero__chip--cities">
-            <span class="trs-hero__chip-dot"></span>
-            Shanghai · Hong Kong · Native team
-          </div>
-          <div class="trs-hero__chip trs-hero__chip--ai">
-            HubStudio.ai · AIGC content at scale
-          </div>
         </div>
       </div>
     </div>
   </section>
 
   <section class="section section--alt">
-    <div class="container container--narrow">
-      <span class="eyebrow">How we work</span>
+    <div class="container container--narrow" data-reveal>
+      <p class="trs-active">Active on WeChat, Douyin, RedNote, Weibo and fourteen more.</p>
       <p class="lead">Every post, video, campaign and report is defined upfront in a written scope of work. One number per package. No hidden fees, no scope creep. Our team works from Shanghai and Hong Kong, with native speakers, real platform access, and direct lines to Chinese influencers. We built HubStudio.ai to produce visuals, video and copy at a fraction of the old cost. Strategy stays human.</p>
     </div>
   </section>
 
   <section class="section">
     <div class="container">
-      <header class="section-header">
-        <span class="eyebrow">What we do</span>
-        <h2 class="balance">Three lanes. Eight pillars. End to end.</h2>
+      <header class="section-header" data-reveal>
+        <h2 class="balance">Plan it. Run it. Sustain it.</h2>
       </header>
-      <div class="services">
+      <div class="services" data-reveal>
         {services.map((s) => (
           <article class={`service-card service-card--${s.key}`}>
             <header class="service-card__head">
@@ -145,18 +124,19 @@ const visitLabel = 'Visit theredscroll.com';
   </section>
 
   <section class="section section--alt">
-    <div class="container container--narrow">
-      <span class="eyebrow">How we package it</span>
+    <div class="container container--narrow" data-reveal>
       <p class="lead">Three tiers, all priced upfront. Discovery is for brands testing China, three months on one platform. Growth is for brands scaling in China, six months across two or three platforms. Premium is for brands going all-in, twelve months across four or more platforms. Every tier ships with a written scope of work and a fixed price.</p>
     </div>
   </section>
 
-  <section class="section section--dark">
-    <div class="container container--narrow center">
-      <h2 class="balance">More followers. More engagement. More leads. More conversions.</h2>
+  <section class="section section--dark trs-dark">
+    <div class="container container--narrow center" data-reveal>
+      <h2 class="balance">Show up every day. Watch the pipeline follow.</h2>
       <div class="btn-row" style="justify-content: center;">
-        <a class="btn btn--primary" href={visitUrl} target="_blank" rel="noreferrer">{visitLabel}</a>
-        <a class="btn btn--ghost-light" href={pathFor('contact', locale)}>Talk to us</a>
+        <a class="pill-cta" href={visitUrl} target="_blank" rel="noreferrer">{visitLabel}
+          <span class="pill-cta__disc" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg></span>
+        </a>
+        <a class="pill-ghost" href={pathFor('contact', locale)}>Book a call</a>
       </div>
     </div>
   </section>
@@ -245,25 +225,20 @@ const visitLabel = 'Visit theredscroll.com';
     -webkit-background-clip: text;
     color: transparent;
     -webkit-text-fill-color: transparent;
+    background-image: linear-gradient(120deg, #c8102e 0%, #ff5e75 100%);
   }
-  .trs-hero__phrase--platforms { background-image: linear-gradient(120deg, #c8102e 0%, #ff5e75 100%); }
-  .trs-hero__phrase--daily     { background-image: linear-gradient(120deg, #d99a3a 0%, #ffcf6f 100%); }
-  .trs-hero__phrase--ground    { background-image: linear-gradient(120deg, #2d6a4f 0%, #52b788 100%); }
   .trs-hero__phrase::after {
     content: "";
     position: absolute;
     left: 0; right: 0; bottom: -0.08em;
     height: 0.18em;
     border-radius: 999px;
-    background: currentColor;
+    background: #c8102e;
     opacity: 0.18;
     transform: scaleX(0.65);
     transform-origin: left;
     transition: transform 480ms cubic-bezier(0.2,0.8,0.2,1);
   }
-  .trs-hero__phrase--platforms::after { background: #c8102e; }
-  .trs-hero__phrase--daily::after     { background: #d99a3a; }
-  .trs-hero__phrase--ground::after    { background: #2d6a4f; }
   .trs-hero:hover .trs-hero__phrase::after { transform: scaleX(1); }
 
   .trs-hero__lead {
@@ -274,53 +249,26 @@ const visitLabel = 'Visit theredscroll.com';
   }
 
   .trs-hero__actions { margin-bottom: var(--space-6); }
-  .trs-hero__cta {
-    box-shadow: 0 12px 28px -14px rgba(200,16,46,0.55);
-    transition: transform 220ms cubic-bezier(0.2,0.8,0.2,1), box-shadow 220ms cubic-bezier(0.2,0.8,0.2,1);
-  }
-  .trs-hero__cta:hover { transform: translateY(-2px); box-shadow: 0 18px 36px -14px rgba(200,16,46,0.65); }
 
-  .trs-hero__clients {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: var(--space-3) var(--space-4);
-    padding-top: var(--space-4);
-    border-top: 1px solid rgba(15,23,42,0.08);
+  /* Shared pills, page accent */
+  .pill-cta {
+    background: #c8102e;
+    box-shadow: 0 12px 28px -14px rgba(200,16,46,0.55);
   }
-  .trs-hero__clients-label {
-    font-size: var(--fs-label);
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--bbg-text-muted);
+  .pill-cta:hover { background: #a00d25; }
+
+  /* Dark CTA: subtle accent orb */
+  .trs-dark {
+    position: relative;
+    background-image: radial-gradient(900px 540px at 78% 22%, rgba(200,16,46,0.11), transparent 65%);
   }
-  .trs-hero__clients-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-3) var(--space-5);
-  }
-  .trs-hero__clients-list li {
+
+  /* ----- Active platforms line --------------------------------------------- */
+  .trs-active {
     font-family: var(--font-display);
-    font-size: 1.05rem;
     font-weight: 600;
     color: var(--bbg-ink);
-    letter-spacing: -0.005em;
-    position: relative;
-  }
-  .trs-hero__clients-list li + li::before {
-    content: "";
-    position: absolute;
-    left: calc(var(--space-5) * -0.5);
-    top: 50%;
-    width: 4px; height: 4px;
-    border-radius: 50%;
-    background: #c8102e;
-    transform: translate(-50%, -50%);
-    opacity: 0.6;
+    margin: 0 0 var(--space-4);
   }
 
   /* ----- Browser mockup ---------------------------------------------------- */
@@ -330,11 +278,31 @@ const visitLabel = 'Visit theredscroll.com';
     text-decoration: none;
     color: inherit;
     cursor: pointer;
-    border-radius: 14px;
+    border-radius: 28px;
   }
   .browser-link:focus-visible { outline: 2px solid #c8102e; outline-offset: 4px; }
   .browser-link:hover .browser__visit { opacity: 1; transform: translateY(0); }
-  .browser-link:hover .browser { transform: rotate(0deg) translateY(-2px); }
+  .trs-bezel {
+    padding: 6px;
+    border-radius: 28px;
+    background: rgba(10,20,30,0.04);
+    box-shadow:
+      0 0 0 1px rgba(10,20,30,0.05),
+      0 28px 60px -22px rgba(15,23,42,0.30);
+    transform: rotate(-1.2deg) translateZ(0);
+    transition: transform 0.6s cubic-bezier(0.32, 0.72, 0, 1), box-shadow 0.6s cubic-bezier(0.32, 0.72, 0, 1);
+    animation: trsBrowserIn 720ms cubic-bezier(0.32, 0.72, 0, 1) 0.1s backwards;
+  }
+  @keyframes trsBrowserIn {
+    from { opacity: 0; transform: rotate(-1.2deg) translateY(24px); }
+    to { opacity: 1; transform: rotate(-1.2deg) translateY(0); }
+  }
+  .trs-hero__media:hover .trs-bezel {
+    transform: rotate(0deg) translateY(-4px);
+    box-shadow:
+      0 0 0 1px rgba(10,20,30,0.05),
+      0 36px 70px -22px rgba(15,23,42,0.34);
+  }
   .browser__visit {
     position: absolute;
     top: 12px;
@@ -361,53 +329,9 @@ const visitLabel = 'Visit theredscroll.com';
   .browser {
     position: relative;
     background: #ffffff;
-    border-radius: 14px;
+    border-radius: 22px;
     overflow: hidden;
-    box-shadow:
-      0 1px 0 rgba(255,255,255,0.6) inset,
-      0 28px 60px -22px rgba(15,23,42,0.30),
-      0 6px 18px -6px rgba(15,23,42,0.16);
-    border: 1px solid rgba(15,23,42,0.08);
-    transform: rotate(-1.2deg) translateZ(0);
-    transition: transform 480ms cubic-bezier(0.2,0.8,0.2,1), box-shadow 480ms cubic-bezier(0.2,0.8,0.2,1);
-    animation: trsBrowserIn 720ms cubic-bezier(0.2,0.8,0.2,1) 0.1s backwards;
-  }
-  @keyframes trsBrowserIn {
-    from { opacity: 0; transform: rotate(-1.2deg) translateY(24px); }
-    to { opacity: 1; transform: rotate(-1.2deg) translateY(0); }
-  }
-  .trs-hero__media:hover .browser {
-    transform: rotate(0deg) translateY(-4px);
-    box-shadow:
-      0 1px 0 rgba(255,255,255,0.6) inset,
-      0 36px 70px -22px rgba(15,23,42,0.34),
-      0 8px 22px -6px rgba(15,23,42,0.18);
-  }
-  .browser__chrome {
-    display: flex;
-    align-items: center;
-    gap: var(--space-3);
-    padding: 10px 14px;
-    background: linear-gradient(180deg, #f8fafc 0%, #eef2f6 100%);
-    border-bottom: 1px solid rgba(15,23,42,0.08);
-  }
-  .browser__dots { display: inline-flex; gap: 6px; }
-  .browser__dot { width: 11px; height: 11px; border-radius: 50%; display: inline-block; }
-  .browser__dot--r { background: #ff5f57; }
-  .browser__dot--y { background: #febc2e; }
-  .browser__dot--g { background: #28c840; }
-  .browser__url {
-    flex: 1;
-    text-align: center;
-    font-family: var(--font-display);
-    font-size: 0.78rem;
-    color: var(--bbg-text-muted);
-    background: rgba(15,23,42,0.04);
-    border-radius: 999px;
-    padding: 4px 10px;
-    letter-spacing: 0.01em;
-    max-width: 360px;
-    margin: 0 auto;
+    box-shadow: 0 24px 50px -36px rgba(10,20,30,0.35);
   }
   .browser__viewport {
     position: relative;
@@ -423,61 +347,9 @@ const visitLabel = 'Visit theredscroll.com';
     display: block;
   }
 
-  /* Floating chips */
-  .trs-hero__chip {
-    position: absolute;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 14px;
-    background: rgba(255,255,255,0.92);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(15,23,42,0.08);
-    border-radius: 999px;
-    font-family: var(--font-display);
-    font-size: 0.78rem;
-    font-weight: 600;
-    color: var(--bbg-ink);
-    letter-spacing: 0.01em;
-    box-shadow: 0 12px 28px -14px rgba(15,23,42,0.25);
-    white-space: nowrap;
-  }
-  .trs-hero__chip--cities {
-    top: -18px; left: -10px;
-    animation: trsChipIn 700ms cubic-bezier(0.2,0.8,0.2,1) 0.35s backwards, trsChipBobA 7s ease-in-out 1s infinite;
-  }
-  .trs-hero__chip--ai {
-    bottom: -18px; right: -10px;
-    animation: trsChipIn 700ms cubic-bezier(0.2,0.8,0.2,1) 0.5s backwards, trsChipBobB 8s ease-in-out 1.5s infinite;
-  }
-  .trs-hero__chip-dot {
-    width: 8px; height: 8px;
-    border-radius: 50%;
-    background: #22c55e;
-    box-shadow: 0 0 0 0 rgba(34,197,94,0.5);
-    animation: trsChipPulse 2.4s ease-in-out infinite;
-  }
-  @keyframes trsChipIn {
-    from { opacity: 0; transform: translateY(8px) scale(0.96); }
-    to { opacity: 1; transform: translateY(0) scale(1); }
-  }
-  @keyframes trsChipBobA { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
-  @keyframes trsChipBobB { 0%,100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
-  @keyframes trsChipPulse {
-    0%,100% { box-shadow: 0 0 0 0 rgba(34,197,94,0.5); }
-    50% { box-shadow: 0 0 0 6px rgba(34,197,94,0); }
-  }
-
   @media (max-width: 1023px) {
     .trs-hero__grid { grid-template-columns: 1fr; gap: var(--space-7); }
     .trs-hero__title { max-width: none; }
-    .trs-hero__chip--cities { left: 8px; top: -14px; }
-    .trs-hero__chip--ai { right: 8px; bottom: -14px; }
-  }
-  @media (max-width: 639px) {
-    .trs-hero__chip { font-size: 0.7rem; padding: 6px 10px; }
-    .trs-hero__chip--cities { display: none; }
   }
 
   /* ----- Services ---------------------------------------------------------- */
@@ -497,9 +369,9 @@ const visitLabel = 'Visit theredscroll.com';
     padding: var(--space-5) var(--space-5) var(--space-6);
     overflow: hidden;
     transition:
-      transform 280ms cubic-bezier(0.2,0.8,0.2,1),
-      box-shadow 280ms cubic-bezier(0.2,0.8,0.2,1),
-      border-color 280ms cubic-bezier(0.2,0.8,0.2,1);
+      transform 0.5s cubic-bezier(0.32, 0.72, 0, 1),
+      box-shadow 0.5s cubic-bezier(0.32, 0.72, 0, 1),
+      border-color 0.5s cubic-bezier(0.32, 0.72, 0, 1);
   }
   .service-card::before {
     content: "";
@@ -571,10 +443,10 @@ const visitLabel = 'Visit theredscroll.com';
   .service-card__body { color: var(--bbg-text); }
 
   @media (prefers-reduced-motion: reduce) {
-    .trs-hero__blob, .trs-hero__chip, .trs-hero__chip-dot, .browser, .service-card {
+    .trs-hero__blob, .trs-bezel, .browser, .service-card {
       animation: none !important;
       transition: none !important;
     }
-    .browser { transform: none; }
+    .trs-bezel { transform: none; }
   }
 </style>

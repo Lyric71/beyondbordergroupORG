@@ -9,8 +9,7 @@ const description = 'AI consulting and training on evidence, not hype. Intellige
 
 <Layout locale={locale} route="ai-services" title={title} description={description}>
   <section class="hero-editorial hero-editorial--dark ai-hero">
-    <div class="container">
-      <span class="eyebrow eyebrow--on-dark">AI Services</span>
+    <div class="container" data-reveal>
       <h1 class="hero-editorial__title balance">AI, applied. Not admired.</h1>
       <p class="hero-editorial__lead">
         Built for companies that want AI earning its keep, from mid-size teams to groups selling across
@@ -26,8 +25,7 @@ const description = 'AI consulting and training on evidence, not hype. Intellige
   </section>
 
   <section class="section section--alt" id="stance">
-    <div class="container container--narrow">
-      <span class="eyebrow">The stance</span>
+    <div class="container container--narrow" data-reveal>
       <h2 class="balance">Both sides of the wall.</h2>
       <p class="lead">
         The AI world split in two, one ecosystem on each side of China's Great Firewall. Most consultancies
@@ -42,28 +40,30 @@ const description = 'AI consulting and training on evidence, not hype. Intellige
 
   <section class="section" id="teams">
     <div class="container">
-      <header class="section-header">
-        <span class="eyebrow">The brands</span>
-        <p class="transition-line">That is the stance. Here is who does the work.</p>
+      <header class="section-header" data-reveal>
         <h2 class="balance">Three teams. One platform.</h2>
       </header>
 
       <div class="grid-2 ai-brand-grid">
-        <a class="card ai-brand-card ai-brand-card--platform" href={pathFor('ai-services/intelligence', locale)}>
-          <span class="ai-brand-card__tag">The platform</span>
-          <span class="ai-brand-card__name">
-            <img class="ai-brand-card__icon" src="/AgencyLogos/intelligence-icon.png" alt="" width="96" height="96" loading="lazy" decoding="async" />
-            Intelligence
-          </span>
-          <h3>See AI at work before you commit.</h3>
-          <p>
-            Our platform, and the fastest way to see what we mean by evidence. Working AI modules, real
-            tasks, every cost on screen. Three functions ready today.
-          </p>
-          <span class="btn btn--primary" style="margin-top: auto;">Discover Intelligence</span>
-        </a>
+        <div class="ai-brand-bezel" data-reveal>
+          <a class="card ai-brand-card ai-brand-card--platform" href={pathFor('ai-services/intelligence', locale)}>
+            <span class="ai-brand-card__tag">The platform</span>
+            <span class="ai-brand-card__name">
+              <img class="ai-brand-card__icon" src="/AgencyLogos/intelligence-icon.png" alt="" width="96" height="96" loading="lazy" decoding="async" />
+              Intelligence
+            </span>
+            <h3>See AI at work before you commit.</h3>
+            <p>
+              Our platform, and the fastest way to see what we mean by evidence. Working AI modules, real
+              tasks, every cost on screen. Three functions ready today.
+            </p>
+            <span class="pill-cta" style="margin-top: auto;">Discover Intelligence
+              <span class="pill-cta__disc" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg></span>
+            </span>
+          </a>
+        </div>
 
-        <div class="card ai-brand-card">
+        <div class="card ai-brand-card" data-reveal style="--ri: 1">
           <span class="ai-brand-card__tag">Consulting</span>
           <img class="ai-brand-card__logo" src="/AgencyLogos/BearingBridgeAI-horizontal.svg" alt="BearingBridge AI" loading="lazy" decoding="async" />
           <h3>Consulting and implementation.</h3>
@@ -72,11 +72,11 @@ const description = 'AI consulting and training on evidence, not hype. Intellige
             metrics agreed in writing before anyone builds. Our AZIMUTH method works like navigation: take
             a bearing, prove it, then scale. When the evidence says stop, we say stop.
           </p>
-          <a class="ai-brand-card__method" href="https://www.bearingbridge.ai/method" target="_blank" rel="noreferrer">The method, in six legs ↗</a>
+          <a class="ai-brand-card__method" href="https://www.bearingbridge.ai/method" target="_blank" rel="noreferrer">See the method ↗</a>
           <a class="btn btn--ghost" style="margin-top: auto;" href="https://www.bearingbridge.ai" target="_blank" rel="noreferrer">bearingbridge.ai ↗</a>
         </div>
 
-        <a class="card ai-brand-card" href="https://hubstudio.ai" target="_blank" rel="noreferrer">
+        <a class="card ai-brand-card" href="https://hubstudio.ai" target="_blank" rel="noreferrer" data-reveal style="--ri: 2">
           <span class="ai-brand-card__tag">Production</span>
           <img class="ai-brand-card__logo" src="/AgencyLogos/hubStudio%20(2).png" alt="HubStudio" loading="lazy" decoding="async" />
           <h3>Content production at scale.</h3>
@@ -87,7 +87,7 @@ const description = 'AI consulting and training on evidence, not hype. Intellige
           <span class="btn btn--ghost" style="margin-top: auto;">hubstudio.ai ↗</span>
         </a>
 
-        <a class="card ai-brand-card" href="https://nuvora.studio" target="_blank" rel="noreferrer">
+        <a class="card ai-brand-card" href="https://nuvora.studio" target="_blank" rel="noreferrer" data-reveal style="--ri: 3">
           <span class="ai-brand-card__tag">B2B pipeline</span>
           <img class="ai-brand-card__logo" src="/AgencyLogos/Nuvora%20PNG.png" alt="Nuvora Studio" loading="lazy" decoding="async" />
           <h3>LinkedIn-only B2B.</h3>
@@ -102,7 +102,7 @@ const description = 'AI consulting and training on evidence, not hype. Intellige
   </section>
 
   <section class="section section--tight section--alt">
-    <div class="container container--narrow center">
+    <div class="container container--narrow center" data-reveal>
       <h2 class="balance">Talk to us about AI.</h2>
       <p class="lead" style="margin-inline: auto;">
         A conversation with the senior team about your markets, your data, and where AI would actually pay
@@ -110,7 +110,9 @@ const description = 'AI consulting and training on evidence, not hype. Intellige
         And if the honest answer is that AI is not your next move, we will say so.
       </p>
       <div class="btn-row" style="justify-content: center; margin-top: var(--space-5);">
-        <a class="btn btn--primary" href={pathFor('contact', locale)}>Start the conversation</a>
+        <a class="pill-cta" href={pathFor('contact', locale)}>Book a call
+          <span class="pill-cta__disc" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg></span>
+        </a>
       </div>
       <p class="ai-cta__email">Prefer email? <a href="mailto:hello@bearingbridge.com">hello@bearingbridge.com</a></p>
     </div>
@@ -127,17 +129,49 @@ const description = 'AI consulting and training on evidence, not hype. Intellige
     text-underline-offset: 3px;
   }
 
-  .transition-line {
-    margin-bottom: var(--space-3);
-    font-size: var(--fs-small);
-    color: var(--bbg-text-muted);
+  .ai-brand-grid {
+    align-items: stretch;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-
-  .ai-brand-grid { align-items: stretch; }
+  @media (max-width: 799px) {
+    .ai-brand-grid { grid-template-columns: 1fr; }
+  }
   .ai-brand-card {
     display: flex;
     flex-direction: column;
     gap: var(--space-2);
+  }
+  .card.ai-brand-card {
+    border: 0;
+    border-radius: 18px;
+    box-shadow:
+      0 0 0 1px rgba(10, 20, 30, 0.06),
+      0 20px 40px -30px rgba(10, 20, 30, 0.3);
+    transition:
+      transform 0.6s cubic-bezier(0.32, 0.72, 0, 1),
+      box-shadow 0.6s cubic-bezier(0.32, 0.72, 0, 1);
+  }
+  .card.ai-brand-card:hover {
+    transform: translateY(-4px);
+    box-shadow:
+      0 0 0 1px rgba(10, 20, 30, 0.06),
+      0 26px 52px -30px rgba(10, 20, 30, 0.35);
+  }
+  .ai-brand-bezel {
+    display: flex;
+    padding: 6px;
+    border-radius: 25px;
+    background: rgba(10, 20, 30, 0.04);
+    box-shadow: 0 0 0 1px rgba(10, 20, 30, 0.05);
+  }
+  .ai-brand-bezel .card.ai-brand-card--platform {
+    flex: 1;
+    border-radius: 19px;
+    box-shadow: 0 24px 50px -32px rgba(10, 20, 30, 0.55);
+  }
+  .ai-brand-bezel .card.ai-brand-card--platform:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 30px 56px -32px rgba(10, 20, 30, 0.6);
   }
   .ai-brand-card__tag {
     font-size: 0.6875rem;

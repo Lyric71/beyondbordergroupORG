@@ -9,8 +9,7 @@ const description = 'Media and software BearingBridge owns and operates, built o
 
 <Layout locale={locale} route="products" title={title} description={description}>
   <section class="hero-editorial hero-editorial--dark">
-    <div class="container">
-      <span class="eyebrow eyebrow--on-dark">Products</span>
+    <div class="container" data-reveal>
       <h1 class="hero-editorial__title balance">We build products. And we run them.</h1>
       <p class="hero-editorial__lead">
         Consulting proves itself slowly. Products prove themselves in public. This is where we run the
@@ -22,20 +21,21 @@ const description = 'Media and software BearingBridge owns and operates, built o
 
   <section class="section" id="portfolio">
     <div class="container">
-      <header class="section-header">
-        <span class="eyebrow">The portfolio</span>
+      <header class="section-header" data-reveal>
         <h2 class="balance">Live today, next in build.</h2>
       </header>
 
       <div class="grid-2 product-grid">
-        <div class="card product-card" id="bbchien">
-          <img
-            class="product-card__shot"
-            src="/images/bbchien-home.webp"
-            alt="The BBChien homepage."
-            loading="lazy"
-            decoding="async"
-          />
+        <div class="card product-card" id="bbchien" data-reveal>
+          <div class="product-card__frame">
+            <img
+              class="product-card__shot"
+              src="/images/bbchien-home.webp"
+              alt="The BBChien homepage."
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
           <div class="product-card__meta">
             <img class="product-card__logo" src="/AgencyLogos/bbchien-lockup-color.svg" alt="BBChien" width="460" height="128" loading="lazy" decoding="async" />
             <span class="product-card__badges">media · France · live</span>
@@ -50,34 +50,35 @@ const description = 'Media and software BearingBridge owns and operates, built o
           <a class="btn btn--ghost" style="margin-top: auto;" href="https://bbchien.fr" target="_blank" rel="noreferrer">bbchien.fr ↗</a>
         </div>
 
-        <div class="card product-card" id="deuceladder">
-          <img
-            class="product-card__shot"
-            src="/images/deuceladder-placeholder.webp"
-            alt=""
-            loading="lazy"
-            decoding="async"
-          />
+        <div class="card product-card" id="deuceladder" data-reveal style="--ri: 1">
+          <div class="product-card__frame">
+            <img
+              class="product-card__shot"
+              src="/images/deuceladder-placeholder.webp"
+              alt="DeuceLadder, in build"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
           <div class="product-card__meta">
             <span class="product-card__name">DeuceLadder</span>
             <span class="product-card__badges">software · in build</span>
           </div>
           <h3>The next one over the bridge.</h3>
-          <p>In build now, on the same stack. deuceladder.com opens at launch.</p>
-          <a class="btn btn--ghost" style="margin-top: auto;" href="https://deuceladder.com" target="_blank" rel="noreferrer">deuceladder.com ↗</a>
+          <p>In build now, on the same stack.</p>
+          <span class="product-card__launch" style="margin-top: auto;">deuceladder.com opens at launch</span>
         </div>
       </div>
 
-      <p class="product-more">
+      <p class="product-more" data-reveal>
         The portfolio keeps growing. We are always building something, and we are open to conversations
-        about co-building or acquiring. <a href={pathFor('contact', locale)}>Talk to us</a>
+        about co-building or acquiring. <a href={pathFor('contact', locale)}>Book a call</a>
       </p>
     </div>
   </section>
 
   <section class="section section--dark" id="reason">
-    <div class="container container--narrow">
-      <span class="eyebrow eyebrow--on-dark">The reason</span>
+    <div class="container container--narrow" data-reveal>
       <h2 class="balance">The stack, with skin in the game.</h2>
       <p class="lead">
         Client work shows what the stack can do on someone else's budget. These products show what it does
@@ -88,7 +89,7 @@ const description = 'Media and software BearingBridge owns and operates, built o
   </section>
 
   <section class="section section--tight">
-    <div class="container container--narrow center">
+    <div class="container container--narrow center" data-reveal>
       <h2 class="balance">Talk products.</h2>
       <p class="lead" style="margin-inline: auto;">
         To co-build or acquire, or just to see how the stack runs a real business, write to
@@ -97,7 +98,9 @@ const description = 'Media and software BearingBridge owns and operates, built o
         <a href={pathFor('cross-border-marketing', locale)}>Cross-Border Marketing</a>.
       </p>
       <div class="btn-row" style="justify-content: center; margin-top: var(--space-5);">
-        <a class="btn btn--primary" href={pathFor('contact', locale)}>Get in touch</a>
+        <a class="pill-cta" href={pathFor('contact', locale)}>Book a call
+          <span class="pill-cta__disc" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg></span>
+        </a>
       </div>
     </div>
   </section>
@@ -110,15 +113,39 @@ const description = 'Media and software BearingBridge owns and operates, built o
     flex-direction: column;
     gap: var(--space-2);
   }
+  .card.product-card {
+    border: 0;
+    border-radius: 18px;
+    background: var(--bbg-white);
+    box-shadow:
+      0 0 0 1px rgba(10, 20, 30, 0.06),
+      0 20px 40px -30px rgba(10, 20, 30, 0.3);
+    transition:
+      transform 0.6s cubic-bezier(0.32, 0.72, 0, 1),
+      box-shadow 0.6s cubic-bezier(0.32, 0.72, 0, 1);
+  }
+  .card.product-card:hover {
+    transform: translateY(-4px);
+    box-shadow:
+      0 0 0 1px rgba(10, 20, 30, 0.06),
+      0 26px 52px -30px rgba(10, 20, 30, 0.35);
+  }
+  .product-card__frame {
+    padding: 6px;
+    border-radius: 18px;
+    background: rgba(10, 20, 30, 0.04);
+    box-shadow: 0 0 0 1px rgba(10, 20, 30, 0.05);
+    margin-bottom: var(--space-2);
+  }
   .product-card__shot {
     display: block;
     width: 100%;
     height: auto;
     aspect-ratio: 1408 / 832;
     object-fit: cover;
-    border-radius: 10px;
-    border: 1px solid var(--bbg-border);
-    margin-bottom: var(--space-2);
+    border-radius: 12px;
+    background: var(--bbg-white);
+    box-shadow: 0 18px 36px -30px rgba(10, 20, 30, 0.35);
   }
   .product-card__meta {
     display: flex;
@@ -151,6 +178,12 @@ const description = 'Media and software BearingBridge owns and operates, built o
     text-decoration: none;
   }
   .product-card p a:hover { text-decoration: underline; text-underline-offset: 3px; }
+  .product-card__launch {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--bbg-text-muted);
+  }
 
   .product-more {
     margin-top: var(--space-5);

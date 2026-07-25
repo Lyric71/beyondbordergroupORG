@@ -24,13 +24,13 @@ const inboundReq = [
     icon: 'server',
     h: 'Web infrastructure built behind the Firewall',
     body: 'ICP-licensed hosting on Aliyun, Tencent or Huawei. A site Baidu can index. Mobile-first by force, not by trend.',
-    pill: '95%+ mobile traffic',
+    pill: 'Mobile first, always',
   },
   {
     icon: 'search',
     h: 'Search visibility in the engines Chinese buyers use',
-    body: 'Baidu still owns over half the search market. Google sits under three percent. Under-35s are skipping search entirely for AI: DeepSeek, Doubao, Kimi, Yuanbao.',
-    pill: 'Baidu > 50% · Google < 3%',
+    body: 'Baidu owns search here. Google barely registers. Under-35s are skipping search entirely for AI: DeepSeek, Doubao, Kimi, Yuanbao.',
+    pill: 'Baidu leads, Google barely registers',
   },
   {
     icon: 'cart',
@@ -78,7 +78,7 @@ const outboundReq = [
     icon: 'monitor',
     h: 'A website built for Western eyes',
     body: 'Clean. Spacious. One action per page. Hosted outside China. Fast: three seconds costs you over half your visitors.',
-    pill: '3s load = -50% visitors',
+    pill: 'Slow pages lose the visit',
   },
   {
     icon: 'search',
@@ -146,8 +146,8 @@ const outboundReq = [
         <g>
           <line x1="220" y1="240" x2="220" y2="500" stroke="rgba(38,154,218,0.55)" stroke-width="2" />
           <line x1="1380" y1="240" x2="1380" y2="500" stroke="rgba(200,16,46,0.55)" stroke-width="2" />
-          <circle class="page-hero__dot page-hero__dot--w" cx="220" cy="500" r="5" fill="#269ada" />
-          <circle class="page-hero__dot page-hero__dot--e" cx="1380" cy="500" r="5" fill="#c8102e" />
+          <circle cx="220" cy="500" r="5" fill="#269ada" />
+          <circle cx="1380" cy="500" r="5" fill="#c8102e" />
         </g>
 
         <text x="220" y="555" text-anchor="middle" fill="rgba(38,154,218,0.85)" font-family="Inter, sans-serif" font-size="12" letter-spacing="3">WEST</text>
@@ -156,7 +156,6 @@ const outboundReq = [
     </div>
     <div class="page-hero__scrim" aria-hidden="true"></div>
     <div class="container page-hero__content">
-      <span class="eyebrow eyebrow--on-dark eyebrow--rule">Two directions</span>
       <h1 class="page-hero__title balance">
         One bridge. <span class="page-hero__accent">Two flows.</span>
       </h1>
@@ -222,7 +221,7 @@ const outboundReq = [
     </div>
     <div class="entry-hero__scrim" aria-hidden="true"></div>
     <div class="container entry-hero__content">
-      <span class="eyebrow eyebrow--on-dark eyebrow--rule">Flow 1 · Inbound · West to China</span>
+      <span class="eyebrow eyebrow--on-dark eyebrow--rule">Inbound: West to China</span>
       <h2 class="entry-hero__title balance">
         You have a brand. China has 1.1 billion internet users. Closing that gap is not a translation job.
       </h2>
@@ -250,8 +249,7 @@ const outboundReq = [
       <span class="req-section__blob req-section__blob--e"></span>
     </div>
     <div class="container">
-      <header class="section-header">
-        <span class="eyebrow">What it actually takes</span>
+      <header class="section-header" data-reveal>
         <h2 class="balance">Five surfaces. One Chinese internet.</h2>
         <p class="lead">A landing in China is five different jobs running at once. Each surface has its own logic, its own tempo, and its own tax for getting it wrong.</p>
       </header>
@@ -311,8 +309,7 @@ const outboundReq = [
 
   <section class="section section--alt agency-section">
     <div class="container">
-      <header class="section-header">
-        <span class="eyebrow">Four specialists. One flow.</span>
+      <header class="section-header" data-reveal>
         <h2 class="balance">Pick the whole stack, or pick the piece.</h2>
         <p class="lead">Four independent teams cover the inbound stack end to end. Hire one. Hire two. Hire all four. They share a spine.</p>
       </header>
@@ -336,8 +333,7 @@ const outboundReq = [
 
   <section class="section openings-section">
     <div class="container">
-      <header class="section-header">
-        <span class="eyebrow">How clients usually start</span>
+      <header class="section-header" data-reveal>
         <h2 class="balance">Six typical openings.</h2>
         <p class="lead">Most projects start as one sentence. Pick the one closest to yours.</p>
       </header>
@@ -378,7 +374,7 @@ const outboundReq = [
           <span class="opening__quote-mark" aria-hidden="true">&#8220;</span>
           <p class="opening__quote">Our content does not resonate with Chinese audiences.</p>
           <div class="opening__answer">
-            <span class="opening__by">AI Services · HubStudio</span>
+            <span class="opening__by">AI Services, HubStudio</span>
             <span class="opening__line">Content rebuilt for Chinese readers, at the volume the channels demand.</span>
           </div>
         </a>
@@ -436,7 +432,7 @@ const outboundReq = [
     </div>
     <div class="entry-hero__scrim" aria-hidden="true"></div>
     <div class="container entry-hero__content">
-      <span class="eyebrow eyebrow--on-dark eyebrow--rule">Flow 2 · Outbound · China to the West</span>
+      <span class="eyebrow eyebrow--on-dark eyebrow--rule">Outbound: China to the West</span>
       <h2 class="entry-hero__title balance">
         Great product. Great price. Great factory. No pipeline overseas.
       </h2>
@@ -462,8 +458,7 @@ const outboundReq = [
 
   <section class="section">
     <div class="container">
-      <header class="section-header">
-        <span class="eyebrow">What it actually takes</span>
+      <header class="section-header" data-reveal>
         <h2 class="balance">Five fronts. One overseas pipeline.</h2>
         <p class="lead">A landing overseas is five different jobs running at once. Each surface has its own logic, its own tempo, and its own tax for getting it wrong.</p>
       </header>
@@ -526,8 +521,7 @@ const outboundReq = [
 
   <section class="section section--alt pkg-section">
     <div class="container">
-      <header class="section-header">
-        <span class="eyebrow">Three packages</span>
+      <header class="section-header" data-reveal>
         <h2 class="balance">Pick the tier. Add the next one when the project asks.</h2>
         <p class="lead">Built for Chinese B2B and services companies going overseas. Three tiers that stack on each other. Each tier includes everything below.</p>
       </header>
@@ -545,8 +539,8 @@ const outboundReq = [
             <li><span class="pkg__check" aria-hidden="true">&#10003;</span>LinkedIn page and exec posting</li>
             <li><span class="pkg__check" aria-hidden="true">&#10003;</span>Western-facing website</li>
           </ul>
-          <span class="pkg__cta">Start with Starter
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
+          <span class="pill-cta pkg__cta">Start with Starter
+            <span class="pill-cta__disc" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg></span>
           </span>
         </a>
 
@@ -562,8 +556,8 @@ const outboundReq = [
             <li><span class="pkg__check" aria-hidden="true">&#10003;</span>SEO and GEO for Western AI engines</li>
             <li><span class="pkg__check" aria-hidden="true">&#10003;</span>Google Ads from day one</li>
           </ul>
-          <span class="pkg__cta">Move up to Growth
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
+          <span class="pill-cta pkg__cta">Choose Growth
+            <span class="pill-cta__disc" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg></span>
           </span>
         </a>
 
@@ -580,89 +574,64 @@ const outboundReq = [
             <li><span class="pkg__check" aria-hidden="true">&#10003;</span>Named in-market reps</li>
             <li><span class="pkg__check" aria-hidden="true">&#10003;</span>US, UK, DE, FR coverage</li>
           </ul>
-          <span class="pkg__cta">Open the full pipeline
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
+          <span class="pill-cta pkg__cta">Go Full Pipeline
+            <span class="pill-cta__disc" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg></span>
           </span>
         </a>
       </div>
 
-      <div class="btn-row" style="margin-top: var(--space-6); justify-content: center;">
-        <a class="btn btn--primary" href={pathFor('agencies/beyondbridge', locale)}>Visit BeyondBridge</a>
+      <div class="btn-row" style="margin-top: var(--space-6); justify-content: center;" data-reveal>
+        <a class="pill-cta" href={pathFor('agencies/beyondbridge', locale)}>Visit BeyondBridge
+          <span class="pill-cta__disc" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg></span>
+        </a>
       </div>
     </div>
   </section>
 
   <section class="section openings-section">
     <div class="container">
-      <header class="section-header">
-        <span class="eyebrow">How clients usually start</span>
+      <header class="section-header" data-reveal>
         <h2 class="balance">Seven typical openings.</h2>
-        <p class="lead">Most outbound projects start as one sentence. Pick the one closest to yours.</p>
+        <p class="lead">On the outbound side, the first sentence usually sounds like one of these.</p>
       </header>
-      <div class="openings" data-stagger>
-        <a class="opening" href={pathFor('agencies/beyondbridge', locale)} style="--i: 0;">
-          <span class="opening__quote-mark" aria-hidden="true">&#8220;</span>
-          <p class="opening__quote">We have a trade show in Germany in three months and nothing online that looks credible.</p>
-          <div class="opening__answer">
-            <span class="opening__by">Starter package</span>
-            <span class="opening__line">Ninety days to brand, LinkedIn, and a Western-facing website.</span>
-          </div>
+      <div class="openings-list">
+        <a class="openings-list__item" href={pathFor('agencies/beyondbridge', locale)} data-reveal style="--ri: 0;">
+          <p class="openings-list__quote">&#8220;We have a trade show in Germany in three months and nothing online that looks credible.&#8221;</p>
+          <p class="openings-list__answer"><span class="openings-list__by">Starter package.</span> Ninety days to brand, LinkedIn, and a Western-facing website.</p>
         </a>
-        <a class="opening" href={pathFor('agencies/beyondbridge', locale)} style="--i: 1;">
-          <span class="opening__quote-mark" aria-hidden="true">&#8220;</span>
-          <p class="opening__quote">We have presence but no inbound.</p>
-          <div class="opening__answer">
-            <span class="opening__by">Growth package</span>
-            <span class="opening__line">SEO, GEO, and Google Ads layered on the Starter foundation.</span>
-          </div>
+        <a class="openings-list__item" href={pathFor('agencies/beyondbridge', locale)} data-reveal style="--ri: 1;">
+          <p class="openings-list__quote">&#8220;We have presence but no inbound.&#8221;</p>
+          <p class="openings-list__answer"><span class="openings-list__by">Growth package.</span> SEO, GEO, and Google Ads layered on the Starter foundation.</p>
         </a>
-        <a class="opening" href={pathFor('agencies/beyondbridge', locale)} style="--i: 2;">
-          <span class="opening__quote-mark" aria-hidden="true">&#8220;</span>
-          <p class="opening__quote">We have inbound. Nobody in Europe to handle it.</p>
-          <div class="opening__answer">
-            <span class="opening__by">Full Pipeline</span>
-            <span class="opening__line">Add the in-market sales force. Named reps in the US, UK, DE, FR.</span>
-          </div>
+        <a class="openings-list__item" href={pathFor('agencies/beyondbridge', locale)} data-reveal style="--ri: 2;">
+          <p class="openings-list__quote">&#8220;We have inbound. Nobody in Europe to handle it.&#8221;</p>
+          <p class="openings-list__answer"><span class="openings-list__by">Full Pipeline.</span> Add the in-market sales force. Named reps in the US, UK, DE, FR.</p>
         </a>
-        <a class="opening" href={pathFor('ai-services', locale)} style="--i: 3;">
-          <span class="opening__quote-mark" aria-hidden="true">&#8220;</span>
-          <p class="opening__quote">Our LinkedIn is empty and our execs do not post.</p>
-          <div class="opening__answer">
-            <span class="opening__by">AI Services · Nuvora Studio</span>
-            <span class="opening__line">LinkedIn-only B2B specialist. Strategy, content, ads, exec posting.</span>
-          </div>
+        <a class="openings-list__item" href={pathFor('ai-services', locale)} data-reveal style="--ri: 3;">
+          <p class="openings-list__quote">&#8220;Our LinkedIn is empty and our execs do not post.&#8221;</p>
+          <p class="openings-list__answer"><span class="openings-list__by">AI Services, Nuvora Studio.</span> LinkedIn-only B2B specialist. Strategy, content, ads, exec posting.</p>
         </a>
-        <a class="opening" href={pathFor('agencies/beyondbridge', locale)} style="--i: 4;">
-          <span class="opening__quote-mark" aria-hidden="true">&#8220;</span>
-          <p class="opening__quote">Our pitch sounds translated.</p>
-          <div class="opening__answer">
-            <span class="opening__by">BeyondBridge brand</span>
-            <span class="opening__line">A brand built for Western B2B buyers, not transposed from Chinese.</span>
-          </div>
+        <a class="openings-list__item" href={pathFor('agencies/beyondbridge', locale)} data-reveal style="--ri: 4;">
+          <p class="openings-list__quote">&#8220;Our pitch sounds translated.&#8221;</p>
+          <p class="openings-list__answer"><span class="openings-list__by">BeyondBridge brand.</span> A brand built for Western B2B buyers, not transposed from Chinese.</p>
         </a>
-        <a class="opening" href={pathFor('agencies/beyondbridge', locale)} style="--i: 5;">
-          <span class="opening__quote-mark" aria-hidden="true">&#8220;</span>
-          <p class="opening__quote">Western buyers cannot find us on Google or in ChatGPT.</p>
-          <div class="opening__answer">
-            <span class="opening__by">SEO and GEO</span>
-            <span class="opening__line">Rank on Google. Get cited by ChatGPT, Perplexity and Gemini.</span>
-          </div>
-        </a>
-        <a class="opening opening--cta" href={pathFor('contact', locale)} style="--i: 6;">
-          <span class="opening__quote-mark" aria-hidden="true">&#8220;</span>
-          <p class="opening__quote">We are not sure where to start.</p>
-          <div class="opening__answer">
-            <span class="opening__by">Book a call</span>
-            <span class="opening__line">Thirty minutes. We tell you which tier, and what 90 days look like.</span>
-          </div>
+        <a class="openings-list__item" href={pathFor('agencies/beyondbridge', locale)} data-reveal style="--ri: 5;">
+          <p class="openings-list__quote">&#8220;Western buyers cannot find us on Google or in ChatGPT.&#8221;</p>
+          <p class="openings-list__answer"><span class="openings-list__by">SEO and GEO.</span> Rank on Google. Get cited by ChatGPT, Perplexity and Gemini.</p>
         </a>
       </div>
+      <a class="openings-band" href={pathFor('contact', locale)} data-reveal>
+        <p class="openings-band__quote">&#8220;We are not sure where to start.&#8221;</p>
+        <div class="openings-band__answer">
+          <span class="openings-band__by">Book a call</span>
+          <span class="openings-band__line">Thirty minutes. We tell you which tier, and what 90 days look like.</span>
+        </div>
+      </a>
     </div>
   </section>
 
   <section class="section section--dark">
-    <div class="container container--narrow">
-      <span class="eyebrow eyebrow--on-dark">The cost of waiting</span>
+    <div class="container container--narrow" data-reveal>
       <h2 class="balance">Rankings compound. Relationships compound. Authority compounds.</h2>
       <p class="lead">
         Every month without Western presence is deals lost to competitors who got there first. Every quarter
@@ -671,17 +640,17 @@ const outboundReq = [
         two years ago.
       </p>
       <div class="btn-row" style="margin-top: var(--space-5);">
-        <a class="btn btn--primary" href={pathFor('contact', locale)}>Book a call</a>
-        <a class="btn btn--ghost-light" href={pathFor('agencies/beyondbridge', locale)}>Visit BeyondBridge</a>
+        <a class="pill-cta" href={pathFor('contact', locale)}>Book a call
+          <span class="pill-cta__disc" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg></span>
+        </a>
       </div>
     </div>
   </section>
 
   <section class="section section--alt">
     <div class="container">
-      <div class="split split--text-first">
+      <div class="split split--text-first" data-reveal>
         <div class="prose">
-          <span class="eyebrow">What you also get</span>
           <h2 class="balance">A production engine the agencies share. Both flows.</h2>
           <p>
             Every engagement on this page, inbound or outbound, plugs into HubStudio's content production
@@ -690,7 +659,7 @@ const outboundReq = [
             monthly campaign refreshes and asset libraries on the overseas side. Without an AI-native
             content engine behind it, the math does not work, in either direction.
           </p>
-          <a class="btn btn--ghost" href={pathFor('agencies/hubstudio', locale)}>Visit HubStudio</a>
+          <a class="pill-ghost pill-ghost--ink" href={pathFor('agencies/hubstudio', locale)}>Visit HubStudio</a>
         </div>
         <img
           class="aigc-visual"
@@ -712,16 +681,18 @@ const outboundReq = [
     margin-bottom: var(--space-3);
   }
 
-  /* HubStudio visual in the "What you also get" split */
+  /* HubStudio visual in the "What you also get" split: light bezel */
   .aigc-visual {
     width: 100%;
     height: auto;
     aspect-ratio: 4 / 5;
     object-fit: cover;
-    border-radius: var(--radius-md);
-    border: 1px solid var(--bbg-border);
-    background: var(--bbg-surface);
-    box-shadow: 0 22px 48px -28px rgba(15, 23, 42, 0.22);
+    border-radius: 28px;
+    border: 6px solid rgba(10, 20, 30, 0.04);
+    background: #fff;
+    box-shadow:
+      0 0 0 1px rgba(10, 20, 30, 0.05),
+      0 24px 50px -36px rgba(10, 20, 30, 0.35);
     display: block;
   }
 
@@ -733,7 +704,7 @@ const outboundReq = [
     background: #0a1220;
     color: var(--bbg-white);
     padding: clamp(8rem, 18vh, 13rem) 0 clamp(6rem, 12vh, 9rem);
-    min-height: 88vh;
+    min-height: 88dvh;
     display: flex;
     align-items: center;
   }
@@ -749,12 +720,6 @@ const outboundReq = [
     animation: page-cable-draw 2.4s cubic-bezier(0.22, 0.61, 0.36, 1) 0.3s forwards;
   }
   @keyframes page-cable-draw { to { stroke-dashoffset: 0; } }
-  .page-hero__dot { animation: dot-pulse 2.6s ease-in-out infinite; transform-origin: center; transform-box: fill-box; }
-  .page-hero__dot--e { animation-delay: 1.3s; }
-  @keyframes dot-pulse {
-    0%, 100% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(1.4); opacity: 0.7; }
-  }
   .page-hero__scrim {
     position: absolute;
     inset: 0;
@@ -833,7 +798,6 @@ const outboundReq = [
 
   @media (prefers-reduced-motion: reduce) {
     .page-hero__cable { animation: none; stroke-dashoffset: 0; }
-    .page-hero__dot { animation: none; }
   }
 
   /* ---------- Entry hero (sub-hero per flow) ---------- */
@@ -844,7 +808,7 @@ const outboundReq = [
     background: #0b1422;
     color: var(--bbg-white);
     padding: clamp(7rem, 16vh, 12rem) 0 clamp(5rem, 11vh, 8rem);
-    min-height: 78vh;
+    min-height: 78dvh;
     display: flex;
     align-items: center;
   }
@@ -863,13 +827,6 @@ const outboundReq = [
     stroke-dashoffset: 2000;
     animation: stream-draw 2.6s cubic-bezier(0.22, 0.61, 0.36, 1) 0.4s forwards;
   }
-  .entry-hero__nodes circle { animation: node-pulse 3.2s ease-in-out infinite; transform-origin: center; }
-  .entry-hero__nodes circle:nth-child(2) { animation-delay: 0.4s; }
-  .entry-hero__nodes circle:nth-child(3) { animation-delay: 0.8s; }
-  .entry-hero__nodes circle:nth-child(4) { animation-delay: 1.2s; }
-  .entry-hero__nodes circle:nth-child(5) { animation-delay: 1.6s; }
-  .entry-hero__nodes circle:nth-child(6) { animation-delay: 2.0s; }
-  @keyframes node-pulse { 0%, 100% { opacity: 0.6; } 50% { opacity: 1; } }
   @keyframes stream-draw { to { stroke-dashoffset: 0; } }
 
   .entry-hero__scrim {
@@ -926,9 +883,24 @@ const outboundReq = [
     transform: translateY(-2px);
   }
 
+  /* Subtle bezel orb glows, one per flow */
+  .entry-hero--inbound::after,
+  .entry-hero--outbound::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+  }
+  .entry-hero--inbound::after {
+    background: radial-gradient(1100px 700px at 28% 18%, rgba(38, 154, 218, 0.14), transparent 65%);
+  }
+  .entry-hero--outbound::after {
+    background: radial-gradient(1100px 700px at 72% 18%, rgba(200, 16, 46, 0.10), transparent 65%);
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .entry-hero__bg .entry-hero__stream { animation: none; stroke-dashoffset: 0; }
-    .entry-hero__nodes circle { animation: none; }
   }
 
   /* ---------- Requirements bento ---------- */
@@ -977,18 +949,16 @@ const outboundReq = [
     position: relative;
     border-radius: 18px;
     background: linear-gradient(180deg, #ffffff 0%, #fafbfd 100%);
-    border: 1px solid rgba(15, 23, 42, 0.06);
-    box-shadow:
-      0 1px 2px rgba(15, 23, 42, 0.03),
-      0 18px 38px -22px rgba(15, 23, 42, 0.12);
+    border: 1px solid rgba(10, 20, 30, 0.06);
+    box-shadow: 0 20px 40px -30px rgba(10, 20, 30, 0.3);
     transform-style: preserve-3d;
     will-change: transform;
     opacity: 0;
     transform: translateY(28px);
     transition:
-      opacity 0.6s var(--ease),
-      transform 0.6s var(--ease),
-      box-shadow 0.4s var(--ease),
+      opacity 0.6s cubic-bezier(0.32, 0.72, 0, 1),
+      transform 0.6s cubic-bezier(0.32, 0.72, 0, 1),
+      box-shadow 0.5s cubic-bezier(0.32, 0.72, 0, 1),
       border-color 0.4s var(--ease);
   }
   .req-card.is-visible {
@@ -997,11 +967,11 @@ const outboundReq = [
     transition-delay: calc(var(--i, 0) * 80ms);
   }
   .req-card:hover {
-    border-color: rgba(15, 23, 42, 0.12);
-    box-shadow:
-      0 1px 2px rgba(15, 23, 42, 0.04),
-      0 28px 56px -18px rgba(15, 23, 42, 0.18);
+    border-color: rgba(10, 20, 30, 0.1);
+    transform: translateY(-4px);
+    box-shadow: 0 28px 52px -28px rgba(10, 20, 30, 0.38);
   }
+  .req-card.is-visible:hover { transition-delay: 0s; }
   .req-card::before {
     content: '';
     position: absolute; inset: 0;
@@ -1093,19 +1063,20 @@ const outboundReq = [
     flex-direction: column;
     gap: var(--space-2);
     padding: var(--space-5);
-    border-radius: 16px;
+    border-radius: 18px;
     background: var(--bbg-white);
-    border: 1px solid var(--bbg-border);
+    border: 1px solid rgba(10, 20, 30, 0.06);
+    box-shadow: 0 20px 40px -30px rgba(10, 20, 30, 0.3);
     text-decoration: none;
     color: var(--bbg-ink);
     overflow: hidden;
     opacity: 0;
     transform: translateY(20px);
     transition:
-      opacity 0.55s var(--ease),
-      transform 0.55s var(--ease),
+      opacity 0.55s cubic-bezier(0.32, 0.72, 0, 1),
+      transform 0.55s cubic-bezier(0.32, 0.72, 0, 1),
       border-color 0.3s var(--ease),
-      box-shadow 0.3s var(--ease);
+      box-shadow 0.5s cubic-bezier(0.32, 0.72, 0, 1);
   }
   .agency-tile.is-visible {
     opacity: 1;
@@ -1124,9 +1095,11 @@ const outboundReq = [
   }
   .agency-tile:hover {
     border-color: rgba(38,154,218,0.45);
-    box-shadow: 0 22px 44px -22px rgba(15, 23, 42, 0.18);
+    transform: translateY(-4px);
+    box-shadow: 0 28px 52px -28px rgba(10, 20, 30, 0.38);
     color: var(--bbg-ink);
   }
+  .agency-tile.is-visible:hover { transition-delay: 0s; }
   .agency-tile:hover::after { transform: scaleX(1); }
   .agency-tile__logo {
     display: flex;
@@ -1175,6 +1148,7 @@ const outboundReq = [
   @media (prefers-reduced-motion: reduce) {
     .agency-tile { opacity: 1; transform: none; }
     .agency-tile.is-visible { transition-delay: 0s; }
+    .agency-tile:hover { transform: none; }
   }
 
   /* ---------- Packages (3 tiers, stacked) ---------- */
@@ -1188,25 +1162,29 @@ const outboundReq = [
   }
   @media (max-width: 1023px) { .pkg-grid { grid-template-columns: 1fr; } }
 
+  /* Light bezel: 6px frame, outer 28 / inner 22 radius pair */
   .pkg {
     position: relative;
     display: flex;
     flex-direction: column;
     gap: var(--space-3);
     padding: var(--space-6) var(--space-5) var(--space-5);
-    border-radius: 18px;
+    border-radius: 28px;
+    border: 6px solid rgba(10, 20, 30, 0.04);
     background: var(--bbg-white);
-    border: 1px solid var(--bbg-border);
+    background-clip: padding-box;
+    box-shadow:
+      0 0 0 1px rgba(10, 20, 30, 0.05),
+      0 24px 50px -36px rgba(10, 20, 30, 0.35);
     text-decoration: none;
     color: var(--bbg-ink);
     overflow: hidden;
     opacity: 0;
     transform: translateY(20px);
     transition:
-      opacity 0.55s var(--ease),
-      transform 0.55s var(--ease),
-      border-color 0.3s var(--ease),
-      box-shadow 0.3s var(--ease);
+      opacity 0.55s cubic-bezier(0.32, 0.72, 0, 1),
+      transform 0.55s cubic-bezier(0.32, 0.72, 0, 1),
+      box-shadow 0.5s cubic-bezier(0.32, 0.72, 0, 1);
   }
   .pkg.is-visible {
     opacity: 1;
@@ -1214,9 +1192,12 @@ const outboundReq = [
     transition-delay: calc(var(--i, 0) * 90ms);
   }
   .pkg:hover {
-    border-color: rgba(38, 154, 218, 0.5);
-    box-shadow: 0 28px 56px -22px rgba(15, 23, 42, 0.18);
+    transform: translateY(-4px);
+    box-shadow:
+      0 0 0 1px rgba(10, 20, 30, 0.06),
+      0 30px 56px -34px rgba(10, 20, 30, 0.45);
   }
+  .pkg.is-visible:hover { transition-delay: 0s; }
   .pkg__head {
     display: flex;
     align-items: baseline;
@@ -1284,25 +1265,25 @@ const outboundReq = [
   }
   .pkg__cta {
     margin-top: auto;
-    padding-top: var(--space-3);
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--bbg-blue);
-    transition: gap 0.25s var(--ease), color 0.25s var(--ease);
+    align-self: flex-start;
   }
-  .pkg:hover .pkg__cta { gap: 10px; color: var(--bbg-blue-dark); }
+  .pkg:hover :global(.pill-cta__disc) { transform: translateX(3px); }
 
   .pkg--mid {
     background: linear-gradient(180deg, var(--bbg-white) 0%, rgba(38, 154, 218, 0.05) 100%);
+    background-clip: padding-box;
   }
 
+  /* Dark bezel for the top tier */
   .pkg--top {
     background: linear-gradient(160deg, var(--bbg-ink) 0%, #1a2333 100%);
+    background-clip: padding-box;
     color: var(--bbg-white);
-    border-color: transparent;
+    border-color: rgba(10, 20, 30, 0.09);
+    box-shadow:
+      0 0 0 1px rgba(10, 20, 30, 0.07),
+      inset 0 1px 1px rgba(255, 255, 255, 0.12),
+      0 24px 50px -34px rgba(10, 20, 30, 0.55);
   }
   .pkg--top .pkg__head { border-bottom-color: rgba(255, 255, 255, 0.18); }
   .pkg--top .pkg__tier { color: var(--bbg-white); }
@@ -1314,11 +1295,11 @@ const outboundReq = [
     background: rgba(38, 154, 218, 0.25);
     color: var(--bbg-blue-light);
   }
-  .pkg--top .pkg__cta { color: var(--bbg-blue-light); }
-  .pkg--top:hover .pkg__cta { color: var(--bbg-white); }
   .pkg--top:hover {
-    border-color: rgba(38, 154, 218, 0.5);
-    box-shadow: 0 28px 56px -22px rgba(38, 154, 218, 0.4);
+    box-shadow:
+      0 0 0 1px rgba(10, 20, 30, 0.08),
+      inset 0 1px 1px rgba(255, 255, 255, 0.12),
+      0 30px 60px -32px rgba(38, 154, 218, 0.45);
   }
   .pkg__badge {
     position: absolute;
@@ -1338,6 +1319,7 @@ const outboundReq = [
   @media (prefers-reduced-motion: reduce) {
     .pkg { opacity: 1; transform: none; }
     .pkg.is-visible { transition-delay: 0s; }
+    .pkg:hover { transform: none; }
   }
 
   /* ---------- Openings (six typical asks) ---------- */
@@ -1359,17 +1341,18 @@ const outboundReq = [
     padding: var(--space-5);
     border-radius: 18px;
     background: var(--bbg-white);
-    border: 1px solid var(--bbg-border);
+    border: 1px solid rgba(10, 20, 30, 0.06);
+    box-shadow: 0 20px 40px -30px rgba(10, 20, 30, 0.3);
     text-decoration: none;
     color: var(--bbg-ink);
     overflow: hidden;
     opacity: 0;
     transform: translateY(20px);
     transition:
-      opacity 0.55s var(--ease),
-      transform 0.55s var(--ease),
+      opacity 0.55s cubic-bezier(0.32, 0.72, 0, 1),
+      transform 0.55s cubic-bezier(0.32, 0.72, 0, 1),
       border-color 0.3s var(--ease),
-      box-shadow 0.3s var(--ease);
+      box-shadow 0.5s cubic-bezier(0.32, 0.72, 0, 1);
   }
   .opening.is-visible {
     opacity: 1;
@@ -1378,8 +1361,10 @@ const outboundReq = [
   }
   .opening:hover {
     border-color: rgba(38,154,218,0.4);
-    box-shadow: 0 22px 44px -22px rgba(15, 23, 42, 0.18);
+    transform: translateY(-4px);
+    box-shadow: 0 28px 52px -28px rgba(10, 20, 30, 0.38);
   }
+  .opening.is-visible:hover { transition-delay: 0s; }
   .opening__quote-mark {
     position: absolute;
     top: -10px;
@@ -1445,6 +1430,87 @@ const outboundReq = [
   @media (prefers-reduced-motion: reduce) {
     .opening { opacity: 1; transform: none; }
     .opening.is-visible { transition-delay: 0s; }
+    .opening:hover { transform: none; }
+  }
+
+  /* ---------- Openings as a plain text list (outbound) ---------- */
+  .openings-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: clamp(2.5rem, 6vw, 5rem);
+    row-gap: var(--space-6);
+    margin-top: var(--space-6);
+  }
+  @media (max-width: 767px) { .openings-list { grid-template-columns: 1fr; } }
+  .openings-list__item {
+    display: block;
+    text-decoration: none;
+  }
+  .openings-list__quote {
+    margin: 0 0 var(--space-2);
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: -0.005em;
+    color: var(--bbg-ink);
+    transition: color 0.25s var(--ease);
+  }
+  .openings-list__answer {
+    margin: 0;
+    font-size: 0.92rem;
+    line-height: 1.5;
+    color: var(--bbg-text-muted);
+  }
+  .openings-list__by {
+    font-weight: 600;
+    color: var(--bbg-blue);
+  }
+  .openings-list__item:hover .openings-list__quote { color: var(--bbg-blue-dark); }
+
+  .openings-band {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3) var(--space-5);
+    margin-top: var(--space-7);
+    padding: var(--space-5) var(--space-6);
+    border-radius: 18px;
+    background: linear-gradient(135deg, var(--bbg-ink) 0%, #1a2333 100%);
+    color: var(--bbg-white);
+    text-decoration: none;
+    transition: box-shadow 0.3s var(--ease), transform 0.3s var(--ease);
+  }
+  .openings-band:hover {
+    box-shadow: 0 22px 44px -22px rgba(38, 154, 218, 0.4);
+    transform: translateY(-2px);
+  }
+  .openings-band__quote {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--bbg-white);
+  }
+  .openings-band__answer {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .openings-band__by {
+    font-family: var(--font-display);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: var(--bbg-blue-light);
+  }
+  .openings-band__line {
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.78);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .openings-band:hover { transform: none; }
   }
 </style>
 
@@ -1481,7 +1547,7 @@ const outboundReq = [
         const ry = (x - 0.5) * 5;
         cancelAnimationFrame(raf);
         raf = requestAnimationFrame(() => {
-          card.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(0)`;
+          card.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-4px)`;
         });
       };
       const onLeave = () => {

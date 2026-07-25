@@ -11,28 +11,29 @@ const visitLabel = 'Visit bearingbridge.ai';
 
 const principles = [
   {
-    title: 'We tell you where AI does not belong',
-    body: 'Roughly a third of the use cases we look at should never get built, and we say so before anyone signs anything. A no you hear in week one is worth far more than a yes that quietly falls apart in month four.',
+    title: 'A third of our answers are no',
+    body: 'Roughly one in three use cases we assess gets a no, in writing, before anyone signs anything. A no in week one is worth far more than a yes that quietly falls apart in month four.',
   },
   {
-    title: 'You pay for evidence, not promises',
-    body: 'Every pilot has a kill line we set with you before it starts. If it misses on your own data, we shut it down. Nobody here is going to keep a dead project breathing just because it already cost money.',
+    title: 'We sell no one’s software',
+    body: 'No reseller agreements, no vendor incentives. Models get benchmarked at their actual API cost, on your task, and the recommendation rides on the numbers rather than on a partnership.',
   },
   {
     title: 'Your team runs it without us',
-    body: 'Training and handover sit inside the method. They are not a separate invoice we wave at you later. When we walk out, the work keeps running and what we figured out stays in the building.',
+    body: 'Engagements are designed for independence. Training and handover sit inside the method, not on a separate invoice. When we walk out, the work keeps running and what we learned stays in the building.',
   },
 ];
 
 const phases = [
-  { name: 'Bearings', q: 'Where are you, really?' },
-  { name: 'Chart', q: 'Where is the value, and where is it not?' },
-  { name: 'Crossing', q: 'Can it survive your operations?' },
-  { name: 'Build', q: 'Ship what survived.' },
-  { name: 'Anchor', q: 'Does it stick once we leave?' },
+  { name: 'Bearing', q: 'Decide where AI is worth pointing, then commit it to paper.' },
+  { name: 'Data', q: 'Find it, clean it, move it to where the work happens.' },
+  { name: 'Build', q: 'Whatever the use case calls for, built on your data.' },
+  { name: 'Run', q: 'A small, timeboxed pilot on real data, with real users.' },
+  { name: 'Fix', q: 'Same measurement as the baseline. Same method, new date.' },
+  { name: 'Scale', q: 'Positive return proven, the pilot graduates to production.' },
 ];
 
-type ServiceKey = 'assessment' | 'pilot' | 'continuum' | 'academy';
+type ServiceKey = 'data' | 'ai' | 'tech' | 'consulting';
 const services: Array<{
   key: ServiceKey;
   name: string;
@@ -42,65 +43,65 @@ const services: Array<{
   items: string[];
 }> = [
   {
-    key: 'assessment',
-    name: 'Assessment',
-    meta: 'Three to eight weeks, fixed scope',
-    stamp: '测',
-    intro: 'A ranked shortlist of use cases and a roadmap you can act on Monday morning.',
+    key: 'data',
+    name: 'Data',
+    meta: 'The raw material',
+    stamp: '数',
+    intro: 'An honest audit of what you actually have, before anyone talks about models.',
     items: [
-      'Every candidate scored on what it is worth and how hard it is to ship.',
-      'The ones we would leave alone, with the reasoning in plain words.',
-      'A roadmap you own outright, whether you keep us on or not.',
+      'Foundations sized to your use cases, not to a reference architecture.',
+      'Fragmented sources plugged together: CRMs, documents, sheets, logs.',
+      'Governance that holds up across jurisdictions, not just at home.',
     ],
   },
   {
-    key: 'pilot',
-    name: 'Pilot',
-    meta: 'Six to twelve weeks',
-    stamp: '验',
-    intro: 'Success and kill criteria on the table before we write a line of code.',
+    key: 'ai',
+    name: 'AI',
+    meta: 'The intelligence layer',
+    stamp: '智',
+    intro: 'Use cases that pay back, prototyped on your own data with a cost per run.',
     items: [
-      'Tested east and west on your own data, never a vendor demo set.',
-      'Every number checked against a target you signed off on first.',
-      'What clears the gate ships. What does not, we stop, and we tell you why.',
+      'Every candidate carries its real API cost before it ships anywhere.',
+      'Benchmarked across Western and Chinese models, on the same task.',
+      'What misses the metric gets stopped, and we put that in writing too.',
     ],
   },
   {
-    key: 'continuum',
-    name: 'Continuum',
-    meta: 'Fractional AI leadership',
-    stamp: '续',
-    intro: 'Senior judgment in the room each month, without carrying a full-time hire.',
+    key: 'tech',
+    name: 'Tech',
+    meta: 'The product layer',
+    stamp: '建',
+    intro: 'Custom builds that land inside the systems your team already opens every morning.',
     items: [
-      'Adoption and governance, run end to end every month.',
-      'Quarterly steering with your leadership, in plain business terms.',
-      'The plan keeps moving while your team keeps shipping.',
+      'Integrated into existing tools, not another tab nobody opens.',
+      'Built by the same people who ran the pilot, so nothing gets lost in handoff.',
+      'Documented and handed over, so your team owns what runs.',
     ],
   },
   {
-    key: 'academy',
-    name: 'Academy',
-    meta: 'Training and workshops',
-    stamp: '授',
-    intro: 'Built so your people can carry the work once we are gone.',
+    key: 'consulting',
+    name: 'Consulting',
+    meta: 'The practice, end to end',
+    stamp: '询',
+    intro: 'Strategy, pilots, and adoption, on dated baselines and metrics agreed in writing.',
     items: [
-      'Executive masterclasses that separate the signal from the hype.',
-      'Leadership and team workshops on your real tasks, not toy ones.',
-      'Founder-led practitioner training, hands on the keyboard.',
+      'A baseline with a date on it before any build starts.',
+      'Leadership and team training, so the judgment stays in-house.',
+      'The recommendation to stop, when the evidence says stop.',
     ],
   },
 ];
 
-const east = ['Qwen', 'DeepSeek', 'Kimi'];
-const west = ['GPT', 'Claude', 'Gemini'];
-const expertise = ['Marketing', 'Communication', 'Media', 'eCommerce', 'Supply Chain', 'HR'];
+const east = ['Qwen', 'DeepSeek', 'ERNIE', 'GLM', 'Kimi', 'Doubao'];
+const west = ['GPT', 'Claude', 'Gemini', 'Llama', 'Mistral', 'Grok'];
+const modules = ['Marketing', 'Sales', 'Project Management', 'Your Function'];
 ---
 
 <Layout
   locale={locale}
   route={route}
-  title="BearingBridge AI: AI Adoption Consulting, East and West"
-  description="Senior AI adoption consulting for companies that want AI working in their operations, not in a slide deck. Honest assessment, pilots with kill criteria, and knowledge transfer. East and West, benchmarked on your data."
+  title="BearingBridge AI: Data, AI, Tech and Consulting"
+  description="BearingBridge is an AI consultancy with one operating rule: evidence over hype. We plug intelligence into the data your organization already produces, then build the product around it. Baselines, metrics, and kill criteria agreed in writing."
 >
   <!-- ====================================================================== -->
   <!-- HERO                                                                   -->
@@ -114,26 +115,24 @@ const expertise = ['Marketing', 'Communication', 'Media', 'eCommerce', 'Supply C
         </span>
 
         <span class="bbai-hero__eyebrow" data-anim="fade">
-          <span class="bbai-hero__dot"></span>
-          AI adoption consulting · East and West
+          AI · Data · Tech · Consulting
         </span>
 
         <h1 class="bbai-hero__title">
-          <span class="bbai-hero__line" data-anim="word">AI adoption</span>
-          <span class="bbai-hero__line" data-anim="word">that survives contact</span>
-          <span class="bbai-hero__line" data-anim="word">with <em>reality.</em></span>
+          <span class="bbai-hero__line" data-anim="word">We put intelligence</span>
+          <span class="bbai-hero__line" data-anim="word">inside your data, then build</span>
+          <span class="bbai-hero__line" data-anim="word">the product <em>around it.</em></span>
         </h1>
 
         <p class="bbai-hero__lead" data-anim="fade">
-          Senior consulting for companies that want AI doing real work in the business, not sitting in a
-          board deck. We have run it inside large organizations, so we know where it earns its keep and
-          where it quietly burns the budget. China on the horizon or not, the job is the same.
+          An AI consultancy with one operating rule: evidence over hype. We plug into the data your
+          organization already produces and turn it into analysis, content, and decisions your teams can
+          act on the same day. We measure before we recommend, and when the evidence says stop, we say stop.
         </p>
 
         <div class="bbai-hero__cta-row" data-anim="fade">
-          <a class="bbai-magnet" href={visitUrl} target="_blank" rel="noreferrer" data-magnet>
-            <span class="bbai-magnet__label">{visitLabel}</span>
-            <span class="bbai-magnet__arrow" aria-hidden="true">→</span>
+          <a class="pill-cta" href={visitUrl} target="_blank" rel="noreferrer">{visitLabel}
+            <span class="pill-cta__disc" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg></span>
           </a>
           <a class="bbai-hero__secondary" href="#method">
             <span>See the method</span>
@@ -145,10 +144,6 @@ const expertise = ['Marketing', 'Communication', 'Media', 'eCommerce', 'Supply C
       <div class="bbai-hero__feature" data-tilt>
         <div class="bbai-hero__feature-frame">
           <div class="bbai-browser">
-            <div class="bbai-browser__bar" aria-hidden="true">
-              <span class="bbai-browser__dots"><span></span><span></span><span></span></span>
-              <span class="bbai-browser__url">bearingbridge.ai</span>
-            </div>
             <img
               src="/images/bbai-site-shot.webp"
               alt="The BearingBridge AI website homepage"
@@ -158,15 +153,6 @@ const expertise = ['Marketing', 'Communication', 'Media', 'eCommerce', 'Supply C
               loading="eager"
               decoding="async"
             />
-          </div>
-
-          <div class="bbai-hero__chip bbai-hero__chip--method">
-            <span class="bbai-hero__chip-label">The method</span>
-            <span>AZIMUTH · five gated phases</span>
-          </div>
-          <div class="bbai-hero__chip bbai-hero__chip--bench">
-            <span class="bbai-hero__chip-label">Pilot 07</span>
-            <span>Cleared every gate it agreed to</span>
           </div>
         </div>
       </div>
@@ -184,13 +170,12 @@ const expertise = ['Marketing', 'Communication', 'Media', 'eCommerce', 'Supply C
           <span class="bbai-track__num-suffix">yrs</span>
         </div>
         <div class="bbai-track__copy">
-          <span class="eyebrow">Who runs it</span>
-          <h2 class="bbai-track__title balance">Twenty-five years building digital and commerce across Asia and Europe. We have done the job, not just advised on it.</h2>
+          <h2 class="bbai-track__title balance">Twenty-five years building digital and commerce across Asia and Europe. Three industry rebrands, same problem underneath.</h2>
           <p class="bbai-track__lead">
-            Cyril Drouin opened one of China's first eCommerce agencies back in 2003, then ran Publicis
-            Commerce and Performance Marketing across China and North Asia. AI adoption is the same work as
-            the last twenty years. Find the signal, ship the thing that holds up, and hand the team
-            something they can run on their own.
+            Cyril Drouin opened one of China's first eCommerce agencies back in 2003, recommendation
+            engines and all, then ran Publicis Commerce and Performance Marketing across China and North
+            Asia through the attribution years. AI is the third name for the same job: the data has to be
+            right before the model gets to be smart. Data first, AI second.
           </p>
         </div>
       </div>
@@ -203,13 +188,14 @@ const expertise = ['Marketing', 'Communication', 'Media', 'eCommerce', 'Supply C
   <section class="bbai-principles-sec">
     <div class="container">
       <header class="bbai-block-head">
-        <span class="eyebrow">Why most programs stall</span>
         <h2 class="bbai-block-title balance">
-          Most AI programs do not stall on technology. <em>They stall on honesty.</em>
+          Most AI projects do not fail loudly. <em>They fail politely.</em>
         </h2>
         <p class="bbai-block-lead">
-          Pilots that promise the moon. Tools bought before anyone has named the problem. Roadmaps written
-          to land well in a board meeting and never meant to be built. We start from the opposite end.
+          RAND counted it in 2024: eighty percent of AI projects get abandoned or never scale. The pilot
+          demos well, the steering committee applauds. Then the numbers never move, nobody wrote down what
+          success meant, and the budget quietly migrates to next year's pilot. We built the firm to be the
+          opposite of that.
         </p>
       </header>
 
@@ -232,27 +218,29 @@ const expertise = ['Marketing', 'Communication', 'Media', 'eCommerce', 'Supply C
     <div class="bbai-method__bg" aria-hidden="true"></div>
     <div class="container bbai-method__inner">
       <header class="bbai-method__head">
-        <span class="eyebrow eyebrow--on-dark">The method</span>
         <h2 class="bbai-method__title">AZIMUTH</h2>
         <p class="bbai-method__lead">
-          The bearing we steer by. Five phases, with a gate between each one. You move to the next only
-          when the evidence has earned it.
+          An azimuth is the angle between north and where you are heading. Navigators take one before they
+          move and check it as they go, because feeling on course and being on course are different facts.
+          Six legs, a gate between each. You move on when the evidence has earned it.
         </p>
       </header>
 
-      <ol class="bbai-phases">
-        {phases.map((ph) => (
-          <li class="bbai-phase">
-            <span class="bbai-phase__name">{ph.name}</span>
-            <span class="bbai-phase__q">{ph.q}</span>
-          </li>
-        ))}
-      </ol>
+      <div class="bbai-phases-tray">
+        <ol class="bbai-phases">
+          {phases.map((ph) => (
+            <li class="bbai-phase">
+              <span class="bbai-phase__name">{ph.name}</span>
+              <span class="bbai-phase__q">{ph.q}</span>
+            </li>
+          ))}
+        </ol>
+      </div>
 
       <p class="bbai-method__horizon">
-        <span class="bbai-method__horizon-label">Horizon</span>
-        Underneath all of it, we keep watch on what is moving in AI, east and west, and translate it into
-        what actually matters for the work in front of you.
+        <span class="bbai-method__horizon-label">The contract</span>
+        Baseline, metric, kill criterion. All three agreed in writing before anyone builds a thing, so
+        that six months later nobody has to argue about what success was supposed to mean.
       </p>
     </div>
   </section>
@@ -263,11 +251,11 @@ const expertise = ['Marketing', 'Communication', 'Media', 'eCommerce', 'Supply C
   <section class="bbai-services" id="services">
     <div class="container">
       <header class="bbai-block-head">
-        <span class="eyebrow">How to work with us</span>
-        <h2 class="bbai-block-title balance">Four ways in. <em>Start where you are.</em></h2>
-        <p class="bbai-block-lead">Take the full arc or a single piece. Each one earns its keep on its own.</p>
+        <h2 class="bbai-block-title balance">Data, AI, tech, consulting. <em>Start where it hurts.</em></h2>
+        <p class="bbai-block-lead">The raw material, the intelligence layer, the product layer, and the practice that ties them together. Take the whole stack or a single piece.</p>
       </header>
 
+      <div class="bbai-tabs-tray">
       <div class="bbai-tabs" data-tabs>
         <div class="bbai-tabs__nav" role="tablist" aria-label="Engagements">
           {services.map((s, i) => (
@@ -327,6 +315,7 @@ const expertise = ['Marketing', 'Communication', 'Media', 'eCommerce', 'Supply C
           ))}
         </div>
       </div>
+      </div>
     </div>
   </section>
 
@@ -337,14 +326,13 @@ const expertise = ['Marketing', 'Communication', 'Media', 'eCommerce', 'Supply C
     <div class="container">
       <div class="bbai-ew">
         <div class="bbai-ew__copy">
-          <span class="eyebrow">East and West</span>
           <h2 class="bbai-block-title balance">We benchmark both sides. <em>On your data.</em></h2>
           <p class="bbai-block-lead">
-            The right model is whichever one does your job best. We run both ecosystems side by side, on
-            the same task, and let the results pick the winner.
+            We have worked on both stacks, so we recommend a model on the merits, not on which side we
+            happen to know. Same task, side by side, at actual API cost, and the results pick the winner.
           </p>
           <p class="bbai-ew__note">
-            Your data stays out of China unless you specifically ask for a China-hosted deployment.
+            One provider is a default. Two is a decision you can defend.
           </p>
         </div>
         <div class="bbai-ew__cols">
@@ -364,9 +352,9 @@ const expertise = ['Marketing', 'Communication', 'Media', 'eCommerce', 'Supply C
       </div>
 
       <div class="bbai-expertise">
-        <span class="bbai-expertise__label">Deep in the functions that touch revenue and people</span>
+        <span class="bbai-expertise__label">bearingbridge intelligence, our working platform: modules already running on real tasks, with every cost visible on screen</span>
         <ul class="bbai-expertise__tags">
-          {expertise.map((e) => <li>{e}</li>)}
+          {modules.map((m) => <li>{m}</li>)}
         </ul>
       </div>
     </div>
@@ -378,15 +366,14 @@ const expertise = ['Marketing', 'Communication', 'Media', 'eCommerce', 'Supply C
   <section class="bbai-operate">
     <div class="bbai-operate__bg" aria-hidden="true"></div>
     <div class="container bbai-operate__inner">
-      <span class="eyebrow eyebrow--on-dark">The standard</span>
       <h2 class="bbai-operate__title">
-        <span class="bbai-operate__line" data-line>What works in a demo</span>
-        <span class="bbai-operate__line" data-line>and what works on your floor</span>
-        <span class="bbai-operate__line" data-line>are rarely the same thing.</span>
+        <span class="bbai-operate__line" data-line>We measure before we recommend.</span>
+        <span class="bbai-operate__line" data-line>We agree the metric before we build.</span>
+        <span class="bbai-operate__line" data-line>When the evidence says stop, we stop.</span>
       </h2>
       <div class="bbai-operate__statement" data-line>
-        <p>The only proof we trust is your own data, under your real constraints, measured against a target we set together before any work began.</p>
-        <p class="bbai-operate__emphasis">Anything short of that is a sales demo. We are not in that business.</p>
+        <p>Data was called the new oil. Intelligence is the refined product, and AI is the refinery. Our job is to run the refinery honestly, at a cost you can see, against a target you signed before we started.</p>
+        <p class="bbai-operate__emphasis">Evidence over hype. That is the whole rule.</p>
       </div>
     </div>
   </section>
@@ -397,11 +384,12 @@ const expertise = ['Marketing', 'Communication', 'Media', 'eCommerce', 'Supply C
   <section class="bbai-cta">
     <div class="bbai-cta__bg" aria-hidden="true"></div>
     <div class="container bbai-cta__inner">
-      <span class="eyebrow eyebrow--on-dark">Ready when you are</span>
       <h2 class="bbai-cta__title balance">Start with your bearings.<br />A thirty-minute conversation.</h2>
       <div class="bbai-cta__actions">
-        <a class="bbai-cta__primary" href={visitUrl} target="_blank" rel="noreferrer">{visitLabel}</a>
-        <a class="bbai-cta__ghost" href={pathFor('contact', locale)}>Talk to us</a>
+        <a class="pill-cta" href={visitUrl} target="_blank" rel="noreferrer">{visitLabel}
+          <span class="pill-cta__disc" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg></span>
+        </a>
+        <a class="pill-ghost" href={pathFor('contact', locale)}>Book a call</a>
       </div>
     </div>
   </section>
@@ -491,11 +479,6 @@ const expertise = ['Marketing', 'Communication', 'Media', 'eCommerce', 'Supply C
     text-transform: uppercase;
     color: var(--sea);
   }
-  .bbai-hero__dot {
-    width: 7px; height: 7px; border-radius: 50%;
-    background: var(--accent);
-    box-shadow: 0 0 0 4px rgba(166,61,47,0.14);
-  }
   .bbai-hero__title {
     font-size: clamp(2.4rem, 4.4vw + 0.5rem, 4.4rem);
     line-height: 1.02;
@@ -522,26 +505,12 @@ const expertise = ['Marketing', 'Communication', 'Media', 'eCommerce', 'Supply C
     gap: var(--space-5);
     flex-wrap: wrap;
   }
-  .bbai-magnet {
-    --x: 0px; --y: 0px;
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    padding: 15px 26px;
-    border-radius: 999px;
-    background: var(--accent);
-    color: #fff;
-    font-family: var(--font-display);
-    font-size: 1rem;
-    font-weight: 600;
-    text-decoration: none;
+  /* Pill CTA, page accent (terracotta) over the global blue default */
+  .pill-cta {
+    background: #a63d2f;
     box-shadow: 0 16px 34px -12px rgba(166,61,47,0.5);
-    transform: translate(var(--x), var(--y));
-    transition: transform 220ms cubic-bezier(0.2,0.8,0.2,1), background 200ms ease;
   }
-  .bbai-magnet:hover { background: var(--accent-dark); }
-  .bbai-magnet__arrow { transition: transform 260ms cubic-bezier(0.2,0.8,0.2,1); }
-  .bbai-magnet:hover .bbai-magnet__arrow { transform: translateX(4px); }
+  .pill-cta:hover { background: #8c3023; }
   .bbai-hero__secondary {
     display: inline-flex;
     align-items: center;
@@ -564,46 +533,21 @@ const expertise = ['Marketing', 'Communication', 'Media', 'eCommerce', 'Supply C
   }
   .bbai-hero__feature-frame {
     position: relative;
+    padding: 6px;
+    border-radius: 28px;
+    background: rgba(60,40,20,.05);
+    box-shadow: 0 0 0 1px rgba(60,40,20,.07);
     transform-style: preserve-3d;
     transform: rotateY(var(--tilt-x, -3deg)) rotateX(var(--tilt-y, 2deg));
-    transition: transform 600ms cubic-bezier(0.2,0.8,0.2,1);
+    transition: transform 600ms cubic-bezier(0.32,0.72,0,1);
   }
   .bbai-browser {
-    border-radius: 16px;
+    border-radius: 22px;
     overflow: hidden;
     background: #fff;
-    border: 1px solid var(--line);
     box-shadow:
-      0 1px 0 rgba(255,255,255,0.6) inset,
-      0 44px 90px -34px rgba(22,24,29,0.5),
-      0 14px 30px -10px rgba(22,24,29,0.2);
-  }
-  .bbai-browser__bar {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 11px 16px;
-    background: linear-gradient(180deg, #fff 0%, var(--cream-soft) 100%);
-    border-bottom: 1px solid var(--line);
-  }
-  .bbai-browser__dots { display: inline-flex; gap: 7px; flex-shrink: 0; }
-  .bbai-browser__dots span { width: 11px; height: 11px; border-radius: 50%; background: #ddd2bd; }
-  .bbai-browser__dots span:nth-child(1) { background: #e0897e; }
-  .bbai-browser__dots span:nth-child(2) { background: #e6c074; }
-  .bbai-browser__dots span:nth-child(3) { background: #9fc08c; }
-  .bbai-browser__url {
-    flex: 1;
-    text-align: center;
-    padding: 5px 14px;
-    border-radius: 8px;
-    background: rgba(22,24,29,0.05);
-    font-family: var(--font-display);
-    font-size: 0.78rem;
-    font-weight: 500;
-    color: var(--sea);
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+      0 24px 50px -36px rgba(10,20,30,.35),
+      0 44px 90px -34px rgba(22,24,29,0.35);
   }
   .bbai-browser__img {
     width: 100%;
@@ -612,49 +556,9 @@ const expertise = ['Marketing', 'Communication', 'Media', 'eCommerce', 'Supply C
     display: block;
   }
 
-  .bbai-hero__chip {
-    position: absolute;
-    display: inline-flex;
-    flex-direction: column;
-    gap: 2px;
-    padding: 10px 14px;
-    background: var(--ink);
-    color: #fff;
-    border-radius: 13px;
-    font-family: var(--font-display);
-    font-size: 0.82rem;
-    font-weight: 600;
-    box-shadow: 0 22px 46px -18px rgba(22,24,29,0.5);
-    transform: translateZ(40px);
-    max-width: 17rem;
-  }
-  .bbai-hero__chip-label {
-    font-size: 0.6rem;
-    font-weight: 700;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--cream);
-  }
-  .bbai-hero__chip--method {
-    top: -22px; left: -26px;
-    animation: bbaiFloatA 9s ease-in-out infinite;
-  }
-  .bbai-hero__chip--bench {
-    bottom: -24px; right: -18px;
-    animation: bbaiFloatB 11s ease-in-out infinite;
-  }
-  .bbai-hero__chip--bench .bbai-hero__chip-label { color: #cfe0b8; }
-  @keyframes bbaiFloatA { 0%,100% { transform: translateZ(40px) translateY(0); } 50% { transform: translateZ(40px) translateY(-7px); } }
-  @keyframes bbaiFloatB { 0%,100% { transform: translateZ(40px) translateY(0); } 50% { transform: translateZ(40px) translateY(8px); } }
-
   @media (max-width: 1023px) {
     .bbai-hero__main { grid-template-columns: 1fr; gap: var(--space-8); }
     .bbai-hero__title { max-width: none; }
-    .bbai-hero__chip--method { top: -16px; left: 8px; }
-    .bbai-hero__chip--bench { bottom: -16px; right: 8px; }
-  }
-  @media (max-width: 560px) {
-    .bbai-hero__chip--method { display: none; }
   }
 
   /* ===================================================================== */
@@ -716,9 +620,6 @@ const expertise = ['Marketing', 'Communication', 'Media', 'eCommerce', 'Supply C
   }
   .bbai-block-title em { font-style: normal; color: var(--accent); }
   .bbai-block-lead { color: var(--bbg-text); font-size: var(--fs-lead); max-width: 58ch; }
-  .bbai-services .eyebrow,
-  .bbai-principles-sec .eyebrow,
-  .bbai-ew-sec .eyebrow { color: var(--sea); }
 
   /* ===================================================================== */
   /* PRINCIPLES                                                             */
@@ -770,7 +671,9 @@ const expertise = ['Marketing', 'Communication', 'Media', 'eCommerce', 'Supply C
     position: absolute;
     inset: 0;
     z-index: -1;
-    background: var(--ink);
+    background:
+      radial-gradient(820px 480px at 88% 6%, rgba(166,61,47,0.10), transparent 62%),
+      var(--ink);
   }
   .bbai-method__bg::before {
     content: "";
@@ -785,7 +688,6 @@ const expertise = ['Marketing', 'Communication', 'Media', 'eCommerce', 'Supply C
     opacity: 0.7;
   }
   .bbai-method__head { max-width: 60ch; margin: 0 0 clamp(2rem, 5vh, 3.5rem); }
-  .bbai-method .eyebrow--on-dark { color: var(--cream); opacity: 0.75; }
   .bbai-method__title {
     font-size: clamp(2.4rem, 4.4vw + 0.5rem, 3.8rem);
     letter-spacing: 0.07em;
@@ -794,16 +696,27 @@ const expertise = ['Marketing', 'Communication', 'Media', 'eCommerce', 'Supply C
     margin: var(--space-3) 0 var(--space-4);
   }
   .bbai-method__lead { color: rgba(243,233,216,0.78); font-size: var(--fs-lead); max-width: 58ch; margin: 0; }
+  .bbai-phases-tray {
+    margin: 0 0 var(--space-6);
+    padding: 6px;
+    border-radius: 28px;
+    background: rgba(255,255,255,0.06);
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.1);
+  }
   .bbai-phases {
     list-style: none;
-    margin: 0 0 var(--space-6);
-    padding: 0;
+    margin: 0;
+    padding: 10px;
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: inset 0 1px 1px rgba(255,255,255,0.12);
+    background: rgba(22,24,29,0.55);
     display: grid;
     grid-template-columns: 1fr;
     gap: var(--space-3);
   }
   @media (min-width: 640px) { .bbai-phases { grid-template-columns: repeat(2, 1fr); } }
-  @media (min-width: 960px) { .bbai-phases { grid-template-columns: repeat(5, 1fr); } }
+  @media (min-width: 960px) { .bbai-phases { grid-template-columns: repeat(3, 1fr); } }
   .bbai-phase {
     padding: var(--space-4);
     background: rgba(243,233,216,0.04);
@@ -845,12 +758,18 @@ const expertise = ['Marketing', 'Communication', 'Media', 'eCommerce', 'Supply C
   /* SERVICES (tabbed)                                                      */
   /* ===================================================================== */
   .bbai-services { padding: clamp(4.5rem, 9vh, 7rem) 0; background: var(--cream-soft); }
+  .bbai-tabs-tray {
+    padding: 6px;
+    border-radius: 28px;
+    background: rgba(60,40,20,.05);
+    box-shadow: 0 0 0 1px rgba(60,40,20,.07);
+  }
   .bbai-tabs {
     background: #fff;
-    border: 1px solid var(--line);
-    border-radius: 26px;
+    border-radius: 22px;
+    overflow: hidden;
     padding: clamp(1.25rem, 3vw, 2.25rem);
-    box-shadow: 0 50px 100px -60px rgba(22,24,29,0.25);
+    box-shadow: 0 24px 50px -36px rgba(10,20,30,.35);
   }
   .bbai-tabs__nav {
     position: relative;
@@ -871,7 +790,7 @@ const expertise = ['Marketing', 'Communication', 'Media', 'eCommerce', 'Supply C
     height: calc(100% - 12px);
     background: var(--ink);
     border-radius: 10px;
-    transition: transform 380ms cubic-bezier(0.2, 0.85, 0.2, 1);
+    transition: transform 500ms cubic-bezier(0.32, 0.72, 0, 1);
     pointer-events: none;
     z-index: 0;
   }
@@ -919,7 +838,7 @@ const expertise = ['Marketing', 'Communication', 'Media', 'eCommerce', 'Supply C
     inset: 0;
     opacity: 0;
     transform: translateY(12px);
-    transition: opacity 360ms ease, transform 460ms cubic-bezier(0.2, 0.85, 0.2, 1);
+    transition: opacity 500ms cubic-bezier(0.32, 0.72, 0, 1), transform 600ms cubic-bezier(0.32, 0.72, 0, 1);
     pointer-events: none;
   }
   .bbai-tabs__panel.is-active {
@@ -944,7 +863,7 @@ const expertise = ['Marketing', 'Communication', 'Media', 'eCommerce', 'Supply C
     gap: 4px;
     min-height: 340px;
     padding: var(--space-6);
-    border-radius: 20px;
+    border-radius: 16px;
     background:
       radial-gradient(120% 90% at 80% 10%, rgba(166,61,47,0.18), transparent 60%),
       var(--ink);
@@ -1047,8 +966,17 @@ const expertise = ['Marketing', 'Communication', 'Media', 'eCommerce', 'Supply C
   .bbai-ew__col {
     padding: var(--space-5);
     background: var(--cream-soft);
-    border: 1px solid var(--line);
-    border-radius: 16px;
+    border-radius: 18px;
+    box-shadow:
+      0 0 0 1px var(--line),
+      0 18px 40px -30px rgba(22,24,29,0.35);
+    transition: transform 500ms cubic-bezier(0.32,0.72,0,1), box-shadow 500ms cubic-bezier(0.32,0.72,0,1);
+  }
+  .bbai-ew__col:hover {
+    transform: translateY(-4px);
+    box-shadow:
+      0 0 0 1px var(--line),
+      0 26px 50px -30px rgba(22,24,29,0.45);
   }
   .bbai-ew__label {
     display: block;
@@ -1106,7 +1034,6 @@ const expertise = ['Marketing', 'Communication', 'Media', 'eCommerce', 'Supply C
       var(--ink);
   }
   .bbai-operate__inner { position: relative; }
-  .bbai-operate .eyebrow--on-dark { color: var(--cream); opacity: 0.75; }
   .bbai-operate__title {
     display: flex;
     flex-direction: column;
@@ -1153,7 +1080,6 @@ const expertise = ['Marketing', 'Communication', 'Media', 'eCommerce', 'Supply C
       linear-gradient(135deg, #0f1014 0%, var(--ink) 60%, #1d212b 100%);
   }
   .bbai-cta__inner { text-align: center; max-width: 780px; margin: 0 auto; }
-  .bbai-cta .eyebrow--on-dark { color: var(--cream); opacity: 0.75; }
   .bbai-cta__title {
     font-size: clamp(2rem, 3.6vw + 0.5rem, 3.4rem);
     line-height: 1.06;
@@ -1168,34 +1094,6 @@ const expertise = ['Marketing', 'Communication', 'Media', 'eCommerce', 'Supply C
     flex-wrap: wrap;
     justify-content: center;
   }
-  .bbai-cta__primary {
-    display: inline-flex;
-    align-items: center;
-    padding: 15px 28px;
-    border-radius: 999px;
-    background: var(--accent);
-    color: #fff;
-    font-family: var(--font-display);
-    font-weight: 600;
-    text-decoration: none;
-    box-shadow: 0 16px 34px -12px rgba(166,61,47,0.55);
-    transition: background 200ms ease, transform 200ms ease;
-  }
-  .bbai-cta__primary:hover { background: var(--accent-dark); transform: translateY(-1px); }
-  .bbai-cta__ghost {
-    display: inline-flex;
-    align-items: center;
-    padding: 15px 26px;
-    border-radius: 999px;
-    border: 1.5px solid rgba(243,233,216,0.4);
-    color: var(--cream);
-    font-family: var(--font-display);
-    font-weight: 600;
-    text-decoration: none;
-    transition: border-color 200ms ease, background 200ms ease;
-  }
-  .bbai-cta__ghost:hover { border-color: var(--cream); background: rgba(243,233,216,0.08); }
-
   /* ===================================================================== */
   /* Reveal helpers                                                        */
   /* ===================================================================== */
@@ -1227,7 +1125,6 @@ const expertise = ['Marketing', 'Communication', 'Media', 'eCommerce', 'Supply C
 
   @media (prefers-reduced-motion: reduce) {
     [data-anim], .bbai-hero__line,
-    .bbai-hero__chip,
     .bbai-tabs__panel.is-active .bbai-tabs__item,
     .bbai-track__numeral, .bbai-track__copy, .bbai-block-head,
     .bbai-principle, .bbai-tabs, .bbai-ew, .bbai-expertise {
@@ -1370,22 +1267,6 @@ const expertise = ['Marketing', 'Communication', 'Media', 'eCommerce', 'Supply C
       }
     }
 
-    /* ----- Magnetic CTA ----- */
-    if (!reduced) {
-      document.querySelectorAll<HTMLElement>('[data-magnet]').forEach((m) => {
-        m.addEventListener('mousemove', (e: MouseEvent) => {
-          const rect = m.getBoundingClientRect();
-          const x = e.clientX - rect.left - rect.width / 2;
-          const y = e.clientY - rect.top - rect.height / 2;
-          m.style.setProperty('--x', `${(x * 0.18).toFixed(1)}px`);
-          m.style.setProperty('--y', `${(y * 0.18).toFixed(1)}px`);
-        });
-        m.addEventListener('mouseleave', () => {
-          m.style.setProperty('--x', '0px');
-          m.style.setProperty('--y', '0px');
-        });
-      });
-    }
   };
 
   if (document.readyState === 'loading') {
