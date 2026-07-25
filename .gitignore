@@ -26,3 +26,8 @@ pnpm-debug.log*
 
 # local cache (script backups, etc.)
 .cache/
+
+# locally installed agent skills (npx skills add)
+.agents/
+.claude/skills/
+skills-lock.json
