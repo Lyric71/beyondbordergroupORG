@@ -12,6 +12,12 @@ export type Route =
   | 'two-flows'
   | 'entering-china'
   | 'going-overseas'
+  | 'ai-services'
+  | 'ai-services/intelligence'
+  | 'cross-border-marketing'
+  | 'products'
+  | 'the-group'
+  | 'how-we-work'
   | 'agencies'
   | 'agencies/bearingbridge'
   | 'agencies/theredscroll'
@@ -21,7 +27,6 @@ export type Route =
   | 'agencies/hubstudio'
   | 'agencies/nuvora-studio'
   | 'agencies/bearingbridgeai'
-  | 'how-we-work-together'
   | 'contact'
   | 'privacy'
   | 'terms'
@@ -33,6 +38,12 @@ const routePaths: Record<Route, string> = {
   'two-flows': 'two-flows/',
   'entering-china': 'entering-china/',
   'going-overseas': 'going-overseas/',
+  'ai-services': 'ai-services/',
+  'ai-services/intelligence': 'ai-services/intelligence/',
+  'cross-border-marketing': 'cross-border-marketing/',
+  products: 'products/',
+  'the-group': 'the-group/',
+  'how-we-work': 'how-we-work/',
   agencies: 'agencies/',
   'agencies/bearingbridge': 'agencies/thechinapath/',
   'agencies/theredscroll': 'agencies/theredscroll/',
@@ -42,7 +53,6 @@ const routePaths: Record<Route, string> = {
   'agencies/hubstudio': 'agencies/hubstudio/',
   'agencies/nuvora-studio': 'agencies/nuvora-studio/',
   'agencies/bearingbridgeai': 'agencies/bearingbridgeai/',
-  'how-we-work-together': 'how-we-work-together/',
   contact: 'contact/',
   privacy: 'privacy/',
   terms: 'terms/',
@@ -160,7 +170,7 @@ export const ui: Record<Locale, UI> = {
       ecosystem: 'The ecosystem',
       sixAgencies: 'The agencies',
       discover: 'Discover',
-      offices: 'Shanghai. Hong Kong. Paris. Hangzhou. Reps in the US, UK, Germany, France.',
+      offices: 'Shanghai. Hong Kong. Singapore. Paris. Hangzhou. Reps in the US, UK, Germany, France.',
       rights: '© 2026 Beyond Border Group Ltd. Hong Kong.',
       privacy: 'Privacy',
       terms: 'Terms',

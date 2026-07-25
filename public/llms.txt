@@ -1,29 +1,49 @@
 # BearingBridge
 
-> Eight specialist agencies that carry brands, products, and services across China and the West, both ways. Brand, channels, web, partner sourcing, content, sales. One ecosystem, one shared spine.
+> One group, three practices: AI consulting and production, cross-border marketing between China and the West, and AI-powered media and software products the group owns and operates.
 
-BearingBridge is the holding group (Beyond Border Group Ltd, Hong Kong) for a set of independent cross-border agencies. Each agency stands alone, and most clients start with one. Offices in Shanghai, Hong Kong, Paris, and Hangzhou, with representatives in the US, UK, Germany, and France.
+BearingBridge is the holding group (Beyond Border Group Ltd, Hong Kong) for three practices that share one AI stack. Every team takes clients directly, and most clients start with one. Offices in Shanghai, Hong Kong, Singapore, Paris, and Hangzhou, with representatives in the US, UK, Germany, and France.
 
-## Agencies
+## Practices
+
+- [AI Services](https://www.bearingbridge.com/ai-services/): AI consulting and production, evidence over hype. Western and Chinese models benchmarked side by side.
+- [Cross-Border Marketing](https://www.bearingbridge.com/cross-border-marketing/): Five specialists carrying brands between China and the West, both ways.
+- [Products](https://www.bearingbridge.com/products/): Media and software the group owns and operates, on the same stack it sells.
+
+## AI Services brands
+
+- [BearingBridge AI](https://www.bearingbridge.ai): AI consulting and implementation, evidence over hype.
+- [Intelligence](https://www.bearingbridge.com/ai-services/intelligence/): The group's platform. AI modules and agents running real tasks with every cost on screen.
+- [HubStudio](https://hubstudio.ai): Content production at scale.
+- [Nuvora Studio](https://nuvora.studio): LinkedIn-only B2B.
+
+## Cross-Border Marketing agencies
 
 - [TheChinaPath](https://thechinapath.com): Full-service China entry.
-- [TheRedScroll](https://theredscroll.com): Chinese social media specialist.
-- [ChinaWebFoundry](https://chinawebfoundry.com): Websites built for China.
-- [Compass](https://compass.bearingbridge.com): Vetted China distributors and TPs.
 - [BeyondBridge](https://beyondbridge.ai): Chinese brands, Western pipeline.
-- [HubStudio](https://hubstudio.ai): Content production engine.
-- [Nuvora Studio](https://nuvora.studio): LinkedIn-only B2B.
-- [BearingBridge AI](https://www.bearingbridge.ai): AI adoption consulting, East and West.
+- [ChinaWebFoundry](https://chinawebfoundry.com): Websites built for China.
+- [TheRedScroll](https://theredscroll.com): Chinese social media specialist.
+- [Compass](https://compass.bearingbridge.com): Vetted China distributors and TPs.
+
+## Products
+
+- [BBChien](https://bbchien.fr): An independent French media on dogs, live today.
+- DeuceLadder: Software, in build. deuceladder.com opens at launch.
 
 ## Core pages
 
 - [Home](https://www.bearingbridge.com/)
-- [The bridge](https://www.bearingbridge.com/the-bridge/): The cross-border thesis. Why this group exists.
+- [AI Services](https://www.bearingbridge.com/ai-services/)
+- [Intelligence](https://www.bearingbridge.com/ai-services/intelligence/)
+- [Cross-Border Marketing](https://www.bearingbridge.com/cross-border-marketing/)
 - [Two flows](https://www.bearingbridge.com/two-flows/): One bridge, two directions. Inbound and outbound, both on one page.
-- [How we work](https://www.bearingbridge.com/how-we-work-together/): How a project actually runs.
+- [The bridge](https://www.bearingbridge.com/the-bridge/): The cross-border thesis. Why this group exists.
+- [Products](https://www.bearingbridge.com/products/)
+- [The group](https://www.bearingbridge.com/the-group/): One operator, three practices, one stack.
+- [How we work](https://www.bearingbridge.com/how-we-work/): How a project actually runs.
 - [Agencies](https://www.bearingbridge.com/agencies/): All agencies in one place.
 - [Contact](https://www.bearingbridge.com/contact/)
 
 ## Languages
 
-Available in English, French, Chinese (Simplified), Spanish, and German. Localized paths use /fr/, /zh/, /es/, and /de/ prefixes.
+The site is in English. The group works in English, French, Spanish, German, and Chinese.

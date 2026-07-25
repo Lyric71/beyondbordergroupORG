@@ -8,6 +8,9 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://www.bearingbridge.com',
   output: 'static',
+  redirects: {
+    '/how-we-work-together/': '/how-we-work/',
+  },
   adapter: vercel(),
   server: {
     host: '127.0.0.1',

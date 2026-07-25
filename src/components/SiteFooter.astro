@@ -6,28 +6,35 @@ interface Props {
   current?: string;
 }
 
-const { locale, current } = Astro.props;
+const { locale } = Astro.props;
 const ui = t(locale);
 
-const ecosystem = [
-  { route: 'bridge' as const, label: ui.nav.bridge },
-  { route: 'two-flows' as const, label: ui.nav.flowsLabel },
-  { route: 'how-we-work-together' as const, label: ui.nav.howWeWork },
+const aiServices = [
+  { href: pathFor('agencies/bearingbridgeai', locale), label: 'BearingBridge AI' },
+  { href: pathFor('ai-services/intelligence', locale), label: 'Intelligence' },
+  { href: pathFor('agencies/hubstudio', locale), label: 'HubStudio' },
+  { href: pathFor('agencies/nuvora-studio', locale), label: 'Nuvora Studio' },
 ];
 
-const agencies = [
-  { route: 'agencies/bearingbridge' as const, label: 'TheChinaPath' },
-  { route: 'agencies/beyondbridge' as const, label: 'BeyondBridge' },
-  { route: 'agencies/hubstudio' as const, label: 'HubStudio' },
-  { route: 'agencies/bearingbridgeai' as const, label: 'BearingBridge AI' },
-  { route: 'agencies/chinawebfoundry' as const, label: 'ChinaWebFoundry' },
-  { route: 'agencies/theredscroll' as const, label: 'TheRedScroll' },
-  { route: 'agencies/compass' as const, label: 'Compass' },
-  { route: 'agencies/nuvora-studio' as const, label: 'Nuvora Studio' },
+const crossBorder = [
+  { href: pathFor('agencies/bearingbridge', locale), label: 'TheChinaPath' },
+  { href: pathFor('agencies/beyondbridge', locale), label: 'BeyondBridge' },
+  { href: pathFor('agencies/chinawebfoundry', locale), label: 'ChinaWebFoundry' },
+  { href: pathFor('agencies/theredscroll', locale), label: 'TheRedScroll' },
+  { href: pathFor('agencies/compass', locale), label: 'Compass' },
+  { href: pathFor('two-flows', locale), label: 'Two flows' },
+  { href: pathFor('bridge', locale), label: 'The bridge' },
 ];
 
-const discover = [
-  { route: 'contact' as const, label: ui.nav.contact },
+const products = [
+  { href: `${pathFor('products', locale)}#bbchien`, label: 'BBChien' },
+  { href: `${pathFor('products', locale)}#deuceladder`, label: 'DeuceLadder' },
+];
+
+const group = [
+  { href: pathFor('the-group', locale), label: 'About us' },
+  { href: pathFor('how-we-work', locale), label: 'How we work' },
+  { href: pathFor('contact', locale), label: ui.nav.contact },
 ];
 ---
 
@@ -36,29 +43,40 @@ const discover = [
     <div class="site-footer__top">
       <div>
         <p class="site-footer__brand-line">BearingBridge</p>
-        <p>{ui.footer.tagline}</p>
+        <p>One group. Three practices.</p>
+        <div class="site-footer__practices">
+          <a href={pathFor('ai-services', locale)}>AI Services</a>
+          <a href={pathFor('cross-border-marketing', locale)}>Cross-Border Marketing</a>
+          <a href={pathFor('products', locale)}>Products</a>
+        </div>
       </div>
       <div>
-        <h4>{ui.footer.ecosystem}</h4>
+        <h4><a class="site-footer__col-link" href={pathFor('ai-services', locale)}>AI Services</a></h4>
         <ul class="site-footer__links">
-          {ecosystem.map((e) => (
-            <li><a href={pathFor(e.route, locale)}>{e.label}</a></li>
+          {aiServices.map((l) => (
+            <li><a href={l.href}>{l.label}</a></li>
           ))}
         </ul>
       </div>
       <div>
-        <h4>{ui.footer.sixAgencies}</h4>
+        <h4><a class="site-footer__col-link" href={pathFor('cross-border-marketing', locale)}>Cross-Border Marketing</a></h4>
         <ul class="site-footer__links">
-          {agencies.map((a) => (
-            <li><a href={pathFor(a.route, locale)}>{a.label}</a></li>
+          {crossBorder.map((l) => (
+            <li><a href={l.href}>{l.label}</a></li>
           ))}
         </ul>
       </div>
       <div>
-        <h4>{ui.footer.discover}</h4>
+        <h4><a class="site-footer__col-link" href={pathFor('products', locale)}>Products</a></h4>
         <ul class="site-footer__links">
-          {discover.map((d) => (
-            <li><a href={pathFor(d.route, locale)}>{d.label}</a></li>
+          {products.map((l) => (
+            <li><a href={l.href}>{l.label}</a></li>
+          ))}
+        </ul>
+        <h4 class="site-footer__group-head">The group</h4>
+        <ul class="site-footer__links">
+          {group.map((l) => (
+            <li><a href={l.href}>{l.label}</a></li>
           ))}
         </ul>
       </div>
@@ -72,5 +90,38 @@ const discover = [
         {ui.footer.rights}
       </span>
     </div>
+    <p class="site-footer__reviewed">Reviewed July 2026</p>
   </div>
 </footer>
+
+<style>
+  .site-footer__practices {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2) var(--space-3);
+    margin-top: var(--space-3);
+  }
+  .site-footer__practices a {
+    font-size: var(--fs-small);
+    font-weight: 600;
+    text-decoration: none;
+    color: inherit;
+    opacity: 0.85;
+  }
+  .site-footer__practices a:hover { opacity: 1; text-decoration: underline; text-underline-offset: 3px; }
+
+  .site-footer__col-link {
+    color: inherit;
+    text-decoration: none;
+  }
+  .site-footer__col-link:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+  .site-footer__group-head { margin-top: var(--space-4); }
+
+  .site-footer__reviewed {
+    margin: var(--space-3) 0 0;
+    font-size: 0.6875rem;
+    letter-spacing: 0.06em;
+    opacity: 0.45;
+  }
+</style>

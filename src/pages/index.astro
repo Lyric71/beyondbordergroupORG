@@ -4,400 +4,162 @@ import AgencyLogo from '../components/AgencyLogo.astro';
 import { pathFor } from '../i18n/ui';
 
 const locale = 'en' as const;
-const title = 'Brands, products, and services built to cross China and the West, both ways.';
-const description = 'Eight specialist agencies that carry brands, products, and services across China and the West, both ways. Brand, channels, web, partner sourcing, content, sales. One ecosystem, one shared spine.';
+const title = 'One group, three practices';
+const description = 'AI services, cross-border marketing between China and the West, and AI-powered media and software we own and operate. One group, three practices.';
 
 const linkedinUrl = 'https://www.linkedin.com/in/cyril-d-68835729/';
 
-const agencies = [
+type Brand = { name: string; logoRoute?: string; icon?: string };
+
+const practices: { key: string; label: string; line: string; brands: Brand[]; href: string; img: string }[] = [
   {
-    name: 'TheChinaPath',
-    tagline: 'Full-service China entry. Branding through to eCommerce.',
-    route: 'agencies/bearingbridge' as const,
+    key: 'ai',
+    label: 'AI Services',
+    line: 'Strategy through production, evidence over hype.',
+    brands: [
+      { name: 'BearingBridge AI', logoRoute: 'agencies/bearingbridgeai' },
+      { name: 'Intelligence', icon: '/AgencyLogos/intelligence-icon.png' },
+      { name: 'HubStudio', logoRoute: 'agencies/hubstudio' },
+      { name: 'Nuvora Studio', logoRoute: 'agencies/nuvora-studio' },
+    ],
+    href: pathFor('ai-services', locale),
+    img: '/images/practice-ai.webp',
   },
   {
-    name: 'BeyondBridge',
-    tagline: 'The full pipeline for Chinese brands going overseas.',
-    route: 'agencies/beyondbridge' as const,
+    key: 'cb',
+    label: 'Cross-Border Marketing',
+    line: 'Brands carried between China and the West, both ways.',
+    brands: [
+      { name: 'TheChinaPath', logoRoute: 'agencies/bearingbridge' },
+      { name: 'BeyondBridge', logoRoute: 'agencies/beyondbridge' },
+      { name: 'ChinaWebFoundry', logoRoute: 'agencies/chinawebfoundry' },
+      { name: 'TheRedScroll', logoRoute: 'agencies/theredscroll' },
+      { name: 'Compass', logoRoute: 'agencies/compass' },
+    ],
+    href: pathFor('cross-border-marketing', locale),
+    img: '/images/practice-crossborder.webp',
   },
   {
-    name: 'HubStudio',
-    tagline: 'Image, video, and content production at scale.',
-    route: 'agencies/hubstudio' as const,
-  },
-  {
-    name: 'BearingBridge AI',
-    tagline: 'AI adoption consulting. East and West, on your data.',
-    route: 'agencies/bearingbridgeai' as const,
-  },
-  {
-    name: 'ChinaWebFoundry',
-    tagline: 'Websites built for the Chinese web. Baidu, ICP, AI engines.',
-    route: 'agencies/chinawebfoundry' as const,
-  },
-  {
-    name: 'TheRedScroll',
-    tagline: 'Chinese social media. WeChat, Douyin, RedNote, Weibo.',
-    route: 'agencies/theredscroll' as const,
-  },
-  {
-    name: 'Compass',
-    tagline: 'A private database of vetted China distributors, Tmall TPs, Douyin Partners.',
-    route: 'agencies/compass' as const,
-  },
-  {
-    name: 'Nuvora Studio',
-    tagline: 'LinkedIn-only B2B. Strategy, content, ads.',
-    route: 'agencies/nuvora-studio' as const,
+    key: 'products',
+    label: 'Products',
+    line: 'Media and software we own and run ourselves.',
+    brands: [{ name: 'BBChien', logoRoute: 'bbchien' }, { name: 'DeuceLadder' }],
+    href: pathFor('products', locale),
+    img: '/images/practice-products.webp',
   },
 ];
 ---
 
 <Layout locale={locale} route="home" title={title} description={description}>
-  <section class="hero-statement">
-    <video
-      class="hero-statement__video"
-      autoplay
-      muted
-      loop
-      playsinline
-      preload="auto"
-      aria-hidden="true"
-    >
-      <source src="/Video/greatWall%20AI%20video.mp4" type="video/mp4" />
-    </video>
-    <div class="hero-statement__scrim" aria-hidden="true"></div>
-    <div class="hero-statement__rail">
-      <aside class="rail" aria-label="Eight agencies in the group">
-        <header class="rail__head">
-          <span class="rail__head-tag">Ecosystem</span>
-        </header>
-
-        <div class="rail__chapter">
-          <div class="rail__chapter-head">
-            <span class="rail__chapter-label">Lead agencies</span>
-            <span class="rail__chapter-rule" aria-hidden="true"></span>
-          </div>
-          <ol class="rail__list">
-            <li class="rail__row" style="--row-i: 0;">
-              <a class="rail__link" href={pathFor('agencies/bearingbridge', locale)}>
-                <span class="rail__logo"><img src="/images/thechinapath-horizontal.png" alt="" /></span>
-                <span class="rail__body">
-                  <span class="rail__name">TheChinaPath</span>
-                  <span class="rail__tagline">Full-service West to China</span>
-                </span>
-                <span class="rail__stripe rail__stripe--w" aria-hidden="true"></span>
-              </a>
-            </li>
-            <li class="rail__row" style="--row-i: 1;">
-              <a class="rail__link" href={pathFor('agencies/beyondbridge', locale)}>
-                <span class="rail__logo"><img src="/AgencyLogos/BeyondBridge-%20Logo-EN-4K-Transparent.png" alt="" /></span>
-                <span class="rail__body">
-                  <span class="rail__name">BeyondBridge</span>
-                  <span class="rail__tagline">Full-service China to West</span>
-                </span>
-                <span class="rail__stripe rail__stripe--e" aria-hidden="true"></span>
-              </a>
-            </li>
-          </ol>
-        </div>
-
-        <div class="rail__chapter">
-          <div class="rail__chapter-head">
-            <span class="rail__chapter-label">Horizontal</span>
-            <span class="rail__chapter-rule" aria-hidden="true"></span>
-          </div>
-          <ol class="rail__list">
-            <li class="rail__row" style="--row-i: 2;">
-              <a class="rail__link" href={pathFor('agencies/hubstudio', locale)}>
-                <span class="rail__logo"><img src="/AgencyLogos/hubStudio%20(2).png" alt="" /></span>
-                <span class="rail__body">
-                  <span class="rail__name">HubStudio</span>
-                  <span class="rail__tagline">Content production engine</span>
-                </span>
-                <span class="rail__stripe rail__stripe--c" aria-hidden="true"></span>
-              </a>
-            </li>
-            <li class="rail__row" style="--row-i: 3;">
-              <a class="rail__link" href={pathFor('agencies/bearingbridgeai', locale)}>
-                <span class="rail__logo"><img src="/AgencyLogos/BearingBridgeAI-horizontal.svg" alt="" /></span>
-                <span class="rail__body">
-                  <span class="rail__name">BearingBridge AI</span>
-                  <span class="rail__tagline">AI adoption</span>
-                </span>
-                <span class="rail__stripe rail__stripe--c" aria-hidden="true"></span>
-              </a>
-            </li>
-          </ol>
-        </div>
-
-        <div class="rail__chapter">
-          <div class="rail__chapter-head">
-            <span class="rail__chapter-label">Specialists</span>
-            <span class="rail__chapter-rule" aria-hidden="true"></span>
-          </div>
-          <ol class="rail__list">
-            <li class="rail__row" style="--row-i: 4;">
-              <a class="rail__link" href={pathFor('agencies/chinawebfoundry', locale)}>
-                <span class="rail__logo"><img src="/AgencyLogos/Logo-ChinaWebFoundry-transparent.png" alt="" /></span>
-                <span class="rail__body">
-                  <span class="rail__name">ChinaWebFoundry</span>
-                  <span class="rail__tagline">Built for Chinese web</span>
-                </span>
-                <span class="rail__stripe rail__stripe--both" aria-hidden="true"></span>
-              </a>
-            </li>
-            <li class="rail__row" style="--row-i: 5;">
-              <a class="rail__link" href={pathFor('agencies/theredscroll', locale)}>
-                <span class="rail__logo"><img src="/AgencyLogos/TheredScroll%20PNG.png" alt="" /></span>
-                <span class="rail__body">
-                  <span class="rail__name">TheRedScroll</span>
-                  <span class="rail__tagline">Chinese social media</span>
-                </span>
-                <span class="rail__stripe rail__stripe--both" aria-hidden="true"></span>
-              </a>
-            </li>
-            <li class="rail__row" style="--row-i: 6;">
-              <a class="rail__link" href={pathFor('agencies/compass', locale)}>
-                <span class="rail__logo"><img src="/AgencyLogos/Logo%20Compass%20-%20Horizontal.svg" alt="" /></span>
-                <span class="rail__body">
-                  <span class="rail__name">Compass</span>
-                  <span class="rail__tagline">Vetted China partners</span>
-                </span>
-                <span class="rail__stripe rail__stripe--both" aria-hidden="true"></span>
-              </a>
-            </li>
-            <li class="rail__row" style="--row-i: 7;">
-              <a class="rail__link" href={pathFor('agencies/nuvora-studio', locale)}>
-                <span class="rail__logo"><img src="/AgencyLogos/Nuvora%20PNG.png" alt="" /></span>
-                <span class="rail__body">
-                  <span class="rail__name">Nuvora Studio</span>
-                  <span class="rail__tagline">LinkedIn B2B specialists</span>
-                </span>
-                <span class="rail__stripe rail__stripe--both" aria-hidden="true"></span>
-              </a>
-            </li>
-          </ol>
-        </div>
-      </aside>
-    </div>
-    <div class="container hero-statement__container">
-      <div class="hero-statement__content">
-        <span class="eyebrow">Ecosystem</span>
-        <h1 class="hero-statement__title balance">We build and grow brands, products, and services across China and the West. Both ways.</h1>
-        <p class="hero-statement__lead">
-          Eight specialist agencies, built around one thesis. The gap between China and the West was never a
-          translation problem. It's brand, channels, infrastructure, and sales. And it runs in both directions,
-          every day.
-        </p>
-        <div class="btn-row">
-          <a class="btn btn--primary" href={pathFor('agencies', locale)}>Find the right agency</a>
-          <a class="btn btn--ghost" href={pathFor('contact', locale)}>Talk to us</a>
-        </div>
-        <p class="hero-statement__cite">Shanghai. Hong Kong. Paris. In-market reps in the US, UK, Germany, France.</p>
+  <section class="tri-hero">
+    <div class="container tri-hero__intro">
+      <span class="eyebrow">BearingBridge</span>
+      <h1 class="tri-hero__title balance">One group. Three practices.</h1>
+      <p class="tri-hero__lead">
+        We run three businesses under one roof. AI consulting and production. Cross-border growth between
+        China and the West. And a portfolio of products we own and operate.
+      </p>
+      <div class="btn-row">
+        <a class="btn btn--primary" href="#practices">Pick your practice</a>
+        <a class="btn btn--ghost" href={pathFor('contact', locale)}>Talk to us</a>
       </div>
+      <p class="tri-hero__cite">Shanghai. Hong Kong. Singapore. Paris. Hangzhou. Reps in the US, UK, Germany, France.</p>
     </div>
-  </section>
 
-  <section class="section section--alt">
-    <div class="container">
-      <header class="section-header">
-        <span class="eyebrow">Two flows</span>
-        <h2 class="balance">Start from the side you're standing on.</h2>
-      </header>
-
-      <div class="bridge-panel">
-        <span class="bridge-panel__spine" aria-hidden="true">
-          <span class="bridge-panel__spine-line"></span>
-          <span class="bridge-panel__spine-mark">
-            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 16h22" />
-              <path d="M22 11l5 5-5 5" />
-              <path d="M10 21l-5-5 5-5" />
-            </svg>
-          </span>
-        </span>
-
-        <a class="bridge-panel__side bridge-panel__side--inbound" href={`${pathFor('two-flows', locale)}#inbound`}>
-          <span class="bridge-panel__direction">
-            <span class="bridge-panel__arrow" aria-hidden="true">→</span>
-            West to China · Inbound
-          </span>
-          <h3 class="bridge-panel__title">Bringing Western brands into China.</h3>
-          <p class="bridge-panel__body">
-            Brand, WeChat, RedNote, Douyin, Tmall, JD, Baidu, KOLs, distribution. From a single landing page
-            to the full stack.
-          </p>
-          <span class="bridge-panel__by">TheChinaPath · TheRedScroll · ChinaWebFoundry · Compass · HubStudio</span>
-          <span class="bridge-panel__cta">
-            Jump to inbound
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
+    <div class="tri-hero__panels">
+      {practices.map((p, i) => (
+        <a class={`tri-panel tri-panel--${p.key}`} href={p.href} style={`--panel-i: ${i}`}>
+          <img class="tri-panel__img" src={p.img} alt="" loading={i === 0 ? 'eager' : 'lazy'} decoding="async" />
+          <span class="tri-panel__scrim" aria-hidden="true"></span>
+          <span class="tri-panel__content">
+            <span class="tri-panel__name">{p.label}</span>
+            <span class="tri-panel__line">{p.line}</span>
+            <span class="tri-panel__brands">
+              {p.brands.map((b) => (
+                <span class="tri-panel__brand">
+                  {b.logoRoute ? (
+                    <AgencyLogo route={b.logoRoute} name={b.name} />
+                  ) : (
+                    <>
+                      {b.icon && <img class="tri-panel__brand-icon" src={b.icon} alt="" width="96" height="96" loading="lazy" decoding="async" />}
+                      {b.name}
+                    </>
+                  )}
+                </span>
+              ))}
+            </span>
+            <span class="tri-panel__cta">
+              Open
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="15" height="15"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
+            </span>
           </span>
         </a>
+      ))}
+    </div>
+  </section>
 
-        <a class="bridge-panel__side bridge-panel__side--outbound" href={`${pathFor('two-flows', locale)}#outbound`}>
-          <span class="bridge-panel__direction">
-            <span class="bridge-panel__arrow" aria-hidden="true">←</span>
-            China to the West · Outbound
-          </span>
-          <h3 class="bridge-panel__title">Taking Chinese brands overseas.</h3>
-          <p class="bridge-panel__body">
-            A brand for Western buyers, a real LinkedIn presence, a website built for Western eyes, SEO, GEO,
-            Google Ads, and named sales reps in the right time zone.
+  <section class="section" id="practices">
+    <div class="container">
+      <header class="section-header">
+        <span class="eyebrow">The practices</span>
+        <h2 class="balance">Pick the one you need.</h2>
+        <p class="lead">
+          Each practice stands on its own, and most clients start with just one. Not sure which?
+          <a href={pathFor('contact', locale)}>Talk to us</a> and we will point you the right way.
+        </p>
+      </header>
+
+      <div class="grid-3 practice-cards">
+        <a class="card practice-card" href={pathFor('ai-services', locale)}>
+          <h3>AI Services</h3>
+          <p>
+            For companies adopting AI, wherever they sell. We take you from strategy through production.
+            We benchmark Western and Chinese models side by side and implement on your data, then turn AI
+            into content and pipeline at scale. Intelligence, our platform, lets you watch AI run real
+            tasks before you commit.
           </p>
-          <span class="bridge-panel__by">BeyondBridge · Nuvora Studio</span>
-          <span class="bridge-panel__cta">
-            Jump to outbound
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
+          <span class="practice-card__brands">
+            <span class="practice-card__brand"><AgencyLogo route="agencies/bearingbridgeai" name="BearingBridge AI" /></span>
+            <span class="practice-card__brand practice-card__brand--text">
+              <img class="practice-card__brand-icon" src="/AgencyLogos/intelligence-icon.png" alt="" width="96" height="96" loading="lazy" decoding="async" />
+              Intelligence
+            </span>
+            <span class="practice-card__brand"><AgencyLogo route="agencies/hubstudio" name="HubStudio" /></span>
+            <span class="practice-card__brand"><AgencyLogo route="agencies/nuvora-studio" name="Nuvora Studio" /></span>
           </span>
+          <span class="btn btn--ghost" style="margin-top: auto;">Open AI Services</span>
         </a>
-      </div>
 
-      <div class="btn-row" style="margin-top: var(--space-6); justify-content: center;">
-        <a class="btn btn--primary" href={pathFor('two-flows', locale)}>Open the full Two-flows page</a>
-      </div>
-    </div>
-  </section>
+        <a class="card practice-card" href={pathFor('cross-border-marketing', locale)}>
+          <h3>Cross-Border Marketing</h3>
+          <p>
+            For brands crossing between China and the West, either direction. We carry brands, products,
+            and services across: brand, channels, web, partner sourcing, sales. Track record spans beauty,
+            automotive, food and beverage, hospitality, and home.
+          </p>
+          <span class="practice-card__brands">
+            <span class="practice-card__brand"><AgencyLogo route="agencies/bearingbridge" name="TheChinaPath" /></span>
+            <span class="practice-card__brand"><AgencyLogo route="agencies/beyondbridge" name="BeyondBridge" /></span>
+            <span class="practice-card__brand"><AgencyLogo route="agencies/chinawebfoundry" name="ChinaWebFoundry" /></span>
+            <span class="practice-card__brand"><AgencyLogo route="agencies/theredscroll" name="TheRedScroll" /></span>
+            <span class="practice-card__brand"><AgencyLogo route="agencies/compass" name="Compass" /></span>
+          </span>
+          <span class="btn btn--ghost" style="margin-top: auto;">Open Cross-Border Marketing</span>
+        </a>
 
-  <section class="section">
-    <div class="container">
-      <header class="section-header">
-        <span class="eyebrow">The stack</span>
-        <h2 class="balance">Eight specialists. One ecosystem.</h2>
-        <p class="lead">
-          Each agency stands alone. Pick the one you need. Most clients start with one, then pull in others
-          as the project grows.
-        </p>
-      </header>
-      <div class="grid-3">
-        {agencies.map((a) => (
-          <a class="card" href={pathFor(a.route, locale)}>
-            <AgencyLogo route={a.route} name={a.name} class="agency-card-logo" />
-            <p>{a.tagline}</p>
-            <span class="btn btn--ghost" style="margin-top: auto;">Open</span>
-          </a>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <section class="section section--alt">
-    <div class="container">
-      <header class="section-header">
-        <span class="eyebrow">The logic</span>
-        <h2 class="balance">Two leads. Five specialists. One engine.</h2>
-        <p class="lead">
-          Two lead agencies, one per direction. Five specialists that plug into either direction.
-          One production engine running across both.
-        </p>
-      </header>
-      <div class="matrix-grid" role="table" aria-label="Agencies by direction and layer">
-        <div class="matrix-grid__head" role="row">
-          <div class="matrix-grid__corner" aria-hidden="true"></div>
-          <div class="matrix-grid__direction matrix-grid__direction--west" role="columnheader">
-            <span class="matrix-grid__arrow" aria-hidden="true">→</span>
-            <span class="matrix-grid__direction-label">West to China</span>
-          </div>
-          <div class="matrix-grid__direction matrix-grid__direction--east" role="columnheader">
-            <span class="matrix-grid__arrow" aria-hidden="true">←</span>
-            <span class="matrix-grid__direction-label">China to the West</span>
-          </div>
-        </div>
-
-        <div class="matrix-grid__row" role="row">
-          <div class="matrix-grid__layer" role="rowheader">
-            <span class="matrix-grid__layer-name">Full-service</span>
-          </div>
-          <div class="matrix-cell matrix-cell--lead" role="cell">
-            <span class="matrix-cell__tag">Lead agency</span>
-            <span class="matrix-cell__name">TheChinaPath</span>
-            <a class="matrix-cell__site" href="https://thechinapath.com" target="_blank" rel="noreferrer">thechinapath.com <span aria-hidden="true">↗</span></a>
-          </div>
-          <div class="matrix-cell matrix-cell--lead" role="cell">
-            <span class="matrix-cell__tag">Lead agency</span>
-            <span class="matrix-cell__name">BeyondBridge</span>
-            <a class="matrix-cell__site" href="https://beyondbridge.ai" target="_blank" rel="noreferrer">beyondbridge.ai <span aria-hidden="true">↗</span></a>
-          </div>
-        </div>
-
-        <div class="matrix-grid__row matrix-grid__row--both" role="row">
-          <div class="matrix-grid__layer" role="rowheader">
-            <span class="matrix-grid__layer-name">Social media</span>
-          </div>
-          <div class="matrix-cell matrix-cell--both" role="cell">
-            <span class="matrix-cell__name">TheRedScroll</span>
-            <span class="matrix-cell__note">WeChat, Douyin, RedNote, Weibo. For Western or Chinese clients.</span>
-            <a class="matrix-cell__site" href="https://theredscroll.com" target="_blank" rel="noreferrer">theredscroll.com <span aria-hidden="true">↗</span></a>
-          </div>
-        </div>
-
-        <div class="matrix-grid__row matrix-grid__row--both" role="row">
-          <div class="matrix-grid__layer" role="rowheader">
-            <span class="matrix-grid__layer-name">LinkedIn B2B</span>
-          </div>
-          <div class="matrix-cell matrix-cell--both" role="cell">
-            <span class="matrix-cell__name">Nuvora Studio</span>
-            <span class="matrix-cell__note">LinkedIn-only. For Western or Chinese clients.</span>
-            <a class="matrix-cell__site" href="https://nuvora.studio" target="_blank" rel="noreferrer">nuvora.studio <span aria-hidden="true">↗</span></a>
-          </div>
-        </div>
-
-        <div class="matrix-grid__row matrix-grid__row--both" role="row">
-          <div class="matrix-grid__layer" role="rowheader">
-            <span class="matrix-grid__layer-name">Web infrastructure</span>
-          </div>
-          <div class="matrix-cell matrix-cell--both" role="cell">
-            <span class="matrix-cell__name">ChinaWebFoundry</span>
-            <span class="matrix-cell__note">Baidu-ready, ICP, Chinese AI engines. For Western or Chinese clients.</span>
-            <a class="matrix-cell__site" href="https://chinawebfoundry.com" target="_blank" rel="noreferrer">chinawebfoundry.com <span aria-hidden="true">↗</span></a>
-          </div>
-        </div>
-
-        <div class="matrix-grid__row matrix-grid__row--both" role="row">
-          <div class="matrix-grid__layer" role="rowheader">
-            <span class="matrix-grid__layer-name">Partner sourcing</span>
-          </div>
-          <div class="matrix-cell matrix-cell--both" role="cell">
-            <span class="matrix-cell__name">Compass</span>
-            <span class="matrix-cell__note">Vetted China distributors, Tmall TPs, Douyin Partners.</span>
-            <a class="matrix-cell__site" href="https://compass.bearingbridge.com" target="_blank" rel="noreferrer">compass.bearingbridge.com <span aria-hidden="true">↗</span></a>
-          </div>
-        </div>
-
-        <div class="matrix-grid__row matrix-grid__row--span" role="row">
-          <div class="matrix-grid__layer" role="rowheader">
-            <span class="matrix-grid__layer-name">Production</span>
-          </div>
-          <div class="matrix-cell matrix-cell--span" role="cell">
-            <span class="matrix-cell__bridge" aria-hidden="true">
-              <span class="matrix-cell__bridge-dot"></span>
-              <span class="matrix-cell__bridge-line"></span>
-              <span class="matrix-cell__bridge-dot"></span>
-            </span>
-            <span class="matrix-cell__name">HubStudio</span>
-            <span class="matrix-cell__note">Content production engine. Runs across both directions.</span>
-            <a class="matrix-cell__site" href="https://hubstudio.ai" target="_blank" rel="noreferrer">hubstudio.ai <span aria-hidden="true">↗</span></a>
-          </div>
-        </div>
-
-        <div class="matrix-grid__row matrix-grid__row--span" role="row">
-          <div class="matrix-grid__layer" role="rowheader">
-            <span class="matrix-grid__layer-name">AI adoption</span>
-          </div>
-          <div class="matrix-cell matrix-cell--span matrix-cell--ai" role="cell">
-            <span class="matrix-cell__bridge" aria-hidden="true">
-              <span class="matrix-cell__bridge-dot"></span>
-              <span class="matrix-cell__bridge-line"></span>
-              <span class="matrix-cell__bridge-dot"></span>
-            </span>
-            <span class="matrix-cell__name">BearingBridge AI</span>
-            <span class="matrix-cell__note">AI adoption consulting, East and West. For any company, not only China.</span>
-            <a class="matrix-cell__site" href="https://www.bearingbridge.ai" target="_blank" rel="noreferrer">bearingbridge.ai <span aria-hidden="true">↗</span></a>
-          </div>
-        </div>
-      </div>
-      <div style="margin-top: var(--space-6);">
-        <a class="btn btn--ghost" href={pathFor('how-we-work-together', locale)}>How we work together</a>
+        <a class="card practice-card" href={pathFor('products', locale)}>
+          <h3>Products</h3>
+          <p>
+            Proof before promises. Media and software we own and run ourselves, starting with BBChien,
+            built on the stack we sell and live in public.
+          </p>
+          <span class="practice-card__brands">
+            <span class="practice-card__brand"><AgencyLogo slug="bbchien" name="BBChien" /></span>
+            <span class="practice-card__brand practice-card__brand--text">DeuceLadder</span>
+            <span class="practice-card__brand practice-card__brand--text">more in build</span>
+          </span>
+          <span class="btn btn--ghost" style="margin-top: auto;">Open Products</span>
+        </a>
       </div>
     </div>
   </section>
@@ -407,10 +169,11 @@ const agencies = [
       <div class="split split--text-first">
         <div>
           <span class="eyebrow eyebrow--on-dark">Who is behind this</span>
-          <h2 class="balance">One operator. Two decades on both sides.</h2>
+          <h2 class="balance">One operator. Europe and North Asia.</h2>
           <p class="lead">
-            The group is founded and led by Cyril Drouin. Twenty-five years in digital, eCommerce, and brand work
-            across Europe and North Asia. Former Chief Digital and eCommerce Officer for Publicis North Asia.
+            The group is founded and led by Cyril Drouin. Digital, eCommerce, brand: his work has run
+            across Europe and North Asia, on both sides of the border this group is named after. Former
+            Chief Digital and eCommerce Officer for Publicis North Asia. Founder of BysoftChina.
           </p>
           <a class="btn btn--ghost-light" href={linkedinUrl} target="_blank" rel="noreferrer">Connect on LinkedIn</a>
         </div>
@@ -430,268 +193,213 @@ const agencies = [
     </div>
   </section>
 
+  <section class="section section--alt">
+    <div class="container container--narrow">
+      <span class="eyebrow">The logic</span>
+      <p class="transition-line">Three businesses, one reason they sit together.</p>
+      <h2 class="balance">Same stack. Three uses.</h2>
+      <p class="lead">
+        The stack is everything we build in the AI practice: the tools, the agents, the publishing systems.
+        The cross-border practice runs it between China and the West, two markets that expose weak work
+        quickly. The products then prove it in public, on businesses we own outright, so what we learn in
+        one practice moves straight into the other two.
+      </p>
+    </div>
+  </section>
+
   <section class="section section--tight">
     <div class="container container--narrow center">
-      <h2 class="balance">Tell us which way you are going.</h2>
+      <h2 class="balance">Tell us what you are building.</h2>
       <p class="lead" style="margin-inline: auto;">
-        Thirty minutes on a call. We will tell you which agency in the group is the right place to start, or whether
-        you should start with more than one.
+        Thirty minutes on a call, no deck. We will tell you which practice, and which team inside it, is
+        the right place to start, or whether you should start with more than one.
       </p>
       <div class="btn-row" style="justify-content: center; margin-top: var(--space-5);">
         <a class="btn btn--primary" href={pathFor('contact', locale)}>Book a call</a>
       </div>
+      <p class="home-cta__meta">
+        Shanghai. Hong Kong. Singapore. Paris. Hangzhou. Reps in the US, UK, Germany, France.
+        Working in English, French, Spanish, German, and Chinese.
+      </p>
     </div>
   </section>
 </Layout>
 
 <style>
-  /* ---------- The Stack: consistent logo sizing ---------- */
-  .card :global(.agency-card-logo) {
-    width: 100%;
-    height: 56px;
-    max-height: 56px;
-    object-fit: contain;
-    object-position: left center;
-    margin-bottom: var(--space-3);
-    background: transparent;
-    display: block;
-    filter: none;
+  /* ---------- Tri-panel hero ---------- */
+  .tri-hero {
+    background: var(--bbg-ink, #0f172a);
+    color: #fff;
+    padding-top: calc(var(--space-8, 6rem) + 40px);
+    padding-bottom: 0;
   }
-
-  /* ---------- Modern matrix grid ---------- */
-  .matrix-grid {
-    display: grid;
-    gap: var(--space-3);
-    margin-top: var(--space-5);
-  }
-  .matrix-grid__head,
-  .matrix-grid__row {
-    display: grid;
-    grid-template-columns: minmax(160px, 200px) 1fr 1fr;
-    gap: var(--space-4);
-    align-items: stretch;
-  }
-  .matrix-grid__direction {
-    display: flex;
-    align-items: center;
-    gap: var(--space-2);
-    padding: var(--space-3) var(--space-4);
-    font-size: var(--fs-small);
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--bbg-ink);
-    position: relative;
-  }
-  .matrix-grid__direction::after {
-    content: '';
-    position: absolute;
-    left: var(--space-4);
-    right: var(--space-4);
-    bottom: 0;
-    height: 2px;
-    border-radius: 2px;
-  }
-  .matrix-grid__direction--west::after { background: linear-gradient(90deg, var(--bbg-blue), transparent); }
-  .matrix-grid__direction--east::after { background: linear-gradient(90deg, transparent, #c8102e); }
-  .matrix-grid__direction--east { justify-content: flex-end; flex-direction: row-reverse; }
-  .matrix-grid__arrow {
-    font-size: 1.1rem;
-    font-weight: 400;
-    color: var(--bbg-blue);
-  }
-  .matrix-grid__direction--east .matrix-grid__arrow { color: #c8102e; }
-  .matrix-grid__layer {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-1);
-    padding: var(--space-4) 0;
-    align-self: center;
-  }
-  .matrix-grid__layer-num {
-    font-family: var(--font-display);
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.16em;
-    color: var(--bbg-text-muted);
-  }
-  .matrix-grid__layer-name {
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--bbg-ink);
-  }
-  .matrix-cell {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: var(--space-1);
-    padding: var(--space-4) var(--space-5);
-    background: var(--bbg-white);
-    border: 1px solid var(--bbg-border);
-    border-radius: 12px;
-    transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease), border-color 0.25s var(--ease);
-  }
-  .matrix-cell:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 14px 30px -16px rgba(15, 23, 42, 0.18);
-    border-color: var(--bbg-border-strong);
-  }
-  .matrix-cell--lead {
-    background: linear-gradient(180deg, #ffffff 0%, var(--bbg-surface) 100%);
-    border-color: rgba(38, 154, 218, 0.25);
-  }
-  .matrix-cell--lead::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 14px;
-    bottom: 14px;
-    width: 3px;
-    background: linear-gradient(180deg, var(--bbg-blue), #c8102e);
-    border-radius: 0 3px 3px 0;
-  }
-  .matrix-grid__row--both .matrix-cell--both {
-    grid-column: 2 / -1;
-    background: linear-gradient(90deg, rgba(38, 154, 218, 0.06) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(200, 16, 46, 0.06) 100%);
-    border-color: rgba(15, 23, 42, 0.10);
-    padding: var(--space-3) var(--space-5);
-  }
-  .matrix-grid__row--both .matrix-cell--both::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 14px;
-    bottom: 14px;
-    width: 3px;
-    background: linear-gradient(180deg, var(--bbg-blue) 0%, #c8102e 100%);
-    border-radius: 0 3px 3px 0;
-  }
-  .matrix-grid__row--both .matrix-cell--both .matrix-cell__tag {
-    color: transparent;
-    background: linear-gradient(90deg, var(--bbg-blue), #c8102e);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  .matrix-grid__row--both .matrix-cell--both .matrix-cell__note {
-    color: var(--bbg-text-muted);
-    font-size: var(--fs-small);
-  }
-  .matrix-cell__tag {
-    font-size: 0.6875rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--bbg-blue);
-  }
-  .matrix-cell__name {
-    font-size: 1.0625rem;
-    font-weight: 600;
-    color: var(--bbg-ink);
-  }
-  .matrix-cell__site {
-    width: fit-content;
-    margin-top: 6px;
-    font-size: var(--fs-small);
-    font-weight: 600;
-    color: var(--bbg-blue);
-    text-decoration: none;
-    letter-spacing: 0.01em;
-    transition: opacity 0.2s var(--ease);
-  }
-  .matrix-cell__site:hover {
-    text-decoration: underline;
-    text-underline-offset: 3px;
-  }
-  .matrix-grid__row--span .matrix-cell__site {
-    color: rgba(255, 255, 255, 0.88);
-  }
-  .matrix-cell--empty {
-    background: transparent;
-    border: 1px dashed var(--bbg-border);
-    align-items: center;
-    justify-content: center;
-  }
-  .matrix-cell--empty:hover { transform: none; box-shadow: none; }
-  .matrix-cell__dash { font-size: 1.25rem; color: var(--bbg-text-muted); }
-  .matrix-grid__row--span .matrix-cell--span {
-    grid-column: 2 / -1;
-    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
-    border-color: transparent;
-    color: white;
-    align-items: center;
+  .tri-hero__intro {
     text-align: center;
-    padding: var(--space-5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-3);
+    padding-bottom: var(--space-6);
+  }
+  .tri-hero__intro .eyebrow {
+    color: rgba(255, 255, 255, 0.65);
+  }
+  .tri-hero__title {
+    color: #fff;
+    font-size: clamp(2.4rem, 6vw, 4.25rem);
+    line-height: 1.05;
+    margin: 0;
+  }
+  .tri-hero__lead {
+    max-width: 46ch;
+    font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.82);
+    margin: 0;
+  }
+  .tri-hero__cite {
+    font-size: var(--fs-small, 0.875rem);
+    color: rgba(255, 255, 255, 0.55);
+    letter-spacing: 0.02em;
+    margin: 0;
+  }
+  .tri-hero__panels {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+  .tri-panel {
+    position: relative;
+    display: block;
+    min-height: 380px;
     overflow: hidden;
+    text-decoration: none;
+    color: #fff;
   }
-  .matrix-grid__row--span .matrix-cell--span::after {
-    content: '';
+  .tri-panel__img {
     position: absolute;
-    inset: -50%;
-    background:
-      radial-gradient(circle at 30% 50%, rgba(38, 154, 218, 0.15), transparent 40%),
-      radial-gradient(circle at 70% 50%, rgba(200, 16, 46, 0.15), transparent 40%);
-    pointer-events: none;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s var(--ease, ease);
   }
-  .matrix-grid__row--span .matrix-cell--span > * { position: relative; z-index: 1; }
-  .matrix-grid__row--span .matrix-cell__name { color: white; font-size: 1.25rem; }
-  .matrix-grid__row--span .matrix-cell__note {
-    color: rgba(255,255,255,0.7);
-    font-size: var(--fs-small);
-    margin-top: 2px;
+  .tri-panel:hover .tri-panel__img { transform: scale(1.04); }
+  .tri-panel__scrim {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(10, 15, 30, 0.25) 0%, rgba(10, 15, 30, 0.82) 100%);
+    transition: background 0.4s var(--ease, ease);
   }
-  .matrix-cell__bridge {
+  .tri-panel:hover .tri-panel__scrim {
+    background: linear-gradient(180deg, rgba(10, 15, 30, 0.15) 0%, rgba(10, 15, 30, 0.88) 100%);
+  }
+  .tri-panel__content {
+    position: absolute;
+    inset: auto 0 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: var(--space-5, 2rem);
+  }
+  .tri-panel__name {
+    font-family: var(--font-display, inherit);
+    font-size: 1.375rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+  }
+  .tri-panel__line {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.45;
+  }
+  .tri-panel__brands {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 6px;
+  }
+  .tri-panel__brand {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    padding: 4px 9px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.92);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    color: #1a2438;
+  }
+  .tri-panel__brand :global(.agency-logo) {
+    height: 14px;
+    width: auto;
+    max-width: 110px;
+  }
+  .tri-panel__brand-icon {
+    width: 13px;
+    height: 13px;
+    margin-right: 5px;
+  }
+  .practice-card__brand-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 6px;
+  }
+  .tri-panel__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: var(--space-2, 0.5rem);
+    font-size: var(--fs-small, 0.875rem);
+    font-weight: 600;
+    color: #fff;
+    opacity: 0.85;
+    transition: opacity 0.25s var(--ease, ease), gap 0.25s var(--ease, ease);
+  }
+  .tri-panel:hover .tri-panel__cta { opacity: 1; gap: 10px; }
+
+  @media (max-width: 900px) {
+    .tri-hero__panels { grid-template-columns: 1fr; }
+    .tri-panel { min-height: 240px; }
+  }
+
+  /* ---------- Practice cards ---------- */
+  .practice-card h3 {
     margin-bottom: var(--space-2);
   }
-  .matrix-cell__bridge-dot {
-    width: 8px; height: 8px; border-radius: 50%;
-    background: var(--bbg-blue);
-    box-shadow: 0 0 12px rgba(38, 154, 218, 0.7);
-    animation: bridge-pulse 2.5s ease-in-out infinite;
+  .practice-card__brands {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-2) var(--space-3);
+    margin: var(--space-3) 0;
   }
-  .matrix-cell__bridge-dot:last-child {
-    background: #c8102e;
-    box-shadow: 0 0 12px rgba(200, 16, 46, 0.7);
-    animation-delay: 1.25s;
+  .practice-card__brand {
+    display: inline-flex;
+    align-items: center;
   }
-  .matrix-cell__bridge-line {
-    width: 64px; height: 2px;
-    background: linear-gradient(90deg, var(--bbg-blue), #c8102e);
-    border-radius: 2px;
+  .practice-card__brand :global(.agency-logo) {
+    height: 20px;
+    width: auto;
+    max-width: 130px;
   }
-  /* BearingBridge AI: same span layout as HubStudio, brand navy + gold. */
-  .matrix-grid__row--span .matrix-cell--ai {
-    background: linear-gradient(135deg, #131d33 0%, #1f2e4d 100%);
+  .practice-card__brand--text {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--bbg-text-muted);
   }
-  .matrix-grid__row--span .matrix-cell--ai::after {
-    background:
-      radial-gradient(circle at 30% 50%, rgba(194, 146, 47, 0.18), transparent 40%),
-      radial-gradient(circle at 70% 50%, rgba(224, 179, 94, 0.16), transparent 40%);
+
+  .transition-line {
+    margin-bottom: var(--space-3);
+    font-size: var(--fs-small);
+    color: var(--bbg-text-muted);
   }
-  .matrix-cell--ai .matrix-cell__bridge-dot {
-    background: #c2922f;
-    box-shadow: 0 0 12px rgba(194, 146, 47, 0.7);
-  }
-  .matrix-cell--ai .matrix-cell__bridge-dot:last-child {
-    background: #e0b35e;
-    box-shadow: 0 0 12px rgba(224, 179, 94, 0.7);
-    animation-delay: 1.25s;
-  }
-  .matrix-cell--ai .matrix-cell__bridge-line {
-    background: linear-gradient(90deg, #c2922f, #e0b35e);
-  }
-  @keyframes bridge-pulse {
-    0%, 100% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(1.4); opacity: 0.6; }
-  }
-  @media (max-width: 767px) {
-    .matrix-grid__head { display: none; }
-    .matrix-grid__row { grid-template-columns: 1fr; gap: var(--space-2); padding-bottom: var(--space-4); border-bottom: 1px solid var(--bbg-border); }
-    .matrix-grid__row:last-child { border-bottom: none; }
-    .matrix-grid__row--span .matrix-cell--span { grid-column: 1 / -1; }
+
+  .home-cta__meta {
+    margin-top: var(--space-5);
+    font-size: var(--fs-small);
+    color: var(--bbg-text-muted);
   }
 </style>

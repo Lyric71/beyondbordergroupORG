@@ -1,5 +1,5 @@
 ---
-import { type Locale, pathFor, t } from '../i18n/ui';
+import { type Locale, type Route, pathFor, t } from '../i18n/ui';
 import AgencyLogo from './AgencyLogo.astro';
 
 interface Props {
@@ -10,29 +10,82 @@ interface Props {
 const { locale, current } = Astro.props;
 const ui = t(locale);
 
-const ourWay = [
-  { route: 'bridge' as const, label: ui.nav.bridge, desc: ui.nav.bridgeItemDesc, mod: 'bridge' as const },
-  { route: 'two-flows' as const, label: ui.nav.flowsLabel, desc: ui.nav.flowsItemDesc, mod: 'flows' as const },
-  { route: 'how-we-work-together' as const, label: ui.nav.howWeWork, desc: ui.nav.howWeWorkItemDesc, mod: 'method' as const },
+type MegaItem = { href: string; title: string; desc: string; logoRoute?: string; icon?: string };
+
+const aiItems: MegaItem[] = [
+  { href: pathFor('agencies/bearingbridgeai', locale), title: 'BearingBridge AI', desc: 'AI consulting, evidence over hype.', logoRoute: 'agencies/bearingbridgeai' },
+  { href: pathFor('ai-services/intelligence', locale), title: 'Intelligence', desc: 'Our platform, AI at work.', icon: '/AgencyLogos/intelligence-icon.png' },
+  { href: pathFor('agencies/hubstudio', locale), title: 'HubStudio', desc: 'Content production at scale.', logoRoute: 'agencies/hubstudio' },
+  { href: pathFor('agencies/nuvora-studio', locale), title: 'Nuvora Studio', desc: 'LinkedIn-only B2B.', logoRoute: 'agencies/nuvora-studio' },
 ];
 
-const agencies = [
-  { route: 'agencies/bearingbridge' as const, title: 'TheChinaPath', desc: ui.nav.agencyDescs.bearingbridge },
-  { route: 'agencies/beyondbridge' as const, title: 'BeyondBridge', desc: ui.nav.agencyDescs.beyondbridge },
-  { route: 'agencies/hubstudio' as const, title: 'HubStudio', desc: ui.nav.agencyDescs.hubstudio },
-  { route: 'agencies/bearingbridgeai' as const, title: 'BearingBridge AI', desc: ui.nav.agencyDescs.bearingbridgeAi },
-  { route: 'agencies/chinawebfoundry' as const, title: 'ChinaWebFoundry', desc: ui.nav.agencyDescs.chinawebfoundry },
-  { route: 'agencies/theredscroll' as const, title: 'TheRedScroll', desc: ui.nav.agencyDescs.theredscroll },
-  { route: 'agencies/compass' as const, title: 'Compass', desc: ui.nav.agencyDescs.compass },
-  { route: 'agencies/nuvora-studio' as const, title: 'Nuvora Studio', desc: ui.nav.agencyDescs.nuvoraStudio },
+const cbItems: MegaItem[] = [
+  { href: pathFor('agencies/bearingbridge', locale), title: 'TheChinaPath', desc: 'Full-service China entry.', logoRoute: 'agencies/bearingbridge' },
+  { href: pathFor('agencies/beyondbridge', locale), title: 'BeyondBridge', desc: 'Chinese brands, Western pipeline.', logoRoute: 'agencies/beyondbridge' },
+  { href: pathFor('agencies/chinawebfoundry', locale), title: 'ChinaWebFoundry', desc: 'Websites built for China.', logoRoute: 'agencies/chinawebfoundry' },
+  { href: pathFor('agencies/theredscroll', locale), title: 'TheRedScroll', desc: 'Chinese social media.', logoRoute: 'agencies/theredscroll' },
+  { href: pathFor('agencies/compass', locale), title: 'Compass', desc: 'Vetted China distributors and TPs.', logoRoute: 'agencies/compass' },
+  { href: pathFor('two-flows', locale), title: 'Two flows', desc: 'One bridge, two directions.' },
+  { href: pathFor('bridge', locale), title: ui.nav.bridge, desc: ui.nav.bridgeItemDesc },
 ];
 
-const ourWayDesc = ui.nav.ourWayDesc;
-const agenciesDesc = ui.nav.agenciesDesc;
+const productItems: MegaItem[] = [
+  { href: `${pathFor('products', locale)}#bbchien`, title: 'BBChien', desc: 'Independent French dog media.', logoRoute: 'bbchien' },
+  { href: `${pathFor('products', locale)}#deuceladder`, title: 'DeuceLadder', desc: 'In build.' },
+];
 
-const ourWayRoutes: string[] = ['bridge', 'two-flows', 'entering-china', 'going-overseas', 'how-we-work-together'];
-const isOurWayActive = !!current && ourWayRoutes.includes(current);
-const isAgenciesActive = !!current && (current === 'agencies' || current.startsWith('agencies/'));
+const groupItems: MegaItem[] = [
+  { href: pathFor('the-group', locale), title: 'About us', desc: 'One operator, three practices, one stack.' },
+  { href: pathFor('how-we-work', locale), title: ui.nav.howWeWork, desc: ui.nav.howWeWorkItemDesc },
+];
+
+const megas: { key: string; label: string; route: Route; lead: string; meta: string; footNote: string; items: MegaItem[] }[] = [
+  {
+    key: 'ai',
+    label: 'AI Services',
+    route: 'ai-services',
+    lead: 'Three teams and one platform. Evidence over hype, Western and Chinese models benchmarked.',
+    meta: 'Strategy through production',
+    footNote: 'Every team takes clients directly.',
+    items: aiItems,
+  },
+  {
+    key: 'cb',
+    label: 'Cross-Border Marketing',
+    route: 'cross-border-marketing',
+    lead: 'Five specialists carrying brands between China and the West, both ways.',
+    meta: 'Both directions, every day',
+    footNote: 'Every agency takes clients directly.',
+    items: cbItems,
+  },
+  {
+    key: 'products',
+    label: 'Products',
+    route: 'products',
+    lead: 'Media and software we own and operate, on the same stack we sell.',
+    meta: 'Proof before promises',
+    footNote: 'Built and run by the group.',
+    items: productItems,
+  },
+  {
+    key: 'group',
+    label: 'The group',
+    route: 'the-group',
+    lead: 'Who is behind the three practices, and how a project actually runs.',
+    meta: 'One group, three practices',
+    footNote: 'Start with the practice you need.',
+    items: groupItems,
+  },
+];
+
+const activeMega = (key: string): boolean => {
+  if (!current) return false;
+  if (key === 'ai') return current === 'ai-services' || current.startsWith('ai-services/') || ['agencies/bearingbridgeai', 'agencies/hubstudio', 'agencies/nuvora-studio'].includes(current);
+  if (key === 'cb') return current === 'cross-border-marketing' || current === 'agencies' || current === 'bridge' || current === 'two-flows' || ['agencies/bearingbridge', 'agencies/beyondbridge', 'agencies/chinawebfoundry', 'agencies/theredscroll', 'agencies/compass'].includes(current);
+  if (key === 'products') return current === 'products';
+  if (key === 'group') return current === 'the-group' || current === 'how-we-work';
+  return false;
+};
 ---
 
 <header class="site-header">
@@ -49,108 +102,58 @@ const isAgenciesActive = !!current && (current === 'agencies' || current.startsW
 
     <nav class="nav-primary" aria-label="Primary">
       <ul class="nav-primary__list">
-        <li class="nav-item nav-item--mega">
-          <a class="nav-primary__link" href={pathFor('bridge', locale)} aria-haspopup="true" aria-current={isOurWayActive ? 'page' : undefined}>
-            {ui.nav.ourWay}
-            <svg class="nav-chev" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M3 4.5l3 3 3-3" />
-            </svg>
-          </a>
-          <div class="mega" role="menu" aria-label={ui.nav.ourWay}>
-            <div class="container mega__grid">
-              <div class="mega__lead">
-                <div class="mega__lead-text">
-                  <h3>{ui.nav.ourWay}</h3>
-                  <p>{ourWayDesc}</p>
+        {megas.map((m) => (
+          <li class="nav-item nav-item--mega">
+            <a class="nav-primary__link" href={pathFor(m.route, locale)} aria-haspopup="true" aria-current={activeMega(m.key) ? 'page' : undefined}>
+              {m.label}
+              <svg class="nav-chev" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M3 4.5l3 3 3-3" />
+              </svg>
+            </a>
+            <div class="mega" role="menu" aria-label={m.label}>
+              <div class="container mega__grid">
+                <div class="mega__lead">
+                  <div class="mega__lead-text">
+                    <h3>{m.label}</h3>
+                    <p>{m.lead}</p>
+                  </div>
+                  <span class="mega__lead-meta"><span class="dot" aria-hidden="true"></span>{m.meta}</span>
                 </div>
-                <span class="mega__lead-meta"><span class="dot" aria-hidden="true"></span>{ui.nav.ourWayMeta}</span>
-              </div>
-              <div class="mega__items">
-                {ourWay.map((f, i) => (
-                  <a class={`mega-item mega-item--with-icon mega-item--${f.mod}`} href={pathFor(f.route, locale)} style={`--i: ${i}`}>
-                    <span class="mega-item__icon" aria-hidden="true">
-                      {f.route === 'bridge' && (
-                        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                          <path d="M3 23h26" />
-                          <path d="M6 23v-6" />
-                          <path d="M26 23v-6" />
-                          <path d="M6 17c4 0 5.5-3 10-3s6 3 10 3" />
-                          <path d="M11 23v-3" />
-                          <path d="M16 23v-4" />
-                          <path d="M21 23v-3" />
-                        </svg>
+                <div class="mega__items">
+                  {m.items.map((item, i) => (
+                    <a class={`mega-item${item.logoRoute ? ' mega-item--with-logo' : ''}`} href={item.href} style={`--i: ${i}`}>
+                      {item.logoRoute ? (
+                        <span class="mega-item__logo">
+                          <AgencyLogo route={item.logoRoute} name={item.title} />
+                        </span>
+                      ) : (
+                        <span class="mega-item__title">
+                          {item.icon && <img class="mega-item__brand-icon" src={item.icon} alt="" width="96" height="96" loading="lazy" decoding="async" />}
+                          {item.title}
+                        </span>
                       )}
-                      {f.route === 'two-flows' && (
-                        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                          <path d="M4 12h22" />
-                          <path d="M19 6l7 6-7 6" />
-                          <path d="M28 20H6" />
-                          <path d="M13 14l-7 6 7 6" />
-                        </svg>
-                      )}
-                      {f.route === 'how-we-work-together' && (
-                        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                          <circle cx="13" cy="16" r="6" />
-                          <circle cx="19" cy="16" r="6" />
-                        </svg>
-                      )}
-                    </span>
-                    <span class="mega-item__title">{f.label}</span>
-                    <span class="mega-item__desc">{f.desc}</span>
-                    <svg class="mega-item__arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <span class="mega-item__desc">{item.desc}</span>
+                      <svg class="mega-item__arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M3 8h10" />
+                        <path d="M9 4l4 4-4 4" />
+                      </svg>
+                    </a>
+                  ))}
+                </div>
+                <div class="mega__footer">
+                  <span>{m.footNote}</span>
+                  <a class="mega__footer-link" href={pathFor(m.route, locale)}>
+                    Open {m.label}
+                    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                       <path d="M3 8h10" />
                       <path d="M9 4l4 4-4 4" />
                     </svg>
                   </a>
-                ))}
-              </div>
-            </div>
-          </div>
-        </li>
-
-        <li class="nav-item nav-item--mega">
-          <a class="nav-primary__link" href={pathFor('agencies', locale)} aria-haspopup="true" aria-current={isAgenciesActive ? 'page' : undefined}>
-            {ui.nav.agencies}
-            <svg class="nav-chev" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M3 4.5l3 3 3-3" />
-            </svg>
-          </a>
-          <div class="mega" role="menu" aria-label={ui.nav.agencies}>
-            <div class="container mega__grid">
-              <div class="mega__lead">
-                <div class="mega__lead-text">
-                  <h3>{ui.nav.agencies}</h3>
-                  <p>{agenciesDesc}</p>
                 </div>
-                <span class="mega__lead-meta"><span class="dot" aria-hidden="true"></span>{ui.nav.specialistStudios(agencies.length)}</span>
-              </div>
-              <div class="mega__items mega__items--agencies">
-                {agencies.map((a, i) => (
-                  <a class="mega-item mega-item--with-logo" href={pathFor(a.route, locale)} style={`--i: ${i}`}>
-                    <span class="mega-item__logo">
-                      <AgencyLogo route={a.route} name={a.title} />
-                    </span>
-                    <span class="mega-item__desc">{a.desc}</span>
-                    <svg class="mega-item__arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                      <path d="M3 8h10" />
-                      <path d="M9 4l4 4-4 4" />
-                    </svg>
-                  </a>
-                ))}
-              </div>
-              <div class="mega__footer">
-                <span>{ui.nav.agenciesStandAlone}</span>
-                <a class="mega__footer-link" href={pathFor('agencies', locale)}>
-                  {ui.nav.viewAllAgencies}
-                  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <path d="M3 8h10" />
-                    <path d="M9 4l4 4-4 4" />
-                  </svg>
-                </a>
               </div>
             </div>
-          </div>
-        </li>
+          </li>
+        ))}
       </ul>
     </nav>
 
@@ -176,31 +179,28 @@ const isAgenciesActive = !!current && (current === 'agencies' || current.startsW
 <nav id="mobile-menu" class="nav-mobile" aria-label="Mobile" hidden>
     <div class="container nav-mobile__inner">
       <ul class="nav-mobile__list">
-        <li class="nav-mobile__section" style="--i: 0">
-          <span class="nav-mobile__group">{ui.nav.ourWay}</span>
-          <ul class="nav-mobile__sublist">
-            {ourWay.map((f) => (
-              <li><a class="nav-mobile__link" href={pathFor(f.route, locale)}>{f.label}</a></li>
-            ))}
-          </ul>
-        </li>
+        {megas.map((m, gi) => (
+          <li class="nav-mobile__section" style={`--i: ${gi}`}>
+            <span class="nav-mobile__group">{m.label}</span>
+            <ul class="nav-mobile__sublist">
+              {m.key !== 'group' && (
+                <li><a class="nav-mobile__link" href={pathFor(m.route, locale)}>Open {m.label}</a></li>
+              )}
+              {m.items.map((item) => (
+                <li>
+                  <a class={`nav-mobile__link${item.logoRoute ? ' nav-mobile__link--with-logo' : ''}`} href={item.href}>
+                    {item.logoRoute && (
+                      <span class="nav-mobile__logo"><AgencyLogo route={item.logoRoute} name={item.title} /></span>
+                    )}
+                    <span>{item.title}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </li>
+        ))}
 
-        <li class="nav-mobile__section" style="--i: 1">
-          <span class="nav-mobile__group">{ui.nav.agencies}</span>
-          <ul class="nav-mobile__sublist">
-            <li><a class="nav-mobile__link" href={pathFor('agencies', locale)}>{ui.nav.agencies}</a></li>
-            {agencies.map((a) => (
-              <li>
-                <a class="nav-mobile__link nav-mobile__link--with-logo" href={pathFor(a.route, locale)}>
-                  <span class="nav-mobile__logo"><AgencyLogo route={a.route} name={a.title} /></span>
-                  <span>{a.title}</span>
-                </a>
-              </li>
-            ))}
-          </ul>
-        </li>
-
-        <li style="--i: 2">
+        <li style="--i: 4">
           <a class="nav-mobile__link nav-mobile__link--cta btn btn--primary" href={pathFor('contact', locale)}>{ui.nav.contact}</a>
         </li>
       </ul>
@@ -208,6 +208,16 @@ const isAgenciesActive = !!current && (current === 'agencies' || current.startsW
   </nav>
 
 <div class="site-overlay" aria-hidden="true"></div>
+
+<style>
+  .mega-item__brand-icon {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    vertical-align: -4px;
+    margin-right: 8px;
+  }
+</style>
 
 <script>
   const headerEl = document.querySelector<HTMLElement>('.site-header');

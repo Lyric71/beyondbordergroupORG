@@ -1,0 +1,184 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { pathFor } from '../i18n/ui';
+
+const locale = 'en' as const;
+const title = 'Media and software we operate';
+const description = 'Media and software BearingBridge owns and operates, built on the same AI stack we sell to clients. Public proof that it works.';
+---
+
+<Layout locale={locale} route="products" title={title} description={description}>
+  <section class="hero-editorial hero-editorial--dark">
+    <div class="container">
+      <span class="eyebrow eyebrow--on-dark">Products</span>
+      <h1 class="hero-editorial__title balance">We build products. And we run them.</h1>
+      <p class="hero-editorial__lead">
+        Consulting proves itself slowly. Products prove themselves in public. This is where we run the
+        group's AI stack, with our own money at stake. Operating businesses teaches what advising them
+        never will.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="portfolio">
+    <div class="container">
+      <header class="section-header">
+        <span class="eyebrow">The portfolio</span>
+        <h2 class="balance">Live today, next in build.</h2>
+      </header>
+
+      <div class="grid-2 product-grid">
+        <div class="card product-card" id="bbchien">
+          <img
+            class="product-card__shot"
+            src="/images/bbchien-home.webp"
+            alt="The BBChien homepage."
+            loading="lazy"
+            decoding="async"
+          />
+          <div class="product-card__meta">
+            <img class="product-card__logo" src="/AgencyLogos/bbchien-lockup-color.svg" alt="BBChien" width="460" height="128" loading="lazy" decoding="async" />
+            <span class="product-card__badges">media · France · live</span>
+          </div>
+          <h3>An independent French media on dogs.</h3>
+          <p>
+            A media site for French dog owners: a complete breed library, sourced practical guides,
+            interactive tools, and a professional directory. We built it and run it on our
+            <a href={pathFor('ai-services', locale)}>AI content and publishing stack</a>, and it is
+            financed without animal-brand money. Live at bbchien.fr today.
+          </p>
+          <a class="btn btn--ghost" style="margin-top: auto;" href="https://bbchien.fr" target="_blank" rel="noreferrer">bbchien.fr ↗</a>
+        </div>
+
+        <div class="card product-card" id="deuceladder">
+          <img
+            class="product-card__shot"
+            src="/images/deuceladder-placeholder.webp"
+            alt=""
+            loading="lazy"
+            decoding="async"
+          />
+          <div class="product-card__meta">
+            <span class="product-card__name">DeuceLadder</span>
+            <span class="product-card__badges">software · in build</span>
+          </div>
+          <h3>The next one over the bridge.</h3>
+          <p>In build now, on the same stack. deuceladder.com opens at launch.</p>
+          <a class="btn btn--ghost" style="margin-top: auto;" href="https://deuceladder.com" target="_blank" rel="noreferrer">deuceladder.com ↗</a>
+        </div>
+      </div>
+
+      <p class="product-more">
+        The portfolio keeps growing. We are always building something, and we are open to conversations
+        about co-building or acquiring. <a href={pathFor('contact', locale)}>Talk to us</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--dark" id="reason">
+    <div class="container container--narrow">
+      <span class="eyebrow eyebrow--on-dark">The reason</span>
+      <h2 class="balance">The stack, with skin in the game.</h2>
+      <p class="lead">
+        Client work shows what the stack can do on someone else's budget. These products show what it does
+        on ours: real traffic, real costs, and no way to hide when something breaks.
+      </p>
+      <blockquote class="product-pullquote">What survives here is what we recommend there.</blockquote>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="container container--narrow center">
+      <h2 class="balance">Talk products.</h2>
+      <p class="lead" style="margin-inline: auto;">
+        To co-build or acquire, or just to see how the stack runs a real business, write to
+        <a href="mailto:hello@bearingbridge.com">hello@bearingbridge.com</a>. If you came for the services
+        side, that is <a href={pathFor('ai-services', locale)}>AI Services</a> and
+        <a href={pathFor('cross-border-marketing', locale)}>Cross-Border Marketing</a>.
+      </p>
+      <div class="btn-row" style="justify-content: center; margin-top: var(--space-5);">
+        <a class="btn btn--primary" href={pathFor('contact', locale)}>Get in touch</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .product-grid { align-items: stretch; }
+  .product-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+  .product-card__shot {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1408 / 832;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid var(--bbg-border);
+    margin-bottom: var(--space-2);
+  }
+  .product-card__meta {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-2);
+  }
+  .product-card__name {
+    font-family: var(--font-display, inherit);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--bbg-ink);
+  }
+  .product-card__logo {
+    height: 30px;
+    width: auto;
+  }
+  .product-card__badges {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--bbg-text-muted);
+  }
+  .product-card h3 { margin: 0; }
+  .product-card p { margin: 0 0 var(--space-3); }
+  .product-card p a {
+    color: var(--bbg-blue);
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .product-card p a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+  .product-more {
+    margin-top: var(--space-5);
+    max-width: 68ch;
+    color: var(--bbg-text-muted);
+  }
+  .product-more a {
+    color: var(--bbg-blue);
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .product-more a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+  .product-pullquote {
+    margin: var(--space-5) 0 0;
+    padding-left: var(--space-4);
+    border-left: 3px solid #e0b35e;
+    font-family: var(--font-display, inherit);
+    font-size: clamp(1.35rem, 2.4vw, 1.75rem);
+    font-weight: 600;
+    line-height: 1.35;
+    color: #fff;
+  }
+
+  .section--tight .lead a {
+    color: var(--bbg-blue);
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .section--tight .lead a:hover { text-decoration: underline; text-underline-offset: 3px; }
+</style>

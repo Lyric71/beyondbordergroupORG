@@ -1,0 +1,165 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { pathFor } from '../i18n/ui';
+
+const locale = 'en' as const;
+const title = 'The group behind three practices';
+const description = 'One operator, three practices, one AI stack: AI services, cross-border marketing between China and the West, and products BearingBridge owns and runs.';
+
+const linkedinUrl = 'https://www.linkedin.com/in/cyril-d-68835729/';
+---
+
+<Layout locale={locale} route="the-group" title={title} description={description}>
+  <section class="hero-editorial hero-editorial--dark">
+    <div class="container">
+      <span class="eyebrow eyebrow--on-dark">The group</span>
+      <h1 class="hero-editorial__title balance">We do not just advise on AI. We run on it.</h1>
+      <p class="hero-editorial__lead">
+        BearingBridge is one group with three practices. We consult on AI, we grow brands across China and
+        the West, and we build products we own and operate. All three run on the same stack, so we have
+        tested what we sell on our own business first.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--alt" id="thesis">
+    <div class="container container--narrow">
+      <span class="eyebrow">The thesis</span>
+      <p class="transition-line">Start with why these three sit together.</p>
+      <h2 class="balance">Three practices, one reason.</h2>
+      <p class="lead">
+        Most firms pick a lane. We run three, on purpose, because they make each other better. Advice gets
+        sharper when you also operate. Operations get sharper when you also build the tools. And the tools
+        get sharper when they face the hardest market pairing there is. Run apart, these are three
+        businesses. Run together, they compound.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="flywheel">
+    <div class="container">
+      <header class="section-header">
+        <span class="eyebrow">The flywheel</span>
+        <h2 class="balance">How the three feed each other.</h2>
+      </header>
+
+      <div class="grid-3">
+        <a class="card flywheel-card" href={pathFor('ai-services', locale)}>
+          <h3>AI Services builds it.</h3>
+          <p>
+            Strategy, a working platform, content production, and LinkedIn B2B, with Western and Chinese
+            models benchmarked side by side.
+          </p>
+        </a>
+        <a class="card flywheel-card" href={pathFor('cross-border-marketing', locale)}>
+          <h3>Cross-Border Marketing runs it.</h3>
+          <p>
+            Five agencies carrying brands, products, and services across China and the West, both ways,
+            using the same stack under real market pressure.
+          </p>
+        </a>
+        <a class="card flywheel-card" href={pathFor('products', locale)}>
+          <h3>Products prove it.</h3>
+          <p>Media and software we own and operate, on that same stack, with our own money at stake.</p>
+        </a>
+      </div>
+
+      <p class="flywheel-loop">
+        The loop closes when running our own products teaches us something we take straight back into
+        client work.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--alt" id="track-record">
+    <div class="container container--narrow">
+      <span class="eyebrow">Track record</span>
+      <p class="transition-line">The cross-border side has the longest history, so start there.</p>
+      <h2 class="balance">Brands we have grown in China.</h2>
+      <p class="lead">
+        The group's cross-border teams have run China across beauty and dermo-cosmetics, automotive and EV,
+        food and beverage, hospitality, home and lifestyle, and digital health. Enough sectors to know that
+        the platform logic changes with every one.
+      </p>
+      <p class="lead">
+        The named work sits on the agency sites: a fashion brand that grew its combined social following
+        more than fourfold, a hotel group that took eight-figure RMB GMV on a single Tmall festival day, a
+        heritage food brand whose long China decline was reversed. Names and numbers are there for anyone
+        who wants them.
+      </p>
+      <div class="btn-row" style="margin-top: var(--space-4);">
+        <a class="btn btn--ghost" href="https://www.thechinapath.com/work" target="_blank" rel="noreferrer">See the cross-border work ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--dark" id="operator">
+    <div class="container">
+      <div class="split split--text-first">
+        <div>
+          <span class="eyebrow eyebrow--on-dark">The operator</span>
+          <h2 class="balance">One operator. Europe and North Asia.</h2>
+          <p class="lead">
+            The group is founded and led by Cyril Drouin. Digital, eCommerce, brand: his work has run
+            across Europe and North Asia, on both sides of the border this group is named after. Former
+            Chief Digital and eCommerce Officer for Publicis North Asia. Founder of BysoftChina.
+          </p>
+          <a class="btn btn--ghost-light" href={linkedinUrl} target="_blank" rel="noreferrer">Connect on LinkedIn</a>
+        </div>
+        <div>
+          <a class="founder-portrait" href={linkedinUrl} target="_blank" rel="noreferrer" aria-label="Cyril Drouin on LinkedIn">
+            <img
+              src="/Team/CyrilDrouin.jpg"
+              alt="Cyril Drouin, founder of BearingBridge."
+              width="1905"
+              height="2560"
+              loading="lazy"
+              decoding="async"
+            />
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="footprint">
+    <div class="container container--narrow">
+      <span class="eyebrow">Where we are</span>
+      <h2 class="balance">On the ground, both sides.</h2>
+      <p class="lead">
+        Shanghai, Hong Kong, Singapore, Paris, and Hangzhou, with in-market reps in the US, UK, Germany, and France.
+        We work in English, French, Spanish, German, and Chinese, on a working day that overlaps China and
+        Europe.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--tight section--alt">
+    <div class="container container--narrow center">
+      <h2 class="balance">Start with the practice you need.</h2>
+      <p class="lead" style="margin-inline: auto;">
+        Thirty minutes on a call. We will point you to the right practice, and the right team inside it.
+      </p>
+      <div class="btn-row" style="justify-content: center; margin-top: var(--space-5);">
+        <a class="btn btn--primary" href={pathFor('contact', locale)}>Book a call</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .transition-line {
+    margin-bottom: var(--space-3);
+    font-size: var(--fs-small);
+    color: var(--bbg-text-muted);
+  }
+
+  .flywheel-card h3 { margin-bottom: var(--space-2); }
+  .flywheel-loop {
+    margin-top: var(--space-5);
+    max-width: 68ch;
+    color: var(--bbg-text-muted);
+  }
+
+  #track-record .lead + .lead { margin-top: var(--space-3); }
+</style>

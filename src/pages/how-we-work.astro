@@ -1,0 +1,120 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { pathFor } from '../i18n/ui';
+
+const locale = 'en' as const;
+const title = 'How we work with you';
+const description = 'How a BearingBridge project runs: start with one team, evidence before scale, senior people on the work, and specialists added only when needed.';
+
+const steps = [
+  {
+    lead: 'One, the call.',
+    body: 'Thirty minutes on your market, your data, and what you need to be doing six months out. A senior person replies within one working day. No funnel, no auto-responder.',
+  },
+  {
+    lead: 'Two, the scope.',
+    body: 'We tell you which practice and which team fit, and whether you should start with more than one. You get a scope in writing before anything is built.',
+  },
+  {
+    lead: 'Three, the work.',
+    body: 'The senior who wrote the plan stays on it. One team owns the outcome, not four agencies with four briefs and four invoices.',
+  },
+  {
+    lead: 'Four, the review.',
+    body: 'A single weekly cadence, a live view of what is happening, and a monthly senior business review on the calendar. No PDFs that arrive a week late.',
+  },
+];
+---
+
+<Layout locale={locale} route="how-we-work" title={title} description={description}>
+  <section class="hero-editorial hero-editorial--dark">
+    <div class="container">
+      <span class="eyebrow eyebrow--on-dark">How we work</span>
+      <h1 class="hero-editorial__title balance">Start with one team. Add others when the work grows.</h1>
+      <p class="hero-editorial__lead">
+        Every practice and agency in the group takes clients directly. You do not buy the whole group; you
+        start where the need is sharpest, and we bring in the rest only when the project calls for it.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--alt" id="principle">
+    <div class="container container--narrow">
+      <span class="eyebrow">The principle</span>
+      <p class="transition-line">One rule sits under everything below.</p>
+      <h2 class="balance">Evidence before scale.</h2>
+      <p class="lead">
+        We measure before we recommend and agree on the metric before we build. A pilot runs small and
+        timeboxed, on a dated baseline, and we read the result honestly. When the evidence says scale, we
+        scale. When it says stop, we say stop. This is the AZIMUTH method on the AI side, and the same
+        instinct runs through the cross-border work: test what the platforms reward this week, not last
+        year.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="how">
+    <div class="container">
+      <header class="section-header">
+        <span class="eyebrow">How a project runs</span>
+        <h2 class="balance">Four steps, whichever practice you enter.</h2>
+      </header>
+      <div class="grid-2">
+        {steps.map((s) => (
+          <div class="card step-card">
+            <h3>{s.lead}</h3>
+            <p>{s.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt" id="who">
+    <div class="container container--narrow">
+      <span class="eyebrow">Who does the work</span>
+      <h2 class="balance">Senior people, on the work.</h2>
+      <p class="lead">
+        Most agencies hand you an account manager. We hand you an operator. The people who scope your
+        project are the people who run it, and they are full-time on the work, not splitting hours across
+        a dozen accounts. Specialists from the other practices join when their piece is needed, social,
+        web, partners, content, or AI, and step back when it is done.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="contract">
+    <div class="container container--narrow">
+      <span class="eyebrow">One group, one contract</span>
+      <h2 class="balance">One relationship, however many teams.</h2>
+      <p class="lead">
+        Pull in three more teams without renegotiating from scratch. We contract from Shanghai or Hong
+        Kong for the China side, with fapiao invoicing when you need it, and from the group's Western
+        entities for the other side. Whatever the mix, you keep one point of contact and one owner of the
+        result.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--tight section--alt">
+    <div class="container container--narrow center">
+      <h2 class="balance">Tell us where you are.</h2>
+      <p class="lead" style="margin-inline: auto;">
+        Wherever the work sits, AI, China, or a product idea, the first step is the same. Thirty minutes,
+        a senior person, a straight answer.
+      </p>
+      <div class="btn-row" style="justify-content: center; margin-top: var(--space-5);">
+        <a class="btn btn--primary" href={pathFor('contact', locale)}>Book a call</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .transition-line {
+    margin-bottom: var(--space-3);
+    font-size: var(--fs-small);
+    color: var(--bbg-text-muted);
+  }
+  .step-card h3 { margin-bottom: var(--space-2); }
+</style>

@@ -1,0 +1,14 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 128" width="460" height="128" role="img" aria-label="BBChien">
+  <ellipse cx="29" cy="76" rx="14" ry="34" fill="#D9532B" transform="rotate(-24 29 76)"></ellipse>
+  <ellipse cx="99" cy="76" rx="14" ry="34" fill="#D9532B" transform="rotate(24 99 76)"></ellipse>
+  <circle cx="64" cy="60" r="39" fill="#F4813F"></circle>
+  <ellipse cx="64" cy="80" rx="20.5" ry="15.5" fill="#FDF3E7"></ellipse>
+  <circle cx="51" cy="56" r="5.8" fill="#4A2C1D"></circle>
+  <circle cx="77" cy="56" r="5.8" fill="#4A2C1D"></circle>
+  <circle cx="52.9" cy="53.8" r="2" fill="#fff"></circle>
+  <circle cx="78.9" cy="53.8" r="2" fill="#fff"></circle>
+  <path d="M64 82 C56.6 75 52 73 52 68.4 C52 65.5 54.9 63.8 57.7 65.5 C60 66.9 62.3 69.1 64 71 C65.7 69.1 68 66.9 70.3 65.5 C73.1 63.8 76 65.5 76 68.4 C76 73 71.4 75 64 82 Z" fill="#4A2C1D"></path>
+  <path d="M64 82 C62 86.4 58.3 87.4 55.2 85.5 M64 82 C66 86.4 69.7 87.4 72.8 85.5" fill="none" stroke="#4A2C1D" stroke-width="2.7" stroke-linecap="round"></path>
+  <text x="132" y="82" font-family="Fredoka, sans-serif" font-size="56" font-weight="700" fill="#F4813F">BB<tspan font-weight="500" fill="#4A2C1D">Chien</tspan></text>
+</svg>

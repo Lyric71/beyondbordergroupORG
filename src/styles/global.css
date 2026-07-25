@@ -712,6 +712,9 @@ blockquote {
   box-shadow: 0 10px 25px -10px rgba(0, 0, 0, 0.12);
   transform: translateY(-2px);
 }
+/* Anchor cards: body copy keeps text color instead of inheriting link blue. */
+a.card { color: var(--bbg-text); text-decoration: none; }
+a.card p { color: var(--bbg-text); }
 .card__index {
   font-size: var(--fs-label);
   font-weight: 600;

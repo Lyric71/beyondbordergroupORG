@@ -65,12 +65,6 @@ const inboundAgencies = [
     body: 'A private database of vetted China distributors, Tmall TPs, and Douyin partners.',
     route: 'agencies/compass' as const,
   },
-  {
-    name: 'HubStudio',
-    role: 'The content production engine for China',
-    body: 'Production for Chinese audiences at the volume RedNote, Douyin and WeChat demand.',
-    route: 'agencies/hubstudio' as const,
-  },
 ];
 
 const outboundReq = [
@@ -79,12 +73,6 @@ const outboundReq = [
     h: 'A brand Western buyers recognise',
     body: 'Not translated from China. Names that work, claims that do not read off, a visual identity that lands in Frankfurt and Chicago without an asterisk.',
     pill: 'Built, not translated',
-  },
-  {
-    icon: 'channels',
-    h: 'Presence on LinkedIn',
-    body: 'Western B2B opens LinkedIn before the call. Empty page, no call. Buyers trust companies more when executives post.',
-    pill: '82% trust execs who post',
   },
   {
     icon: 'monitor',
@@ -324,9 +312,9 @@ const outboundReq = [
   <section class="section section--alt agency-section">
     <div class="container">
       <header class="section-header">
-        <span class="eyebrow">Five specialists. One flow.</span>
+        <span class="eyebrow">Four specialists. One flow.</span>
         <h2 class="balance">Pick the whole stack, or pick the piece.</h2>
-        <p class="lead">Five independent teams cover the inbound stack end to end. Hire one. Hire two. Hire all five. They share a spine.</p>
+        <p class="lead">Four independent teams cover the inbound stack end to end. Hire one. Hire two. Hire all four. They share a spine.</p>
       </header>
       <div class="agency-rail" data-stagger>
         {inboundAgencies.map((a, i) => (
@@ -386,11 +374,11 @@ const outboundReq = [
             <span class="opening__line">A vetted shortlist of distributors and TPs in days, not months.</span>
           </div>
         </a>
-        <a class="opening" href={pathFor('agencies/hubstudio', locale)} style="--i: 4;">
+        <a class="opening" href={pathFor('ai-services', locale)} style="--i: 4;">
           <span class="opening__quote-mark" aria-hidden="true">&#8220;</span>
           <p class="opening__quote">Our content does not resonate with Chinese audiences.</p>
           <div class="opening__answer">
-            <span class="opening__by">HubStudio</span>
+            <span class="opening__by">AI Services · HubStudio</span>
             <span class="opening__line">Content rebuilt for Chinese readers, at the volume the channels demand.</span>
           </div>
         </a>
@@ -476,8 +464,8 @@ const outboundReq = [
     <div class="container">
       <header class="section-header">
         <span class="eyebrow">What it actually takes</span>
-        <h2 class="balance">Six fronts. One overseas pipeline.</h2>
-        <p class="lead">A landing overseas is six different jobs running at once. Each surface has its own logic, its own tempo, and its own tax for getting it wrong.</p>
+        <h2 class="balance">Five fronts. One overseas pipeline.</h2>
+        <p class="lead">A landing overseas is five different jobs running at once. Each surface has its own logic, its own tempo, and its own tax for getting it wrong.</p>
       </header>
 
       <ol class="req-grid req-grid--bento3x2" role="list">
@@ -636,11 +624,11 @@ const outboundReq = [
             <span class="opening__line">Add the in-market sales force. Named reps in the US, UK, DE, FR.</span>
           </div>
         </a>
-        <a class="opening" href={pathFor('agencies/nuvora-studio', locale)} style="--i: 3;">
+        <a class="opening" href={pathFor('ai-services', locale)} style="--i: 3;">
           <span class="opening__quote-mark" aria-hidden="true">&#8220;</span>
           <p class="opening__quote">Our LinkedIn is empty and our execs do not post.</p>
           <div class="opening__answer">
-            <span class="opening__by">Nuvora Studio</span>
+            <span class="opening__by">AI Services · Nuvora Studio</span>
             <span class="opening__line">LinkedIn-only B2B specialist. Strategy, content, ads, exec posting.</span>
           </div>
         </a>

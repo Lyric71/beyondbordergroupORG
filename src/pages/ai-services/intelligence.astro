@@ -1,0 +1,161 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { pathFor } from '../../i18n/ui';
+
+const locale = 'en' as const;
+const title = 'Intelligence: see AI at work';
+const description = 'AI modules and agents running on real tasks, every cost visible as it runs. Marketing, Sales, and Project Management ready today. Your function next.';
+
+const modules = [
+  {
+    name: 'Marketing',
+    body: 'Content from roadmap to live page, with the company knowledge built in, so a launch can go live in every market language the same morning.',
+  },
+  {
+    name: 'Sales',
+    body: 'Campaigns that know what has already run and which features to push. Hundreds of ad variants, tested instead of debated, with spend visible live.',
+  },
+  {
+    name: 'Project Management',
+    body: 'Delivery status assembled from the tools your teams use. Monday status writes itself, and the meeting covers only what slipped.',
+  },
+];
+---
+
+<Layout locale={locale} route="ai-services/intelligence" title={title} description={description}>
+  <section class="hero-editorial hero-editorial--dark intel-hero">
+    <div class="container">
+      <span class="eyebrow eyebrow--on-dark">Intelligence · a BearingBridge platform</span>
+      <h1 class="hero-editorial__title balance">See AI at work. Before you commit to it.</h1>
+      <p class="hero-editorial__lead">
+        A slide deck tells you what AI might do. A working platform shows you. Intelligence is the set of
+        modules and agents we have already built, doing actual work, with the cost visible on screen the
+        whole time. Unlike the general chatbots you already pay for, they arrive knowing your function and
+        plug into the systems you run today: ERP, CRM, helpdesk, ad accounts. It is built for teams taking
+        AI seriously.
+      </p>
+      <div class="btn-row">
+        <a class="btn btn--primary" href={pathFor('contact', locale)}>Ask for a walkthrough</a>
+        <a class="btn btn--ghost-light" href="https://intelligence.bearingbridge.ai" target="_blank" rel="noreferrer">Open the platform (sign-in) ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt intel-visual-section">
+    <div class="container">
+      <figure class="intel-visual">
+        <img
+          src="/images/intelligence-platform.webp"
+          alt="The Intelligence platform running a task, with the live cost counter on screen."
+          loading="lazy"
+          decoding="async"
+          width="1050"
+          height="620"
+        />
+        <figcaption>// the platform, as it runs today</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section" id="modules">
+    <div class="container">
+      <header class="section-header">
+        <span class="eyebrow">The modules</span>
+        <h2 class="balance">Running today.</h2>
+        <p class="lead">
+          Start where a win would be felt fastest. For most companies that is Marketing or Sales. Each
+          module works out of the box, or we tailor it to your data and tools.
+        </p>
+      </header>
+
+      <div class="grid-3">
+        {modules.map((m) => (
+          <div class="card intel-module">
+            <h3>{m.name}</h3>
+            <p>{m.body}</p>
+          </div>
+        ))}
+      </div>
+
+      <p class="intel-modules__more">
+        And if your function is not on that list, the same foundation gets wired into the systems your team
+        already opens every morning. Your data stays yours, and residency is decided with you up front.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--dark" id="cost">
+    <div class="container container--narrow">
+      <span class="eyebrow eyebrow--on-dark">Cost transparency</span>
+      <p class="transition-line transition-line--on-dark">One more thing the demo makes visible.</p>
+      <h2 class="balance">Every cost on screen.</h2>
+      <p class="lead">
+        There is no estimate deck and no invoice surprise at quarter end. You watch each run and what it
+        costs, live, which is how we think AI should be bought.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="container container--narrow center">
+      <h2 class="balance">Start with one module.</h2>
+      <p class="lead" style="margin-inline: auto;">
+        Pick the function where the pain is loudest. We show you the module running on a real task. The
+        platform lives at intelligence.bearingbridge.ai. If it holds up, the next step is the same module
+        on your data, scoped and priced in writing before anything is built. Intelligence is a
+        BearingBridge product. Tailoring runs through <a href={pathFor('ai-services', locale)}>BearingBridge AI</a>,
+        the consulting team that built and operates it.
+      </p>
+      <div class="btn-row" style="justify-content: center; margin-top: var(--space-5);">
+        <a class="btn btn--ghost" href="https://intelligence.bearingbridge.ai" target="_blank" rel="noreferrer">Open the platform ↗</a>
+        <a class="btn btn--primary" href={pathFor('contact', locale)}>Book a call</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .intel-hero .hero-editorial__lead { max-width: 66ch; }
+
+  .intel-visual-section { padding-top: var(--space-6); padding-bottom: var(--space-6); }
+  .intel-visual {
+    margin: 0;
+    max-width: 920px;
+    margin-inline: auto;
+  }
+  .intel-visual img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 14px;
+    border: 1px solid var(--bbg-border);
+    box-shadow: 0 24px 60px -30px rgba(15, 23, 42, 0.35);
+  }
+  .intel-visual figcaption {
+    margin-top: var(--space-2);
+    font-family: var(--font-mono, monospace);
+    font-size: 0.8125rem;
+    color: var(--bbg-text-muted);
+  }
+
+  .intel-module h3 { margin-bottom: var(--space-2); }
+  .intel-modules__more {
+    margin-top: var(--space-5);
+    max-width: 68ch;
+    color: var(--bbg-text-muted);
+  }
+
+  .transition-line {
+    margin-bottom: var(--space-3);
+    font-size: var(--fs-small);
+    color: var(--bbg-text-muted);
+  }
+  .transition-line--on-dark { color: rgba(255, 255, 255, 0.6); }
+
+  .section--tight .lead a {
+    color: var(--bbg-blue);
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .section--tight .lead a:hover { text-decoration: underline; text-underline-offset: 3px; }
+</style>
