@@ -461,7 +461,9 @@ const heroBrands: HeroBrand[] = [
   }
   .tri-panel__core {
     position: relative;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
     min-height: 460px;
     border-radius: 22px;
     overflow: hidden;
@@ -486,8 +488,7 @@ const heroBrands: HeroBrand[] = [
     background: linear-gradient(180deg, rgba(5, 8, 16, 0.12) 0%, rgba(5, 8, 16, 0.9) 100%);
   }
   .tri-panel__content {
-    position: absolute;
-    inset: auto 0 0 0;
+    position: relative;
     display: flex;
     flex-direction: column;
     gap: 6px;
@@ -508,6 +509,7 @@ const heroBrands: HeroBrand[] = [
   .tri-panel__brands {
     display: flex;
     flex-wrap: wrap;
+    align-content: flex-start;
     gap: 6px;
     margin-top: 6px;
   }
@@ -556,6 +558,34 @@ const heroBrands: HeroBrand[] = [
   .tri-panel:hover .tri-panel__cta-disc {
     transform: translateX(3px);
     background: rgba(255, 255, 255, 0.24);
+  }
+
+  /* Align the name / text / logos / cta rows across the three cards */
+  @supports (grid-template-rows: subgrid) {
+    @media (min-width: 901px) {
+      .tri-hero__panels {
+        grid-template-rows: 1fr auto auto auto auto;
+        row-gap: 0;
+        column-gap: 16px;
+      }
+      .tri-panel {
+        display: grid;
+        grid-row: 1 / -1;
+        grid-template-rows: subgrid;
+      }
+      .tri-panel__core {
+        display: grid;
+        grid-row: 1 / -1;
+        grid-template-rows: subgrid;
+      }
+      .tri-panel__content {
+        display: grid;
+        grid-row: 2 / -1;
+        grid-template-rows: subgrid;
+        row-gap: 6px;
+        align-content: end;
+      }
+    }
   }
 
   @media (max-width: 900px) {
