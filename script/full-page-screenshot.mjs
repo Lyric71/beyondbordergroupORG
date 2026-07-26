@@ -74,7 +74,8 @@ for (let y = 0; y <= h; y += stepPx) {
   await sleep(220);
 }
 await send('Runtime.evaluate', { expression: 'window.scrollTo(0, 0)' });
-await sleep(400);
+// Long settle: reveal transitions run up to ~0.9s; a short wait captures blank sections.
+await sleep(1800);
 
 const shot = await send('Page.captureScreenshot', {
   format: 'png',

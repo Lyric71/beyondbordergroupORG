@@ -102,7 +102,7 @@ const practices = [
   <section class="section" id="proof">
     <div class="container">
       <div class="proof-head" data-reveal>
-        <span class="eyebrow eyebrow--rule">The job has already changed</span>
+        <h2 class="balance">The job has already changed</h2>
         <p class="lead">
           Nobody argues anymore about whether AI belongs in marketing. The biggest advertisers are
           building the capability in-house and repricing the work. The open question is what an agency
@@ -128,7 +128,7 @@ const practices = [
   <!-- 4 · Three shifts: hairline columns, emphasized kicker -->
   <section class="section section--alt" id="shifts">
     <div class="container">
-      <span class="eyebrow eyebrow--rule">What changed for us</span>
+      <h2 class="balance" data-reveal>What changed for us</h2>
       <div class="shifts" data-reveal>
         {shifts.map((shift) => (
           <div class="shifts__col">
@@ -145,10 +145,10 @@ const practices = [
     </div>
   </section>
 
-  <!-- 5 · Both sides of the wall: image-led centerpiece -->
+  <!-- 5 · Both sides of the wall: image-led dark interlude -->
   <section class="wall-section" id="wall">
     <div class="container">
-      <span class="eyebrow eyebrow--on-dark eyebrow--rule">Both sides of the wall</span>
+      <h2 class="wall-title balance" data-reveal>Both sides of the wall</h2>
       <div class="wall-stage" data-reveal>
         <img
           class="wall-stage__img"
@@ -159,26 +159,25 @@ const practices = [
           loading="lazy"
           decoding="async"
         />
-        <div class="wall-stage__scrim" aria-hidden="true"></div>
-        <div class="wall-stage__panels">
-          <div class="wall-panel wall-panel--west">
-            <span class="wall-panel__label">West</span>
-            <ul class="wall-panel__list">
-              <li>GPT</li>
-              <li>Claude</li>
-              <li>Gemini</li>
-            </ul>
-          </div>
-          <div class="wall-panel__rule" aria-hidden="true"></div>
-          <div class="wall-panel wall-panel--china">
-            <span class="wall-panel__label">China</span>
-            <ul class="wall-panel__list">
-              <li>Qwen</li>
-              <li>DeepSeek</li>
-              <li>Doubao</li>
-              <li>Kimi</li>
-            </ul>
-          </div>
+      </div>
+      <div class="wall-split" data-reveal>
+        <div class="wall-panel wall-panel--west">
+          <span class="wall-panel__label">West</span>
+          <ul class="wall-panel__list">
+            <li>GPT</li>
+            <li>Claude</li>
+            <li>Gemini</li>
+          </ul>
+        </div>
+        <div class="wall-panel__rule" aria-hidden="true"></div>
+        <div class="wall-panel wall-panel--china">
+          <span class="wall-panel__label">China</span>
+          <ul class="wall-panel__list">
+            <li>Qwen</li>
+            <li>DeepSeek</li>
+            <li>Doubao</li>
+            <li>Kimi</li>
+          </ul>
         </div>
       </div>
       <div class="wall-after" data-reveal>
@@ -194,22 +193,19 @@ const practices = [
     </div>
   </section>
 
-  <!-- 6 · Three practices, one stack -->
+  <!-- 6 · Three practices, one stack: index rows -->
   <section class="section" id="practices">
     <div class="container">
       <header class="section-header" data-reveal>
         <h2 class="balance">None of this is theory. Here is where it runs.</h2>
       </header>
-      <div class="grid-3" data-reveal>
+      <div class="practice-rows" data-reveal>
         {practices.map((p) => (
-          <a class="card practice-card" href={p.href}>
-            <h3 class="card__title">{p.title}</h3>
-            <p>{p.body}</p>
-            <span class="practice-card__cta" aria-hidden="true">
-              Open
-              <span class="practice-card__disc">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" width="13" height="13"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
-              </span>
+          <a class="practice-row" href={p.href}>
+            <h3 class="practice-row__title">{p.title}</h3>
+            <p class="practice-row__body">{p.body}</p>
+            <span class="practice-row__disc" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" width="15" height="15"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
             </span>
           </a>
         ))}
@@ -223,7 +219,7 @@ const practices = [
   </section>
 
   <!-- 7 · The operator -->
-  <section class="section section--dark" id="operator">
+  <section class="section section--alt" id="operator">
     <div class="container">
       <div class="split split--media-first operator-split" data-reveal>
         <div>
@@ -239,14 +235,14 @@ const practices = [
           </a>
         </div>
         <div>
-          <span class="eyebrow eyebrow--on-dark eyebrow--rule">The operator</span>
+          <h2 class="balance">The operator</h2>
           <p class="lead">
             BearingBridge is founded and led by Cyril Drouin. Digital, eCommerce, and brand, across Europe
             and North Asia. Former Chief Digital and eCommerce Officer, Publicis Groupe North Asia. Founder
             of BysoftChina. He rebuilt this group around AI because he has watched every previous platform
             shift punish the agencies that moved last.
           </p>
-          <a class="pill-ghost" href={linkedinUrl} target="_blank" rel="noreferrer">Connect on LinkedIn</a>
+          <a class="arrow-link" href={linkedinUrl} target="_blank" rel="noreferrer">Connect on LinkedIn</a>
         </div>
       </div>
     </div>
@@ -255,7 +251,7 @@ const practices = [
   <!-- 8 · Where we are -->
   <section class="footprint" id="footprint">
     <div class="container center" data-reveal>
-      <span class="eyebrow eyebrow--rule">Where we are</span>
+      <h2 class="footprint__heading">Where we are</h2>
       <p class="footprint__cities balance">
         Shanghai · Hong Kong · Singapore · Paris · Hangzhou, with in-market reps in the US, UK, Germany,
         and France.
@@ -321,7 +317,6 @@ const practices = [
     .group-hero__intro > * {
       opacity: 0;
       transform: translateY(26px);
-      filter: blur(6px);
       animation: group-rise 0.9s cubic-bezier(0.32, 0.72, 0, 1) forwards;
     }
     .group-hero__intro > *:nth-child(1) { animation-delay: 0.05s; }
@@ -329,7 +324,7 @@ const practices = [
     .group-hero__intro > *:nth-child(3) { animation-delay: 0.27s; }
   }
   @keyframes group-rise {
-    to { opacity: 1; transform: translateY(0); filter: blur(0); }
+    to { opacity: 1; transform: translateY(0); }
   }
 
   /* ---------- 2 · Engine: glass panels continuing the black band ---------- */
@@ -390,6 +385,7 @@ const practices = [
 
   /* ---------- 3 · Proof strip: open numbers over hairlines ---------- */
   .proof-head { max-width: 760px; margin-bottom: var(--space-7); }
+  .proof-head h2 { margin-bottom: var(--space-4); }
   .proof-strip {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -452,7 +448,7 @@ const practices = [
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: var(--space-6);
-    margin-top: var(--space-5);
+    margin-top: var(--space-6);
   }
   .shifts__col h3 {
     font-size: var(--fs-h3);
@@ -490,14 +486,17 @@ const practices = [
     }
   }
 
-  /* ---------- 5 · The wall: image-led centerpiece ---------- */
+  /* ---------- 5 · The wall: dark interlude ---------- */
   .wall-section {
     background: #050505;
     color: rgba(255, 255, 255, 0.85);
     padding: var(--space-9) 0;
   }
+  .wall-title {
+    color: #fff;
+    margin-bottom: var(--space-6);
+  }
   .wall-stage {
-    position: relative;
     border-radius: 28px;
     overflow: hidden;
     box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1);
@@ -506,22 +505,14 @@ const practices = [
     display: block;
     width: 100%;
     height: auto;
-    min-height: 420px;
-    object-fit: cover;
   }
-  .wall-stage__scrim {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, rgba(5, 5, 5, 0.05) 30%, rgba(5, 5, 5, 0.88) 100%);
-  }
-  .wall-stage__panels {
-    position: absolute;
-    inset: auto 0 0 0;
+  .wall-split {
     display: grid;
     grid-template-columns: 1fr auto 1fr;
     align-items: stretch;
-    gap: var(--space-5);
-    padding: var(--space-6);
+    gap: var(--space-6);
+    margin-top: var(--space-6);
+    padding: 0 var(--space-4);
   }
   .wall-panel__label {
     display: block;
@@ -542,7 +533,7 @@ const practices = [
     flex-direction: column;
     gap: var(--space-2);
     font-family: var(--font-display);
-    font-size: clamp(1.2rem, 1.8vw, 1.6rem);
+    font-size: clamp(1.25rem, 1.9vw, 1.7rem);
     font-weight: 650;
     letter-spacing: -0.01em;
     color: #fff;
@@ -557,12 +548,11 @@ const practices = [
     grid-template-columns: 1.4fr 1fr;
     gap: var(--space-6);
     align-items: end;
-    margin-top: var(--space-6);
+    margin-top: var(--space-7);
   }
   .wall-after .lead { max-width: 62ch; color: rgba(255, 255, 255, 0.78); }
   @media (max-width: 900px) {
-    .wall-stage__img { min-height: 520px; }
-    .wall-stage__panels { grid-template-columns: 1fr; gap: var(--space-4); }
+    .wall-split { grid-template-columns: 1fr; gap: var(--space-4); padding: 0; }
     .wall-panel--west { text-align: left; }
     .wall-panel__rule { width: 100%; height: 2px; background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.85), transparent); }
     .wall-after { grid-template-columns: 1fr; align-items: start; }
@@ -587,50 +577,64 @@ const practices = [
     .arrow-link--light { justify-self: start; }
   }
 
-  /* ---------- 6 · Practices ---------- */
-  .practice-card { height: 100%; }
-  .card.practice-card {
-    border: 0;
-    border-radius: 18px;
-    background: var(--bbg-white);
-    box-shadow:
-      0 0 0 1px rgba(10, 20, 30, 0.06),
-      0 20px 40px -30px rgba(10, 20, 30, 0.3);
-    transition:
-      transform 0.6s cubic-bezier(0.32, 0.72, 0, 1),
-      box-shadow 0.6s cubic-bezier(0.32, 0.72, 0, 1);
+  /* ---------- 6 · Practices: index rows ---------- */
+  .practice-rows {
+    border-top: 1px solid var(--bbg-border);
   }
-  .card.practice-card:hover {
-    transform: translateY(-4px);
-    box-shadow:
-      0 0 0 1px rgba(10, 20, 30, 0.06),
-      0 26px 52px -30px rgba(10, 20, 30, 0.35);
-  }
-  .practice-card p { flex: 1; }
-  .practice-card__cta {
-    display: inline-flex;
+  .practice-row {
+    display: grid;
+    grid-template-columns: minmax(220px, 1fr) 2fr auto;
+    gap: var(--space-5);
     align-items: center;
-    gap: 9px;
-    font-size: var(--fs-small);
-    font-weight: 600;
-    color: var(--bbg-ink);
+    padding: var(--space-5) var(--space-2);
+    border-bottom: 1px solid var(--bbg-border);
+    color: var(--bbg-text);
+    text-decoration: none;
+    transition: background var(--dur) var(--ease);
   }
-  .practice-card__disc {
+  .practice-row:hover { background: var(--bbg-surface); }
+  .practice-row__title {
+    margin: 0;
+    font-size: var(--fs-h3);
+    color: var(--bbg-ink);
+    transition: color var(--dur) var(--ease);
+  }
+  .practice-row:hover .practice-row__title { color: var(--bbg-blue); }
+  .practice-row__body {
+    margin: 0;
+    font-size: var(--fs-small);
+    line-height: 1.6;
+    color: var(--bbg-text);
+    max-width: 56ch;
+  }
+  .practice-row__disc {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 28px;
-    height: 28px;
+    width: 36px;
+    height: 36px;
     border-radius: 999px;
     background: var(--bbg-surface);
     border: 1px solid var(--bbg-border);
+    color: var(--bbg-ink);
     transition: transform var(--dur) var(--ease), background var(--dur) var(--ease), border-color var(--dur) var(--ease), color var(--dur) var(--ease);
   }
-  .practice-card:hover .practice-card__disc {
-    transform: translateX(3px);
+  .practice-row:hover .practice-row__disc {
+    transform: translateX(4px);
     background: var(--bbg-blue);
     border-color: var(--bbg-blue);
     color: #fff;
+  }
+  @media (max-width: 800px) {
+    .practice-row {
+      grid-template-columns: 1fr auto;
+      grid-template-areas: 'title disc' 'body body';
+      gap: var(--space-3);
+      padding: var(--space-4) 0;
+    }
+    .practice-row__title { grid-area: title; }
+    .practice-row__body { grid-area: body; }
+    .practice-row__disc { grid-area: disc; }
   }
   .practices-closer {
     margin-top: var(--space-6);
@@ -646,6 +650,7 @@ const practices = [
 
   /* ---------- 7 · Operator ---------- */
   .operator-split { align-items: center; }
+  .operator-split h2 { margin-bottom: var(--space-4); }
   .operator-split .lead { margin-bottom: var(--space-5); }
   .operator-frame {
     display: block;
@@ -653,8 +658,8 @@ const practices = [
     margin-inline: auto;
     padding: 8px;
     border-radius: 26px;
-    background: rgba(255, 255, 255, 0.06);
-    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1);
+    background: rgba(10, 20, 30, 0.04);
+    box-shadow: 0 0 0 1px rgba(10, 20, 30, 0.06);
     transition: transform 0.6s cubic-bezier(0.32, 0.72, 0, 1);
   }
   .operator-frame:hover { transform: translateY(-4px); }
@@ -669,6 +674,9 @@ const practices = [
   .footprint {
     background: var(--bbg-paper);
     padding: var(--space-8) 0;
+  }
+  .footprint__heading {
+    margin-bottom: var(--space-4);
   }
   .footprint__cities {
     margin: 0 auto var(--space-3);
@@ -720,19 +728,17 @@ const practices = [
   }
   .pill-cta:hover .pill-cta__disc { transform: translateX(3px); }
 
-  /* ---------- Scroll reveals (site pattern) ---------- */
+  /* ---------- Scroll reveals (site pattern, transform + opacity only) ---------- */
   @media (prefers-reduced-motion: no-preference) {
     [data-reveal] {
       opacity: 0;
       transform: translateY(28px);
-      filter: blur(5px);
-      transition: opacity 0.9s cubic-bezier(0.32, 0.72, 0, 1), transform 0.9s cubic-bezier(0.32, 0.72, 0, 1), filter 0.9s cubic-bezier(0.32, 0.72, 0, 1);
+      transition: opacity 0.9s cubic-bezier(0.32, 0.72, 0, 1), transform 0.9s cubic-bezier(0.32, 0.72, 0, 1);
       transition-delay: calc(var(--card-i, 0) * 90ms);
     }
     [data-reveal].is-in {
       opacity: 1;
       transform: translateY(0);
-      filter: blur(0);
     }
   }
 </style>
