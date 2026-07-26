@@ -32,7 +32,6 @@ interface Agency {
   signal?: string;
   visit: { url: string; label: string };
   based: string;
-  accent: string;
 }
 
 const agencies: Agency[] = [
@@ -62,7 +61,6 @@ const agencies: Agency[] = [
     signal: 'Tmall, JD, Douyin, RED, WeChat',
     visit: { url: 'https://bearingbridge.com', label: 'bearingbridge.com' },
     based: 'Shanghai. Hong Kong. Paris.',
-    accent: '#269ada',
   },
   {
     slug: 'theredscroll',
@@ -90,7 +88,6 @@ const agencies: Agency[] = [
     signal: 'Fixed scope. Fixed price. One number per package.',
     visit: { url: 'https://theredscroll.com', label: 'theredscroll.com' },
     based: 'Shanghai. Hong Kong.',
-    accent: '#c8102e',
   },
   {
     slug: 'chinawebfoundry',
@@ -122,7 +119,6 @@ const agencies: Agency[] = [
     signal: 'Baidu held 60.1% of Chinese search in January 2025. Source: StatCounter.',
     visit: { url: 'https://chinawebfoundry.com', label: 'chinawebfoundry.com' },
     based: 'Shanghai. Hangzhou.',
-    accent: '#d99a3a',
   },
   {
     slug: 'compass',
@@ -150,7 +146,6 @@ const agencies: Agency[] = [
     signal: 'Written deliverable, working session, warm introductions, honest verdicts.',
     visit: { url: 'https://compass.bearingbridge.com', label: 'compass.bearingbridge.com' },
     based: 'Shanghai. Twenty years of on-ground vetting.',
-    accent: '#1e7db0',
   },
   {
     slug: 'beyondbridge',
@@ -178,7 +173,6 @@ const agencies: Agency[] = [
     signal: 'Paris, Munich, Milan, London, New York, Sydney, São Paulo',
     visit: { url: 'https://beyondbridge.com', label: 'beyondbridge.com' },
     based: 'China HQ. Reps in seven markets.',
-    accent: '#22c55e',
   },
   {
     slug: 'bearingbridgeai',
@@ -210,7 +204,6 @@ const agencies: Agency[] = [
     signal: 'Qwen, DeepSeek, Kimi, GPT, Claude, Gemini, benchmarked on your data',
     visit: { url: 'https://www.bearingbridge.ai', label: 'bearingbridge.ai' },
     based: 'Hong Kong. Shanghai. Across Asia, the Middle East, and Europe.',
-    accent: '#c2922f',
   },
   {
     slug: 'hubstudio',
@@ -238,7 +231,6 @@ const agencies: Agency[] = [
     signal: 'Used by Mazda, Nescafe, Marriott, Bobbi Brown, and others.',
     visit: { url: 'https://hubstudio.ai', label: 'hubstudio.ai' },
     based: 'Shanghai studio. Global delivery.',
-    accent: '#ff7a8a',
   },
   {
     slug: 'nuvora-studio',
@@ -266,7 +258,6 @@ const agencies: Agency[] = [
     signal: 'B2B companies anywhere in the world.',
     visit: { url: 'https://nuvora.studio', label: 'nuvora.studio' },
     based: 'Global.',
-    accent: '#7c3aed',
   },
 ];
 
@@ -283,701 +274,319 @@ const agencyOrder = [
 ];
 agencies.sort((a, b) => agencyOrder.indexOf(a.slug) - agencyOrder.indexOf(b.slug));
 
-const groups: { id: Group; label: string; intro: string }[] = [
+const groups: { id: Group; label: string; intro: string; tag: string }[] = [
   {
     id: 'West to China',
     label: 'West to China',
     intro: 'For brands entering or scaling in China.',
+    tag: 'min-tag--red',
   },
   {
     id: 'China to West',
     label: 'China to West',
     intro: 'For Chinese companies going overseas.',
+    tag: 'min-tag--blue',
   },
   {
     id: 'Horizontal',
     label: 'Horizontal',
     intro: 'For any company, anywhere. AI adoption, content production, and LinkedIn.',
+    tag: 'min-tag--green',
+  },
+];
+
+const groupTag: Record<Group, string> = {
+  'West to China': 'min-tag--red',
+  'China to West': 'min-tag--blue',
+  Horizontal: 'min-tag--green',
+};
+
+const stacks = [
+  {
+    scenario: 'A French skincare brand. Entering China.',
+    steps: [
+      { slug: 'compass', name: 'Compass', role: 'Choose the right distributor.' },
+      { slug: 'chinawebfoundry', name: 'ChinaWebFoundry', role: 'Build the China site, ICP filed.' },
+      { slug: 'bearingbridge', name: 'TheChinaPath', role: 'Operate Tmall, run media.' },
+      { slug: 'theredscroll', name: 'TheRedScroll', role: 'WeChat, Douyin, RedNote, daily.' },
+    ],
+  },
+  {
+    scenario: 'A Chinese robotics company. Going overseas.',
+    steps: [
+      { slug: 'beyondbridge', name: 'BeyondBridge', role: 'Brand, site, demand, reps in the US and Germany.' },
+      { slug: 'hubstudio', name: 'HubStudio', role: 'Content production at scale, on brand.' },
+      { slug: 'nuvora-studio', name: 'Nuvora Studio', role: 'LinkedIn for the founder, every day.' },
+    ],
   },
 ];
 ---
 
 <Layout locale={locale} route="agencies" title={title} description={description}>
-  <!-- ===================================================================== -->
-  <!-- HERO                                                                  -->
-  <!-- ===================================================================== -->
-  <section class="ag-hero">
-    <div class="ag-hero__bg" aria-hidden="true"></div>
-    <div class="container ag-hero__container">
-      <h1 class="ag-hero__title balance">
-        Eight specialist agencies.<br />
-        <em>One ecosystem.</em>
-      </h1>
-      <p class="ag-hero__lead">
-        Each agency stands alone. Its own brand, its own pricing, its own deliverables. Pick the one that
-        matches what you need. Most clients start with one and pull in others as the project expands.
-      </p>
+  <div class="min">
+    <!-- Hero -->
+    <section class="min-hero">
+      <div class="min-glow" aria-hidden="true"></div>
+      <div class="min-wrap min-wrap--wide">
+        <h1 class="min-hero__title" data-reveal>
+          Eight specialist agencies.<br />
+          <em>One ecosystem.</em>
+        </h1>
+        <p class="min-hero__lead" data-reveal style="--i: 1">
+          Each agency stands alone. Its own brand, its own pricing, its own deliverables. Pick the one that
+          matches what you need. Most clients start with one and pull in others as the project expands.
+        </p>
 
-      <ul class="ag-hero__logos" aria-label="Agency logos">
-        {agencies.map((a) => (
-          <li>
-            <a href={`#${a.slug}`} aria-label={`Jump to ${a.name}`}>
-              <AgencyLogo slug={a.slug} name={a.name} class="ag-hero__logo" />
-            </a>
-          </li>
-        ))}
-      </ul>
-    </div>
-  </section>
+        <ul class="ag-logos" aria-label="Agency logos" data-reveal style="--i: 2">
+          {agencies.map((a) => (
+            <li>
+              <a class="min-chip" href={`#${a.slug}`} aria-label={`Jump to ${a.name}`}>
+                <AgencyLogo slug={a.slug} name={a.name} />
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
 
-  <!-- ===================================================================== -->
-  <!-- INDEX BY GROUP                                                        -->
-  <!-- ===================================================================== -->
-  <section class="section section--alt">
-    <div class="container">
-      <div class="ag-index">
-        {groups.map((g) => (
-          <div class="ag-index__col">
-            <span class="eyebrow">{g.label}</span>
-            <p class="ag-index__intro">{g.intro}</p>
-            <ul class="ag-index__list">
-              {agencies
-                .filter((a) => a.group === g.id)
-                .map((a) => (
+    <!-- Index by group -->
+    <section class="min-sec">
+      <div class="min-wrap">
+        <div class="min-grid-3">
+          {groups.map((g, gi) => (
+            <div data-reveal style={`--i: ${gi}`}>
+              <span class={`min-tag ${g.tag}`}>{g.label}</span>
+              <p class="min-small ag-index__intro">{g.intro}</p>
+              <ul class="ag-index__list">
+                {agencies
+                  .filter((a) => a.group === g.id)
+                  .map((a) => (
+                    <li>
+                      <a href={`#${a.slug}`} class="ag-index__link">
+                        <span class="ag-index__name">{a.name}</span>
+                        <span class="ag-index__cat">{a.category}</span>
+                      </a>
+                    </li>
+                  ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Agency sections -->
+    {agencies.map((a) => (
+      <section id={a.slug} class="min-sec min-sec--ruled">
+        <div class="min-wrap">
+          <header class="ag-head" data-reveal>
+            <div class="ag-head__left">
+              <AgencyLogo slug={a.slug} name={a.name} class="ag-head__logo" />
+              <span class={`min-tag ${groupTag[a.group]} ag-head__group`}>{a.group}, {a.category}</span>
+            </div>
+            <a class="min-link" href={a.visit.url} target="_blank" rel="noreferrer">{a.visit.label}</a>
+          </header>
+
+          <div class="ag-pitch" data-reveal style="--i: 1">
+            <h2 class="min-h2">{a.tagline}</h2>
+            <p class="min-body">{a.lead}</p>
+          </div>
+
+          <div class={`min-grid-${a.lanes.length} ag-lanes`}>
+            {a.lanes.map((lane, li) => (
+              <div class="min-card" data-reveal style={`--i: ${li + 1}`}>
+                <h3 class="min-h3">{lane.name}</h3>
+                <p class="min-small">{lane.body}</p>
+              </div>
+            ))}
+          </div>
+
+          <footer class="ag-foot" data-reveal>
+            <div class="ag-foot__meta">
+              <span class="min-muted"><strong>Based.</strong> {a.based}</span>
+              {a.signal && <span class="min-muted ag-foot__signal">{a.signal}</span>}
+            </div>
+            <a class="min-btn" href={pathFor(a.route, locale)}>Open {a.name}</a>
+          </footer>
+        </div>
+      </section>
+    ))}
+
+    <!-- How they fit together -->
+    <section class="min-sec min-sec--ruled">
+      <div class="min-wrap">
+        <header data-reveal>
+          <h2 class="min-h2">
+            One project.<br />
+            <em>As many agencies as the work needs.</em>
+          </h2>
+          <p class="min-lead ag-stacks__lead">
+            You do not have to figure out the order. Open the agency that matches your moment. We will tell
+            you when it is time to bring another one in, and when you do not need to.
+          </p>
+        </header>
+
+        <div class="min-grid-2 ag-stacks">
+          {stacks.map((stack, si) => (
+            <article class="min-card" data-reveal style={`--i: ${si}`}>
+              <h3 class="min-h3 ag-stack__scenario">{stack.scenario}</h3>
+              <ol class="ag-stack__steps">
+                {stack.steps.map((step) => (
                   <li>
-                    <a href={`#${a.slug}`} class="ag-index__link">
-                      <span class="ag-index__name">{a.name}</span>
-                      <span class="ag-index__cat">{a.category}</span>
+                    <a class="ag-stack__step" href={`#${step.slug}`}>
+                      <span class="ag-stack__logo-box">
+                        <AgencyLogo slug={step.slug} name={step.name} class="ag-stack__logo" />
+                      </span>
+                      <span class="ag-stack__text">
+                        <span class="ag-stack__name">{step.name}</span>
+                        <span class="ag-stack__role">{step.role}</span>
+                      </span>
                     </a>
                   </li>
                 ))}
-            </ul>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================================================================== -->
-  <!-- AGENCY SECTIONS                                                       -->
-  <!-- ===================================================================== -->
-  {agencies.map((a, i) => (
-    <section
-      id={a.slug}
-      class={`ag-feature ${i % 2 === 1 ? 'ag-feature--alt' : ''}`}
-      style={`--accent: ${a.accent};`}
-    >
-      <div class="container">
-        <header class="ag-feature__head" data-reveal>
-          <div class="ag-feature__head-left">
-            <AgencyLogo slug={a.slug} name={a.name} class="ag-feature__logo" />
-            <span class="ag-feature__group">{a.group}, {a.category}</span>
-          </div>
-          <a class="ag-feature__visit" href={a.visit.url} target="_blank" rel="noreferrer">
-            {a.visit.label}
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17l10-10M7 7h10v10"/></svg>
-          </a>
-        </header>
-
-        <div class="ag-feature__pitch" data-reveal style="--ri: 1;">
-          <h2 class="ag-feature__tagline">{a.tagline}</h2>
-          <p class="ag-feature__lead">{a.lead}</p>
+              </ol>
+            </article>
+          ))}
         </div>
 
-        <ol class={`ag-feature__lanes ag-feature__lanes--${a.lanes.length}`}>
-          {a.lanes.map((lane, li) => (
-            <li class="ag-feature__lane" data-reveal style={`--ri: ${li + 2};`}>
-              <h3 class="ag-feature__lane-title">{lane.name}</h3>
-              <p class="ag-feature__lane-body">{lane.body}</p>
-            </li>
-          ))}
-        </ol>
-
-        <footer class="ag-feature__foot">
-          <div class="ag-feature__foot-meta">
-            <span><strong>Based.</strong> {a.based}</span>
-            {a.signal && <span class="ag-feature__signal">{a.signal}</span>}
-          </div>
-          <div class="ag-feature__foot-cta">
-            <a class="btn btn--primary btn--sm" href={pathFor(a.route, locale)}>Open {a.name}</a>
-          </div>
-        </footer>
+        <div class="min-ctas" data-reveal>
+          <a class="min-btn" href={pathFor('contact', locale)}>Book a call</a>
+          <a class="min-btn min-btn--ghost" href={pathFor('how-we-work', locale)}>How we work</a>
+        </div>
       </div>
     </section>
-  ))}
-
-  <!-- ===================================================================== -->
-  <!-- HOW THEY FIT TOGETHER                                                 -->
-  <!-- ===================================================================== -->
-  <section class="ag-stacks">
-    <div class="ag-stacks__bg" aria-hidden="true"></div>
-    <div class="container ag-stacks__container">
-      <header class="ag-stacks__head">
-        <h2 class="ag-stacks__title balance">
-          One project.<br />
-          <em>As many agencies as the work needs.</em>
-        </h2>
-        <p class="ag-stacks__lead">
-          You do not have to figure out the order. Open the agency that matches your moment. We will tell
-          you when it is time to bring another one in, and when you do not need to.
-        </p>
-      </header>
-
-      <div class="ag-stacks__grid">
-        {[
-          {
-            scenario: 'A French skincare brand. Entering China.',
-            steps: [
-              { slug: 'compass', name: 'Compass', role: 'Choose the right distributor.' },
-              { slug: 'chinawebfoundry', name: 'ChinaWebFoundry', role: 'Build the China site, ICP filed.' },
-              { slug: 'bearingbridge', name: 'TheChinaPath', role: 'Operate Tmall, run media.' },
-              { slug: 'theredscroll', name: 'TheRedScroll', role: 'WeChat, Douyin, RedNote, daily.' },
-            ],
-          },
-          {
-            scenario: 'A Chinese robotics company. Going overseas.',
-            steps: [
-              { slug: 'beyondbridge', name: 'BeyondBridge', role: 'Brand, site, demand, reps in the US and Germany.' },
-              { slug: 'hubstudio', name: 'HubStudio', role: 'Content production at scale, on brand.' },
-              { slug: 'nuvora-studio', name: 'Nuvora Studio', role: 'LinkedIn for the founder, every day.' },
-            ],
-          },
-        ].map((stack) => (
-          <article class="ag-stack">
-            <div class="ag-stack__inner">
-            <h3 class="ag-stack__scenario">{stack.scenario}</h3>
-            <ol class="ag-stack__steps">
-              {stack.steps.map((step) => (
-                <li class="ag-stack__step">
-                  <a class="ag-stack__step-link" href={`#${step.slug}`}>
-                    <span class="ag-stack__step-logo">
-                      <AgencyLogo slug={step.slug} name={step.name} class="ag-stack__logo" />
-                    </span>
-                    <span class="ag-stack__step-text">
-                      <span class="ag-stack__step-name">{step.name}</span>
-                      <span class="ag-stack__step-role">{step.role}</span>
-                    </span>
-                  </a>
-                </li>
-              ))}
-            </ol>
-            </div>
-          </article>
-        ))}
-      </div>
-
-      <div class="ag-stacks__cta">
-        <a class="pill-cta" href={pathFor('contact', locale)}>Book a call
-          <span class="pill-cta__disc" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg></span>
-        </a>
-        <a class="pill-ghost" href={pathFor('how-we-work', locale)}>How we work</a>
-      </div>
-    </div>
-  </section>
+  </div>
 </Layout>
 
 <style>
-  /* ===================================================================== */
-  /* HERO                                                                   */
-  /* ===================================================================== */
-  .ag-hero {
-    position: relative;
-    color: #fff;
-    background: var(--bbg-ink);
-    padding: clamp(4rem, 9vh, 7rem) 0 clamp(3rem, 7vh, 5rem);
-    overflow: hidden;
-    isolation: isolate;
-  }
-  .ag-hero__bg {
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    background:
-      radial-gradient(900px 500px at 12% 18%, rgba(38,154,218,0.22), transparent 65%),
-      radial-gradient(800px 500px at 88% 82%, rgba(200,16,46,0.16), transparent 70%),
-      linear-gradient(180deg, #0c1220 0%, #1a1a1a 100%);
-  }
-  .ag-hero__bg::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image:
-      linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
-    background-size: 88px 88px;
-    mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 80%);
-    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 80%);
-    opacity: 0.6;
-  }
-  .ag-hero__container { max-width: 920px; }
-  .ag-hero__title {
-    font-size: clamp(2.5rem, 5vw + 0.5rem, 4.75rem);
-    line-height: 1;
-    letter-spacing: -0.03em;
-    color: #fff;
-    margin: var(--space-3) 0 var(--space-5);
-    font-weight: 600;
-  }
-  .ag-hero__title em {
-    font-style: normal;
-    color: #59c2ee;
-  }
-  .ag-hero__lead {
-    font-size: clamp(1.05rem, 0.5vw + 0.95rem, 1.2rem);
-    color: rgba(255,255,255,0.82);
-    max-width: 60ch;
-    margin: 0 0 var(--space-7);
-  }
-  .ag-hero__logos {
+  /* Hero logo chips */
+  .ag-logos {
     list-style: none;
-    margin: 0;
-    padding: var(--space-5) 0 0;
+    margin: var(--space-6) 0 0;
+    padding: 0;
     display: grid;
     grid-template-columns: repeat(4, 176px);
-    gap: 12px;
-    align-items: stretch;
-    border-top: 1px solid rgba(255,255,255,0.12);
+    gap: 8px;
   }
-  .ag-hero__logos li { display: contents; }
-  @media (max-width: 980px) {
-    .ag-hero__logos { grid-template-columns: repeat(3, minmax(150px, 176px)); }
+  .ag-logos li { display: contents; }
+  .ag-logos .min-chip { height: 52px; }
+  .ag-logos :global(.agency-logo) { max-height: 22px; height: auto; width: auto; max-width: 100%; }
+  @media (max-width: 900px) {
+    .ag-logos { grid-template-columns: repeat(3, minmax(140px, 176px)); }
   }
-  @media (max-width: 640px) {
-    .ag-hero__logos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  }
-  .ag-hero__logos a {
-    display: grid;
-    place-items: center;
-    height: 60px;
-    padding: 0 18px;
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 14px;
-    box-shadow:
-      0 0 0 1px rgba(255,255,255,0.08),
-      0 14px 34px -18px rgba(0,0,0,0.85);
-    transition: transform 500ms cubic-bezier(0.32,0.72,0,1), box-shadow 500ms cubic-bezier(0.32,0.72,0,1), background 500ms cubic-bezier(0.32,0.72,0,1);
-  }
-  .ag-hero__logos a:hover {
-    background: #fff;
-    transform: translateY(-3px);
-    box-shadow:
-      0 0 0 1px rgba(255,255,255,0.12),
-      0 20px 42px -18px rgba(0,0,0,0.85);
-  }
-  .ag-hero__logos a:active { transform: scale(0.98); }
-  .ag-hero__logos :global(.ag-hero__logo) {
-    max-height: 30px;
-    width: auto;
-    max-width: 100%;
-    object-fit: contain;
+  @media (max-width: 600px) {
+    .ag-logos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
 
-  /* ===================================================================== */
-  /* INDEX                                                                  */
-  /* ===================================================================== */
-  .ag-index {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: clamp(1.5rem, 3vw, 2.5rem);
-  }
-  @media (min-width: 768px) {
-    .ag-index { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  }
-  .ag-index__intro {
-    margin: var(--space-3) 0 var(--space-4);
-    color: var(--bbg-text);
-    font-size: 1.05rem;
-  }
+  /* Index by group */
+  .ag-index__intro { margin: 0 0 var(--space-3); }
   .ag-index__list {
     list-style: none;
     margin: 0;
     padding: 0;
-    border-top: 1px solid var(--bbg-border);
+    border-top: 1px solid var(--line);
   }
-  .ag-index__list li { border-bottom: 1px solid var(--bbg-border); }
+  .ag-index__list li { border-bottom: 1px solid var(--line); }
   .ag-index__link {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    align-items: baseline;
-    gap: var(--space-3);
-    padding: var(--space-4) 0;
-    color: var(--bbg-ink);
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: var(--space-3) 0;
     text-decoration: none;
     transition: color 180ms ease;
   }
-  .ag-index__link:hover { color: var(--bbg-blue); }
-  .ag-index__name {
-    font-family: var(--font-display);
-    font-weight: 600;
-    font-size: 1.05rem;
-    letter-spacing: -0.005em;
-  }
-  .ag-index__cat {
-    font-size: 0.82rem;
-    color: var(--bbg-text-muted);
-    text-align: right;
-  }
+  .ag-index__name { font-weight: 600; font-size: 0.98rem; color: var(--ink); }
+  .ag-index__cat { font-size: 0.78rem; color: var(--muted); }
+  .ag-index__link:hover .ag-index__name { text-decoration: underline; }
 
-  /* ===================================================================== */
-  /* AGENCY FEATURE                                                         */
-  /* ===================================================================== */
-  .ag-feature {
-    position: relative;
-    padding: clamp(2.5rem, 5vh, 3.75rem) 0;
-    border-top: 1px solid var(--bbg-border);
-    background: var(--bbg-white);
-  }
-  .ag-feature::before {
-    content: "";
-    position: absolute;
-    top: -1px;
-    left: 0;
-    width: clamp(60px, 8vw, 120px);
-    height: 3px;
-    background: var(--accent);
-  }
-  .ag-feature--alt { background: var(--bbg-paper); }
-
-  .ag-feature__head {
+  /* Agency feature sections */
+  .ag-head {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: var(--space-4);
-    margin-bottom: var(--space-5);
     flex-wrap: wrap;
+    margin-bottom: var(--space-5);
   }
-  .ag-feature__head-left {
+  .ag-head__left {
     display: flex;
     align-items: center;
     gap: var(--space-4);
     min-width: 0;
     flex-wrap: wrap;
   }
-  .ag-feature__head-left :global(.ag-feature__logo) {
-    display: block;
-    height: 28px;
-    width: auto;
-    max-width: 160px;
-    object-fit: contain;
-  }
-  .ag-feature__group {
-    font-family: var(--font-display);
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--accent);
-    padding: 4px 10px;
-    border: 1px solid var(--accent);
-    border-radius: 999px;
-    background: color-mix(in srgb, var(--accent) 8%, transparent);
-  }
-  .ag-feature__visit {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-family: var(--font-display);
-    font-size: 0.85rem;
-    font-weight: 500;
-    color: var(--bbg-text-muted);
-    text-decoration: none;
-    transition: color 180ms ease;
-  }
-  .ag-feature__visit:hover { color: var(--accent); }
-  .ag-feature__visit svg { transition: transform 180ms ease; }
-  .ag-feature__visit:hover svg { transform: translate(2px, -2px); }
+  .ag-head :global(.ag-head__logo) { height: 26px; width: auto; max-width: 160px; object-fit: contain; }
+  .ag-head__group { margin-bottom: 0; }
 
-  .ag-feature__pitch {
+  .ag-pitch {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-4);
-    align-items: baseline;
-    margin-bottom: var(--space-6);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: clamp(var(--space-4), 3vw, var(--space-6));
+    align-items: start;
+    margin-bottom: var(--space-5);
   }
-  @media (min-width: 768px) {
-    .ag-feature__pitch {
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-      gap: clamp(1.5rem, 4vw, 3.5rem);
-    }
-  }
-  .ag-feature__tagline {
-    font-size: clamp(1.5rem, 2.4vw + 0.4rem, 2.1rem);
-    line-height: 1.1;
-    letter-spacing: -0.025em;
-    font-weight: 600;
-    margin: 0;
-    color: var(--bbg-ink);
-    max-width: 22ch;
-  }
-  .ag-feature__tagline::first-letter,
-  .ag-feature__tagline {
-    color: var(--bbg-ink);
-  }
-  .ag-feature__lead {
-    margin: 0;
-    color: var(--bbg-text);
-    font-size: 1rem;
-    line-height: 1.6;
-    max-width: 56ch;
+  .ag-pitch .min-h2 { margin-bottom: 0; }
+  @media (max-width: 800px) {
+    .ag-pitch { grid-template-columns: 1fr; }
   }
 
-  .ag-feature__lanes {
-    list-style: none;
-    margin: 0 0 var(--space-5);
-    padding: 0;
-    display: grid;
-    gap: var(--space-4);
-    border-top: 1px solid var(--bbg-border);
-    padding-top: var(--space-5);
-  }
-  .ag-feature__lanes--3,
-  .ag-feature__lanes--4 { grid-template-columns: 1fr; }
-  @media (min-width: 640px) {
-    .ag-feature__lanes--3,
-    .ag-feature__lanes--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  }
-  @media (min-width: 768px) {
-    .ag-feature__lanes--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  }
-  @media (min-width: 1024px) {
-    .ag-feature__lanes--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-  }
+  .ag-lanes { margin-bottom: var(--space-5); }
+  .ag-lanes .min-card { padding: var(--space-4); }
 
-  .ag-feature__lane {
-    position: relative;
-    padding: var(--space-5) var(--space-4) var(--space-4);
-    background: var(--bbg-white);
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow:
-      0 0 0 1px rgba(10,20,30,0.07),
-      0 18px 40px -32px rgba(10,20,30,0.4);
-    transition: transform 500ms cubic-bezier(0.32,0.72,0,1), box-shadow 500ms cubic-bezier(0.32,0.72,0,1);
-  }
-  .ag-feature__lane::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: var(--space-4);
-    width: 32px;
-    height: 3px;
-    border-radius: 0 0 3px 3px;
-    background: var(--accent);
-  }
-  .ag-feature__lane:hover {
-    transform: translateY(-4px);
-    box-shadow:
-      0 0 0 1px rgba(10,20,30,0.09),
-      0 26px 50px -32px rgba(10,20,30,0.5);
-  }
-  .ag-feature__lane-title {
-    font-family: var(--font-display);
-    font-size: 0.95rem;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin: 0 0 var(--space-2);
-  }
-  .ag-feature__lane-body {
-    margin: 0;
-    color: var(--bbg-text);
-    font-size: 0.92rem;
-    line-height: 1.55;
-  }
-
-  .ag-feature__foot {
+  .ag-foot {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: var(--space-4);
     flex-wrap: wrap;
+    border-top: 1px solid var(--line);
     padding-top: var(--space-4);
-    border-top: 1px solid var(--bbg-border);
   }
-  .ag-feature__foot-meta {
+  .ag-foot__meta {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--space-4) var(--space-5);
-    color: var(--bbg-text-muted);
-    font-size: 0.88rem;
+    gap: var(--space-2) var(--space-5);
   }
-  .ag-feature__foot-meta strong {
-    color: var(--bbg-ink);
-    font-weight: 600;
-    margin-right: 6px;
-  }
-  .ag-feature__signal {
-    color: var(--accent);
-    font-style: italic;
-  }
+  .ag-foot__meta strong { color: var(--ink); font-weight: 600; margin-right: 4px; }
+  .ag-foot__signal { font-style: italic; }
 
-  /* ===================================================================== */
-  /* STACKS                                                                 */
-  /* ===================================================================== */
-  .ag-stacks {
-    position: relative;
-    color: #fff;
-    padding: clamp(5rem, 10vh, 8rem) 0 clamp(5rem, 10vh, 7rem);
-    overflow: hidden;
-    isolation: isolate;
-  }
-  .ag-stacks__bg {
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    background:
-      radial-gradient(900px 500px at 18% 0%, rgba(38,154,218,0.22), transparent 60%),
-      radial-gradient(800px 500px at 85% 100%, rgba(255,122,138,0.18), transparent 65%),
-      linear-gradient(180deg, #0c1220 0%, #1a1a1a 100%);
-  }
-  .ag-stacks__bg::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image:
-      linear-gradient(to right, rgba(255,255,255,0.04) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255,255,255,0.04) 1px, transparent 1px);
-    background-size: 96px 96px;
-    mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, #000 30%, transparent 80%);
-    -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, #000 30%, transparent 80%);
-    opacity: 0.55;
-  }
-  .ag-stacks__container { position: relative; }
-
-  .ag-stacks__head {
-    max-width: 760px;
-    margin: 0 0 clamp(2.5rem, 6vh, 4rem);
-  }
-  .ag-stacks__title {
-    color: #fff;
-    font-size: clamp(2rem, 3.6vw + 0.4rem, 3.4rem);
-    line-height: 1.05;
-    letter-spacing: -0.025em;
-    margin: var(--space-3) 0 var(--space-4);
-    font-weight: 600;
-  }
-  .ag-stacks__title em {
-    font-style: normal;
-    color: #59c2ee;
-  }
-  .ag-stacks__lead {
-    font-size: clamp(1.05rem, 0.5vw + 0.95rem, 1.2rem);
-    color: rgba(255,255,255,0.78);
-    max-width: 60ch;
-    margin: 0;
-  }
-
-  .ag-stacks__grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: clamp(1.5rem, 3vw, 2.5rem);
-    margin-bottom: clamp(2.5rem, 6vh, 4rem);
-  }
-  @media (min-width: 768px) {
-    .ag-stacks__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  }
-
-  .ag-stack {
-    position: relative;
-    padding: 6px;
-    border-radius: 28px;
-    background: rgba(255,255,255,0.06);
-    box-shadow: 0 0 0 1px rgba(255,255,255,0.1);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-  }
-  .ag-stack__inner {
-    border-radius: 22px;
-    overflow: hidden;
-    background: rgba(255,255,255,0.03);
-    box-shadow: inset 0 1px 1px rgba(255,255,255,0.12);
-    padding: clamp(1.5rem, 2.6vw, 2.25rem);
-    height: 100%;
-  }
+  /* Stacks */
+  .ag-stacks__lead { margin-bottom: var(--space-5); }
+  .ag-stacks { margin-bottom: var(--space-5); }
   .ag-stack__scenario {
-    font-family: var(--font-display);
-    font-size: 1.05rem;
-    font-weight: 600;
-    letter-spacing: -0.005em;
-    color: rgba(255,255,255,0.96);
-    margin: 0 0 var(--space-5);
-    padding-bottom: var(--space-4);
-    border-bottom: 1px solid rgba(255,255,255,0.10);
+    padding-bottom: var(--space-3);
+    border-bottom: 1px solid var(--line);
   }
   .ag-stack__steps {
     list-style: none;
     margin: 0;
     padding: 0;
     display: grid;
-    gap: var(--space-3);
+    gap: var(--space-2);
   }
   .ag-stack__step {
-    position: relative;
-  }
-  .ag-stack__step + .ag-stack__step::before {
-    content: "";
-    position: absolute;
-    top: -10px;
-    left: 36px;
-    width: 1px;
-    height: 8px;
-    background: rgba(255,255,255,0.30);
-  }
-  .ag-stack__step-link {
     display: grid;
     grid-template-columns: 56px minmax(0, 1fr);
-    gap: var(--space-4);
+    gap: var(--space-3);
     align-items: center;
-    padding: var(--space-3) var(--space-4);
-    border-radius: 14px;
+    padding: var(--space-2) var(--space-2);
+    border-radius: 8px;
     text-decoration: none;
-    color: #fff;
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,255,255,0.08);
-    transition: background 200ms ease, border-color 200ms ease, transform 200ms ease;
+    transition: background 200ms ease;
   }
-  .ag-stack__step-link:hover {
-    background: rgba(255,255,255,0.08);
-    border-color: rgba(255,255,255,0.20);
-    transform: translateX(2px);
-  }
-  .ag-stack__step-logo {
+  .ag-stack__step:hover { background: var(--surface-2); }
+  .ag-stack__logo-box {
     display: grid;
     place-items: center;
     width: 56px;
-    height: 40px;
-    background: #fff;
+    height: 38px;
+    background: var(--surface);
+    border: 1px solid var(--line);
     border-radius: 8px;
-    padding: 6px 8px;
+    padding: 5px 7px;
   }
-  .ag-stack__step-logo :global(.ag-stack__logo) {
-    max-height: 24px;
-    max-width: 100%;
-    width: auto;
-    object-fit: contain;
-  }
-  .ag-stack__step-text {
-    display: grid;
-    gap: 2px;
-    min-width: 0;
-  }
-  .ag-stack__step-name {
-    font-family: var(--font-display);
-    font-size: 0.98rem;
-    font-weight: 600;
-    letter-spacing: -0.005em;
-    color: #fff;
-  }
-  .ag-stack__step-role {
-    font-size: 0.86rem;
-    color: rgba(255,255,255,0.7);
-    line-height: 1.4;
-  }
-
-  .ag-stacks__cta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-4);
-  }
+  .ag-stack__logo-box :global(.ag-stack__logo) { max-height: 22px; max-width: 100%; width: auto; object-fit: contain; }
+  .ag-stack__text { display: grid; gap: 1px; min-width: 0; }
+  .ag-stack__name { font-weight: 600; font-size: 0.95rem; color: var(--ink); }
+  .ag-stack__role { font-size: 0.85rem; line-height: 1.4; color: var(--body); }
 </style>

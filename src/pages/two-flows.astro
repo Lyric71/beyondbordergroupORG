@@ -9,31 +9,26 @@ const description = 'One bridge, two directions. The full inbound stack to enter
 
 const inboundReq = [
   {
-    icon: 'badge',
     h: 'Brand that reads as quality to a Chinese audience',
     body: 'Trust signals up front. Certifications, partner logos, third-party validation. What looks cluttered in the West reads as serious in China.',
     pill: 'Density signals quality',
   },
   {
-    icon: 'channels',
     h: 'Channels Chinese consumers actually use',
     body: 'WeChat for trust. RedNote for the shortlist. Douyin for discovery. Weibo for reach. Each one needs its own format and its own team.',
     pill: 'Four stacks, not one',
   },
   {
-    icon: 'server',
     h: 'Web infrastructure built behind the Firewall',
     body: 'ICP-licensed hosting on Aliyun, Tencent or Huawei. A site Baidu can index. Mobile-first by force, not by trend.',
     pill: 'Mobile first, always',
   },
   {
-    icon: 'search',
     h: 'Search visibility in the engines Chinese buyers use',
     body: 'Baidu owns search here. Google barely registers. Under-35s are skipping search entirely for AI: DeepSeek, Doubao, Kimi, Yuanbao.',
     pill: 'Baidu leads, Google barely registers',
   },
   {
-    icon: 'cart',
     h: 'Commerce where the buying actually happens',
     body: 'Tmall, JD, Douyin Shop, RED, plus social commerce on WeChat. eCommerce and social are the same surface, not separate funnels.',
     pill: 'Social = commerce',
@@ -69,1493 +64,509 @@ const inboundAgencies = [
 
 const outboundReq = [
   {
-    icon: 'badge',
     h: 'A brand Western buyers recognise',
     body: 'Not translated from China. Names that work, claims that do not read off, a visual identity that lands in Frankfurt and Chicago without an asterisk.',
     pill: 'Built, not translated',
   },
   {
-    icon: 'monitor',
     h: 'A website built for Western eyes',
     body: 'Clean. Spacious. One action per page. Hosted outside China. Fast: three seconds costs you over half your visitors.',
     pill: 'Slow pages lose the visit',
   },
   {
-    icon: 'search',
     h: 'Search visibility in Western engines',
     body: 'Google rankings, plus citations in ChatGPT, Perplexity and Gemini. Competitors already own the answers.',
     pill: 'Google + ChatGPT + AI',
   },
   {
-    icon: 'megaphone',
     h: 'Page-one search ads',
     body: 'Google Ads while SEO compounds. Western landing pages, not translated ones. Right keywords, right geography.',
     pill: 'Page one, day one',
   },
   {
-    icon: 'globe',
     h: 'Sales reps in the right time zone',
     body: 'A buyer in Germany writes at 10am Berlin. Shenzhen is asleep. By morning, three competitors already replied.',
     pill: 'First reply wins',
   },
 ];
 
+const inboundChips = ['WeChat', 'RedNote', 'Douyin', 'Weibo', 'Tmall', 'JD', 'Baidu', 'DeepSeek'];
+const outboundChips = ['LinkedIn', 'Google', 'ChatGPT', 'Perplexity', 'Gemini', 'US', 'UK', 'DE', 'FR'];
 ---
 
 <Layout locale={locale} route="two-flows" title={title} description={description}>
-  <section class="page-hero">
-    <div class="page-hero__bg" aria-hidden="true">
-      <svg viewBox="0 0 1600 760" preserveAspectRatio="xMidYMid slice" role="img" aria-hidden="true">
-        <defs>
-          <linearGradient id="page-cable" x1="0" x2="1" y1="0" y2="0">
-            <stop offset="0%" stop-color="#269ada" stop-opacity="0.95" />
-            <stop offset="50%" stop-color="#f4f1e6" stop-opacity="0.9" />
-            <stop offset="100%" stop-color="#c8102e" stop-opacity="0.95" />
-          </linearGradient>
-          <radialGradient id="page-glow-w" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#269ada" stop-opacity="0.30" />
-            <stop offset="100%" stop-color="#269ada" stop-opacity="0" />
-          </radialGradient>
-          <radialGradient id="page-glow-e" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#c8102e" stop-opacity="0.28" />
-            <stop offset="100%" stop-color="#c8102e" stop-opacity="0" />
-          </radialGradient>
-        </defs>
-
-        <ellipse cx="280" cy="500" rx="560" ry="220" fill="url(#page-glow-w)" />
-        <ellipse cx="1320" cy="500" rx="560" ry="220" fill="url(#page-glow-e)" />
-
-        <line x1="0" y1="500" x2="1600" y2="500" stroke="rgba(255,255,255,0.06)" stroke-width="1" />
-        <line x1="0" y1="518" x2="1600" y2="518" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
-        <line x1="0" y1="538" x2="1600" y2="538" stroke="rgba(255,255,255,0.025)" stroke-width="1" />
-
-        <path class="page-hero__cable" d="M 220 500 Q 800 110 1380 500" fill="none" stroke="url(#page-cable)" stroke-width="2" stroke-linecap="round" />
-
-        <g stroke="rgba(255,255,255,0.18)" stroke-width="1">
-          <line x1="320" y1="500" x2="320" y2="396" />
-          <line x1="440" y1="500" x2="440" y2="320" />
-          <line x1="560" y1="500" x2="560" y2="262" />
-          <line x1="680" y1="500" x2="680" y2="222" />
-          <line x1="800" y1="500" x2="800" y2="208" />
-          <line x1="920" y1="500" x2="920" y2="222" />
-          <line x1="1040" y1="500" x2="1040" y2="262" />
-          <line x1="1160" y1="500" x2="1160" y2="320" />
-          <line x1="1280" y1="500" x2="1280" y2="396" />
-        </g>
-
-        <g>
-          <line x1="220" y1="240" x2="220" y2="500" stroke="rgba(38,154,218,0.55)" stroke-width="2" />
-          <line x1="1380" y1="240" x2="1380" y2="500" stroke="rgba(200,16,46,0.55)" stroke-width="2" />
-          <circle cx="220" cy="500" r="5" fill="#269ada" />
-          <circle cx="1380" cy="500" r="5" fill="#c8102e" />
-        </g>
-
-        <text x="220" y="555" text-anchor="middle" fill="rgba(38,154,218,0.85)" font-family="Inter, sans-serif" font-size="12" letter-spacing="3">WEST</text>
-        <text x="1380" y="555" text-anchor="middle" fill="rgba(200,16,46,0.85)" font-family="Inter, sans-serif" font-size="12" letter-spacing="3">CHINA</text>
-      </svg>
-    </div>
-    <div class="page-hero__scrim" aria-hidden="true"></div>
-    <div class="container page-hero__content">
-      <h1 class="page-hero__title balance">
-        One bridge. <span class="page-hero__accent">Two flows.</span>
-      </h1>
-      <p class="page-hero__lead">
-        Whichever way you are going, we have already done the work on both sides. Pick the side of the bridge you are coming from.
-      </p>
-      <div class="page-hero__jumps">
-        <a class="page-hero__jump" href="#inbound">
-          <span class="page-hero__jump-name">Inbound</span>
-          <span class="page-hero__jump-meta">West to China</span>
-        </a>
-        <a class="page-hero__jump page-hero__jump--alt" href="#outbound">
-          <span class="page-hero__jump-name">Outbound</span>
-          <span class="page-hero__jump-meta">China to the West</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <section id="inbound" class="entry-hero entry-hero--inbound">
-    <div class="entry-hero__bg" aria-hidden="true">
-      <svg viewBox="0 0 1600 720" preserveAspectRatio="xMidYMid slice" role="img" aria-hidden="true">
-        <defs>
-          <radialGradient id="entry-glow-w" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#269ada" stop-opacity="0.34" />
-            <stop offset="100%" stop-color="#269ada" stop-opacity="0" />
-          </radialGradient>
-          <radialGradient id="entry-glow-e" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#c8102e" stop-opacity="0.32" />
-            <stop offset="100%" stop-color="#c8102e" stop-opacity="0" />
-          </radialGradient>
-          <pattern id="entry-grid" width="40" height="40" patternUnits="userSpaceOnUse">
-            <circle cx="1.5" cy="1.5" r="1.5" fill="rgba(255,255,255,0.10)" />
-          </pattern>
-          <linearGradient id="entry-stream" x1="0" x2="1" y1="0" y2="0">
-            <stop offset="0%" stop-color="#269ada" stop-opacity="0" />
-            <stop offset="50%" stop-color="#269ada" stop-opacity="0.85" />
-            <stop offset="100%" stop-color="#c8102e" stop-opacity="0" />
-          </linearGradient>
-        </defs>
-
-        <ellipse cx="220" cy="380" rx="540" ry="240" fill="url(#entry-glow-w)" />
-        <ellipse cx="1380" cy="380" rx="540" ry="240" fill="url(#entry-glow-e)" />
-
-        <rect x="0" y="0" width="1600" height="720" fill="url(#entry-grid)" />
-
-        <g class="entry-hero__nodes" stroke="rgba(255,255,255,0.18)" fill="none" stroke-width="1">
-          <circle cx="900" cy="180" r="3" fill="rgba(38,154,218,0.9)" stroke="none" />
-          <circle cx="1080" cy="260" r="3" fill="rgba(255,255,255,0.6)" stroke="none" />
-          <circle cx="1240" cy="200" r="3" fill="rgba(200,16,46,0.9)" stroke="none" />
-          <circle cx="1140" cy="380" r="3" fill="rgba(255,255,255,0.6)" stroke="none" />
-          <circle cx="980" cy="340" r="3" fill="rgba(38,154,218,0.7)" stroke="none" />
-          <circle cx="1320" cy="320" r="3" fill="rgba(255,255,255,0.5)" stroke="none" />
-          <line x1="900" y1="180" x2="1080" y2="260" />
-          <line x1="1080" y1="260" x2="1240" y2="200" />
-          <line x1="1080" y1="260" x2="1140" y2="380" />
-          <line x1="980" y1="340" x2="1140" y2="380" />
-          <line x1="1140" y1="380" x2="1320" y2="320" />
-        </g>
-
-        <path class="entry-hero__stream" d="M 80 420 Q 800 280 1520 420" fill="none" stroke="url(#entry-stream)" stroke-width="2" stroke-linecap="round" />
-      </svg>
-    </div>
-    <div class="entry-hero__scrim" aria-hidden="true"></div>
-    <div class="container entry-hero__content">
-      <span class="eyebrow eyebrow--on-dark eyebrow--rule">Inbound: West to China</span>
-      <h2 class="entry-hero__title balance">
-        You have a brand. China has 1.1 billion internet users. Closing that gap is not a translation job.
-      </h2>
-      <p class="entry-hero__lead">
-        The Chinese internet runs on its own stack. Different platforms, different search engines, different
-        infrastructure, different content density, different buyer signals. We have been working inside it for
-        twenty years.
-      </p>
-      <div class="entry-hero__chips">
-        <span class="entry-hero__chip">WeChat</span>
-        <span class="entry-hero__chip">RedNote</span>
-        <span class="entry-hero__chip">Douyin</span>
-        <span class="entry-hero__chip">Weibo</span>
-        <span class="entry-hero__chip">Tmall</span>
-        <span class="entry-hero__chip">JD</span>
-        <span class="entry-hero__chip">Baidu</span>
-        <span class="entry-hero__chip">DeepSeek</span>
-      </div>
-    </div>
-  </section>
-
-  <section class="section req-section">
-    <div class="req-section__bg" aria-hidden="true">
-      <span class="req-section__blob req-section__blob--w"></span>
-      <span class="req-section__blob req-section__blob--e"></span>
-    </div>
-    <div class="container">
-      <header class="section-header" data-reveal>
-        <h2 class="balance">Five surfaces. One Chinese internet.</h2>
-        <p class="lead">A landing in China is five different jobs running at once. Each surface has its own logic, its own tempo, and its own tax for getting it wrong.</p>
-      </header>
-
-      <ol class="req-grid" role="list">
-        {inboundReq.map((r, i) => (
-          <li class="req-card" style={`--i: ${i};`}>
-            <div class="req-card__inner">
-              <span class="req-card__icon" aria-hidden="true">
-                {r.icon === 'badge' && (
-                  <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M16 4l3 5 6 1-4 4 1 6-6-3-6 3 1-6-4-4 6-1 3-5z" />
-                  </svg>
-                )}
-                {r.icon === 'channels' && (
-                  <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="4" y="6" width="10" height="10" rx="2" />
-                    <rect x="18" y="6" width="10" height="10" rx="2" />
-                    <rect x="4" y="18" width="10" height="10" rx="2" />
-                    <rect x="18" y="18" width="10" height="10" rx="2" />
-                  </svg>
-                )}
-                {r.icon === 'server' && (
-                  <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="5" y="6" width="22" height="8" rx="2" />
-                    <rect x="5" y="18" width="22" height="8" rx="2" />
-                    <circle cx="9" cy="10" r="0.8" fill="currentColor" />
-                    <circle cx="9" cy="22" r="0.8" fill="currentColor" />
-                    <line x1="13" y1="10" x2="22" y2="10" />
-                    <line x1="13" y1="22" x2="22" y2="22" />
-                  </svg>
-                )}
-                {r.icon === 'search' && (
-                  <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="14" cy="14" r="8" />
-                    <line x1="20" y1="20" x2="27" y2="27" />
-                    <path d="M10 14 L13 17 L18 12" />
-                  </svg>
-                )}
-                {r.icon === 'cart' && (
-                  <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M5 7h3l3 14h12l3-10H10" />
-                    <circle cx="13" cy="26" r="1.6" />
-                    <circle cx="23" cy="26" r="1.6" />
-                  </svg>
-                )}
-              </span>
-              <h3 class="req-card__title">{r.h}</h3>
-              <p class="req-card__body">{r.body}</p>
-              <span class="req-card__pill">{r.pill}</span>
-            </div>
-          </li>
-        ))}
-      </ol>
-    </div>
-  </section>
-
-  <section class="section section--alt agency-section">
-    <div class="container">
-      <header class="section-header" data-reveal>
-        <h2 class="balance">Pick the whole stack, or pick the piece.</h2>
-        <p class="lead">Four independent teams cover the inbound stack end to end. Hire one. Hire two. Hire all four. They share a spine.</p>
-      </header>
-      <div class="agency-rail" data-stagger>
-        {inboundAgencies.map((a, i) => (
-          <a class="agency-tile" href={pathFor(a.route, locale)} style={`--i: ${i};`}>
-            <span class="agency-tile__logo">
-              <AgencyLogo route={a.route} name={a.name} class="agency-card-logo" />
-            </span>
-            <span class="agency-tile__role">{a.role}</span>
-            <h3 class="agency-tile__name">{a.name}</h3>
-            <p class="agency-tile__body">{a.body}</p>
-            <span class="agency-tile__cta">Visit
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
-            </span>
+  <div class="min">
+    <!-- 1 · Hero -->
+    <section class="min-hero">
+      <div class="min-glow" aria-hidden="true"></div>
+      <div class="min-wrap">
+        <h1 class="min-hero__title" data-reveal>One bridge. Two flows.</h1>
+        <p class="min-hero__lead" data-reveal style="--i: 1">
+          Whichever way you are going, we have already done the work on both sides. Pick the side of the bridge you are coming from.
+        </p>
+        <div class="flows-jumps" data-reveal style="--i: 2">
+          <a class="min-card flows-jump" href="#inbound">
+            <span class="flows-jump__name">Inbound</span>
+            <span class="min-muted">West to China</span>
           </a>
-        ))}
+          <a class="min-card flows-jump" href="#outbound">
+            <span class="flows-jump__name">Outbound</span>
+            <span class="min-muted">China to the West</span>
+          </a>
+        </div>
+        <figure class="min-photo min-photo--wide flows-hero__photo" data-reveal style="--i: 3">
+          <img
+            src="/images/photo-flows.webp"
+            alt="A cargo ship leaving harbor, seen from above."
+            width="1050"
+            height="620"
+            loading="eager"
+            decoding="async"
+          />
+        </figure>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="section openings-section">
-    <div class="container">
-      <header class="section-header" data-reveal>
-        <h2 class="balance">Six typical openings.</h2>
-        <p class="lead">Most projects start as one sentence. Pick the one closest to yours.</p>
-      </header>
-      <div class="openings" data-stagger>
-        <a class="opening" href={pathFor('agencies/chinawebfoundry', locale)} style="--i: 0;">
-          <span class="opening__quote-mark" aria-hidden="true">&#8220;</span>
-          <p class="opening__quote">I just need a Chinese website that actually works.</p>
-          <div class="opening__answer">
-            <span class="opening__by">ChinaWebFoundry</span>
-            <span class="opening__line">Six-week migration. ICP filed. Baidu-indexable.</span>
-          </div>
-        </a>
-        <a class="opening" href={pathFor('agencies/theredscroll', locale)} style="--i: 1;">
-          <span class="opening__quote-mark" aria-hidden="true">&#8220;</span>
-          <p class="opening__quote">I need to be on RedNote and Douyin in 90 days.</p>
-          <div class="opening__answer">
-            <span class="opening__by">TheRedScroll</span>
-            <span class="opening__line">Two-week onboarding. First content live in a fortnight.</span>
-          </div>
-        </a>
-        <a class="opening" href={pathFor('agencies/bearingbridge', locale)} style="--i: 2;">
-          <span class="opening__quote-mark" aria-hidden="true">&#8220;</span>
-          <p class="opening__quote">I need everything: brand, channels, eCommerce, KOLs.</p>
-          <div class="opening__answer">
-            <span class="opening__by">TheChinaPath</span>
-            <span class="opening__line">Full-service entry. Twenty-year playbook.</span>
-          </div>
-        </a>
-        <a class="opening" href={pathFor('agencies/compass', locale)} style="--i: 3;">
-          <span class="opening__quote-mark" aria-hidden="true">&#8220;</span>
-          <p class="opening__quote">We need a distributor in China asap.</p>
-          <div class="opening__answer">
-            <span class="opening__by">Compass</span>
-            <span class="opening__line">A vetted shortlist of distributors and TPs in days, not months.</span>
-          </div>
-        </a>
-        <a class="opening" href={pathFor('ai-services', locale)} style="--i: 4;">
-          <span class="opening__quote-mark" aria-hidden="true">&#8220;</span>
-          <p class="opening__quote">Our content does not resonate with Chinese audiences.</p>
-          <div class="opening__answer">
-            <span class="opening__by">AI Services, HubStudio</span>
-            <span class="opening__line">Content rebuilt for Chinese readers, at the volume the channels demand.</span>
-          </div>
-        </a>
-        <a class="opening opening--cta" href={pathFor('contact', locale)} style="--i: 5;">
-          <span class="opening__quote-mark" aria-hidden="true">&#8220;</span>
-          <p class="opening__quote">I am not sure where to start.</p>
-          <div class="opening__answer">
-            <span class="opening__by">Book a call</span>
-            <span class="opening__line">Thirty minutes. We tell you which agency, and what 90 days look like.</span>
-          </div>
-        </a>
+    <!-- 2 · Inbound entry -->
+    <section class="min-sec" id="inbound">
+      <div class="min-wrap">
+        <span class="min-tag min-tag--blue" data-reveal>Inbound: West to China</span>
+        <h2 class="min-h2" data-reveal style="--i: 1">
+          You have a brand. China has 1.1 billion internet users. Closing that gap is not a translation job.
+        </h2>
+        <p class="min-lead" data-reveal style="--i: 2">
+          The Chinese internet runs on its own stack. Different platforms, different search engines, different
+          infrastructure, different content density, different buyer signals. We have been working inside it for
+          twenty years.
+        </p>
+        <div class="flows-chips" data-reveal style="--i: 3">
+          {inboundChips.map((c) => <span class="min-pill">{c}</span>)}
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="outbound" class="entry-hero entry-hero--outbound">
-    <div class="entry-hero__bg" aria-hidden="true">
-      <svg viewBox="0 0 1600 720" preserveAspectRatio="xMidYMid slice" role="img" aria-hidden="true">
-        <defs>
-          <radialGradient id="out-glow-e" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#c8102e" stop-opacity="0.34" />
-            <stop offset="100%" stop-color="#c8102e" stop-opacity="0" />
-          </radialGradient>
-          <radialGradient id="out-glow-w" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#269ada" stop-opacity="0.32" />
-            <stop offset="100%" stop-color="#269ada" stop-opacity="0" />
-          </radialGradient>
-          <linearGradient id="out-stream" x1="1" x2="0" y1="0" y2="0">
-            <stop offset="0%" stop-color="#c8102e" stop-opacity="0" />
-            <stop offset="50%" stop-color="#f4f1e6" stop-opacity="0.85" />
-            <stop offset="100%" stop-color="#269ada" stop-opacity="0" />
-          </linearGradient>
-        </defs>
-
-        <ellipse cx="1380" cy="380" rx="540" ry="240" fill="url(#out-glow-e)" />
-        <ellipse cx="220" cy="380" rx="540" ry="240" fill="url(#out-glow-w)" />
-
-        <g class="entry-hero__lines" stroke="rgba(255,255,255,0.06)" stroke-width="1">
-          <line x1="0" y1="180" x2="1600" y2="180" />
-          <line x1="0" y1="260" x2="1600" y2="260" />
-          <line x1="0" y1="340" x2="1600" y2="340" />
-          <line x1="0" y1="420" x2="1600" y2="420" />
-          <line x1="0" y1="500" x2="1600" y2="500" />
-        </g>
-
-        <g class="entry-hero__nodes" fill="none">
-          <circle cx="180" cy="220" r="3" fill="rgba(38,154,218,0.9)" />
-          <circle cx="320" cy="280" r="3" fill="rgba(255,255,255,0.65)" />
-          <circle cx="460" cy="220" r="3" fill="rgba(255,255,255,0.55)" />
-          <circle cx="600" cy="320" r="3" fill="rgba(38,154,218,0.7)" />
-        </g>
-
-        <path class="entry-hero__stream" d="M 1520 420 Q 800 280 80 420" fill="none" stroke="url(#out-stream)" stroke-width="2" stroke-linecap="round" />
-      </svg>
-    </div>
-    <div class="entry-hero__scrim" aria-hidden="true"></div>
-    <div class="container entry-hero__content">
-      <span class="eyebrow eyebrow--on-dark eyebrow--rule">Outbound: China to the West</span>
-      <h2 class="entry-hero__title balance">
-        Great product. Great price. Great factory. No pipeline overseas.
-      </h2>
-      <p class="entry-hero__lead">
-        Every Chinese B2B and services company going overseas hits the same wall. The brand was built for
-        Chinese buyers. The website reads as cluttered to Western eyes. The LinkedIn page is empty. And nobody
-        is answering the inquiry from Berlin at 10am local time. B2B and services are where we focus, and we
-        have been building the other side of that bridge for twenty years.
-      </p>
-      <div class="entry-hero__chips">
-        <span class="entry-hero__chip">LinkedIn</span>
-        <span class="entry-hero__chip">Google</span>
-        <span class="entry-hero__chip">ChatGPT</span>
-        <span class="entry-hero__chip">Perplexity</span>
-        <span class="entry-hero__chip">Gemini</span>
-        <span class="entry-hero__chip">US</span>
-        <span class="entry-hero__chip">UK</span>
-        <span class="entry-hero__chip">DE</span>
-        <span class="entry-hero__chip">FR</span>
+    <!-- 3 · Inbound requirements -->
+    <section class="min-sec min-sec--ruled">
+      <div class="min-wrap">
+        <div data-reveal>
+          <h2 class="min-h2">Five surfaces. One Chinese internet.</h2>
+          <p class="min-lead">A landing in China is five different jobs running at once. Each surface has its own logic, its own tempo, and its own tax for getting it wrong.</p>
+        </div>
+        <ol class="min-grid-3 flows-req-list" role="list">
+          {inboundReq.map((r, i) => (
+            <li class="min-card flows-req" data-reveal style={`--i: ${i}`}>
+              <h3 class="min-h3">{r.h}</h3>
+              <p class="min-small">{r.body}</p>
+              <span class="min-pill flows-req__pill">{r.pill}</span>
+            </li>
+          ))}
+        </ol>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="section">
-    <div class="container">
-      <header class="section-header" data-reveal>
-        <h2 class="balance">Five fronts. One overseas pipeline.</h2>
-        <p class="lead">A landing overseas is five different jobs running at once. Each surface has its own logic, its own tempo, and its own tax for getting it wrong.</p>
-      </header>
-
-      <ol class="req-grid req-grid--bento3x2" role="list">
-        {outboundReq.map((r, i) => (
-          <li class="req-card" style={`--i: ${i};`}>
-            <div class="req-card__inner">
-              <span class="req-card__icon" aria-hidden="true">
-                {r.icon === 'badge' && (
-                  <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M16 4l3 5 6 1-4 4 1 6-6-3-6 3 1-6-4-4 6-1 3-5z" />
-                  </svg>
-                )}
-                {r.icon === 'channels' && (
-                  <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="6" y="4" width="20" height="14" rx="2" />
-                    <path d="M12 22v6" /><path d="M20 22v6" /><path d="M9 28h14" />
-                    <line x1="11" y1="9" x2="21" y2="9" /><line x1="11" y1="13" x2="17" y2="13" />
-                  </svg>
-                )}
-                {r.icon === 'monitor' && (
-                  <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="4" y="6" width="24" height="16" rx="2" />
-                    <path d="M16 22v6" /><path d="M11 28h10" />
-                    <line x1="9" y1="11" x2="23" y2="11" /><line x1="9" y1="15" x2="18" y2="15" />
-                  </svg>
-                )}
-                {r.icon === 'search' && (
-                  <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="14" cy="14" r="8" />
-                    <line x1="20" y1="20" x2="27" y2="27" />
-                    <path d="M10 14 L13 17 L18 12" />
-                  </svg>
-                )}
-                {r.icon === 'megaphone' && (
-                  <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M5 12v8l16 6V6L5 12z" />
-                    <path d="M21 11a4 4 0 010 10" />
-                    <path d="M9 20v4a2 2 0 004 0" />
-                  </svg>
-                )}
-                {r.icon === 'globe' && (
-                  <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="16" cy="16" r="11" />
-                    <ellipse cx="16" cy="16" rx="5" ry="11" />
-                    <line x1="5" y1="16" x2="27" y2="16" />
-                  </svg>
-                )}
+    <!-- 4 · Inbound agencies -->
+    <section class="min-sec min-sec--ruled">
+      <div class="min-wrap">
+        <div data-reveal>
+          <h2 class="min-h2">Pick the whole stack, or pick the piece.</h2>
+          <p class="min-lead">Four independent teams cover the inbound stack end to end. Hire one. Hire two. Hire all four. They share a spine.</p>
+        </div>
+        <div class="min-grid-4 flows-agencies">
+          {inboundAgencies.map((a, i) => (
+            <a class="min-card flows-agency" href={pathFor(a.route, locale)} data-reveal style={`--i: ${i}`}>
+              <span class="flows-agency__logo">
+                <AgencyLogo route={a.route} name={a.name} class="agency-card-logo" />
               </span>
-              <h3 class="req-card__title">{r.h}</h3>
-              <p class="req-card__body">{r.body}</p>
-              <span class="req-card__pill">{r.pill}</span>
+              <span class="min-meta">{a.role}</span>
+              <h3 class="min-h3">{a.name}</h3>
+              <p class="min-small">{a.body}</p>
+              <span class="min-link flows-card__cta">Visit</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- 5 · Inbound openings -->
+    <section class="min-sec min-sec--ruled">
+      <div class="min-wrap">
+        <div data-reveal>
+          <h2 class="min-h2">Six typical openings.</h2>
+          <p class="min-lead">Most projects start as one sentence. Pick the one closest to yours.</p>
+        </div>
+        <div class="min-grid-3 flows-openings">
+          <a class="min-card flows-opening" href={pathFor('agencies/chinawebfoundry', locale)} data-reveal style="--i: 0">
+            <p class="flows-opening__quote">I just need a Chinese website that actually works.</p>
+            <div class="flows-opening__answer">
+              <span class="flows-opening__by">ChinaWebFoundry</span>
+              <span class="min-small">Six-week migration. ICP filed. Baidu-indexable.</span>
             </div>
-          </li>
-        ))}
-      </ol>
-    </div>
-  </section>
-
-  <section class="section section--alt pkg-section">
-    <div class="container">
-      <header class="section-header" data-reveal>
-        <h2 class="balance">Pick the tier. Add the next one when the project asks.</h2>
-        <p class="lead">Built for Chinese B2B and services companies going overseas. Three tiers that stack on each other. Each tier includes everything below.</p>
-      </header>
-
-      <div class="pkg-grid" data-stagger>
-        <a class="pkg" href={pathFor('agencies/beyondbridge', locale)} style="--i: 0;">
-          <div class="pkg__head">
-            <span class="pkg__tier">Starter</span>
-            <span class="pkg__theme">Presence</span>
-          </div>
-          <h3 class="pkg__title">Brand + LinkedIn + website</h3>
-          <p class="pkg__body">The minimum to look credible to a Western B2B buyer. For services companies going overseas for the first time.</p>
-          <ul class="pkg__features">
-            <li><span class="pkg__check" aria-hidden="true">&#10003;</span>Brand strategy for Western buyers</li>
-            <li><span class="pkg__check" aria-hidden="true">&#10003;</span>LinkedIn page and exec posting</li>
-            <li><span class="pkg__check" aria-hidden="true">&#10003;</span>Western-facing website</li>
-          </ul>
-          <span class="pill-cta pkg__cta">Start with Starter
-            <span class="pill-cta__disc" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg></span>
-          </span>
-        </a>
-
-        <a class="pkg pkg--mid" href={pathFor('agencies/beyondbridge', locale)} style="--i: 1;">
-          <div class="pkg__head">
-            <span class="pkg__tier">Growth</span>
-            <span class="pkg__theme">Visibility</span>
-          </div>
-          <h3 class="pkg__title">Starter + SEO/GEO + Google Ads</h3>
-          <p class="pkg__body">Presence and traffic. B2B buyers find you on Google, on ChatGPT, and through paid search.</p>
-          <ul class="pkg__features">
-            <li><span class="pkg__check" aria-hidden="true">&#10003;</span>Everything in Starter</li>
-            <li><span class="pkg__check" aria-hidden="true">&#10003;</span>SEO and GEO for Western AI engines</li>
-            <li><span class="pkg__check" aria-hidden="true">&#10003;</span>Google Ads from day one</li>
-          </ul>
-          <span class="pill-cta pkg__cta">Choose Growth
-            <span class="pill-cta__disc" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg></span>
-          </span>
-        </a>
-
-        <a class="pkg pkg--top" href={pathFor('agencies/beyondbridge', locale)} style="--i: 2;">
-          <span class="pkg__badge" aria-hidden="true">Full pipeline</span>
-          <div class="pkg__head">
-            <span class="pkg__tier">Full Pipeline</span>
-            <span class="pkg__theme">Revenue</span>
-          </div>
-          <h3 class="pkg__title">Growth + the external sales force</h3>
-          <p class="pkg__body">Every inbound lead qualified, called, and handed to your team ready to close.</p>
-          <ul class="pkg__features">
-            <li><span class="pkg__check" aria-hidden="true">&#10003;</span>Everything in Growth</li>
-            <li><span class="pkg__check" aria-hidden="true">&#10003;</span>Named in-market reps</li>
-            <li><span class="pkg__check" aria-hidden="true">&#10003;</span>US, UK, DE, FR coverage</li>
-          </ul>
-          <span class="pill-cta pkg__cta">Go Full Pipeline
-            <span class="pill-cta__disc" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg></span>
-          </span>
-        </a>
-      </div>
-
-      <div class="btn-row" style="margin-top: var(--space-6); justify-content: center;" data-reveal>
-        <a class="pill-cta" href={pathFor('agencies/beyondbridge', locale)}>Visit BeyondBridge
-          <span class="pill-cta__disc" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg></span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <section class="section openings-section">
-    <div class="container">
-      <header class="section-header" data-reveal>
-        <h2 class="balance">Seven typical openings.</h2>
-        <p class="lead">On the outbound side, the first sentence usually sounds like one of these.</p>
-      </header>
-      <div class="openings-list">
-        <a class="openings-list__item" href={pathFor('agencies/beyondbridge', locale)} data-reveal style="--ri: 0;">
-          <p class="openings-list__quote">&#8220;We have a trade show in Germany in three months and nothing online that looks credible.&#8221;</p>
-          <p class="openings-list__answer"><span class="openings-list__by">Starter package.</span> Ninety days to brand, LinkedIn, and a Western-facing website.</p>
-        </a>
-        <a class="openings-list__item" href={pathFor('agencies/beyondbridge', locale)} data-reveal style="--ri: 1;">
-          <p class="openings-list__quote">&#8220;We have presence but no inbound.&#8221;</p>
-          <p class="openings-list__answer"><span class="openings-list__by">Growth package.</span> SEO, GEO, and Google Ads layered on the Starter foundation.</p>
-        </a>
-        <a class="openings-list__item" href={pathFor('agencies/beyondbridge', locale)} data-reveal style="--ri: 2;">
-          <p class="openings-list__quote">&#8220;We have inbound. Nobody in Europe to handle it.&#8221;</p>
-          <p class="openings-list__answer"><span class="openings-list__by">Full Pipeline.</span> Add the in-market sales force. Named reps in the US, UK, DE, FR.</p>
-        </a>
-        <a class="openings-list__item" href={pathFor('ai-services', locale)} data-reveal style="--ri: 3;">
-          <p class="openings-list__quote">&#8220;Our LinkedIn is empty and our execs do not post.&#8221;</p>
-          <p class="openings-list__answer"><span class="openings-list__by">AI Services, Nuvora Studio.</span> LinkedIn-only B2B specialist. Strategy, content, ads, exec posting.</p>
-        </a>
-        <a class="openings-list__item" href={pathFor('agencies/beyondbridge', locale)} data-reveal style="--ri: 4;">
-          <p class="openings-list__quote">&#8220;Our pitch sounds translated.&#8221;</p>
-          <p class="openings-list__answer"><span class="openings-list__by">BeyondBridge brand.</span> A brand built for Western B2B buyers, not transposed from Chinese.</p>
-        </a>
-        <a class="openings-list__item" href={pathFor('agencies/beyondbridge', locale)} data-reveal style="--ri: 5;">
-          <p class="openings-list__quote">&#8220;Western buyers cannot find us on Google or in ChatGPT.&#8221;</p>
-          <p class="openings-list__answer"><span class="openings-list__by">SEO and GEO.</span> Rank on Google. Get cited by ChatGPT, Perplexity and Gemini.</p>
-        </a>
-      </div>
-      <a class="openings-band" href={pathFor('contact', locale)} data-reveal>
-        <p class="openings-band__quote">&#8220;We are not sure where to start.&#8221;</p>
-        <div class="openings-band__answer">
-          <span class="openings-band__by">Book a call</span>
-          <span class="openings-band__line">Thirty minutes. We tell you which tier, and what 90 days look like.</span>
+          </a>
+          <a class="min-card flows-opening" href={pathFor('agencies/theredscroll', locale)} data-reveal style="--i: 1">
+            <p class="flows-opening__quote">I need to be on RedNote and Douyin in 90 days.</p>
+            <div class="flows-opening__answer">
+              <span class="flows-opening__by">TheRedScroll</span>
+              <span class="min-small">Two-week onboarding. First content live in a fortnight.</span>
+            </div>
+          </a>
+          <a class="min-card flows-opening" href={pathFor('agencies/bearingbridge', locale)} data-reveal style="--i: 2">
+            <p class="flows-opening__quote">I need everything: brand, channels, eCommerce, KOLs.</p>
+            <div class="flows-opening__answer">
+              <span class="flows-opening__by">TheChinaPath</span>
+              <span class="min-small">Full-service entry. Twenty-year playbook.</span>
+            </div>
+          </a>
+          <a class="min-card flows-opening" href={pathFor('agencies/compass', locale)} data-reveal style="--i: 3">
+            <p class="flows-opening__quote">We need a distributor in China asap.</p>
+            <div class="flows-opening__answer">
+              <span class="flows-opening__by">Compass</span>
+              <span class="min-small">A vetted shortlist of distributors and TPs in days, not months.</span>
+            </div>
+          </a>
+          <a class="min-card flows-opening" href={pathFor('ai-services', locale)} data-reveal style="--i: 4">
+            <p class="flows-opening__quote">Our content does not resonate with Chinese audiences.</p>
+            <div class="flows-opening__answer">
+              <span class="flows-opening__by">AI Services, HubStudio</span>
+              <span class="min-small">Content rebuilt for Chinese readers, at the volume the channels demand.</span>
+            </div>
+          </a>
+          <a class="min-card flows-opening" href={pathFor('contact', locale)} data-reveal style="--i: 5">
+            <p class="flows-opening__quote">I am not sure where to start.</p>
+            <div class="flows-opening__answer">
+              <span class="flows-opening__by">Book a call</span>
+              <span class="min-small">Thirty minutes. We tell you which agency, and what 90 days look like.</span>
+            </div>
+          </a>
         </div>
-      </a>
-    </div>
-  </section>
+      </div>
+    </section>
 
-  <section class="section section--dark">
-    <div class="container container--narrow" data-reveal>
-      <h2 class="balance">Rankings compound. Relationships compound. Authority compounds.</h2>
-      <p class="lead">
-        Every month without Western presence is deals lost to competitors who got there first. Every quarter
-        without pipeline is budget burned on trade shows, translators, and cold outreach going nowhere. Every
-        year you wait, the cost of catching up doubles. The Chinese companies winning overseas right now started
-        two years ago.
-      </p>
-      <div class="btn-row" style="margin-top: var(--space-5);">
-        <a class="pill-cta" href={pathFor('contact', locale)}>Book a call
-          <span class="pill-cta__disc" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg></span>
+    <!-- 6 · Outbound entry -->
+    <section class="min-sec min-sec--ruled" id="outbound">
+      <div class="min-wrap">
+        <span class="min-tag min-tag--red" data-reveal>Outbound: China to the West</span>
+        <h2 class="min-h2" data-reveal style="--i: 1">
+          Great product. Great price. Great factory. No pipeline overseas.
+        </h2>
+        <p class="min-lead" data-reveal style="--i: 2">
+          Every Chinese B2B and services company going overseas hits the same wall. The brand was built for
+          Chinese buyers. The website reads as cluttered to Western eyes. The LinkedIn page is empty. And nobody
+          is answering the inquiry from Berlin at 10am local time. B2B and services are where we focus, and we
+          have been building the other side of that bridge for twenty years.
+        </p>
+        <div class="flows-chips" data-reveal style="--i: 3">
+          {outboundChips.map((c) => <span class="min-pill">{c}</span>)}
+        </div>
+      </div>
+    </section>
+
+    <!-- 7 · Outbound requirements -->
+    <section class="min-sec min-sec--ruled">
+      <div class="min-wrap">
+        <div data-reveal>
+          <h2 class="min-h2">Five fronts. One overseas pipeline.</h2>
+          <p class="min-lead">A landing overseas is five different jobs running at once. Each surface has its own logic, its own tempo, and its own tax for getting it wrong.</p>
+        </div>
+        <ol class="min-grid-3 flows-req-list" role="list">
+          {outboundReq.map((r, i) => (
+            <li class="min-card flows-req" data-reveal style={`--i: ${i}`}>
+              <h3 class="min-h3">{r.h}</h3>
+              <p class="min-small">{r.body}</p>
+              <span class="min-pill flows-req__pill">{r.pill}</span>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+
+    <!-- 8 · Outbound packages -->
+    <section class="min-sec min-sec--ruled">
+      <div class="min-wrap">
+        <div data-reveal>
+          <h2 class="min-h2">Pick the tier. Add the next one when the project asks.</h2>
+          <p class="min-lead">Built for Chinese B2B and services companies going overseas. Three tiers that stack on each other. Each tier includes everything below.</p>
+        </div>
+
+        <div class="min-grid-3 flows-pkgs">
+          <a class="min-card flows-pkg" href={pathFor('agencies/beyondbridge', locale)} data-reveal style="--i: 0">
+            <div class="flows-pkg__head">
+              <span class="flows-pkg__tier">Starter</span>
+              <span class="min-meta">Presence</span>
+            </div>
+            <h3 class="min-h3">Brand + LinkedIn + website</h3>
+            <p class="min-small">The minimum to look credible to a Western B2B buyer. For services companies going overseas for the first time.</p>
+            <ul class="flows-pkg__features">
+              <li><span class="flows-pkg__check" aria-hidden="true">&#10003;</span>Brand strategy for Western buyers</li>
+              <li><span class="flows-pkg__check" aria-hidden="true">&#10003;</span>LinkedIn page and exec posting</li>
+              <li><span class="flows-pkg__check" aria-hidden="true">&#10003;</span>Western-facing website</li>
+            </ul>
+            <span class="min-link flows-card__cta">Start with Starter</span>
+          </a>
+
+          <a class="min-card flows-pkg" href={pathFor('agencies/beyondbridge', locale)} data-reveal style="--i: 1">
+            <div class="flows-pkg__head">
+              <span class="flows-pkg__tier">Growth</span>
+              <span class="min-meta">Visibility</span>
+            </div>
+            <h3 class="min-h3">Starter + SEO/GEO + Google Ads</h3>
+            <p class="min-small">Presence and traffic. B2B buyers find you on Google, on ChatGPT, and through paid search.</p>
+            <ul class="flows-pkg__features">
+              <li><span class="flows-pkg__check" aria-hidden="true">&#10003;</span>Everything in Starter</li>
+              <li><span class="flows-pkg__check" aria-hidden="true">&#10003;</span>SEO and GEO for Western AI engines</li>
+              <li><span class="flows-pkg__check" aria-hidden="true">&#10003;</span>Google Ads from day one</li>
+            </ul>
+            <span class="min-link flows-card__cta">Choose Growth</span>
+          </a>
+
+          <a class="min-card flows-pkg" href={pathFor('agencies/beyondbridge', locale)} data-reveal style="--i: 2">
+            <span class="min-tag min-tag--yellow flows-pkg__badge" aria-hidden="true">Full pipeline</span>
+            <div class="flows-pkg__head">
+              <span class="flows-pkg__tier">Full Pipeline</span>
+              <span class="min-meta">Revenue</span>
+            </div>
+            <h3 class="min-h3">Growth + the external sales force</h3>
+            <p class="min-small">Every inbound lead qualified, called, and handed to your team ready to close.</p>
+            <ul class="flows-pkg__features">
+              <li><span class="flows-pkg__check" aria-hidden="true">&#10003;</span>Everything in Growth</li>
+              <li><span class="flows-pkg__check" aria-hidden="true">&#10003;</span>Named in-market reps</li>
+              <li><span class="flows-pkg__check" aria-hidden="true">&#10003;</span>US, UK, DE, FR coverage</li>
+            </ul>
+            <span class="min-link flows-card__cta">Go Full Pipeline</span>
+          </a>
+        </div>
+
+        <div class="min-ctas flows-pkg__visit" data-reveal>
+          <a class="min-btn min-btn--ghost" href={pathFor('agencies/beyondbridge', locale)}>Visit BeyondBridge</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9 · Outbound openings -->
+    <section class="min-sec min-sec--ruled">
+      <div class="min-wrap">
+        <div data-reveal>
+          <h2 class="min-h2">Seven typical openings.</h2>
+          <p class="min-lead">On the outbound side, the first sentence usually sounds like one of these.</p>
+        </div>
+        <div class="min-index flows-openings-list" data-reveal>
+          <a class="min-index__row" href={pathFor('agencies/beyondbridge', locale)}>
+            <h3 class="min-index__title">&#8220;We have a trade show in Germany in three months and nothing online that looks credible.&#8221;</h3>
+            <p class="min-index__body"><span class="flows-opening__by">Starter package.</span> Ninety days to brand, LinkedIn, and a Western-facing website.</p>
+            <span class="min-index__arrow" aria-hidden="true">→</span>
+          </a>
+          <a class="min-index__row" href={pathFor('agencies/beyondbridge', locale)}>
+            <h3 class="min-index__title">&#8220;We have presence but no inbound.&#8221;</h3>
+            <p class="min-index__body"><span class="flows-opening__by">Growth package.</span> SEO, GEO, and Google Ads layered on the Starter foundation.</p>
+            <span class="min-index__arrow" aria-hidden="true">→</span>
+          </a>
+          <a class="min-index__row" href={pathFor('agencies/beyondbridge', locale)}>
+            <h3 class="min-index__title">&#8220;We have inbound. Nobody in Europe to handle it.&#8221;</h3>
+            <p class="min-index__body"><span class="flows-opening__by">Full Pipeline.</span> Add the in-market sales force. Named reps in the US, UK, DE, FR.</p>
+            <span class="min-index__arrow" aria-hidden="true">→</span>
+          </a>
+          <a class="min-index__row" href={pathFor('ai-services', locale)}>
+            <h3 class="min-index__title">&#8220;Our LinkedIn is empty and our execs do not post.&#8221;</h3>
+            <p class="min-index__body"><span class="flows-opening__by">AI Services, Nuvora Studio.</span> LinkedIn-only B2B specialist. Strategy, content, ads, exec posting.</p>
+            <span class="min-index__arrow" aria-hidden="true">→</span>
+          </a>
+          <a class="min-index__row" href={pathFor('agencies/beyondbridge', locale)}>
+            <h3 class="min-index__title">&#8220;Our pitch sounds translated.&#8221;</h3>
+            <p class="min-index__body"><span class="flows-opening__by">BeyondBridge brand.</span> A brand built for Western B2B buyers, not transposed from Chinese.</p>
+            <span class="min-index__arrow" aria-hidden="true">→</span>
+          </a>
+          <a class="min-index__row" href={pathFor('agencies/beyondbridge', locale)}>
+            <h3 class="min-index__title">&#8220;Western buyers cannot find us on Google or in ChatGPT.&#8221;</h3>
+            <p class="min-index__body"><span class="flows-opening__by">SEO and GEO.</span> Rank on Google. Get cited by ChatGPT, Perplexity and Gemini.</p>
+            <span class="min-index__arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+        <a class="min-card flows-band" href={pathFor('contact', locale)} data-reveal>
+          <p class="flows-opening__quote">&#8220;We are not sure where to start.&#8221;</p>
+          <div class="flows-opening__answer flows-band__answer">
+            <span class="flows-opening__by">Book a call</span>
+            <span class="min-small">Thirty minutes. We tell you which tier, and what 90 days look like.</span>
+          </div>
         </a>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="section section--alt">
-    <div class="container">
-      <div class="split split--text-first" data-reveal>
-        <div class="prose">
-          <h2 class="balance">A production engine the agencies share. Both flows.</h2>
-          <p>
-            Every engagement on this page, inbound or outbound, plugs into HubStudio's content production
-            engine. That is what keeps content cost competitive at the volumes both sides demand: three to
-            five RedNote posts a week and daily Douyin video on the China side; weekly LinkedIn drops,
-            monthly campaign refreshes and asset libraries on the overseas side. Without an AI-native
-            content engine behind it, the math does not work, in either direction.
-          </p>
-          <a class="pill-ghost pill-ghost--ink" href={pathFor('agencies/hubstudio', locale)}>Visit HubStudio</a>
-        </div>
-        <img
-          class="aigc-visual"
-          src="/images/AIGC-For-Brands.webp"
-          alt="HubStudio content production for both inbound and outbound brands"
-          loading="lazy"
-          decoding="async"
-        />
+    <!-- 10 · Compounding -->
+    <section class="min-sec min-sec--ruled">
+      <div class="min-wrap min-narrow" data-reveal>
+        <h2 class="min-h2">Rankings compound. Relationships compound. Authority compounds.</h2>
+        <p class="min-lead flows-compound__lead">
+          Every month without Western presence is deals lost to competitors who got there first. Every quarter
+          without pipeline is budget burned on trade shows, translators, and cold outreach going nowhere. Every
+          year you wait, the cost of catching up doubles. The Chinese companies winning overseas right now started
+          two years ago.
+        </p>
+        <a class="min-btn" href={pathFor('contact', locale)}>Book a call</a>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <!-- 11 · Production engine -->
+    <section class="min-sec min-sec--ruled">
+      <div class="min-wrap">
+        <div class="min-split" data-reveal>
+          <div>
+            <h2 class="min-h2">A production engine the agencies share. Both flows.</h2>
+            <p class="min-body min-split__body">
+              Every engagement on this page, inbound or outbound, plugs into HubStudio's content production
+              engine. That is what keeps content cost competitive at the volumes both sides demand: three to
+              five RedNote posts a week and daily Douyin video on the China side; weekly LinkedIn drops,
+              monthly campaign refreshes and asset libraries on the overseas side. Without an AI-native
+              content engine behind it, the math does not work, in either direction.
+            </p>
+            <a class="min-btn min-btn--ghost" href={pathFor('agencies/hubstudio', locale)}>Visit HubStudio</a>
+          </div>
+          <figure class="min-photo min-photo--tall flows-aigc">
+            <img
+              src="/images/AIGC-For-Brands.webp"
+              alt="HubStudio content production for both inbound and outbound brands"
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+        </div>
+      </div>
+    </section>
+  </div>
 </Layout>
 
 <style>
-  .card :global(.agency-card-logo) {
-    height: 48px;
-    width: auto;
-    max-width: 180px;
-    margin-bottom: var(--space-3);
-  }
-
-  /* HubStudio visual in the "What you also get" split: light bezel */
-  .aigc-visual {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 4 / 5;
-    object-fit: cover;
-    border-radius: 28px;
-    border: 6px solid rgba(10, 20, 30, 0.04);
-    background: #fff;
-    box-shadow:
-      0 0 0 1px rgba(10, 20, 30, 0.05),
-      0 24px 50px -36px rgba(10, 20, 30, 0.35);
-    display: block;
-  }
-
-  /* ---------- Page hero (top of page, biggest) ---------- */
-  .page-hero {
-    position: relative;
-    isolation: isolate;
-    overflow: hidden;
-    background: #0a1220;
-    color: var(--bbg-white);
-    padding: clamp(8rem, 18vh, 13rem) 0 clamp(6rem, 12vh, 9rem);
-    min-height: 88dvh;
-    display: flex;
-    align-items: center;
-  }
-  .page-hero__bg {
-    position: absolute;
-    inset: 0;
-    z-index: -2;
-  }
-  .page-hero__bg svg { width: 100%; height: 100%; display: block; }
-  .page-hero__cable {
-    stroke-dasharray: 1800;
-    stroke-dashoffset: 1800;
-    animation: page-cable-draw 2.4s cubic-bezier(0.22, 0.61, 0.36, 1) 0.3s forwards;
-  }
-  @keyframes page-cable-draw { to { stroke-dashoffset: 0; } }
-  .page-hero__scrim {
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    background:
-      radial-gradient(ellipse at 50% 25%, rgba(10, 18, 32, 0) 0%, rgba(10, 18, 32, 0.55) 70%, rgba(10, 18, 32, 0.92) 100%),
-      linear-gradient(180deg, rgba(10, 18, 32, 0.25) 0%, rgba(10, 18, 32, 0) 50%);
-  }
-  .page-hero__content {
-    width: 100%;
-    position: relative;
-    max-width: 920px;
-  }
-  .page-hero__title {
-    font-family: var(--font-display);
-    font-size: clamp(2.75rem, 5.5vw + 0.5rem, 4.75rem);
-    letter-spacing: -0.025em;
-    line-height: 1.02;
-    color: var(--bbg-white);
-    max-width: 18ch;
-    margin: var(--space-4) 0 var(--space-5);
-    font-weight: 600;
-  }
-  .page-hero__accent {
-    background: linear-gradient(90deg, #5fb8e8 0%, #f4f1e6 50%, #e8607a 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
-  .page-hero__lead {
-    max-width: 60ch;
-    font-size: var(--fs-lead);
-    color: rgba(255,255,255,0.78);
-    margin-bottom: var(--space-6);
-  }
-  .page-hero__jumps {
+  .flows-jumps {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--space-4);
+    gap: var(--space-3);
+    margin-top: var(--space-5);
   }
-  .page-hero__jump {
-    display: inline-flex;
+  .flows-jump {
+    display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    gap: 4px;
+    gap: 2px;
     padding: var(--space-4) var(--space-5);
-    border-radius: 14px;
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.18);
-    color: var(--bbg-white);
     text-decoration: none;
-    backdrop-filter: blur(6px);
-    transition: background 0.3s var(--ease), border-color 0.3s var(--ease), transform 0.3s var(--ease);
+    min-width: 180px;
   }
-  .page-hero__jump-name {
-    font-family: var(--font-display);
+  .flows-jump__name {
+    font-weight: 600;
     font-size: 1.05rem;
-    font-weight: 600;
-    letter-spacing: -0.005em;
+    letter-spacing: -0.01em;
+    color: var(--ink);
   }
-  .page-hero__jump-meta {
-    font-size: 0.78rem;
-    color: rgba(255,255,255,0.65);
-    letter-spacing: 0.04em;
-  }
-  .page-hero__jump:hover {
-    background: rgba(38,154,218,0.16);
-    border-color: rgba(38,154,218,0.55);
-    color: var(--bbg-white);
-    transform: translateY(-2px);
-  }
-  .page-hero__jump--alt:hover {
-    background: rgba(200,16,46,0.16);
-    border-color: rgba(200,16,46,0.55);
-  }
+  .flows-hero__photo { margin-top: var(--space-6); }
 
-  @media (prefers-reduced-motion: reduce) {
-    .page-hero__cable { animation: none; stroke-dashoffset: 0; }
-  }
-
-  /* ---------- Entry hero (sub-hero per flow) ---------- */
-  .entry-hero {
-    position: relative;
-    isolation: isolate;
-    overflow: hidden;
-    background: #0b1422;
-    color: var(--bbg-white);
-    padding: clamp(7rem, 16vh, 12rem) 0 clamp(5rem, 11vh, 8rem);
-    min-height: 78dvh;
-    display: flex;
-    align-items: center;
-  }
-  .entry-hero__bg {
-    position: absolute;
-    inset: 0;
-    z-index: -2;
-  }
-  .entry-hero__bg svg {
-    width: 100%;
-    height: 100%;
-    display: block;
-  }
-  .entry-hero__bg .entry-hero__stream {
-    stroke-dasharray: 2000;
-    stroke-dashoffset: 2000;
-    animation: stream-draw 2.6s cubic-bezier(0.22, 0.61, 0.36, 1) 0.4s forwards;
-  }
-  @keyframes stream-draw { to { stroke-dashoffset: 0; } }
-
-  .entry-hero__scrim {
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    background:
-      radial-gradient(ellipse at 50% 20%, rgba(11, 20, 34, 0) 0%, rgba(11, 20, 34, 0.55) 70%, rgba(11, 20, 34, 0.92) 100%),
-      linear-gradient(180deg, rgba(11, 20, 34, 0.25) 0%, rgba(11, 20, 34, 0) 50%);
-  }
-  .entry-hero__content {
-    width: 100%;
-    position: relative;
-    max-width: 880px;
-  }
-  .entry-hero__title {
-    font-family: var(--font-display);
-    font-size: clamp(2.25rem, 4vw + 0.5rem, 3.75rem);
-    letter-spacing: -0.02em;
-    line-height: 1.05;
-    color: var(--bbg-white);
-    max-width: 22ch;
-    margin: var(--space-4) 0 var(--space-5);
-    font-weight: 600;
-  }
-  .entry-hero__lead {
-    max-width: 60ch;
-    font-size: var(--fs-lead);
-    color: rgba(255,255,255,0.78);
-  }
-  .entry-hero__chips {
+  .flows-chips {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--space-2);
-    margin-top: var(--space-6);
-  }
-  .entry-hero__chip {
-    display: inline-flex;
-    align-items: center;
-    padding: 6px 12px;
-    border: 1px solid rgba(255,255,255,0.16);
-    background: rgba(255,255,255,0.04);
-    color: rgba(255,255,255,0.85);
-    border-radius: 999px;
-    font-size: 0.78rem;
-    font-weight: 500;
-    letter-spacing: 0.02em;
-    backdrop-filter: blur(4px);
-    transition: background 0.25s var(--ease), border-color 0.25s var(--ease), transform 0.25s var(--ease);
-  }
-  .entry-hero__chip:hover {
-    background: rgba(38,154,218,0.18);
-    border-color: rgba(38,154,218,0.55);
-    transform: translateY(-2px);
-  }
-
-  /* Subtle bezel orb glows, one per flow */
-  .entry-hero--inbound::after,
-  .entry-hero--outbound::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    pointer-events: none;
-  }
-  .entry-hero--inbound::after {
-    background: radial-gradient(1100px 700px at 28% 18%, rgba(38, 154, 218, 0.14), transparent 65%);
-  }
-  .entry-hero--outbound::after {
-    background: radial-gradient(1100px 700px at 72% 18%, rgba(200, 16, 46, 0.10), transparent 65%);
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .entry-hero__bg .entry-hero__stream { animation: none; stroke-dashoffset: 0; }
-  }
-
-  /* ---------- Requirements bento ---------- */
-  .req-section { position: relative; isolation: isolate; overflow: hidden; }
-  .req-section__bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
-  .req-section__blob {
-    position: absolute;
-    width: 480px; height: 480px;
-    border-radius: 50%;
-    filter: blur(120px);
-    opacity: 0.45;
-  }
-  .req-section__blob--w { background: rgba(38, 154, 218, 0.18); top: -160px; left: -180px; }
-  .req-section__blob--e { background: rgba(200, 16, 46, 0.14); bottom: -180px; right: -160px; }
-  .req-section .container { position: relative; z-index: 1; }
-
-  .req-grid {
-    list-style: none;
-    margin: var(--space-6) 0 0;
-    padding: 0;
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: var(--space-5);
-    perspective: 1400px;
-  }
-  /* 5 items: row 1 = 3 cards (each spans 2), row 2 = 2 cards (each spans 3) for an asymmetric bento */
-  .req-card { grid-column: span 2; }
-  .req-card:nth-child(4) { grid-column: span 3; }
-  .req-card:nth-child(5) { grid-column: span 3; }
-  /* 6 items: clean 3x2 grid (overrides the asymmetric rules) */
-  .req-grid--bento3x2 .req-card,
-  .req-grid--bento3x2 .req-card:nth-child(4),
-  .req-grid--bento3x2 .req-card:nth-child(5) { grid-column: span 2; }
-  @media (max-width: 1023px) {
-    .req-grid { grid-template-columns: repeat(2, 1fr); }
-    .req-card, .req-card:nth-child(4), .req-card:nth-child(5) { grid-column: span 1; }
-    .req-grid--bento3x2 .req-card { grid-column: span 1; }
-  }
-  @media (max-width: 639px) {
-    .req-grid { grid-template-columns: 1fr; }
-    .req-card, .req-card:nth-child(4), .req-card:nth-child(5) { grid-column: span 1; }
-    .req-grid--bento3x2 .req-card { grid-column: span 1; }
-  }
-
-  .req-card {
-    position: relative;
-    border-radius: 18px;
-    background: linear-gradient(180deg, #ffffff 0%, #fafbfd 100%);
-    border: 1px solid rgba(10, 20, 30, 0.06);
-    box-shadow: 0 20px 40px -30px rgba(10, 20, 30, 0.3);
-    transform-style: preserve-3d;
-    will-change: transform;
-    opacity: 0;
-    transform: translateY(28px);
-    transition:
-      opacity 0.6s cubic-bezier(0.32, 0.72, 0, 1),
-      transform 0.6s cubic-bezier(0.32, 0.72, 0, 1),
-      box-shadow 0.5s cubic-bezier(0.32, 0.72, 0, 1),
-      border-color 0.4s var(--ease);
-  }
-  .req-card.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-    transition-delay: calc(var(--i, 0) * 80ms);
-  }
-  .req-card:hover {
-    border-color: rgba(10, 20, 30, 0.1);
-    transform: translateY(-4px);
-    box-shadow: 0 28px 52px -28px rgba(10, 20, 30, 0.38);
-  }
-  .req-card.is-visible:hover { transition-delay: 0s; }
-  .req-card::before {
-    content: '';
-    position: absolute; inset: 0;
-    border-radius: 18px;
-    padding: 1px;
-    background: linear-gradient(135deg, rgba(38, 154, 218, 0.7), rgba(200, 16, 46, 0.45));
-    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    opacity: 0;
-    transition: opacity 0.35s var(--ease);
-    pointer-events: none;
-  }
-  .req-card:hover::before { opacity: 1; }
-
-  .req-card__inner {
-    padding: var(--space-5);
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-3);
-    height: 100%;
-  }
-  .req-card__icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 44px; height: 44px;
-    border-radius: 12px;
-    background: linear-gradient(135deg, rgba(38, 154, 218, 0.12), rgba(200, 16, 46, 0.08));
-    color: var(--bbg-blue);
-    transition: transform 0.4s var(--ease), color 0.3s var(--ease);
-  }
-  .req-card__icon svg { width: 22px; height: 22px; }
-  .req-card:hover .req-card__icon { transform: rotate(-6deg) scale(1.06); color: #c8102e; }
-  .req-card__title {
-    margin: 0;
-    font-size: 1.1rem;
-    font-weight: 600;
-    letter-spacing: -0.01em;
-    color: var(--bbg-ink);
-    line-height: 1.3;
-  }
-  .req-card__body {
-    margin: 0;
-    font-size: 0.95rem;
-    line-height: 1.55;
-    color: var(--bbg-text);
-  }
-  .req-card__pill {
-    margin-top: auto;
-    align-self: flex-start;
-    font-family: var(--font-display);
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    color: var(--bbg-blue-dark);
-    padding: 5px 10px;
-    border-radius: 999px;
-    background: rgba(38,154,218,0.08);
-    border: 1px solid rgba(38,154,218,0.22);
-    transition: background 0.3s var(--ease), color 0.3s var(--ease), border-color 0.3s var(--ease);
-  }
-  .req-card:hover .req-card__pill {
-    background: rgba(38,154,218,0.16);
-    border-color: rgba(38,154,218,0.45);
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .req-card { opacity: 1; transform: none; transition: none; }
-    .req-card.is-visible { transition-delay: 0s; }
-    .req-card:hover { transform: none; }
-  }
-
-  /* ---------- Agency rail (5 specialists) ---------- */
-  .agency-section { position: relative; isolation: isolate; }
-  .agency-rail {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: var(--space-4);
-    margin-top: var(--space-6);
-  }
-  @media (max-width: 1279px) { .agency-rail { grid-template-columns: repeat(3, 1fr); } }
-  @media (max-width: 767px) { .agency-rail { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 639px) { .agency-rail { grid-template-columns: 1fr; } }
-
-  .agency-tile {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-2);
-    padding: var(--space-5);
-    border-radius: 18px;
-    background: var(--bbg-white);
-    border: 1px solid rgba(10, 20, 30, 0.06);
-    box-shadow: 0 20px 40px -30px rgba(10, 20, 30, 0.3);
-    text-decoration: none;
-    color: var(--bbg-ink);
-    overflow: hidden;
-    opacity: 0;
-    transform: translateY(20px);
-    transition:
-      opacity 0.55s cubic-bezier(0.32, 0.72, 0, 1),
-      transform 0.55s cubic-bezier(0.32, 0.72, 0, 1),
-      border-color 0.3s var(--ease),
-      box-shadow 0.5s cubic-bezier(0.32, 0.72, 0, 1);
-  }
-  .agency-tile.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-    transition-delay: calc(var(--i, 0) * 75ms);
-  }
-  .agency-tile::after {
-    content: '';
-    position: absolute;
-    left: 0; right: 0; top: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--bbg-blue) 0%, #c8102e 100%);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.45s var(--ease);
-  }
-  .agency-tile:hover {
-    border-color: rgba(38,154,218,0.45);
-    transform: translateY(-4px);
-    box-shadow: 0 28px 52px -28px rgba(10, 20, 30, 0.38);
-    color: var(--bbg-ink);
-  }
-  .agency-tile.is-visible:hover { transition-delay: 0s; }
-  .agency-tile:hover::after { transform: scaleX(1); }
-  .agency-tile__logo {
-    display: flex;
-    align-items: center;
-    height: 44px;
-    margin-bottom: var(--space-3);
-  }
-  .agency-tile__logo :global(.agency-card-logo) {
-    height: 36px;
-    width: auto;
-    max-width: 150px;
-  }
-  .agency-tile__role {
-    font-family: var(--font-display);
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--bbg-text-muted);
-  }
-  .agency-tile__name {
-    margin: 0;
-    font-size: 1.15rem;
-    font-weight: 600;
-    color: var(--bbg-ink);
-  }
-  .agency-tile__body {
-    margin: 0;
-    font-size: 0.9rem;
-    line-height: 1.45;
-    color: var(--bbg-text);
-    flex-grow: 1;
-  }
-  .agency-tile__cta {
-    display: inline-flex;
-    align-items: center;
     gap: 6px;
-    margin-top: var(--space-3);
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--bbg-blue);
-    transition: gap 0.25s var(--ease);
-  }
-  .agency-tile:hover .agency-tile__cta { gap: 10px; color: var(--bbg-blue-dark); }
-
-  @media (prefers-reduced-motion: reduce) {
-    .agency-tile { opacity: 1; transform: none; }
-    .agency-tile.is-visible { transition-delay: 0s; }
-    .agency-tile:hover { transform: none; }
+    margin-top: var(--space-4);
   }
 
-  /* ---------- Packages (3 tiers, stacked) ---------- */
-  .pkg-section { position: relative; isolation: isolate; }
-  .pkg-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-5);
-    margin-top: var(--space-6);
-    align-items: stretch;
+  .flows-req-list {
+    list-style: none;
+    margin: var(--space-5) 0 0;
+    padding: 0;
   }
-  @media (max-width: 1023px) { .pkg-grid { grid-template-columns: 1fr; } }
+  .flows-req { display: flex; flex-direction: column; gap: var(--space-3); }
+  .flows-req .min-h3 { margin: 0; }
+  .flows-req__pill { margin-top: auto; align-self: flex-start; }
 
-  /* Light bezel: 6px frame, outer 28 / inner 22 radius pair */
-  .pkg {
-    position: relative;
+  .flows-agencies { margin-top: var(--space-5); }
+  .flows-agency__logo { display: flex; align-items: center; height: 32px; }
+  .flows-agency__logo :global(.agency-card-logo) { height: 26px; width: auto; max-width: 140px; }
+  .flows-agency .min-h3 { margin: 0; }
+  .flows-card__cta { margin-top: auto; align-self: flex-start; }
+
+  .flows-openings { margin-top: var(--space-5); }
+  .flows-opening { display: flex; flex-direction: column; gap: var(--space-3); }
+  .flows-opening__quote {
+    margin: 0;
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 1.2rem;
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+  .flows-opening__answer {
+    margin-top: auto;
+    padding-top: var(--space-3);
+    border-top: 1px solid var(--line);
     display: flex;
     flex-direction: column;
-    gap: var(--space-3);
-    padding: var(--space-6) var(--space-5) var(--space-5);
-    border-radius: 28px;
-    border: 6px solid rgba(10, 20, 30, 0.04);
-    background: var(--bbg-white);
-    background-clip: padding-box;
-    box-shadow:
-      0 0 0 1px rgba(10, 20, 30, 0.05),
-      0 24px 50px -36px rgba(10, 20, 30, 0.35);
-    text-decoration: none;
-    color: var(--bbg-ink);
-    overflow: hidden;
-    opacity: 0;
-    transform: translateY(20px);
-    transition:
-      opacity 0.55s cubic-bezier(0.32, 0.72, 0, 1),
-      transform 0.55s cubic-bezier(0.32, 0.72, 0, 1),
-      box-shadow 0.5s cubic-bezier(0.32, 0.72, 0, 1);
+    gap: 4px;
   }
-  .pkg.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-    transition-delay: calc(var(--i, 0) * 90ms);
+  .flows-opening__by {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--ink);
   }
-  .pkg:hover {
-    transform: translateY(-4px);
-    box-shadow:
-      0 0 0 1px rgba(10, 20, 30, 0.06),
-      0 30px 56px -34px rgba(10, 20, 30, 0.45);
-  }
-  .pkg.is-visible:hover { transition-delay: 0s; }
-  .pkg__head {
+
+  .flows-pkgs { margin-top: var(--space-5); }
+  .flows-pkg__head {
     display: flex;
     align-items: baseline;
     justify-content: space-between;
+    gap: var(--space-3);
     padding-bottom: var(--space-3);
-    border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+    border-bottom: 1px solid var(--line);
   }
-  .pkg__tier {
-    font-family: var(--font-display);
-    font-size: 1.5rem;
-    font-weight: 700;
+  .flows-pkg__tier {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 1.3rem;
     letter-spacing: -0.015em;
-    color: var(--bbg-ink);
+    color: var(--ink);
   }
-  .pkg__theme {
-    font-family: var(--font-display);
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--bbg-blue);
-  }
-  .pkg__title {
-    margin: 0;
-    font-size: 1.05rem;
-    font-weight: 600;
-    line-height: 1.35;
-    color: var(--bbg-ink);
-  }
-  .pkg__body {
-    margin: 0;
-    font-size: 0.92rem;
-    line-height: 1.5;
-    color: var(--bbg-text);
-  }
-  .pkg__features {
+  .flows-pkg .min-h3 { margin: 0; }
+  .flows-pkg__features {
     list-style: none;
-    margin: var(--space-3) 0 0;
+    margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
     gap: 8px;
   }
-  .pkg__features li {
+  .flows-pkg__features li {
     display: flex;
     align-items: flex-start;
-    gap: 10px;
+    gap: 8px;
     font-size: 0.9rem;
-    line-height: 1.4;
-    color: var(--bbg-text);
-  }
-  .pkg__check {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    background: rgba(38, 154, 218, 0.12);
-    color: var(--bbg-blue-dark);
-    font-size: 11px;
-    font-weight: 700;
-    flex-shrink: 0;
-    margin-top: 2px;
-  }
-  .pkg__cta {
-    margin-top: auto;
-    align-self: flex-start;
-  }
-  .pkg:hover :global(.pill-cta__disc) { transform: translateX(3px); }
-
-  .pkg--mid {
-    background: linear-gradient(180deg, var(--bbg-white) 0%, rgba(38, 154, 218, 0.05) 100%);
-    background-clip: padding-box;
-  }
-
-  /* Dark bezel for the top tier */
-  .pkg--top {
-    background: linear-gradient(160deg, var(--bbg-ink) 0%, #1a2333 100%);
-    background-clip: padding-box;
-    color: var(--bbg-white);
-    border-color: rgba(10, 20, 30, 0.09);
-    box-shadow:
-      0 0 0 1px rgba(10, 20, 30, 0.07),
-      inset 0 1px 1px rgba(255, 255, 255, 0.12),
-      0 24px 50px -34px rgba(10, 20, 30, 0.55);
-  }
-  .pkg--top .pkg__head { border-bottom-color: rgba(255, 255, 255, 0.18); }
-  .pkg--top .pkg__tier { color: var(--bbg-white); }
-  .pkg--top .pkg__theme { color: var(--bbg-blue-light); }
-  .pkg--top .pkg__title { color: var(--bbg-white); }
-  .pkg--top .pkg__body { color: rgba(255,255,255,0.78); }
-  .pkg--top .pkg__features li { color: rgba(255,255,255,0.85); }
-  .pkg--top .pkg__check {
-    background: rgba(38, 154, 218, 0.25);
-    color: var(--bbg-blue-light);
-  }
-  .pkg--top:hover {
-    box-shadow:
-      0 0 0 1px rgba(10, 20, 30, 0.08),
-      inset 0 1px 1px rgba(255, 255, 255, 0.12),
-      0 30px 60px -32px rgba(38, 154, 218, 0.45);
-  }
-  .pkg__badge {
-    position: absolute;
-    top: 14px;
-    right: 14px;
-    font-family: var(--font-display);
-    font-size: 0.62rem;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--bbg-ink);
-    background: var(--bbg-blue-light);
-    padding: 4px 9px;
-    border-radius: 999px;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .pkg { opacity: 1; transform: none; }
-    .pkg.is-visible { transition-delay: 0s; }
-    .pkg:hover { transform: none; }
-  }
-
-  /* ---------- Openings (six typical asks) ---------- */
-  .openings-section { position: relative; isolation: isolate; background: linear-gradient(180deg, var(--bbg-white) 0%, var(--bbg-surface) 100%); }
-  .openings {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-5);
-    margin-top: var(--space-6);
-  }
-  @media (max-width: 1023px) { .openings { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 639px) { .openings { grid-template-columns: 1fr; } }
-
-  .opening {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-3);
-    padding: var(--space-5);
-    border-radius: 18px;
-    background: var(--bbg-white);
-    border: 1px solid rgba(10, 20, 30, 0.06);
-    box-shadow: 0 20px 40px -30px rgba(10, 20, 30, 0.3);
-    text-decoration: none;
-    color: var(--bbg-ink);
-    overflow: hidden;
-    opacity: 0;
-    transform: translateY(20px);
-    transition:
-      opacity 0.55s cubic-bezier(0.32, 0.72, 0, 1),
-      transform 0.55s cubic-bezier(0.32, 0.72, 0, 1),
-      border-color 0.3s var(--ease),
-      box-shadow 0.5s cubic-bezier(0.32, 0.72, 0, 1);
-  }
-  .opening.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-    transition-delay: calc(var(--i, 0) * 70ms);
-  }
-  .opening:hover {
-    border-color: rgba(38,154,218,0.4);
-    transform: translateY(-4px);
-    box-shadow: 0 28px 52px -28px rgba(10, 20, 30, 0.38);
-  }
-  .opening.is-visible:hover { transition-delay: 0s; }
-  .opening__quote-mark {
-    position: absolute;
-    top: -10px;
-    right: 14px;
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 6rem;
-    line-height: 1;
-    color: rgba(38,154,218,0.10);
-    transition: color 0.3s var(--ease), transform 0.3s var(--ease);
-    pointer-events: none;
-  }
-  .opening:hover .opening__quote-mark {
-    color: rgba(38,154,218,0.20);
-    transform: translateY(2px);
-  }
-  .opening__quote {
-    margin: 0;
-    font-family: var(--font-display);
-    font-size: 1.05rem;
-    font-weight: 600;
-    line-height: 1.35;
-    letter-spacing: -0.005em;
-    color: var(--bbg-ink);
-    position: relative;
-    z-index: 1;
-  }
-  .opening__answer {
-    margin-top: auto;
-    padding-top: var(--space-3);
-    border-top: 1px dashed rgba(15, 23, 42, 0.12);
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-  }
-  .opening__by {
-    font-family: var(--font-display);
-    font-size: 0.78rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    color: var(--bbg-blue);
-  }
-  .opening__line {
-    font-size: 0.88rem;
-    line-height: 1.45;
-    color: var(--bbg-text);
-  }
-  .opening--cta {
-    background: linear-gradient(135deg, var(--bbg-ink) 0%, #1a2333 100%);
-    color: var(--bbg-white);
-    border-color: transparent;
-  }
-  .opening--cta .opening__quote { color: var(--bbg-white); }
-  .opening--cta .opening__quote-mark { color: rgba(255,255,255,0.10); }
-  .opening--cta .opening__by { color: var(--bbg-blue-light); }
-  .opening--cta .opening__line { color: rgba(255,255,255,0.78); }
-  .opening--cta .opening__answer { border-top-color: rgba(255,255,255,0.18); }
-  .opening--cta:hover {
-    border-color: rgba(38,154,218,0.5);
-    box-shadow: 0 22px 44px -22px rgba(38, 154, 218, 0.4);
-  }
-  .opening--cta:hover .opening__quote-mark { color: rgba(255,255,255,0.18); }
-
-  @media (prefers-reduced-motion: reduce) {
-    .opening { opacity: 1; transform: none; }
-    .opening.is-visible { transition-delay: 0s; }
-    .opening:hover { transform: none; }
-  }
-
-  /* ---------- Openings as a plain text list (outbound) ---------- */
-  .openings-list {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    column-gap: clamp(2.5rem, 6vw, 5rem);
-    row-gap: var(--space-6);
-    margin-top: var(--space-6);
-  }
-  @media (max-width: 767px) { .openings-list { grid-template-columns: 1fr; } }
-  .openings-list__item {
-    display: block;
-    text-decoration: none;
-  }
-  .openings-list__quote {
-    margin: 0 0 var(--space-2);
-    font-family: var(--font-display);
-    font-size: 1.05rem;
-    font-weight: 500;
-    line-height: 1.4;
-    letter-spacing: -0.005em;
-    color: var(--bbg-ink);
-    transition: color 0.25s var(--ease);
-  }
-  .openings-list__answer {
-    margin: 0;
-    font-size: 0.92rem;
     line-height: 1.5;
-    color: var(--bbg-text-muted);
+    color: var(--body);
   }
-  .openings-list__by {
-    font-weight: 600;
-    color: var(--bbg-blue);
+  .flows-pkg__check { color: var(--muted); flex-shrink: 0; }
+  .flows-pkg__badge {
+    align-self: flex-start;
+    margin-bottom: 0;
   }
-  .openings-list__item:hover .openings-list__quote { color: var(--bbg-blue-dark); }
+  .flows-pkg__visit { margin-top: var(--space-5); }
 
-  .openings-band {
+  .flows-openings-list { margin-top: var(--space-5); }
+  .flows-openings-list .min-index__title { font-weight: 500; font-size: 1.02rem; line-height: 1.4; }
+
+  .flows-band {
+    margin-top: var(--space-5);
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     gap: var(--space-3) var(--space-5);
-    margin-top: var(--space-7);
-    padding: var(--space-5) var(--space-6);
-    border-radius: 18px;
-    background: linear-gradient(135deg, var(--bbg-ink) 0%, #1a2333 100%);
-    color: var(--bbg-white);
     text-decoration: none;
-    transition: box-shadow 0.3s var(--ease), transform 0.3s var(--ease);
   }
-  .openings-band:hover {
-    box-shadow: 0 22px 44px -22px rgba(38, 154, 218, 0.4);
-    transform: translateY(-2px);
+  .flows-band .flows-opening__quote { font-size: 1.25rem; }
+  .flows-band__answer {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: 0;
   }
-  .openings-band__quote {
-    margin: 0;
-    font-family: var(--font-display);
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--bbg-white);
-  }
-  .openings-band__answer {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-  }
-  .openings-band__by {
-    font-family: var(--font-display);
-    font-size: 0.78rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    color: var(--bbg-blue-light);
-  }
-  .openings-band__line {
-    font-size: 0.88rem;
-    color: rgba(255,255,255,0.78);
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .openings-band:hover { transform: none; }
+
+  .flows-compound__lead { margin: 0 0 var(--space-5); }
+
+  .flows-aigc { max-width: 440px; width: 100%; justify-self: end; }
+  @media (max-width: 900px) {
+    .flows-aigc { justify-self: start; max-width: 100%; }
   }
 </style>
-
-<script>
-  // Scroll-reveal for req-card, agency-tile, opening cards on the inbound flow.
-  const targets = document.querySelectorAll<HTMLElement>('.req-card, .agency-tile, .opening, .pkg');
-  if ('IntersectionObserver' in window && targets.length) {
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) {
-            e.target.classList.add('is-visible');
-            io.unobserve(e.target);
-          }
-        });
-      },
-      { threshold: 0.18, rootMargin: '0px 0px -8% 0px' },
-    );
-    targets.forEach((el) => io.observe(el));
-  } else {
-    targets.forEach((el) => el.classList.add('is-visible'));
-  }
-
-  // Subtle 3D tilt on req-cards.
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (!reduceMotion) {
-    document.querySelectorAll<HTMLElement>('.req-card').forEach((card) => {
-      let raf = 0;
-      const onMove = (ev: MouseEvent) => {
-        const r = card.getBoundingClientRect();
-        const x = (ev.clientX - r.left) / r.width;
-        const y = (ev.clientY - r.top) / r.height;
-        const rx = (0.5 - y) * 5;
-        const ry = (x - 0.5) * 5;
-        cancelAnimationFrame(raf);
-        raf = requestAnimationFrame(() => {
-          card.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-4px)`;
-        });
-      };
-      const onLeave = () => {
-        cancelAnimationFrame(raf);
-        card.style.transform = '';
-      };
-      card.addEventListener('mousemove', onMove);
-      card.addEventListener('mouseleave', onLeave);
-    });
-  }
-</script>

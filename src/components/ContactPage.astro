@@ -48,57 +48,26 @@ const captchaQuestion = `${a} + ${b}`;
 ---
 
 <Layout locale={locale} route="contact" title={copy.title} description={copy.description}>
-  <section class="contact-split">
-    <div class="contact-split__bg" aria-hidden="true"></div>
-    <div class="contact-split__scrim" aria-hidden="true"></div>
+  <div class="min">
+    <!-- Hero -->
+    <section class="min-hero">
+      <div class="min-glow" aria-hidden="true"></div>
+      <div class="min-wrap">
+        <h1 class="min-hero__title" data-reveal>{copy.heroTitle}</h1>
+        <p class="min-hero__lead" data-reveal style="--i: 1">{copy.heroLead}</p>
+      </div>
+    </section>
 
-    <div class="container contact-split__container">
-      <div class="contact-split__grid">
-        <aside class="contact-split__intro">
-          <h1 class="contact-split__title balance">{copy.heroTitle}</h1>
-          <p class="contact-split__lead">{copy.heroLead}</p>
-
-          <div class="contact-split__info">
-            <div class="contact-split__info-block">
-              <h2 class="contact-split__info-title">{copy.emailTitle}</h2>
-              <p><a href="mailto:hello@bearingbridge.com">hello@bearingbridge.com</a></p>
-              <p class="contact-split__info-note">{copy.emailNote}</p>
-            </div>
-
-            <div class="contact-split__info-block">
-              <h2 class="contact-split__info-title">{copy.officesTitle}</h2>
-              <p set:html={copy.officeHQ}></p>
-              <p set:html={copy.officeHK}></p>
-              <p set:html={copy.officeParis}></p>
-              <p class="contact-split__info-note">{copy.officesNote}</p>
-            </div>
-
-            <div class="contact-split__info-block">
-              <h2 class="contact-split__info-title">{copy.directTitle}</h2>
-              <ul class="contact-split__links">
-                <li><a href="https://thechinapath.com/contact" target="_blank" rel="noreferrer">TheChinaPath</a></li>
-                <li><a href="https://theredscroll.com/contact" target="_blank" rel="noreferrer">TheRedScroll</a></li>
-                <li><a href="https://chinawebfoundry.com/contact" target="_blank" rel="noreferrer">ChinaWebFoundry</a></li>
-                <li><a href="https://compass.bearingbridge.com/contact" target="_blank" rel="noreferrer">Compass</a></li>
-                <li><a href="https://beyondbridge.ai/contact" target="_blank" rel="noreferrer">BeyondBridge</a></li>
-                <li><a href="https://hubstudio.ai/contact" target="_blank" rel="noreferrer">HubStudio</a></li>
-                <li><a href="https://nuvora.studio/contact" target="_blank" rel="noreferrer">Nuvora Studio</a></li>
-                <li><a href="https://www.bearingbridge.ai/contact" target="_blank" rel="noreferrer">BearingBridge AI</a></li>
-              </ul>
-            </div>
-          </div>
-        </aside>
-
-        <div class="contact-split__form-col">
-          <div class="contact-form-bezel">
-          <div class="contact-form-wrap">
-            <header class="contact-form-header">
-              <h2 class="balance">{copy.formHeading}</h2>
-            </header>
+    <!-- Form + info -->
+    <section class="min-sec">
+      <div class="min-wrap">
+        <div class="contact-grid">
+          <div class="min-card contact-card" data-reveal>
+            <h2 class="min-h3 contact-form-heading">{copy.formHeading}</h2>
 
             <form
               id="contact-form"
-              class="form contact-form"
+              class="contact-form"
               method="post"
               action="/api/contact"
               novalidate
@@ -111,31 +80,31 @@ const captchaQuestion = `${a} + ${b}`;
             >
               <input type="hidden" name="locale" value={locale} />
 
-              <div class="form-row">
-                <div class="form-field">
+              <div class="contact-row">
+                <div class="min-field">
                   <label for="name">{copy.labelName} <span class="req">*</span></label>
                   <input id="name" name="name" type="text" autocomplete="name" required />
                 </div>
-                <div class="form-field">
+                <div class="min-field">
                   <label for="email">{copy.labelEmail} <span class="req">*</span></label>
                   <input id="email" name="email" type="email" autocomplete="email" required />
                 </div>
               </div>
-              <div class="form-row">
-                <div class="form-field">
+              <div class="contact-row">
+                <div class="min-field">
                   <label for="phone">{copy.labelPhone}</label>
                   <input id="phone" name="phone" type="tel" autocomplete="tel" />
                 </div>
-                <div class="form-field">
+                <div class="min-field">
                   <label for="website">{copy.labelWebsite} <span class="req">*</span></label>
                   <input id="website" name="website" type="url" placeholder="https://" required />
                 </div>
               </div>
-              <div class="form-field">
+              <div class="min-field">
                 <label for="company">{copy.labelCompany} <span class="req">*</span></label>
                 <input id="company" name="company" type="text" autocomplete="organization" required />
               </div>
-              <div class="form-field">
+              <div class="min-field">
                 <label for="brief">{copy.labelBrief} <span class="req">*</span></label>
                 <textarea id="brief" name="brief" rows="5" placeholder={copy.briefPlaceholder} required></textarea>
               </div>
@@ -145,10 +114,10 @@ const captchaQuestion = `${a} + ${b}`;
                 <input id="hp-website-2" name="hp_field" type="text" tabindex="-1" autocomplete="off" />
               </div>
 
-              <div class="captcha">
-                <span class="captcha__label">{copy.captchaLabel}</span>
-                <div class="captcha__row">
-                  <span class="captcha__question" set:html={copy.captchaPrompt.replace('{q}', `<strong>${captchaQuestion}</strong>`)}></span>
+              <div class="contact-captcha">
+                <span class="min-meta contact-captcha__label">{copy.captchaLabel}</span>
+                <div class="contact-captcha__row">
+                  <span class="contact-captcha__question" set:html={copy.captchaPrompt.replace('{q}', `<strong>${captchaQuestion}</strong>`)}></span>
                   <input
                     id="captcha-answer"
                     name="captcha_answer"
@@ -158,26 +127,65 @@ const captchaQuestion = `${a} + ${b}`;
                     autocomplete="off"
                     required
                     aria-label="Captcha"
+                    class="min-input contact-captcha__input"
                   />
                   <input type="hidden" name="captcha_question" value={captchaQuestion} />
                 </div>
               </div>
 
-              <p id="contact-status" class="form-status" role="status" aria-live="polite" hidden></p>
+              <p id="contact-status" class="contact-status" role="status" aria-live="polite" hidden></p>
 
-              <div class="btn-row contact-form__actions">
-                <button id="contact-submit" class="pill-cta" type="submit"><span class="pill-cta__label">{copy.submit}</span>
-                  <span class="pill-cta__disc" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg></span>
-                </button>
-                <p class="muted contact-form__hint">{copy.formHint}</p>
+              <div class="contact-actions">
+                <button id="contact-submit" class="min-btn" type="submit">{copy.submit}</button>
+                <p class="min-muted contact-hint">{copy.formHint}</p>
               </div>
             </form>
           </div>
-          </div>
+
+          <aside class="contact-info">
+            <figure class="min-photo min-photo--wide" data-reveal>
+              <img
+                src="/images/photo-contact.webp"
+                alt="A bright office corner with a desk and phone."
+                width="1050"
+                height="620"
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
+
+            <div class="contact-info__block" data-reveal style="--i: 1">
+              <h2 class="min-meta contact-info__title">{copy.emailTitle}</h2>
+              <p class="min-small"><a href="mailto:hello@bearingbridge.com">hello@bearingbridge.com</a></p>
+              <p class="min-muted">{copy.emailNote}</p>
+            </div>
+
+            <div class="contact-info__block" data-reveal style="--i: 2">
+              <h2 class="min-meta contact-info__title">{copy.officesTitle}</h2>
+              <p class="min-small" set:html={copy.officeHQ}></p>
+              <p class="min-small" set:html={copy.officeHK}></p>
+              <p class="min-small" set:html={copy.officeParis}></p>
+              <p class="min-muted">{copy.officesNote}</p>
+            </div>
+
+            <div class="contact-info__block" data-reveal style="--i: 3">
+              <h2 class="min-meta contact-info__title">{copy.directTitle}</h2>
+              <ul class="contact-links">
+                <li><a href="https://thechinapath.com/contact" target="_blank" rel="noreferrer">TheChinaPath</a></li>
+                <li><a href="https://theredscroll.com/contact" target="_blank" rel="noreferrer">TheRedScroll</a></li>
+                <li><a href="https://chinawebfoundry.com/contact" target="_blank" rel="noreferrer">ChinaWebFoundry</a></li>
+                <li><a href="https://compass.bearingbridge.com/contact" target="_blank" rel="noreferrer">Compass</a></li>
+                <li><a href="https://beyondbridge.ai/contact" target="_blank" rel="noreferrer">BeyondBridge</a></li>
+                <li><a href="https://hubstudio.ai/contact" target="_blank" rel="noreferrer">HubStudio</a></li>
+                <li><a href="https://nuvora.studio/contact" target="_blank" rel="noreferrer">Nuvora Studio</a></li>
+                <li><a href="https://www.bearingbridge.ai/contact" target="_blank" rel="noreferrer">BearingBridge AI</a></li>
+              </ul>
+            </div>
+          </aside>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </div>
 </Layout>
 
 <script>
@@ -247,156 +255,29 @@ const captchaQuestion = `${a} + ${b}`;
 </script>
 
 <style>
-  .contact-split {
-    position: relative;
-    isolation: isolate;
-    color: var(--bbg-white);
-    padding: clamp(5rem, 11vh, 7.5rem) 0 clamp(4rem, 9vh, 6rem);
-    min-height: 100dvh;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-  }
-  .contact-split__bg {
-    position: absolute;
-    inset: 0;
-    background-image: url('/images/hero-contact.webp');
-    background-size: cover;
-    background-position: center;
-    background-color: #0a1320;
-    z-index: -2;
-    transform: scale(1.05);
-    animation: contact-split-drift 32s ease-in-out infinite alternate;
-  }
-  @keyframes contact-split-drift {
-    from { transform: scale(1.05) translate3d(0, 0, 0); }
-    to   { transform: scale(1.10) translate3d(-1.5%, -1%, 0); }
-  }
-  .contact-split__scrim {
-    position: absolute;
-    inset: 0;
-    background:
-      linear-gradient(110deg, rgba(10, 19, 32, 0.82) 0%, rgba(10, 19, 32, 0.58) 45%, rgba(10, 19, 32, 0.30) 100%),
-      radial-gradient(ellipse at 25% 30%, rgba(38, 154, 218, 0.20), transparent 60%);
-    z-index: -1;
-  }
-
-  .contact-split__container { width: 100%; }
-  .contact-split__grid {
+  .contact-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.15fr 0.85fr;
     gap: clamp(var(--space-5), 4vw, var(--space-7));
     align-items: start;
   }
-  @media (max-width: 1023px) {
-    .contact-split { min-height: 0; align-items: flex-start; }
-    .contact-split__grid { grid-template-columns: 1fr; }
-    /* Flatten the intro so its children order against the form column:
-       heading and lead first, then the form, then the info blocks. */
-    .contact-split__intro { display: contents; }
-    .contact-split__title { order: 1; margin-bottom: 0; }
-    .contact-split__lead { order: 2; margin-bottom: 0; }
-    .contact-split__form-col { order: 3; }
-    .contact-split__info { order: 4; border-top: 0; padding-top: 0; }
+  @media (max-width: 900px) {
+    .contact-grid { grid-template-columns: 1fr; }
   }
 
-  .contact-split__intro { max-width: 560px; }
-  .contact-split__title {
-    font-size: clamp(2.25rem, 4.2vw + 0.5rem, 3.75rem);
-    line-height: 1.05;
-    letter-spacing: -0.025em;
-    color: var(--bbg-white);
-    margin: var(--space-3) 0 var(--space-4);
-    text-shadow: 0 2px 24px rgba(0, 0, 0, 0.4);
-  }
-  .contact-split__lead {
-    font-size: var(--fs-lead);
-    color: rgba(255, 255, 255, 0.88);
-    max-width: 50ch;
-    margin: 0 0 var(--space-6);
-  }
+  .contact-card { padding: clamp(var(--space-5), 3vw, var(--space-6)); }
+  .contact-form-heading { margin-bottom: var(--space-4); }
 
-  .contact-split__info {
-    display: grid;
-    gap: var(--space-5);
-    padding-top: var(--space-4);
-    border-top: 1px solid rgba(255, 255, 255, 0.18);
-  }
-  .contact-split__info-block { color: rgba(255, 255, 255, 0.92); }
-  .contact-split__info-title {
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.62);
-    margin: 0 0 var(--space-2);
-  }
-  .contact-split__info-block p { margin: 0 0 4px; font-size: 0.9375rem; }
-  .contact-split__info-block strong { color: var(--bbg-white); font-weight: 600; }
-  .contact-split__info-block a {
-    color: var(--bbg-white);
-    text-decoration: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.35);
-    transition: border-color 0.2s var(--ease);
-  }
-  .contact-split__info-block a:hover { border-bottom-color: var(--bbg-white); }
-  .contact-split__info-note {
-    margin-top: var(--space-2) !important;
-    color: rgba(255, 255, 255, 0.62);
-    font-size: var(--fs-small);
-  }
-  .contact-split__links {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  .contact-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 6px 18px;
-    font-size: 0.9375rem;
+    gap: 0 var(--space-4);
   }
-  @media (max-width: 639px) {
-    .contact-split__links { grid-template-columns: 1fr; }
+  @media (max-width: 600px) {
+    .contact-row { grid-template-columns: 1fr; }
   }
 
-  .contact-split__form-col { position: relative; }
-
-  .contact-form-bezel {
-    padding: 6px;
-    border-radius: 28px;
-    background: rgba(255, 255, 255, 0.12);
-    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.16);
-  }
-  .contact-form-wrap {
-    background: var(--bbg-white);
-    border-radius: 22px;
-    padding: clamp(var(--space-5), 3.5vw, var(--space-6));
-    box-shadow: 0 24px 50px -30px rgba(10, 20, 30, 0.5);
-    color: var(--bbg-ink);
-  }
-  .contact-form-header { margin-bottom: var(--space-5); }
-  .contact-form-header h2 {
-    margin: var(--space-2) 0 0;
-    font-size: clamp(1.4rem, 1.6vw + 0.6rem, 1.75rem);
-  }
-  .contact-form { background: transparent; border: 0; padding: 0; box-shadow: none; }
-
-  .contact-form .form-field input,
-  .contact-form .form-field select,
-  .contact-form .form-field textarea {
-    border-radius: 12px;
-    padding: 0.8rem 1rem;
-    background: #fafbfd;
-    border-color: #e2e6ec;
-  }
-  .contact-form .form-field input:focus,
-  .contact-form .form-field select:focus,
-  .contact-form .form-field textarea:focus {
-    background: #fff;
-    border-color: var(--bbg-blue);
-    box-shadow: 0 0 0 4px rgba(38, 154, 218, 0.15);
-  }
-  .contact-form .form-field label { font-weight: 600; color: var(--bbg-ink); font-size: 0.875rem; }
-  .req { color: #c8102e; }
+  .req { color: #9f2f2d; }
 
   .hp-field {
     position: absolute !important;
@@ -407,73 +288,81 @@ const captchaQuestion = `${a} + ${b}`;
     overflow: hidden !important;
   }
 
-  .captcha {
+  .contact-captcha {
     display: flex;
     flex-direction: column;
     gap: var(--space-2);
     padding: var(--space-3) var(--space-4);
-    background: linear-gradient(180deg, rgba(38, 154, 218, 0.04), rgba(38, 154, 218, 0.08));
-    border: 1px solid rgba(38, 154, 218, 0.20);
-    border-radius: 12px;
-    margin-top: var(--space-2);
+    background: var(--surface-2);
+    border: 1px solid var(--line);
+    border-radius: 8px;
   }
-  .captcha__label {
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.10em;
-    text-transform: uppercase;
-    color: var(--bbg-blue);
-  }
-  .captcha__row {
+  .contact-captcha__row {
     display: flex;
     align-items: center;
     gap: var(--space-3);
     flex-wrap: wrap;
   }
-  .captcha__question { font-size: 0.95rem; color: var(--bbg-ink); }
-  .captcha__question strong {
-    font-family: var(--font-display);
-    font-size: 1.15rem;
-    color: var(--bbg-ink);
-    padding: 4px 12px;
-    background: var(--bbg-white);
-    border: 1px solid rgba(38, 154, 218, 0.25);
-    border-radius: 8px;
+  .contact-captcha__question { font-size: 0.95rem; color: var(--body); }
+  .contact-captcha__question strong {
+    display: inline-block;
+    padding: 2px 10px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    color: var(--ink);
   }
-  .captcha input[type="text"] {
-    flex: 1;
+  .contact-captcha__input {
+    flex: 0 1 auto;
     min-width: 90px;
     max-width: 140px;
-    padding: 0.6rem 0.85rem;
-    font: inherit;
-    font-weight: 600;
-    border: 1px solid #e2e6ec;
-    border-radius: 12px;
-    background: var(--bbg-white);
-  }
-  .captcha input[type="text"]:focus {
-    outline: none;
-    border-color: var(--bbg-blue);
-    box-shadow: 0 0 0 4px rgba(38, 154, 218, 0.15);
   }
 
-  .contact-form__actions {
-    margin-top: var(--space-5);
+  .contact-status {
+    margin: var(--space-4) 0 0;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  .contact-status[data-tone='info']    { background: var(--surface-2); color: var(--body); border: 1px solid var(--line); }
+  .contact-status[data-tone='success'] { background: #edf3ec; color: #346538; border: 1px solid #d5e2d3; }
+  .contact-status[data-tone='error']   { background: #fdebec; color: #9f2f2d; border: 1px solid #f3d2d3; }
+
+  .contact-actions {
+    margin-top: var(--space-4);
+    display: flex;
     align-items: center;
     justify-content: space-between;
     gap: var(--space-3);
     flex-wrap: wrap;
   }
-  .contact-form__hint { margin: 0; font-size: 0.8125rem; }
+  .contact-hint { font-size: 0.82rem; }
 
-  .form-status {
-    margin: var(--space-4) 0 0;
-    padding: 12px 16px;
-    border-radius: 10px;
-    font-size: 14px;
-    line-height: 1.5;
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
   }
-  .form-status[data-tone='info']    { background: #f1f5f9; color: #334155; border: 1px solid #e2e8f0; }
-  .form-status[data-tone='success'] { background: #ecfdf5; color: #065f46; border: 1px solid #a7f3d0; }
-  .form-status[data-tone='error']   { background: #fef2f2; color: #991b1b; border: 1px solid #fecaca; }
+  .contact-info__title { margin-bottom: var(--space-2); }
+  .contact-info__block p { margin-bottom: 4px; }
+  .contact-info__block p:last-child { margin-bottom: 0; }
+  .contact-info__block a {
+    color: var(--ink);
+    border-bottom: 1px solid var(--line);
+    transition: border-color 200ms ease;
+  }
+  .contact-info__block a:hover { border-color: var(--ink); }
+  .contact-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px 18px;
+    font-size: 0.92rem;
+  }
+  @media (max-width: 480px) {
+    .contact-links { grid-template-columns: 1fr; }
+  }
 </style>

@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import AgencyLogo from '../../components/AgencyLogo.astro';
 import { pathFor } from '../../i18n/ui';
 
 const locale = 'en' as const;
@@ -44,409 +45,109 @@ const visitLabel = 'Visit theredscroll.com';
   title="China Social Media Agency. Fixed Scope. Fixed Price."
   description="We grow social networks in China for international brands. Fixed scope. Fixed price. Team on the ground in Shanghai and Hong Kong. Book a call."
 >
-  <section class="trs-hero">
-    <div class="trs-hero__bg" aria-hidden="true">
-      <span class="trs-hero__blob trs-hero__blob--a"></span>
-      <span class="trs-hero__blob trs-hero__blob--b"></span>
-      <span class="trs-hero__blob trs-hero__blob--c"></span>
-      <span class="trs-hero__grid-lines"></span>
-    </div>
-
-    <div class="container trs-hero__container">
-      <div class="trs-hero__grid">
-        <div class="trs-hero__content">
-          <img src="/AgencyLogos/TheredScroll%20PNG.png" alt="TheRedScroll logo" class="trs-hero__logo" width="180" height="40" loading="eager" decoding="async" />
-          <span class="eyebrow eyebrow--rule">China social media, fixed scope, fixed price</span>
-          <h1 class="trs-hero__title">
-            We post on
-            <span class="trs-hero__phrase">China's platforms</span>.
-            Every day.
-            From the ground.
-          </h1>
-          <p class="trs-hero__lead">China runs on its own platforms. WeChat, Douyin, RedNote, Weibo, and fourteen others. Knowing this from a slide deck is not the same as knowing it from the feed.</p>
-          <div class="trs-hero__actions">
-            <a class="pill-cta" href={visitUrl} target="_blank" rel="noreferrer">{visitLabel}
-              <span class="pill-cta__disc" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg></span>
-            </a>
+  <div class="min">
+    <!-- Hero -->
+    <section class="min-hero">
+      <div class="min-glow" aria-hidden="true"></div>
+      <div class="min-wrap min-wrap--wide">
+        <div class="trs-hero">
+          <div>
+            <span class="min-chip trs-hero__logo" data-reveal>
+              <AgencyLogo slug="theredscroll" name="TheRedScroll" />
+            </span>
+            <span class="min-tag min-tag--red trs-hero__eyebrow" data-reveal style="--i: 1">China social media, fixed scope, fixed price</span>
+            <h1 class="min-hero__title" data-reveal style="--i: 2">
+              We post on <em>China's platforms</em>. Every day. From the ground.
+            </h1>
+            <p class="min-hero__lead" data-reveal style="--i: 3">China runs on its own platforms. WeChat, Douyin, RedNote, Weibo, and fourteen others. Knowing this from a slide deck is not the same as knowing it from the feed.</p>
+            <div class="min-ctas trs-hero__ctas" data-reveal style="--i: 4">
+              <a class="min-btn" href={visitUrl} target="_blank" rel="noreferrer">{visitLabel}</a>
+            </div>
           </div>
-        </div>
-
-        <div class="trs-hero__media">
-          <a class="browser-link" href={visitUrl} target="_blank" rel="noreferrer" aria-label={visitLabel}>
-            <div class="trs-bezel">
-            <div class="browser">
-              <div class="browser__viewport">
-                <img src="/images/theredscroll-home.webp" alt="theredscroll.com homepage" class="browser__shot" width="1408" height="832" loading="eager" decoding="async" />
-                <span class="browser__visit" aria-hidden="true">
-                  <span>Visit site</span>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l10-10M7 7h10v10"/></svg>
-                </span>
-              </div>
-            </div>
-            </div>
+          <a class="min-photo min-photo--wide trs-hero__shot" href={visitUrl} target="_blank" rel="noreferrer" aria-label={visitLabel} data-reveal style="--i: 2">
+            <img src="/images/theredscroll-home.webp" alt="theredscroll.com homepage" width="1408" height="832" loading="eager" decoding="async" />
           </a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="section section--alt">
-    <div class="container container--narrow" data-reveal>
-      <p class="trs-active">Active on WeChat, Douyin, RedNote, Weibo and fourteen more.</p>
-      <p class="lead">Every post, video, campaign and report is defined upfront in a written scope of work. One number per package. No hidden fees, no scope creep. Our team works from Shanghai and Hong Kong, with native speakers, real platform access, and direct lines to Chinese influencers. We built HubStudio.ai to produce visuals, video and copy at a fraction of the old cost. Strategy stays human.</p>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <header class="section-header" data-reveal>
-        <h2 class="balance">Plan it. Run it. Sustain it.</h2>
-      </header>
-      <div class="services" data-reveal>
-        {services.map((s) => (
-          <article class={`service-card service-card--${s.key}`}>
-            <header class="service-card__head">
-              <span class={`service-card__pip service-card__pip--${s.key}`} aria-hidden="true"></span>
-              <h3 class="service-card__title">{s.title}</h3>
-            </header>
-            <ul class="service-card__list">
-              {s.items.map((it) => (
-                <li class="service-card__item">
-                  <span class="service-card__name">{it.name}.</span>
-                  <span class="service-card__body">{it.body}</span>
-                </li>
-              ))}
-            </ul>
-          </article>
-        ))}
+    <!-- How we work -->
+    <section class="min-sec">
+      <div class="min-wrap min-narrow" data-reveal>
+        <p class="min-kicker trs-active">Active on WeChat, Douyin, RedNote, Weibo and fourteen more.</p>
+        <p class="min-body">Every post, video, campaign and report is defined upfront in a written scope of work. One number per package. No hidden fees, no scope creep. Our team works from Shanghai and Hong Kong, with native speakers, real platform access, and direct lines to Chinese influencers. We built HubStudio.ai to produce visuals, video and copy at a fraction of the old cost. Strategy stays human.</p>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="section section--alt">
-    <div class="container container--narrow" data-reveal>
-      <p class="lead">Three tiers, all priced upfront. Discovery is for brands testing China, three months on one platform. Growth is for brands scaling in China, six months across two or three platforms. Premium is for brands going all-in, twelve months across four or more platforms. Every tier ships with a written scope of work and a fixed price.</p>
-    </div>
-  </section>
-
-  <section class="section section--dark trs-dark">
-    <div class="container container--narrow center" data-reveal>
-      <h2 class="balance">Show up every day. Watch the pipeline follow.</h2>
-      <div class="btn-row" style="justify-content: center;">
-        <a class="pill-cta" href={visitUrl} target="_blank" rel="noreferrer">{visitLabel}
-          <span class="pill-cta__disc" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg></span>
-        </a>
-        <a class="pill-ghost" href={pathFor('contact', locale)}>Book a call</a>
+    <!-- Services -->
+    <section class="min-sec min-sec--ruled">
+      <div class="min-wrap">
+        <h2 class="min-h2" data-reveal>Plan it. Run it. Sustain it.</h2>
+        <div class="min-grid-3">
+          {services.map((s, i) => (
+            <div class="min-card" data-reveal style={`--i: ${i}`}>
+              <h3 class="min-h3">{s.title}</h3>
+              <ul class="trs-card__list">
+                {s.items.map((it) => (
+                  <li class="min-small">
+                    <strong>{it.name}.</strong> {it.body}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <!-- Tiers -->
+    <section class="min-sec min-sec--ruled">
+      <div class="min-wrap min-narrow" data-reveal>
+        <p class="min-lead">Three tiers, all priced upfront. Discovery is for brands testing China, three months on one platform. Growth is for brands scaling in China, six months across two or three platforms. Premium is for brands going all-in, twelve months across four or more platforms. Every tier ships with a written scope of work and a fixed price.</p>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="min-sec min-sec--ruled">
+      <div class="min-wrap min-narrow min-center" data-reveal>
+        <h2 class="min-h2 trs-cta__title">Show up every day. Watch the pipeline follow.</h2>
+        <div class="min-ctas trs-cta__actions">
+          <a class="min-btn" href={visitUrl} target="_blank" rel="noreferrer">{visitLabel}</a>
+          <a class="min-btn min-btn--ghost" href={pathFor('contact', locale)}>Book a call</a>
+        </div>
+      </div>
+    </section>
+  </div>
 </Layout>
 
 <style>
-  /* ----- Hero (mirrors BBG) ------------------------------------------------ */
   .trs-hero {
-    position: relative;
-    padding: clamp(5rem, 10vh, 7.5rem) 0 clamp(3rem, 6vh, 5rem);
-    background: linear-gradient(180deg, #ffffff 0%, #fdf5f2 100%);
-    overflow: hidden;
-    isolation: isolate;
-  }
-  .trs-hero__bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
-  .trs-hero__blob {
-    position: absolute;
-    display: block;
-    border-radius: 50%;
-    filter: blur(70px);
-    opacity: 0.55;
-    will-change: transform;
-  }
-  .trs-hero__blob--a {
-    width: 520px; height: 520px;
-    top: -180px; left: -120px;
-    background: radial-gradient(circle, rgba(200,16,46,0.45), transparent 65%);
-    animation: trsFloatA 18s ease-in-out infinite;
-  }
-  .trs-hero__blob--b {
-    width: 460px; height: 460px;
-    top: 30%; right: -180px;
-    background: radial-gradient(circle, rgba(217,154,58,0.38), transparent 65%);
-    animation: trsFloatB 22s ease-in-out infinite;
-  }
-  .trs-hero__blob--c {
-    width: 380px; height: 380px;
-    bottom: -160px; left: 35%;
-    background: radial-gradient(circle, rgba(45,106,79,0.30), transparent 65%);
-    animation: trsFloatC 26s ease-in-out infinite;
-  }
-  @keyframes trsFloatA { 0%,100%{transform:translate(0,0)} 50%{transform:translate(40px,30px)} }
-  @keyframes trsFloatB { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-30px,40px)} }
-  @keyframes trsFloatC { 0%,100%{transform:translate(0,0)} 50%{transform:translate(20px,-40px)} }
-
-  .trs-hero__grid-lines {
-    position: absolute;
-    inset: 0;
-    background-image:
-      linear-gradient(to right, rgba(15,23,42,0.04) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(15,23,42,0.04) 1px, transparent 1px);
-    background-size: 64px 64px;
-    mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, #000 30%, transparent 75%);
-    -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, #000 30%, transparent 75%);
-  }
-
-  .trs-hero__container { position: relative; z-index: 1; }
-  .trs-hero__grid {
     display: grid;
-    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
-    gap: clamp(2rem, 5vw, 4.5rem);
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    gap: clamp(var(--space-5), 4vw, var(--space-7));
     align-items: center;
   }
-  .trs-hero__content { min-width: 0; }
-  .trs-hero__logo {
-    display: block;
-    width: auto;
-    height: 40px;
-    object-fit: contain;
-    margin-bottom: var(--space-3);
+  @media (max-width: 900px) {
+    .trs-hero { grid-template-columns: 1fr; gap: var(--space-5); }
   }
+  .trs-hero__logo { display: inline-flex; margin-bottom: var(--space-4); }
+  .trs-hero__logo :global(.agency-logo) { height: 26px; width: auto; }
+  .trs-hero__eyebrow { display: inline-block; }
+  .trs-hero__ctas { margin-top: var(--space-2); }
+  .trs-hero__shot { display: block; }
+  .trs-hero__shot img { aspect-ratio: 16 / 10; object-position: center top; }
 
-  .trs-hero__title {
-    font-size: clamp(2.4rem, 4.4vw + 0.6rem, 4.4rem);
-    line-height: 1.02;
-    letter-spacing: -0.03em;
-    font-weight: 600;
-    color: var(--bbg-ink);
-    margin: var(--space-4) 0 var(--space-5);
-    max-width: 18ch;
-  }
-  .trs-hero__phrase {
-    position: relative;
-    white-space: nowrap;
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    -webkit-text-fill-color: transparent;
-    background-image: linear-gradient(120deg, #c8102e 0%, #ff5e75 100%);
-  }
-  .trs-hero__phrase::after {
-    content: "";
-    position: absolute;
-    left: 0; right: 0; bottom: -0.08em;
-    height: 0.18em;
-    border-radius: 999px;
-    background: #c8102e;
-    opacity: 0.18;
-    transform: scaleX(0.65);
-    transform-origin: left;
-    transition: transform 480ms cubic-bezier(0.2,0.8,0.2,1);
-  }
-  .trs-hero:hover .trs-hero__phrase::after { transform: scaleX(1); }
+  .trs-active { margin: 0 0 var(--space-4); }
 
-  .trs-hero__lead {
-    max-width: 52ch;
-    font-size: var(--fs-lead);
-    color: var(--bbg-text);
-    margin-bottom: var(--space-5);
-  }
-
-  .trs-hero__actions { margin-bottom: var(--space-6); }
-
-  /* Shared pills, page accent */
-  .pill-cta {
-    background: #c8102e;
-    box-shadow: 0 12px 28px -14px rgba(200,16,46,0.55);
-  }
-  .pill-cta:hover { background: #a00d25; }
-
-  /* Dark CTA: subtle accent orb */
-  .trs-dark {
-    position: relative;
-    background-image: radial-gradient(900px 540px at 78% 22%, rgba(200,16,46,0.11), transparent 65%);
-  }
-
-  /* ----- Active platforms line --------------------------------------------- */
-  .trs-active {
-    font-family: var(--font-display);
-    font-weight: 600;
-    color: var(--bbg-ink);
-    margin: 0 0 var(--space-4);
-  }
-
-  /* ----- Browser mockup ---------------------------------------------------- */
-  .trs-hero__media { position: relative; min-width: 0; perspective: 1600px; }
-  .browser-link {
-    display: block;
-    text-decoration: none;
-    color: inherit;
-    cursor: pointer;
-    border-radius: 28px;
-  }
-  .browser-link:focus-visible { outline: 2px solid #c8102e; outline-offset: 4px; }
-  .browser-link:hover .browser__visit { opacity: 1; transform: translateY(0); }
-  .trs-bezel {
-    padding: 6px;
-    border-radius: 28px;
-    background: rgba(10,20,30,0.04);
-    box-shadow:
-      0 0 0 1px rgba(10,20,30,0.05),
-      0 28px 60px -22px rgba(15,23,42,0.30);
-    transform: rotate(-1.2deg) translateZ(0);
-    transition: transform 0.6s cubic-bezier(0.32, 0.72, 0, 1), box-shadow 0.6s cubic-bezier(0.32, 0.72, 0, 1);
-    animation: trsBrowserIn 720ms cubic-bezier(0.32, 0.72, 0, 1) 0.1s backwards;
-  }
-  @keyframes trsBrowserIn {
-    from { opacity: 0; transform: rotate(-1.2deg) translateY(24px); }
-    to { opacity: 1; transform: rotate(-1.2deg) translateY(0); }
-  }
-  .trs-hero__media:hover .trs-bezel {
-    transform: rotate(0deg) translateY(-4px);
-    box-shadow:
-      0 0 0 1px rgba(10,20,30,0.05),
-      0 36px 70px -22px rgba(15,23,42,0.34);
-  }
-  .browser__visit {
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 7px 11px;
-    border-radius: 999px;
-    background: rgba(15,23,42,0.85);
-    color: #fff;
-    font-family: var(--font-display);
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    opacity: 0;
-    transform: translateY(-4px);
-    transition: opacity 240ms ease, transform 240ms cubic-bezier(0.2,0.8,0.2,1);
-    pointer-events: none;
-    z-index: 2;
-  }
-  .browser {
-    position: relative;
-    background: #ffffff;
-    border-radius: 22px;
-    overflow: hidden;
-    box-shadow: 0 24px 50px -36px rgba(10,20,30,0.35);
-  }
-  .browser__viewport {
-    position: relative;
-    aspect-ratio: 16 / 10;
-    background: #f7f9fb;
-    overflow: hidden;
-  }
-  .browser__shot {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center top;
-    display: block;
-  }
-
-  @media (max-width: 1023px) {
-    .trs-hero__grid { grid-template-columns: 1fr; gap: var(--space-7); }
-    .trs-hero__title { max-width: none; }
-  }
-
-  /* ----- Services ---------------------------------------------------------- */
-  .services {
-    display: grid;
-    gap: var(--space-5);
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-  @media (max-width: 1023px) { .services { grid-template-columns: 1fr 1fr; } }
-  @media (max-width: 767px) { .services { grid-template-columns: 1fr; } }
-
-  .service-card {
-    position: relative;
-    background: #ffffff;
-    border: 1px solid var(--bbg-border, rgba(15,23,42,0.08));
-    border-radius: 18px;
-    padding: var(--space-5) var(--space-5) var(--space-6);
-    overflow: hidden;
-    transition:
-      transform 0.5s cubic-bezier(0.32, 0.72, 0, 1),
-      box-shadow 0.5s cubic-bezier(0.32, 0.72, 0, 1),
-      border-color 0.5s cubic-bezier(0.32, 0.72, 0, 1);
-  }
-  .service-card::before {
-    content: "";
-    position: absolute;
-    left: 0; right: 0; top: 0;
-    height: 4px;
-    background: linear-gradient(90deg, transparent, currentColor, transparent);
-    opacity: 0.6;
-  }
-  .service-card--plan    { color: #2d6a4f; }
-  .service-card--run     { color: #c8102e; }
-  .service-card--sustain { color: #d99a3a; }
-
-  .service-card:hover {
-    transform: translateY(-4px);
-    border-color: currentColor;
-    box-shadow: 0 22px 44px -22px rgba(15,23,42,0.22);
-  }
-  .service-card__head {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: var(--space-4);
-  }
-  .service-card__pip {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: currentColor;
-    box-shadow: 0 0 0 4px color-mix(in srgb, currentColor 14%, transparent);
-  }
-  .service-card__title {
-    font-size: 1.4rem;
-    font-weight: 600;
-    letter-spacing: -0.01em;
-    color: var(--bbg-ink);
-    margin: 0;
-  }
-  .service-card__list {
+  .trs-card__list {
     list-style: none;
     margin: 0;
     padding: 0;
     display: grid;
-    gap: var(--space-4);
+    gap: var(--space-3);
   }
-  .service-card__item {
-    display: block;
-    color: var(--bbg-text);
-    font-size: 0.95rem;
-    line-height: 1.55;
-    padding-left: 18px;
-    position: relative;
-  }
-  .service-card__item::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0.55em;
-    width: 8px;
-    height: 1px;
-    background: currentColor;
-    opacity: 0.7;
-  }
-  .service-card__name {
-    font-weight: 600;
-    color: var(--bbg-ink);
-    margin-right: 0.25rem;
-  }
-  .service-card__body { color: var(--bbg-text); }
+  .trs-card__list strong { color: var(--ink); font-weight: 600; }
 
-  @media (prefers-reduced-motion: reduce) {
-    .trs-hero__blob, .trs-bezel, .browser, .service-card {
-      animation: none !important;
-      transition: none !important;
-    }
-    .trs-bezel { transform: none; }
-  }
+  .trs-cta__title { margin-inline: auto; }
+  .trs-cta__actions { justify-content: center; }
 </style>

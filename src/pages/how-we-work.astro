@@ -27,110 +27,109 @@ const steps = [
 ---
 
 <Layout locale={locale} route="how-we-work" title={title} description={description}>
-  <section class="hero-editorial hero-editorial--dark">
-    <div class="container" data-reveal>
-      <h1 class="hero-editorial__title balance">Start with one team. Add others when the work grows.</h1>
-      <p class="hero-editorial__lead">
-        Every practice and agency in the group takes clients directly. You do not buy the whole group; you
-        start where the need is sharpest, and we bring in the rest only when the project calls for it.
-      </p>
-    </div>
-  </section>
-
-  <section class="section section--alt" id="principle">
-    <div class="container container--narrow" data-reveal>
-      <h2 class="balance">Evidence before scale.</h2>
-      <p class="lead">
-        We measure before we recommend and agree on the metric before we build. A pilot runs small and
-        timeboxed, on a dated baseline, and we read the result honestly. When the evidence says scale, we
-        scale. When it says stop, we say stop. This is AZIMUTH, our gated pilot method on the AI side,
-        and the same instinct runs through the cross-border work: test what the platforms reward this
-        week, not last year.
-      </p>
-    </div>
-  </section>
-
-  <section class="section" id="how">
-    <div class="container">
-      <header class="section-header" data-reveal>
-        <h2 class="balance">Four steps, whichever practice you enter.</h2>
-      </header>
-      <div class="steps-grid">
-        {steps.map((s, i) => (
-          <div class="card step-card" data-reveal style={`--ri: ${i}`}>
-            <h3>{s.lead}</h3>
-            <p>{s.body}</p>
+  <div class="min">
+    <!-- 1 · Hero -->
+    <section class="min-hero">
+      <div class="min-glow" aria-hidden="true"></div>
+      <div class="min-wrap min-wrap--wide">
+        <div class="min-hero__grid">
+          <div>
+            <h1 class="min-hero__title" data-reveal>Start with one team. Add others when the work grows.</h1>
+            <p class="min-hero__lead" data-reveal style="--i: 1">
+              Every practice and agency in the group takes clients directly. You do not buy the whole group; you
+              start where the need is sharpest, and we bring in the rest only when the project calls for it.
+            </p>
           </div>
-        ))}
+          <figure class="min-photo min-photo--cover" data-reveal style="--i: 1">
+            <img
+              src="/images/photo-howwework.webp"
+              alt="Two colleagues working through a plan at a whiteboard."
+              width="1050"
+              height="620"
+              loading="eager"
+              decoding="async"
+            />
+          </figure>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="section section--alt" id="who">
-    <div class="container container--narrow" data-reveal>
-      <h2 class="balance">Senior people, on the work.</h2>
-      <p class="lead">
-        Most agencies hand you an account manager. We hand you an operator. The people who scope your
-        project are the people who run it, and they are full-time on the work, not splitting hours across
-        a dozen accounts. Specialists from the other practices join when their piece is needed, social,
-        web, partners, content, or AI, and step back when it is done.
-      </p>
-    </div>
-  </section>
-
-  <section class="section" id="contract">
-    <div class="container container--narrow" data-reveal>
-      <h2 class="balance">One relationship, however many teams.</h2>
-      <p class="lead">
-        Pull in three more teams without renegotiating from scratch. We contract from Shanghai or Hong
-        Kong for the China side, with fapiao invoicing when you need it, and from the group's Western
-        entities for the other side. Whatever the mix, you keep one point of contact and one owner of the
-        result.
-      </p>
-    </div>
-  </section>
-
-  <section class="section section--tight section--alt">
-    <div class="container container--narrow center" data-reveal>
-      <h2 class="balance">Tell us where you are.</h2>
-      <p class="lead" style="margin-inline: auto;">
-        Wherever the work sits, AI, China, or a product idea, the first step is the same. Thirty minutes,
-        a senior person, a straight answer.
-      </p>
-      <div class="btn-row" style="justify-content: center; margin-top: var(--space-5);">
-        <a class="pill-cta" href={pathFor('contact', locale)}>Book a call
-          <span class="pill-cta__disc" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg></span>
-        </a>
+    <!-- 2 · Principle -->
+    <section class="min-sec" id="principle">
+      <div class="min-wrap min-narrow" data-reveal>
+        <h2 class="min-h2">Evidence before scale.</h2>
+        <p class="min-lead">
+          We measure before we recommend and agree on the metric before we build. A pilot runs small and
+          timeboxed, on a dated baseline, and we read the result honestly. When the evidence says scale, we
+          scale. When it says stop, we say stop. This is AZIMUTH, our gated pilot method on the AI side,
+          and the same instinct runs through the cross-border work: test what the platforms reward this
+          week, not last year.
+        </p>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <!-- 3 · Four steps -->
+    <section class="min-sec min-sec--ruled" id="how">
+      <div class="min-wrap">
+        <h2 class="min-h2" data-reveal>Four steps, whichever practice you enter.</h2>
+        <div class="min-grid-2">
+          {steps.map((s, i) => (
+            <div class="min-card" data-reveal style={`--i: ${i}`}>
+              <h3 class="min-h3">{s.lead}</h3>
+              <p class="min-small">{s.body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 · Senior people -->
+    <section class="min-sec min-sec--ruled" id="who">
+      <div class="min-wrap">
+        <div class="min-narrow" data-reveal>
+          <div>
+            <h2 class="min-h2">Senior people, on the work.</h2>
+            <p class="min-body min-split__body">
+              Most agencies hand you an account manager. We hand you an operator. The people who scope your
+              project are the people who run it, and they are full-time on the work, not splitting hours across
+              a dozen accounts. Specialists from the other practices join when their piece is needed, social,
+              web, partners, content, or AI, and step back when it is done.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5 · One relationship -->
+    <section class="min-sec min-sec--ruled" id="contract">
+      <div class="min-wrap min-narrow" data-reveal>
+        <h2 class="min-h2">One relationship, however many teams.</h2>
+        <p class="min-lead">
+          Pull in three more teams without renegotiating from scratch. We contract from Shanghai or Hong
+          Kong for the China side, with fapiao invoicing when you need it, and from the group's Western
+          entities for the other side. Whatever the mix, you keep one point of contact and one owner of the
+          result.
+        </p>
+      </div>
+    </section>
+
+    <!-- 6 · CTA -->
+    <section class="min-sec min-sec--ruled">
+      <div class="min-wrap min-narrow min-center" data-reveal>
+        <h2 class="min-h2 hww-cta__title">Tell us where you are.</h2>
+        <p class="min-body hww-cta__body">
+          Wherever the work sits, AI, China, or a product idea, the first step is the same. Thirty minutes,
+          a senior person, a straight answer.
+        </p>
+        <a class="min-btn" href={pathFor('contact', locale)}>Book a call</a>
+      </div>
+    </section>
+  </div>
 </Layout>
 
 <style>
-  .steps-grid {
-    display: grid;
-    gap: var(--space-5);
-    grid-template-columns: repeat(2, 1fr);
-  }
-  @media (max-width: 767px) {
-    .steps-grid { grid-template-columns: 1fr; }
-  }
-  .card.step-card {
-    border: 0;
-    border-radius: 18px;
-    background: var(--bbg-white);
-    box-shadow:
-      0 0 0 1px rgba(10, 20, 30, 0.06),
-      0 20px 40px -30px rgba(10, 20, 30, 0.3);
-    transition:
-      transform 0.6s cubic-bezier(0.32, 0.72, 0, 1),
-      box-shadow 0.6s cubic-bezier(0.32, 0.72, 0, 1);
-  }
-  .card.step-card:hover {
-    transform: translateY(-4px);
-    box-shadow:
-      0 0 0 1px rgba(10, 20, 30, 0.06),
-      0 26px 52px -30px rgba(10, 20, 30, 0.35);
-  }
-  .step-card h3 { margin-bottom: var(--space-2); }
+  .hww-photo { align-self: start; }
+
+  .hww-cta__title { margin-inline: auto; }
+  .hww-cta__body { margin: 0 auto var(--space-5); }
 </style>
