@@ -4,7 +4,7 @@ import { pathFor } from '../i18n/ui';
 
 const locale = 'en' as const;
 const title = 'Media and software we operate';
-const description = 'Media and software BearingBridge owns and operates, built on the same AI stack we sell to clients. Public proof that it works.';
+const description = 'BBChien, DeuceLadder, Visit Moganshan: media and software BearingBridge owns and operates, built on the same AI stack we sell to clients. Public proof that it works.';
 ---
 
 <Layout locale={locale} route="products" title={title} description={description}>
@@ -39,7 +39,7 @@ const description = 'Media and software BearingBridge owns and operates, built o
     <!-- 2 · Portfolio -->
     <section class="min-sec" id="portfolio">
       <div class="min-wrap">
-        <h2 class="min-h2" data-reveal>Live today, next in build.</h2>
+        <h2 class="min-h2" data-reveal>Two live. One on the way.</h2>
 
         <div class="min-grid-2 product-grid">
           <div class="min-card product-card" id="bbchien" data-reveal>
@@ -59,8 +59,7 @@ const description = 'Media and software BearingBridge owns and operates, built o
             <h3 class="min-h3">An independent French media on dogs.</h3>
             <p class="min-small product-card__body">
               A media site for French dog owners: a complete breed library, sourced practical guides,
-              interactive tools, and a professional directory. We built it and run it on our
-              <a href={pathFor('ai-services', locale)}>AI content and publishing stack</a>, and it is
+              interactive tools, and a professional directory. We built it and run it on our <a href={pathFor('ai-services', locale)}>AI content and publishing stack</a>, and it is
               financed without animal-brand money. Live at bbchien.fr today.
             </p>
             <a class="min-btn min-btn--ghost product-card__btn" href="https://bbchien.fr" target="_blank" rel="noreferrer">bbchien.fr ↗</a>
@@ -70,19 +69,49 @@ const description = 'Media and software BearingBridge owns and operates, built o
             <figure class="min-photo">
               <img
                 class="product-card__shot"
-                src="/images/deuceladder-placeholder.webp"
-                alt="DeuceLadder, in build"
+                src="/images/deuceladder-home.webp"
+                alt="The DeuceLadder homepage, showing live ladder standings."
                 loading="lazy"
                 decoding="async"
               />
             </figure>
             <div class="product-card__meta">
               <span class="product-card__name">DeuceLadder</span>
-              <span class="min-meta">software · in build</span>
+              <span class="min-meta">software · live</span>
             </div>
-            <h3 class="min-h3">The next one over the bridge.</h3>
-            <p class="min-small product-card__body">In build now, on the same stack.</p>
-            <span class="min-muted product-card__launch">deuceladder.com opens at launch</span>
+            <h3 class="min-h3">Tennis ladders that actually get played.</h3>
+            <p class="min-small product-card__body">
+              A ladder is a standing ranking. You challenge someone above you, you win, you take their rung.
+              No fixtures, no team, no schedule handed to you in March. The hard part was never the ranking,
+              it was the chasing: DeuceLadder runs the response deadlines, the play windows, the two-sided
+              score confirmation, and the decay that pushes quiet players back down. Seasons run six to
+              twelve weeks. Standings are public, and you do not need an account to read them.
+            </p>
+            <a class="min-btn min-btn--ghost product-card__btn" href="https://www.deuceladder.com" target="_blank" rel="noreferrer">deuceladder.com ↗</a>
+          </div>
+
+          <div class="min-card product-card" id="visitmoganshan" data-reveal style="--i: 2">
+            <figure class="min-photo">
+              <img
+                class="product-card__shot"
+                src="/images/visitmoganshan-home.webp"
+                alt="The Visit Moganshan landing page, bamboo and mist over the mountain."
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
+            <div class="product-card__meta">
+              <span class="product-card__name">Visit Moganshan</span>
+              <span class="min-meta">media · China · in build</span>
+            </div>
+            <h3 class="min-h3">The mountain three hours from Shanghai.</h3>
+            <p class="min-small product-card__body">
+              Bamboo, cloud, stone villas left behind by the foreigners who summered there in the 1930s.
+              Moganshan is where Shanghai goes when Shanghai gets unbearable, and there is still no guide to
+              it worth the name in English. We are writing one: the trails, the villas, where to sleep, what
+              a weekend really costs. The landing page is up. The guide is next.
+            </p>
+            <a class="min-btn min-btn--ghost product-card__btn" href="https://www.visitmoganshan.com" target="_blank" rel="noreferrer">visitmoganshan.com ↗</a>
           </div>
         </div>
 
@@ -134,10 +163,13 @@ const description = 'Media and software BearingBridge owns and operates, built o
     display: flex;
     align-items: baseline;
     justify-content: space-between;
-    gap: var(--space-2);
+    flex-wrap: wrap;
+    gap: 4px var(--space-2);
   }
+  .product-card__meta .min-meta { white-space: nowrap; }
   .product-card__logo { height: 26px; width: auto; }
   .product-card__name {
+    white-space: nowrap;
     font-weight: 600;
     font-size: 1.1rem;
     letter-spacing: -0.01em;
@@ -155,7 +187,6 @@ const description = 'Media and software BearingBridge owns and operates, built o
   .product-more a:hover,
   .product-cta__body a:hover { border-color: var(--ink); }
   .product-card__btn { margin-top: auto; align-self: flex-start; }
-  .product-card__launch { margin-top: auto; }
   .product-more { margin-top: var(--space-5); max-width: 68ch; }
 
   .product-cta__title { margin-inline: auto; }

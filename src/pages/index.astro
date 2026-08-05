@@ -44,8 +44,12 @@ const practices: { key: string; label: string; line: string; brands: Brand[]; hr
   {
     key: 'products',
     label: 'Products',
-    line: 'Proof before promises. Media and software we own and run ourselves, starting with BBChien, built on the stack we sell and live in public.',
-    brands: [{ name: 'BBChien', logoRoute: 'bbchien' }, { name: 'DeuceLadder' }],
+    line: 'Proof before promises. Media and software we own and run ourselves: a French dog media, a tennis ladder platform, a mountain guide in Zhejiang. Same stack we sell, live in public, our money on the line.',
+    brands: [
+      { name: 'BBChien', logoRoute: 'bbchien' },
+      { name: 'DeuceLadder', icon: '/AgencyLogos/deuceladder-icon.svg' },
+      { name: 'Visit Moganshan', icon: '/AgencyLogos/visitmoganshan-icon.svg' },
+    ],
     href: pathFor('products', locale),
     img: '/images/photo-practice-products.webp',
     alt: 'A small dog on a couch next to a person with a laptop.',
@@ -65,6 +69,8 @@ const heroBrands: HeroBrand[] = [
   { name: 'TheRedScroll', href: pathFor('agencies/theredscroll', locale), route: 'agencies/theredscroll' },
   { name: 'Compass', href: pathFor('agencies/compass', locale), route: 'agencies/compass' },
   { name: 'BBChien', href: `${pathFor('products', locale)}#bbchien`, slug: 'bbchien' },
+  { name: 'DeuceLadder', href: `${pathFor('products', locale)}#deuceladder`, icon: '/AgencyLogos/deuceladder-icon.svg' },
+  { name: 'Visit Moganshan', href: `${pathFor('products', locale)}#visitmoganshan`, icon: '/AgencyLogos/visitmoganshan-icon.svg' },
 ];
 ---
 
@@ -179,10 +185,10 @@ const heroBrands: HeroBrand[] = [
         <div class="min-split min-split--reverse" data-reveal>
           <div>
             <span class="min-tag min-tag--yellow">One operator</span>
-            <h2 class="min-h2">One operator. Europe and North Asia.</h2>
+            <h2 class="min-h2">One operator. Europe and Asia.</h2>
             <p class="min-body min-split__body">
               The group is founded and led by Cyril Drouin. Digital, eCommerce, brand: his work has run
-              across Europe and North Asia, on both sides of the border this group is named after. Former
+              across Europe and Asia, on both sides of the border this group is named after. Former
               Chief Digital and eCommerce Officer for Publicis North Asia. Founder of BysoftChina.
             </p>
             <a class="min-btn" href={linkedinUrl} target="_blank" rel="noreferrer">Connect on LinkedIn</a>
@@ -283,11 +289,14 @@ const heroBrands: HeroBrand[] = [
     margin: 0;
     padding: 0;
     display: grid;
-    grid-template-columns: repeat(5, 150px);
+    grid-template-columns: repeat(6, 140px);
     justify-content: center;
     gap: 8px;
   }
   .home-logos li { display: contents; }
+  @media (max-width: 1080px) {
+    .home-logos { grid-template-columns: repeat(4, minmax(0, 140px)); }
+  }
   @media (max-width: 900px) {
     .home-logos { grid-template-columns: repeat(3, minmax(110px, 150px)); }
   }

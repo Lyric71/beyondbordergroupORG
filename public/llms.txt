@@ -28,7 +28,8 @@ BearingBridge is the holding group (Beyond Border Group Ltd, Hong Kong) for thre
 ## Products
 
 - [BBChien](https://bbchien.fr): An independent French media on dogs, live today.
-- DeuceLadder: Software, in build. deuceladder.com opens at launch.
+- [DeuceLadder](https://www.deuceladder.com): Tennis ladder league software, live. Challenge-based standings with enforced deadlines, play windows, and two-sided score confirmation.
+- [Visit Moganshan](https://www.visitmoganshan.com): An English travel guide to Moganshan, Zhejiang, three hours from Shanghai. Landing page live, guide in build.
 
 ## Core pages
 
