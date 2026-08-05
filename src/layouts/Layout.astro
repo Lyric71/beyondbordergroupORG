@@ -18,7 +18,7 @@ interface Props {
 const { locale, route, title, description } = Astro.props;
 const ui = t(locale);
 const fullTitle = `${title} | ${ui.meta.siteName}`;
-const siteOrigin = Astro.site ?? new URL('https://www.bearingbridge.com');
+const siteOrigin = Astro.site ?? new URL('https://www.bearingbridge.org');
 const canonical = new URL(pathFor(route, locale), siteOrigin).toString();
 ---
 

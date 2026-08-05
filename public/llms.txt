@@ -6,14 +6,14 @@ BearingBridge is the holding group (Beyond Border Group Ltd, Hong Kong) for thre
 
 ## Practices
 
-- [AI Services](https://www.bearingbridge.com/ai-services/): AI consulting and production, evidence over hype. Western and Chinese models benchmarked side by side.
-- [Cross-Border Marketing](https://www.bearingbridge.com/cross-border-marketing/): Five specialists carrying brands between China and the West, both ways.
-- [Products](https://www.bearingbridge.com/products/): Media and software the group owns and operates, on the same stack it sells.
+- [AI Services](https://www.bearingbridge.org/ai-services/): AI consulting and production, evidence over hype. Western and Chinese models benchmarked side by side.
+- [Cross-Border Marketing](https://www.bearingbridge.org/cross-border-marketing/): Five specialists carrying brands between China and the West, both ways.
+- [Products](https://www.bearingbridge.org/products/): Media and software the group owns and operates, on the same stack it sells.
 
 ## AI Services brands
 
 - [BearingBridge AI](https://www.bearingbridge.ai): AI consulting and implementation, evidence over hype.
-- [Intelligence](https://www.bearingbridge.com/ai-services/intelligence/): The group's platform. AI modules and agents running real tasks with every cost on screen.
+- [Intelligence](https://www.bearingbridge.org/ai-services/intelligence/): The group's platform. AI modules and agents running real tasks with every cost on screen.
 - [HubStudio](https://hubstudio.ai): Content production at scale.
 - [Nuvora Studio](https://nuvora.studio): LinkedIn-only B2B.
 
@@ -32,17 +32,17 @@ BearingBridge is the holding group (Beyond Border Group Ltd, Hong Kong) for thre
 
 ## Core pages
 
-- [Home](https://www.bearingbridge.com/)
-- [AI Services](https://www.bearingbridge.com/ai-services/)
-- [Intelligence](https://www.bearingbridge.com/ai-services/intelligence/)
-- [Cross-Border Marketing](https://www.bearingbridge.com/cross-border-marketing/)
-- [Two flows](https://www.bearingbridge.com/two-flows/): One bridge, two directions. Inbound and outbound, both on one page.
-- [The bridge](https://www.bearingbridge.com/the-bridge/): The cross-border thesis. Why this group exists.
-- [Products](https://www.bearingbridge.com/products/)
-- [The group](https://www.bearingbridge.com/the-group/): One operator, three practices, one stack.
-- [How we work](https://www.bearingbridge.com/how-we-work/): How a project actually runs.
-- [Agencies](https://www.bearingbridge.com/agencies/): All agencies in one place.
-- [Contact](https://www.bearingbridge.com/contact/)
+- [Home](https://www.bearingbridge.org/)
+- [AI Services](https://www.bearingbridge.org/ai-services/)
+- [Intelligence](https://www.bearingbridge.org/ai-services/intelligence/)
+- [Cross-Border Marketing](https://www.bearingbridge.org/cross-border-marketing/)
+- [Two flows](https://www.bearingbridge.org/two-flows/): One bridge, two directions. Inbound and outbound, both on one page.
+- [The bridge](https://www.bearingbridge.org/the-bridge/): The cross-border thesis. Why this group exists.
+- [Products](https://www.bearingbridge.org/products/)
+- [The group](https://www.bearingbridge.org/the-group/): One operator, three practices, one stack.
+- [How we work](https://www.bearingbridge.org/how-we-work/): How a project actually runs.
+- [Agencies](https://www.bearingbridge.org/agencies/): All agencies in one place.
+- [Contact](https://www.bearingbridge.org/contact/)
 
 ## Languages
 

@@ -10,7 +10,7 @@ interface Props {
 
 const { locale, route, title, site } = Astro.props;
 const ui = t(locale);
-const origin = site ?? new URL('https://www.bearingbridge.com');
+const origin = site ?? new URL('https://www.bearingbridge.org');
 const abs = (r: Route) => new URL(pathFor(r, locale), origin).toString();
 const inLanguage = htmlLang(locale);
 const orgId = new URL('/#organization', origin).toString();
