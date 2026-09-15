@@ -11,7 +11,7 @@ interface ContactCopy {
   emailNote: string;
   officesTitle: string;
   officeHQ: string;
-  officeHK: string;
+  officeShanghai: string;
   officeParis: string;
   officesNote: string;
   directTitle: string;
@@ -156,14 +156,14 @@ const captchaQuestion = `${a} + ${b}`;
 
             <div class="contact-info__block" data-reveal style="--i: 1">
               <h2 class="min-meta contact-info__title">{copy.emailTitle}</h2>
-              <p class="min-small"><a href="mailto:hello@bearingbridge.com">hello@bearingbridge.com</a></p>
+              <p class="min-small"><a href="mailto:hello@beyondbordergroup.com">hello@beyondbordergroup.com</a></p>
               <p class="min-muted">{copy.emailNote}</p>
             </div>
 
             <div class="contact-info__block" data-reveal style="--i: 2">
               <h2 class="min-meta contact-info__title">{copy.officesTitle}</h2>
               <p class="min-small" set:html={copy.officeHQ}></p>
-              <p class="min-small" set:html={copy.officeHK}></p>
+              <p class="min-small" set:html={copy.officeShanghai}></p>
               <p class="min-small" set:html={copy.officeParis}></p>
               <p class="min-muted">{copy.officesNote}</p>
             </div>
@@ -174,11 +174,10 @@ const captchaQuestion = `${a} + ${b}`;
                 <li><a href="https://thechinapath.com/contact" target="_blank" rel="noreferrer">TheChinaPath</a></li>
                 <li><a href="https://theredscroll.com/contact" target="_blank" rel="noreferrer">TheRedScroll</a></li>
                 <li><a href="https://chinawebfoundry.com/contact" target="_blank" rel="noreferrer">ChinaWebFoundry</a></li>
-                <li><a href="https://compass.bearingbridge.com/contact" target="_blank" rel="noreferrer">Compass</a></li>
                 <li><a href="https://beyondbridge.ai/contact" target="_blank" rel="noreferrer">BeyondBridge</a></li>
                 <li><a href="https://hubstudio.ai/contact" target="_blank" rel="noreferrer">HubStudio</a></li>
                 <li><a href="https://nuvora.studio/contact" target="_blank" rel="noreferrer">Nuvora Studio</a></li>
-                <li><a href="https://www.bearingbridge.ai/contact" target="_blank" rel="noreferrer">BearingBridge AI</a></li>
+                <li><a href="https://www.bearingbridge.com/contact" target="_blank" rel="noreferrer">BearingBridge AI</a></li>
               </ul>
             </div>
           </aside>

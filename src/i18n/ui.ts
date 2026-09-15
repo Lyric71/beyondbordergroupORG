@@ -13,7 +13,6 @@ export type Route =
   | 'entering-china'
   | 'going-overseas'
   | 'ai-services'
-  | 'ai-services/intelligence'
   | 'cross-border-marketing'
   | 'products'
   | 'the-group'
@@ -23,7 +22,6 @@ export type Route =
   | 'agencies/theredscroll'
   | 'agencies/chinawebfoundry'
   | 'agencies/beyondbridge'
-  | 'agencies/compass'
   | 'agencies/hubstudio'
   | 'agencies/nuvora-studio'
   | 'agencies/bearingbridgeai'
@@ -39,7 +37,6 @@ const routePaths: Record<Route, string> = {
   'entering-china': 'entering-china/',
   'going-overseas': 'going-overseas/',
   'ai-services': 'ai-services/',
-  'ai-services/intelligence': 'ai-services/intelligence/',
   'cross-border-marketing': 'cross-border-marketing/',
   products: 'products/',
   'the-group': 'the-group/',
@@ -49,7 +46,6 @@ const routePaths: Record<Route, string> = {
   'agencies/theredscroll': 'agencies/theredscroll/',
   'agencies/chinawebfoundry': 'agencies/chinawebfoundry/',
   'agencies/beyondbridge': 'agencies/beyondbridge/',
-  'agencies/compass': 'agencies/compass/',
   'agencies/hubstudio': 'agencies/hubstudio/',
   'agencies/nuvora-studio': 'agencies/nuvora-studio/',
   'agencies/bearingbridgeai': 'agencies/bearingbridgeai/',
@@ -86,7 +82,6 @@ export interface UI {
       bearingbridge: string;
       theredscroll: string;
       chinawebfoundry: string;
-      compass: string;
       beyondbridge: string;
       hubstudio: string;
       nuvoraStudio: string;
@@ -146,11 +141,10 @@ export const ui: Record<Locale, UI> = {
         bearingbridge: 'Full-service China entry.',
         theredscroll: 'Chinese social media specialist.',
         chinawebfoundry: 'Websites built for China.',
-        compass: 'Vetted China distributors and TPs.',
         beyondbridge: 'Chinese brands, Western pipeline.',
         hubstudio: 'Content production engine.',
         nuvoraStudio: 'LinkedIn-only B2B.',
-        bearingbridgeAi: 'AI adoption consulting, East and West.',
+        bearingbridgeAi: 'The AI business platform. Every team you cannot afford to hire.',
       },
     },
     cta: {
@@ -177,7 +171,7 @@ export const ui: Record<Locale, UI> = {
       cookies: 'Cookies',
     },
     meta: {
-      siteName: 'BearingBridge',
+      siteName: 'Beyond Border Group',
       skipToContent: 'Skip to content',
     },
   },

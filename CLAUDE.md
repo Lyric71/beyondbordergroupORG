@@ -1,19 +1,21 @@
 # CLAUDE.md
 
-Project rules for Claude Code working on BearingBridge. These rules are permanent and apply to every session. They are the verbatim consolidation of the user's auto-memory feedback files.
+Project rules for Claude Code working on Beyond Border Group. These rules are permanent and apply to every session. They are the verbatim consolidation of the user's auto-memory feedback files.
 
 ---
 
-## 1. User role — founder of BearingBridge
+## 1. User role — founder of Beyond Border Group
 
-The user is the founder of BearingBridge (the parent group/org reflected in the working directory `BearingBridgeOrg`). The group includes at least two studios:
+The user is the founder of Beyond Border Group (the parent group/org reflected in the working directory `BeyondBorderGroupOrg`). The group includes at least two studios:
 
 - HubStudio
 - Nuvora Studio
 
 He founded the group itself, so treat him as the top-level decision-maker on brand, product direction, and cross-studio concerns, not just a contributor to one studio. When work touches naming, positioning, or how the studios relate to the parent group, defer to his framing.
 
-**Parent group (never translated):** BearingBridge. This is the holding group, not one of the agencies.
+**Parent group (never translated):** Beyond Border Group (legal entity: Beyond Border Group Ltd, Hong Kong). This is the holding group, not one of the agencies. Its site is `https://www.beyondbordergroup.org` (canonical origin). The former `bearingbridge.org` domain 301s to it.
+
+**BearingBridge AI is a separate, independent service**, not the group. It keeps its own name, its own site (`bearingbridge.ai`), and its own page at `/agencies/bearingbridgeai/`. Never rename it when the group name changes, and never fold it into the group's brand.
 
 **Seven canonical agencies (never translated):** TheChinaPath, TheRedScroll, ChinaWebFoundry, Compass, BeyondBridge, Nuvora Studio, HubStudio. Note the two renames: the full-service China agency is now **TheChinaPath** (formerly the "BearingBridge" agency; its route still resolves under `agencies/bearingbridge` for `pathFor` but renders at `/agencies/thechinapath/`), and **Compass** (formerly BeyondCompass) at `/agencies/compass/`.
 
@@ -21,7 +23,7 @@ He founded the group itself, so treat him as the top-level decision-maker on bra
 
 ## 2. No em dashes
 
-Never use the em dash character `—` (U+2014) in any user-visible content of the BearingBridge project, in any language (English, French, Chinese, etc.). This applies to: page copy, headings, hero text, descriptions, card content, button labels, marketing material, and any other displayed text.
+Never use the em dash character `—` (U+2014) in any user-visible content of the Beyond Border Group project, in any language (English, French, Chinese, etc.). This applies to: page copy, headings, hero text, descriptions, card content, button labels, marketing material, and any other displayed text.
 
 Replace em dashes with one of:
 - a comma, period, or colon (depending on the sentence)
@@ -49,7 +51,7 @@ NO NUMBER IN CARDS. Never add numeric badges (`01`, `02`, `03`, …), watermark 
 
 ## 4. Hero must include the seven agency logos
 
-Every hero-section design idea proposed for the BearingBridge home page MUST include the seven agency logos (TheChinaPath, TheRedScroll, ChinaWebFoundry, Compass, BeyondBridge, Nuvora Studio, HubStudio). Logo-less concepts (typography-only, abstract motifs, atmospheric photo, ticker, etc.) are not acceptable on their own.
+Every hero-section design idea proposed for the Beyond Border Group home page MUST include the seven agency logos (TheChinaPath, TheRedScroll, ChinaWebFoundry, Compass, BeyondBridge, Nuvora Studio, HubStudio). Logo-less concepts (typography-only, abstract motifs, atmospheric photo, ticker, etc.) are not acceptable on their own.
 
 **Why:** The user explicitly stated this rule after rejecting a typography-only hero variant and a logo-less Möbius arrow variant. The hero is the brand statement, and the brand IS the seven agencies in one ecosystem; without the logos the hero loses the load-bearing identity.
 
@@ -73,7 +75,7 @@ For every English content drafted (page copy, hero text, card bodies, blog, emai
 8. **Iteration 8** — Pause 15 seconds (settle, re-read with fresh eyes), then do another AI-detection scrub.
 9. **Iteration 9** — One more pass. Go deeper. Read it three times. Confirm nothing reads as AI.
 
-**Why:** The user is the founder of BearingBridge. The site copy must sound like a senior operator wrote it, not a model. AI-tells (em dashes, balanced triads everywhere, "It's not X, it's Y" patterns, abstract nouns, hedging, listicle rhythm) erode the brand's editorial voice and make the work look templated.
+**Why:** The user is the founder of Beyond Border Group. The site copy must sound like a senior operator wrote it, not a model. AI-tells (em dashes, balanced triads everywhere, "It's not X, it's Y" patterns, abstract nouns, hedging, listicle rhythm) erode the brand's editorial voice and make the work look templated.
 
 **How to apply:**
 - Trigger: any English content I write or rewrite for the user, no matter how small. Card body, headline, paragraph, alt text, meta description.
@@ -99,7 +101,7 @@ For every piece of content translated from English (page copy, hero, cards, blog
 - Goal is full rewrite, not correction. Restructure sentences, switch idioms, swap weak verbs for strong native ones, drop English-shaped clauses, use the target language's natural rhythm and connectors.
 - Accents and diacritics are mandatory wherever the language requires them (FR: é è ê à ç ù û ô î; ES: á é í ó ú ñ ¿ ¡; DE: ä ö ü ß; etc.). Never ship unaccented copy.
 
-**Why:** The user is the founder of BearingBridge, a group built around bridging China and the West. Translated-sounding copy in any language signals an outsider and undermines the entire brand premise. Past site copy in non-English locales has read as English with the words swapped, which is the exact failure mode this rule blocks.
+**Why:** The user is the founder of Beyond Border Group, a group built around bridging China and the West. Translated-sounding copy in any language signals an outsider and undermines the entire brand premise. Past site copy in non-English locales has read as English with the words swapped, which is the exact failure mode this rule blocks.
 
 **How to apply:**
 - Trigger: any time I edit, draft, or translate content in `src/pages/de/`, `src/pages/es/`, `src/pages/fr/`, `src/pages/zh/`, or any non-English string in `src/i18n/`.
@@ -108,7 +110,7 @@ For every piece of content translated from English (page copy, hero, cards, blog
 - If the same content exists in English and needs the same change, do English first (with humanizer), then translate each locale through this two-step process. Never copy English structure into the translation.
 - For Chinese: prefer simplified Chinese (zh-CN) unless the file path indicates traditional. Match punctuation conventions (full-width `。，、：；" "' '`).
 - For French: use guillemets `« »` for quotes when natural; use insécable spaces conventions where typesetting allows.
-- Keep brand and product names in their canonical form (BearingBridge, TheChinaPath, BeyondBridge, Compass, ChinaWebFoundry, TheRedScroll, HubStudio, Nuvora Studio). Do not translate them.
+- Keep brand and product names in their canonical form (Beyond Border Group, BearingBridge AI, TheChinaPath, BeyondBridge, Compass, ChinaWebFoundry, TheRedScroll, HubStudio, Nuvora Studio). Do not translate them.
 
 ---
 
@@ -155,7 +157,7 @@ For every piece of content translated from English (page copy, hero, cards, blog
 - Trigger: any edit, fix, or update to files under `src/pages/de/`, `src/pages/es/`, `src/pages/fr/`, `src/pages/zh/`, or non-English strings in `src/i18n/`.
 - Combine with section 6 (humanize + native-rewrite is the *style* method; this rule is the *workflow*: improve, don't regenerate).
 - Combine with section 8 (edit only the locale the user referenced).
-- Brand and product names to keep in canonical English form: BearingBridge, TheChinaPath, BeyondBridge, Compass, ChinaWebFoundry, TheRedScroll, HubStudio, Nuvora Studio.
+- Brand and product names to keep in canonical English form: Beyond Border Group, BearingBridge AI, TheChinaPath, BeyondBridge, Compass, ChinaWebFoundry, TheRedScroll, HubStudio, Nuvora Studio.
 - When new English content needs to land in a locale, port only the diff, then run the two-step humanize + native-rewrite on the new section.
 
 ---
@@ -190,7 +192,7 @@ When iterating on a page, section, hero, or copy, change ONLY the English versio
 
 **Core principle:** The site must render fully and identically for visitors inside mainland China. This is permanent, non-negotiable, and the default for every change, not a future "if".
 
-**The one hard rule:** every byte the browser fetches at runtime must come from the site's own origin (`beyondbridge.ai` / `bearingbridge.org` and Vercel's edge for that domain) or be inlined. That covers fonts, scripts, stylesheets, images, video, iframes, JSON, web fonts, analytics beacons, error trackers, chat widgets, map tiles, share buttons, and captchas.
+**The one hard rule:** every byte the browser fetches at runtime must come from the site's own origin (`beyondbordergroup.org` and Vercel's edge for that domain) or be inlined. That covers fonts, scripts, stylesheets, images, video, iframes, JSON, web fonts, analytics beacons, error trackers, chat widgets, map tiles, share buttons, and captchas.
 
 **Specifically forbidden (page-level HTML/CSS/JS):**
 - No third-party `<script src>`
@@ -207,7 +209,7 @@ When iterating on a page, section, hero, or copy, change ONLY the English versio
 
 **Blocked/unreliable hosts to never reference at runtime:** Google (`fonts.googleapis.com`, `fonts.gstatic.com`, `*.googleapis.com`, `*.gstatic.com`, google-analytics, googletagmanager, recaptcha), Meta (`*.facebook.com`, `*.fbcdn.net`, `connect.facebook.net`, `*.instagram.com`), Twitter/X (`*.twitter.com`, `*.twimg.com`, `*.x.com`), YouTube/Vimeo (`*.youtube.com`, `*.youtu.be`, `*.ytimg.com`, `*.vimeo.com`), public CDNs (`cdnjs.cloudflare.com`, `cdn.jsdelivr.net`, `unpkg.com`, `ajax.googleapis.com`), captchas (reCAPTCHA, hCaptcha), trackers/widgets (Hotjar, Intercom, Disqus, Sentry public ingest, Cloudflare Insights, `va.vercel-scripts.com`).
 
-**What's allowed:** the production domain itself and Vercel's edge for it. Build-time fetches (Resend, WaveSpeed, npm install) are fine, they bake into static output and never run in the visitor's browser. Server API routes (`src/pages/api/*`) calling third parties run server-side, not in the browser, and are fine.
+**What's allowed:** the production domain itself and Vercel's edge for it. Build-time fetches (Resend, OpenAI, npm install) are fine, they bake into static output and never run in the visitor's browser. Server API routes (`src/pages/api/*`) calling third parties run server-side, not in the browser, and are fine.
 
 **How to handle common cases:**
 - Fonts → self-host via `@fontsource/*` npm packages imported from Astro layout frontmatter (emits woff2 under `/_astro/`). Or a pure system-font stack. Never link Google/Bunny Fonts or any font CDN.
@@ -224,12 +226,12 @@ When iterating on a page, section, hero, or copy, change ONLY the English versio
 ```
 npm run build
 # external runtime fetches in built output (should be empty):
-grep -rhoE "(src|srcset)=\"https?://[^\"]+|url\(['\"]?https?://[^)]+|@import[^;]+https?" dist/ | grep -vE "https?://(www\.)?(beyondbridge\.ai|bearingbridge\.org|www\.w3\.org)"
+grep -rhoE "(src|srcset)=\"https?://[^\"]+|url\(['\"]?https?://[^)]+|@import[^;]+https?" dist/ | grep -vE "https?://(www\.)?(beyondbordergroup\.org|www\.w3\.org)"
 # CSS url() check (should be /_astro, /images, data:, or # only):
 grep -rhoE "url\([^)]+\)" dist/_astro/*.css | grep -vE "(/_astro|/images|data:|#|/fonts)"
 ```
 
-**Why:** A single third-party runtime fetch (font, image, script, tracker) that is blocked or throttled in mainland China breaks or stalls the page for the audience the entire BearingBridge brand is built to reach. The site bridges China and the West; if it doesn't load behind the Great Firewall, the premise fails. This is enforced on every change, in every locale.
+**Why:** A single third-party runtime fetch (font, image, script, tracker) that is blocked or throttled in mainland China breaks or stalls the page for the audience the entire Beyond Border Group brand is built to reach. The site bridges China and the West; if it doesn't load behind the Great Firewall, the premise fails. This is enforced on every change, in every locale.
 
 **How to apply:** Run the verification grep as a pre-commit gate, not on every change (see "Verification timing" above). If a dependency exposes runtime URLs, flag it to the user and propose a self-hosted alternative before writing code. When adding any image, download it into `public/Images/` and reference it at `/images/...` rather than hot-linking, even from a sibling agency domain.
 

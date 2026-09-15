@@ -4,9 +4,9 @@ import AgencyLogo from '../../components/AgencyLogo.astro';
 import { pathFor } from '../../i18n/ui';
 
 const locale = 'en' as const;
-const title = 'Eight agencies';
+const title = 'Seven agencies';
 const description =
-  'BearingBridge is eight specialist agencies. West-to-China, China-to-West, and horizontal. Each one stands alone. Most clients start with one and add others as projects grow.';
+  'Beyond Border Group is seven specialist agencies. West-to-China, China-to-West, and horizontal. Each one stands alone. Most clients start with one and add others as projects grow.';
 
 type Group = 'West to China' | 'China to West' | 'Horizontal';
 
@@ -14,7 +14,6 @@ type AgencyRoute =
   | 'agencies/bearingbridge'
   | 'agencies/theredscroll'
   | 'agencies/chinawebfoundry'
-  | 'agencies/compass'
   | 'agencies/beyondbridge'
   | 'agencies/hubstudio'
   | 'agencies/nuvora-studio'
@@ -47,7 +46,7 @@ const agencies: Agency[] = [
     lanes: [
       {
         name: 'Enter',
-        body: 'Market entry consulting, branding and localisation, cross-border eCommerce setup on Tmall Global, JD Worldwide and Douyin, and offline distribution.',
+        body: 'Market entry consulting, branding and localisation, cross-border eCommerce setup on Tmall Global, JD Worldwide and Douyin, and offline distribution, including the sourcing and vetting of the distributors, Tmall TPs and Douyin Partners you end up signing with.',
       },
       {
         name: 'Grow',
@@ -121,33 +120,6 @@ const agencies: Agency[] = [
     based: 'Shanghai. Hangzhou.',
   },
   {
-    slug: 'compass',
-    route: 'agencies/compass',
-    name: 'Compass',
-    group: 'West to China',
-    category: 'Partner sourcing and vetting',
-    tagline: 'Find the right China partner first.',
-    lead:
-      'A private file of distributors, Tmall TPs, Douyin Partners, and importers we have actually met, vetted, and worked with. The value is the context around the names, the verdicts, and the warm introductions, not access to a CSV.',
-    lanes: [
-      {
-        name: 'Shortlist',
-        body: 'Three to five vetted names, briefed in depth, ready to meet. For brands that already know what their distribution should look like. Two to three weeks.',
-      },
-      {
-        name: 'Market map',
-        body: 'Fifteen to twenty names mapped by category, channel, and footprint, with a structured comparison and a sequenced shortlist drawn from the names that survive it. Three to six weeks.',
-      },
-      {
-        name: 'Replacement',
-        body: 'For brands that already signed with the wrong partner. Same vetting, tighter constraints, contract unwind support, discreet by default.',
-      },
-    ],
-    signal: 'Written deliverable, working session, warm introductions, honest verdicts.',
-    visit: { url: 'https://compass.bearingbridge.com', label: 'compass.bearingbridge.com' },
-    based: 'Shanghai. Twenty years of on-ground vetting.',
-  },
-  {
     slug: 'beyondbridge',
     route: 'agencies/beyondbridge',
     name: 'BeyondBridge',
@@ -202,7 +174,7 @@ const agencies: Agency[] = [
       },
     ],
     signal: 'Qwen, DeepSeek, Kimi, GPT, Claude, Gemini, benchmarked on your data',
-    visit: { url: 'https://www.bearingbridge.ai', label: 'bearingbridge.ai' },
+    visit: { url: 'https://www.bearingbridge.com', label: 'bearingbridge.com' },
     based: 'Hong Kong. Shanghai. Across Asia, the Middle East, and Europe.',
   },
   {
@@ -269,7 +241,6 @@ const agencyOrder = [
   'bearingbridgeai',
   'chinawebfoundry',
   'theredscroll',
-  'compass',
   'nuvora-studio',
 ];
 agencies.sort((a, b) => agencyOrder.indexOf(a.slug) - agencyOrder.indexOf(b.slug));
@@ -305,9 +276,8 @@ const stacks = [
   {
     scenario: 'A French skincare brand. Entering China.',
     steps: [
-      { slug: 'compass', name: 'Compass', role: 'Choose the right distributor.' },
+      { slug: 'bearingbridge', name: 'TheChinaPath', role: 'Vet the distributor, then run Tmall and media.' },
       { slug: 'chinawebfoundry', name: 'ChinaWebFoundry', role: 'Build the China site, ICP filed.' },
-      { slug: 'bearingbridge', name: 'TheChinaPath', role: 'Operate Tmall, run media.' },
       { slug: 'theredscroll', name: 'TheRedScroll', role: 'WeChat, Douyin, RedNote, daily.' },
     ],
   },
@@ -329,7 +299,7 @@ const stacks = [
       <div class="min-glow" aria-hidden="true"></div>
       <div class="min-wrap min-wrap--wide">
         <h1 class="min-hero__title" data-reveal>
-          Eight specialist agencies.<br />
+          Seven specialist agencies.<br />
           <em>One ecosystem.</em>
         </h1>
         <p class="min-hero__lead" data-reveal style="--i: 1">

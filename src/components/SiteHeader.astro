@@ -13,8 +13,7 @@ const ui = t(locale);
 type MegaItem = { href: string; title: string; desc: string; logoRoute?: string; icon?: string };
 
 const aiItems: MegaItem[] = [
-  { href: pathFor('agencies/bearingbridgeai', locale), title: 'BearingBridge AI', desc: 'AI consulting, evidence over hype.', logoRoute: 'agencies/bearingbridgeai' },
-  { href: pathFor('ai-services/intelligence', locale), title: 'Intelligence', desc: 'Our platform, AI at work.', icon: '/AgencyLogos/intelligence-icon.png' },
+  { href: pathFor('agencies/bearingbridgeai', locale), title: 'BearingBridge AI', desc: 'The AI business platform.', logoRoute: 'agencies/bearingbridgeai' },
   { href: pathFor('agencies/hubstudio', locale), title: 'HubStudio', desc: 'Content production at scale.', logoRoute: 'agencies/hubstudio' },
   { href: pathFor('agencies/nuvora-studio', locale), title: 'Nuvora Studio', desc: 'LinkedIn-only B2B.', logoRoute: 'agencies/nuvora-studio' },
 ];
@@ -24,7 +23,6 @@ const cbItems: MegaItem[] = [
   { href: pathFor('agencies/beyondbridge', locale), title: 'BeyondBridge', desc: 'Chinese brands, Western pipeline.', logoRoute: 'agencies/beyondbridge' },
   { href: pathFor('agencies/chinawebfoundry', locale), title: 'ChinaWebFoundry', desc: 'Websites built for China.', logoRoute: 'agencies/chinawebfoundry' },
   { href: pathFor('agencies/theredscroll', locale), title: 'TheRedScroll', desc: 'Chinese social media.', logoRoute: 'agencies/theredscroll' },
-  { href: pathFor('agencies/compass', locale), title: 'Compass', desc: 'Vetted China distributors and TPs.', logoRoute: 'agencies/compass' },
 ];
 
 const cbAsideItems: MegaItem[] = [
@@ -48,7 +46,7 @@ const megas: { key: string; label: string; route: Route; lead: string; meta: str
     key: 'ai',
     label: 'AI Services',
     route: 'ai-services',
-    lead: 'Three teams and one platform. Evidence over hype, Western and Chinese models benchmarked.',
+    lead: 'One AI business platform and two production studios. Evidence over hype, Western and Chinese models benchmarked.',
     meta: 'Strategy through production',
     footNote: 'Every team takes clients directly.',
     items: aiItems,
@@ -57,7 +55,7 @@ const megas: { key: string; label: string; route: Route; lead: string; meta: str
     key: 'cb',
     label: 'Cross-Border Marketing',
     route: 'cross-border-marketing',
-    lead: 'Five specialists carrying brands between China and the West, both ways.',
+    lead: 'Four specialists carrying brands between China and the West, both ways.',
     meta: 'Both directions, every day',
     footNote: 'Every agency takes clients directly.',
     items: cbItems,
@@ -87,7 +85,7 @@ const megas: { key: string; label: string; route: Route; lead: string; meta: str
 const activeMega = (key: string): boolean => {
   if (!current) return false;
   if (key === 'ai') return current === 'ai-services' || current.startsWith('ai-services/') || ['agencies/bearingbridgeai', 'agencies/hubstudio', 'agencies/nuvora-studio'].includes(current);
-  if (key === 'cb') return current === 'cross-border-marketing' || current === 'agencies' || current === 'bridge' || current === 'two-flows' || ['agencies/bearingbridge', 'agencies/beyondbridge', 'agencies/chinawebfoundry', 'agencies/theredscroll', 'agencies/compass'].includes(current);
+  if (key === 'cb') return current === 'cross-border-marketing' || current === 'agencies' || current === 'bridge' || current === 'two-flows' || ['agencies/bearingbridge', 'agencies/beyondbridge', 'agencies/chinawebfoundry', 'agencies/theredscroll'].includes(current);
   if (key === 'products') return current === 'products';
   if (key === 'group') return current === 'the-group' || current === 'how-we-work';
   return false;
@@ -96,13 +94,13 @@ const activeMega = (key: string): boolean => {
 
 <header class="site-header">
   <div class="container site-header__inner">
-    <a href={pathFor('home', locale)} class="brand" aria-label="BearingBridge">
+    <a href={pathFor('home', locale)} class="brand" aria-label="Beyond Border Group">
       <img
-        src="/Logo BearingBridge - Horizontal.svg"
-        alt="BearingBridge"
+        src="/Logo BeyondBorderGroup - Horizontal.svg"
+        alt="Beyond Border Group"
         class="brand__logo"
-        width="3552"
-        height="563"
+        width="637"
+        height="80"
       />
     </a>
 

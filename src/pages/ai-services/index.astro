@@ -4,7 +4,7 @@ import { pathFor } from '../../i18n/ui';
 
 const locale = 'en' as const;
 const title = 'AI consulting and production';
-const description = 'AI consulting and training on evidence, not hype. Intelligence, our platform where you watch AI work. Western and Chinese models, benchmarked.';
+const description = 'AI applied, not admired. BearingBridge AI is the platform where marketing, sales and business intelligence run as software. Western and Chinese models, benchmarked on your data.'
 ---
 
 <Layout locale={locale} route="ai-services" title={title} description={description}>
@@ -21,7 +21,7 @@ const description = 'AI consulting and training on evidence, not hype. Intellige
               beauty, automotive, food and beverage, and industrial goods.
             </p>
             <p class="min-hero__lead ai-hero__second" data-reveal style="--i: 2">
-              Three teams and one platform, sharing one stance: evidence over hype. We measure before we
+              One platform and two studios, sharing one stance: evidence over hype. We measure before we
               recommend. We benchmark Western and Chinese models side by side, then put the result into
               production on your data. And we run <a href={pathFor('products', locale)}>our own products</a> on
               this same stack, in public.
@@ -30,9 +30,9 @@ const description = 'AI consulting and training on evidence, not hype. Intellige
           <figure class="min-photo min-photo--cover" data-reveal style="--i: 1">
             <img
               src="/images/photo-practice-ai.webp"
-              alt="Three colleagues reviewing work on a laptop in a bright office."
-              width="1050"
-              height="620"
+              alt="The BearingBridge AI platform: a visibility dashboard showing keyword rankings and AI share of voice."
+              width="1600"
+              height="900"
               loading="eager"
               decoding="async"
             />
@@ -59,39 +59,26 @@ const description = 'AI consulting and training on evidence, not hype. Intellige
     <!-- 3 · Teams -->
     <section class="min-sec min-sec--ruled" id="teams">
       <div class="min-wrap">
-        <h2 class="min-h2" data-reveal>Three teams. One platform.</h2>
+        <h2 class="min-h2" data-reveal>One platform. Two studios.</h2>
 
         <div class="min-grid-2 ai-cards">
-          <a class="min-card ai-card" href={pathFor('ai-services/intelligence', locale)} data-reveal>
-            <span class="min-tag min-tag--yellow">The platform</span>
-            <span class="ai-card__name">
-              <img class="ai-card__icon" src="/AgencyLogos/intelligence-icon.png" alt="" width="96" height="96" loading="lazy" decoding="async" />
-              Intelligence
-            </span>
-            <h3 class="min-h3">See AI at work before you commit.</h3>
-            <p class="min-small">
-              Our platform, and the fastest way to see what we mean by evidence. Working AI modules, real
-              tasks, every cost on screen. Three functions ready today.
-            </p>
-            <span class="min-link ai-card__cta">Discover Intelligence</span>
-          </a>
-
-          <div class="min-card ai-card" data-reveal style="--i: 1">
-            <span class="min-tag min-tag--blue">Consulting</span>
+          <div class="min-card ai-card" data-reveal>
+            <span class="min-tag min-tag--blue">The platform</span>
             <img class="ai-card__logo" src="/AgencyLogos/BearingBridgeAI-horizontal.svg" alt="BearingBridge AI" loading="lazy" decoding="async" />
-            <h3 class="min-h3">Consulting and implementation.</h3>
+            <h3 class="min-h3">Every team you cannot afford to hire.</h3>
             <p class="min-small">
-              Strategy through adoption, plus training for leadership and builders, on dated baselines and
-              metrics agreed in writing before anyone builds. Our AZIMUTH method works like navigation: take
-              a bearing, prove it, then scale. When the evidence says stop, we say stop.
+              Marketing, sales, business intelligence, project management and customer service, delivered as
+              software with agents that already know the trade. Seats are free, every run is priced before it
+              spends, and nothing ships until a person signs. Our AZIMUTH method sits underneath it: take a
+              bearing, prove it, then scale.
             </p>
-            <a class="ai-card__ext" href="https://www.bearingbridge.ai/method" target="_blank" rel="noreferrer">See the method ↗</a>
-            <a class="min-btn min-btn--ghost ai-card__btn" href="https://www.bearingbridge.ai" target="_blank" rel="noreferrer">bearingbridge.ai ↗</a>
+            <a class="ai-card__ext" href={pathFor('agencies/bearingbridgeai', locale)}>What it runs ↗</a>
+            <a class="min-btn min-btn--ghost ai-card__btn" href="https://www.bearingbridge.com" target="_blank" rel="noreferrer">bearingbridge.com ↗</a>
           </div>
 
-          <a class="min-card ai-card" href="https://hubstudio.ai" target="_blank" rel="noreferrer" data-reveal style="--i: 2">
+          <a class="min-card ai-card" href="https://hubstudio.ai" target="_blank" rel="noreferrer" data-reveal style="--i: 1">
             <span class="min-tag min-tag--green">Production</span>
-            <img class="ai-card__logo" src="/AgencyLogos/hubStudio%20(2).png" alt="HubStudio" loading="lazy" decoding="async" />
+            <img class="ai-card__logo" src="/AgencyLogos/hubstudio-logo.png" alt="HubStudio" loading="lazy" decoding="async" />
             <h3 class="min-h3">Content production at scale.</h3>
             <p class="min-small">
               Half studio, half AI lab. Images, video, and the words around them, produced at volume without
@@ -100,9 +87,9 @@ const description = 'AI consulting and training on evidence, not hype. Intellige
             <span class="min-btn min-btn--ghost ai-card__btn">hubstudio.ai ↗</span>
           </a>
 
-          <a class="min-card ai-card" href="https://nuvora.studio" target="_blank" rel="noreferrer" data-reveal style="--i: 3">
+          <a class="min-card ai-card" href="https://nuvora.studio" target="_blank" rel="noreferrer" data-reveal style="--i: 2">
             <span class="min-tag min-tag--red">B2B pipeline</span>
-            <img class="ai-card__logo" src="/AgencyLogos/Nuvora%20PNG.png" alt="Nuvora Studio" loading="lazy" decoding="async" />
+            <img class="ai-card__logo" src="/AgencyLogos/nuvora-studio-logo.webp" alt="Nuvora Studio" loading="lazy" decoding="async" />
             <h3 class="min-h3">LinkedIn-only B2B.</h3>
             <p class="min-small">
               Strategy, content, ads. One channel, done properly, run on an AI-driven engine, so a real
@@ -124,7 +111,7 @@ const description = 'AI consulting and training on evidence, not hype. Intellige
           And if the honest answer is that AI is not your next move, we will say so.
         </p>
         <a class="min-btn" href={pathFor('contact', locale)}>Book a call</a>
-        <p class="min-muted ai-cta__email">Prefer email? <a href="mailto:hello@bearingbridge.com">hello@bearingbridge.com</a></p>
+        <p class="min-muted ai-cta__email">Prefer email? <a href="mailto:hello@beyondbordergroup.com">hello@beyondbordergroup.com</a></p>
       </div>
     </section>
   </div>

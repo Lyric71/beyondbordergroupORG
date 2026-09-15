@@ -9,7 +9,7 @@ export interface ContactCopy {
   emailNote: string;
   officesTitle: string;
   officeHQ: string;
-  officeHK: string;
+  officeShanghai: string;
   officeParis: string;
   officesNote: string;
   directTitle: string;
@@ -52,8 +52,8 @@ export const contactCopy: Record<Locale, ContactCopy> = {
     emailTitle: 'Email',
     emailNote: 'We answer in 24 hours, in your time zone.',
     officesTitle: 'Offices',
-    officeHQ: '<strong>Shanghai</strong>, group HQ',
-    officeHK: '<strong>Hong Kong</strong>',
+    officeHQ: '<strong>Hong Kong</strong>, group HQ',
+    officeShanghai: '<strong>Shanghai</strong>',
     officeParis: '<strong>Paris</strong> and Hangzhou',
     officesNote: 'In-market reps in the US, UK, Germany, France.',
     directTitle: 'Or contact an agency directly',
@@ -83,7 +83,7 @@ export const thanksCopy: Record<Locale, ThanksCopy> = {
     title: 'Message sent',
     description: 'Thanks for reaching out. We will reply within 24 hours, in your time zone.',
     heading: 'Message sent.',
-    lead: 'Your message just landed in Shanghai.',
+    lead: 'Your message just landed in Hong Kong.',
     sub: 'We will get back to you within one business day, in your time zone.',
     primaryCta: 'Back to home',
     secondaryCta: 'Browse agencies',

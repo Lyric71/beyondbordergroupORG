@@ -2,19 +2,60 @@
   "redirects": [
     {
       "source": "/:path*",
-      "has": [{ "type": "host", "value": "beyondbordergroup.org" }],
-      "destination": "https://bearingbridge.org/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "bearingbridge.org"
+        }
+      ],
+      "destination": "https://www.beyondbordergroup.org/:path*",
       "permanent": true
     },
     {
       "source": "/:path*",
-      "has": [{ "type": "host", "value": "www.beyondbordergroup.org" }],
-      "destination": "https://bearingbridge.org/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.bearingbridge.org"
+        }
+      ],
+      "destination": "https://www.beyondbordergroup.org/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "beyondbordergroup.org"
+        }
+      ],
+      "destination": "https://www.beyondbordergroup.org/:path*",
       "permanent": true
     },
     {
       "source": "/sitemap.xml",
       "destination": "/sitemap-index.xml",
+      "permanent": true
+    },
+    {
+      "source": "/ai-services/intelligence",
+      "destination": "/agencies/bearingbridgeai/",
+      "permanent": true
+    },
+    {
+      "source": "/ai-services/intelligence/:path*",
+      "destination": "/agencies/bearingbridgeai/",
+      "permanent": true
+    },
+    {
+      "source": "/agencies/compass",
+      "destination": "/cross-border-marketing/",
+      "permanent": true
+    },
+    {
+      "source": "/agencies/compass/:path*",
+      "destination": "/cross-border-marketing/",
       "permanent": true
     },
     {
@@ -42,9 +83,18 @@
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
         {
           "key": "Content-Security-Policy",
           "value": "frame-ancestors 'self'; base-uri 'self'; object-src 'none'; form-action 'self'"

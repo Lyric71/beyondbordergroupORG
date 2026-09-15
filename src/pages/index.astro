@@ -9,22 +9,21 @@ const description = 'AI services, cross-border marketing between China and the W
 
 const linkedinUrl = 'https://www.linkedin.com/in/cyril-d-68835729/';
 
-type Brand = { name: string; logoRoute?: string; icon?: string };
+type Brand = { name: string; logoRoute?: string; logoSlug?: string; icon?: string };
 
 const practices: { key: string; label: string; line: string; brands: Brand[]; href: string; img: string; alt: string }[] = [
   {
     key: 'ai',
     label: 'AI Services',
-    line: 'From strategy through production. We benchmark Western and Chinese models side by side, implement on your data, then turn AI into content and pipeline at scale. Intelligence, our platform, lets you watch AI run real tasks before you commit.',
+    line: 'From strategy through production. BearingBridge AI is the platform: marketing, sales, business intelligence and support running as software, with every cost on screen. Around it, two studios turn that output into content and pipeline at scale.',
     brands: [
       { name: 'BearingBridge AI', logoRoute: 'agencies/bearingbridgeai' },
-      { name: 'Intelligence', icon: '/AgencyLogos/intelligence-icon.png' },
       { name: 'HubStudio', logoRoute: 'agencies/hubstudio' },
       { name: 'Nuvora Studio', logoRoute: 'agencies/nuvora-studio' },
     ],
     href: pathFor('ai-services', locale),
     img: '/images/photo-practice-ai.webp',
-    alt: 'Three colleagues reviewing work on a laptop in a bright office.',
+    alt: 'The BearingBridge AI platform: a visibility dashboard showing keyword rankings and AI share of voice.',
   },
   {
     key: 'cb',
@@ -35,7 +34,6 @@ const practices: { key: string; label: string; line: string; brands: Brand[]; hr
       { name: 'BeyondBridge', logoRoute: 'agencies/beyondbridge' },
       { name: 'ChinaWebFoundry', logoRoute: 'agencies/chinawebfoundry' },
       { name: 'TheRedScroll', logoRoute: 'agencies/theredscroll' },
-      { name: 'Compass', logoRoute: 'agencies/compass' },
     ],
     href: pathFor('cross-border-marketing', locale),
     img: '/images/photo-practice-cb.webp',
@@ -60,14 +58,12 @@ type HeroBrand = { name: string; href: string; route?: Route; slug?: string; ico
 
 const heroBrands: HeroBrand[] = [
   { name: 'BearingBridge AI', href: pathFor('agencies/bearingbridgeai', locale), route: 'agencies/bearingbridgeai' },
-  { name: 'Intelligence', href: pathFor('ai-services/intelligence', locale), icon: '/AgencyLogos/intelligence-icon.png' },
   { name: 'HubStudio', href: pathFor('agencies/hubstudio', locale), route: 'agencies/hubstudio' },
   { name: 'Nuvora Studio', href: pathFor('agencies/nuvora-studio', locale), route: 'agencies/nuvora-studio' },
   { name: 'TheChinaPath', href: pathFor('agencies/bearingbridge', locale), route: 'agencies/bearingbridge' },
   { name: 'BeyondBridge', href: pathFor('agencies/beyondbridge', locale), route: 'agencies/beyondbridge' },
   { name: 'ChinaWebFoundry', href: pathFor('agencies/chinawebfoundry', locale), route: 'agencies/chinawebfoundry' },
   { name: 'TheRedScroll', href: pathFor('agencies/theredscroll', locale), route: 'agencies/theredscroll' },
-  { name: 'Compass', href: pathFor('agencies/compass', locale), route: 'agencies/compass' },
   { name: 'BBChien', href: `${pathFor('products', locale)}#bbchien`, slug: 'bbchien' },
   { name: 'DeuceLadder', href: `${pathFor('products', locale)}#deuceladder`, icon: '/AgencyLogos/deuceladder-icon.svg' },
   { name: 'Visit Moganshan', href: `${pathFor('products', locale)}#visitmoganshan`, icon: '/AgencyLogos/visitmoganshan-icon.svg' },
@@ -89,7 +85,7 @@ const heroBrands: HeroBrand[] = [
           <a class="min-btn" href="#practices">Pick your practice</a>
           <a class="min-btn min-btn--ghost" href={pathFor('contact', locale)}>Book a call</a>
         </div>
-        <ul class="home-logos" aria-label="The BearingBridge brands" data-reveal style="--i: 3">
+        <ul class="home-logos" aria-label="The Beyond Border Group brands" data-reveal style="--i: 3">
           {heroBrands.map((b) => (
             <li>
               <a class="min-chip" href={b.href} aria-label={b.name}>
@@ -133,6 +129,8 @@ const heroBrands: HeroBrand[] = [
                   <span class="min-pill">
                     {b.logoRoute ? (
                       <AgencyLogo route={b.logoRoute} name={b.name} />
+                    ) : b.logoSlug ? (
+                      <AgencyLogo slug={b.logoSlug} name={b.name} />
                     ) : (
                       <>
                         {b.icon && <img class="min-pill__icon" src={b.icon} alt="" width="96" height="96" loading="lazy" decoding="async" />}
@@ -167,7 +165,7 @@ const heroBrands: HeroBrand[] = [
             <span class="min-tag min-tag--blue">The group</span>
             <h2 class="min-h2">AI changed the agency job. We rebuilt the group around it.</h2>
             <p class="min-body min-split__body">
-              There is no AI department at BearingBridge, because there is no non-AI department. Every brief
+              There is no AI department at Beyond Border Group, because there is no non-AI department. Every brief
               in the group, a Tmall flagship launch or a LinkedIn program, runs on the same stack we sell,
               and our teams benchmark Western and Chinese models against each other month after month. Work
               is priced on outcomes and volume, not headcount. The judgment stays human. That part we do not
@@ -196,7 +194,7 @@ const heroBrands: HeroBrand[] = [
           <a class="min-photo home-portrait" href={linkedinUrl} target="_blank" rel="noreferrer" aria-label="Cyril Drouin on LinkedIn">
             <img
               src="/Team/CyrilDrouin.jpg"
-              alt="Cyril Drouin, founder of BearingBridge."
+              alt="Cyril Drouin, founder of Beyond Border Group."
               width="1905"
               height="2560"
               loading="lazy"
@@ -284,24 +282,29 @@ const heroBrands: HeroBrand[] = [
     align-items: center;
   }
   .home-hero__ctas { justify-content: center; margin-bottom: var(--space-6); }
+  /* Flex, not grid: the count of brands is odd, so the final row has to centre
+     itself instead of hanging off the left edge. */
   .home-logos {
     list-style: none;
     margin: 0;
     padding: 0;
-    display: grid;
-    grid-template-columns: repeat(6, 140px);
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 8px;
   }
-  .home-logos li { display: contents; }
+  .home-logos li { flex: 0 0 140px; }
+  .home-logos .min-chip { width: 100%; }
   @media (max-width: 1080px) {
-    .home-logos { grid-template-columns: repeat(4, minmax(0, 140px)); }
+    .home-logos { max-width: 604px; }
   }
   @media (max-width: 900px) {
-    .home-logos { grid-template-columns: repeat(3, minmax(110px, 150px)); }
+    .home-logos { max-width: 460px; }
+    .home-logos li { flex: 0 0 148px; }
   }
   @media (max-width: 600px) {
-    .home-logos { grid-template-columns: repeat(2, minmax(0, 1fr)); width: 100%; }
+    .home-logos { max-width: 100%; width: 100%; }
+    .home-logos li { flex: 1 1 calc(50% - 4px); }
   }
 
   .home-practice__title {

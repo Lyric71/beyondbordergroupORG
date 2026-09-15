@@ -6,22 +6,145 @@ import { pathFor } from '../../i18n/ui';
 const locale = 'en' as const;
 const route = 'agencies/bearingbridgeai' as const;
 
-const visitUrl = 'https://www.bearingbridge.ai';
-const visitLabel = 'Visit bearingbridge.ai';
+const site = 'https://www.bearingbridge.com';
+const visitLabel = 'Visit bearingbridge.com';
 
-const principles = [
+const reasons = [
   {
-    title: 'A third of our answers are no',
-    body: 'Roughly one in three use cases we assess gets a no, in writing, before anyone signs anything. A no in week one is worth far more than a yes that quietly falls apart in month four.',
+    title: 'Practice, not theory',
+    body: 'Nobody adopts anything off a deck. Adoption happens when someone runs the thing on their own data and sees what comes back. That is the consulting model the founders walked away from, and it shaped the product.',
   },
   {
-    title: 'We sell no one’s software',
-    body: 'No reseller agreements, no vendor incentives. Models get benchmarked at their actual API cost, on your task, and the recommendation rides on the numbers rather than on a partnership.',
+    title: 'Capability without the payroll',
+    body: 'A twelve-person firm can run an analyst, a content team and a support desk without posting a single job. The work gets done at the size the company already is.',
   },
   {
-    title: 'Your team runs it without us',
-    body: 'Engagements are designed for independence. Training and handover sit inside the method, not on a separate invoice. When we walk out, the work keeps running and what we learned stays in the building.',
+    title: 'Intelligence first, software second',
+    body: 'Most vendors bolt AI onto software they already sold you. Here the intelligence is the product, and it gets judged on what the output is worth against what the run cost.',
   },
+];
+
+const assistance = [
+  {
+    name: 'Ask Intelligence',
+    path: '/ask-intelligence',
+    body: 'Ask a business question in plain words. It answers from your own data, quotes the real figure with its source, or tells you the data is not there.',
+    tag: 'min-tag--blue',
+  },
+  {
+    name: 'Playground',
+    path: '/playground',
+    body: 'Chat with the models your administrator allows, three side by side, with the price sitting under every answer.',
+    tag: 'min-tag--green',
+  },
+  {
+    name: 'Agents',
+    path: '/agents',
+    body: 'Watchers notice, drafters produce, and nothing ships until a person signs. Every agent carries a job, a schedule, a budget and a scope of data it may read.',
+    tag: 'min-tag--yellow',
+  },
+  {
+    name: 'Skills',
+    path: '/skills',
+    body: 'How a brief gets built, how a campaign is structured, what a decent article actually looks like. The craft of the people who built the product, shipped as the default. You adjust it.',
+    tag: 'min-tag--red',
+  },
+];
+
+const modules = [
+  {
+    name: 'Business Intelligence',
+    group: 'Leadership',
+    path: '/business-intelligence',
+    body: 'Ask the business a question and get the real number with its source attached. Plus a Monday briefing on what moved, and why it moved.',
+  },
+  {
+    name: 'Sales',
+    group: 'Revenue',
+    path: '/sales',
+    body: 'A pipeline that drafts its own quotes, pins the next step on every deal, and flags the ones that have gone quiet.',
+  },
+  {
+    name: 'Brand Marketing',
+    group: 'Growth',
+    path: '/marketing',
+    body: 'Thirty-seven text formats, an article workspace that runs from brief to branded PDF, and a Creative Studio where images and video are priced before you press run.',
+  },
+  {
+    name: 'Search',
+    group: 'Growth',
+    path: '/search',
+    body: 'Your rank by keyword, market and language, the terms competitors own and you do not, and what ChatGPT, Claude, Gemini and Perplexity say when somebody asks about you.',
+  },
+  {
+    name: 'Social',
+    group: 'Growth',
+    path: '/social',
+    body: 'A calendar you sign off on, and drafts for LinkedIn, X, Instagram and TikTok checked against the real limits of each network before you ever read them.',
+  },
+  {
+    name: 'Ads',
+    group: 'Growth',
+    path: '/ads',
+    body: 'Six steps from a keyword idea to a whole Google Ads campaign. One push builds it in your account, paused, with a watcher left running on it.',
+  },
+  {
+    name: 'Project Management',
+    group: 'Operations',
+    path: '/project-management',
+    body: 'The board where findings turn into work, so an insight does not quietly die inside a report nobody opens.',
+  },
+  {
+    name: 'Assets Library',
+    group: 'Operations',
+    path: '/assets-library',
+    body: 'Every text, image and video the product makes lands here with its prompt and its price. Name a folder in a brief and the AI writes from it.',
+  },
+  {
+    name: 'Validation',
+    group: 'Operations',
+    path: '/validation',
+    body: 'Send an asset to a colleague for a decision. A card lands on their board, mail goes both ways, and no version is ever deleted.',
+  },
+  {
+    name: 'Customer Service',
+    group: 'Support',
+    path: '/customer-service',
+    body: 'A public assistant on your own page. It answers only from what you gave it, says so plainly when it does not know, and runs under a daily budget.',
+  },
+];
+
+const pricing = [
+  {
+    title: 'Seats are free',
+    body: 'Give an account to everyone who needs one. The number on the invoice does not move when you do. Roles are still enforced.',
+  },
+  {
+    title: 'The price comes first',
+    body: 'Every run is quoted against your wallet before or as it runs, and itemised in the ledger afterwards. The machine’s own retries are not billed to you.',
+  },
+  {
+    title: 'Caps and gates',
+    body: 'A hard cap per module, an approval gate in front of anything that publishes or spends, and a zero balance that simply stops the AI.',
+  },
+];
+
+const guarantees = [
+  'Companies, brands and users are kept apart in code, not by convention.',
+  'Every model call goes through one gateway. The key never reaches a browser.',
+  'Your prompts are never used to train anything.',
+  'Every run lands in the ledger: who, what, when, which model, what it cost.',
+];
+
+const services = [
+  'Onboarding',
+  'Data integration',
+  'Intelligence audit',
+  'Training',
+  'Managed operations',
+  'Custom features',
+  'Dedicated hosting',
+  'Premium support',
 ];
 
 const phases = [
@@ -32,76 +155,13 @@ const phases = [
   { name: 'Fix', q: 'Same measurement as the baseline. Same method, new date.' },
   { name: 'Scale', q: 'Positive return proven, the pilot graduates to production.' },
 ];
-
-type ServiceKey = 'data' | 'ai' | 'tech' | 'consulting';
-const services: Array<{
-  key: ServiceKey;
-  name: string;
-  meta: string;
-  tag: string;
-  intro: string;
-  items: string[];
-}> = [
-  {
-    key: 'data',
-    name: 'Data',
-    meta: 'The raw material',
-    tag: 'min-tag--blue',
-    intro: 'An honest audit of what you actually have, before anyone talks about models.',
-    items: [
-      'Foundations sized to your use cases, not to a reference architecture.',
-      'Fragmented sources plugged together: CRMs, documents, sheets, logs.',
-      'Governance that holds up across jurisdictions, not just at home.',
-    ],
-  },
-  {
-    key: 'ai',
-    name: 'AI',
-    meta: 'The intelligence layer',
-    tag: 'min-tag--red',
-    intro: 'Use cases that pay back, prototyped on your own data with a cost per run.',
-    items: [
-      'Every candidate carries its real API cost before it ships anywhere.',
-      'Benchmarked across Western and Chinese models, on the same task.',
-      'What misses the metric gets stopped, and we put that in writing too.',
-    ],
-  },
-  {
-    key: 'tech',
-    name: 'Tech',
-    meta: 'The product layer',
-    tag: 'min-tag--green',
-    intro: 'Custom builds that land inside the systems your team already opens every morning.',
-    items: [
-      'Integrated into existing tools, not another tab nobody opens.',
-      'Built by the same people who ran the pilot, so nothing gets lost in handoff.',
-      'Documented and handed over, so your team owns what runs.',
-    ],
-  },
-  {
-    key: 'consulting',
-    name: 'Consulting',
-    meta: 'The practice, end to end',
-    tag: 'min-tag--yellow',
-    intro: 'Strategy, pilots, and adoption, on dated baselines and metrics agreed in writing.',
-    items: [
-      'A baseline with a date on it before any build starts.',
-      'Leadership and team training, so the judgment stays in-house.',
-      'The recommendation to stop, when the evidence says stop.',
-    ],
-  },
-];
-
-const east = ['Qwen', 'DeepSeek', 'ERNIE', 'GLM', 'Kimi', 'Doubao'];
-const west = ['GPT', 'Claude', 'Gemini', 'Llama', 'Mistral', 'Grok'];
-const modules = ['Marketing', 'Sales', 'Project Management', 'Your Function'];
 ---
 
 <Layout
   locale={locale}
   route={route}
-  title="BearingBridge AI: Data, AI, Tech and Consulting"
-  description="BearingBridge is an AI consultancy with one operating rule: evidence over hype. We plug intelligence into the data your organization already produces, then build the product around it. Baselines, metrics, and kill criteria agreed in writing."
+  title="BearingBridge AI: the AI business platform"
+  description="BearingBridge AI is an AI business platform. Marketing, sales, business intelligence, project management, customer service and IT support delivered as software, with agents that already know the trade. Seats are free, you pay for what the AI runs, and nothing ships until someone signs."
 >
   <div class="min">
     <!-- Hero -->
@@ -113,25 +173,30 @@ const modules = ['Marketing', 'Sales', 'Project Management', 'Your Function'];
             <span class="min-chip bbai-hero__logo" data-reveal>
               <AgencyLogo slug="bearingbridgeai" name="BearingBridge AI" />
             </span>
-            <span class="min-tag min-tag--yellow bbai-hero__eyebrow" data-reveal style="--i: 1">
-              AI · Data · Tech · Consulting
+            <span class="min-tag min-tag--blue bbai-hero__eyebrow" data-reveal style="--i: 1">
+              The AI business platform
             </span>
             <h1 class="min-hero__title" data-reveal style="--i: 2">
-              We put intelligence inside your data, then build the product <em>around it.</em>
+              Every team you cannot afford to hire, <em>running inside one app.</em>
             </h1>
             <p class="min-hero__lead" data-reveal style="--i: 3">
-              One operating rule: evidence over hype. We plug into the data you already produce and turn it
-              into analysis, content, and decisions your teams act on the same day.
+              Marketing, sales, business intelligence, project management, customer service and IT support,
+              delivered as software. The agents already know the trade, and they are live the day you open
+              the account. No recruiters, no agency retainers, nobody new on payroll.
             </p>
             <div class="min-ctas bbai-hero__ctas" data-reveal style="--i: 4">
-              <a class="min-btn" href={visitUrl} target="_blank" rel="noreferrer">{visitLabel}</a>
-              <a class="min-link" href="#method">See the method</a>
+              <a class="min-btn" href={site} target="_blank" rel="noreferrer">{visitLabel}</a>
+              <a class="min-link" href="#roster">See what it runs</a>
             </div>
+            <p class="min-small bbai-hero__note" data-reveal style="--i: 5">
+              Free to open, free to keep. You put money in a wallet and spend it on what you consume:
+              tokens, storage, data. The balance never expires, and no card is needed to open an account.
+            </p>
           </div>
           <figure class="min-photo min-photo--wide bbai-hero__shot" data-reveal style="--i: 2">
             <img
               src="/images/bbai-site-shot.webp"
-              alt="The BearingBridge AI website homepage"
+              alt="The BearingBridge AI homepage at bearingbridge.com"
               width="1440"
               height="900"
               loading="eager"
@@ -142,46 +207,152 @@ const modules = ['Marketing', 'Sales', 'Project Management', 'Your Function'];
       </div>
     </section>
 
-    <!-- Operator credibility -->
-    <section class="min-sec" id="who">
-      <div class="min-wrap">
-        <div class="bbai-track" data-reveal>
-          <span class="bbai-track__num" aria-hidden="true">25<span class="bbai-track__suffix">yrs</span></span>
-          <div>
-            <h2 class="min-h2">Twenty-five years building digital and commerce across Asia and Europe. Three industry rebrands, same problem underneath.</h2>
-            <p class="min-body">
-              Cyril Drouin opened one of China's first eCommerce agencies back in 2003, recommendation
-              engines and all, then ran Publicis Commerce and Performance Marketing across China and North
-              Asia through the attribution years. AI is the third name for the same job: the data has to be
-              right before the model gets to be smart. Data first, AI second.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Principles -->
-    <section class="min-sec min-sec--ruled">
+    <!-- The argument -->
+    <section class="min-sec" id="why">
       <div class="min-wrap">
         <header data-reveal>
-          <h2 class="min-h2">
-            Most AI projects do not fail loudly. <em>They fail politely.</em>
-          </h2>
+          <h2 class="min-h2">Size was never the same thing as ability.</h2>
           <p class="min-lead bbai-block__lead">
-            RAND counted it in 2024: eighty percent of AI projects get abandoned or never scale. The pilot
-            demos well, the steering committee applauds. Then the numbers never move, nobody wrote down what
-            success meant, and the budget quietly migrates to next year's pilot. We built the firm to be the
-            opposite of that.
+            What a company could reach for was always capped by who it could afford to put on payroll. The
+            competitor down the road was rarely smarter. Just staffed. That cap is the thing that moved, and
+            BearingBridge was built on the assumption that it moved for good.
           </p>
         </header>
 
         <div class="min-grid-3">
-          {principles.map((p, i) => (
+          {reasons.map((r, i) => (
+            <article class="min-card" data-reveal style={`--i: ${i}`}>
+              <h3 class="min-h3">{r.title}</h3>
+              <p class="min-small">{r.body}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- AI assistance -->
+    <section class="min-sec min-sec--ruled" id="assistance">
+      <div class="min-wrap">
+        <header data-reveal>
+          <h2 class="min-h2">Four ways to put it to work. <em>Every account gets all four.</em></h2>
+          <p class="min-lead bbai-block__lead">
+            Two you talk to directly, and two that decide how everything else behaves.
+          </p>
+        </header>
+
+        <div class="min-grid-2">
+          {assistance.map((a, i) => (
+            <article class="min-card" data-reveal style={`--i: ${i}`}>
+              <span class={`min-tag ${a.tag}`}>{a.name}</span>
+              <p class="min-small bbai-assist__body">{a.body}</p>
+              <a class="min-link" href={`${site}${a.path}`} target="_blank" rel="noreferrer">
+                Open {a.name} ↗
+              </a>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- The roster -->
+    <section class="min-sec min-sec--ruled" id="roster">
+      <div class="min-wrap">
+        <header data-reveal>
+          <h2 class="min-h2">Ten roles. One workspace. <em>Nobody new on payroll.</em></h2>
+          <p class="min-lead bbai-block__lead">
+            The same intelligence, the same agents and the same skills, pointed at the jobs a company has to
+            get done anyway. Start with the one keeping you up. A module you have not switched on costs
+            nothing.
+          </p>
+        </header>
+
+        <div class="min-index" data-reveal>
+          {modules.map((m) => (
+            <a class="min-index__row" href={`${site}${m.path}`} target="_blank" rel="noreferrer">
+              <div>
+                <h3 class="min-index__title">{m.name}</h3>
+                <span class="min-meta">{m.group}</span>
+              </div>
+              <p class="min-index__body">{m.body}</p>
+              <span class="min-index__arrow" aria-hidden="true">↗</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="min-sec min-sec--ruled" id="pricing">
+      <div class="min-wrap">
+        <header data-reveal>
+          <h2 class="min-h2">Seats are free. <em>You pay for what the AI runs.</em></h2>
+          <p class="min-lead bbai-block__lead">
+            No tiers to decode, no per-seat arithmetic, no annual lock-in. Money sits in a wallet and gets
+            spent on tokens, storage and data, and you see the price before anything spends it.
+          </p>
+        </header>
+
+        <div class="min-grid-3">
+          {pricing.map((p, i) => (
             <article class="min-card" data-reveal style={`--i: ${i}`}>
               <h3 class="min-h3">{p.title}</h3>
               <p class="min-small">{p.body}</p>
             </article>
           ))}
+        </div>
+
+        <p class="min-kicker bbai-pricing__kicker" data-reveal>
+          Nothing ships until a person signs. That sentence is the product.
+        </p>
+      </div>
+    </section>
+
+    <!-- Security -->
+    <section class="min-sec min-sec--ruled" id="security">
+      <div class="min-wrap">
+        <div class="min-split bbai-sec" data-reveal>
+          <div>
+            <h2 class="min-h2">Where your data goes, and where it does not.</h2>
+            <p class="min-body bbai-sec__body">
+              For most companies the standard product ends the conversation. If it does not end yours,
+              dedicated hosting puts the whole thing on a single tenant in the region you name, with backups
+              that stay there and an uptime number written into the contract. Same product, your own
+              instance, provisioned in about two weeks.
+            </p>
+            <a class="min-link" href={`${site}/security`} target="_blank" rel="noreferrer">
+              Read security and data ↗
+            </a>
+          </div>
+          <ul class="bbai-sec__list">
+            {guarantees.map((g) => (
+              <li class="min-small">{g}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section class="min-sec min-sec--ruled" id="services">
+      <div class="min-wrap">
+        <div class="min-split min-split--reverse bbai-services" data-reveal>
+          <div>
+            <h2 class="min-h2">The people around the product.</h2>
+            <p class="min-body bbai-sec__body">
+              Software on its own connects to nothing. A guided session gets your brands, markets and budget
+              caps configured, the systems you already run get plugged in and reconciled, and the team is
+              trained by role rather than by feature. After that you can keep a named operator on the
+              account, or run it yourself. Most do the second one.
+            </p>
+            <a class="min-link" href={`${site}/services`} target="_blank" rel="noreferrer">
+              See all services ↗
+            </a>
+          </div>
+          <ul class="bbai-services__tags">
+            {services.map((s) => (
+              <li class="min-pill">{s}</li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>
@@ -215,91 +386,33 @@ const modules = ['Marketing', 'Sales', 'Project Management', 'Your Function'];
       </div>
     </section>
 
-    <!-- Services -->
-    <section class="min-sec min-sec--ruled" id="services">
-      <div class="min-wrap">
-        <header data-reveal>
-          <h2 class="min-h2">Data, AI, tech, consulting. <em>Start where it hurts.</em></h2>
-          <p class="min-lead bbai-block__lead">The raw material, the intelligence layer, the product layer, and the practice that ties them together. Take the whole stack or a single piece.</p>
-        </header>
-
-        <div class="min-grid-2">
-          {services.map((s, i) => (
-            <article class="min-card" data-reveal style={`--i: ${i}`}>
-              <span class={`min-tag ${s.tag}`}>{s.name}</span>
-              <p class="min-meta bbai-service__meta">{s.meta}</p>
-              <p class="min-body bbai-service__intro">{s.intro}</p>
-              <ul class="bbai-service__list">
-                {s.items.map((it) => (
-                  <li class="min-small">{it}</li>
-                ))}
-              </ul>
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <!-- East + West -->
-    <section class="min-sec min-sec--ruled">
-      <div class="min-wrap">
-        <div class="min-split bbai-ew" data-reveal>
-          <div>
-            <h2 class="min-h2">We benchmark both sides. <em>On your data.</em></h2>
-            <p class="min-body bbai-ew__body">
-              We have worked on both stacks, so we recommend a model on the merits, not on which side we
-              happen to know. Same task, side by side, at actual API cost, and the results pick the winner.
-            </p>
-            <p class="min-muted bbai-ew__note">
-              One provider is a default. Two is a decision you can defend.
-            </p>
-          </div>
-          <div class="bbai-ew__cols">
-            <div class="min-card">
-              <span class="min-tag min-tag--red">East</span>
-              <ul class="bbai-ew__list">
-                {east.map((m) => <li>{m}</li>)}
-              </ul>
-            </div>
-            <div class="min-card">
-              <span class="min-tag min-tag--blue">West</span>
-              <ul class="bbai-ew__list">
-                {west.map((m) => <li>{m}</li>)}
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="bbai-expertise" data-reveal>
-          <span class="min-muted bbai-expertise__label">bearingbridge intelligence, our working platform. Modules already running on real tasks, every cost visible on screen.</span>
-          <ul class="bbai-expertise__tags">
-            {modules.map((m) => <li class="min-pill">{m}</li>)}
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- Editorial standard -->
+    <!-- Voice of the customer -->
     <section class="min-sec min-sec--ruled">
       <div class="min-wrap min-narrow">
-        <h2 class="min-h2 bbai-operate__title" data-reveal>
-          We measure before we recommend.<br />
-          We agree the metric before we build.<br />
-          When the evidence says stop, we stop.
-        </h2>
-        <div data-reveal style="--i: 1">
-          <p class="min-body bbai-operate__p">Data was called the new oil. Intelligence is the refined product, and AI is the refinery. Our job is to run the refinery honestly, at a cost you can see, against a target you signed before we started.</p>
-          <p class="min-kicker bbai-operate__emphasis">Evidence over hype. That is the whole rule.</p>
-        </div>
+        <blockquote class="min-serif-quote" data-reveal cite={`${site}/testimonials`}>
+          We had an agency for search, another for content and a freelancer for the ads. Now Search tells us
+          what dog owners are actually asking, the content comes out in our voice, and the campaigns arrive
+          built and priced. Two of us run it from one screen. We let the agency go in the spring and only
+          finance noticed.
+        </blockquote>
+        <p class="min-meta bbai-quote__by" data-reveal style="--i: 1">
+          Ashley R., founder, dog food and toys brand.
+          <a class="min-link" href={`${site}/testimonials`} target="_blank" rel="noreferrer">All testimonials ↗</a>
+        </p>
       </div>
     </section>
 
     <!-- Final CTA -->
     <section class="min-sec min-sec--ruled">
       <div class="min-wrap min-narrow min-center" data-reveal>
-        <h2 class="min-h2 bbai-cta__title">Start with your bearings.<br />A thirty-minute conversation.</h2>
+        <h2 class="min-h2 bbai-cta__title">Live in a week.<br />Tell them which job is costing you the most.</h2>
+        <p class="min-body bbai-cta__body">
+          Ninety minutes gets your brands, markets and budget caps configured. Five days later you are
+          running it yourself. Bring your brand materials and your market scope. Leave the prompt library at
+          home, the agents come configured for their trade.
+        </p>
         <div class="min-ctas bbai-cta__actions">
-          <a class="min-btn" href={visitUrl} target="_blank" rel="noreferrer">{visitLabel}</a>
+          <a class="min-btn" href={site} target="_blank" rel="noreferrer">{visitLabel}</a>
           <a class="min-btn min-btn--ghost" href={pathFor('contact', locale)}>Book a call</a>
         </div>
       </div>
@@ -321,35 +434,61 @@ const modules = ['Marketing', 'Sales', 'Project Management', 'Your Function'];
   .bbai-hero__logo :global(.agency-logo) { height: 26px; width: auto; }
   .bbai-hero__eyebrow { display: inline-block; }
   .bbai-hero__ctas { margin-top: var(--space-2); }
+  .bbai-hero__note {
+    margin-top: var(--space-4);
+    padding-left: var(--space-3);
+    border-left: 2px solid var(--line);
+    max-width: 58ch;
+  }
   .bbai-hero__shot img { object-position: center top; }
 
-  .bbai-track {
-    display: grid;
-    grid-template-columns: auto minmax(0, 1fr);
-    gap: clamp(var(--space-5), 5vw, var(--space-7));
-    align-items: center;
-  }
-  @media (max-width: 800px) {
-    .bbai-track { grid-template-columns: 1fr; gap: var(--space-4); }
-  }
-  .bbai-track__num {
-    font-family: var(--serif);
-    font-weight: 500;
-    font-size: clamp(4.5rem, 10vw, 8rem);
-    line-height: 0.9;
-    letter-spacing: -0.04em;
-    color: var(--ink);
-    white-space: nowrap;
-  }
-  .bbai-track__suffix {
-    font-size: 0.35em;
-    letter-spacing: -0.01em;
-    color: var(--muted);
-    margin-left: 0.1em;
-  }
-  .bbai-track .min-body { margin: 0; }
-
   .bbai-block__lead { margin-bottom: var(--space-5); }
+
+  .bbai-assist__body { margin-bottom: var(--space-4); }
+
+  .min-index__row .min-meta { display: block; margin-top: 4px; }
+  @media (max-width: 720px) {
+    .min-index__row { grid-template-columns: 1fr auto; gap: var(--space-2); }
+    .min-index__row .min-index__body { grid-column: 1 / -1; }
+  }
+
+  .bbai-pricing__kicker { margin-top: var(--space-6); }
+
+  .bbai-sec { align-items: start; }
+  .bbai-sec__body { margin-bottom: var(--space-3); }
+  .bbai-sec__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-3);
+    border-top: 1px solid var(--line);
+    padding-top: var(--space-4);
+  }
+  .bbai-sec__list li {
+    position: relative;
+    padding-left: 18px;
+  }
+  .bbai-sec__list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.6em;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--line);
+  }
+
+  .bbai-services { align-items: center; }
+  .bbai-services__tags {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
 
   .bbai-method__lead { margin-bottom: var(--space-5); }
   .bbai-phases {
@@ -373,65 +512,10 @@ const modules = ['Marketing', 'Sales', 'Project Management', 'Your Function'];
   .bbai-method__horizon { max-width: 70ch; margin: 0; }
   .bbai-method__horizon-label { display: inline-block; margin-right: 10px; }
 
-  .bbai-service__meta { margin: 0 0 var(--space-3); }
-  .bbai-service__intro { margin: 0 0 var(--space-4); font-weight: 550; color: var(--ink); }
-  .bbai-service__list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    gap: var(--space-2);
-  }
-  .bbai-service__list li {
-    position: relative;
-    padding-left: 16px;
-  }
-  .bbai-service__list li::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0.6em;
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: var(--line);
-  }
-
-  .bbai-ew { align-items: center; margin-bottom: var(--space-6); }
-  .bbai-ew__body { margin-bottom: var(--space-3); }
-  .bbai-ew__note { font-style: italic; }
-  .bbai-ew__cols {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-4);
-  }
-  @media (max-width: 500px) {
-    .bbai-ew__cols { grid-template-columns: 1fr; }
-  }
-  .bbai-ew__list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    gap: var(--space-2);
-    font-weight: 550;
-    color: var(--ink);
-  }
-  .bbai-expertise { border-top: 1px solid var(--line); padding-top: var(--space-5); }
-  .bbai-expertise__label { display: block; margin-bottom: var(--space-3); }
-  .bbai-expertise__tags {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-
-  .bbai-operate__title { max-width: none; }
-  .bbai-operate__p { margin-bottom: var(--space-3); }
-  .bbai-operate__emphasis { margin-top: var(--space-4); }
+  .bbai-quote__by { margin-top: var(--space-4); }
+  .bbai-quote__by .min-link { margin-left: 10px; }
 
   .bbai-cta__title { margin-inline: auto; }
+  .bbai-cta__body { margin-inline: auto; max-width: 56ch; }
   .bbai-cta__actions { justify-content: center; }
 </style>

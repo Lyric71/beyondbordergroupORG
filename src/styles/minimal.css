@@ -1,5 +1,5 @@
 /* ---------------------------------------------------------------------------
-   BearingBridge site-wide design system: Premium Utilitarian Minimalism.
+   Beyond Border Group site-wide design system: Premium Utilitarian Minimalism.
    Warm monochrome canvas, 1px hairlines, Newsreader serif display, spot pastels.
    Every page wraps its body in <div class="min"> and uses these classes.
    Reveal: add data-reveal to blocks; Layout's observer adds .is-in.
@@ -332,6 +332,12 @@ a.min-card { display: flex; flex-direction: column; gap: var(--space-3); text-de
   color: var(--ink);
 }
 .min-pill img.agency-logo { height: 14px; width: auto; max-width: 110px; }
+.min-pill img.agency-logo--bearingbridge { height: 20px; }
+.min-pill img.agency-logo--nuvora-studio { height: 19px; }
+.min-pill img.agency-logo--beyondbridge { height: 19px; }
+.min-pill img.agency-logo--theredscroll { height: 22px; }
+.min-pill img.agency-logo--chinawebfoundry { height: 16px; }
+.min-pill img.agency-logo--bbchien { height: 17px; }
 .min-pill__icon { width: 11px; height: 11px; margin-right: 4px; object-fit: contain; }
 
 /* ---------- Logo chips ---------- */
@@ -349,6 +355,14 @@ a.min-card { display: flex; flex-direction: column; gap: var(--space-3); text-de
 }
 .min-chip:hover { box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04); border-color: #dcdcda; }
 .min-chip img.agency-logo { height: 18px; width: auto; max-width: 100%; }
+/* Optical sizing: lockups with a tall mark stacked over a two-line wordmark
+   read smaller than a single-line wordmark at the same pixel height. */
+.min-chip img.agency-logo--bearingbridge { height: 26px; }
+.min-chip img.agency-logo--nuvora-studio { height: 24px; }
+.min-chip img.agency-logo--beyondbridge { height: 24px; }
+.min-chip img.agency-logo--theredscroll { height: 28px; }
+.min-chip img.agency-logo--chinawebfoundry { height: 21px; }
+.min-chip img.agency-logo--bbchien { height: 22px; }
 .min-chip__icon { width: 16px; height: 16px; margin-right: 6px; object-fit: contain; }
 .min-chip__name {
   font-weight: 550;

@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /* -------------------------------------------------------------------------- */
-/* BearingBridge: design system                                         */
+/* Beyond Border Group: design system                                          */
 /* Tokens and components mirrored from beyond-border-group.vercel.app, plus   */
 /* additions for the cross-border ecosystem site.                             */
 /* -------------------------------------------------------------------------- */
@@ -1544,10 +1544,6 @@ a.card p { color: var(--bbg-text); }
   width: auto;
   height: auto;
 }
-.mega-item__logo .agency-logo--compass {
-  max-width: 120px;
-  max-height: 42px;
-}
 
 /* "View all" footer in agencies mega */
 .mega__footer {
@@ -1709,7 +1705,6 @@ body:has(.nav-item--mega:focus-within) .site-overlay { opacity: 1; }
   box-shadow: 0 1px 2px rgba(15, 23, 42, 0.06);
 }
 .nav-mobile__logo .agency-logo { max-width: 100%; max-height: 28px; width: auto; height: auto; }
-.nav-mobile__logo .agency-logo--compass { max-height: 21px; }
 .nav-mobile__section { margin-top: var(--space-3); }
 .nav-mobile__group {
   display: block;

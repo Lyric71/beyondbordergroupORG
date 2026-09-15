@@ -54,12 +54,6 @@ const inboundAgencies = [
     body: 'ICP-licensed hosting, Baidu SEO, mobile-first UX, GEO for Chinese AI engines.',
     route: 'agencies/chinawebfoundry' as const,
   },
-  {
-    name: 'Compass',
-    role: 'The distributor and TP database',
-    body: 'A private database of vetted China distributors, Tmall TPs, and Douyin partners.',
-    route: 'agencies/compass' as const,
-  },
 ];
 
 const outboundReq = [
@@ -216,11 +210,11 @@ const outboundChips = ['LinkedIn', 'Google', 'ChatGPT', 'Perplexity', 'Gemini', 
               <span class="min-small">Full-service entry. Twenty-year playbook.</span>
             </div>
           </a>
-          <a class="min-card flows-opening" href={pathFor('agencies/compass', locale)} data-reveal style="--i: 3">
+          <a class="min-card flows-opening" href={pathFor('agencies/bearingbridge', locale)} data-reveal style="--i: 3">
             <p class="flows-opening__quote">We need a distributor in China asap.</p>
             <div class="flows-opening__answer">
-              <span class="flows-opening__by">Compass</span>
-              <span class="min-small">A vetted shortlist of distributors and TPs in days, not months.</span>
+              <span class="flows-opening__by">TheChinaPath</span>
+              <span class="min-small">A vetted shortlist of distributors and TPs, drawn from partners we have sat across the table from.</span>
             </div>
           </a>
           <a class="min-card flows-opening" href={pathFor('ai-services', locale)} data-reveal style="--i: 4">

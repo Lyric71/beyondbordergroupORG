@@ -10,22 +10,21 @@ interface Props {
 
 const { locale, route, title, site } = Astro.props;
 const ui = t(locale);
-const origin = site ?? new URL('https://www.bearingbridge.org');
+const origin = site ?? new URL('https://www.beyondbordergroup.org');
 const abs = (r: Route) => new URL(pathFor(r, locale), origin).toString();
 const inLanguage = htmlLang(locale);
 const orgId = new URL('/#organization', origin).toString();
 const siteId = new URL('/#website', origin).toString();
 
-// The eight agency sites + the founder's LinkedIn. Drives Organization.sameAs.
+// The seven agency sites + the founder's LinkedIn. Drives Organization.sameAs.
 const sameAs = [
   'https://thechinapath.com',
   'https://theredscroll.com',
   'https://chinawebfoundry.com',
   'https://beyondbridge.ai',
-  'https://compass.bearingbridge.com',
   'https://hubstudio.ai',
   'https://nuvora.studio',
-  'https://www.bearingbridge.ai',
+  'https://www.bearingbridge.com',
   'https://www.linkedin.com/in/cyril-d-68835729/',
 ];
 
@@ -35,10 +34,9 @@ const agencies: Partial<Record<Route, AgencyMeta>> = {
   'agencies/theredscroll': { name: 'TheRedScroll', url: 'https://theredscroll.com', descKey: 'theredscroll' },
   'agencies/chinawebfoundry': { name: 'ChinaWebFoundry', url: 'https://chinawebfoundry.com', descKey: 'chinawebfoundry' },
   'agencies/beyondbridge': { name: 'BeyondBridge', url: 'https://beyondbridge.ai', descKey: 'beyondbridge' },
-  'agencies/compass': { name: 'Compass', url: 'https://compass.bearingbridge.com', descKey: 'compass' },
   'agencies/hubstudio': { name: 'HubStudio', url: 'https://hubstudio.ai', descKey: 'hubstudio' },
   'agencies/nuvora-studio': { name: 'Nuvora Studio', url: 'https://nuvora.studio', descKey: 'nuvoraStudio' },
-  'agencies/bearingbridgeai': { name: 'BearingBridge AI', url: 'https://www.bearingbridge.ai', descKey: 'bearingbridgeAi' },
+  'agencies/bearingbridgeai': { name: 'BearingBridge AI', url: 'https://www.bearingbridge.com', descKey: 'bearingbridgeAi' },
 };
 
 const graph: Record<string, unknown>[] = [
@@ -68,7 +66,6 @@ function labelFor(r: Route): string {
     case 'two-flows': return ui.nav.flowsLabel;
     case 'agencies': return ui.nav.agencies;
     case 'ai-services': return 'AI Services';
-    case 'ai-services/intelligence': return 'Intelligence';
     case 'cross-border-marketing': return 'Cross-Border Marketing';
     case 'products': return 'Products';
     case 'the-group': return 'The group';

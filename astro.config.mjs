@@ -6,7 +6,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://www.bearingbridge.org',
+  site: 'https://www.beyondbordergroup.org',
   output: 'static',
   redirects: {
     '/how-we-work-together/': '/how-we-work/',

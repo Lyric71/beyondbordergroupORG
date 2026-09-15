@@ -5,7 +5,7 @@ import { pathFor } from '../i18n/ui';
 
 const locale = 'en' as const;
 const title = 'China cross-border marketing';
-const description = 'A cross-border marketing agency group: five specialists carrying brands between China and the West, both ways. Brand, channels, web, partners, sales.';
+const description = 'A cross-border marketing agency group: four specialists carrying brands between China and the West, both ways. Brand, channels, web, partners, sales.';
 
 const agencies = [
   {
@@ -28,11 +28,6 @@ const agencies = [
     tagline: 'Chinese social media. WeChat, Douyin, RedNote, Weibo.',
     route: 'agencies/theredscroll' as const,
   },
-  {
-    name: 'Compass',
-    tagline: 'The right distributor or TP, vetted before you meet them. A private database of China distributors, Tmall TPs, Douyin Partners.',
-    route: 'agencies/compass' as const,
-  },
 ];
 ---
 
@@ -44,7 +39,7 @@ const agencies = [
       <div class="min-wrap">
         <h1 class="min-hero__title" data-reveal>We carry brands between China and the West. Both ways.</h1>
         <p class="min-hero__lead" data-reveal style="--i: 1">
-          Five specialist agencies, built around one thesis. The gap between China and the West was never a
+          Four specialist agencies, built around one thesis. The gap between China and the West was never a
           translation problem. It's brand, channels, infrastructure, and sales. And it runs in both directions,
           every day.
         </p>
@@ -59,7 +54,7 @@ const agencies = [
     <section class="min-sec">
       <div class="min-wrap">
         <div class="min-split cb-intro" data-reveal>
-          <aside class="cb-rail" aria-label="Five agencies in the practice">
+          <aside class="cb-rail" aria-label="Four agencies in the practice">
             <span class="min-tag min-tag--red">The practice</span>
 
             <div class="cb-rail__chapter">
@@ -76,7 +71,7 @@ const agencies = [
                 </li>
                 <li>
                   <a class="cb-rail__link" href={pathFor('agencies/beyondbridge', locale)}>
-                    <span class="cb-rail__logo"><img src="/AgencyLogos/BeyondBridge-%20Logo-EN-4K-Transparent.png" alt="" loading="lazy" decoding="async" /></span>
+                    <span class="cb-rail__logo"><img src="/AgencyLogos/beyondbridge-logo.png" alt="" loading="lazy" decoding="async" /></span>
                     <span class="cb-rail__body">
                       <span class="cb-rail__name">BeyondBridge</span>
                       <span class="cb-rail__tagline">Full-service China to West</span>
@@ -100,19 +95,10 @@ const agencies = [
                 </li>
                 <li>
                   <a class="cb-rail__link" href={pathFor('agencies/theredscroll', locale)}>
-                    <span class="cb-rail__logo"><img src="/AgencyLogos/TheredScroll%20PNG.png" alt="" loading="lazy" decoding="async" /></span>
+                    <span class="cb-rail__logo"><img src="/AgencyLogos/theredscroll-logo.svg" alt="" loading="lazy" decoding="async" /></span>
                     <span class="cb-rail__body">
                       <span class="cb-rail__name">TheRedScroll</span>
                       <span class="cb-rail__tagline">Chinese social media</span>
-                    </span>
-                  </a>
-                </li>
-                <li>
-                  <a class="cb-rail__link" href={pathFor('agencies/compass', locale)}>
-                    <span class="cb-rail__logo"><img src="/AgencyLogos/Logo%20Compass%20-%20Horizontal.svg" alt="" loading="lazy" decoding="async" /></span>
-                    <span class="cb-rail__body">
-                      <span class="cb-rail__name">Compass</span>
-                      <span class="cb-rail__tagline">Vetted China partners</span>
                     </span>
                   </a>
                 </li>
@@ -142,7 +128,7 @@ const agencies = [
               Brand, WeChat, RedNote, Douyin, Tmall, JD, Baidu, KOLs, distribution. From a single landing page
               to the full stack.
             </p>
-            <p class="min-muted">TheChinaPath, TheRedScroll, ChinaWebFoundry, Compass</p>
+            <p class="min-muted">TheChinaPath, TheRedScroll, ChinaWebFoundry</p>
             <span class="min-link cb-flow__cta">Jump to inbound</span>
           </a>
 
@@ -169,7 +155,7 @@ const agencies = [
       <div class="min-wrap">
         <div class="min-split min-split--reverse cb-stack__head" data-reveal>
           <div>
-            <h2 class="min-h2" id="the-stack">Five specialists. One practice.</h2>
+            <h2 class="min-h2" id="the-stack">Four specialists. One practice.</h2>
             <p class="min-lead">
               Every agency here takes clients directly. Start with the one your project needs; the others join
               if and when the work grows.
@@ -199,14 +185,16 @@ const agencies = [
       </div>
     </section>
 
-    <!-- 5 · Two leads, three specialists -->
+    <!-- 5 · Two leads, two specialists -->
     <section class="min-sec min-sec--ruled">
       <div class="min-wrap">
         <div data-reveal>
-          <h2 class="min-h2">Two leads. Three specialists.</h2>
+          <h2 class="min-h2">Two leads. Two specialists.</h2>
           <p class="min-lead">
-            Two lead agencies, one per direction, each running the full project. Three specialists that slot
-            into either direction when the work calls for their piece: social, web, partners.
+            Two lead agencies, one per direction, each running the full project. Two specialists that slot
+            into either direction when the work calls for their piece: social and web. Partner sourcing sits
+            inside the full-service scope, where the people who vetted the distributor also have to live with
+            the choice.
           </p>
         </div>
 
@@ -258,9 +246,9 @@ const agencies = [
           <div class="cb-matrix__row" role="row">
             <div class="cb-matrix__layer" role="rowheader">Partner sourcing</div>
             <div class="min-card cb-matrix__cell cb-matrix__cell--span" role="cell">
-              <span class="cb-matrix__name">Compass</span>
-              <span class="min-muted">Vetted China distributors, Tmall TPs, Douyin Partners.</span>
-              <a class="cb-matrix__site" href="https://compass.bearingbridge.com" target="_blank" rel="noreferrer">compass.bearingbridge.com <span aria-hidden="true">↗</span></a>
+              <span class="cb-matrix__name">TheChinaPath</span>
+              <span class="min-muted">Distributors, Tmall TPs and Douyin Partners, vetted before you meet them.</span>
+              <a class="cb-matrix__site" href="https://thechinapath.com" target="_blank" rel="noreferrer">thechinapath.com <span aria-hidden="true">↗</span></a>
             </div>
           </div>
 

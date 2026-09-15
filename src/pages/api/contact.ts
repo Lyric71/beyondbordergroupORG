@@ -4,7 +4,7 @@ import { Resend } from 'resend';
 export const prerender = false;
 
 const RECIPIENT = 'cyril.drouin@outlook.com';
-const SENDER = 'BearingBridge <onboarding@resend.dev>';
+const SENDER = 'Beyond Border Group <onboarding@resend.dev>';
 
 const escapeHtml = (value: string) =>
   value
@@ -102,7 +102,7 @@ export const POST: APIRoute = async ({ request }) => {
   const html = `
     <div style="font-family:'Segoe UI',Arial,sans-serif;max-width:640px;margin:0 auto;background:#F4F7FB;padding:32px;">
       <div style="background:linear-gradient(135deg,#001840 0%,#0A66C2 100%);border-radius:12px;padding:28px 32px;margin-bottom:20px;">
-        <div style="color:#A6C1E5;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;">BearingBridge</div>
+        <div style="color:#A6C1E5;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;">Beyond Border Group</div>
         <h1 style="color:#ffffff;font-size:22px;margin:6px 0 0;">New contact form submission</h1>
       </div>
       <div style="background:#ffffff;border-radius:12px;padding:24px 32px;">
@@ -124,7 +124,7 @@ export const POST: APIRoute = async ({ request }) => {
           ${briefCell}
         </div>
       </div>
-      <p style="color:#94A3B8;font-size:12px;text-align:center;margin-top:16px;">Sent from bearingbridge.org/contact</p>
+      <p style="color:#94A3B8;font-size:12px;text-align:center;margin-top:16px;">Sent from beyondbordergroup.org/contact</p>
     </div>
   `;
 
