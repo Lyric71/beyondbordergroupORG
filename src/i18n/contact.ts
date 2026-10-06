@@ -21,12 +21,22 @@ export interface ContactCopy {
   labelCompany: string;
   labelBrief: string;
   briefPlaceholder: string;
+  labelSource: string;
+  sourcePick: string;
+  sourceGoogle: string;
+  sourceAi: string;
+  sourceExhibition: string;
+  sourceReferral: string;
+  sourceOther: string;
+  labelSourceDetail: string;
+  sourceDetailPlaceholder: string;
   captchaLabel: string;
   captchaPrompt: string;
   submit: string;
   sending: string;
   formHint: string;
   errMissing: string;
+  errSource: string;
   errCaptchaClient: string;
   statusSending: string;
   errNetwork: string;
@@ -65,12 +75,22 @@ export const contactCopy: Record<Locale, ContactCopy> = {
     labelCompany: 'Company',
     labelBrief: 'Project description',
     briefPlaceholder: 'A short paragraph is welcome: direction, stage, what you need help with.',
+    labelSource: 'How did you hear about us?',
+    sourcePick: 'Pick one',
+    sourceGoogle: 'Google or another search engine',
+    sourceAi: 'An AI assistant (ChatGPT, Gemini, Claude, Perplexity…)',
+    sourceExhibition: 'An exhibition or a trade show',
+    sourceReferral: 'A referral, someone recommended us',
+    sourceOther: 'Somewhere else',
+    labelSourceDetail: 'Which one? (optional)',
+    sourceDetailPlaceholder: 'The name, so we can thank them',
     captchaLabel: 'Quick check',
     captchaPrompt: 'What is {q}?',
     submit: 'Send message',
     sending: 'Sending…',
     formHint: 'We reply within 24 hours, Monday to Friday.',
     errMissing: 'Please add your name and email so we can reach you.',
+    errSource: 'Please tell us how you heard about us.',
     errCaptchaClient: "Captcha answer doesn't match. Please try again.",
     statusSending: 'Sending your message…',
     errNetwork: 'Network error. Please check your connection and try again.',

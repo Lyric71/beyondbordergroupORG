@@ -16,6 +16,18 @@ const escapeHtml = (value: string) =>
 
 const isValidEmail = (email: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
+// "How did you hear about us?": the only accepted values, with the label the email shows.
+const SOURCES: Record<string, string> = {
+  google: 'Google or another search engine',
+  ai: 'An AI assistant (ChatGPT, Gemini, Claude, Perplexity…)',
+  exhibition: 'An exhibition or a trade show',
+  referral: 'A referral, someone recommended us',
+  other: 'Somewhere else',
+};
+// Answers that may carry a free-text name.
+const SOURCES_WITH_DETAIL = new Set(['exhibition', 'referral', 'other']);
+const SOURCE_DETAIL_MAX = 120;
+
 type Payload = {
   name?: string;
   email?: string;
@@ -23,6 +35,8 @@ type Payload = {
   website?: string;
   company?: string;
   brief?: string;
+  source?: string;
+  sourceDetail?: string;
   hp_field?: string;
   captcha_question?: string;
   captcha_answer?: string;
@@ -91,6 +105,15 @@ export const POST: APIRoute = async ({ request }) => {
     return json(400, { error: 'Invalid email address.' });
   }
 
+  const source = String(body.source ?? '').trim();
+  if (!Object.hasOwn(SOURCES, source)) {
+    return json(400, { error: 'Please tell us how you heard about us.' });
+  }
+  const sourceLabel = SOURCES[source];
+  const sourceDetail = SOURCES_WITH_DETAIL.has(source)
+    ? String(body.sourceDetail ?? '').replace(/\s+/g, ' ').trim().slice(0, SOURCE_DETAIL_MAX)
+    : '';
+
   const websiteCell = website
     ? `<a href="${escapeHtml(website)}" style="color:#0A66C2;">${escapeHtml(website)}</a>`
     : '-';
@@ -119,6 +142,12 @@ export const POST: APIRoute = async ({ request }) => {
           ${row('Website', websiteCell)}
         </table>
 
+        <h2 style="color:#1A1F2E;font-size:14px;letter-spacing:0.06em;text-transform:uppercase;margin:0 0 8px;">How they heard about us</h2>
+        <table style="width:100%;border-collapse:collapse;margin-bottom:20px;">
+          ${row('Source', `${escapeHtml(sourceLabel)} <span style="color:#94A3B8;">(${escapeHtml(source)})</span>`)}
+          ${SOURCES_WITH_DETAIL.has(source) ? row('Which one', sourceDetail ? escapeHtml(sourceDetail) : '-') : ''}
+        </table>
+
         <h2 style="color:#1A1F2E;font-size:14px;letter-spacing:0.06em;text-transform:uppercase;margin:0 0 8px;">Project description</h2>
         <div style="background:#F8FAFC;border:1px solid #E8ECF2;border-radius:8px;padding:16px;color:#1A1F2E;font-size:14px;line-height:1.6;">
           ${briefCell}
@@ -137,6 +166,9 @@ export const POST: APIRoute = async ({ request }) => {
     ``,
     `Company: ${company || '-'}`,
     `Website: ${website || '-'}`,
+    ``,
+    `How they heard about us: ${sourceLabel} (${source})`,
+    ...(SOURCES_WITH_DETAIL.has(source) ? [`Which one: ${sourceDetail || '-'}`] : []),
     ``,
     `Project description:`,
     brief || '(no brief)',

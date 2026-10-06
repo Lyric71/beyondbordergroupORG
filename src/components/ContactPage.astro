@@ -23,12 +23,22 @@ interface ContactCopy {
   labelCompany: string;
   labelBrief: string;
   briefPlaceholder: string;
+  labelSource: string;
+  sourcePick: string;
+  sourceGoogle: string;
+  sourceAi: string;
+  sourceExhibition: string;
+  sourceReferral: string;
+  sourceOther: string;
+  labelSourceDetail: string;
+  sourceDetailPlaceholder: string;
   captchaLabel: string;
   captchaPrompt: string;
   submit: string;
   sending: string;
   formHint: string;
   errMissing: string;
+  errSource: string;
   errCaptchaClient: string;
   statusSending: string;
   errNetwork: string;
@@ -45,6 +55,15 @@ const { locale, copy } = Astro.props;
 const a = Math.floor(Math.random() * 8) + 2;
 const b = Math.floor(Math.random() * 8) + 2;
 const captchaQuestion = `${a} + ${b}`;
+
+// Values are English slugs whatever the locale; /api/contact whitelists them.
+const sourceOptions = [
+  { value: 'google', label: copy.sourceGoogle },
+  { value: 'ai', label: copy.sourceAi },
+  { value: 'exhibition', label: copy.sourceExhibition },
+  { value: 'referral', label: copy.sourceReferral },
+  { value: 'other', label: copy.sourceOther },
+];
 ---
 
 <Layout locale={locale} route="contact" title={copy.title} description={copy.description}>
@@ -73,6 +92,7 @@ const captchaQuestion = `${a} + ${b}`;
               novalidate
               data-locale={locale}
               data-err-missing={copy.errMissing}
+              data-err-source={copy.errSource}
               data-status-sending={copy.statusSending}
               data-err-network={copy.errNetwork}
               data-err-generic={copy.errGeneric}
@@ -107,6 +127,25 @@ const captchaQuestion = `${a} + ${b}`;
               <div class="min-field">
                 <label for="brief">{copy.labelBrief} <span class="req">*</span></label>
                 <textarea id="brief" name="brief" rows="5" placeholder={copy.briefPlaceholder} required></textarea>
+              </div>
+              <div class="min-field">
+                <label for="source">{copy.labelSource} <span class="req">*</span></label>
+                <select id="source" name="source" required>
+                  <option value="" selected disabled>{copy.sourcePick}</option>
+                  {sourceOptions.map((option) => <option value={option.value}>{option.label}</option>)}
+                </select>
+              </div>
+              <div class="min-field" id="source-detail-field" hidden>
+                <label for="source-detail">{copy.labelSourceDetail}</label>
+                <input
+                  id="source-detail"
+                  name="sourceDetail"
+                  type="text"
+                  maxlength="120"
+                  autocomplete="off"
+                  placeholder={copy.sourceDetailPlaceholder}
+                  disabled
+                />
               </div>
 
               <div class="hp-field" aria-hidden="true">
@@ -191,10 +230,25 @@ const captchaQuestion = `${a} + ${b}`;
   const form = document.getElementById('contact-form') as HTMLFormElement | null;
   const status = document.getElementById('contact-status') as HTMLParagraphElement | null;
   const submit = document.getElementById('contact-submit') as HTMLButtonElement | null;
+  const source = document.getElementById('source') as HTMLSelectElement | null;
+  const sourceDetailField = document.getElementById('source-detail-field') as HTMLDivElement | null;
+  const sourceDetail = document.getElementById('source-detail') as HTMLInputElement | null;
+
+  // The "Which one?" box only shows (and only posts) for answers that name someone.
+  if (source && sourceDetailField && sourceDetail) {
+    const syncSourceDetail = () => {
+      const show = ['referral', 'exhibition', 'other'].includes(source.value);
+      sourceDetailField.hidden = !show;
+      sourceDetail.disabled = !show;
+    };
+    source.addEventListener('change', syncSourceDetail);
+    syncSourceDetail();
+  }
 
   if (form && status && submit) {
     const locale = form.dataset.locale ?? 'en';
     const msgMissing = form.dataset.errMissing ?? 'Please add your name and email so we can reach you.';
+    const msgSource = form.dataset.errSource ?? 'Please tell us how you heard about us.';
     const msgSending = form.dataset.statusSending ?? 'Sending your message…';
     const msgNetwork = form.dataset.errNetwork ?? 'Network error. Please check your connection and try again.';
     const msgGeneric = form.dataset.errGeneric ?? 'Something went wrong. Please try again.';
@@ -218,6 +272,11 @@ const captchaQuestion = `${a} + ${b}`;
 
       if (!payload.name || !payload.email) {
         setStatus(msgMissing, 'error');
+        return;
+      }
+
+      if (!payload.source) {
+        setStatus(msgSource, 'error');
         return;
       }
 
@@ -277,6 +336,9 @@ const captchaQuestion = `${a} + ${b}`;
   }
 
   .req { color: #9f2f2d; }
+
+  /* .min-field is display:flex, which would beat the hidden attribute. */
+  .min-field[hidden] { display: none; }
 
   .hp-field {
     position: absolute !important;
